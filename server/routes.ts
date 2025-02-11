@@ -6,6 +6,8 @@ import { generateCardInterpretation, generateMeditation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
+import { importCardsFromExcel } from "./utils/import-cards";
+import multer from 'multer';
 
 export function registerRoutes(app: Express): Server {
   app.post("/api/readings", async (req, res) => {
@@ -248,6 +250,33 @@ export function registerRoutes(app: Express): Server {
       res.json(results);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch recent quiz results" });
+    }
+  });
+
+  // Set up multer for file uploads
+  const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: {
+      fileSize: 5 * 1024 * 1024 // 5MB limit
+    }
+  });
+
+  // Add card import endpoint
+  app.post("/api/import-cards", upload.single('file'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No file uploaded" });
+      }
+
+      const importedCards = await importCardsFromExcel(req.file.buffer);
+
+      res.json({
+        message: `Successfully processed ${importedCards.length} cards`,
+        cards: importedCards
+      });
+    } catch (error) {
+      console.error("Import error:", error);
+      res.status(500).json({ error: "Failed to import cards" });
     }
   });
 

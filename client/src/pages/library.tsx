@@ -4,24 +4,23 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { Loader2 } from "lucide-react";
 
 export default function Library() {
   const [search, setSearch] = useState("");
+  const { toast } = useToast();
+  const [isImporting, setIsImporting] = useState(false);
 
   useEffect(() => {
-    // Handle scrolling to card from URL hash
     const scrollToCard = () => {
       const hash = window.location.hash.slice(1);
       if (hash) {
         const element = document.getElementById(hash);
         if (element) {
-          // First scroll into view
           element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-          // Then add highlight animation
           element.classList.add('ring-2', 'ring-primary', 'ring-offset-2', 'transition-all', 'duration-500');
-
-          // Remove highlight after animation
           setTimeout(() => {
             element.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
           }, 2000);
@@ -29,25 +28,67 @@ export default function Library() {
       }
     };
 
-    // Initial scroll
     setTimeout(scrollToCard, 100);
-
-    // Listen for hash changes
     window.addEventListener('hashchange', scrollToCard);
     return () => window.removeEventListener('hashchange', scrollToCard);
   }, []);
 
-  const filteredCards = tarotCards.filter(card => 
+  const filteredCards = tarotCards.filter(card =>
     card.name.toLowerCase().includes(search.toLowerCase()) ||
     card.description.toLowerCase().includes(search.toLowerCase())
   );
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.name.endsWith('.xlsx') && !file.name.endsWith('.xls')) {
+      toast({
+        title: "Invalid file type",
+        description: "Please upload an Excel file (.xlsx or .xls)",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    try {
+      setIsImporting(true);
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await fetch('/api/import-cards', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Import successful",
+          description: data.message
+        });
+      } else {
+        throw new Error(data.error || 'Import failed');
+      }
+    } catch (error) {
+      toast({
+        title: "Import failed",
+        description: error.message,
+        variant: "destructive"
+      });
+    } finally {
+      setIsImporting(false);
+      event.target.value = '';
+    }
+  };
 
   return (
     <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
 
-      <div className="max-w-md mx-auto mb-8">
-        <div className="relative">
+      <div className="max-w-md mx-auto mb-8 flex items-center gap-4">
+        <div className="relative flex-1">
           <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search cards..."
@@ -56,14 +97,38 @@ export default function Library() {
             className="pl-10"
           />
         </div>
+        <div className="relative">
+          <input
+            type="file"
+            accept=".xlsx,.xls"
+            onChange={handleFileUpload}
+            className="hidden"
+            id="card-import"
+            disabled={isImporting}
+          />
+          <Button
+            variant="outline"
+            onClick={() => document.getElementById('card-import')?.click()}
+            disabled={isImporting}
+          >
+            {isImporting ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                Importing...
+              </>
+            ) : (
+              'Import Cards'
+            )}
+          </Button>
+        </div>
       </div>
 
       <ScrollArea className="h-[calc(100vh-250px)]">
         <div className="grid gap-4 pb-16">
           {filteredCards.map(card => (
-            <Card 
-              key={card.id} 
-              id={card.id} 
+            <Card
+              key={card.id}
+              id={card.id}
               className="transition-all duration-300"
             >
               <CardHeader>
