@@ -31,9 +31,10 @@ export default function Learning() {
         currentLesson: 1
       });
     },
-    onSuccess: () => {
+    onSuccess: (_, trackId) => {
+      // Invalidate both queries to ensure fresh data
       queryClient.invalidateQueries({ queryKey: ["/api/learning/tracks"] });
-      queryClient.invalidateQueries({ queryKey: ["/api/learning/progress"] });
+      queryClient.invalidateQueries({ queryKey: ["/api/learning/progress", trackId] });
       toast({
         title: "Track started",
         description: "Your learning journey has begun!"
@@ -44,6 +45,8 @@ export default function Learning() {
   const TrackCard = ({ track }: { track: LearningTrack }) => {
     const { data: progress, isLoading: progressLoading } = useQuery<UserProgress>({
       queryKey: ["/api/learning/progress", track.id],
+      // Enable refetching on window focus to catch updates
+      refetchOnWindowFocus: true,
     });
 
     const progressPercentage = progress
