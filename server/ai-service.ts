@@ -80,7 +80,7 @@ export async function generateMeditation(card: TarotCard): Promise<{
     // Generate meditation script with more pauses
     const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
 The meditation should:
-- Be 2-3 minutes when read aloud at a very slow pace
+- Be 2-3 minutes when read aloud at a moderate pace
 - Include breathing guidance with long pauses (use ... for pauses)
 - Connect to the card's core meanings: ${card.meanings.upright.join(", ")}
 - Guide the listener to reflect on these themes
@@ -114,11 +114,7 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
       voice: "nova",
       input: meditationText,
       response_format: "mp3",
-      speed: 0.5, // Much slower speed (2x slower than before)
-      voice_settings: {
-        stability: 0.8,  // Even more stable voice
-        similarity_boost: 0.2  // Even softer tone
-      }
+      speed: 0.7, // Moderate speed (adjusted from 0.5)
     });
 
     console.log("Voice audio generated successfully");
