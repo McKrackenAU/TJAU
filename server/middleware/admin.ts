@@ -11,7 +11,11 @@ export function requireAdmin(req: any, res: any, next: any) {
 
   const authHeader = req.headers.authorization;
 
+  console.log("Auth header received:", authHeader);
+  console.log("Expected token:", adminToken);
+
   if (!authHeader || !authHeader.startsWith('Bearer ') || authHeader.split(' ')[1] !== adminToken) {
+    console.log("Auth failed. Token mismatch or missing.");
     return res.status(403).json({ error: "Unauthorized: Admin access required" });
   }
 
