@@ -20,6 +20,16 @@ export const studyProgress = pgTable("study_progress", {
   correctStreak: integer("correct_streak").notNull().default(0),
 });
 
+export const journalEntries = pgTable("journal_entries", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  date: timestamp("date").defaultNow().notNull(),
+  cards: text("cards").array(), // Optional linked cards
+  tags: text("tags").array().default([]).notNull(),
+  mood: text("mood"), // Optional mood tracking
+});
+
 export const insertReadingSchema = createInsertSchema(readings).omit({ 
   id: true,
   date: true 
@@ -30,7 +40,14 @@ export const insertStudyProgressSchema = createInsertSchema(studyProgress).omit(
   lastReviewed: true,
 });
 
+export const insertJournalEntrySchema = createInsertSchema(journalEntries).omit({
+  id: true,
+  date: true
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
 export type InsertStudyProgress = z.infer<typeof insertStudyProgressSchema>;
+export type JournalEntry = typeof journalEntries.$inferSelect;
+export type InsertJournalEntry = z.infer<typeof insertJournalEntrySchema>;

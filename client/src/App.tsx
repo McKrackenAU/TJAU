@@ -9,6 +9,7 @@ import Spreads from "@/pages/spreads";
 import Library from "@/pages/library";
 import History from "@/pages/history";
 import Study from "@/pages/study";
+import Journal from "@/pages/journal";
 import BottomNav from "@/components/bottom-nav";
 
 function Router() {
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/history" component={History} />
       <Route path="/library" component={Library} />
       <Route path="/study" component={Study} />
+      <Route path="/journal" component={Journal} />
       <Route component={NotFound} />
     </Switch>
   );

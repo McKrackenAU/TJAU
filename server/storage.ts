@@ -1,6 +1,6 @@
-import { readings, studyProgress, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress } from "@shared/schema";
+import { readings, studyProgress, journalEntries, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry } from "@shared/schema";
 import { db } from "./db";
-import { eq, desc, and, lte } from "drizzle-orm";
+import { eq, desc, and, lte, sql } from "drizzle-orm";
 
 export interface IStorage {
   createReading(reading: InsertReading): Promise<Reading>;
@@ -10,6 +10,11 @@ export interface IStorage {
   getStudyProgress(cardId: string): Promise<StudyProgress | undefined>;
   updateStudyProgress(progress: InsertStudyProgress): Promise<StudyProgress>;
   getDueCards(): Promise<StudyProgress[]>;
+  createJournalEntry(entry: InsertJournalEntry): Promise<JournalEntry>;
+  getJournalEntries(): Promise<JournalEntry[]>;
+  getJournalEntry(id: number): Promise<JournalEntry | undefined>;
+  getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]>;
+  getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -70,6 +75,45 @@ export class DatabaseStorage implements IStorage {
       .from(studyProgress)
       .where(lte(studyProgress.nextReviewDue, new Date()))
       .orderBy(studyProgress.nextReviewDue);
+  }
+
+  async createJournalEntry(entry: InsertJournalEntry): Promise<JournalEntry> {
+    const [result] = await db
+      .insert(journalEntries)
+      .values(entry)
+      .returning();
+    return result;
+  }
+
+  async getJournalEntries(): Promise<JournalEntry[]> {
+    return db
+      .select()
+      .from(journalEntries)
+      .orderBy(desc(journalEntries.date));
+  }
+
+  async getJournalEntry(id: number): Promise<JournalEntry | undefined> {
+    const [entry] = await db
+      .select()
+      .from(journalEntries)
+      .where(eq(journalEntries.id, id));
+    return entry;
+  }
+
+  async getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]> {
+    return db
+      .select()
+      .from(journalEntries)
+      .where(sql`${cardId} = ANY(${journalEntries.cards})`)
+      .orderBy(desc(journalEntries.date));
+  }
+
+  async getJournalEntriesByTag(tag: string): Promise<JournalEntry[]> {
+    return db
+      .select()
+      .from(journalEntries)
+      .where(sql`${tag} = ANY(${journalEntries.tags})`)
+      .orderBy(desc(journalEntries.date));
   }
 }
 

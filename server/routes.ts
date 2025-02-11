@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertReadingSchema, insertStudyProgressSchema } from "@shared/schema";
+import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
 import { generateCardInterpretation, generateMeditation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
@@ -103,6 +103,56 @@ export function registerRoutes(app: Express): Server {
       res.json(dueCards);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch due cards" });
+    }
+  });
+
+  // Journal routes
+  app.post("/api/journal", async (req, res) => {
+    try {
+      const entry = insertJournalEntrySchema.parse(req.body);
+      const result = await storage.createJournalEntry(entry);
+      res.json(result);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid journal entry data" });
+    }
+  });
+
+  app.get("/api/journal", async (req, res) => {
+    try {
+      const entries = await storage.getJournalEntries();
+      res.json(entries);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch journal entries" });
+    }
+  });
+
+  app.get("/api/journal/:id", async (req, res) => {
+    try {
+      const entry = await storage.getJournalEntry(Number(req.params.id));
+      if (!entry) {
+        return res.status(404).json({ error: "Journal entry not found" });
+      }
+      res.json(entry);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch journal entry" });
+    }
+  });
+
+  app.get("/api/journal/card/:cardId", async (req, res) => {
+    try {
+      const entries = await storage.getJournalEntriesByCard(req.params.cardId);
+      res.json(entries);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch journal entries" });
+    }
+  });
+
+  app.get("/api/journal/tag/:tag", async (req, res) => {
+    try {
+      const entries = await storage.getJournalEntriesByTag(req.params.tag);
+      res.json(entries);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch journal entries" });
     }
   });
 
