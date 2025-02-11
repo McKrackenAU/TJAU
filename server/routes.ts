@@ -213,14 +213,13 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/learning/progress/:trackId", async (req, res) => {
     try {
       const progress = await storage.getUserProgress(Number(req.params.trackId));
-      if (!progress) {
-        return res.status(404).json({ error: "Progress not found" });
-      }
-      res.json(progress);
+      res.json(progress || null);
     } catch (error) {
-      res.status(500).json({ error: "Failed to fetch progress" });
+      console.error("Error fetching user progress:", error);
+      res.status(500).json({ error: "Failed to fetch user progress" });
     }
   });
+
 
   // Quiz Results routes
   app.post("/api/learning/quiz-results", async (req, res) => {
