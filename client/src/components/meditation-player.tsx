@@ -13,8 +13,9 @@ interface MeditationPlayerProps {
 export default function MeditationPlayer({ card }: MeditationPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [isRequested, setIsRequested] = useState(false);
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: [`/api/meditate/${card.id}`],
     queryFn: async () => {
       const res = await apiRequest("POST", "/api/meditate", {
@@ -22,7 +23,7 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       });
       return res.json();
     },
-    enabled: false // Don't load automatically
+    enabled: isRequested
   });
 
   const handlePlay = () => {
@@ -43,16 +44,45 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
     }
   };
 
-  if (!data && !isLoading) {
+  if (!isRequested) {
     return (
       <Button 
         variant="outline" 
         className="w-full mt-4"
-        onClick={() => void data?.refetch()}
+        onClick={() => setIsRequested(true)}
       >
         <Volume2 className="w-4 h-4 mr-2" />
         Get Guided Meditation
       </Button>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <Card className="mt-4">
+        <CardContent className="pt-6">
+          <div className="flex justify-center">
+            <Loader2 className="h-6 w-6 animate-spin text-primary" />
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  if (error) {
+    return (
+      <Card className="mt-4 border-destructive">
+        <CardContent className="pt-6">
+          <p className="text-destructive">Failed to load meditation. Please try again.</p>
+          <Button 
+            variant="outline" 
+            className="w-full mt-2"
+            onClick={() => void refetch()}
+          >
+            Retry
+          </Button>
+        </CardContent>
+      </Card>
     );
   }
 
@@ -61,33 +91,23 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       <CardContent className="pt-6">
         <div className="space-y-4">
           <h4 className="text-lg font-semibold">Guided Meditation</h4>
-          
-          {isLoading ? (
-            <div className="flex justify-center">
-              <Loader2 className="h-6 w-6 animate-spin text-primary" />
-            </div>
-          ) : error ? (
-            <p className="text-destructive">Failed to load meditation. Please try again.</p>
-          ) : (
-            <>
-              <p className="text-sm text-muted-foreground whitespace-pre-line">
-                {data?.text}
-              </p>
-              
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={handlePlay}
-              >
-                {isPlaying ? (
-                  <Pause className="w-4 h-4 mr-2" />
-                ) : (
-                  <Play className="w-4 h-4 mr-2" />
-                )}
-                {isPlaying ? "Pause" : "Play"} Meditation
-              </Button>
-            </>
-          )}
+
+          <p className="text-sm text-muted-foreground whitespace-pre-line">
+            {data?.text}
+          </p>
+
+          <Button
+            variant="outline"
+            className="w-full"
+            onClick={handlePlay}
+          >
+            {isPlaying ? (
+              <Pause className="w-4 h-4 mr-2" />
+            ) : (
+              <Play className="w-4 h-4 mr-2" />
+            )}
+            {isPlaying ? "Pause" : "Play"} Meditation
+          </Button>
         </div>
       </CardContent>
     </Card>
