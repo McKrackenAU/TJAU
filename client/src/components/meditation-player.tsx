@@ -69,7 +69,7 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       gainNodeRef.current = audioContext.createGain();
       // Start with zero volume and gradually increase it
       gainNodeRef.current.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNodeRef.current.gain.linearRampToValueAtTime(0.8, audioContext.currentTime + 2); // Increased volume to 0.8
+      gainNodeRef.current.gain.linearRampToValueAtTime(1.0, audioContext.currentTime + 2); // Increased volume to 1.0
 
       // Connect nodes
       oscillatorRef.current.connect(gainNodeRef.current);
@@ -92,7 +92,7 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       if (!audio && data?.audioUrl) {
         console.log("Creating new audio instance");
         const newAudio = new Audio(data.audioUrl);
-        newAudio.volume = 0.4; // Further reduced voice volume to make theta waves more prominent
+        newAudio.volume = 0.3; // Further reduced voice volume to make theta waves more prominent
 
         newAudio.addEventListener('ended', () => {
           console.log("Audio playback ended");

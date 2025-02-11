@@ -68,7 +68,7 @@ function getCardFrequency(card: TarotCard): number {
   }
 }
 
-// Updates to the generateMeditation function to slow down voice and add more pauses
+// Changes to the generateMeditation function
 export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
@@ -114,7 +114,7 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
       voice: "nova",
       input: meditationText,
       response_format: "mp3",
-      speed: 0.7, // Moderate speed (adjusted from 0.5)
+      speed: 0.85, // Increased speed for more natural pacing
     });
 
     console.log("Voice audio generated successfully");
