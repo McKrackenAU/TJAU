@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema } from "@shared/schema";
-import { generateCardInterpretation } from "./ai-service";
+import { generateCardInterpretation, generateMeditation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 
 export function registerRoutes(app: Express): Server {
@@ -45,6 +45,23 @@ export function registerRoutes(app: Express): Server {
     } catch (error) {
       console.error("AI interpretation error:", error);
       res.status(500).json({ error: "Failed to generate interpretation" });
+    }
+  });
+
+  app.post("/api/meditate", async (req, res) => {
+    try {
+      const { cardId } = req.body;
+      const card = tarotCards.find(c => c.id === cardId);
+
+      if (!card) {
+        return res.status(400).json({ error: "Invalid card ID" });
+      }
+
+      const meditation = await generateMeditation(card);
+      res.json(meditation);
+    } catch (error) {
+      console.error("Meditation generation error:", error);
+      res.status(500).json({ error: "Failed to generate meditation" });
     }
   });
 

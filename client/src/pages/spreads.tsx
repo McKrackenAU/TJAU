@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Textarea } from "@/components/ui/textarea";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import MeditationPlayer from "@/components/meditation-player";
 
 export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
@@ -90,10 +91,13 @@ export default function Spreads() {
                     {spread.positions[i]}
                   </span>
                   {isRevealed && (
-                    <AIInterpretation 
-                      card={card}
-                      context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
-                    />
+                    <>
+                      <AIInterpretation 
+                        card={card}
+                        context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
+                      />
+                      <MeditationPlayer card={card} />
+                    </>
                   )}
                 </div>
               ))}

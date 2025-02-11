@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
 import AIInterpretation from "@/components/ai-interpretation";
+import MeditationPlayer from "@/components/meditation-player";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -69,6 +70,8 @@ export default function DailyDraw() {
               <p className="mb-4">{todayCard.description}</p>
 
               <AIInterpretation card={todayCard} />
+
+              <MeditationPlayer card={todayCard} />
 
               <Textarea
                 placeholder="Add your reflections..."
