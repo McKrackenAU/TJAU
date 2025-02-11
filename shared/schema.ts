@@ -91,6 +91,14 @@ export const insertQuizResultSchema = createInsertSchema(quizResults).omit({
   date: true,
 });
 
+export const importedCards = pgTable("imported_cards", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  meanings: jsonb("meanings").notNull(),
+  dateImported: timestamp("date_imported").defaultNow().notNull(),
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
@@ -103,3 +111,5 @@ export type UserProgress = typeof userProgress.$inferSelect;
 export type InsertUserProgress = z.infer<typeof insertUserProgressSchema>;
 export type QuizResult = typeof quizResults.$inferSelect;
 export type InsertQuizResult = z.infer<typeof insertQuizResultSchema>;
+export type ImportedCard = typeof importedCards.$inferSelect;
+export type InsertImportedCard = typeof importedCards.$inferInsert;

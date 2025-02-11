@@ -7,12 +7,18 @@ import { Search, Lock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { adminState } from "@/lib/admin";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Library() {
   const [search, setSearch] = useState("");
   const { toast } = useToast();
   const [isImporting, setIsImporting] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(adminState.isAdmin());
+  const [isAdmin, setAdmin] = useState(adminState.isAdmin());
+
+  // Fetch all cards
+  const { data: cards = tarotCards, isLoading } = useQuery({
+    queryKey: ["/api/cards"],
+  });
 
   useEffect(() => {
     const scrollToCard = () => {
@@ -34,9 +40,9 @@ export default function Library() {
     return () => window.removeEventListener('hashchange', scrollToCard);
   }, []);
 
-  const filteredCards = tarotCards.filter(card =>
+  const filteredCards = cards.filter(card =>
     card.name.toLowerCase().includes(search.toLowerCase()) ||
-    card.description.toLowerCase().includes(search.toLowerCase())
+    (card.description && card.description.toLowerCase().includes(search.toLowerCase()))
   );
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,6 +106,7 @@ export default function Library() {
         // If authentication fails, clear the token
         if (response.status === 403) {
           adminState.clearAdminToken();
+          setAdmin(false);
         }
         throw new Error(data.error || data.details || 'Import failed');
       }
@@ -126,7 +133,7 @@ export default function Library() {
   const handleAdminLogin = async () => {
     const success = await adminState.requestAdminToken();
     if (success) {
-      setIsAdmin(true);
+      setAdmin(true);
       toast({
         title: "Admin access granted",
         description: "You now have access to admin features."
@@ -186,50 +193,56 @@ export default function Library() {
       </div>
 
       <ScrollArea className="h-[calc(100vh-250px)]">
-        <div className="grid gap-4 pb-16">
-          {filteredCards.map(card => (
-            <Card
-              key={card.id}
-              id={card.id}
-              className="transition-all duration-300"
-            >
-              <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  {card.name}
-                  {card.arcana === "minor" && (
-                    <span className="text-sm text-muted-foreground">
-                      {card.suit}
-                    </span>
-                  )}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {card.description}
-                </p>
+        {isLoading ? (
+          <div className="flex items-center justify-center py-8">
+            <Loader2 className="h-8 w-8 animate-spin" />
+          </div>
+        ) : (
+          <div className="grid gap-4 pb-16">
+            {filteredCards.map(card => (
+              <Card
+                key={card.id}
+                id={card.id}
+                className="transition-all duration-300"
+              >
+                <CardHeader>
+                  <CardTitle className="flex items-center justify-between">
+                    {card.name}
+                    {card.arcana === "minor" && card.suit && (
+                      <span className="text-sm text-muted-foreground">
+                        {card.suit}
+                      </span>
+                    )}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {card.description}
+                  </p>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-semibold mb-2">Upright</h4>
-                    <ul className="text-sm list-disc list-inside">
-                      {card.meanings.upright.map((meaning, i) => (
-                        <li key={i}>{meaning}</li>
-                      ))}
-                    </ul>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <h4 className="font-semibold mb-2">Upright</h4>
+                      <ul className="text-sm list-disc list-inside">
+                        {card.meanings?.upright?.map((meaning, i) => (
+                          <li key={i}>{meaning}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">Reversed</h4>
+                      <ul className="text-sm list-disc list-inside">
+                        {card.meanings?.reversed?.map((meaning, i) => (
+                          <li key={i}>{meaning}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold mb-2">Reversed</h4>
-                    <ul className="text-sm list-disc list-inside">
-                      {card.meanings.reversed.map((meaning, i) => (
-                        <li key={i}>{meaning}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        )}
       </ScrollArea>
     </div>
   );

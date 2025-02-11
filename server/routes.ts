@@ -6,9 +6,9 @@ import { generateCardInterpretation, generateMeditation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
-import { importCardsFromExcel } from "./utils/import-cards";
 import multer from 'multer';
 import { requireAdmin } from "./middleware/admin";
+import { importCardsFromExcel } from "./utils/import-cards";
 
 export function registerRoutes(app: Express): Server {
   app.post("/api/readings", async (req, res) => {
@@ -276,10 +276,10 @@ export function registerRoutes(app: Express): Server {
       });
 
       // Accept both old and new Excel formats
-      if (!req.file.mimetype.includes('spreadsheet') && 
+      if (!req.file.mimetype.includes('spreadsheet') &&
           !req.file.mimetype.includes('excel')) {
-        return res.status(400).json({ 
-          error: "Invalid file type. Please upload an Excel file (.xlsx or .xls)" 
+        return res.status(400).json({
+          error: "Invalid file type. Please upload an Excel file (.xlsx or .xls)"
         });
       }
 
@@ -292,8 +292,34 @@ export function registerRoutes(app: Express): Server {
       });
     } catch (error) {
       console.error("Import error:", error);
-      res.status(500).json({ 
+      res.status(500).json({
         error: "Failed to import cards",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Update the /api/cards endpoint
+  app.get("/api/cards", async (req, res) => {
+    try {
+      const importedCardsData = await storage.getImportedCards();
+
+      // Transform imported cards to match tarot card format
+      const transformedImportedCards = importedCardsData.map(card => ({
+        id: `imported_${card.id}`,
+        name: card.name,
+        description: card.description,
+        meanings: card.meanings,
+        arcana: "custom" as const,
+      }));
+
+      // Combine built-in and imported cards
+      const allCards = [...tarotCards, ...transformedImportedCards];
+      res.json(allCards);
+    } catch (error) {
+      console.error("Error fetching cards:", error);
+      res.status(500).json({
+        error: "Failed to fetch cards",
         details: error instanceof Error ? error.message : 'Unknown error'
       });
     }

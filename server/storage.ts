@@ -1,4 +1,4 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, importedCards } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
@@ -17,6 +17,9 @@ export interface IStorage {
   getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]>;
   getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
 
+  // New methods for imported cards
+  createImportedCard(card: InsertImportedCard): Promise<ImportedCard>;
+  getImportedCards(): Promise<ImportedCard[]>;
   // New methods for learning paths
   createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack>;
   getLearningTracks(): Promise<LearningTrack[]>;
@@ -129,6 +132,21 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(journalEntries.date));
   }
 
+  // New methods for imported cards
+  async createImportedCard(card: InsertImportedCard): Promise<ImportedCard> {
+    const [created] = await db
+      .insert(importedCards)
+      .values(card)
+      .returning();
+    return created;
+  }
+
+  async getImportedCards(): Promise<ImportedCard[]> {
+    return db
+      .select()
+      .from(importedCards)
+      .orderBy(desc(importedCards.dateImported));
+  }
   // New methods for learning paths
   async createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack> {
     const [result] = await db
