@@ -1,4 +1,4 @@
-import { pgTable, text, serial, integer, boolean, jsonb, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, jsonb, timestamp, date } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -45,9 +45,61 @@ export const insertJournalEntrySchema = createInsertSchema(journalEntries).omit(
   date: true
 });
 
+export const learningTracks = pgTable("learning_tracks", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  difficulty: text("difficulty").notNull(), // beginner, intermediate, advanced
+  tags: text("tags").array().default([]).notNull(),
+  requiredCards: text("required_cards").array().notNull(),
+  achievements: text("achievements").array().notNull(),
+});
+
+export const userProgress = pgTable("user_progress", {
+  id: serial("id").primaryKey(),
+  trackId: integer("track_id").notNull(),
+  completedLessons: text("completed_lessons").array().default([]).notNull(),
+  achievements: text("achievements").array().default([]).notNull(),
+  currentLesson: integer("current_lesson").default(1).notNull(),
+  startDate: timestamp("start_date").defaultNow().notNull(),
+  lastActive: timestamp("last_active").defaultNow().notNull(),
+});
+
+export const quizResults = pgTable("quiz_results", {
+  id: serial("id").primaryKey(),
+  trackId: integer("track_id").notNull(),
+  score: integer("score").notNull(),
+  totalQuestions: integer("total_questions").notNull(),
+  difficulty: text("difficulty").notNull(),
+  date: timestamp("date").defaultNow().notNull(),
+  cards: text("cards").array().notNull(),
+  incorrectAnswers: jsonb("incorrect_answers").notNull(),
+});
+
+export const insertLearningTrackSchema = createInsertSchema(learningTracks).omit({
+  id: true,
+});
+
+export const insertUserProgressSchema = createInsertSchema(userProgress).omit({
+  id: true,
+  startDate: true,
+  lastActive: true,
+});
+
+export const insertQuizResultSchema = createInsertSchema(quizResults).omit({
+  id: true,
+  date: true,
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
 export type InsertStudyProgress = z.infer<typeof insertStudyProgressSchema>;
 export type JournalEntry = typeof journalEntries.$inferSelect;
 export type InsertJournalEntry = z.infer<typeof insertJournalEntrySchema>;
+export type LearningTrack = typeof learningTracks.$inferSelect;
+export type InsertLearningTrack = z.infer<typeof insertLearningTrackSchema>;
+export type UserProgress = typeof userProgress.$inferSelect;
+export type InsertUserProgress = z.infer<typeof insertUserProgressSchema>;
+export type QuizResult = typeof quizResults.$inferSelect;
+export type InsertQuizResult = z.infer<typeof insertQuizResultSchema>;

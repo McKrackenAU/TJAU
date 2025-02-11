@@ -10,6 +10,7 @@ import Library from "@/pages/library";
 import History from "@/pages/history";
 import Study from "@/pages/study";
 import Journal from "@/pages/journal";
+import Learning from "@/pages/learning";
 import BottomNav from "@/components/bottom-nav";
 
 function Router() {
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/library" component={Library} />
       <Route path="/study" component={Study} />
       <Route path="/journal" component={Journal} />
+      <Route path="/learning" component={Learning} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,8 +1,9 @@
-import { readings, studyProgress, journalEntries, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
 export interface IStorage {
+  // Existing methods
   createReading(reading: InsertReading): Promise<Reading>;
   getReadings(): Promise<Reading[]>;
   getDailyReadings(): Promise<Reading[]>;
@@ -15,9 +16,21 @@ export interface IStorage {
   getJournalEntry(id: number): Promise<JournalEntry | undefined>;
   getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]>;
   getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
+
+  // New methods for learning paths
+  createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack>;
+  getLearningTracks(): Promise<LearningTrack[]>;
+  getLearningTrack(id: number): Promise<LearningTrack | undefined>;
+  createUserProgress(progress: InsertUserProgress): Promise<UserProgress>;
+  updateUserProgress(id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress>;
+  getUserProgress(trackId: number): Promise<UserProgress | undefined>;
+  createQuizResult(result: InsertQuizResult): Promise<QuizResult>;
+  getQuizResults(trackId: number): Promise<QuizResult[]>;
+  getRecentQuizResults(limit?: number): Promise<QuizResult[]>;
 }
 
 export class DatabaseStorage implements IStorage {
+  // Existing methods remain unchanged
   async createReading(insertReading: InsertReading): Promise<Reading> {
     const [reading] = await db
       .insert(readings)
@@ -114,6 +127,81 @@ export class DatabaseStorage implements IStorage {
       .from(journalEntries)
       .where(sql`${tag} = ANY(${journalEntries.tags})`)
       .orderBy(desc(journalEntries.date));
+  }
+
+  // New methods for learning paths
+  async createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack> {
+    const [result] = await db
+      .insert(learningTracks)
+      .values(track)
+      .returning();
+    return result;
+  }
+
+  async getLearningTracks(): Promise<LearningTrack[]> {
+    return db
+      .select()
+      .from(learningTracks);
+  }
+
+  async getLearningTrack(id: number): Promise<LearningTrack | undefined> {
+    const [track] = await db
+      .select()
+      .from(learningTracks)
+      .where(eq(learningTracks.id, id));
+    return track;
+  }
+
+  async createUserProgress(progress: InsertUserProgress): Promise<UserProgress> {
+    const [result] = await db
+      .insert(userProgress)
+      .values(progress)
+      .returning();
+    return result;
+  }
+
+  async updateUserProgress(id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress> {
+    const [updated] = await db
+      .update(userProgress)
+      .set({
+        ...progress,
+        lastActive: new Date()
+      })
+      .where(eq(userProgress.id, id))
+      .returning();
+    return updated;
+  }
+
+  async getUserProgress(trackId: number): Promise<UserProgress | undefined> {
+    const [progress] = await db
+      .select()
+      .from(userProgress)
+      .where(eq(userProgress.trackId, trackId));
+    return progress;
+  }
+
+  async createQuizResult(result: InsertQuizResult): Promise<QuizResult> {
+    const [created] = await db
+      .insert(quizResults)
+      .values(result)
+      .returning();
+    return created;
+  }
+
+  async getQuizResults(trackId: number): Promise<QuizResult[]> {
+    return db
+      .select()
+      .from(quizResults)
+      .where(eq(quizResults.trackId, trackId))
+      .orderBy(desc(quizResults.date));
+  }
+
+  async getRecentQuizResults(limit: number = 10): Promise<QuizResult[]> {
+    return db
+      .select()
+      .from(quizResults)
+      .orderBy(desc(quizResults.date))
+      .limit(limit);
   }
 }
 

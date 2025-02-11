@@ -1,4 +1,4 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool } from "lucide-react";
+import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass } from "lucide-react";
 import { useLocation, Link } from "wouter";
 
 const navItems = [
@@ -9,6 +9,7 @@ const navItems = [
   { icon: GraduationCap, label: "Study", href: "/study" },
   { icon: PenTool, label: "Journal", href: "/journal" },
   { icon: BookOpen, label: "Library", href: "/library" },
+  { icon: Compass, label: "Learn", href: "/learning" },
 ];
 
 export default function BottomNav() {
@@ -16,7 +17,7 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border h-16">
-      <div className="grid grid-cols-7 h-full max-w-md mx-auto">
+      <div className="grid grid-cols-8 h-full max-w-md mx-auto">
         {navItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
             <a className={`flex flex-col items-center justify-center gap-1 ${

@@ -5,6 +5,7 @@ import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchem
 import { generateCardInterpretation, generateMeditation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
+import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
 
 export function registerRoutes(app: Express): Server {
   app.post("/api/readings", async (req, res) => {
@@ -153,6 +154,101 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
+    }
+  });
+
+  // Learning Tracks routes
+  app.post("/api/learning/tracks", async (req, res) => {
+    try {
+      const track = insertLearningTrackSchema.parse(req.body);
+      const result = await storage.createLearningTrack(track);
+      res.json(result);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid learning track data" });
+    }
+  });
+
+  app.get("/api/learning/tracks", async (req, res) => {
+    try {
+      const tracks = await storage.getLearningTracks();
+      res.json(tracks);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch learning tracks" });
+    }
+  });
+
+  app.get("/api/learning/tracks/:id", async (req, res) => {
+    try {
+      const track = await storage.getLearningTrack(Number(req.params.id));
+      if (!track) {
+        return res.status(404).json({ error: "Learning track not found" });
+      }
+      res.json(track);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch learning track" });
+    }
+  });
+
+  // User Progress routes
+  app.post("/api/learning/progress", async (req, res) => {
+    try {
+      const progress = insertUserProgressSchema.parse(req.body);
+      const result = await storage.createUserProgress(progress);
+      res.json(result);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid progress data" });
+    }
+  });
+
+  app.patch("/api/learning/progress/:id", async (req, res) => {
+    try {
+      const progress = insertUserProgressSchema.partial().parse(req.body);
+      const result = await storage.updateUserProgress(Number(req.params.id), progress);
+      res.json(result);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid progress update data" });
+    }
+  });
+
+  app.get("/api/learning/progress/:trackId", async (req, res) => {
+    try {
+      const progress = await storage.getUserProgress(Number(req.params.trackId));
+      if (!progress) {
+        return res.status(404).json({ error: "Progress not found" });
+      }
+      res.json(progress);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch progress" });
+    }
+  });
+
+  // Quiz Results routes
+  app.post("/api/learning/quiz-results", async (req, res) => {
+    try {
+      const result = insertQuizResultSchema.parse(req.body);
+      const created = await storage.createQuizResult(result);
+      res.json(created);
+    } catch (error) {
+      res.status(400).json({ error: "Invalid quiz result data" });
+    }
+  });
+
+  app.get("/api/learning/quiz-results/:trackId", async (req, res) => {
+    try {
+      const results = await storage.getQuizResults(Number(req.params.trackId));
+      res.json(results);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch quiz results" });
+    }
+  });
+
+  app.get("/api/learning/recent-quiz-results", async (req, res) => {
+    try {
+      const limit = req.query.limit ? Number(req.query.limit) : undefined;
+      const results = await storage.getRecentQuizResults(limit);
+      res.json(results);
+    } catch (error) {
+      res.status(500).json({ error: "Failed to fetch recent quiz results" });
     }
   });
 
