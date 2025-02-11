@@ -3,16 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Progress } from "@/components/ui/progress";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { LearningTrack, UserProgress, QuizResult } from "@shared/schema";
-import { GraduationCap, Trophy, Book, Brain } from "lucide-react";
+import { GraduationCap, Trophy, Book, Brain, ArrowRight } from "lucide-react";
+import { tarotCards } from "@shared/tarot-data";
 
 export default function Learning() {
   const queryClient = useQueryClient();
   const { toast } = useToast();
 
-  const { data: tracks } = useQuery<LearningTrack[]>({
+  const { data: tracks, isLoading: tracksLoading } = useQuery<LearningTrack[]>({
     queryKey: ["/api/learning/tracks"],
   });
 
@@ -30,6 +32,7 @@ export default function Learning() {
       });
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/learning/tracks"] });
       queryClient.invalidateQueries({ queryKey: ["/api/learning/progress"] });
       toast({
         title: "Track started",
@@ -39,13 +42,21 @@ export default function Learning() {
   });
 
   const TrackCard = ({ track }: { track: LearningTrack }) => {
-    const { data: progress } = useQuery<UserProgress>({
+    const { data: progress, isLoading: progressLoading } = useQuery<UserProgress>({
       queryKey: ["/api/learning/progress", track.id],
     });
 
     const progressPercentage = progress
       ? (progress.completedLessons.length / track.requiredCards.length) * 100
       : 0;
+
+    if (progressLoading) {
+      return (
+        <Card className="animate-pulse">
+          <CardContent className="h-40" />
+        </Card>
+      );
+    }
 
     return (
       <Card>
@@ -63,60 +74,92 @@ export default function Learning() {
           <CardDescription>{track.description}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {progress ? (
+          {progress ? (
+            <div className="space-y-6">
               <div>
                 <div className="flex justify-between text-sm mb-2">
                   <span>Progress</span>
                   <span>{Math.round(progressPercentage)}%</span>
                 </div>
-                <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-primary transition-all"
-                    style={{ width: `${progressPercentage}%` }}
-                  />
+                <Progress value={progressPercentage} className="h-2" />
+              </div>
+
+              {progress.achievements.length > 0 && (
+                <div className="flex gap-2 items-center">
+                  <Trophy className="h-4 w-4 text-yellow-500" />
+                  <span className="text-sm text-muted-foreground">
+                    {progress.achievements.length} Achievement{progress.achievements.length !== 1 && 's'}
+                  </span>
                 </div>
-                {progress.achievements.length > 0 && (
-                  <div className="flex gap-1 mt-4">
-                    {progress.achievements.map((achievement, i) => (
-                      <Trophy key={i} className="h-4 w-4 text-yellow-500" />
-                    ))}
+              )}
+
+              <div className="space-y-4">
+                <h3 className="font-medium text-lg">Current Lesson</h3>
+                {progress.currentLesson <= track.requiredCards.length && (
+                  <div className="bg-card border rounded-lg p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-muted-foreground">
+                        Lesson {progress.currentLesson} of {track.requiredCards.length}
+                      </span>
+                      {progress.completedLessons.includes(track.requiredCards[progress.currentLesson - 1]) && (
+                        <Badge variant="secondary">
+                          <GraduationCap className="h-4 w-4 mr-1" />
+                          Completed
+                        </Badge>
+                      )}
+                    </div>
+                    <p className="font-medium mb-4">
+                      {tarotCards.find(c => c.id === track.requiredCards[progress.currentLesson - 1])?.name}
+                    </p>
+                    <Button 
+                      className="w-full"
+                      onClick={() => {
+                        window.location.href = `/library#${track.requiredCards[progress.currentLesson - 1]}`;
+                      }}
+                    >
+                      <ArrowRight className="h-4 w-4 mr-2" />
+                      Continue Learning
+                    </Button>
                   </div>
                 )}
-                <div className="mt-4 space-y-4">
-                  <h3 className="font-medium">Required Cards</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {track.requiredCards.map((cardId, index) => (
+
+                <div className="grid grid-cols-2 gap-2">
+                  {track.requiredCards.map((cardId, index) => {
+                    const card = tarotCards.find(c => c.id === cardId);
+                    return (
                       <div
                         key={cardId}
-                        className={`p-2 rounded-lg border ${
+                        className={`p-3 rounded-lg border ${
                           progress.completedLessons.includes(cardId)
                             ? "bg-primary/10 border-primary"
-                            : "bg-secondary/10 border-secondary"
+                            : index + 1 === progress.currentLesson
+                            ? "bg-card border-primary border-dashed"
+                            : "bg-muted/50 border-border"
                         }`}
                       >
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between">
                           <span className="text-sm">Lesson {index + 1}</span>
                           {progress.completedLessons.includes(cardId) && (
                             <GraduationCap className="h-4 w-4 text-primary" />
                           )}
                         </div>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {card?.name}
+                        </p>
                       </div>
-                    ))}
-                  </div>
-                  <Button
-                    className="w-full"
-                    onClick={() => {
-                      // Navigate to the current lesson
-                      const currentCard = track.requiredCards[progress.currentLesson - 1];
-                      window.location.href = `/library#${currentCard}`;
-                    }}
-                  >
-                    Continue Learning
-                  </Button>
+                    );
+                  })}
                 </div>
               </div>
-            ) : (
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <GraduationCap className="h-5 w-5" />
+                <p className="text-sm text-muted-foreground">
+                  {track.requiredCards.length} lessons to complete
+                </p>
+              </div>
               <Button
                 className="w-full"
                 onClick={() => startTrackMutation.mutate(track.id)}
@@ -124,12 +167,27 @@ export default function Learning() {
               >
                 Start Track
               </Button>
-            )}
-          </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     );
   };
+
+  if (tracksLoading) {
+    return (
+      <div className="container px-4 py-8">
+        <h1 className="text-3xl font-bold text-center mb-8">Learning Paths</h1>
+        <div className="grid gap-8">
+          {[1, 2, 3].map(i => (
+            <Card key={i} className="animate-pulse">
+              <CardContent className="h-40" />
+            </Card>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container px-4 py-8">
