@@ -94,7 +94,7 @@ export default function Spreads() {
             <CardTitle>{spread.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">{spread.description}</p>
+            <p className="text-foreground mb-4">{spread.description}</p>
 
             <div className={`grid gap-4 ${
               selectedSpread === "threeCard" ? "grid-cols-3" : "grid-cols-2 md:grid-cols-5"
@@ -106,10 +106,10 @@ export default function Spreads() {
                     isRevealed={isRevealed}
                     onClick={() => setIsRevealed(true)}
                   />
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm font-medium text-foreground">
                     {spread.positions[i]}
                   </span>
-                  {isRevealed && (
+                  {isRevealed && card && (
                     <>
                       <AIInterpretation 
                         card={card}

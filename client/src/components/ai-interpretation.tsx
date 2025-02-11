@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Loader2 } from "lucide-react";
+import { Loader2, RefreshCw } from "lucide-react";
 import type { TarotCard } from "@shared/tarot-data";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -14,18 +14,31 @@ interface AIInterpretationProps {
 export default function AIInterpretation({ card, context }: AIInterpretationProps) {
   const [isRequested, setIsRequested] = useState(false);
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: [`/api/interpret/${card.id}`, context],
     queryFn: async () => {
-      const res = await apiRequest("POST", "/api/interpret", {
-        cardId: card.id,
-        context
-      });
-      const data = await res.json();
-      return data.interpretation;
+      try {
+        const res = await apiRequest("POST", "/api/interpret", {
+          cardId: card.id,
+          context
+        });
+        const data = await res.json();
+        if (!data.interpretation) {
+          throw new Error("No interpretation received");
+        }
+        return data.interpretation;
+      } catch (err) {
+        console.error("Error fetching interpretation:", err);
+        throw new Error(err instanceof Error ? err.message : "Failed to generate interpretation");
+      }
     },
-    enabled: isRequested
+    enabled: isRequested,
+    retry: 1
   });
+
+  const handleRetry = () => {
+    refetch();
+  };
 
   if (!isRequested) {
     return (
@@ -52,8 +65,17 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
   if (error) {
     return (
       <Card className="mt-4 border-destructive">
-        <CardContent className="pt-6 text-destructive">
-          Failed to generate interpretation. Please try again later.
+        <CardContent className="pt-6 text-destructive space-y-2">
+          <p>Failed to generate interpretation. Please try again.</p>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={handleRetry}
+            className="gap-2"
+          >
+            <RefreshCw className="h-4 w-4" />
+            Try Again
+          </Button>
         </CardContent>
       </Card>
     );
@@ -62,8 +84,8 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
   return (
     <Card className="mt-4">
       <CardContent className="pt-6 prose prose-primary dark:prose-invert">
-        <h4 className="text-lg font-semibold mb-2">AI Interpretation</h4>
-        <p className="text-sm whitespace-pre-line">{data}</p>
+        <h4 className="text-lg font-semibold mb-2 text-foreground">AI Interpretation</h4>
+        <p className="text-sm whitespace-pre-line text-foreground">{data}</p>
       </CardContent>
     </Card>
   );
