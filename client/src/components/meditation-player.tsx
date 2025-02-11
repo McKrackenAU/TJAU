@@ -67,7 +67,9 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
 
       // Create and configure gain node for volume control
       gainNodeRef.current = audioContext.createGain();
-      gainNodeRef.current.gain.setValueAtTime(0.1, audioContext.currentTime); // Set low volume for background waves
+      // Start with zero volume and gradually increase it
+      gainNodeRef.current.gain.setValueAtTime(0, audioContext.currentTime);
+      gainNodeRef.current.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 2); // Fade in over 2 seconds, increased volume to 0.3
 
       // Connect nodes
       oscillatorRef.current.connect(gainNodeRef.current);
@@ -77,6 +79,11 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       oscillatorRef.current.start();
     } catch (error) {
       console.error("Error setting up theta waves:", error);
+      toast({
+        title: "Audio Setup Error",
+        description: "Could not initialize meditation tones. Please try again.",
+        variant: "destructive"
+      });
     }
   };
 
@@ -85,13 +92,18 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       if (!audio && data?.audioUrl) {
         console.log("Creating new audio instance");
         const newAudio = new Audio(data.audioUrl);
+        newAudio.volume = 0.8; // Slightly reduce voice volume
 
         newAudio.addEventListener('ended', () => {
           console.log("Audio playback ended");
           setIsPlaying(false);
-          if (oscillatorRef.current) {
-            oscillatorRef.current.stop();
-            oscillatorRef.current.disconnect();
+          if (oscillatorRef.current && gainNodeRef.current) {
+            // Fade out theta waves
+            gainNodeRef.current.gain.linearRampToValueAtTime(0, audioContextRef.current!.currentTime + 1);
+            setTimeout(() => {
+              oscillatorRef.current?.stop();
+              oscillatorRef.current?.disconnect();
+            }, 1000);
           }
         });
 
@@ -164,8 +176,8 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
 
   if (!isRequested) {
     return (
-      <Button 
-        variant="outline" 
+      <Button
+        variant="outline"
         className="w-full mt-4"
         onClick={() => {
           console.log("Requesting meditation");
@@ -196,8 +208,8 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       <Card className="mt-4 border-destructive">
         <CardContent className="pt-6">
           <p className="text-destructive">Failed to load meditation. Please try again.</p>
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             className="w-full mt-2"
             onClick={() => {
               console.log("Retrying meditation request");

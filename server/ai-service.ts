@@ -45,8 +45,8 @@ function generateThetaWave(frequency: number, durationSecs: number, sampleRate: 
   const wave = new Float32Array(samples);
 
   for (let i = 0; i < samples; i++) {
-    // Generate sine wave at theta frequency
-    wave[i] = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.3; // 0.3 for volume
+    // Generate sine wave at theta frequency with higher amplitude
+    wave[i] = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.5; // Increased from 0.3 to 0.5
   }
 
   return wave;
@@ -85,14 +85,14 @@ The meditation should:
 - Guide the listener to reflect on these themes
 - End with a gentle return to awareness
 
-Keep the tone calming and peaceful.`;
+Keep the tone calming and peaceful. Use longer pauses between sentences.`;
 
     const scriptResponse = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "You are a meditation guide who creates calming, insightful guided meditations."
+          content: "You are a meditation guide who creates calming, insightful guided meditations. Use longer pauses between instructions."
         },
         {
           role: "user",
@@ -106,17 +106,21 @@ Keep the tone calming and peaceful.`;
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate voice audio
+    // Generate voice audio with slower, softer settings
     console.log("Generating audio from meditation script");
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
-      voice: "nova", // Using a calming voice
+      voice: "nova",
       input: meditationText,
       response_format: "mp3",
+      speed: 0.85, // Slower speed
+      voice_settings: {
+        stability: 0.7,  // More stable voice
+        similarity_boost: 0.3  // Softer tone
+      }
     });
 
     console.log("Voice audio generated successfully");
-    // Get the voice audio data
     const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
 
     // Generate theta wave frequency based on the card
@@ -129,7 +133,7 @@ Keep the tone calming and peaceful.`;
     return {
       text: meditationText,
       audioUrl: `data:audio/mpeg;base64,${audioBase64}`,
-      thetaFrequency: thetaFreq // Include the frequency in the response
+      thetaFrequency: thetaFreq
     };
   } catch (error) {
     console.error("Error generating meditation:", error);
