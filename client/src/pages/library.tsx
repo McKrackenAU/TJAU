@@ -57,25 +57,32 @@ export default function Library() {
       const formData = new FormData();
       formData.append('file', file);
 
+      // Get the admin token and add it to the Authorization header
+      const adminToken = adminState.getAdminToken();
+      if (!adminToken) {
+        throw new Error("Admin access required");
+      }
+
       const response = await fetch('/api/admin/import-cards', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${adminState.getAdminToken()}`
+          'Authorization': `Bearer ${adminToken}`
         },
         body: formData
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        toast({
-          title: "Import successful",
-          description: data.message
-        });
-      } else {
+      if (!response.ok) {
+        const data = await response.json();
         throw new Error(data.error || 'Import failed');
       }
+
+      const data = await response.json();
+      toast({
+        title: "Import successful",
+        description: data.message
+      });
     } catch (error) {
+      console.error('Import error:', error);
       toast({
         title: "Import failed",
         description: error instanceof Error ? error.message : 'Unknown error occurred',
@@ -83,7 +90,9 @@ export default function Library() {
       });
     } finally {
       setIsImporting(false);
-      event.target.value = '';
+      if (event.target) {
+        event.target.value = '';
+      }
     }
   };
 
