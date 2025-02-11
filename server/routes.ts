@@ -311,7 +311,12 @@ export function registerRoutes(app: Express): Server {
         id: `imported_${card.id}`,
         name: card.name,
         description: card.description,
-        meanings: card.meanings,
+        meanings: {
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+        },
         arcana: "custom" as const,
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
