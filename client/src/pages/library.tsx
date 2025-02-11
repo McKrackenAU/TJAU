@@ -3,16 +3,16 @@ import { tarotCards } from "@shared/tarot-data";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Search } from "lucide-react";
+import { Search, Lock, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
 import { adminState } from "@/lib/admin";
 
 export default function Library() {
   const [search, setSearch] = useState("");
   const { toast } = useToast();
   const [isImporting, setIsImporting] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(adminState.isAdmin());
 
   useEffect(() => {
     const scrollToCard = () => {
@@ -123,6 +123,17 @@ export default function Library() {
     }
   };
 
+  const handleAdminLogin = async () => {
+    const success = await adminState.requestAdminToken();
+    if (success) {
+      setIsAdmin(true);
+      toast({
+        title: "Admin access granted",
+        description: "You now have access to admin features."
+      });
+    }
+  };
+
   return (
     <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
@@ -137,7 +148,7 @@ export default function Library() {
             className="pl-10"
           />
         </div>
-        {adminState.isAdmin() && (
+        {isAdmin ? (
           <div className="relative">
             <input
               type="file"
@@ -162,6 +173,15 @@ export default function Library() {
               )}
             </Button>
           </div>
+        ) : (
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={handleAdminLogin}
+            title="Enter admin mode"
+          >
+            <Lock className="h-4 w-4" />
+          </Button>
         )}
       </div>
 
