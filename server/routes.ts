@@ -299,10 +299,12 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Update the /api/cards endpoint
+  // Update the /api/cards endpoint with better logging
   app.get("/api/cards", async (req, res) => {
     try {
+      console.log("Fetching imported cards from database...");
       const importedCardsData = await storage.getImportedCards();
+      console.log(`Found ${importedCardsData.length} imported cards:`, importedCardsData);
 
       // Transform imported cards to match tarot card format
       const transformedImportedCards = importedCardsData.map(card => ({
@@ -312,9 +314,12 @@ export function registerRoutes(app: Express): Server {
         meanings: card.meanings,
         arcana: "custom" as const,
       }));
+      console.log("Transformed imported cards:", transformedImportedCards);
 
       // Combine built-in and imported cards
       const allCards = [...tarotCards, ...transformedImportedCards];
+      console.log(`Returning total of ${allCards.length} cards`);
+
       res.json(allCards);
     } catch (error) {
       console.error("Error fetching cards:", error);

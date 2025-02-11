@@ -9,6 +9,19 @@ import { useToast } from "@/hooks/use-toast";
 import { adminState } from "@/lib/admin";
 import { useQuery } from "@tanstack/react-query";
 
+// Define a type for the card structure
+interface TarotCard {
+  id: string;
+  name: string;
+  description: string;
+  meanings: {
+    upright: string[];
+    reversed: string[];
+  };
+  arcana?: string;
+  suit?: string;
+}
+
 export default function Library() {
   const [search, setSearch] = useState("");
   const { toast } = useToast();
@@ -16,8 +29,10 @@ export default function Library() {
   const [isAdmin, setAdmin] = useState(adminState.isAdmin());
 
   // Fetch all cards
-  const { data: cards = tarotCards, isLoading } = useQuery({
+  const { data: cards, isLoading } = useQuery<TarotCard[]>({
     queryKey: ["/api/cards"],
+    // Initialize with built-in cards
+    initialData: tarotCards,
   });
 
   useEffect(() => {
@@ -42,7 +57,13 @@ export default function Library() {
 
   const filteredCards = cards.filter(card =>
     card.name.toLowerCase().includes(search.toLowerCase()) ||
-    (card.description && card.description.toLowerCase().includes(search.toLowerCase()))
+    (card.description && card.description.toLowerCase().includes(search.toLowerCase())) ||
+    card.meanings.upright.some(meaning => 
+      meaning.toLowerCase().includes(search.toLowerCase())
+    ) ||
+    card.meanings.reversed.some(meaning => 
+      meaning.toLowerCase().includes(search.toLowerCase())
+    )
   );
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
