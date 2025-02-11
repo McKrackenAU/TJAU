@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { adminState } from "@/lib/admin";
 import { useQuery } from "@tanstack/react-query";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CardCombinationAnalysis from "@/components/card-combination-analysis";
 
 // Define a type for the card structure
 interface TarotCard {
@@ -59,10 +61,10 @@ export default function Library() {
   const filteredCards = cards?.filter(card =>
     card.name.toLowerCase().includes(search.toLowerCase()) ||
     (card.description && card.description.toLowerCase().includes(search.toLowerCase())) ||
-    card.meanings.upright.some(meaning => 
+    card.meanings.upright.some(meaning =>
       meaning.toLowerCase().includes(search.toLowerCase())
     ) ||
-    card.meanings.reversed.some(meaning => 
+    card.meanings.reversed.some(meaning =>
       meaning.toLowerCase().includes(search.toLowerCase())
     )
   ) || [];
@@ -170,105 +172,123 @@ export default function Library() {
     <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
 
-      <div className="max-w-md mx-auto mb-8 flex items-center gap-4">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-          <Input
-            placeholder="Search cards..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="pl-10"
-          />
-        </div>
-        {isAdmin ? (
-          <div className="relative">
-            <input
-              type="file"
-              accept=".xlsx,.xls"
-              onChange={handleFileUpload}
-              className="hidden"
-              id="card-import"
-              disabled={isImporting}
-            />
-            <Button
-              variant="outline"
-              onClick={() => document.getElementById('card-import')?.click()}
-              disabled={isImporting}
-            >
-              {isImporting ? (
-                <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Importing...
-                </>
-              ) : (
-                'Import Cards'
-              )}
-            </Button>
-          </div>
-        ) : (
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={handleAdminLogin}
-            title="Enter admin mode"
-          >
-            <Lock className="h-4 w-4" />
-          </Button>
-        )}
-      </div>
+      <Tabs defaultValue="browse" className="max-w-4xl mx-auto">
+        <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsTrigger value="browse">Browse Cards</TabsTrigger>
+          <TabsTrigger value="analyze">Analyze Combinations</TabsTrigger>
+        </TabsList>
 
-      <ScrollArea className="h-[calc(100vh-250px)]">
-        {isLoading ? (
-          <div className="flex items-center justify-center py-8">
-            <Loader2 className="h-8 w-8 animate-spin" />
-          </div>
-        ) : (
-          <div className="grid gap-4 pb-16">
-            {filteredCards.map(card => (
-              <Card
-                key={card.id}
-                id={card.id}
-                className="transition-all duration-300"
+        <TabsContent value="browse">
+          <div className="max-w-md mx-auto mb-8 flex items-center gap-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Input
+                placeholder="Search cards..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+            {isAdmin ? (
+              <div className="relative">
+                <input
+                  type="file"
+                  accept=".xlsx,.xls"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                  id="card-import"
+                  disabled={isImporting}
+                />
+                <Button
+                  variant="outline"
+                  onClick={() => document.getElementById('card-import')?.click()}
+                  disabled={isImporting}
+                >
+                  {isImporting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                      Importing...
+                    </>
+                  ) : (
+                    'Import Cards'
+                  )}
+                </Button>
+              </div>
+            ) : (
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handleAdminLogin}
+                title="Enter admin mode"
               >
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    {card.name}
-                    {card.arcana === "minor" && card.suit && (
-                      <span className="text-sm text-muted-foreground">
-                        {card.suit}
-                      </span>
-                    )}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {card.description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="font-semibold mb-2">Upright</h4>
-                      <ul className="text-sm list-disc list-inside">
-                        {card.meanings?.upright?.map((meaning, i) => (
-                          <li key={i}>{meaning}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">Reversed</h4>
-                      <ul className="text-sm list-disc list-inside">
-                        {card.meanings?.reversed?.map((meaning, i) => (
-                          <li key={i}>{meaning}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                <Lock className="h-4 w-4" />
+              </Button>
+            )}
           </div>
-        )}
-      </ScrollArea>
+
+          <ScrollArea className="h-[calc(100vh-350px)]">
+            {isLoading ? (
+              <div className="flex items-center justify-center py-8">
+                <Loader2 className="h-8 w-8 animate-spin" />
+              </div>
+            ) : (
+              <div className="grid gap-4 pb-16">
+                {filteredCards.map(card => (
+                  <Card
+                    key={card.id}
+                    id={card.id}
+                    className="transition-all duration-300"
+                  >
+                    <CardHeader>
+                      <CardTitle className="flex items-center justify-between">
+                        {card.name}
+                        {card.arcana === "minor" && card.suit && (
+                          <span className="text-sm text-muted-foreground">
+                            {card.suit}
+                          </span>
+                        )}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground mb-4">
+                        {card.description}
+                      </p>
+
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <h4 className="font-semibold mb-2">Upright</h4>
+                          <ul className="text-sm list-disc list-inside">
+                            {card.meanings?.upright?.map((meaning, i) => (
+                              <li key={i}>{meaning}</li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <h4 className="font-semibold mb-2">Reversed</h4>
+                          <ul className="text-sm list-disc list-inside">
+                            {card.meanings?.reversed?.map((meaning, i) => (
+                              <li key={i}>{meaning}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            )}
+          </ScrollArea>
+        </TabsContent>
+
+        <TabsContent value="analyze">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-muted-foreground text-center mb-8">
+              Select multiple cards to analyze their combined meanings and interactions
+            </p>
+            <CardCombinationAnalysis />
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

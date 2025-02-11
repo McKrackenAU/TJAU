@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation, generateDailyAffirmation } from "./ai-service";
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination } from "./ai-service"; // Added analyzeCardCombination import
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
@@ -50,6 +50,34 @@ export function registerRoutes(app: Express): Server {
     } catch (error) {
       console.error("AI interpretation error:", error);
       res.status(500).json({ error: "Failed to generate interpretation" });
+    }
+  });
+
+  app.post("/api/analyze-combination", async (req, res) => { // New endpoint added here
+    try {
+      const { cardIds, context } = req.body;
+
+      if (!Array.isArray(cardIds) || cardIds.length < 2) {
+        return res.status(400).json({ 
+          error: "Please provide at least two cards to analyze" 
+        });
+      }
+
+      const cards = cardIds.map(id => tarotCards.find(c => c.id === id))
+        .filter((card): card is TarotCard => card !== undefined);
+
+      if (cards.length !== cardIds.length) {
+        return res.status(400).json({ error: "One or more invalid card IDs" });
+      }
+
+      const analysis = await analyzeCardCombination(cards, context);
+      res.json({ analysis });
+    } catch (error) {
+      console.error("Card combination analysis error:", error);
+      res.status(500).json({ 
+        error: "Failed to analyze card combination",
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
     }
   });
 
@@ -366,4 +394,15 @@ export function registerRoutes(app: Express): Server {
 
   const httpServer = createServer(app);
   return httpServer;
+}
+
+interface TarotCard {
+  id: string;
+  name: string;
+  description: string;
+  meanings: {
+    upright: string[];
+    reversed: string[];
+  };
+  arcana: "major" | "minor" | "custom";
 }

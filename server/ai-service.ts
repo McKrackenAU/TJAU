@@ -164,3 +164,43 @@ Keep the tone uplifting and motivational.`;
 
   return response.choices[0].message.content || "I embrace the wisdom of the cards and trust in my journey.";
 }
+
+// Add this new function after the existing ones
+export async function analyzeCardCombination(
+  cards: TarotCard[],
+  context?: string
+): Promise<string> {
+  const cardDescriptions = cards.map(card =>
+    `${card.name}: ${card.meanings.upright.join(", ")}`
+  ).join("\n");
+
+  const prompt = `As an expert Tarot reader, analyze the combination of these cards:
+${cardDescriptions}
+
+${context ? `Consider this context: ${context}` : ""}
+
+Please provide:
+1. The overall energy and theme of this combination
+2. How the cards interact with and influence each other
+3. Key insights and guidance based on this specific combination
+
+Keep the response concise but insightful, focusing on the unique synergy between these cards.`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content: "You are a wise and experienced Tarot reader who excels at understanding the complex interactions between multiple cards."
+      },
+      {
+        role: "user",
+        content: prompt
+      }
+    ],
+    temperature: 0.7,
+    max_tokens: 500
+  });
+
+  return response.choices[0].message.content || "Unable to generate combination analysis.";
+}
