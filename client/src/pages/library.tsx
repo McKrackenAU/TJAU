@@ -33,6 +33,7 @@ export default function Library() {
     queryKey: ["/api/cards"],
     // Initialize with built-in cards
     initialData: tarotCards,
+    staleTime: 0, // Always refetch to get latest imported cards
   });
 
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function Library() {
     return () => window.removeEventListener('hashchange', scrollToCard);
   }, []);
 
-  const filteredCards = cards.filter(card =>
+  const filteredCards = cards?.filter(card =>
     card.name.toLowerCase().includes(search.toLowerCase()) ||
     (card.description && card.description.toLowerCase().includes(search.toLowerCase())) ||
     card.meanings.upright.some(meaning => 
@@ -64,7 +65,10 @@ export default function Library() {
     card.meanings.reversed.some(meaning => 
       meaning.toLowerCase().includes(search.toLowerCase())
     )
-  );
+  ) || [];
+
+  console.log("Total cards:", cards?.length);
+  console.log("Filtered cards:", filteredCards.length);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];

@@ -12,8 +12,11 @@ interface ImportedCardRow {
 
 export async function importCardsFromExcel(fileBuffer: Buffer): Promise<ImportedCardRow[]> {
   try {
+    console.log("Starting Excel import process...");
+
     // Read the Excel file
     const workbook = read(fileBuffer);
+    console.log("Excel file read successfully, sheets:", workbook.SheetNames);
 
     // Get the first worksheet
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -24,6 +27,8 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
       range: 1  // Skip header row
     });
 
+    console.log("Parsed JSON data:", jsonData);
+
     // Filter out invalid rows and transform the data
     const validCards = jsonData.filter(row => row.name && row.description).map(row => ({
       ...row,
@@ -31,8 +36,10 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
       reversed: row.reversed || ''
     }));
 
+    console.log("Valid cards after filtering:", validCards);
+
     // Insert cards into the database
-    const cardsToInsert = validCards.map(card => ({
+    const cardsToInsert: InsertImportedCard[] = validCards.map(card => ({
       name: card.name,
       description: card.description,
       meanings: {
@@ -41,11 +48,27 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
       }
     }));
 
-    await db.insert(importedCards).values(cardsToInsert);
+    console.log("Attempting to insert cards:", cardsToInsert);
+
+    // Use a transaction to ensure atomic operation
+    await db.transaction(async (tx) => {
+      // Clear existing imported cards to avoid duplicates
+      await tx.delete(importedCards);
+
+      // Insert new cards
+      const insertedCards = await tx.insert(importedCards)
+        .values(cardsToInsert)
+        .returning();
+
+      console.log("Successfully inserted cards:", insertedCards);
+    });
 
     return validCards;
   } catch (error) {
-    console.error('Error importing cards:', error);
-    throw new Error('Failed to import cards from Excel file');
+    console.error("Detailed import error:", error);
+    if (error instanceof Error) {
+      console.error("Error stack:", error.stack);
+    }
+    throw new Error('Failed to import cards from Excel file: ' + (error instanceof Error ? error.message : String(error)));
   }
 }
