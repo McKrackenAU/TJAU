@@ -1,4 +1,4 @@
-let adminToken: string | null = null;
+let adminToken: string | null = import.meta.env.VITE_ADMIN_TOKEN || null;
 
 export const adminState = {
   setAdminToken: (token: string) => {
