@@ -68,6 +68,7 @@ function getCardFrequency(card: TarotCard): number {
   }
 }
 
+// Updates to the generateMeditation function to slow down voice and add more pauses
 export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
@@ -76,23 +77,23 @@ export async function generateMeditation(card: TarotCard): Promise<{
   try {
     console.log(`Generating meditation for card: ${card.name}`);
 
-    // Generate meditation script
+    // Generate meditation script with more pauses
     const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
 The meditation should:
-- Be 2-3 minutes when read aloud
-- Include breathing guidance
+- Be 2-3 minutes when read aloud at a very slow pace
+- Include breathing guidance with long pauses (use ... for pauses)
 - Connect to the card's core meanings: ${card.meanings.upright.join(", ")}
 - Guide the listener to reflect on these themes
 - End with a gentle return to awareness
 
-Keep the tone calming and peaceful. Use longer pauses between sentences.`;
+Keep the tone calming and peaceful. Add explicit pause markers (...) between each instruction to ensure proper pacing.`;
 
     const scriptResponse = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "You are a meditation guide who creates calming, insightful guided meditations. Use longer pauses between instructions."
+          content: "You are a meditation guide who creates calming, insightful guided meditations. Use many pauses between instructions, marked with (...)"
         },
         {
           role: "user",
@@ -106,34 +107,28 @@ Keep the tone calming and peaceful. Use longer pauses between sentences.`;
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate voice audio with slower, softer settings
+    // Generate voice audio with much slower settings
     console.log("Generating audio from meditation script");
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
       voice: "nova",
       input: meditationText,
       response_format: "mp3",
-      speed: 0.85, // Slower speed
+      speed: 0.5, // Much slower speed (2x slower than before)
       voice_settings: {
-        stability: 0.7,  // More stable voice
-        similarity_boost: 0.3  // Softer tone
+        stability: 0.8,  // Even more stable voice
+        similarity_boost: 0.2  // Even softer tone
       }
     });
 
     console.log("Voice audio generated successfully");
     const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-
-    // Generate theta wave frequency based on the card
-    const thetaFreq = getCardFrequency(card);
-    console.log(`Using theta frequency: ${thetaFreq}Hz for ${card.name}`);
-
-    // Convert to base64
     const audioBase64 = audioBuffer.toString('base64');
 
     return {
       text: meditationText,
       audioUrl: `data:audio/mpeg;base64,${audioBase64}`,
-      thetaFrequency: thetaFreq
+      thetaFrequency: getCardFrequency(card)
     };
   } catch (error) {
     console.error("Error generating meditation:", error);
