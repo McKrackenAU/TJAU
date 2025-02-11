@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation } from "./ai-service";
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
@@ -56,17 +56,29 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/affirmation", async (req, res) => {
     try {
       const { cardId } = req.body;
-      const card = tarotCards.find(c => c.id === cardId);
+      console.log("Generating affirmation for card:", cardId);
 
+      const card = tarotCards.find(c => c.id === cardId);
       if (!card) {
+        console.error("Invalid card ID:", cardId);
         return res.status(400).json({ error: "Invalid card ID" });
       }
 
+      console.log("Found card:", card.name);
       const affirmation = await generateDailyAffirmation(card);
+
+      if (!affirmation) {
+        throw new Error("Failed to generate affirmation");
+      }
+
+      console.log("Generated affirmation:", affirmation);
       res.json({ affirmation });
     } catch (error) {
       console.error("Affirmation generation error:", error);
-      res.status(500).json({ error: "Failed to generate affirmation" });
+      res.status(500).json({ 
+        error: "Failed to generate affirmation",
+        details: error instanceof Error ? error.message : "Unknown error occurred"
+      });
     }
   });
 
