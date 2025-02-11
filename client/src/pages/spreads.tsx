@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { spreads, tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
+import AIInterpretation from "@/components/ai-interpretation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -88,6 +89,12 @@ export default function Spreads() {
                   <span className="text-sm text-muted-foreground">
                     {spread.positions[i]}
                   </span>
+                  {isRevealed && (
+                    <AIInterpretation 
+                      card={card}
+                      context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
+                    />
+                  )}
                 </div>
               ))}
             </div>

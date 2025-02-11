@@ -3,6 +3,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
+import AIInterpretation from "@/components/ai-interpretation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -66,11 +67,14 @@ export default function DailyDraw() {
             </CardHeader>
             <CardContent>
               <p className="mb-4">{todayCard.description}</p>
+
+              <AIInterpretation card={todayCard} />
+
               <Textarea
                 placeholder="Add your reflections..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
-                className="mb-4"
+                className="mt-4 mb-4"
               />
               <Button 
                 onClick={handleSave}
