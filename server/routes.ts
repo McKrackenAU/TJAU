@@ -269,7 +269,22 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ error: "No file uploaded" });
       }
 
+      console.log("Processing file upload:", {
+        originalName: req.file.originalname,
+        mimeType: req.file.mimetype,
+        size: req.file.size
+      });
+
+      // Accept both old and new Excel formats
+      if (!req.file.mimetype.includes('spreadsheet') && 
+          !req.file.mimetype.includes('excel')) {
+        return res.status(400).json({ 
+          error: "Invalid file type. Please upload an Excel file (.xlsx or .xls)" 
+        });
+      }
+
       const importedCards = await importCardsFromExcel(req.file.buffer);
+      console.log(`Successfully imported ${importedCards.length} cards`);
 
       res.json({
         message: `Successfully processed ${importedCards.length} cards`,
@@ -277,7 +292,10 @@ export function registerRoutes(app: Express): Server {
       });
     } catch (error) {
       console.error("Import error:", error);
-      res.status(500).json({ error: "Failed to import cards" });
+      res.status(500).json({ 
+        error: "Failed to import cards",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
     }
   });
 

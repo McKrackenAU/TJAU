@@ -43,10 +43,22 @@ export default function Library() {
     const file = event.target.files?.[0];
     if (!file) return;
 
-    if (!file.name.endsWith('.xlsx') && !file.name.endsWith('.xls')) {
+    // Check file extension
+    const fileExtension = file.name.split('.').pop()?.toLowerCase();
+    if (fileExtension !== 'xlsx' && fileExtension !== 'xls') {
       toast({
         title: "Invalid file type",
         description: "Please upload an Excel file (.xlsx or .xls)",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Check file size (5MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please upload a file smaller than 5MB",
         variant: "destructive"
       });
       return;
@@ -63,6 +75,7 @@ export default function Library() {
         throw new Error("Admin access required");
       }
 
+      console.log("Starting file upload...");
       const response = await fetch('/api/admin/import-cards', {
         method: 'POST',
         headers: {
@@ -71,12 +84,13 @@ export default function Library() {
         body: formData
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Import failed');
+        throw new Error(data.error || data.details || 'Import failed');
       }
 
-      const data = await response.json();
+      console.log("Import response:", data);
       toast({
         title: "Import successful",
         description: data.message
