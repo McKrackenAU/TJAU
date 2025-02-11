@@ -7,6 +7,7 @@ import Home from "@/pages/home";
 import DailyDraw from "@/pages/daily-draw";
 import Spreads from "@/pages/spreads";
 import Library from "@/pages/library";
+import History from "@/pages/history";
 import BottomNav from "@/components/bottom-nav";
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/daily" component={DailyDraw} />
       <Route path="/spreads" component={Spreads} />
+      <Route path="/history" component={History} />
       <Route path="/library" component={Library} />
       <Route component={NotFound} />
     </Switch>
