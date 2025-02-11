@@ -39,17 +39,38 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/interpret", async (req, res) => {
     try {
       const { cardId, context } = req.body;
-      const card = tarotCards.find(c => c.id === cardId);
+      console.log("Interpreting card:", cardId, "with context:", context);
+
+      // Get all available cards including imported ones
+      const allCards = await storage.getImportedCards();
+      const availableCards = [...tarotCards, ...allCards.map(card => ({
+        ...card,
+        id: `imported_${card.id}`,
+        arcana: "custom" as const,
+        meanings: {
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+        }
+      }))];
+
+      const card = availableCards.find(c => c.id === cardId);
 
       if (!card) {
+        console.error("Card not found:", cardId);
         return res.status(400).json({ error: "Invalid card ID" });
       }
 
+      console.log("Found card:", card.name);
       const interpretation = await generateCardInterpretation(card, context);
       res.json({ interpretation });
     } catch (error) {
       console.error("AI interpretation error:", error);
-      res.status(500).json({ error: "Failed to generate interpretation" });
+      res.status(500).json({ 
+        error: "Failed to generate interpretation",
+        details: error instanceof Error ? error.message : "Unknown error occurred"
+      });
     }
   });
 

@@ -89,24 +89,24 @@ export default function Spreads() {
       </div>
 
       <div className="grid gap-8">
-        <Card>
+        <Card className="bg-card">
           <CardHeader>
-            <CardTitle>{spread.name}</CardTitle>
+            <CardTitle className="text-card-foreground">{spread.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-foreground mb-4">{spread.description}</p>
+            <p className="text-card-foreground opacity-90 mb-4">{spread.description}</p>
 
-            <div className={`grid gap-4 ${
+            <div className={`grid gap-6 ${
               selectedSpread === "threeCard" ? "grid-cols-3" : "grid-cols-2 md:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center gap-2">
+                <div key={i} className="flex flex-col items-center gap-4">
                   <CardDisplay
                     card={card}
                     isRevealed={isRevealed}
                     onClick={() => setIsRevealed(true)}
                   />
-                  <span className="text-sm font-medium text-foreground">
+                  <span className="text-sm font-semibold text-card-foreground">
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
