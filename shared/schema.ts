@@ -6,7 +6,7 @@ export const readings = pgTable("readings", {
   id: serial("id").primaryKey(),
   type: text("type").notNull(), // 'daily' or 'spread'
   cards: text("cards").array().notNull(),
-  notes: text("notes"),
+  notes: text("notes").notNull().default(''),
   date: timestamp("date").defaultNow().notNull(),
   spreadType: text("spread_type"), // null for daily draws
 });

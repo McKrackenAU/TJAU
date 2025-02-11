@@ -1,4 +1,6 @@
 import { readings, type Reading, type InsertReading } from "@shared/schema";
+import { db } from "./db";
+import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
   createReading(reading: InsertReading): Promise<Reading>;
@@ -7,41 +9,37 @@ export interface IStorage {
   getSpreadReadings(): Promise<Reading[]>;
 }
 
-export class MemStorage implements IStorage {
-  private readings: Map<number, Reading>;
-  private currentId: number;
-
-  constructor() {
-    this.readings = new Map();
-    this.currentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async createReading(insertReading: InsertReading): Promise<Reading> {
-    const id = this.currentId++;
-    const reading: Reading = {
-      ...insertReading,
-      id,
-      date: new Date()
-    };
-    this.readings.set(id, reading);
+    const [reading] = await db
+      .insert(readings)
+      .values(insertReading)
+      .returning();
     return reading;
   }
 
   async getReadings(): Promise<Reading[]> {
-    return Array.from(this.readings.values());
+    return db
+      .select()
+      .from(readings)
+      .orderBy(desc(readings.date));
   }
 
   async getDailyReadings(): Promise<Reading[]> {
-    return Array.from(this.readings.values())
-      .filter(reading => reading.type === 'daily')
-      .sort((a, b) => b.date.getTime() - a.date.getTime());
+    return db
+      .select()
+      .from(readings)
+      .where(eq(readings.type, 'daily'))
+      .orderBy(desc(readings.date));
   }
 
   async getSpreadReadings(): Promise<Reading[]> {
-    return Array.from(this.readings.values())
-      .filter(reading => reading.type === 'spread')
-      .sort((a, b) => b.date.getTime() - a.date.getTime());
+    return db
+      .select()
+      .from(readings)
+      .where(eq(readings.type, 'spread'))
+      .orderBy(desc(readings.date));
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
