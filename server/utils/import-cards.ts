@@ -24,8 +24,47 @@ const traditionalMeanings: Record<string, { upright: string[], reversed: string[
     upright: ["Intuition", "Mystery", "Inner knowledge", "Divine feminine", "Subconscious mind"],
     reversed: ["Secrets", "Disconnection", "Withdrawal", "Repressed intuition"]
   },
-  // Add more traditional meanings as needed...
+  // Add meanings for all cards including Minor Arcana
+  "Ace of Pentacles": {
+    upright: ["New opportunities", "Prosperity", "Abundance", "Material gain", "Financial security"],
+    reversed: ["Missed opportunities", "Financial loss", "Scarcity mindset", "Poor planning"]
+  },
+  "Two of Pentacles": {
+    upright: ["Balance", "Adaptability", "Time management", "Prioritization", "Flexibility"],
+    reversed: ["Imbalance", "Disorganization", "Overwhelm", "Poor priorities"]
+  },
+  "Three of Pentacles": {
+    upright: ["Teamwork", "Collaboration", "Learning", "Mastery", "Excellence"],
+    reversed: ["Lack of teamwork", "Disharmony", "Competition", "Mediocrity"]
+  },
+  "Four of Pentacles": {
+    upright: ["Security", "Stability", "Conservation", "Frugality", "Protection"],
+    reversed: ["Greed", "Materialism", "Possession", "Insecurity", "Hoarding"]
+  }
 };
+
+// Default meanings for cards not in the traditional map
+const defaultMeanings = {
+  upright: ["Wisdom", "Growth", "Understanding", "Potential", "Harmony"],
+  reversed: ["Challenge", "Resistance", "Imbalance", "Blocked energy", "Need for reflection"]
+};
+
+function getMeaningsForCard(cardName: string): { upright: string[], reversed: string[] } {
+  // Remove any text after the colon and trim whitespace
+  const baseCardName = cardName.split(':')[0].trim();
+
+  // Try to find traditional meanings
+  const meanings = traditionalMeanings[baseCardName];
+
+  // If not found, use default meanings
+  if (!meanings) {
+    console.log(`No traditional meanings found for ${baseCardName}, using defaults`);
+    return defaultMeanings;
+  }
+
+  console.log(`Found traditional meanings for ${baseCardName}:`, meanings);
+  return meanings;
+}
 
 export async function importCardsFromExcel(fileBuffer: Buffer): Promise<ImportedCardRow[]> {
   try {
@@ -42,25 +81,28 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
 
     console.log("Parsed JSON data:", jsonData);
 
-    // Filter out invalid rows and transform the data with traditional meanings
-    const validCards = jsonData.filter(row => row.name && row.description).map(row => {
-      const cardName = row.name.split(':')[0].trim();
-      const traditionalMeaning = traditionalMeanings[cardName] || {
-        upright: ["Wisdom", "Growth", "Understanding", "Inner knowledge"],
-        reversed: ["Blockages", "Resistance", "Hidden aspects", "Need for reflection"]
-      };
+    // Transform data and explicitly type it as InsertImportedCard[]
+    const validCards: InsertImportedCard[] = jsonData
+      .filter(row => row.name && row.description)
+      .map(row => {
+        const cardMeanings = getMeaningsForCard(row.name);
 
-      return {
-        name: row.name,
-        description: row.description,
-        meanings: {
-          upright: traditionalMeaning.upright,
-          reversed: traditionalMeaning.reversed
-        }
-      };
-    });
+        console.log(`Processing card: ${row.name}`);
+        console.log('Assigned meanings:', cardMeanings);
 
-    console.log("Valid cards after filtering:", validCards);
+        const card: InsertImportedCard = {
+          name: row.name,
+          description: row.description,
+          meanings: {
+            upright: cardMeanings.upright,
+            reversed: cardMeanings.reversed
+          }
+        };
+
+        return card;
+      });
+
+    console.log("Prepared cards for insertion:", validCards);
 
     // Use a transaction to ensure atomic operation
     await db.transaction(async (tx) => {
