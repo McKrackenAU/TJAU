@@ -7,6 +7,7 @@ import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
+import { adminState } from "@/lib/admin";
 
 export default function Library() {
   const [search, setSearch] = useState("");
@@ -56,8 +57,11 @@ export default function Library() {
       const formData = new FormData();
       formData.append('file', file);
 
-      const response = await fetch('/api/import-cards', {
+      const response = await fetch('/api/admin/import-cards', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${adminState.getAdminToken()}`
+        },
         body: formData
       });
 
@@ -74,7 +78,7 @@ export default function Library() {
     } catch (error) {
       toast({
         title: "Import failed",
-        description: error.message,
+        description: error instanceof Error ? error.message : 'Unknown error occurred',
         variant: "destructive"
       });
     } finally {
@@ -97,30 +101,32 @@ export default function Library() {
             className="pl-10"
           />
         </div>
-        <div className="relative">
-          <input
-            type="file"
-            accept=".xlsx,.xls"
-            onChange={handleFileUpload}
-            className="hidden"
-            id="card-import"
-            disabled={isImporting}
-          />
-          <Button
-            variant="outline"
-            onClick={() => document.getElementById('card-import')?.click()}
-            disabled={isImporting}
-          >
-            {isImporting ? (
-              <>
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                Importing...
-              </>
-            ) : (
-              'Import Cards'
-            )}
-          </Button>
-        </div>
+        {adminState.isAdmin() && (
+          <div className="relative">
+            <input
+              type="file"
+              accept=".xlsx,.xls"
+              onChange={handleFileUpload}
+              className="hidden"
+              id="card-import"
+              disabled={isImporting}
+            />
+            <Button
+              variant="outline"
+              onClick={() => document.getElementById('card-import')?.click()}
+              disabled={isImporting}
+            >
+              {isImporting ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  Importing...
+                </>
+              ) : (
+                'Import Cards'
+              )}
+            </Button>
+          </div>
+        )}
       </div>
 
       <ScrollArea className="h-[calc(100vh-250px)]">

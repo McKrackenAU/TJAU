@@ -8,6 +8,7 @@ import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
 import { importCardsFromExcel } from "./utils/import-cards";
 import multer from 'multer';
+import { requireAdmin } from "./middleware/admin";
 
 export function registerRoutes(app: Express): Server {
   app.post("/api/readings", async (req, res) => {
@@ -262,7 +263,7 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Add card import endpoint
-  app.post("/api/import-cards", upload.single('file'), async (req, res) => {
+  app.post("/api/admin/import-cards", requireAdmin, upload.single('file'), async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ error: "No file uploaded" });
