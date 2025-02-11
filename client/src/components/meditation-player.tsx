@@ -62,17 +62,24 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
 
       // Create and configure oscillator for theta waves
       oscillatorRef.current = audioContext.createOscillator();
-      oscillatorRef.current.type = 'sine';
+      oscillatorRef.current.type = 'triangle'; // Changed to triangle wave for better audibility
       oscillatorRef.current.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
+      // Create a low-pass filter
+      const filter = audioContext.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = frequency * 2; // Set cutoff frequency
+      filter.Q.value = 1; // Quality factor
 
       // Create and configure gain node for volume control
       gainNodeRef.current = audioContext.createGain();
       // Start with zero volume and gradually increase it
       gainNodeRef.current.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNodeRef.current.gain.linearRampToValueAtTime(1.0, audioContext.currentTime + 2); // Increased volume to 1.0
+      gainNodeRef.current.gain.linearRampToValueAtTime(2.0, audioContext.currentTime + 2); // Increased volume to maximum safe level
 
-      // Connect nodes
-      oscillatorRef.current.connect(gainNodeRef.current);
+      // Connect nodes: oscillator -> filter -> gain -> output
+      oscillatorRef.current.connect(filter);
+      filter.connect(gainNodeRef.current);
       gainNodeRef.current.connect(audioContext.destination);
 
       // Start the oscillator
@@ -92,7 +99,7 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       if (!audio && data?.audioUrl) {
         console.log("Creating new audio instance");
         const newAudio = new Audio(data.audioUrl);
-        newAudio.volume = 0.3; // Further reduced voice volume to make theta waves more prominent
+        newAudio.volume = 0.2; // Further reduced voice volume to make theta waves more prominent
 
         newAudio.addEventListener('ended', () => {
           console.log("Audio playback ended");
