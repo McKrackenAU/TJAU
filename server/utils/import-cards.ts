@@ -5,6 +5,7 @@ import type { InsertImportedCard } from "@shared/schema";
 
 interface ImportedCardRow {
   name: string;
+  theme: string;
   description: string;
   upright: string;
   reversed: string;
@@ -24,7 +25,6 @@ const traditionalMeanings: Record<string, { upright: string[], reversed: string[
     upright: ["Intuition", "Mystery", "Inner knowledge", "Divine feminine", "Subconscious mind"],
     reversed: ["Secrets", "Disconnection", "Withdrawal", "Repressed intuition"]
   },
-  // Add meanings for all cards including Minor Arcana
   "Ace of Pentacles": {
     upright: ["New opportunities", "Prosperity", "Abundance", "Material gain", "Financial security"],
     reversed: ["Missed opportunities", "Financial loss", "Scarcity mindset", "Poor planning"]
@@ -56,7 +56,6 @@ function getMeaningsForCard(cardName: string): { upright: string[], reversed: st
   // Try to find traditional meanings
   const meanings = traditionalMeanings[baseCardName];
 
-  // If not found, use default meanings
   if (!meanings) {
     console.log(`No traditional meanings found for ${baseCardName}, using defaults`);
     return defaultMeanings;
@@ -75,24 +74,25 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
 
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const jsonData = utils.sheet_to_json<ImportedCardRow>(worksheet, {
-      header: ['name', 'description', 'upright', 'reversed'],
+      header: ['name', 'theme', 'description', 'upright', 'reversed'],
       range: 1
     });
 
     console.log("Parsed JSON data:", jsonData);
 
-    // Transform data and explicitly type it as InsertImportedCard[]
     const validCards: InsertImportedCard[] = jsonData
-      .filter(row => row.name && row.description)
+      .filter(row => row.name && row.theme)
       .map(row => {
         const cardMeanings = getMeaningsForCard(row.name);
 
         console.log(`Processing card: ${row.name}`);
+        console.log('Theme:', row.theme);
+        console.log('Description:', row.description);
         console.log('Assigned meanings:', cardMeanings);
 
         const card: InsertImportedCard = {
           name: row.name,
-          description: row.description,
+          description: row.description || row.theme || '', 
           meanings: {
             upright: cardMeanings.upright,
             reversed: cardMeanings.reversed
@@ -104,7 +104,6 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
 
     console.log("Prepared cards for insertion:", validCards);
 
-    // Use a transaction to ensure atomic operation
     await db.transaction(async (tx) => {
       // Clear existing imported cards
       await tx.delete(importedCards);
