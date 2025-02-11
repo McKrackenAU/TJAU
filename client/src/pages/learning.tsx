@@ -83,6 +83,38 @@ export default function Learning() {
                     ))}
                   </div>
                 )}
+                <div className="mt-4 space-y-4">
+                  <h3 className="font-medium">Required Cards</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    {track.requiredCards.map((cardId, index) => (
+                      <div
+                        key={cardId}
+                        className={`p-2 rounded-lg border ${
+                          progress.completedLessons.includes(cardId)
+                            ? "bg-primary/10 border-primary"
+                            : "bg-secondary/10 border-secondary"
+                        }`}
+                      >
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm">Lesson {index + 1}</span>
+                          {progress.completedLessons.includes(cardId) && (
+                            <GraduationCap className="h-4 w-4 text-primary" />
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <Button
+                    className="w-full"
+                    onClick={() => {
+                      // Navigate to the current lesson
+                      const currentCard = track.requiredCards[progress.currentLesson - 1];
+                      window.location.href = `/library#${currentCard}`;
+                    }}
+                  >
+                    Continue Learning
+                  </Button>
+                </div>
               </div>
             ) : (
               <Button
