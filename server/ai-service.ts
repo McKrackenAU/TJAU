@@ -44,8 +44,11 @@ export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
 }> {
-  // Generate meditation script
-  const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
+  try {
+    console.log(`Generating meditation for card: ${card.name}`);
+
+    // Generate meditation script
+    const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
 The meditation should:
 - Be 2-3 minutes when read aloud
 - Include breathing guidance
@@ -55,37 +58,45 @@ The meditation should:
 
 Keep the tone calming and peaceful.`;
 
-  const scriptResponse = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
-    messages: [
-      {
-        role: "system",
-        content: "You are a meditation guide who creates calming, insightful guided meditations."
-      },
-      {
-        role: "user",
-        content: meditationPrompt
-      }
-    ],
-    temperature: 0.7,
-    max_tokens: 500
-  });
+    const scriptResponse = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a meditation guide who creates calming, insightful guided meditations."
+        },
+        {
+          role: "user",
+          content: meditationPrompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 500
+    });
 
-  const meditationText = scriptResponse.choices[0].message.content || "";
+    console.log("Meditation script generated successfully");
+    const meditationText = scriptResponse.choices[0].message.content || "";
 
-  // Generate audio from the meditation script
-  const audioResponse = await openai.audio.speech.create({
-    model: "tts-1",
-    voice: "nova", // Using a calming voice
-    input: meditationText,
-  });
+    // Generate audio from the meditation script
+    console.log("Generating audio from meditation script");
+    const audioResponse = await openai.audio.speech.create({
+      model: "tts-1",
+      voice: "nova", // Using a calming voice
+      input: meditationText,
+      response_format: "mp3",
+    });
 
-  // Convert the audio response to base64
-  const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-  const audioBase64 = audioBuffer.toString('base64');
+    console.log("Audio generated successfully");
+    // Get the binary audio data
+    const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+    const audioBase64 = audioBuffer.toString('base64');
 
-  return {
-    text: meditationText,
-    audioUrl: `data:audio/mp3;base64,${audioBase64}`
-  };
+    return {
+      text: meditationText,
+      audioUrl: `data:audio/mpeg;base64,${audioBase64}`
+    };
+  } catch (error) {
+    console.error("Error generating meditation:", error);
+    throw error;
+  }
 }
