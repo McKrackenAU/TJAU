@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2, RefreshCw } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { tarotCards } from "@shared/tarot-data";
+import type { TarotCard } from "@shared/tarot-data";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import CardDisplay from "@/components/card-display";
@@ -21,6 +21,11 @@ export default function CardCombinationAnalysis({
   const [selectedCardIds, setSelectedCardIds] = useState<string[]>(initialCardIds);
   const [isAnalysisRequested, setIsAnalysisRequested] = useState(false);
   const { toast } = useToast();
+
+  // Fetch all cards including imported ones
+  const { data: cards, isLoading: isLoadingCards } = useQuery<TarotCard[]>({
+    queryKey: ["/api/cards"],
+  });
 
   const { data: analysis, isLoading, error, refetch } = useQuery({
     queryKey: ["/api/analyze-combination", selectedCardIds, context],
@@ -62,13 +67,23 @@ export default function CardCombinationAnalysis({
     setIsAnalysisRequested(false);
   };
 
+  if (isLoadingCards) {
+    return (
+      <Card>
+        <CardContent className="pt-6 flex items-center justify-center">
+          <Loader2 className="h-6 w-6 animate-spin" />
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <Card>
       <CardContent className="pt-6">
         <div className="space-y-4">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {selectedCardIds.map((cardId, index) => {
-              const card = tarotCards.find(c => c.id === cardId);
+              const card = cards?.find(c => c.id === cardId);
               if (!card) return null;
               return (
                 <div key={index} className="relative">
@@ -94,8 +109,8 @@ export default function CardCombinationAnalysis({
                     <SelectValue placeholder="Add a card" />
                   </SelectTrigger>
                   <SelectContent>
-                    {tarotCards
-                      .filter(card => !selectedCardIds.includes(card.id))
+                    {cards
+                      ?.filter(card => !selectedCardIds.includes(card.id))
                       .map(card => (
                         <SelectItem key={card.id} value={card.id}>
                           {card.name}
