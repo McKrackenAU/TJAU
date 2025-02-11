@@ -40,13 +40,14 @@ Keep the response concise but insightful, around 2-3 paragraphs.`;
   return response.choices[0].message.content || "Unable to generate interpretation.";
 }
 
+// Generate theta wave frequencies for meditation background
 function generateThetaWave(frequency: number, durationSecs: number, sampleRate: number = 44100): Float32Array {
   const samples = durationSecs * sampleRate;
   const wave = new Float32Array(samples);
 
   for (let i = 0; i < samples; i++) {
     // Generate sine wave at theta frequency with higher amplitude
-    wave[i] = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.5; // Increased from 0.3 to 0.5
+    wave[i] = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.5; // Increased amplitude for better audibility
   }
 
   return wave;
@@ -54,8 +55,8 @@ function generateThetaWave(frequency: number, durationSecs: number, sampleRate: 
 
 function getCardFrequency(card: TarotCard): number {
   if (card.arcana === 'major') {
-    // Major Arcana: Higher theta frequencies for spiritual insight
-    return 6 + (card.number || 0) / 22; // Range: 6-7 Hz
+    // Major Arcana: Higher theta frequencies for spiritual insight (6-7 Hz)
+    return 6 + (card.number || 0) / 22;
   } else {
     // Minor Arcana: Lower theta frequencies for emotional processing
     const suitFrequencies: { [key: string]: number } = {
@@ -68,7 +69,7 @@ function getCardFrequency(card: TarotCard): number {
   }
 }
 
-// Changes to the generateMeditation function
+// Enhanced meditation generation with improved prompts and audio
 export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
@@ -77,7 +78,7 @@ export async function generateMeditation(card: TarotCard): Promise<{
   try {
     console.log(`Generating meditation for card: ${card.name}`);
 
-    // Generate meditation script with more pauses
+    // Generate meditation script with more pauses and detailed guidance
     const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
 The meditation should:
 - Be 2-3 minutes when read aloud at a moderate pace
@@ -107,24 +108,27 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate voice audio with much slower settings
+    // Generate voice audio with slower settings for better meditation pacing
     console.log("Generating audio from meditation script");
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
-      voice: "nova",
+      voice: "nova", // Using a calming voice
       input: meditationText,
       response_format: "mp3",
-      speed: 0.85, // Increased speed for more natural pacing
+      speed: 0.85, // Slowed down for more meditative pacing
     });
 
     console.log("Voice audio generated successfully");
     const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
     const audioBase64 = audioBuffer.toString('base64');
 
+    // Calculate appropriate theta frequency for this card
+    const thetaFrequency = getCardFrequency(card);
+
     return {
       text: meditationText,
       audioUrl: `data:audio/mpeg;base64,${audioBase64}`,
-      thetaFrequency: getCardFrequency(card)
+      thetaFrequency
     };
   } catch (error) {
     console.error("Error generating meditation:", error);
