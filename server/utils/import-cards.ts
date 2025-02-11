@@ -10,7 +10,7 @@ interface ImportedCardRow {
   reversed: string;
 }
 
-// Traditional tarot meanings map
+// Traditional tarot meanings map with proper array format
 const traditionalMeanings: Record<string, { upright: string[], reversed: string[] }> = {
   "The Fool": {
     upright: ["New beginnings", "Innocence", "Spontaneity", "Free spirit", "Adventure"],
@@ -24,49 +24,20 @@ const traditionalMeanings: Record<string, { upright: string[], reversed: string[
     upright: ["Intuition", "Mystery", "Inner knowledge", "Divine feminine", "Subconscious mind"],
     reversed: ["Secrets", "Disconnection", "Withdrawal", "Repressed intuition"]
   },
-  "The Empress": {
-    upright: ["Abundance", "Nurturing", "Fertility", "Growth", "Creativity"],
-    reversed: ["Dependence", "Smothering", "Creative block", "Neglect"]
-  },
-  "The Emperor": {
-    upright: ["Authority", "Structure", "Leadership", "Stability", "Protection"],
-    reversed: ["Control", "Rigidity", "Domination", "Inflexibility"]
-  },
-  "The Hierophant": {
-    upright: ["Tradition", "Spirituality", "Education", "Beliefs", "Conformity"],
-    reversed: ["Rebellion", "Subversiveness", "Unconventionality", "New methods"]
-  },
-  "The Lovers": {
-    upright: ["Love", "Harmony", "Choices", "Union", "Relationships"],
-    reversed: ["Disharmony", "Imbalance", "Misalignment", "Poor choices"]
-  },
-  // Minor Arcana - Wands
-  "Ace of Wands": {
-    upright: ["Creation", "Inspiration", "New opportunities", "Growth", "Potential"],
-    reversed: ["Delays", "Blocks", "Lack of motivation", "False starts"]
-  },
-  "Two of Wands": {
-    upright: ["Planning", "Discovery", "Future vision", "Progress", "Decisions"],
-    reversed: ["Fear of change", "Playing it safe", "Bad planning", "Lack of direction"]
-  },
-  // Continue for each card...
+  // Add more traditional meanings as needed...
 };
 
 export async function importCardsFromExcel(fileBuffer: Buffer): Promise<ImportedCardRow[]> {
   try {
     console.log("Starting Excel import process...");
 
-    // Read the Excel file
     const workbook = read(fileBuffer);
     console.log("Excel file read successfully, sheets:", workbook.SheetNames);
 
-    // Get the first worksheet
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
-
-    // Convert to JSON
     const jsonData = utils.sheet_to_json<ImportedCardRow>(worksheet, {
       header: ['name', 'description', 'upright', 'reversed'],
-      range: 1  // Skip header row
+      range: 1
     });
 
     console.log("Parsed JSON data:", jsonData);
@@ -80,34 +51,25 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
       };
 
       return {
-        ...row,
-        upright: traditionalMeaning.upright.join(', '),
-        reversed: traditionalMeaning.reversed.join(', ')
+        name: row.name,
+        description: row.description,
+        meanings: {
+          upright: traditionalMeaning.upright,
+          reversed: traditionalMeaning.reversed
+        }
       };
     });
 
     console.log("Valid cards after filtering:", validCards);
 
-    // Insert cards into the database
-    const cardsToInsert: InsertImportedCard[] = validCards.map(card => ({
-      name: card.name,
-      description: card.description,
-      meanings: {
-        upright: card.upright.split(',').map(m => m.trim()).filter(Boolean),
-        reversed: card.reversed.split(',').map(m => m.trim()).filter(Boolean)
-      }
-    }));
-
-    console.log("Attempting to insert cards:", cardsToInsert);
-
     // Use a transaction to ensure atomic operation
     await db.transaction(async (tx) => {
-      // Clear existing imported cards to avoid duplicates
+      // Clear existing imported cards
       await tx.delete(importedCards);
 
-      // Insert new cards
+      // Insert new cards with proper JSONB structure
       const insertedCards = await tx.insert(importedCards)
-        .values(cardsToInsert)
+        .values(validCards)
         .returning();
 
       console.log("Successfully inserted cards:", insertedCards);
@@ -115,10 +77,7 @@ export async function importCardsFromExcel(fileBuffer: Buffer): Promise<Imported
 
     return validCards;
   } catch (error) {
-    console.error("Detailed import error:", error);
-    if (error instanceof Error) {
-      console.error("Error stack:", error.stack);
-    }
-    throw new Error('Failed to import cards from Excel file: ' + (error instanceof Error ? error.message : String(error)));
+    console.error("Import error:", error);
+    throw error;
   }
 }
