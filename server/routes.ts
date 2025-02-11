@@ -53,6 +53,23 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  app.post("/api/affirmation", async (req, res) => {
+    try {
+      const { cardId } = req.body;
+      const card = tarotCards.find(c => c.id === cardId);
+
+      if (!card) {
+        return res.status(400).json({ error: "Invalid card ID" });
+      }
+
+      const affirmation = await generateDailyAffirmation(card);
+      res.json({ affirmation });
+    } catch (error) {
+      console.error("Affirmation generation error:", error);
+      res.status(500).json({ error: "Failed to generate affirmation" });
+    }
+  });
+
   app.post("/api/meditate", async (req, res) => {
     try {
       const { cardId } = req.body;

@@ -94,7 +94,7 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
       messages: [
         {
           role: "system",
-          content: "You are a meditation guide who creates calming, insightful guided meditations. Use many pauses between instructions, marked with (...)"
+          content: "You are a meditation guide who creates calming, insightful guided meditations. Use many pauses between instructions, marked with ..."
         },
         {
           role: "user",
@@ -134,4 +134,33 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
     console.error("Error generating meditation:", error);
     throw error;
   }
+}
+
+export async function generateDailyAffirmation(card: TarotCard): Promise<string> {
+  const prompt = `Create an inspiring daily affirmation based on the ${card.name} tarot card.
+Consider these upright meanings: ${card.meanings.upright.join(", ")}
+The affirmation should:
+- Be positive and empowering
+- Be in first person ("I am...", "I embrace...", etc.)
+- Connect to the card's core themes
+- Be concise (1-2 sentences)
+Keep the tone uplifting and motivational.`;
+
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content: "You are an inspiring spiritual guide who creates powerful, positive affirmations."
+      },
+      {
+        role: "user",
+        content: prompt
+      }
+    ],
+    temperature: 0.7,
+    max_tokens: 100
+  });
+
+  return response.choices[0].message.content || "I embrace the wisdom of the cards and trust in my journey.";
 }

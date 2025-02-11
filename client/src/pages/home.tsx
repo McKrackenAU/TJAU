@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLocation } from "wouter";
 import { Sun, Layout } from "lucide-react";
+import DailyAffirmation from "@/components/daily-affirmation";
 
 export default function Home() {
   const [_, setLocation] = useLocation();
@@ -9,6 +10,8 @@ export default function Home() {
   return (
     <div className="container max-w-lg px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">Tarot Journey</h1>
+
+      <DailyAffirmation />
 
       <div className="grid gap-4">
         <Card className="hover:border-primary/50 transition-colors cursor-pointer"
