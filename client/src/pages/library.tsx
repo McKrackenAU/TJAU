@@ -69,23 +69,26 @@ export default function Library() {
       const formData = new FormData();
       formData.append('file', file);
 
-      // Get the admin token and add it to the Authorization header
-      const adminToken = adminState.getAdminToken();
-      console.log("Using admin token for upload:", Boolean(adminToken));
+      // Request admin token if not already set
+      let adminToken = adminState.getAdminToken();
+      if (!adminToken) {
+        const granted = await adminState.requestAdminToken();
+        if (!granted) {
+          throw new Error("Admin token required for importing cards");
+        }
+        adminToken = adminState.getAdminToken();
+      }
 
       if (!adminToken) {
         throw new Error("Admin access required");
       }
 
-      const headers = {
-        'Authorization': `Bearer ${adminToken}`
-      };
-      console.log("Request headers:", headers);
-
       console.log("Starting file upload...");
       const response = await fetch('/api/admin/import-cards', {
         method: 'POST',
-        headers,
+        headers: {
+          'Authorization': `Bearer ${adminToken}`
+        },
         body: formData
       });
 
@@ -94,6 +97,10 @@ export default function Library() {
       console.log("Upload response data:", data);
 
       if (!response.ok) {
+        // If authentication fails, clear the token
+        if (response.status === 403) {
+          adminState.clearAdminToken();
+        }
         throw new Error(data.error || data.details || 'Import failed');
       }
 

@@ -1,11 +1,8 @@
-// This is a temporary development token that matches the server
-const TEMP_ADMIN_TOKEN = "temporary_admin_access_enabled";
-
-let adminToken: string | null = TEMP_ADMIN_TOKEN;
+let adminToken: string | null = null;
 
 export const adminState = {
   setAdminToken: (token: string) => {
-    console.log("Setting admin token:", token);
+    console.log("Setting admin token");
     adminToken = token;
   },
   clearAdminToken: () => {
@@ -18,7 +15,15 @@ export const adminState = {
     return hasToken;
   },
   getAdminToken: () => {
-    console.log("Getting admin token:", adminToken);
+    console.log("Getting admin token status:", Boolean(adminToken));
     return adminToken;
   },
+  requestAdminToken: async () => {
+    const token = prompt("Please enter the admin token:");
+    if (token) {
+      adminToken = token;
+      return true;
+    }
+    return false;
+  }
 };
