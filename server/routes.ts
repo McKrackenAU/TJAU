@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination } from "./ai-service"; // Added analyzeCardCombination import
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
@@ -53,9 +53,10 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  app.post("/api/analyze-combination", async (req, res) => { // New endpoint added here
+  app.post("/api/analyze-combination", async (req, res) => {
     try {
       const { cardIds, context } = req.body;
+      console.log("Received request for card combination analysis:", { cardIds, context });
 
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
         return res.status(400).json({ 
@@ -63,14 +64,37 @@ export function registerRoutes(app: Express): Server {
         });
       }
 
-      const cards = cardIds.map(id => tarotCards.find(c => c.id === id))
+      // Get all available cards including imported ones
+      const allCards = await storage.getImportedCards();
+      const availableCards = [...tarotCards, ...allCards.map(card => ({
+        ...card,
+        id: `imported_${card.id}`,
+        arcana: "custom" as const,
+        meanings: {
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+        }
+      }))];
+
+      console.log("Finding requested cards...");
+      const cards = cardIds.map(id => availableCards.find(c => c.id === id))
         .filter((card): card is TarotCard => card !== undefined);
 
       if (cards.length !== cardIds.length) {
-        return res.status(400).json({ error: "One or more invalid card IDs" });
+        const missingIds = cardIds.filter(id => !cards.find(c => c.id === id));
+        console.error("Missing cards:", missingIds);
+        return res.status(400).json({ 
+          error: "One or more invalid card IDs",
+          details: `Missing cards: ${missingIds.join(", ")}`
+        });
       }
 
+      console.log("Analyzing cards:", cards.map(c => c.name));
       const analysis = await analyzeCardCombination(cards, context);
+      console.log("Analysis generated successfully");
+
       res.json({ analysis });
     } catch (error) {
       console.error("Card combination analysis error:", error);

@@ -170,11 +170,14 @@ export async function analyzeCardCombination(
   cards: TarotCard[],
   context?: string
 ): Promise<string> {
-  const cardDescriptions = cards.map(card =>
-    `${card.name}: ${card.meanings.upright.join(", ")}`
-  ).join("\n");
+  try {
+    console.log("Analyzing cards:", cards.map(c => c.name).join(", "));
 
-  const prompt = `As an expert Tarot reader, analyze the combination of these cards:
+    const cardDescriptions = cards.map(card =>
+      `${card.name}:\n- Description: ${card.description}\n- Upright meanings: ${card.meanings.upright.join(", ")}`
+    ).join("\n\n");
+
+    const prompt = `As an expert Tarot reader, analyze the combination of these cards:
 ${cardDescriptions}
 
 ${context ? `Consider this context: ${context}` : ""}
@@ -186,21 +189,33 @@ Please provide:
 
 Keep the response concise but insightful, focusing on the unique synergy between these cards.`;
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
-    messages: [
-      {
-        role: "system",
-        content: "You are a wise and experienced Tarot reader who excels at understanding the complex interactions between multiple cards."
-      },
-      {
-        role: "user",
-        content: prompt
-      }
-    ],
-    temperature: 0.7,
-    max_tokens: 500
-  });
+    console.log("Sending prompt to OpenAI");
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a wise and experienced Tarot reader who excels at understanding the complex interactions between multiple cards."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 500
+    });
 
-  return response.choices[0].message.content || "Unable to generate combination analysis.";
+    const analysis = response.choices[0].message.content;
+    if (!analysis) {
+      throw new Error("No analysis generated from OpenAI");
+    }
+
+    console.log("Successfully generated analysis");
+    return analysis;
+
+  } catch (error) {
+    console.error("Error in analyzeCardCombination:", error);
+    throw error;
+  }
 }
