@@ -40,9 +40,38 @@ Keep the response concise but insightful, around 2-3 paragraphs.`;
   return response.choices[0].message.content || "Unable to generate interpretation.";
 }
 
+function generateThetaWave(frequency: number, durationSecs: number, sampleRate: number = 44100): Float32Array {
+  const samples = durationSecs * sampleRate;
+  const wave = new Float32Array(samples);
+
+  for (let i = 0; i < samples; i++) {
+    // Generate sine wave at theta frequency
+    wave[i] = Math.sin(2 * Math.PI * frequency * i / sampleRate) * 0.3; // 0.3 for volume
+  }
+
+  return wave;
+}
+
+function getCardFrequency(card: TarotCard): number {
+  if (card.arcana === 'major') {
+    // Major Arcana: Higher theta frequencies for spiritual insight
+    return 6 + (card.number || 0) / 22; // Range: 6-7 Hz
+  } else {
+    // Minor Arcana: Lower theta frequencies for emotional processing
+    const suitFrequencies: { [key: string]: number } = {
+      'Wands': 5.5,    // Energy and passion
+      'Cups': 4.5,     // Emotions and intuition
+      'Swords': 5.0,   // Mental clarity
+      'Pentacles': 4.0 // Material concerns
+    };
+    return suitFrequencies[card.suit || 'Wands'];
+  }
+}
+
 export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
+  thetaFrequency: number;
 }> {
   try {
     console.log(`Generating meditation for card: ${card.name}`);
@@ -77,7 +106,7 @@ Keep the tone calming and peaceful.`;
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate audio from the meditation script
+    // Generate voice audio
     console.log("Generating audio from meditation script");
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
@@ -86,14 +115,21 @@ Keep the tone calming and peaceful.`;
       response_format: "mp3",
     });
 
-    console.log("Audio generated successfully");
-    // Get the binary audio data
+    console.log("Voice audio generated successfully");
+    // Get the voice audio data
     const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+
+    // Generate theta wave frequency based on the card
+    const thetaFreq = getCardFrequency(card);
+    console.log(`Using theta frequency: ${thetaFreq}Hz for ${card.name}`);
+
+    // Convert to base64
     const audioBase64 = audioBuffer.toString('base64');
 
     return {
       text: meditationText,
-      audioUrl: `data:audio/mpeg;base64,${audioBase64}`
+      audioUrl: `data:audio/mpeg;base64,${audioBase64}`,
+      thetaFrequency: thetaFreq // Include the frequency in the response
     };
   } catch (error) {
     console.error("Error generating meditation:", error);
