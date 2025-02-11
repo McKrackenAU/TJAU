@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { tarotCards } from "@shared/tarot-data";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,7 +7,36 @@ import { Search } from "lucide-react";
 
 export default function Library() {
   const [search, setSearch] = useState("");
-  
+
+  useEffect(() => {
+    // Handle scrolling to card from URL hash
+    const scrollToCard = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          // First scroll into view
+          element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          // Then add highlight animation
+          element.classList.add('ring-2', 'ring-primary', 'ring-offset-2', 'transition-all', 'duration-500');
+
+          // Remove highlight after animation
+          setTimeout(() => {
+            element.classList.remove('ring-2', 'ring-primary', 'ring-offset-2');
+          }, 2000);
+        }
+      }
+    };
+
+    // Initial scroll
+    setTimeout(scrollToCard, 100);
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', scrollToCard);
+    return () => window.removeEventListener('hashchange', scrollToCard);
+  }, []);
+
   const filteredCards = tarotCards.filter(card => 
     card.name.toLowerCase().includes(search.toLowerCase()) ||
     card.description.toLowerCase().includes(search.toLowerCase())
@@ -32,7 +61,11 @@ export default function Library() {
       <ScrollArea className="h-[calc(100vh-250px)]">
         <div className="grid gap-4 pb-16">
           {filteredCards.map(card => (
-            <Card key={card.id}>
+            <Card 
+              key={card.id} 
+              id={card.id} 
+              className="transition-all duration-300"
+            >
               <CardHeader>
                 <CardTitle className="flex items-center justify-between">
                   {card.name}
@@ -47,7 +80,7 @@ export default function Library() {
                 <p className="text-sm text-muted-foreground mb-4">
                   {card.description}
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <h4 className="font-semibold mb-2">Upright</h4>

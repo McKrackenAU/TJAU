@@ -1,4 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +14,7 @@ import { tarotCards } from "@shared/tarot-data";
 export default function Learning() {
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  const [_, setLocation] = useLocation();
 
   const { data: tracks, isLoading: tracksLoading } = useQuery<LearningTrack[]>({
     queryKey: ["/api/learning/tracks"],
@@ -52,6 +54,13 @@ export default function Learning() {
     const progressPercentage = progress
       ? (progress.completedLessons.length / track.requiredCards.length) * 100
       : 0;
+
+    const handleContinueLearning = () => {
+      const currentCardId = track.requiredCards[progress?.currentLesson - 1];
+      if (currentCardId) {
+        setLocation(`/library#${currentCardId}`);
+      }
+    };
 
     if (progressLoading) {
       return (
@@ -116,9 +125,7 @@ export default function Learning() {
                     </p>
                     <Button 
                       className="w-full"
-                      onClick={() => {
-                        window.location.href = `/library#${track.requiredCards[progress.currentLesson - 1]}`;
-                      }}
+                      onClick={handleContinueLearning}
                     >
                       <ArrowRight className="h-4 w-4 mr-2" />
                       Continue Learning
