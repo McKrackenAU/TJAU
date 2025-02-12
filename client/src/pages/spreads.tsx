@@ -113,7 +113,7 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center relative pb-32">
+                <div key={i} className="flex flex-col items-center relative pb-64">
                   <div className="mb-8">
                     <CardDisplay
                       card={card}
@@ -124,7 +124,7 @@ export default function Spreads() {
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
-                    <div className="absolute top-full left-0 right-0 mt-4 space-y-4">
+                    <div className="absolute top-full left-0 right-0 mt-4 space-y-8">
                       <AIInterpretation 
                         card={card}
                         context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
@@ -137,7 +137,7 @@ export default function Spreads() {
             </div>
 
             {isRevealed && (
-              <div className="mt-24">
+              <div className="mt-32">
                 <Textarea
                   placeholder="Add your reflections on this spread..."
                   value={notes}
