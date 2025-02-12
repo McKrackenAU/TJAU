@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { TarotCard } from "@shared/tarot-data";
+import CardImage from "./card-image";
 
 interface CardDisplayProps {
   card: TarotCard;
@@ -16,7 +17,7 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   return (
     <motion.div
-      className="aspect-[2/3] w-full max-w-[200px] cursor-pointer perspective-1000"
+      className="aspect-[2/3] w-full max-w-[300px] cursor-pointer perspective-1000"
       whileHover={{ scale: 1.02 }}
       onClick={onClick}
     >
@@ -30,20 +31,19 @@ export default function CardDisplay({
         transition={{ duration: 0.6 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        <div className={`absolute w-full h-full rounded-xl border-2 border-primary/20 
-          ${isRevealed ? "backface-hidden" : ""} bg-gradient-to-br from-primary/20 to-primary/10
-          p-4 flex flex-col items-center justify-between text-center`}
+        {/* Front of card */}
+        <div 
+          className={`absolute w-full h-full ${isRevealed ? "backface-hidden" : ""}`}
         >
-          <h3 className="text-lg font-semibold">{card.name}</h3>
-          {card.arcana === "minor" && (
-            <p className="text-sm text-muted-foreground">{card.suit}</p>
-          )}
+          <CardImage card={card} isRevealed={true} />
         </div>
-        
-        <div className={`absolute w-full h-full rounded-xl border-2 border-primary/20 
-          ${!isRevealed ? "backface-hidden" : ""} bg-gradient-to-br from-primary to-primary/80
-          rotateY-180`}
-        />
+
+        {/* Back of card */}
+        <div 
+          className={`absolute w-full h-full ${!isRevealed ? "backface-hidden" : ""} rotateY-180`}
+        >
+          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80" />
+        </div>
       </motion.div>
     </motion.div>
   );
