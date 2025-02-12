@@ -28,7 +28,29 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
   };
 
-  // Generate a suitable icon or symbol based on the card's name and meanings
+  // Generate decorative patterns based on the card type
+  const getPattern = () => {
+    const basePattern = "absolute inset-0 mix-blend-soft-light opacity-10";
+    if (card.arcana === "major") {
+      return (
+        <div className={`${basePattern} bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(255,255,255,0.2)_100%)] bg-[length:50%_50%]`}></div>
+      );
+    }
+    switch (card.suit) {
+      case "Wands":
+        return <div className={`${basePattern} bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.1)_10px,rgba(255,255,255,0.1)_20px)]`}></div>;
+      case "Cups":
+        return <div className={`${basePattern} bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.2),transparent_70%)]`}></div>;
+      case "Swords":
+        return <div className={`${basePattern} bg-[repeating-linear-gradient(-45deg,transparent,transparent_15px,rgba(255,255,255,0.1)_15px,rgba(255,255,255,0.1)_30px)]`}></div>;
+      case "Pentacles":
+        return <div className={`${basePattern} bg-[repeating-conic-gradient(from_0deg,rgba(255,255,255,0.1)_0deg_30deg,transparent_30deg_360deg)]`}></div>;
+      default:
+        return <div className={`${basePattern} bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.1),transparent)]`}></div>;
+    }
+  };
+
+  // Get card-specific symbol
   const getCardSymbol = () => {
     // Major Arcana specific symbols
     if (card.arcana === "major") {
@@ -57,7 +79,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return "✨";
     }
 
-    // Minor Arcana symbols based on suit
+    // Minor Arcana symbols based on suit and rank
     switch (card.suit) {
       case "Wands":
         return card.name.toLowerCase().includes("ace") ? "🔥" :
@@ -86,7 +108,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           card.name.toLowerCase().includes("queen") ? "👸" :
           card.name.toLowerCase().includes("knight") ? "🏇" :
           card.name.toLowerCase().includes("page") ? "🎭" :
-          "🌟";
+          "💫";
       default:
         // Custom cards get special symbols based on their names
         if (card.name.toLowerCase().includes("element")) {
@@ -103,7 +125,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
   };
 
-  // Get decorative elements based on the card type
+  // Get border decoration based on the card type
   const getDecorations = () => {
     if (card.arcana === "major") {
       return "border-4 border-yellow-300/30";
@@ -112,16 +134,18 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   };
 
   return (
-    <div className={`w-full aspect-[2/3] ${getCardColor()} ${getDecorations()} rounded-lg p-4 flex flex-col items-center justify-between text-white shadow-lg`}>
-      <div className="text-3xl">{getCardSymbol()}</div>
-      <div className="text-center">
+    <div className={`relative w-full aspect-[2/3] ${getCardColor()} ${getDecorations()} rounded-lg p-4 flex flex-col items-center justify-between text-white shadow-lg overflow-hidden`}>
+      {getPattern()}
+      <div className="text-4xl drop-shadow-lg">{getCardSymbol()}</div>
+      <div className="text-center z-10">
         <h3 className="font-bold text-lg mb-2 drop-shadow-md">{card.name}</h3>
-        <div className="text-sm opacity-90 bg-black/20 px-3 py-1 rounded-full">
-          {card.arcana === "major" ? "Major Arcana" : 
-           card.suit ? card.suit : "Special Card"}
-        </div>
+        {(card.arcana === "major" || card.suit) && (
+          <div className="text-sm opacity-90 bg-black/20 px-3 py-1 rounded-full">
+            {card.arcana === "major" ? "Major Arcana" : card.suit}
+          </div>
+        )}
       </div>
-      <div className="text-3xl transform rotate-180">{getCardSymbol()}</div>
+      <div className="text-4xl transform rotate-180 drop-shadow-lg">{getCardSymbol()}</div>
     </div>
   );
 }
