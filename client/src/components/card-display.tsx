@@ -17,68 +17,102 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   const getSymbol = () => {
     if (card.arcana === "major") {
-      return <Sun className="h-8 w-8 text-white/90 animate-spin-slow" />;
+      return (
+        <div className="animate-glow">
+          <Sun className="h-8 w-8 text-yellow-300" />
+        </div>
+      );
     }
 
     switch (card.suit) {
       case "Wands":
-        return <FlameKindling className="h-8 w-8 text-white/90 animate-flame" />;
+        return (
+          <div className="animate-flame">
+            <FlameKindling className="h-8 w-8 text-orange-300" />
+          </div>
+        );
       case "Cups":
-        return <GlassWater className="h-8 w-8 text-white/90 animate-wave" />;
+        return (
+          <div className="animate-wave">
+            <GlassWater className="h-8 w-8 text-blue-300" />
+          </div>
+        );
       case "Swords":
-        return <Sword className="h-8 w-8 text-white/90 animate-balance" />;
+        return (
+          <div className="animate-balance">
+            <Sword className="h-8 w-8 text-slate-300" />
+          </div>
+        );
       case "Pentacles":
-        return <Coins className="h-8 w-8 text-white/90 animate-spin-slow" />;
+        return (
+          <div className="animate-spin-slow">
+            <Coins className="h-8 w-8 text-emerald-300" />
+          </div>
+        );
       default:
         return null;
     }
   };
 
-  const getBackground = () => {
+  const CardFace = ({ isBack = false }: { isBack?: boolean }) => {
+    const baseClasses = "absolute w-full h-full rounded-xl border-2";
+    let bgClasses = "";
+    let borderClass = "";
+
     if (card.arcana === "major") {
-      return "bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50";
+      bgClasses = "bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900";
+      borderClass = "border-yellow-300/50";
+    } else {
+      switch (card.suit) {
+        case "Wands":
+          bgClasses = "bg-gradient-to-br from-orange-500 via-red-600 to-rose-700";
+          borderClass = "border-orange-300/50";
+          break;
+        case "Cups":
+          bgClasses = "bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800";
+          borderClass = "border-blue-300/50";
+          break;
+        case "Swords":
+          bgClasses = "bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800";
+          borderClass = "border-slate-300/50";
+          break;
+        case "Pentacles":
+          bgClasses = "bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900";
+          borderClass = "border-emerald-300/50";
+          break;
+        default:
+          bgClasses = "bg-gradient-to-br from-gray-700 to-gray-900";
+          borderClass = "border-gray-300/50";
+      }
     }
 
-    switch (card.suit) {
-      case "Wands":
-        return "bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50";
-      case "Cups":
-        return "bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50";
-      case "Swords":
-        return "bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50";
-      case "Pentacles":
-        return "bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50";
-      default:
-        return "bg-gradient-to-br from-gray-700 to-gray-900 border-gray-300/50";
-    }
-  };
-
-  const CardFace = ({ isBack = false }: { isBack?: boolean }) => (
-    <div 
-      className={`absolute w-full h-full rounded-xl border-2 ${getBackground()} overflow-hidden`}
-      style={{ 
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
-        transform: isBack ? "rotateY(180deg)" : "none"
-      }}
-    >
-      <div className="w-full h-full p-4 flex flex-col justify-between">
-        {!isBack && (
-          <h3 className="text-lg font-bold text-white text-center">
-            {card.name}
-          </h3>
-        )}
-        <div className="flex-1 flex items-center justify-center">
-          {getSymbol()}
+    return (
+      <div 
+        className={`${baseClasses} ${bgClasses} ${borderClass} overflow-hidden`}
+        style={{ 
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+          transform: isBack ? "rotateY(180deg)" : "none"
+        }}
+      >
+        <div className="w-full h-full p-4 flex flex-col justify-between">
+          {!isBack && (
+            <h3 className="text-lg font-bold text-white text-center">
+              {card.name}
+            </h3>
+          )}
+          <div className="flex-1 flex items-center justify-center">
+            {getSymbol()}
+          </div>
+          {!isBack && (
+            <p className="text-sm text-white/90 text-center">
+              {card.arcana === "major" ? "Major Arcana" : card.suit}
+            </p>
+          )}
         </div>
-        {!isBack && (
-          <p className="text-sm text-white/90 text-center">
-            {card.arcana === "major" ? "Major Arcana" : card.suit}
-          </p>
-        )}
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <motion.div
