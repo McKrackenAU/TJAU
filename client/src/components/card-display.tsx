@@ -28,27 +28,6 @@ const getCardSymbol = (card: TarotCard) => {
   }
 };
 
-const getCardAnimation = (card: TarotCard) => {
-  const baseClasses = "absolute inset-0 opacity-30 pointer-events-none";
-
-  if (card.arcana === "major") {
-    return `${baseClasses} animate-glow`;
-  }
-
-  switch (card.suit) {
-    case "Wands":
-      return `${baseClasses} animate-flame`;
-    case "Cups":
-      return `${baseClasses} animate-wave`;
-    case "Swords":
-      return `${baseClasses} animate-balance`;
-    case "Pentacles":
-      return `${baseClasses} animate-spin-slow`;
-    default:
-      return baseClasses;
-  }
-};
-
 const getCardBackground = (card: TarotCard) => {
   const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
 
@@ -104,14 +83,14 @@ export default function CardDisplay({
         >
           <div className={getCardBackground(card)}>
             <div className="flex flex-col h-full justify-between p-4 relative">
-              <div className={getCardAnimation(card)} />
+              <div className="absolute inset-0 opacity-30 pointer-events-none animate-glow" />
               <h3 className="text-lg font-bold text-white mb-1">{card.name}</h3>
               <div className="flex-1 flex items-center justify-center">
                 {getCardSymbol(card)}
               </div>
-              <div className="text-sm text-white/90">
+              <p className="text-sm text-white/90">
                 {card.arcana === "major" ? "Major Arcana" : card.suit}
-              </div>
+              </p>
             </div>
           </div>
         </div>
@@ -127,7 +106,7 @@ export default function CardDisplay({
         >
           <div className={getCardBackground(card)}>
             <div className="w-full h-full flex items-center justify-center p-4 relative">
-              <div className={getCardAnimation(card)} />
+              <div className="absolute inset-0 opacity-30 pointer-events-none animate-glow" />
               {getCardSymbol(card)}
             </div>
           </div>
