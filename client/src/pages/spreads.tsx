@@ -87,7 +87,7 @@ export default function Spreads() {
         </Select>
       </div>
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-xl text-foreground font-bold">
@@ -95,18 +95,18 @@ export default function Spreads() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-foreground text-base font-medium mb-8">
+            <p className="text-foreground text-base font-medium mb-12">
               {spread.description}
             </p>
 
-            <div className={`grid gap-y-12 gap-x-8 ${
+            <div className={`grid gap-y-24 gap-x-8 ${
               selectedSpread === "threeCard" 
                 ? "grid-cols-1 md:grid-cols-3" 
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-            } mb-8`}>
+            } mb-12`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="mb-4 w-64">
+                <div key={i} className="flex flex-col items-center relative pb-32">
+                  <div className="mb-8">
                     <CardDisplay
                       card={card}
                       isRevealed={isRevealed}
@@ -116,7 +116,7 @@ export default function Spreads() {
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
-                    <div className="mt-4 w-full">
+                    <div className="absolute top-full left-0 right-0 mt-4">
                       <AIInterpretation 
                         card={card}
                         context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}

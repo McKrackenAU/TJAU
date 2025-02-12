@@ -16,7 +16,7 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   return (
     <motion.div
-      className="w-64 h-96 relative cursor-pointer"
+      className="w-48 aspect-[2/3] relative cursor-pointer"
       whileHover={{ scale: 1.02 }}
       onClick={onClick}
     >
