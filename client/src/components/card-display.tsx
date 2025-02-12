@@ -17,34 +17,41 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   return (
     <motion.div
-      className="aspect-[2/3] w-full max-w-[300px] cursor-pointer perspective-1000"
+      className="w-full max-w-[300px] cursor-pointer"
       whileHover={{ scale: 1.02 }}
       onClick={onClick}
     >
-      <motion.div
-        className="relative w-full h-full"
-        initial={false}
-        animate={{ 
-          rotateY: isRevealed ? 0 : 180,
-          rotateZ: isReversed ? 180 : 0
-        }}
-        transition={{ duration: 0.6 }}
-        style={{ transformStyle: "preserve-3d" }}
-      >
-        {/* Front of card */}
-        <div 
-          className={`absolute w-full h-full ${isRevealed ? "backface-hidden" : ""}`}
+      <div className="relative w-full" style={{ paddingBottom: "150%" }}>
+        <motion.div
+          className="absolute inset-0"
+          initial={false}
+          animate={{ 
+            rotateY: isRevealed ? 0 : 180,
+            rotateZ: isReversed ? 180 : 0
+          }}
+          transition={{ duration: 0.6 }}
+          style={{ transformStyle: "preserve-3d" }}
         >
-          <CardImage card={card} isRevealed={true} />
-        </div>
+          {/* Front of card */}
+          <div 
+            className={`absolute inset-0 ${isRevealed ? "backface-hidden" : ""}`}
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            <CardImage card={card} isRevealed={true} />
+          </div>
 
-        {/* Back of card */}
-        <div 
-          className={`absolute w-full h-full ${!isRevealed ? "backface-hidden" : ""} rotateY-180`}
-        >
-          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80" />
-        </div>
-      </motion.div>
+          {/* Back of card */}
+          <div 
+            className={`absolute inset-0 ${!isRevealed ? "backface-hidden" : ""}`}
+            style={{ 
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)"
+            }}
+          >
+            <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80" />
+          </div>
+        </motion.div>
+      </div>
     </motion.div>
   );
 }
