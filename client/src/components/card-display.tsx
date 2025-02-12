@@ -16,52 +16,72 @@ export default function CardDisplay({
   onClick 
 }: CardDisplayProps) {
   const getSymbol = () => {
-    const symbolClass = "h-8 w-8";
-
     if (card.arcana === "major") {
       return (
-        <div className="animate-glow">
-          <Sun className={`${symbolClass} text-yellow-300`} />
+        <div className="relative w-12 h-12">
+          <Sun 
+            className="absolute inset-0 w-full h-full text-yellow-300"
+            style={{ animation: "glow 2s ease-in-out infinite" }}
+          />
         </div>
       );
     }
 
-    switch (card.suit) {
-      case "Wands":
-        return (
-          <div className="animate-flame">
-            <FlameKindling className={`${symbolClass} text-orange-300`} />
-          </div>
-        );
-      case "Cups":
-        return (
-          <div className="animate-wave">
-            <GlassWater className={`${symbolClass} text-blue-300`} />
-          </div>
-        );
-      case "Swords":
-        return (
-          <div className="animate-balance">
-            <Sword className={`${symbolClass} text-slate-300`} />
-          </div>
-        );
-      case "Pentacles":
-        return (
-          <div className="animate-spin-slow">
-            <Coins className={`${symbolClass} text-emerald-300`} />
-          </div>
-        );
-      default:
-        return (
-          <div className="animate-pulse">
-            <Moon className={`${symbolClass} text-gray-300`} />
-          </div>
-        );
+    if (card.arcana === "minor" && card.suit) {
+      const symbolClasses = "absolute inset-0 w-full h-full";
+
+      switch (card.suit) {
+        case "Wands":
+          return (
+            <div className="relative w-12 h-12">
+              <FlameKindling 
+                className={`${symbolClasses} text-orange-300`}
+                style={{ animation: "flame 1.5s ease-in-out infinite" }}
+              />
+            </div>
+          );
+        case "Cups":
+          return (
+            <div className="relative w-12 h-12">
+              <GlassWater 
+                className={`${symbolClasses} text-blue-300`}
+                style={{ animation: "wave 2s ease-in-out infinite" }}
+              />
+            </div>
+          );
+        case "Swords":
+          return (
+            <div className="relative w-12 h-12">
+              <Sword 
+                className={`${symbolClasses} text-slate-300`}
+                style={{ animation: "balance 2s ease-in-out infinite" }}
+              />
+            </div>
+          );
+        case "Pentacles":
+          return (
+            <div className="relative w-12 h-12">
+              <Coins 
+                className={`${symbolClasses} text-emerald-300`}
+                style={{ animation: "spin 4s linear infinite" }}
+              />
+            </div>
+          );
+      }
     }
+
+    return (
+      <div className="relative w-12 h-12">
+        <Moon 
+          className="absolute inset-0 w-full h-full text-gray-300"
+          style={{ animation: "pulse 2s ease-in-out infinite" }}
+        />
+      </div>
+    );
   };
 
-  const getCardStyles = () => {
-    const baseClasses = "absolute w-full h-full rounded-xl border-2 overflow-hidden";
+  const getCardBackground = () => {
+    const baseClasses = "w-full h-full rounded-xl border-2 overflow-hidden";
 
     if (card.arcana === "major") {
       return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
@@ -85,11 +105,14 @@ export default function CardDisplay({
 
   const CardFace = ({ isBack = false }: { isBack?: boolean }) => (
     <div 
-      className={getCardStyles()}
+      className={getCardBackground()}
       style={{ 
         backfaceVisibility: "hidden",
         WebkitBackfaceVisibility: "hidden",
-        transform: isBack ? "rotateY(180deg)" : "none"
+        transform: `${isBack ? "rotateY(180deg)" : "none"}`,
+        position: "absolute",
+        width: "100%",
+        height: "100%"
       }}
     >
       <div className="w-full h-full p-4 flex flex-col justify-between">
