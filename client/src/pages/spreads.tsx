@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { spreads } from "@shared/tarot-data";
-import CardDisplay from "@/components/card-display";
+import CardImage from "@/components/card-image";
 import AIInterpretation from "@/components/ai-interpretation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -91,12 +91,12 @@ export default function Spreads() {
       <div className="grid gap-8">
         <Card className="bg-card">
           <CardHeader>
-            <CardTitle className="text-xl text-card-foreground font-bold">
+            <CardTitle className="text-xl text-foreground font-bold">
               {spread.name}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-card-foreground/90 text-base font-medium mb-8">
+            <p className="text-foreground text-base font-medium mb-8">
               {spread.description}
             </p>
 
@@ -105,12 +105,11 @@ export default function Spreads() {
             }`}>
               {spreadCards.map((card, i) => (
                 <div key={i} className="flex flex-col items-center gap-4">
-                  <CardDisplay
+                  <CardImage
                     card={card}
                     isRevealed={isRevealed}
-                    onClick={() => setIsRevealed(true)}
                   />
-                  <span className="text-sm font-bold text-white bg-primary/20 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm">
+                  <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full">
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
