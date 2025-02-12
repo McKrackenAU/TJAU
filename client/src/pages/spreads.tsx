@@ -124,7 +124,7 @@ export default function Spreads() {
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
-                    <div className="absolute top-full left-0 right-0 mt-4">
+                    <div className="absolute top-full left-0 right-0 mt-4 space-y-4">
                       <AIInterpretation 
                         card={card}
                         context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
@@ -137,7 +137,7 @@ export default function Spreads() {
             </div>
 
             {isRevealed && (
-              <div className="mt-8">
+              <div className="mt-24">
                 <Textarea
                   placeholder="Add your reflections on this spread..."
                   value={notes}
