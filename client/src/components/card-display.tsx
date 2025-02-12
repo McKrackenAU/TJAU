@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { TarotCard } from "@shared/tarot-data";
-import CardImage from "./card-image";
 
 interface CardDisplayProps {
   card: TarotCard;
@@ -21,36 +20,18 @@ export default function CardDisplay({
       whileHover={{ scale: 1.02 }}
       onClick={onClick}
     >
-      <div className="relative w-full" style={{ paddingBottom: "150%" }}>
-        <motion.div
-          className="absolute inset-0"
-          initial={false}
-          animate={{ 
-            rotateY: isRevealed ? 0 : 180,
-            rotateZ: isReversed ? 180 : 0
-          }}
-          transition={{ duration: 0.6 }}
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          {/* Front of card */}
-          <div 
-            className={`absolute inset-0 ${isRevealed ? "backface-hidden" : ""}`}
-            style={{ backfaceVisibility: "hidden" }}
-          >
-            <CardImage card={card} isRevealed={true} />
-          </div>
+      <div className="w-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 to-primary/10">
+        <div className="relative pt-[150%]">
+          <div className="absolute inset-0 p-4 flex flex-col items-center justify-between">
+            {/* Card Title */}
+            <h3 className="text-lg font-semibold text-center">{card.name}</h3>
 
-          {/* Back of card */}
-          <div 
-            className={`absolute inset-0 ${!isRevealed ? "backface-hidden" : ""}`}
-            style={{ 
-              backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)"
-            }}
-          >
-            <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80" />
+            {/* Card Type */}
+            <div className="text-sm text-muted-foreground">
+              {card.arcana === "major" ? "Major Arcana" : card.suit}
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
