@@ -18,7 +18,6 @@ export default function Spreads() {
   const [notes, setNotes] = useState("");
   const { toast } = useToast();
 
-  // Fetch all cards including imported ones
   const { data: cards, isLoading } = useQuery({
     queryKey: ["/api/cards"],
   });
@@ -100,14 +99,14 @@ export default function Spreads() {
               {spread.description}
             </p>
 
-            <div className={`grid gap-8 ${
+            <div className={`grid gap-y-12 gap-x-8 ${
               selectedSpread === "threeCard" 
                 ? "grid-cols-1 md:grid-cols-3" 
-                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-5"
-            }`}>
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+            } mb-8`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center gap-4">
-                  <div className="w-64 h-96">
+                <div key={i} className="flex flex-col items-center">
+                  <div className="mb-4 w-64">
                     <CardDisplay
                       card={card}
                       isRevealed={isRevealed}
@@ -117,20 +116,20 @@ export default function Spreads() {
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
-                    <>
+                    <div className="mt-4 w-full">
                       <AIInterpretation 
                         card={card}
                         context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
                       />
                       <MeditationPlayer card={card} />
-                    </>
+                    </div>
                   )}
                 </div>
               ))}
             </div>
 
             <Button
-              className="w-full mt-8"
+              className="w-full"
               onClick={() => setIsRevealed(true)}
               disabled={isRevealed || spreadCards.length === 0}
             >
