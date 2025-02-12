@@ -52,7 +52,11 @@ export default function CardDisplay({
           </div>
         );
       default:
-        return null;
+        return (
+          <div className="animate-pulse">
+            <Moon className={`${symbolClass} text-gray-300`} />
+          </div>
+        );
     }
   };
 
@@ -63,18 +67,20 @@ export default function CardDisplay({
       return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
     }
 
-    switch (card.suit) {
-      case "Wands":
-        return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
-      case "Cups":
-        return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
-      case "Swords":
-        return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
-      case "Pentacles":
-        return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
-      default:
-        return `${baseClasses} bg-gradient-to-br from-gray-700 to-gray-900 border-gray-300/50`;
+    if (card.arcana === "minor" && card.suit) {
+      switch (card.suit) {
+        case "Wands":
+          return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
+        case "Cups":
+          return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
+        case "Swords":
+          return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
+        case "Pentacles":
+          return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
+      }
     }
+
+    return `${baseClasses} bg-gradient-to-br from-gray-700 to-gray-900 border-gray-300/50`;
   };
 
   const CardFace = ({ isBack = false }: { isBack?: boolean }) => (
