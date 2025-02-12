@@ -107,24 +107,24 @@ export default function Spreads() {
               Reveal Cards
             </Button>
 
-            <div className={`grid gap-y-24 gap-x-8 ${
+            <div className={`grid gap-8 ${
               selectedSpread === "threeCard" 
                 ? "grid-cols-1 md:grid-cols-3" 
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center relative pb-64">
-                  <div className="mb-8">
+                <div key={i} className="flex flex-col items-center">
+                  <div className="mb-4">
                     <CardDisplay
                       card={card}
                       isRevealed={isRevealed}
                     />
                   </div>
-                  <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full">
+                  <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full mb-4">
                     {spread.positions[i]}
                   </span>
                   {isRevealed && card && (
-                    <div className="absolute top-full left-0 right-0 mt-4 space-y-8">
+                    <div className="space-y-4 w-full">
                       <AIInterpretation 
                         card={card}
                         context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
@@ -137,7 +137,7 @@ export default function Spreads() {
             </div>
 
             {isRevealed && (
-              <div className="mt-32">
+              <div className="mt-8">
                 <Textarea
                   placeholder="Add your reflections on this spread..."
                   value={notes}
