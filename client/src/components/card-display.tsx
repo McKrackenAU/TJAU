@@ -50,6 +50,27 @@ const getCardAnimation = (card: TarotCard) => {
   }
 };
 
+const getCardBackground = (card: TarotCard) => {
+  const baseClasses = "w-full h-full rounded-xl border-2 border-primary/20 overflow-hidden";
+
+  if (card.arcana === "major") {
+    return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
+  }
+
+  switch (card.suit) {
+    case "Wands":
+      return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
+    case "Cups":
+      return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
+    case "Swords":
+      return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
+    case "Pentacles":
+      return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
+    default:
+      return `${baseClasses} bg-gradient-to-br from-primary/20 to-primary/10`;
+  }
+};
+
 export default function CardDisplay({ 
   card, 
   isRevealed = true, 
@@ -76,20 +97,20 @@ export default function CardDisplay({
       >
         {/* Front of card */}
         <div 
-          className="absolute w-full h-full rounded-xl"
+          className="absolute w-full h-full"
           style={{ 
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden"
           }}
         >
-          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 to-primary/10 p-4 overflow-hidden">
-            <div className="flex flex-col h-full justify-between relative">
+          <div className={getCardBackground(card)}>
+            <div className="flex flex-col h-full justify-between p-4 relative">
               <div className={getCardAnimation(card)} />
-              <h3 className="text-lg font-semibold text-center">{card.name}</h3>
+              <h3 className="text-lg font-semibold text-center text-primary-foreground">{card.name}</h3>
               <div className="flex-1 flex items-center justify-center">
                 {getCardSymbol(card)}
               </div>
-              <div className="text-sm text-center text-muted-foreground">
+              <div className="text-sm text-center text-primary-foreground/80">
                 {card.arcana === "major" ? "Major Arcana" : card.suit}
               </div>
             </div>
@@ -98,18 +119,17 @@ export default function CardDisplay({
 
         {/* Back of card */}
         <div 
-          className="absolute w-full h-full rounded-xl"
+          className="absolute w-full h-full"
           style={{ 
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)"
           }}
         >
-          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80 p-4">
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-4xl text-primary-foreground opacity-50 animate-twinkle">
-                ✧
-              </div>
+          <div className={getCardBackground(card)}>
+            <div className="w-full h-full flex items-center justify-center p-4 relative">
+              <div className={getCardAnimation(card)} />
+              {getCardSymbol(card)}
             </div>
           </div>
         </div>
