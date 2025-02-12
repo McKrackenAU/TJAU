@@ -14,129 +14,214 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     );
   }
 
-  // Generate a consistent background color based on the card's properties
-  const getCardColor = () => {
+  // Generate main background based on card type
+  const getCardBackground = () => {
     if (card.arcana === "major") {
-      return "bg-gradient-to-br from-purple-600 to-purple-800";
+      // Major Arcana: Rich, celestial patterns
+      return "bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900";
     }
+
+    // Minor Arcana: Suit-specific backgrounds
     switch (card.suit) {
-      case "Wands": return "bg-gradient-to-br from-orange-500 to-red-600";
-      case "Cups": return "bg-gradient-to-br from-blue-400 to-blue-600";
-      case "Swords": return "bg-gradient-to-br from-slate-400 to-slate-600";
-      case "Pentacles": return "bg-gradient-to-br from-emerald-500 to-emerald-700";
-      default: return "bg-gradient-to-br from-indigo-500 to-indigo-700";
+      case "Wands":
+        return "bg-gradient-to-br from-orange-500 via-red-600 to-rose-700";
+      case "Cups":
+        return "bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800";
+      case "Swords":
+        return "bg-gradient-to-br from-slate-400 via-slate-600 to-slate-800";
+      case "Pentacles":
+        return "bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900";
+      default:
+        // Custom cards: Mystical patterns
+        return "bg-gradient-to-br from-indigo-500 via-purple-600 to-purple-900";
     }
   };
 
-  // Generate decorative patterns based on the card type
-  const getPattern = () => {
-    const basePattern = "absolute inset-0 mix-blend-soft-light opacity-10";
+  // Generate decorative overlays based on card type
+  const getCardOverlay = () => {
     if (card.arcana === "major") {
       return (
-        <div className={`${basePattern} bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(255,255,255,0.2)_100%)] bg-[length:50%_50%]`}></div>
+        <>
+          {/* Celestial pattern */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_30%,_rgba(255,255,255,0.1)_70%)] opacity-50"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.2)_1px,_transparent_1px)] bg-[size:10px_10px] opacity-30"></div>
+          {/* Sacred geometry elements */}
+          <div className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0deg_60deg,rgba(255,255,255,0.1)_60deg_120deg,transparent_120deg_180deg,rgba(255,255,255,0.1)_180deg_240deg,transparent_240deg_300deg,rgba(255,255,255,0.1)_300deg_360deg)]"></div>
+        </>
       );
     }
+
     switch (card.suit) {
       case "Wands":
-        return <div className={`${basePattern} bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.1)_10px,rgba(255,255,255,0.1)_20px)]`}></div>;
+        return (
+          <>
+            {/* Flames and energy patterns */}
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_15px,rgba(255,165,0,0.1)_15px,rgba(255,165,0,0.1)_30px)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,69,0,0.2),transparent_70%)]"></div>
+          </>
+        );
       case "Cups":
-        return <div className={`${basePattern} bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.2),transparent_70%)]`}></div>;
+        return (
+          <>
+            {/* Water ripples and flows */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_120%,rgba(135,206,235,0.3),transparent_70%)]"></div>
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_20px,rgba(255,255,255,0.05)_20px,rgba(255,255,255,0.05)_40px)]"></div>
+          </>
+        );
       case "Swords":
-        return <div className={`${basePattern} bg-[repeating-linear-gradient(-45deg,transparent,transparent_15px,rgba(255,255,255,0.1)_15px,rgba(255,255,255,0.1)_30px)]`}></div>;
+        return (
+          <>
+            {/* Sharp angles and metallic gleams */}
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,transparent,transparent_10px,rgba(255,255,255,0.1)_10px,rgba(255,255,255,0.1)_20px)]"></div>
+            <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_45%,rgba(255,255,255,0.2)_50%,transparent_55%)]"></div>
+          </>
+        );
       case "Pentacles":
-        return <div className={`${basePattern} bg-[repeating-conic-gradient(from_0deg,rgba(255,255,255,0.1)_0deg_30deg,transparent_30deg_360deg)]`}></div>;
+        return (
+          <>
+            {/* Earth and crystal patterns */}
+            <div className="absolute inset-0 bg-[repeating-conic-gradient(from_0deg,rgba(255,255,255,0.1)_0deg_30deg,transparent_30deg_60deg)]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(255,255,255,0.2),transparent_30%)]"></div>
+          </>
+        );
       default:
-        return <div className={`${basePattern} bg-[linear-gradient(120deg,transparent,rgba(255,255,255,0.1),transparent)]`}></div>;
+        // Custom cards: Mystical and ethereal patterns
+        return (
+          <>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(255,255,255,0.1)_80%)]"></div>
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(60deg,transparent,transparent_20px,rgba(255,255,255,0.05)_20px,rgba(255,255,255,0.05)_40px)]"></div>
+          </>
+        );
     }
   };
 
-  // Get card-specific symbol
-  const getCardSymbol = () => {
-    // Major Arcana specific symbols
-    if (card.arcana === "major") {
-      if (card.name.includes("Fool")) return "🎭";
-      if (card.name.includes("Magician")) return "🎯";
-      if (card.name.includes("Priestess")) return "🌙";
-      if (card.name.includes("Empress")) return "👑";
-      if (card.name.includes("Emperor")) return "⚔️";
-      if (card.name.includes("Hierophant")) return "🏛️";
-      if (card.name.includes("Lovers")) return "💕";
-      if (card.name.includes("Chariot")) return "🏃";
-      if (card.name.includes("Strength")) return "🦁";
-      if (card.name.includes("Hermit")) return "🏮";
-      if (card.name.includes("Wheel")) return "🎡";
-      if (card.name.includes("Justice")) return "⚖️";
-      if (card.name.includes("Hanged")) return "🎗️";
-      if (card.name.includes("Death")) return "🦋";
-      if (card.name.includes("Temperance")) return "⚱️";
-      if (card.name.includes("Devil")) return "⛓️";
-      if (card.name.includes("Tower")) return "🗼";
-      if (card.name.includes("Star")) return "⭐";
-      if (card.name.includes("Moon")) return "🌕";
-      if (card.name.includes("Sun")) return "☀️";
-      if (card.name.includes("Judgement")) return "📯";
-      if (card.name.includes("World")) return "🌍";
-      return "✨";
-    }
+  // Get card-specific art elements
+  const getCardArt = () => {
+    // Add SVG art elements based on card type and name
+    return (
+      <div className="absolute inset-0 flex items-center justify-center opacity-20">
+        {/* Major Arcana specific art */}
+        {card.arcana === "major" && (
+          <>
+            {/* Central mandala pattern */}
+            <div className="absolute inset-0 [mask-image:radial-gradient(circle_at_center,white,transparent)]">
+              <div className="absolute inset-0 animate-[spin_60s_linear_infinite]">
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute inset-0 origin-center"
+                    style={{
+                      transform: `rotate(${i * 45}deg)`,
+                    }}
+                  >
+                    <div className="absolute top-1/2 left-1/2 h-1/2 w-[1px] bg-white/30 origin-top"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-    // Minor Arcana symbols based on suit and rank
-    switch (card.suit) {
-      case "Wands":
-        return card.name.toLowerCase().includes("ace") ? "🔥" :
-          card.name.toLowerCase().includes("king") ? "👑" :
-          card.name.toLowerCase().includes("queen") ? "👸" :
-          card.name.toLowerCase().includes("knight") ? "🏇" :
-          card.name.toLowerCase().includes("page") ? "🎭" :
-          "🌟";
-      case "Cups":
-        return card.name.toLowerCase().includes("ace") ? "🌊" :
-          card.name.toLowerCase().includes("king") ? "👑" :
-          card.name.toLowerCase().includes("queen") ? "👸" :
-          card.name.toLowerCase().includes("knight") ? "🏇" :
-          card.name.toLowerCase().includes("page") ? "🎭" :
-          "💧";
-      case "Swords":
-        return card.name.toLowerCase().includes("ace") ? "⚔️" :
-          card.name.toLowerCase().includes("king") ? "👑" :
-          card.name.toLowerCase().includes("queen") ? "👸" :
-          card.name.toLowerCase().includes("knight") ? "🏇" :
-          card.name.toLowerCase().includes("page") ? "🎭" :
-          "🗡️";
-      case "Pentacles":
-        return card.name.toLowerCase().includes("ace") ? "💎" :
-          card.name.toLowerCase().includes("king") ? "👑" :
-          card.name.toLowerCase().includes("queen") ? "👸" :
-          card.name.toLowerCase().includes("knight") ? "🏇" :
-          card.name.toLowerCase().includes("page") ? "🎭" :
-          "💫";
-      default:
-        // Custom cards get special symbols based on their names
-        if (card.name.toLowerCase().includes("element")) {
-          if (card.name.includes("Air")) return "💨";
-          if (card.name.includes("Earth")) return "🌱";
-          if (card.name.includes("Fire")) return "🔥";
-          if (card.name.includes("Water")) return "💧";
-        }
-        if (card.name.includes("Divine")) return "🕊️";
-        if (card.name.includes("Cosmic")) return "🌌";
-        if (card.name.includes("Spirit")) return "👻";
-        if (card.name.includes("Sacred")) return "🔮";
-        return "✨";
-    }
-  };
+            {/* Additional geometric elements based on card meaning */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className={`w-32 h-32 border-2 border-white/20 rounded-full 
+                ${card.name.includes('Sun') ? 'bg-yellow-500/10' : 
+                  card.name.includes('Moon') ? 'bg-blue-500/10' : 
+                  card.name.includes('Star') ? 'bg-purple-500/10' : 
+                  'bg-white/5'}`}>
+              </div>
+            </div>
+          </>
+        )}
 
-  // Get border decoration based on the card type
-  const getDecorations = () => {
-    if (card.arcana === "major") {
-      return "border-4 border-yellow-300/30";
-    }
-    return "border-2 border-white/20";
+        {/* Minor Arcana art based on suit */}
+        {card.suit === "Wands" && (
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Flame-like patterns */}
+            {[...Array(6)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-16 h-24 bg-orange-500/10"
+                style={{
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  transform: `rotate(${Math.random() * 360}deg)`,
+                  clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
+                }}
+              />
+            ))}
+          </div>
+        )}
+
+        {card.suit === "Cups" && (
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Water ripple effects */}
+            {[...Array(5)].map((_, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full border border-blue-300/20 animate-[ripple_4s_ease-out_infinite]"
+                style={{
+                  width: `${(i + 1) * 20}%`,
+                  height: `${(i + 1) * 20}%`,
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  animationDelay: `${i * 0.5}s`,
+                }}
+              />
+            ))}
+          </div>
+        )}
+
+        {card.suit === "Swords" && (
+          <div className="absolute inset-0">
+            {/* Crossed swords pattern */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              {[...Array(4)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute h-48 w-[2px] bg-white/20"
+                  style={{
+                    transform: `rotate(${i * 45}deg)`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {card.suit === "Pentacles" && (
+          <div className="absolute inset-0">
+            {/* Sacred geometry pentacle */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-32 h-32">
+                {[...Array(5)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-full h-full origin-center"
+                    style={{
+                      transform: `rotate(${i * 72}deg)`,
+                    }}
+                  >
+                    <div className="absolute top-0 left-1/2 w-[1px] h-1/2 bg-white/20" />
+                  </div>
+                ))}
+                <div className="absolute inset-0 border-2 border-white/20 rounded-full" />
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
   };
 
   return (
-    <div className={`relative w-full aspect-[2/3] ${getCardColor()} ${getDecorations()} rounded-lg p-4 flex flex-col items-center justify-between text-white shadow-lg overflow-hidden`}>
-      {getPattern()}
-      <div className="text-4xl drop-shadow-lg">{getCardSymbol()}</div>
+    <div className={`relative w-full aspect-[2/3] ${getCardBackground()} rounded-lg p-4 flex flex-col items-center justify-between text-white shadow-lg overflow-hidden`}>
+      {/* Background patterns and decorative elements */}
+      {getCardOverlay()}
+
+      {/* Card-specific art */}
+      {getCardArt()}
+
+      {/* Card title and type */}
       <div className="text-center z-10">
         <h3 className="font-bold text-lg mb-2 drop-shadow-md">{card.name}</h3>
         {(card.arcana === "major" || card.suit) && (
@@ -145,7 +230,6 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           </div>
         )}
       </div>
-      <div className="text-4xl transform rotate-180 drop-shadow-lg">{getCardSymbol()}</div>
     </div>
   );
 }
