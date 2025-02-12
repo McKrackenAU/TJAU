@@ -15,8 +15,16 @@ export default function CardDisplay({
   isReversed = false,
   onClick 
 }: CardDisplayProps) {
+  console.log("CardDisplay rendering with card:", {
+    id: card.id,
+    name: card.name,
+    arcana: card.arcana,
+    suit: card.suit
+  });
+
   const getSymbol = () => {
     const symbolClasses = "w-12 h-12 transition-all duration-300";
+    console.log("Getting symbol for card type:", card.arcana, "suit:", card.suit);
 
     // For Major Arcana
     if (card.arcana === "major") {
@@ -30,9 +38,9 @@ export default function CardDisplay({
     }
 
     // For Minor Arcana
-    if (card.suit) {
-      switch (card.suit) {
-        case "Wands":
+    if (card.arcana === "minor" && card.suit) {
+      switch (card.suit.toLowerCase()) {
+        case "wands":
           return (
             <div className="relative">
               <FlameKindling 
@@ -40,7 +48,7 @@ export default function CardDisplay({
               />
             </div>
           );
-        case "Cups":
+        case "cups":
           return (
             <div className="relative">
               <GlassWater 
@@ -48,7 +56,7 @@ export default function CardDisplay({
               />
             </div>
           );
-        case "Swords":
+        case "swords":
           return (
             <div className="relative">
               <Sword 
@@ -56,11 +64,11 @@ export default function CardDisplay({
               />
             </div>
           );
-        case "Pentacles":
+        case "pentacles":
           return (
             <div className="relative">
               <Coins 
-                className={`${symbolClasses} text-emerald-400 animate-spin`}
+                className={`${symbolClasses} text-emerald-400 animate-spin-slow`}
               />
             </div>
           );
@@ -82,51 +90,21 @@ export default function CardDisplay({
       return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
     }
 
-    if (card.suit) {
-      switch (card.suit) {
-        case "Wands":
+    if (card.arcana === "minor" && card.suit) {
+      switch (card.suit.toLowerCase()) {
+        case "wands":
           return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
-        case "Cups":
+        case "cups":
           return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
-        case "Swords":
+        case "swords":
           return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
-        case "Pentacles":
+        case "pentacles":
           return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
       }
     }
 
     return `${baseClasses} bg-gradient-to-br from-gray-700 to-gray-900 border-gray-300/50`;
   };
-
-  const CardFace = ({ isBack = false }) => (
-    <div 
-      className={getCardClasses()}
-      style={{ 
-        backfaceVisibility: "hidden",
-        WebkitBackfaceVisibility: "hidden",
-        transform: isBack ? "rotateY(180deg)" : "none",
-        position: "absolute",
-        width: "100%",
-        height: "100%"
-      }}
-    >
-      <div className="w-full h-full p-4 flex flex-col justify-between items-center">
-        {!isBack && (
-          <h3 className="text-lg font-bold text-white/90 text-center">
-            {card.name}
-          </h3>
-        )}
-        <div className="flex-1 flex items-center justify-center">
-          {getSymbol()}
-        </div>
-        {!isBack && (
-          <p className="text-sm text-white/80 text-center">
-            {card.arcana === "major" ? "Major Arcana" : card.suit}
-          </p>
-        )}
-      </div>
-    </div>
-  );
 
   return (
     <motion.div
@@ -143,8 +121,45 @@ export default function CardDisplay({
         }}
         transition={{ duration: 0.6 }}
       >
-        <CardFace />
-        <CardFace isBack={true} />
+        <div 
+          className={getCardClasses()}
+          style={{ 
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(0deg)",
+            position: "absolute",
+            width: "100%",
+            height: "100%"
+          }}
+        >
+          <div className="w-full h-full p-4 flex flex-col justify-between items-center">
+            <h3 className="text-lg font-bold text-white/90 text-center">
+              {card.name}
+            </h3>
+            <div className="flex-1 flex items-center justify-center">
+              {getSymbol()}
+            </div>
+            <p className="text-sm text-white/80 text-center">
+              {card.arcana === "major" ? "Major Arcana" : card.suit}
+            </p>
+          </div>
+        </div>
+
+        <div 
+          className={getCardClasses()}
+          style={{ 
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+            position: "absolute",
+            width: "100%",
+            height: "100%"
+          }}
+        >
+          <div className="w-full h-full p-4 flex items-center justify-center">
+            {getSymbol()}
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   );
