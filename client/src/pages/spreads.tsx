@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { spreads } from "@shared/tarot-data";
-import CardImage from "@/components/card-image";
+import CardDisplay from "@/components/card-display";
 import AIInterpretation from "@/components/ai-interpretation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -101,14 +101,16 @@ export default function Spreads() {
             </p>
 
             <div className={`grid gap-6 ${
-              selectedSpread === "threeCard" ? "grid-cols-3" : "grid-cols-2 md:grid-cols-5"
+              selectedSpread === "threeCard" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1 md:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
                 <div key={i} className="flex flex-col items-center gap-4">
-                  <CardImage
-                    card={card}
-                    isRevealed={isRevealed}
-                  />
+                  <div className="w-full max-w-[200px]">
+                    <CardDisplay
+                      card={card}
+                      isRevealed={isRevealed}
+                    />
+                  </div>
                   <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full">
                     {spread.positions[i]}
                   </span>
