@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { TarotCard } from "@shared/tarot-data";
+import { Sun, Moon, Sword, Coins, FlameKindling, GlassWater } from "lucide-react";
 
 interface CardDisplayProps {
   card: TarotCard;
@@ -7,6 +8,47 @@ interface CardDisplayProps {
   isReversed?: boolean;
   onClick?: () => void;
 }
+
+const getCardSymbol = (card: TarotCard) => {
+  if (card.arcana === "major") {
+    return <Sun className="h-8 w-8 text-primary-foreground/70" />;
+  }
+
+  switch (card.suit) {
+    case "Wands":
+      return <FlameKindling className="h-8 w-8 text-primary-foreground/70 animate-flame" />;
+    case "Cups":
+      return <GlassWater className="h-8 w-8 text-primary-foreground/70 animate-wave" />;
+    case "Swords":
+      return <Sword className="h-8 w-8 text-primary-foreground/70 animate-balance" />;
+    case "Pentacles":
+      return <Coins className="h-8 w-8 text-primary-foreground/70 animate-spin-slow" />;
+    default:
+      return <Moon className="h-8 w-8 text-primary-foreground/70" />;
+  }
+};
+
+const getCardAnimation = (card: TarotCard) => {
+  // Animation classes based on card meanings or attributes
+  const baseClasses = "absolute inset-0 opacity-30 pointer-events-none";
+
+  if (card.arcana === "major") {
+    return `${baseClasses} animate-glow`;
+  }
+
+  switch (card.suit) {
+    case "Wands":
+      return `${baseClasses} animate-flame`;
+    case "Cups":
+      return `${baseClasses} animate-wave`;
+    case "Swords":
+      return `${baseClasses} animate-balance`;
+    case "Pentacles":
+      return `${baseClasses} animate-spin-slow`;
+    default:
+      return baseClasses;
+  }
+};
 
 export default function CardDisplay({ 
   card, 
@@ -40,13 +82,12 @@ export default function CardDisplay({
             WebkitBackfaceVisibility: "hidden"
           }}
         >
-          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 to-primary/10 p-4">
-            <div className="flex flex-col h-full justify-between">
+          <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/20 to-primary/10 p-4 overflow-hidden">
+            <div className="flex flex-col h-full justify-between relative">
+              <div className={getCardAnimation(card)} />
               <h3 className="text-lg font-semibold text-center">{card.name}</h3>
               <div className="flex-1 flex items-center justify-center">
-                <div className="text-4xl opacity-50">
-                  {card.arcana === "major" ? "★" : "♦"}
-                </div>
+                {getCardSymbol(card)}
               </div>
               <div className="text-sm text-center text-muted-foreground">
                 {card.arcana === "major" ? "Major Arcana" : card.suit}
@@ -66,7 +107,7 @@ export default function CardDisplay({
         >
           <div className="w-full h-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary to-primary/80 p-4">
             <div className="w-full h-full flex items-center justify-center">
-              <div className="text-4xl text-primary-foreground opacity-50">
+              <div className="text-4xl text-primary-foreground opacity-50 animate-twinkle">
                 ✧
               </div>
             </div>
