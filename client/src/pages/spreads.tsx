@@ -88,7 +88,7 @@ export default function Spreads() {
         </Select>
       </div>
 
-      <div className="grid gap-8">
+      <div className="max-w-6xl mx-auto">
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-xl text-foreground font-bold">
@@ -100,12 +100,14 @@ export default function Spreads() {
               {spread.description}
             </p>
 
-            <div className={`grid gap-6 ${
-              selectedSpread === "threeCard" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1 md:grid-cols-5"
+            <div className={`grid gap-8 ${
+              selectedSpread === "threeCard" 
+                ? "grid-cols-1 md:grid-cols-3" 
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
                 <div key={i} className="flex flex-col items-center gap-4">
-                  <div className="w-full max-w-[200px]">
+                  <div className="w-64 h-96">
                     <CardDisplay
                       card={card}
                       isRevealed={isRevealed}
