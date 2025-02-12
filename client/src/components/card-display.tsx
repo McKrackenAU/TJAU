@@ -29,7 +29,6 @@ const getCardSymbol = (card: TarotCard) => {
 };
 
 const getCardAnimation = (card: TarotCard) => {
-  // Animation classes based on card meanings or attributes
   const baseClasses = "absolute inset-0 opacity-30 pointer-events-none";
 
   if (card.arcana === "major") {
@@ -51,7 +50,7 @@ const getCardAnimation = (card: TarotCard) => {
 };
 
 const getCardBackground = (card: TarotCard) => {
-  const baseClasses = "w-full h-full rounded-xl border-2 border-primary/20 overflow-hidden";
+  const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
 
   if (card.arcana === "major") {
     return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
@@ -67,7 +66,7 @@ const getCardBackground = (card: TarotCard) => {
     case "Pentacles":
       return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
     default:
-      return `${baseClasses} bg-gradient-to-br from-primary/20 to-primary/10`;
+      return baseClasses;
   }
 };
 
@@ -106,11 +105,11 @@ export default function CardDisplay({
           <div className={getCardBackground(card)}>
             <div className="flex flex-col h-full justify-between p-4 relative">
               <div className={getCardAnimation(card)} />
-              <h3 className="text-lg font-semibold text-center text-primary-foreground">{card.name}</h3>
+              <h3 className="text-lg font-bold text-white mb-1">{card.name}</h3>
               <div className="flex-1 flex items-center justify-center">
                 {getCardSymbol(card)}
               </div>
-              <div className="text-sm text-center text-primary-foreground/80">
+              <div className="text-sm text-white/90">
                 {card.arcana === "major" ? "Major Arcana" : card.suit}
               </div>
             </div>
