@@ -14,226 +14,166 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     );
   }
 
-  // Get base background gradient
-  const getBaseBackground = () => {
+  const getCardBorderAndBackground = () => {
+    const baseClasses = "w-full aspect-[2/3] rounded-lg relative overflow-hidden shadow-xl";
+
     if (card.arcana === "major") {
-      return "bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900";
+      return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-2 border-yellow-300/50`;
     }
+
     switch (card.suit) {
       case "Wands":
-        return "bg-gradient-to-br from-orange-500 via-red-600 to-rose-700";
+        return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border border-orange-300/50`;
       case "Cups":
-        return "bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800";
+        return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border border-blue-300/50`;
       case "Swords":
-        return "bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800";
+        return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border border-slate-300/50`;
       case "Pentacles":
-        return "bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900";
+        return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border border-emerald-300/50`;
       default:
-        return "bg-gradient-to-br from-fuchsia-500 via-purple-600 to-purple-900";
+        return `${baseClasses} bg-gradient-to-br from-fuchsia-500 via-purple-600 to-purple-900 border border-purple-300/50`;
     }
   };
 
-  // Get card-specific imagery
-  const getCardImagery = () => {
-    // Major Arcana imagery
-    if (card.arcana === "major") {
-      const name = card.name.toLowerCase();
-
-      // Sun imagery
-      if (name.includes('sun')) {
-        return (
-          <div className="absolute inset-4 flex items-center justify-center">
-            {/* Central sun orb */}
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bg-yellow-500/80 rounded-full animate-pulse"></div>
-              <div className="absolute inset-2 bg-yellow-300/90 rounded-full"></div>
-              {/* Sun rays */}
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-4 h-48 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-t from-yellow-400/80 to-transparent"
-                  style={{ transform: `rotate(${i * 30}deg)` }}
-                ></div>
-              ))}
-            </div>
-          </div>
-        );
-      }
-
-      // Moon imagery
-      if (name.includes('moon')) {
-        return (
-          <div className="absolute inset-4 flex items-center justify-center overflow-hidden">
-            {/* Moon */}
-            <div className="relative w-full h-full">
-              <div className="absolute inset-0 bg-blue-200/80 rounded-full"></div>
-              <div className="absolute -right-1/4 inset-y-0 w-full bg-blue-900/90 rounded-full"></div>
-              {/* Stars */}
-              {[...Array(12)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2"
-                  style={{
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 75}%`,
-                  }}
-                >
-                  <div className="w-full h-full bg-white/90 rounded-full animate-[twinkle_2s_ease-in-out_infinite]"></div>
-                  <div className="absolute inset-0 bg-white/50 rounded-full animate-ping"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
-      }
-
-      // Default Major Arcana imagery
-      return (
-        <div className="absolute inset-4 flex items-center justify-center overflow-hidden">
-          {/* Sacred geometry pattern */}
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 border-8 border-white/40 rounded-full animate-[spin_30s_linear_infinite]"></div>
-            {[...Array(6)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute inset-0 border-4 border-white/30"
-                style={{
-                  transform: `rotate(${i * 60}deg)`,
-                  clipPath: 'polygon(50% 0%, 100% 100%, 0% 100%)',
-                }}
-              ></div>
-            ))}
-            {/* Center point */}
-            <div className="absolute w-8 h-8 bg-white/80 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-          </div>
-        </div>
-      );
-    }
-
-    // Minor Arcana imagery
+  const getSuitSymbol = () => {
     switch (card.suit) {
       case "Wands":
         return (
-          <div className="absolute inset-4 flex items-center justify-center">
-            {/* Central wand */}
-            <div className="relative w-8 h-64 bg-gradient-to-b from-orange-300/90 to-red-600/90 rounded-full shadow-[0_0_30px_rgba(255,165,0,0.5)]">
-              {/* Magic sparkles */}
-              {[...Array(8)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-16 h-16"
-                  style={{
-                    top: `${Math.random() * 100}%`,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                  }}
-                >
-                  <div className="w-full h-full bg-yellow-400/70 rounded-full animate-ping"></div>
-                </div>
-              ))}
-            </div>
-            {/* Energy aura */}
-            <div className="absolute inset-0 bg-gradient-to-t from-orange-500/50 to-transparent rounded-full animate-pulse"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-32 h-48 text-yellow-400/90" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="11" y="2" width="2" height="20" rx="1" />
+              <rect x="7" y="4" width="10" height="2" rx="1" />
+              <rect x="9" y="18" width="6" height="2" rx="1" />
+              {/* Flames */}
+              <path d="M12 2c1-2 3-3 5-3s4 1 5 3c1 2 1 4 0 6s-3 4-5 4-4-2-5-4-1-4 0-6z" fill="currentColor" fillOpacity="0.6" />
+            </svg>
           </div>
         );
-
       case "Cups":
         return (
-          <div className="absolute inset-4 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              {/* Cup */}
-              <div className="absolute top-1/4 inset-x-4">
-                <div className="w-full h-24 bg-gradient-to-b from-blue-300/90 to-blue-500/90 rounded-t-full overflow-hidden">
-                  {/* Water surface */}
-                  <div className="absolute inset-x-0 top-1/4 h-3/4 bg-gradient-to-b from-blue-200/80 to-transparent">
-                    {/* Ripples */}
-                    {[...Array(3)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="absolute w-full h-1 bg-white/60 animate-[ripple_3s_ease-out_infinite]"
-                        style={{ top: `${20 + i * 20}%`, animationDelay: `${i * 0.5}s` }}
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-                {/* Stem */}
-                <div className="absolute bottom-0 w-1/4 h-32 bg-gradient-to-b from-blue-400/90 to-blue-600/90 left-1/2 -translate-x-1/2"></div>
-                {/* Base */}
-                <div className="absolute -bottom-8 w-3/4 h-8 bg-gradient-to-b from-blue-500/90 to-blue-700/90 left-1/2 -translate-x-1/2 rounded-full"></div>
-              </div>
-            </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-32 h-48 text-blue-400/90" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7 3h10l2 4v2c0 3-2 6-5 7v3h3v2H7v-2h3v-3c-3-1-5-4-5-7V7l2-4zm1.5 2l-1.2 3h9.4l-1.2-3H8.5z" />
+              {/* Liquid */}
+              <path d="M8 10c0 2 1.5 4 4 4s4-2 4-4H8z" fillOpacity="0.6" />
+            </svg>
           </div>
         );
-
       case "Swords":
         return (
-          <div className="absolute inset-4 flex items-center justify-center">
-            {/* Crossed swords */}
-            {[45, -45].map((rotation, i) => (
-              <div
-                key={i}
-                className="absolute inset-0 flex items-center justify-center"
-                style={{ transform: `rotate(${rotation}deg)` }}
-              >
-                {/* Blade */}
-                <div className="relative w-8 h-64">
-                  <div className="absolute inset-0 bg-gradient-to-b from-slate-300/90 to-slate-500/90"></div>
-                  {/* Edge highlight */}
-                  <div className="absolute inset-y-0 w-1 bg-white/80"></div>
-                  {/* Guard */}
-                  <div className="absolute top-1/4 -left-6 w-20 h-4 bg-slate-400/90"></div>
-                  {/* Handle */}
-                  <div className="absolute top-1/4 -inset-x-1 h-20 bg-slate-700/90"></div>
-                </div>
-              </div>
-            ))}
-            {/* Glinting effect */}
-            <div className="absolute w-12 h-12 bg-white/90 rounded-full animate-pulse"></div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-32 h-48 text-slate-300/90" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2 2-8 8 2 2-4 4-2-2 4-4 2 2 8-8 2 2V2h-6z" />
+              <path d="M12 22l-2-2 8-8-2-2 4-4 2 2-4 4-2-2-8 8-2-2v6h6z" />
+            </svg>
           </div>
         );
-
       case "Pentacles":
         return (
-          <div className="absolute inset-4 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              {/* Pentagram */}
-              {[...Array(5)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute inset-0"
-                  style={{ transform: `rotate(${i * 72}deg)` }}
-                >
-                  <div className="absolute h-1/2 w-2 bg-emerald-400/90 left-1/2 -translate-x-1/2"></div>
-                </div>
-              ))}
-              {/* Outer circle */}
-              <div className="absolute inset-4 border-8 border-emerald-300/90 rounded-full animate-[spin_20s_linear_infinite]"></div>
-              {/* Inner circle */}
-              <div className="absolute inset-12 border-8 border-emerald-400/90 rounded-full animate-[spin_15s_linear_infinite_reverse]"></div>
-              {/* Center point */}
-              <div className="absolute w-8 h-8 bg-emerald-500/90 rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
-            </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <svg className="w-32 h-32 text-emerald-300/90 animate-[spin_20s_linear_infinite]" viewBox="0 0 24 24" fill="currentColor">
+              <circle cx="12" cy="12" r="10" fillOpacity="0.3" />
+              <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z" />
+            </svg>
           </div>
         );
-
       default:
         return null;
     }
   };
 
-  return (
-    <div className={`relative w-full aspect-[2/3] ${getBaseBackground()} rounded-lg shadow-xl overflow-hidden`}>
-      {/* Card artwork */}
-      {getCardImagery()}
+  const getMajorArcanaSymbol = () => {
+    const name = card.name.toLowerCase();
+    if (name.includes('sun')) {
+      return (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <svg className="w-40 h-40 text-yellow-400/90" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="5" />
+            {[...Array(12)].map((_, i) => (
+              <rect
+                key={i}
+                x="11"
+                y="0"
+                width="2"
+                height="24"
+                transform={`rotate(${i * 30} 12 12)`}
+                fillOpacity="0.6"
+              />
+            ))}
+          </svg>
+        </div>
+      );
+    }
 
-      {/* Card title */}
-      <div className="absolute inset-x-4 bottom-4 text-center z-10">
+    if (name.includes('moon')) {
+      return (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <svg className="w-40 h-40 text-blue-200/90" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7z" />
+            <circle cx="8" cy="8" r="1" />
+            <circle cx="12" cy="12" r="1" />
+            <circle cx="16" cy="16" r="1" />
+          </svg>
+          {/* Stars */}
+          {[...Array(8)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
+              style={{
+                top: `${20 + Math.random() * 60}%`,
+                left: `${20 + Math.random() * 60}%`,
+                animationDelay: `${i * 0.3}s`
+              }}
+            />
+          ))}
+        </div>
+      );
+    }
+
+    // Default sacred geometry pattern for other Major Arcana
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg className="w-40 h-40 text-white/90" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10" strokeWidth="0.5" />
+          <circle cx="12" cy="12" r="6" strokeWidth="0.5" />
+          {[...Array(6)].map((_, i) => (
+            <line
+              key={i}
+              x1="12"
+              y1="2"
+              x2="12"
+              y2="22"
+              strokeWidth="0.5"
+              transform={`rotate(${i * 30} 12 12)`}
+            />
+          ))}
+        </svg>
+      </div>
+    );
+  };
+
+  return (
+    <div className={getCardBorderAndBackground()}>
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-20">
+        {[...Array(10)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-full h-1 bg-white/40"
+            style={{ top: `${i * 10}%`, transform: 'rotate(45deg)' }}
+          />
+        ))}
+      </div>
+
+      {/* Main symbol */}
+      {card.arcana === "major" ? getMajorArcanaSymbol() : getSuitSymbol()}
+
+      {/* Card name and type */}
+      <div className="absolute inset-x-4 bottom-4 text-center">
         <h3 className="font-bold text-lg mb-2 text-white drop-shadow-lg">{card.name}</h3>
-        {(card.arcana === "major" || card.suit) && (
-          <div className="text-sm text-white/90 bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
-            {card.arcana === "major" ? "Major Arcana" : card.suit}
-          </div>
-        )}
+        <div className="text-sm text-white/90 bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">
+          {card.arcana === "major" ? "Major Arcana" : card.suit}
+        </div>
       </div>
     </div>
   );
