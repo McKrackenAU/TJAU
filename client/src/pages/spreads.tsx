@@ -95,15 +95,23 @@ export default function Spreads() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-foreground text-base font-medium mb-12">
+            <p className="text-foreground text-base font-medium mb-6">
               {spread.description}
             </p>
+
+            <Button
+              className="w-full mb-8"
+              onClick={() => setIsRevealed(true)}
+              disabled={isRevealed || spreadCards.length === 0}
+            >
+              Reveal Cards
+            </Button>
 
             <div className={`grid gap-y-24 gap-x-8 ${
               selectedSpread === "threeCard" 
                 ? "grid-cols-1 md:grid-cols-3" 
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-            } mb-12`}>
+            }`}>
               {spreadCards.map((card, i) => (
                 <div key={i} className="flex flex-col items-center relative pb-32">
                   <div className="mb-8">
@@ -127,14 +135,6 @@ export default function Spreads() {
                 </div>
               ))}
             </div>
-
-            <Button
-              className="w-full"
-              onClick={() => setIsRevealed(true)}
-              disabled={isRevealed || spreadCards.length === 0}
-            >
-              Reveal Cards
-            </Button>
 
             {isRevealed && (
               <div className="mt-8">
