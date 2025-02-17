@@ -18,15 +18,10 @@ export default function CardDisplay({
   const getCardGradient = () => {
     console.log('Card in display:', card); // Debug log
 
-    // Handle major arcana and custom arcana
-    if (card.arcana === "major" || card.arcana === "custom") {
-      return "from-violet-500 to-purple-900";
-    }
-
-    // Normalize suit name for comparison
     const suitLower = (card.suit || '').toLowerCase().trim();
     console.log('Normalized suit:', suitLower); // Debug log
 
+    // Handle cards based on suit first, regardless of arcana type
     switch (suitLower) {
       case "wands":
         return "from-orange-500 to-red-700";
@@ -37,8 +32,10 @@ export default function CardDisplay({
       case "pentacles":
         return "from-emerald-500 to-green-900";
       default:
-        console.log('Using default gradient for suit:', suitLower); // Debug log
-        return "from-violet-500 to-purple-900";
+        // If no suit or unrecognized suit, use arcana-based coloring
+        return card.arcana === "major" || card.arcana === "custom"
+          ? "from-violet-500 to-purple-900"
+          : "from-gray-400 to-gray-800";
     }
   };
 
