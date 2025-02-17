@@ -79,7 +79,7 @@ export default function CardDisplay({
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            backgroundImage: 'url("/Oracle of Illusion.png")',
+            backgroundImage: 'url("/oracle-of-illusion.png")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
