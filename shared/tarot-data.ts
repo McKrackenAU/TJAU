@@ -25,7 +25,58 @@ export const tarotCards: TarotCard[] = [
     description: "The Fool represents new beginnings, having faith in the future, being inexperienced, not knowing what to expect, having beginner's luck, improvisation and believing in the universe.",
     element: "Air"
   },
-  // Additional cards would be defined here
+  {
+    id: "w1",
+    name: "Ace of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 1,
+    meanings: {
+      upright: ["Creation", "Willpower", "Inspiration", "Desire"],
+      reversed: ["Lack of energy", "Lack of passion", "Delays"]
+    },
+    description: "The Ace of Wands represents new opportunities, inspiration, and growth potential. It suggests a spark of creativity or the beginning of a new venture.",
+    element: "Fire"
+  },
+  {
+    id: "c1",
+    name: "Ace of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 1,
+    meanings: {
+      upright: ["Love", "Compassion", "Creativity"],
+      reversed: ["Blocked emotions", "Loss of love", "Emptiness"]
+    },
+    description: "The Ace of Cups represents emotional new beginnings, intuition, and the flowing of creative energies.",
+    element: "Water"
+  },
+  {
+    id: "s1",
+    name: "Ace of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 1,
+    meanings: {
+      upright: ["Clarity", "Truth", "Breakthrough"],
+      reversed: ["Confusion", "Brutality", "Chaos"]
+    },
+    description: "The Ace of Swords represents mental clarity, truth, and new ideas. It suggests breakthrough moments and clear thinking.",
+    element: "Air"
+  },
+  {
+    id: "p1",
+    name: "Ace of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 1,
+    meanings: {
+      upright: ["Prosperity", "Abundance", "Security"],
+      reversed: ["Loss", "Missed opportunity", "Scarcity"]
+    },
+    description: "The Ace of Pentacles represents material abundance, prosperity, and new financial or career opportunities.",
+    element: "Earth"
+  }
 ];
 
 export const spreads = {
