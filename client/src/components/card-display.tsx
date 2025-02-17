@@ -31,7 +31,7 @@ const CardDisplay = memo(function CardDisplay({
         transition={{ duration: 0.6 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* Front of card - temporarily showing card info until we have individual images */}
+        {/* Front of card */}
         <div
           className="absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10 bg-card"
           style={{
@@ -58,21 +58,20 @@ const CardDisplay = memo(function CardDisplay({
 
         {/* Back of card */}
         <div
-          className="absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
+          className="absolute w-full h-full"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
           }}
         >
-          <img 
-            src="/card-back.png"
-            alt="Card Back"
-            className="w-full h-full object-cover"
-            onError={(e) => {
-              console.error('Error loading image:', e);
-              const img = e.target as HTMLImageElement;
-              console.log('Attempted image URL:', img.src);
+          <div 
+            className="w-full h-full rounded-xl border-2 border-white/10"
+            style={{
+              backgroundImage: "url('./card-back.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat"
             }}
           />
         </div>
