@@ -66,14 +66,19 @@ const CardDisplay = memo(function CardDisplay({
           }}
         >
           <div 
-            className="w-full h-full rounded-xl border-2 border-white/10"
+            className="w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
             style={{
-              backgroundImage: "url('./card-back.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat"
+              backgroundColor: "#2a0845",
+              backgroundImage: "linear-gradient(135deg, #2a0845 0%, #6441A5 74%)",
+              boxShadow: "inset 0 0 50px rgba(255,255,255,0.1)"
             }}
-          />
+          >
+            <div className="w-full h-full flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
+                <span className="text-4xl">★</span>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
     </div>
