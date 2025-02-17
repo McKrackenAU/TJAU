@@ -63,14 +63,11 @@ const CardDisplay = memo(function CardDisplay({
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
+            backgroundImage: "url('/Oracle of Illusion.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
           }}
-        >
-          <img 
-            src="/Oracle of Illusion.png" 
-            alt="Card Back"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        />
       </motion.div>
     </div>
   );
