@@ -3,7 +3,6 @@ import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
 export interface IStorage {
-  // Existing methods
   createReading(reading: InsertReading): Promise<Reading>;
   getReadings(): Promise<Reading[]>;
   getDailyReadings(): Promise<Reading[]>;
@@ -16,11 +15,9 @@ export interface IStorage {
   getJournalEntry(id: number): Promise<JournalEntry | undefined>;
   getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]>;
   getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
-
-  // New methods for imported cards
   createImportedCard(card: InsertImportedCard): Promise<ImportedCard>;
   getImportedCards(): Promise<ImportedCard[]>;
-  // New methods for learning paths
+  updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard>;
   createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack>;
   getLearningTracks(): Promise<LearningTrack[]>;
   getLearningTrack(id: number): Promise<LearningTrack | undefined>;
@@ -33,7 +30,6 @@ export interface IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
-  // Existing methods remain unchanged
   async createReading(insertReading: InsertReading): Promise<Reading> {
     const [reading] = await db
       .insert(readings)
@@ -132,7 +128,6 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(journalEntries.date));
   }
 
-  // New methods for imported cards
   async createImportedCard(card: InsertImportedCard): Promise<ImportedCard> {
     const [created] = await db
       .insert(importedCards)
@@ -147,7 +142,14 @@ export class DatabaseStorage implements IStorage {
       .from(importedCards)
       .orderBy(desc(importedCards.dateImported));
   }
-  // New methods for learning paths
+  async updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard> {
+    const [updated] = await db
+      .update(importedCards)
+      .set({ imageUrl })
+      .where(eq(importedCards.id, cardId))
+      .returning();
+    return updated;
+  }
   async createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack> {
     const [result] = await db
       .insert(learningTracks)
