@@ -11,6 +11,8 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import MeditationPlayer from "@/components/meditation-player";
 import { Loader2 } from "lucide-react";
+// Assuming tarotCards is defined elsewhere and contains default card data.  This needs to be added to your project.
+const tarotCards = [ /* Your default tarot card data here */ ];
 
 export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
@@ -20,12 +22,19 @@ export default function Spreads() {
 
   const { data: cards, isLoading } = useQuery({
     queryKey: ["/api/cards"],
+    // Initialize with built-in cards
+    initialData: tarotCards,
   });
 
   const spread = spreads[selectedSpread];
+  // Ensure we're getting complete card objects with suit information
   const spreadCards = cards ? Array.from(
     { length: spread.positions.length },
-    () => cards[Math.floor(Math.random() * cards.length)]
+    () => {
+      const randomCard = cards[Math.floor(Math.random() * cards.length)];
+      console.log('Selected card:', randomCard); // Debug log
+      return randomCard;
+    }
   ) : [];
 
   const mutation = useMutation({

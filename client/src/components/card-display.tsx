@@ -16,10 +16,14 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   // Get gradient colors based on card type
   const getCardGradient = () => {
+    console.log('Card in display:', card); // Debug log
+
     if (card.arcana === "major") {
       return "from-violet-500 to-purple-900";
     }
-    switch (card.suit?.toLowerCase()) {
+
+    const suitLower = card.suit?.toLowerCase() || '';
+    switch (suitLower) {
       case "wands":
         return "from-orange-500 to-red-700";
       case "cups":
@@ -29,6 +33,7 @@ export default function CardDisplay({
       case "pentacles":
         return "from-emerald-500 to-green-900";
       default:
+        console.log('Using default gradient for suit:', suitLower); // Debug log
         return "from-violet-500 to-purple-900";
     }
   };
