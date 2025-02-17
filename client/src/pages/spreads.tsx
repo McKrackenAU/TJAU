@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { spreads } from "@shared/tarot-data";
+import { spreads, tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
 import AIInterpretation from "@/components/ai-interpretation";
 import { Button } from "@/components/ui/button";
@@ -11,8 +11,6 @@ import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import MeditationPlayer from "@/components/meditation-player";
 import { Loader2 } from "lucide-react";
-// Assuming tarotCards is defined elsewhere and contains default card data.  This needs to be added to your project.
-const tarotCards = [ /* Your default tarot card data here */ ];
 
 export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
@@ -20,22 +18,17 @@ export default function Spreads() {
   const [notes, setNotes] = useState("");
   const { toast } = useToast();
 
-  const { data: cards, isLoading } = useQuery({
+  const { data: cards = tarotCards } = useQuery({
     queryKey: ["/api/cards"],
-    // Initialize with built-in cards
     initialData: tarotCards,
+    staleTime: 0, // Always refetch to get latest imported cards
   });
 
   const spread = spreads[selectedSpread];
-  // Ensure we're getting complete card objects with suit information
-  const spreadCards = cards ? Array.from(
+  const spreadCards = Array.from(
     { length: spread.positions.length },
-    () => {
-      const randomCard = cards[Math.floor(Math.random() * cards.length)];
-      console.log('Selected card:', randomCard); // Debug log
-      return randomCard;
-    }
-  ) : [];
+    () => cards[Math.floor(Math.random() * cards.length)]
+  );
 
   const mutation = useMutation({
     mutationFn: async (reading: { cards: string[], notes: string, spreadType: string }) => {
@@ -60,17 +53,6 @@ export default function Spreads() {
       spreadType: spread.name
     });
   };
-
-  if (isLoading) {
-    return (
-      <div className="container px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-8">Tarot Spreads</h1>
-        <div className="flex items-center justify-center py-8">
-          <Loader2 className="h-8 w-8 animate-spin" />
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container px-4 py-8">
