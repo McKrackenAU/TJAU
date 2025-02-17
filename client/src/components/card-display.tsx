@@ -17,39 +17,41 @@ export default function CardDisplay({
   // Get gradient colors based on card type
   const getCardGradient = () => {
     if (card.arcana === "major") {
-      return "from-violet-500 to-purple-900 border-yellow-300/50";
+      return "from-violet-500 to-purple-900";
     }
     switch (card.suit?.toLowerCase()) {
       case "wands":
-        return "from-orange-400 to-red-800 border-orange-300/50";
+        return "from-orange-400 to-red-800";
       case "cups":
-        return "from-sky-400 to-blue-900 border-blue-300/50";
+        return "from-sky-400 to-blue-900";
       case "swords":
-        return "from-zinc-400 to-slate-900 border-slate-300/50";
+        return "from-zinc-400 to-slate-900";
       case "pentacles":
-        return "from-emerald-400 to-green-900 border-emerald-300/50";
+        return "from-emerald-400 to-green-900";
       default:
-        return "from-violet-500 to-purple-900 border-purple-300/50";
+        return "from-violet-500 to-purple-900";
     }
   };
 
   return (
     <div 
-      className="w-48 aspect-[2/3] relative cursor-pointer perspective-1000"
+      className="w-48 h-72 relative cursor-pointer"
+      style={{ perspective: "1000px" }}
       onClick={onClick}
     >
       <motion.div
-        className="w-full h-full preserve-3d"
+        className="w-full h-full absolute"
         initial={false}
         animate={{ 
           rotateY: isRevealed ? 0 : 180,
           rotateZ: isReversed ? 180 : 0
         }}
         transition={{ duration: 0.6 }}
+        style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front of card */}
         <div
-          className={`absolute w-full h-full rounded-xl border-2 bg-gradient-to-br ${getCardGradient()}`}
+          className={`absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10 bg-gradient-to-br ${getCardGradient()}`}
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
@@ -82,7 +84,6 @@ export default function CardDisplay({
             backgroundImage: 'url("/oracle-of-illusion.png")',
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
             backgroundColor: "#2D1B69", // Fallback color
           }}
         />
