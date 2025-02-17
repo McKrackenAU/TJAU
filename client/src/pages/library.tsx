@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { tarotCards } from "@shared/tarot-data";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Search, Lock, Loader2 } from "lucide-react";
+import { Search, Lock, Loader2, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { adminState } from "@/lib/admin";
-import { useQuery } from "@tanstack/react-query";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CardCombinationAnalysis from "@/components/card-combination-analysis";
+import CardDisplay from "@/components/card-display";
 
 // Define a type for the card structure
 interface TarotCard {
@@ -29,6 +30,7 @@ export default function Library() {
   const { toast } = useToast();
   const [isImporting, setIsImporting] = useState(false);
   const [isAdmin, setAdmin] = useState(adminState.isAdmin());
+  const queryClient = useQueryClient();
 
   // Fetch all cards
   const { data: cards, isLoading } = useQuery<TarotCard[]>({
@@ -168,6 +170,82 @@ export default function Library() {
     }
   };
 
+  const uploadImageMutation = useMutation({
+    mutationFn: async ({ cardId, file }: { cardId: string; file: File }) => {
+      const formData = new FormData();
+      formData.append('image', file);
+
+      const adminToken = adminState.getAdminToken();
+      if (!adminToken) {
+        throw new Error("Admin access required");
+      }
+
+      const response = await fetch(`/api/admin/upload-card-image/${cardId}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${adminToken}`
+        },
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to upload image');
+      }
+
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/cards"] });
+      toast({
+        title: "Image uploaded",
+        description: "Card image has been updated successfully."
+      });
+    },
+    onError: (error) => {
+      toast({
+        title: "Upload failed",
+        description: error instanceof Error ? error.message : "Failed to upload image",
+        variant: "destructive"
+      });
+    }
+  });
+
+  const handleImageUpload = async (cardId: string, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check file type
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
+      toast({
+        title: "Invalid file type",
+        description: "Please upload a JPEG, PNG, or WebP image",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Check file size (5MB limit)
+    if (file.size > 5 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: "Please upload an image smaller than 5MB",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    try {
+      await uploadImageMutation.mutateAsync({ cardId, file });
+    } catch (error) {
+      console.error('Image upload error:', error);
+    } finally {
+      // Reset the file input
+      if (event.target) {
+        event.target.value = '';
+      }
+    }
+  };
+
   return (
     <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
@@ -241,7 +319,7 @@ export default function Library() {
                   >
                     <CardHeader>
                       <CardTitle className="flex items-center justify-between">
-                        {card.name}
+                        <span>{card.name}</span>
                         {card.arcana === "minor" && card.suit && (
                           <span className="text-sm text-muted-foreground">
                             {card.suit}
@@ -250,26 +328,52 @@ export default function Library() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-sm text-muted-foreground mb-4">
-                        {card.description}
-                      </p>
-
-                      <div className="grid grid-cols-2 gap-4">
-                        <div>
-                          <h4 className="font-semibold mb-2">Upright</h4>
-                          <ul className="text-sm list-disc list-inside">
-                            {card.meanings?.upright?.map((meaning, i) => (
-                              <li key={i}>{meaning}</li>
-                            ))}
-                          </ul>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div className="aspect-[2/3] relative">
+                          <CardDisplay card={card} isRevealed={true} />
+                          {isAdmin && (
+                            <div className="absolute top-2 right-2">
+                              <input
+                                type="file"
+                                accept=".jpg,.jpeg,.png,.webp"
+                                onChange={(e) => handleImageUpload(card.id, e)}
+                                className="hidden"
+                                id={`image-upload-${card.id}`}
+                              />
+                              <Button
+                                variant="secondary"
+                                size="sm"
+                                className="flex gap-2 items-center"
+                                onClick={() => document.getElementById(`image-upload-${card.id}`)?.click()}
+                              >
+                                <Upload className="h-4 w-4" />
+                                Upload Image
+                              </Button>
+                            </div>
+                          )}
                         </div>
                         <div>
-                          <h4 className="font-semibold mb-2">Reversed</h4>
-                          <ul className="text-sm list-disc list-inside">
-                            {card.meanings?.reversed?.map((meaning, i) => (
-                              <li key={i}>{meaning}</li>
-                            ))}
-                          </ul>
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {card.description}
+                          </p>
+                          <div className="grid grid-cols-2 gap-4">
+                            <div>
+                              <h4 className="font-semibold mb-2">Upright</h4>
+                              <ul className="text-sm list-disc list-inside">
+                                {card.meanings?.upright?.map((meaning, i) => (
+                                  <li key={i}>{meaning}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <h4 className="font-semibold mb-2">Reversed</h4>
+                              <ul className="text-sm list-disc list-inside">
+                                {card.meanings?.reversed?.map((meaning, i) => (
+                                  <li key={i}>{meaning}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </CardContent>
