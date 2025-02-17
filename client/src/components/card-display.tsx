@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { TarotCard } from "@shared/tarot-data";
-import { Sun, Moon, Sword, Coins, FlameKindling, GlassWater } from "lucide-react";
 
 interface CardDisplayProps {
   card: TarotCard;
@@ -16,7 +15,7 @@ export default function CardDisplay({
   onClick 
 }: CardDisplayProps) {
   const getCardClasses = () => {
-    const baseClasses = "w-full h-full rounded-xl border-2 overflow-hidden transition-all duration-300";
+    const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
 
     // Major Arcana cards - Purple/Gold theme
     if (card.arcana === "major") {
@@ -34,8 +33,7 @@ export default function CardDisplay({
       case "pentacles":
         return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
       default:
-        // Default theme for custom or unknown cards
-        return `${baseClasses} bg-gradient-to-br from-indigo-500 via-indigo-700 to-indigo-900 border-indigo-300/50`;
+        return baseClasses;
     }
   };
 
@@ -84,24 +82,19 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back face - Temporary until we get the custom image */}
+        {/* Back face - Using custom image */}
         <div 
-          className={getCardClasses()}
+          className="w-full h-full rounded-xl border-2 border-purple-300/50 overflow-hidden"
           style={{ 
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
             position: "absolute",
-            width: "100%",
-            height: "100%"
+            backgroundImage: `url(/attached_assets/Oracle of Illusion.png)`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
-        >
-          <div className="w-full h-full p-4 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-              <span className="text-white/80 text-2xl">★</span>
-            </div>
-          </div>
-        </div>
+        />
       </motion.div>
     </motion.div>
   );
