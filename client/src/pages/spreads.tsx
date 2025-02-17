@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { spreads, tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
@@ -16,19 +16,26 @@ export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
   const [isRevealed, setIsRevealed] = useState(false);
   const [notes, setNotes] = useState("");
+  const [spreadCards, setSpreadCards] = useState<typeof tarotCards>([]);
   const { toast } = useToast();
 
   const { data: cards = tarotCards } = useQuery({
     queryKey: ["/api/cards"],
     initialData: tarotCards,
-    staleTime: 0, // Always refetch to get latest imported cards
+    staleTime: 0,
   });
 
-  const spread = spreads[selectedSpread];
-  const spreadCards = Array.from(
-    { length: spread.positions.length },
-    () => cards[Math.floor(Math.random() * cards.length)]
-  );
+  // Generate spread cards only when spread changes or cards data updates
+  useEffect(() => {
+    const spread = spreads[selectedSpread];
+    const newSpreadCards = Array.from(
+      { length: spread.positions.length },
+      () => cards[Math.floor(Math.random() * cards.length)]
+    );
+    setSpreadCards(newSpreadCards);
+    setIsRevealed(false);
+    setNotes("");
+  }, [selectedSpread, cards]);
 
   const mutation = useMutation({
     mutationFn: async (reading: { cards: string[], notes: string, spreadType: string }) => {
@@ -50,7 +57,7 @@ export default function Spreads() {
     mutation.mutate({
       cards: spreadCards.map(card => card.id),
       notes,
-      spreadType: spread.name
+      spreadType: spreads[selectedSpread].name
     });
   };
 
@@ -63,8 +70,6 @@ export default function Spreads() {
           value={selectedSpread}
           onValueChange={(value: keyof typeof spreads) => {
             setSelectedSpread(value);
-            setIsRevealed(false);
-            setNotes("");
           }}
         >
           <SelectTrigger>
@@ -82,12 +87,12 @@ export default function Spreads() {
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-xl text-foreground font-bold">
-              {spread.name}
+              {spreads[selectedSpread].name}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-foreground text-base font-medium mb-6">
-              {spread.description}
+              {spreads[selectedSpread].description}
             </p>
 
             <Button
@@ -104,7 +109,7 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {spreadCards.map((card, i) => (
-                <div key={i} className="flex flex-col items-center">
+                <div key={`${card.id}-${i}`} className="flex flex-col items-center">
                   <div className="mb-4">
                     <CardDisplay
                       card={card}
@@ -112,13 +117,13 @@ export default function Spreads() {
                     />
                   </div>
                   <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full mb-4">
-                    {spread.positions[i]}
+                    {spreads[selectedSpread].positions[i]}
                   </span>
                   {isRevealed && card && (
                     <div className="space-y-4 w-full">
                       <AIInterpretation 
                         card={card}
-                        context={`This card represents ${spread.positions[i]} in a ${spread.name} spread.`}
+                        context={`This card represents ${spreads[selectedSpread].positions[i]} in a ${spreads[selectedSpread].name} spread.`}
                       />
                       <MeditationPlayer card={card} />
                     </div>

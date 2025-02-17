@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { memo } from "react";
 import type { TarotCard } from "@shared/tarot-data";
 
 interface CardDisplayProps {
@@ -8,7 +9,7 @@ interface CardDisplayProps {
   onClick?: () => void;
 }
 
-export default function CardDisplay({ 
+const CardDisplay = memo(function CardDisplay({ 
   card, 
   isRevealed = true, 
   isReversed = false,
@@ -16,10 +17,7 @@ export default function CardDisplay({
 }: CardDisplayProps) {
   // Get gradient colors based on card type
   const getCardGradient = () => {
-    console.log('Card in display:', card); // Debug log
-
     const suitLower = (card.suit || '').toLowerCase().trim();
-    console.log('Normalized suit:', suitLower); // Debug log
 
     // Handle cards based on suit first, regardless of arcana type
     switch (suitLower) {
@@ -93,4 +91,6 @@ export default function CardDisplay({
       </motion.div>
     </div>
   );
-}
+});
+
+export default CardDisplay;
