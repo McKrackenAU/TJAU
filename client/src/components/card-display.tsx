@@ -17,12 +17,10 @@ export default function CardDisplay({
   const getCardClasses = () => {
     const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
 
-    // Major Arcana cards - Purple/Gold theme
     if (card.arcana === "major") {
       return `${baseClasses} bg-gradient-to-br from-purple-600 via-purple-800 to-purple-900 border-yellow-300/50`;
     }
 
-    // Minor Arcana cards - Suit-specific colors
     switch (card.suit?.toLowerCase()) {
       case "wands":
         return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
@@ -69,7 +67,6 @@ export default function CardDisplay({
               {card.name}
             </h3>
             <div className="flex-1 flex items-center justify-center">
-              {/* Placeholder for future card image */}
               <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center">
                 <span className="text-white/80 text-xl">
                   {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
@@ -90,7 +87,7 @@ export default function CardDisplay({
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
             position: "absolute",
-            backgroundImage: `url(/Oracle of Illusion.png)`,
+            backgroundImage: `url(/card-back.png)`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
