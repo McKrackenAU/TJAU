@@ -79,17 +79,19 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back face - Using custom image */}
+        {/* Back face */}
         <div 
-          className="w-full h-full rounded-xl border-2 border-purple-300/50 overflow-hidden"
+          className="absolute inset-0 w-full h-full rounded-xl border-2 border-purple-300/50"
           style={{ 
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            position: "absolute",
-            backgroundImage: `url(/card-back.png)`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundImage: "url('/card-back.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#1a1a1a",
+            zIndex: 10
           }}
         />
       </motion.div>
