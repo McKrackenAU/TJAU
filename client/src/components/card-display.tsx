@@ -14,37 +14,45 @@ export default function CardDisplay({
   isReversed = false,
   onClick 
 }: CardDisplayProps) {
+  // Get gradient colors based on card type
+  const getCardGradient = () => {
+    if (card.arcana === "major") {
+      return "from-purple-600 to-purple-900 border-yellow-300/50";
+    }
+    switch (card.suit?.toLowerCase()) {
+      case "wands":
+        return "from-orange-500 to-red-700 border-orange-300/50";
+      case "cups":
+        return "from-blue-400 to-blue-800 border-blue-300/50";
+      case "swords":
+        return "from-slate-400 to-slate-800 border-slate-300/50";
+      case "pentacles":
+        return "from-emerald-500 to-emerald-900 border-emerald-300/50";
+      default:
+        return "from-purple-600 to-purple-900 border-purple-300/50";
+    }
+  };
+
   return (
     <div 
-      className="w-48 aspect-[2/3] relative cursor-pointer"
+      className="w-48 aspect-[2/3] relative cursor-pointer perspective-1000"
       onClick={onClick}
     >
       <motion.div
-        className="w-full h-full"
+        className="w-full h-full preserve-3d"
         initial={false}
         animate={{ 
           rotateY: isRevealed ? 0 : 180,
           rotateZ: isReversed ? 180 : 0
         }}
         transition={{ duration: 0.6 }}
-        style={{ transformStyle: "preserve-3d" }}
       >
         {/* Front of card */}
         <div
-          className="absolute w-full h-full rounded-xl overflow-hidden"
+          className={`absolute w-full h-full rounded-xl border-2 bg-gradient-to-br ${getCardGradient()}`}
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
-            background: card.arcana === "major" 
-              ? "linear-gradient(135deg, #9333ea 0%, #4c1d95 100%)"
-              : card.suit?.toLowerCase() === "wands"
-              ? "linear-gradient(135deg, #f97316 0%, #9f1239 100%)"
-              : card.suit?.toLowerCase() === "cups"
-              ? "linear-gradient(135deg, #60a5fa 0%, #3730a3 100%)"
-              : card.suit?.toLowerCase() === "swords"
-              ? "linear-gradient(135deg, #94a3b8 0%, #1e293b 100%)"
-              : "linear-gradient(135deg, #10b981 0%, #065f46 100%)",
-            border: "2px solid rgba(255, 255, 255, 0.1)"
           }}
         >
           <div className="p-4 h-full flex flex-col">
@@ -64,9 +72,9 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back of card - image only */}
+        {/* Back of card */}
         <div
-          className="absolute w-full h-full"
+          className="absolute w-full h-full rounded-xl border-2 border-purple-300/50"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
@@ -74,7 +82,8 @@ export default function CardDisplay({
             backgroundImage: "url('/card-back.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            borderRadius: "0.75rem"
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#2D1B69", // Fallback color if image fails to load
           }}
         />
       </motion.div>
