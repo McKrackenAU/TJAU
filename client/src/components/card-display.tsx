@@ -18,11 +18,15 @@ export default function CardDisplay({
   const getCardGradient = () => {
     console.log('Card in display:', card); // Debug log
 
-    if (card.arcana === "major") {
+    // Handle major arcana and custom arcana
+    if (card.arcana === "major" || card.arcana === "custom") {
       return "from-violet-500 to-purple-900";
     }
 
-    const suitLower = card.suit?.toLowerCase() || '';
+    // Normalize suit name for comparison
+    const suitLower = (card.suit || '').toLowerCase().trim();
+    console.log('Normalized suit:', suitLower); // Debug log
+
     switch (suitLower) {
       case "wands":
         return "from-orange-500 to-red-700";
@@ -79,7 +83,7 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back of card - solid purple */}
+        {/* Back of card */}
         <div
           className="absolute w-full h-full rounded-xl border-2 border-white/10"
           style={{
