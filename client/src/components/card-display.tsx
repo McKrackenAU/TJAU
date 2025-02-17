@@ -14,25 +14,6 @@ export default function CardDisplay({
   isReversed = false,
   onClick 
 }: CardDisplayProps) {
-  // Get gradient colors based on card type
-  const getCardGradient = () => {
-    if (card.arcana === "major") {
-      return "from-violet-500 to-purple-900";
-    }
-    switch (card.suit?.toLowerCase()) {
-      case "wands":
-        return "from-orange-400 to-red-800";
-      case "cups":
-        return "from-sky-400 to-blue-900";
-      case "swords":
-        return "from-zinc-400 to-slate-900";
-      case "pentacles":
-        return "from-emerald-400 to-green-900";
-      default:
-        return "from-violet-500 to-purple-900";
-    }
-  };
-
   return (
     <div 
       className="w-48 h-72 relative cursor-pointer"
@@ -51,7 +32,11 @@ export default function CardDisplay({
       >
         {/* Front of card */}
         <div
-          className={`absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10 bg-gradient-to-br ${getCardGradient()}`}
+          className={`absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10 bg-gradient-to-br ${
+            card.arcana === "major" 
+              ? "from-violet-500 to-purple-900" 
+              : "from-gray-400 to-gray-800"
+          }`}
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
@@ -74,17 +59,14 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back of card */}
+        {/* Back of card - solid purple */}
         <div
-          className="absolute w-full h-full rounded-xl border-2 border-purple-300/50"
+          className="absolute w-full h-full rounded-xl border-2 border-white/10"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            backgroundImage: 'url("/oracle-of-illusion.png")',
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            backgroundColor: "#2D1B69", // Fallback color
+            backgroundColor: "#2D1B69", // Deep purple
           }}
         />
       </motion.div>
