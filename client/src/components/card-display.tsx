@@ -17,24 +17,30 @@ const CardDisplay = memo(function CardDisplay({
 }: CardDisplayProps) {
   // Get gradient colors based on card type
   const getCardGradient = () => {
-    const suitLower = (card.suit || '').toLowerCase().trim();
+    // Normalize suit name to handle different formats
+    const suitName = (card.suit || '').toLowerCase().trim();
 
-    // Handle cards based on suit first, regardless of arcana type
-    switch (suitLower) {
-      case "wands":
-        return "from-orange-500 to-red-700";
-      case "cups":
-        return "from-blue-400 to-blue-800";
-      case "swords":
-        return "from-zinc-400 to-slate-800";
-      case "pentacles":
-        return "from-emerald-500 to-green-900";
-      default:
-        // If no suit or unrecognized suit, use arcana-based coloring
-        return card.arcana === "major" || card.arcana === "custom"
-          ? "from-violet-500 to-purple-900"
-          : "from-gray-400 to-gray-800";
+    // If it's a major arcana card, use purple gradient
+    if (card.arcana === "major") {
+      return "from-violet-500 to-purple-900";
     }
+
+    // Check for suit name variants
+    if (suitName.includes("wand")) {
+      return "from-orange-500 to-red-700";
+    }
+    if (suitName.includes("cup")) {
+      return "from-blue-400 to-blue-800";
+    }
+    if (suitName.includes("sword")) {
+      return "from-zinc-400 to-slate-800";
+    }
+    if (suitName.includes("pentacle")) {
+      return "from-emerald-500 to-green-900";
+    }
+
+    // Default gradient for unknown suits
+    return "from-gray-400 to-gray-800";
   };
 
   return (
