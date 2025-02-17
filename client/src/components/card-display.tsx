@@ -17,19 +17,19 @@ export default function CardDisplay({
   // Get gradient colors based on card type
   const getCardGradient = () => {
     if (card.arcana === "major") {
-      return "from-purple-600 to-purple-900 border-yellow-300/50";
+      return "from-violet-500 to-purple-900 border-yellow-300/50";
     }
     switch (card.suit?.toLowerCase()) {
       case "wands":
-        return "from-orange-500 to-red-700 border-orange-300/50";
+        return "from-orange-400 to-red-800 border-orange-300/50";
       case "cups":
-        return "from-blue-400 to-blue-800 border-blue-300/50";
+        return "from-sky-400 to-blue-900 border-blue-300/50";
       case "swords":
-        return "from-slate-400 to-slate-800 border-slate-300/50";
+        return "from-zinc-400 to-slate-900 border-slate-300/50";
       case "pentacles":
-        return "from-emerald-500 to-emerald-900 border-emerald-300/50";
+        return "from-emerald-400 to-green-900 border-emerald-300/50";
       default:
-        return "from-purple-600 to-purple-900 border-purple-300/50";
+        return "from-violet-500 to-purple-900 border-purple-300/50";
     }
   };
 
@@ -56,17 +56,17 @@ export default function CardDisplay({
           }}
         >
           <div className="p-4 h-full flex flex-col">
-            <h3 className="text-lg font-bold text-white/90 text-center mb-2">
+            <h3 className="text-lg font-bold text-white text-center mb-2">
               {card.name}
             </h3>
             <div className="flex-1 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                <span className="text-white/80 text-xl">
+              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center">
+                <span className="text-white text-xl font-semibold">
                   {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
                 </span>
               </div>
             </div>
-            <p className="text-sm text-white/80 text-center">
+            <p className="text-sm text-white text-center">
               {card.arcana === "major" ? "Major Arcana" : card.suit}
             </p>
           </div>
@@ -79,11 +79,11 @@ export default function CardDisplay({
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            backgroundImage: "url('/card-back.png')",
+            backgroundImage: 'url("/Oracle of Illusion.png")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundColor: "#2D1B69", // Fallback color if image fails to load
+            backgroundColor: "#2D1B69", // Fallback color
           }}
         />
       </motion.div>
