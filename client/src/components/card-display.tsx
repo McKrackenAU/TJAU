@@ -15,74 +15,6 @@ export default function CardDisplay({
   isReversed = false,
   onClick 
 }: CardDisplayProps) {
-  console.log("CardDisplay rendering with card:", {
-    id: card.id,
-    name: card.name,
-    arcana: card.arcana,
-    suit: card.suit
-  });
-
-  const getSymbol = () => {
-    const symbolClasses = "w-12 h-12 transition-all duration-300";
-    console.log("Getting symbol for card type:", card.arcana, "suit:", card.suit);
-
-    // For Major Arcana
-    if (card.arcana === "major") {
-      return (
-        <div className="relative">
-          <Sun 
-            className={`${symbolClasses} text-yellow-300 animate-glow`}
-          />
-        </div>
-      );
-    }
-
-    // For Minor Arcana
-    if (card.arcana === "minor" && card.suit) {
-      switch (card.suit.toLowerCase()) {
-        case "wands":
-          return (
-            <div className="relative">
-              <FlameKindling 
-                className={`${symbolClasses} text-orange-400 animate-flame`}
-              />
-            </div>
-          );
-        case "cups":
-          return (
-            <div className="relative">
-              <GlassWater 
-                className={`${symbolClasses} text-blue-400 animate-wave`}
-              />
-            </div>
-          );
-        case "swords":
-          return (
-            <div className="relative">
-              <Sword 
-                className={`${symbolClasses} text-slate-300 animate-balance`}
-              />
-            </div>
-          );
-        case "pentacles":
-          return (
-            <div className="relative">
-              <Coins 
-                className={`${symbolClasses} text-emerald-400 animate-spin-slow`}
-              />
-            </div>
-          );
-      }
-    }
-
-    // Fallback
-    return (
-      <div className="relative">
-        <Moon className={`${symbolClasses} text-gray-400 animate-pulse`} />
-      </div>
-    );
-  };
-
   const getCardClasses = () => {
     const baseClasses = "w-full h-full rounded-xl border-2 overflow-hidden transition-all duration-300";
 
@@ -103,7 +35,7 @@ export default function CardDisplay({
       }
     }
 
-    return `${baseClasses} bg-gradient-to-br from-gray-700 to-gray-900 border-gray-300/50`;
+    return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-purple-300/50`;
   };
 
   return (
@@ -121,6 +53,7 @@ export default function CardDisplay({
         }}
         transition={{ duration: 0.6 }}
       >
+        {/* Front face */}
         <div 
           className={getCardClasses()}
           style={{ 
@@ -137,7 +70,10 @@ export default function CardDisplay({
               {card.name}
             </h3>
             <div className="flex-1 flex items-center justify-center">
-              {getSymbol()}
+              {/* Symbol will be replaced with card image later */}
+              <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center">
+                <span className="text-white/80">{card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}</span>
+              </div>
             </div>
             <p className="text-sm text-white/80 text-center">
               {card.arcana === "major" ? "Major Arcana" : card.suit}
@@ -145,6 +81,7 @@ export default function CardDisplay({
           </div>
         </div>
 
+        {/* Back face - will be replaced with custom image */}
         <div 
           className={getCardClasses()}
           style={{ 
@@ -157,7 +94,9 @@ export default function CardDisplay({
           }}
         >
           <div className="w-full h-full p-4 flex items-center justify-center">
-            {getSymbol()}
+            <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
+              <span className="text-white/80">★</span>
+            </div>
           </div>
         </div>
       </motion.div>
