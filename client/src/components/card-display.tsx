@@ -66,7 +66,7 @@ const CardDisplay = memo(function CardDisplay({
           }}
         >
           <img 
-            src="/oracle-of-illusion.png"
+            src="/card-back.png"
             alt="Card Back"
             className="w-full h-full object-cover"
             onError={(e) => {
