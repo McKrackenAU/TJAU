@@ -81,17 +81,22 @@ export default function CardDisplay({
 
         {/* Back face */}
         <div 
-          className="absolute inset-0 w-full h-full rounded-xl border-2 border-purple-300/50"
           style={{ 
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "#1a1a1a",
             backgroundImage: "url('/card-back.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            backgroundColor: "#1a1a1a",
-            zIndex: 10
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
+            transform: "rotateY(180deg)",
+            borderRadius: "0.75rem",
+            border: "2px solid rgba(147, 51, 234, 0.5)"
           }}
         />
       </motion.div>
