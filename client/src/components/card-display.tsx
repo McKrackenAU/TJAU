@@ -3,7 +3,7 @@ import { memo } from "react";
 import type { TarotCard } from "@shared/tarot-data";
 
 interface CardDisplayProps {
-  card: TarotCard;
+  card: TarotCard & { imageUrl?: string };
   isRevealed?: boolean;
   isReversed?: boolean;
   onClick?: () => void;
@@ -39,21 +39,38 @@ const CardDisplay = memo(function CardDisplay({
             WebkitBackfaceVisibility: "hidden",
           }}
         >
-          <div className="p-4 h-full flex flex-col">
-            <h3 className="text-lg font-bold text-center mb-2">
-              {card.name}
-            </h3>
-            <div className="flex-1 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-foreground/20 flex items-center justify-center">
-                <span className="text-xl font-semibold">
-                  {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
-                </span>
+          {card.imageUrl ? (
+            // Show uploaded image if available
+            <div className="w-full h-full relative">
+              <img 
+                src={card.imageUrl} 
+                alt={card.name}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/50">
+                <h3 className="text-lg font-bold text-center text-white">
+                  {card.name}
+                </h3>
               </div>
             </div>
-            <p className="text-sm text-center">
-              {card.arcana === "major" ? "Major Arcana" : card.suit}
-            </p>
-          </div>
+          ) : (
+            // Default display if no image
+            <div className="p-4 h-full flex flex-col">
+              <h3 className="text-lg font-bold text-center mb-2">
+                {card.name}
+              </h3>
+              <div className="flex-1 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-foreground/20 flex items-center justify-center">
+                  <span className="text-xl font-semibold">
+                    {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
+                  </span>
+                </div>
+              </div>
+              <p className="text-sm text-center">
+                {card.arcana === "major" ? "Major Arcana" : card.suit}
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Back of card */}

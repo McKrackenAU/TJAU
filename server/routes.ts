@@ -9,6 +9,8 @@ import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSc
 import multer from 'multer';
 import { requireAdmin } from "./middleware/admin";
 import { importCardsFromExcel } from "./utils/import-cards";
+import path from 'path';
+import fs from 'fs/promises';
 
 export function registerRoutes(app: Express): Server {
   app.post("/api/readings", async (req, res) => {
@@ -48,7 +50,7 @@ export function registerRoutes(app: Express): Server {
         id: `imported_${card.id}`,
         arcana: "custom" as const,
         meanings: {
-          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
             card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
           reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
             card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
@@ -67,7 +69,7 @@ export function registerRoutes(app: Express): Server {
       res.json({ interpretation });
     } catch (error) {
       console.error("AI interpretation error:", error);
-      res.status(500).json({ 
+      res.status(500).json({
         error: "Failed to generate interpretation",
         details: error instanceof Error ? error.message : "Unknown error occurred"
       });
@@ -80,8 +82,8 @@ export function registerRoutes(app: Express): Server {
       console.log("Received request for card combination analysis:", { cardIds, context });
 
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
-        return res.status(400).json({ 
-          error: "Please provide at least two cards to analyze" 
+        return res.status(400).json({
+          error: "Please provide at least two cards to analyze"
         });
       }
 
@@ -92,7 +94,7 @@ export function registerRoutes(app: Express): Server {
         id: `imported_${card.id}`,
         arcana: "custom" as const,
         meanings: {
-          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
             card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
           reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
             card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
@@ -106,7 +108,7 @@ export function registerRoutes(app: Express): Server {
       if (cards.length !== cardIds.length) {
         const missingIds = cardIds.filter(id => !cards.find(c => c.id === id));
         console.error("Missing cards:", missingIds);
-        return res.status(400).json({ 
+        return res.status(400).json({
           error: "One or more invalid card IDs",
           details: `Missing cards: ${missingIds.join(", ")}`
         });
@@ -119,7 +121,7 @@ export function registerRoutes(app: Express): Server {
       res.json({ analysis });
     } catch (error) {
       console.error("Card combination analysis error:", error);
-      res.status(500).json({ 
+      res.status(500).json({
         error: "Failed to analyze card combination",
         details: error instanceof Error ? error.message : "Unknown error"
       });
@@ -148,7 +150,7 @@ export function registerRoutes(app: Express): Server {
       res.json({ affirmation });
     } catch (error) {
       console.error("Affirmation generation error:", error);
-      res.status(500).json({ 
+      res.status(500).json({
         error: "Failed to generate affirmation",
         details: error instanceof Error ? error.message : "Unknown error occurred"
       });
@@ -356,11 +358,42 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Set up multer for file uploads
+  // Set up multer for both Excel and image uploads
   const upload = multer({
-    storage: multer.memoryStorage(),
+    storage: multer.diskStorage({
+      destination: async (req, file, cb) => {
+        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+        try {
+          await fs.mkdir(uploadDir, { recursive: true });
+          cb(null, uploadDir);
+        } catch (error) {
+          cb(error as Error, uploadDir);
+        }
+      },
+      filename: (req, file, cb) => {
+        // Generate unique filename
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
+      }
+    }),
     limits: {
       fileSize: 5 * 1024 * 1024 // 5MB limit
+    },
+    fileFilter: (req, file, cb) => {
+      if (file.fieldname === 'file') {
+        // Excel files
+        const validExcelTypes = [
+          'application/vnd.ms-excel',
+          'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+        ];
+        cb(null, validExcelTypes.includes(file.mimetype));
+      } else if (file.fieldname === 'image') {
+        // Image files
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/webp'];
+        cb(null, validImageTypes.includes(file.mimetype));
+      } else {
+        cb(null, false);
+      }
     }
   });
 
@@ -379,7 +412,7 @@ export function registerRoutes(app: Express): Server {
 
       // Accept both old and new Excel formats
       if (!req.file.mimetype.includes('spreadsheet') &&
-          !req.file.mimetype.includes('excel')) {
+        !req.file.mimetype.includes('excel')) {
         return res.status(400).json({
           error: "Invalid file type. Please upload an Excel file (.xlsx or .xls)"
         });
@@ -414,7 +447,7 @@ export function registerRoutes(app: Express): Server {
         name: card.name,
         description: card.description,
         meanings: {
-          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright : 
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
             card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
           reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
             card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
@@ -432,6 +465,32 @@ export function registerRoutes(app: Express): Server {
       console.error("Error fetching cards:", error);
       res.status(500).json({
         error: "Failed to fetch cards",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Add new route for card image upload
+  app.post("/api/admin/upload-card-image/:cardId", requireAdmin, upload.single('image'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No image file uploaded" });
+      }
+
+      const cardId = req.params.cardId;
+      const imageUrl = `/uploads/${req.file.filename}`;
+
+      // Update the card with the new image URL
+      await storage.updateCardImage(parseInt(cardId.replace('imported_', '')), imageUrl);
+
+      res.json({
+        message: "Image uploaded successfully",
+        imageUrl
+      });
+    } catch (error) {
+      console.error("Image upload error:", error);
+      res.status(500).json({
+        error: "Failed to upload image",
         details: error instanceof Error ? error.message : 'Unknown error'
       });
     }

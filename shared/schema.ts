@@ -97,6 +97,7 @@ export const importedCards = pgTable("imported_cards", {
   description: text("description").notNull(),
   meanings: jsonb("meanings").notNull(),
   dateImported: timestamp("date_imported").defaultNow().notNull(),
+  imageUrl: text("image_url"), // New column for card front images
 });
 
 export type InsertReading = z.infer<typeof insertReadingSchema>;
