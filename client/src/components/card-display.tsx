@@ -56,14 +56,14 @@ const CardDisplay = memo(function CardDisplay({
           </div>
         </div>
 
-        {/* Back of card - using the Oracle of Illusion image */}
+        {/* Back of card */}
         <div
           className="absolute w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
           style={{
             backfaceVisibility: "hidden",
             WebkitBackfaceVisibility: "hidden",
             transform: "rotateY(180deg)",
-            backgroundImage: "url('/Oracle of Illusion.png')",
+            backgroundImage: "url('/oracle-of-illusion.png')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
