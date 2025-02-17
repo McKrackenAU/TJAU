@@ -18,24 +18,25 @@ export default function CardDisplay({
   const getCardClasses = () => {
     const baseClasses = "w-full h-full rounded-xl border-2 overflow-hidden transition-all duration-300";
 
+    // Major Arcana cards - Purple/Gold theme
     if (card.arcana === "major") {
-      return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
+      return `${baseClasses} bg-gradient-to-br from-purple-600 via-purple-800 to-purple-900 border-yellow-300/50`;
     }
 
-    if (card.arcana === "minor" && card.suit) {
-      switch (card.suit.toLowerCase()) {
-        case "wands":
-          return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
-        case "cups":
-          return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
-        case "swords":
-          return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
-        case "pentacles":
-          return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
-      }
+    // Minor Arcana cards - Suit-specific colors
+    switch (card.suit?.toLowerCase()) {
+      case "wands":
+        return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
+      case "cups":
+        return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
+      case "swords":
+        return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
+      case "pentacles":
+        return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
+      default:
+        // Default theme for custom or unknown cards
+        return `${baseClasses} bg-gradient-to-br from-indigo-500 via-indigo-700 to-indigo-900 border-indigo-300/50`;
     }
-
-    return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-purple-300/50`;
   };
 
   return (
@@ -70,9 +71,11 @@ export default function CardDisplay({
               {card.name}
             </h3>
             <div className="flex-1 flex items-center justify-center">
-              {/* Symbol will be replaced with card image later */}
+              {/* Placeholder for future card image */}
               <div className="w-24 h-24 rounded-full bg-white/10 flex items-center justify-center">
-                <span className="text-white/80">{card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}</span>
+                <span className="text-white/80 text-xl">
+                  {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
+                </span>
               </div>
             </div>
             <p className="text-sm text-white/80 text-center">
@@ -81,7 +84,7 @@ export default function CardDisplay({
           </div>
         </div>
 
-        {/* Back face - will be replaced with custom image */}
+        {/* Back face - Temporary until we get the custom image */}
         <div 
           className={getCardClasses()}
           style={{ 
@@ -95,7 +98,7 @@ export default function CardDisplay({
         >
           <div className="w-full h-full p-4 flex items-center justify-center">
             <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-              <span className="text-white/80">★</span>
+              <span className="text-white/80 text-2xl">★</span>
             </div>
           </div>
         </div>
