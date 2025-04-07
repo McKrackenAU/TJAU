@@ -32,9 +32,9 @@ export class AudioService {
   private preloadAudioFiles(): void {
     // Create hidden audio elements to preload files
     const musicUrls = [
-      '/audio/calm-meditation.mp3',
-      '/audio/nature-sounds.mp3',
-      '/audio/crystal-bowls.mp3'
+      '/audio/calm-meditation.wav',
+      '/audio/nature-sounds.wav',
+      '/audio/crystal-bowls.wav'
     ];
     
     musicUrls.forEach(url => {

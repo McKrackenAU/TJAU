@@ -24,9 +24,9 @@ export type MeditationMusicType = 'calm' | 'nature' | 'crystal' | 'none';
 
 // Mapping of music types to their URLs
 const MEDITATION_MUSIC = {
-  calm: '/audio/calm-meditation.mp3',
-  nature: '/audio/nature-sounds.mp3',
-  crystal: '/audio/crystal-bowls.mp3',
+  calm: '/audio/calm-meditation.wav',
+  nature: '/audio/nature-sounds.wav',
+  crystal: '/audio/crystal-bowls.wav',
   none: '',
 };
 
