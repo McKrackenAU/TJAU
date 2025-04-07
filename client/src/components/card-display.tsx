@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { memo } from "react";
 import type { TarotCard } from "@shared/tarot-data";
+import CardBack from "./card-back";
 
 interface CardDisplayProps {
   card: TarotCard & { imageUrl?: string };
@@ -82,15 +83,7 @@ const CardDisplay = memo(function CardDisplay({
             transform: "rotateY(180deg)",
           }}
         >
-          <div 
-            className="w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
-          >
-            <img 
-              src="/card-back.png"
-              alt="Card Back" 
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <CardBack />
         </div>
       </motion.div>
     </div>
