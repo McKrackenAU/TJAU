@@ -92,6 +92,11 @@ export function setupAuth(app: Express) {
     try {
       const { username, email, password } = req.body;
       
+      // Validate input
+      if (!username || !email || !password) {
+        return res.status(400).json({ error: "Missing required fields" });
+      }
+      
       // Check if username already exists
       const existingUserByUsername = await storage.getUserByUsername(username);
       if (existingUserByUsername) {
@@ -106,9 +111,11 @@ export function setupAuth(app: Express) {
 
       // Create new user
       const user = await storage.createUser({
-        username,
-        email,
+        username: String(username),
+        email: String(email),
         password: await hashPassword(password),
+        isAdmin: false,
+        isSubscribed: false
       });
 
       // Log the user in automatically

@@ -24,8 +24,10 @@ const loginSchema = z.object({
   password: z.string().min(1, "Password is required"),
 });
 
-// Schema for registration extends the insertUserSchema
-const registerSchema = insertUserSchema.extend({
+// Schema for registration with just the fields sent to the API
+const registerSchema = z.object({
+  username: z.string().min(1, "Username is required"),
+  email: z.string().email("Invalid email address"),
   password: z.string()
     .min(8, "Password must be at least 8 characters")
     .regex(/[A-Z]/, "Password must contain at least one uppercase letter")

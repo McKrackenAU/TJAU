@@ -119,6 +119,7 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   isSubscribed: boolean("is_subscribed").default(false).notNull(),
+  isAdmin: boolean("is_admin").default(false).notNull(),
   stripeCustomerId: text("stripe_customer_id").default(''),
   stripeSubscriptionId: text("stripe_subscription_id").default(''),
 });
@@ -126,9 +127,11 @@ export const users = pgTable("users", {
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
   createdAt: true,
-  isSubscribed: true,
   stripeCustomerId: true,
   stripeSubscriptionId: true,
+}).extend({
+  isAdmin: z.boolean().optional().default(false),
+  isSubscribed: z.boolean().optional().default(false)
 });
 
 export type ImportedCard = typeof importedCards.$inferSelect;

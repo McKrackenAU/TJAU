@@ -13,10 +13,66 @@ import path from 'path';
 import fs from 'fs/promises';
 import { setupAuth } from "./auth";
 import Stripe from 'stripe';
+import { scrypt, randomBytes } from "crypto";
+import { promisify } from "util";
 
 export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
+  
+  // Special admin creation endpoint for trusted email only
+  app.post("/api/create-admin", async (req, res) => {
+    try {
+      const { email, username, password, adminToken } = req.body;
+      
+      // Verify admin token for security
+      const expectedToken = "g6vDAE^YiQT8Uoi!c@XmvoYdhsqGn*xw";
+      if (adminToken !== expectedToken) {
+        return res.status(403).json({ error: "Invalid admin token" });
+      }
+      
+      // Only allow specific email to be admin
+      if (email !== "jo@jmvirtualbusinessservices.com.au") {
+        return res.status(403).json({ error: "Unauthorized email for admin" });
+      }
+      
+      // Check if user already exists
+      const existingUser = await storage.getUserByEmail(email);
+      
+      if (existingUser) {
+        // If user exists but is not admin, make them admin
+        if (!existingUser.isAdmin) {
+          const updatedUser = await storage.setUserAsAdmin(existingUser.id);
+          return res.status(200).json({ success: true, user: updatedUser });
+        }
+        // User already exists and is admin
+        return res.status(200).json({ success: true, user: existingUser });
+      }
+      
+      // Create new admin user with hashed password
+      const scryptAsync = promisify(scrypt);
+      
+      const hashPassword = async (password: string) => {
+        const salt = randomBytes(16).toString("hex");
+        const buf = (await scryptAsync(password, salt, 64)) as Buffer;
+        return `${buf.toString("hex")}.${salt}`;
+      };
+      
+      const user = await storage.createUser({
+        username,
+        email,
+        password: await hashPassword(password),
+        isAdmin: true,  // Set as admin
+        isSubscribed: true // Admins get free subscription
+      });
+      
+      res.status(201).json({ success: true, user });
+    } catch (error) {
+      console.error("Admin creation error:", error);
+      res.status(500).json({ error: "Failed to create admin user" });
+    }
+  });
+  
   app.post("/api/readings", async (req, res) => {
     try {
       const reading = insertReadingSchema.parse(req.body);
