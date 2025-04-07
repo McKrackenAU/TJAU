@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth, LoginData, RegisterData } from "@/hooks/use-auth";
 import { Button } from "@/components/ui/button";
@@ -39,12 +39,6 @@ export default function AuthPage() {
   const [, navigate] = useLocation();
   const { user, loginMutation, registerMutation, isLoading } = useAuth();
 
-  // If user is already logged in, redirect to home
-  if (user) {
-    navigate("/");
-    return null;
-  }
-
   // Setup login form
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
@@ -74,6 +68,22 @@ export default function AuthPage() {
   const onRegisterSubmit = (data: RegisterData) => {
     registerMutation.mutate(data);
   };
+  
+  // If user is already logged in, redirect to home
+  // We do this after all hooks are initialized to avoid React hook errors
+  if (user) {
+    // Use useEffect for navigation to avoid React errors
+    useEffect(() => {
+      navigate("/");
+    }, [navigate, user]);
+    
+    // Show loading state instead of returning null
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-screen">
