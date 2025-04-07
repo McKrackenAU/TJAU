@@ -32,11 +32,11 @@ export default function TestImages() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">/Oracle of Illusion.png</h3>
+              <h3 className="text-lg font-semibold mb-2">/Oracle of Illusion.png (with encoding)</h3>
               <div 
                 className="w-48 h-72 rounded-xl overflow-hidden"
                 style={{ 
-                  backgroundImage: 'url(/Oracle of Illusion.png)',
+                  backgroundImage: 'url(/Oracle%20of%20Illusion.png)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
@@ -67,9 +67,9 @@ export default function TestImages() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-2">/Oracle of Illusion.png</h3>
+              <h3 className="text-lg font-semibold mb-2">/Oracle of Illusion.png (with encoding)</h3>
               <img 
-                src="/Oracle of Illusion.png" 
+                src="/Oracle%20of%20Illusion.png" 
                 alt="Oracle of Illusion (Spaces)"
                 className="w-48 h-72 object-cover rounded-xl"
               />
