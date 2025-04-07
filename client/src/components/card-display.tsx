@@ -84,17 +84,12 @@ const CardDisplay = memo(function CardDisplay({
         >
           <div 
             className="w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
-            style={{
-              backgroundColor: "#2a0845",
-              backgroundImage: "linear-gradient(135deg, #2a0845 0%, #6441A5 74%)",
-              boxShadow: "inset 0 0 50px rgba(255,255,255,0.1)"
-            }}
           >
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center">
-                <span className="text-4xl">★</span>
-              </div>
-            </div>
+            <img 
+              src="/uploads/Oracle of Illusion.png"
+              alt="Card Back" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </motion.div>
