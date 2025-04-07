@@ -30,6 +30,14 @@ const MEDITATION_MUSIC = {
   none: '',
 };
 
+// Music descriptions to help users choose
+const MUSIC_DESCRIPTIONS = {
+  calm: 'Gentle ambient music designed for relaxation and meditation',
+  nature: 'Peaceful nature sounds including gentle streams and forest ambience',
+  crystal: 'Resonant crystal singing bowls for chakra alignment and healing',
+  none: 'No background music, voice narration only',
+};
+
 interface VoiceGuidedReadingProps {
   cards: (TarotCard & { isReversed?: boolean })[];
   spreadType?: string;
@@ -50,6 +58,7 @@ export default function VoiceGuidedReading({
   const [voiceRate, setVoiceRate] = useState(0.9);
   const [isMusicEnabled, setIsMusicEnabled] = useState(true);
   const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
+  const [musicDescription, setMusicDescription] = useState(MUSIC_DESCRIPTIONS.calm);
   const scriptRef = useRef<string[]>([]);
   const isCompletedRef = useRef(false);
 
@@ -114,13 +123,21 @@ export default function VoiceGuidedReading({
     const musicUrl = MEDITATION_MUSIC[musicType];
     if (musicUrl) {
       audioService.setMusicVolume(musicVolume / 100);
+      // Play or update the music
       audioService.playBackgroundMusic(musicUrl);
     }
     
     return () => {
       audioService.pauseBackgroundMusic();
     };
-  }, [musicType, isMusicEnabled, musicVolume]);
+  }, [musicType, isMusicEnabled]);
+  
+  // Update music volume when slider changes
+  useEffect(() => {
+    if (isMusicEnabled && musicType !== 'none') {
+      audioService.setMusicVolume(musicVolume / 100);
+    }
+  }, [musicVolume, isMusicEnabled, musicType]);
 
   // Clean up when component unmounts
   useEffect(() => {
@@ -128,6 +145,11 @@ export default function VoiceGuidedReading({
       audioService.cleanUp();
     };
   }, []);
+  
+  // Update music description when type changes
+  useEffect(() => {
+    setMusicDescription(MUSIC_DESCRIPTIONS[musicType]);
+  }, [musicType]);
 
   const startReading = () => {
     setHasStarted(true);
@@ -136,12 +158,14 @@ export default function VoiceGuidedReading({
   };
 
   const pauseReading = () => {
-    audioService.pauseSpeech();
+    // Pause both voice and music at the same time
+    audioService.pauseAll();
     setIsPlaying(false);
   };
 
   const resumeReading = () => {
-    audioService.resumeSpeech();
+    // Resume both voice and music at the same time
+    audioService.resumeAll();
     setIsPlaying(true);
   };
 
@@ -185,6 +209,35 @@ export default function VoiceGuidedReading({
       const currentText = scriptRef.current[activeCardIndex];
       audioService.speak(currentText);
     }
+  };
+  
+  const handleMusicTypeChange = (type: MeditationMusicType) => {
+    // Smoothly transition between music types
+    if (isMusicEnabled) {
+      if (type === 'none') {
+        audioService.pauseBackgroundMusic();
+      } else {
+        // Fade out current music before changing
+        const currentVolume = audioService.getMusicVolume();
+        audioService.setMusicVolume(0.01); // Almost silent
+        
+        // After a short delay, change the music and restore volume
+        setTimeout(() => {
+          setMusicType(type);
+          setMusicDescription(MUSIC_DESCRIPTIONS[type]);
+          
+          // Gradually restore the volume
+          setTimeout(() => {
+            audioService.setMusicVolume(musicVolume / 100);
+          }, 300);
+        }, 300);
+        return;
+      }
+    }
+    
+    // If music is disabled or type is none, just update the state
+    setMusicType(type);
+    setMusicDescription(MUSIC_DESCRIPTIONS[type]);
   };
 
   const getPositionName = (index: number, type: string): string => {
@@ -316,7 +369,10 @@ export default function VoiceGuidedReading({
                         max={100} 
                         step={1}
                         value={[voiceVolume]}
-                        onValueChange={(value) => setVoiceVolume(value[0])}
+                        onValueChange={(value) => {
+                          setVoiceVolume(value[0]);
+                          audioService.setSpeechVolume(value[0] / 100);
+                        }}
                       />
                       <Volume2 className="h-4 w-4 text-muted-foreground" />
                     </div>
@@ -334,7 +390,10 @@ export default function VoiceGuidedReading({
                       max={1.5} 
                       step={0.1}
                       value={[voiceRate]}
-                      onValueChange={(value) => setVoiceRate(value[0])}
+                      onValueChange={(value) => {
+                        setVoiceRate(value[0]);
+                        audioService.setSpeechRate(value[0]);
+                      }}
                     />
                   </div>
                 </div>
@@ -357,7 +416,7 @@ export default function VoiceGuidedReading({
                       id="music-type"
                       disabled={!isMusicEnabled}
                       value={musicType}
-                      onChange={(e) => setMusicType(e.target.value as MeditationMusicType)}
+                      onChange={(e) => handleMusicTypeChange(e.target.value as MeditationMusicType)}
                       className="w-full px-3 py-2 bg-background border border-input rounded-md"
                     >
                       <option value="calm">Calm Meditation</option>
@@ -365,6 +424,7 @@ export default function VoiceGuidedReading({
                       <option value="crystal">Crystal Bowls</option>
                       <option value="none">No Music</option>
                     </select>
+                    <p className="text-xs text-muted-foreground mt-1">{musicDescription}</p>
                   </div>
                   
                   <div className="space-y-2">
@@ -381,7 +441,10 @@ export default function VoiceGuidedReading({
                         max={100} 
                         step={1}
                         value={[musicVolume]}
-                        onValueChange={(value) => setMusicVolume(value[0])}
+                        onValueChange={(value) => {
+                          setMusicVolume(value[0]);
+                          audioService.setMusicVolume(value[0] / 100);
+                        }}
                       />
                       <Volume2 className="h-4 w-4 text-muted-foreground" />
                     </div>

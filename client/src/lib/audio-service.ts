@@ -8,15 +8,42 @@ export class AudioService {
   private volume: number = 0.5;
   private rate: number = 0.9; // Slightly slower than normal for meditation
   private pitch: number = 0.9; // Slightly lower pitch for calming effect
+  private musicVolume: number = 0.3; // Default music volume
+  private currentMusicUrl: string = "";
   
   private constructor() {
     if (typeof window !== 'undefined') {
       this.speechSynthesis = window.speechSynthesis;
-      // Create the background music element
+      // Create the background music element but don't set source yet
       this.backgroundMusic = new Audio();
       this.backgroundMusic.loop = true;
-      this.backgroundMusic.volume = 0.3; // Lower volume for background music
+      this.backgroundMusic.volume = this.musicVolume;
+      
+      // Add event listeners for error handling and logging
+      this.backgroundMusic.addEventListener('error', (e) => {
+        console.error('Audio playback error:', e);
+      });
+      
+      // Preload all meditation music when service initializes
+      this.preloadAudioFiles();
     }
+  }
+  
+  private preloadAudioFiles(): void {
+    // Create hidden audio elements to preload files
+    const musicUrls = [
+      '/audio/calm-meditation.mp3',
+      '/audio/nature-sounds.mp3',
+      '/audio/crystal-bowls.mp3'
+    ];
+    
+    musicUrls.forEach(url => {
+      const audio = new Audio();
+      audio.preload = 'auto';
+      audio.src = url;
+      // Just load enough to ensure browser has the file ready
+      audio.load();
+    });
   }
 
   public static getInstance(): AudioService {
@@ -28,7 +55,9 @@ export class AudioService {
 
   public setMusicVolume(volume: number): void {
     if (this.backgroundMusic) {
-      this.backgroundMusic.volume = Math.max(0, Math.min(1, volume));
+      this.musicVolume = Math.max(0, Math.min(1, volume));
+      this.backgroundMusic.volume = this.musicVolume;
+      console.log(`Setting music volume to ${this.musicVolume}`);
     }
   }
 
@@ -57,13 +86,25 @@ export class AudioService {
     if (!this.backgroundMusic) return;
     
     try {
-      if (this.backgroundMusic.src !== url) {
+      // Keep track of the current music URL
+      this.currentMusicUrl = url;
+      
+      // Only load and restart if it's a different track
+      if (this.backgroundMusic.src !== url || this.backgroundMusic.paused) {
+        console.log(`Starting background music: ${url}`);
         this.backgroundMusic.src = url;
         this.backgroundMusic.load();
+        this.backgroundMusic.volume = this.musicVolume;
+        
+        // Add a small delay to ensure audio context is ready
+        setTimeout(async () => {
+          try {
+            await this.backgroundMusic?.play();
+          } catch (err) {
+            console.error("Delayed play attempt failed:", err);
+          }
+        }, 300);
       }
-      
-      // Play the music
-      await this.backgroundMusic.play();
     } catch (error) {
       console.error("Error playing background music:", error);
     }
@@ -71,14 +112,26 @@ export class AudioService {
 
   public pauseBackgroundMusic(): void {
     if (this.backgroundMusic && !this.backgroundMusic.paused) {
+      console.log("Pausing background music");
       this.backgroundMusic.pause();
+    }
+  }
+  
+  public resumeBackgroundMusic(): void {
+    if (this.backgroundMusic && this.backgroundMusic.paused && this.currentMusicUrl) {
+      console.log("Resuming background music");
+      this.backgroundMusic.play().catch(err => {
+        console.error("Error resuming background music:", err);
+      });
     }
   }
 
   public stopBackgroundMusic(): void {
     if (this.backgroundMusic) {
+      console.log("Stopping background music");
       this.backgroundMusic.pause();
       this.backgroundMusic.currentTime = 0;
+      this.currentMusicUrl = "";
     }
   }
 
@@ -118,6 +171,7 @@ export class AudioService {
 
   public pauseSpeech(): void {
     if (this.speechSynthesis && this.isPlaying) {
+      console.log("Pausing speech");
       this.speechSynthesis.pause();
       this.isPlaying = false;
     }
@@ -125,6 +179,7 @@ export class AudioService {
 
   public resumeSpeech(): void {
     if (this.speechSynthesis && !this.isPlaying) {
+      console.log("Resuming speech");
       this.speechSynthesis.resume();
       this.isPlaying = true;
     }
@@ -132,14 +187,33 @@ export class AudioService {
 
   public stopSpeech(): void {
     if (this.speechSynthesis) {
+      console.log("Stopping speech");
       this.speechSynthesis.cancel();
       this.isPlaying = false;
     }
   }
 
+  public pauseAll(): void {
+    this.pauseSpeech();
+    this.pauseBackgroundMusic();
+  }
+  
+  public resumeAll(): void {
+    this.resumeSpeech();
+    this.resumeBackgroundMusic();
+  }
+
   public cleanUp(): void {
     this.stopSpeech();
     this.stopBackgroundMusic();
+  }
+  
+  public getMusicVolume(): number {
+    return this.musicVolume;
+  }
+  
+  public getSpeechVolume(): number {
+    return this.volume;
   }
 }
 
