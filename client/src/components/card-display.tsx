@@ -86,7 +86,7 @@ const CardDisplay = memo(function CardDisplay({
             className="w-full h-full rounded-xl overflow-hidden border-2 border-white/10"
           >
             <img 
-              src="Oracle of Illusion.png"
+              src="/card-back.png"
               alt="Card Back" 
               className="w-full h-full object-cover"
             />
