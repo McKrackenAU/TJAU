@@ -1,6 +1,9 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, importedCards } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, importedCards } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
+
+import session from "express-session";
+import connectPg from "connect-pg-simple";
 
 export interface IStorage {
   createReading(reading: InsertReading): Promise<Reading>;
@@ -27,6 +30,16 @@ export interface IStorage {
   createQuizResult(result: InsertQuizResult): Promise<QuizResult>;
   getQuizResults(trackId: number): Promise<QuizResult[]>;
   getRecentQuizResults(limit?: number): Promise<QuizResult[]>;
+  // User authentication
+  createUser(user: InsertUser): Promise<User>;
+  getUser(id: number): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  getUserByEmail(email: string): Promise<User | undefined>;
+  // Stripe integration
+  updateStripeCustomerId(userId: number, customerId: string): Promise<User>;
+  updateUserStripeInfo(userId: number, stripeInfo: { customerId: string, subscriptionId: string }): Promise<User>;
+  // Session store
+  sessionStore: session.Store;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -223,6 +236,68 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(quizResults.date))
       .limit(limit);
   }
+  
+  // User authentication methods
+  async createUser(user: InsertUser): Promise<User> {
+    const [created] = await db
+      .insert(users)
+      .values(user)
+      .returning();
+    return created;
+  }
+
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.id, id));
+    return user;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.username, username));
+    return user;
+  }
+
+  async getUserByEmail(email: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.email, email));
+    return user;
+  }
+
+  // Stripe integration methods
+  async updateStripeCustomerId(userId: number, customerId: string): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set({ stripeCustomerId: customerId })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async updateUserStripeInfo(userId: number, stripeInfo: { customerId: string; subscriptionId: string }): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set({ 
+        stripeCustomerId: stripeInfo.customerId,
+        stripeSubscriptionId: stripeInfo.subscriptionId,
+        isSubscribed: true
+      })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  // Session store setup
+  sessionStore = new (connectPg(session))({
+    conString: process.env.DATABASE_URL,
+    createTableIfMissing: true
+  });
 }
 
 export const storage = new DatabaseStorage();

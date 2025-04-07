@@ -12,20 +12,26 @@ import Study from "@/pages/study";
 import Journal from "@/pages/journal";
 import Learning from "@/pages/learning";
 import TestImages from "@/pages/test-images";
+import AuthPage from "@/pages/auth-page";
+import Subscribe from "@/pages/subscribe";
 import BottomNav from "@/components/bottom-nav";
+import { AuthProvider } from "@/hooks/use-auth";
+import { ProtectedRoute } from "@/lib/protected-route";
 
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/daily" component={DailyDraw} />
-      <Route path="/spreads" component={Spreads} />
-      <Route path="/history" component={History} />
-      <Route path="/library" component={Library} />
-      <Route path="/study" component={Study} />
-      <Route path="/journal" component={Journal} />
-      <Route path="/learning" component={Learning} />
-      <Route path="/test-images" component={TestImages} />
+      <ProtectedRoute path="/" component={Home} />
+      <ProtectedRoute path="/daily" component={DailyDraw} />
+      <ProtectedRoute path="/spreads" component={Spreads} />
+      <ProtectedRoute path="/history" component={History} />
+      <ProtectedRoute path="/library" component={Library} />
+      <ProtectedRoute path="/study" component={Study} />
+      <ProtectedRoute path="/journal" component={Journal} />
+      <ProtectedRoute path="/learning" component={Learning} />
+      <ProtectedRoute path="/test-images" component={TestImages} />
+      <ProtectedRoute path="/subscribe" component={Subscribe} />
+      <Route path="/auth" component={AuthPage} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -34,13 +40,15 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
-        <main className="pb-16">
-          <Router />
-        </main>
-        <BottomNav />
-      </div>
-      <Toaster />
+      <AuthProvider>
+        <div className="min-h-screen bg-background">
+          <main className="pb-16">
+            <Router />
+          </main>
+          <BottomNav />
+        </div>
+        <Toaster />
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

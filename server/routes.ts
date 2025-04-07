@@ -11,8 +11,12 @@ import { requireAdmin } from "./middleware/admin";
 import { importCardsFromExcel } from "./utils/import-cards";
 import path from 'path';
 import fs from 'fs/promises';
+import { setupAuth } from "./auth";
+import Stripe from 'stripe';
 
 export function registerRoutes(app: Express): Server {
+  // Set up authentication routes and middleware
+  setupAuth(app);
   app.post("/api/readings", async (req, res) => {
     try {
       const reading = insertReadingSchema.parse(req.body);
@@ -495,6 +499,102 @@ export function registerRoutes(app: Express): Server {
       });
     }
   });
+
+  // Set up Stripe payment routes
+  if (process.env.STRIPE_SECRET_KEY) {
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2023-10-16'
+    });
+
+    // Stripe payment route for one-time payments
+    app.post("/api/create-payment-intent", async (req, res) => {
+      try {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+
+        const { amount } = req.body;
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(amount * 100), // Convert to cents
+          currency: "usd",
+          // Associate with the customer
+          customer: req.user.stripeCustomerId || undefined,
+        });
+        res.json({ clientSecret: paymentIntent.client_secret });
+      } catch (error: any) {
+        console.error("Stripe payment error:", error);
+        res.status(500).json({ 
+          error: "Error creating payment intent", 
+          message: error.message 
+        });
+      }
+    });
+
+    // Subscription endpoint
+    app.post('/api/get-or-create-subscription', async (req, res) => {
+      try {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+
+        const user = req.user;
+
+        if (user.stripeSubscriptionId) {
+          // User already has a subscription, retrieve it
+          const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+
+          res.json({
+            subscriptionId: subscription.id,
+            clientSecret: subscription.latest_invoice?.payment_intent?.client_secret,
+          });
+          return;
+        }
+        
+        if (!user.email) {
+          throw new Error('No user email on file');
+        }
+
+        // Create a new customer if needed
+        let customerId = user.stripeCustomerId;
+        if (!customerId) {
+          const customer = await stripe.customers.create({
+            email: user.email,
+            name: user.username,
+          });
+          customerId = customer.id;
+          await storage.updateStripeCustomerId(user.id, customer.id);
+        }
+
+        // Create subscription
+        const subscription = await stripe.subscriptions.create({
+          customer: customerId,
+          items: [{
+            // Use default price ID for now
+            price: process.env.STRIPE_PRICE_ID || 'price_placeholder',
+          }],
+          payment_behavior: 'default_incomplete',
+          expand: ['latest_invoice.payment_intent'],
+        });
+
+        // Update user with subscription information
+        await storage.updateUserStripeInfo(user.id, {
+          customerId, 
+          subscriptionId: subscription.id
+        });
+    
+        res.json({
+          subscriptionId: subscription.id,
+          clientSecret: subscription.latest_invoice?.payment_intent?.client_secret,
+        });
+      } catch (error: any) {
+        console.error("Stripe subscription error:", error);
+        res.status(500).json({ 
+          error: "Error creating subscription", 
+          message: error.message 
+        });
+      }
+    });
+  }
 
   const httpServer = createServer(app);
   return httpServer;

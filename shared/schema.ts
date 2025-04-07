@@ -112,5 +112,26 @@ export type UserProgress = typeof userProgress.$inferSelect;
 export type InsertUserProgress = z.infer<typeof insertUserProgressSchema>;
 export type QuizResult = typeof quizResults.$inferSelect;
 export type InsertQuizResult = z.infer<typeof insertQuizResultSchema>;
+export const users = pgTable("users", {
+  id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  email: text("email").notNull().unique(),
+  password: text("password").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  isSubscribed: boolean("is_subscribed").default(false).notNull(),
+  stripeCustomerId: text("stripe_customer_id").default(''),
+  stripeSubscriptionId: text("stripe_subscription_id").default(''),
+});
+
+export const insertUserSchema = createInsertSchema(users).omit({
+  id: true,
+  createdAt: true,
+  isSubscribed: true,
+  stripeCustomerId: true,
+  stripeSubscriptionId: true,
+});
+
 export type ImportedCard = typeof importedCards.$inferSelect;
 export type InsertImportedCard = typeof importedCards.$inferInsert;
+export type User = typeof users.$inferSelect;
+export type InsertUser = z.infer<typeof insertUserSchema>;
