@@ -95,7 +95,18 @@ export default function VoiceGuidedReading({
     audioService.setSpeechVolume(voiceVolume / 100);
     audioService.setSpeechRate(voiceRate);
     
+    // Temporarily lower music volume while speaking
+    const currentMusicVolume = audioService.getMusicVolume();
+    if (isMusicEnabled && musicType !== 'none') {
+      audioService.setMusicVolume(Math.max(0.05, currentMusicVolume * 0.3)); // Reduce to 30% but never below 0.05
+    }
+    
     audioService.speak(currentText, () => {
+      // Restore music volume when speech ends
+      if (isMusicEnabled && musicType !== 'none') {
+        audioService.setMusicVolume(currentMusicVolume);
+      }
+      
       // Move to the next card after speech is complete
       if (activeCardIndex < scriptRef.current.length - 1) {
         setActiveCardIndex(prevIndex => prevIndex + 1);
@@ -103,6 +114,8 @@ export default function VoiceGuidedReading({
         // Finished the reading
         setIsPlaying(false);
         isCompletedRef.current = true;
+        // Pause the background music when the reading is complete
+        audioService.pauseBackgroundMusic();
         if (onComplete) onComplete();
       }
     });
@@ -110,8 +123,12 @@ export default function VoiceGuidedReading({
     return () => {
       // Clean up on unmount or when dependency changes
       audioService.stopSpeech();
+      // Restore music volume on cleanup
+      if (isMusicEnabled && musicType !== 'none') {
+        audioService.setMusicVolume(currentMusicVolume);
+      }
     };
-  }, [activeCardIndex, isPlaying, voiceVolume, voiceRate, isVoiceEnabled, onComplete]);
+  }, [activeCardIndex, isPlaying, voiceVolume, voiceRate, isVoiceEnabled, isMusicEnabled, musicType, onComplete]);
 
   // Handle background music
   useEffect(() => {
