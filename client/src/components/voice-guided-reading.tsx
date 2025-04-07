@@ -24,17 +24,17 @@ export type MeditationMusicType = 'calm' | 'nature' | 'crystal' | 'none';
 
 // Mapping of music types to their URLs
 const MEDITATION_MUSIC = {
-  calm: '/audio/calm-meditation.wav',
-  nature: '/audio/nature-sounds.wav',
-  crystal: '/audio/crystal-bowls.wav',
+  calm: '/audio/calm-meditation.mp3',
+  nature: '/audio/nature-sounds.mp3',
+  crystal: '/audio/crystal-bowls.mp3',
   none: '',
 };
 
 // Music descriptions to help users choose
 const MUSIC_DESCRIPTIONS = {
-  calm: 'Gentle ambient music designed for relaxation and meditation',
-  nature: 'Peaceful nature sounds including gentle streams and forest ambience',
-  crystal: 'Resonant crystal singing bowls for chakra alignment and healing',
+  calm: 'Soft piano music for peaceful meditation and relaxation',
+  nature: 'Forest ambience with gentle bird songs and natural sounds',
+  crystal: 'Tibetan singing bowls for deep meditation and chakra healing',
   none: 'No background music, voice narration only',
 };
 
