@@ -6,6 +6,7 @@ import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import YouTube from 'react-youtube';
 import {
   Play,
   Pause,
@@ -25,9 +26,15 @@ export type MeditationMusicType = 'calm' | 'nature' | 'crystal' | 'none';
 // Mapping of music types to their URLs
 const MEDITATION_MUSIC = {
   calm: '/audio/calm-meditation.mp3',
-  nature: '/audio/nature-sounds.mp3',
-  crystal: '/audio/crystal-bowls.mp3',
-  none: '',
+  nature: '/audio/nature-sounds.mp3', // Kept for fallback
+  crystal: '/audio/crystal-bowls.mp3', // Kept for fallback
+  none: ''
+};
+
+// YouTube video IDs for nature and crystal bowl meditation
+const YOUTUBE_VIDEOS = {
+  nature: 'vBi8FxvoYvo', // Nature sounds
+  crystal: '4GcW45gETv8', // Crystal bowls
 };
 
 // Music descriptions to help users choose
@@ -61,6 +68,7 @@ export default function VoiceGuidedReading({
   const [musicDescription, setMusicDescription] = useState(MUSIC_DESCRIPTIONS.calm);
   const scriptRef = useRef<string[]>([]);
   const isCompletedRef = useRef(false);
+  const youtubePlayerRef = useRef<any>(null);
 
   // Generate reading script based on cards
   useEffect(() => {
@@ -137,6 +145,13 @@ export default function VoiceGuidedReading({
       return;
     }
     
+    // YouTube videos for nature and crystal
+    if (musicType === 'nature' || musicType === 'crystal') {
+      // Pause regular audio if we're using YouTube
+      audioService.pauseBackgroundMusic();
+      return;
+    }
+    
     const musicUrl = MEDITATION_MUSIC[musicType];
     if (musicUrl) {
       audioService.setMusicVolume(musicVolume / 100);
@@ -152,9 +167,17 @@ export default function VoiceGuidedReading({
   // Update music volume when slider changes
   useEffect(() => {
     if (isMusicEnabled && musicType !== 'none') {
+      // Update audio service volume for regular audio
       audioService.setMusicVolume(musicVolume / 100);
+      
+      // Update YouTube player volume if active
+      if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
+        // If speech is active, keep YouTube at reduced volume
+        const volumeLevel = isPlaying ? musicVolume * 0.3 : musicVolume;
+        youtubePlayerRef.current.setVolume(volumeLevel);
+      }
     }
-  }, [musicVolume, isMusicEnabled, musicType]);
+  }, [musicVolume, isMusicEnabled, musicType, isPlaying]);
 
   // Clean up when component unmounts
   useEffect(() => {
@@ -177,12 +200,24 @@ export default function VoiceGuidedReading({
   const pauseReading = () => {
     // Pause both voice and music at the same time
     audioService.pauseAll();
+    
+    // Pause YouTube player if it's active
+    if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
+      youtubePlayerRef.current.pauseVideo();
+    }
+    
     setIsPlaying(false);
   };
 
   const resumeReading = () => {
     // Resume both voice and music at the same time
     audioService.resumeAll();
+    
+    // Resume YouTube player if it's active
+    if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
+      youtubePlayerRef.current.playVideo();
+    }
+    
     setIsPlaying(true);
   };
 
@@ -211,10 +246,22 @@ export default function VoiceGuidedReading({
 
   const toggleMusic = (enabled: boolean) => {
     setIsMusicEnabled(enabled);
+    
     if (!enabled) {
+      // Stop all music sources
       audioService.pauseBackgroundMusic();
+      if (youtubePlayerRef.current) {
+        youtubePlayerRef.current.pauseVideo();
+      }
     } else if (musicType !== 'none') {
-      audioService.playBackgroundMusic(MEDITATION_MUSIC[musicType]);
+      // Start appropriate music source
+      if (musicType === 'nature' || musicType === 'crystal') {
+        if (youtubePlayerRef.current) {
+          youtubePlayerRef.current.playVideo();
+        }
+      } else {
+        audioService.playBackgroundMusic(MEDITATION_MUSIC[musicType]);
+      }
     }
   };
 
@@ -232,27 +279,45 @@ export default function VoiceGuidedReading({
     // Smoothly transition between music types
     if (isMusicEnabled) {
       if (type === 'none') {
+        // Stop all music sources
         audioService.pauseBackgroundMusic();
+        if (youtubePlayerRef.current) {
+          youtubePlayerRef.current.pauseVideo();
+        }
       } else {
-        // Fade out current music before changing
-        const currentVolume = audioService.getMusicVolume();
-        audioService.setMusicVolume(0.01); // Almost silent
+        // Handle transitions between different music types
         
-        // After a short delay, change the music and restore volume
-        setTimeout(() => {
-          setMusicType(type);
-          setMusicDescription(MUSIC_DESCRIPTIONS[type]);
+        // First check if we're transitioning between regular audio and YouTube
+        const isCurrentYouTube = musicType === 'nature' || musicType === 'crystal';
+        const isNewYouTube = type === 'nature' || type === 'crystal';
+        
+        if (isCurrentYouTube && youtubePlayerRef.current) {
+          // If we're transitioning from YouTube to other type, pause YouTube
+          youtubePlayerRef.current.pauseVideo();
+        }
+        
+        if (!isNewYouTube) {
+          // If new type is not YouTube, use the regular audio service
+          // Fade out current music before changing
+          const currentVolume = audioService.getMusicVolume();
+          audioService.setMusicVolume(0.01); // Almost silent
           
-          // Gradually restore the volume
+          // After a short delay, change the music and restore volume
           setTimeout(() => {
-            audioService.setMusicVolume(musicVolume / 100);
+            setMusicType(type);
+            setMusicDescription(MUSIC_DESCRIPTIONS[type]);
+            
+            // Gradually restore the volume
+            setTimeout(() => {
+              audioService.setMusicVolume(musicVolume / 100);
+            }, 300);
           }, 300);
-        }, 300);
-        return;
+          return;
+        }
       }
     }
     
-    // If music is disabled or type is none, just update the state
+    // If music is disabled or type needs immediate change, just update the state
     setMusicType(type);
     setMusicDescription(MUSIC_DESCRIPTIONS[type]);
   };
@@ -470,6 +535,44 @@ export default function VoiceGuidedReading({
               </div>
             </CardContent>
           </Card>
+
+          {/* YouTube Player for nature sounds and crystal bowls */}
+          {isMusicEnabled && (musicType === 'nature' || musicType === 'crystal') && (
+            <div className="mt-4 hidden md:block">
+              <div className="relative aspect-video overflow-hidden rounded-lg shadow-md">
+                <YouTube
+                  videoId={YOUTUBE_VIDEOS[musicType]}
+                  opts={{
+                    height: '100%',
+                    width: '100%',
+                    playerVars: {
+                      autoplay: 1,
+                      controls: 1,
+                      modestbranding: 1,
+                      loop: 1,
+                      playlist: YOUTUBE_VIDEOS[musicType],
+                      rel: 0,
+                    },
+                  }}
+                  onReady={(event: any) => {
+                    youtubePlayerRef.current = event.target;
+                    // Set volume based on music volume slider
+                    event.target.setVolume(musicVolume);
+                  }}
+                  onPlay={() => {
+                    // Lower volume when speech is active
+                    if (isPlaying && youtubePlayerRef.current) {
+                      youtubePlayerRef.current.setVolume(musicVolume * 0.3);
+                    }
+                  }}
+                  className="absolute inset-0 h-full w-full"
+                />
+              </div>
+              <p className="mt-2 text-xs text-muted-foreground text-center">
+                YouTube video playing: {musicType === 'nature' ? 'Relaxing Nature Sounds' : 'Crystal Singing Bowl Meditation'}
+              </p>
+            </div>
+          )}
         </>
       )}
     </div>
