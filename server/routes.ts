@@ -220,20 +220,23 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/meditate", async (req, res) => {
     try {
       const { cardId } = req.body;
+      let card;
       
-      // First check standard tarot cards
-      let card = tarotCards.find(c => c.id === cardId);
+      // Handle both prefixed and non-prefixed card IDs
+      const isImportedCard = cardId.toString().startsWith('imported_');
       
-      // If not found, check if it's an imported custom card
-      if (!card) {
-        console.log(`Searching for custom card with ID: ${cardId}`);
+      if (isImportedCard) {
+        // Extract the numeric ID from the prefixed ID
+        const numericId = parseInt(cardId.replace('imported_', ''));
+        console.log(`Looking for imported card with numeric ID: ${numericId}`);
+        
         const importedCards = await storage.getImportedCards();
-        const customCard = importedCards.find(c => c.id === cardId);
+        const customCard = importedCards.find(c => c.id === numericId);
         
         if (customCard) {
           // Convert imported card to tarot card format
           card = {
-            id: customCard.id,
+            id: `imported_${customCard.id}`,
             name: customCard.name,
             description: customCard.description,
             arcana: "major", // Default to major arcana for meditation purposes
@@ -244,6 +247,9 @@ export function registerRoutes(app: Express): Server {
           };
           console.log(`Found custom card: ${card.name}`);
         }
+      } else {
+        // Check in standard tarot cards
+        card = tarotCards.find(c => c.id === cardId);
       }
 
       if (!card) {
