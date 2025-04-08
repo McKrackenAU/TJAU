@@ -10,7 +10,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import MeditationPlayer from "@/components/meditation-player";
-import { Loader2 } from "lucide-react";
+import SpreadInterpretation from "@/components/spread-interpretation";
+import SpreadMeditationPlayer from "@/components/spread-meditation-player";
+import { Loader2, Sparkles } from "lucide-react";
 
 export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
@@ -119,21 +121,56 @@ export default function Spreads() {
                   <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full mb-4">
                     {spreads[selectedSpread].positions[i]}
                   </span>
-                  {isRevealed && card && (
-                    <div className="space-y-4 w-full">
-                      <AIInterpretation 
-                        card={card}
-                        context={`This card represents ${spreads[selectedSpread].positions[i]} in a ${spreads[selectedSpread].name} spread.`}
-                      />
-                      {card && card.id && <MeditationPlayer card={card} />}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
-
+            
             {isRevealed && (
-              <div className="mt-8">
+              <div className="mt-8 space-y-6">
+                {/* Unified Spread Interpretation */}
+                <Card className="border-primary/20 bg-primary/5">
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2 text-primary">
+                      <Sparkles className="h-5 w-5" />
+                      <span>Complete Spread Analysis</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <SpreadInterpretation 
+                      cards={spreadCards}
+                      spreadType={spreads[selectedSpread].name}
+                      positions={spreads[selectedSpread].positions}
+                    />
+                    
+                    <div className="mt-6">
+                      <SpreadMeditationPlayer
+                        cards={spreadCards}
+                        spreadType={spreads[selectedSpread].name}
+                        positions={spreads[selectedSpread].positions}
+                      />
+                    </div>
+                    
+                    <h3 className="font-medium text-lg mt-8 mb-4">Individual Card Interpretations</h3>
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                      {spreadCards.map((card, i) => (
+                        <Card key={`interpretation-${card.id}-${i}`} className="overflow-hidden">
+                          <CardHeader className="bg-card/80 p-3">
+                            <CardTitle className="text-sm font-medium">
+                              {card.name} ({spreads[selectedSpread].positions[i]})
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent className="p-4 text-sm">
+                            <AIInterpretation 
+                              card={card}
+                              context={`This card represents ${spreads[selectedSpread].positions[i]} in a ${spreads[selectedSpread].name} spread.`}
+                            />
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+                
                 <Textarea
                   placeholder="Add your reflections on this spread..."
                   value={notes}

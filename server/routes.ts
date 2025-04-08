@@ -2,18 +2,18 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism, generateCardImage } from "./ai-service";
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism, generateCardImage, getCardFrequency } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
 import multer from 'multer';
 import { requireAdmin } from "./middleware/admin";
 import { importCardsFromExcel } from "./utils/import-cards";
-import { apiUsageTracker } from "./utils/api-usage-tracker";
+import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 import path from 'path';
-import fs from 'fs/promises';
-import fsSync from 'fs';
+import fs from 'fs';
 import express from 'express';
+import OpenAI from "openai";
 import { setupAuth } from "./auth";
 import Stripe from 'stripe';
 import { scrypt, randomBytes } from "crypto";
@@ -26,9 +26,12 @@ export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
   
+  // Create OpenAI instance
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  
   // Serve the cache files
   const cacheDir = path.join(process.cwd(), '.cache');
-  if (fsSync.existsSync(cacheDir)) {
+  if (fs.existsSync(cacheDir)) {
     app.use('/cache', express.static(cacheDir));
     console.log('Serving cache directory at /cache');
   }
@@ -196,6 +199,361 @@ export function registerRoutes(app: Express): Server {
       console.error("Card combination analysis error:", error);
       res.status(500).json({
         error: "Failed to analyze card combination",
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // New endpoint for spread interpretation
+  app.post("/api/interpret-spread", async (req, res) => {
+    try {
+      const { cardIds, spreadType, positions } = req.body;
+      console.log("Received request for spread interpretation:", { cardIds, spreadType, positions });
+
+      if (!Array.isArray(cardIds) || cardIds.length < 2) {
+        return res.status(400).json({
+          error: "Please provide at least two cards to interpret"
+        });
+      }
+
+      if (!Array.isArray(positions) || positions.length !== cardIds.length) {
+        return res.status(400).json({
+          error: "Number of positions must match number of cards"
+        });
+      }
+
+      // Get all available cards including imported ones
+      const allCards = await storage.getImportedCards();
+      const availableCards = [...tarotCards, ...allCards.map(card => ({
+        ...card,
+        id: `imported_${card.id}`,
+        arcana: "custom" as const,
+        meanings: {
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
+            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+        }
+      }))];
+
+      console.log("Finding requested cards...");
+      const cards = cardIds.map(id => availableCards.find(c => c.id === id))
+        .filter((card): card is TarotCard => card !== undefined);
+
+      if (cards.length !== cardIds.length) {
+        const missingIds = cardIds.filter(id => !cards.find(c => c.id === id));
+        console.error("Missing cards:", missingIds);
+        return res.status(400).json({
+          error: "One or more invalid card IDs",
+          details: `Missing cards: ${missingIds.join(", ")}`
+        });
+      }
+
+      // Create context with cards and their positions
+      const formattedCards = cards.map((card, index) => ({
+        name: card.name,
+        position: positions[index],
+        meanings: {
+          upright: card.meanings.upright.join(", "),
+          reversed: card.meanings.reversed.join(", ")
+        },
+        description: card.description
+      }));
+
+      // Cache key for spread interpretations
+      const cardIdsString = cards.map(c => c.id).join('-');
+      const cacheKey = `spread_interpretation_${spreadType}_${cardIdsString}`;
+      const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+      let interpretation;
+
+      // Try to get from cache first
+      if (fs.existsSync(cacheFilePath)) {
+        try {
+          console.log(`Found cached spread interpretation at: ${cacheFilePath}`);
+          const cachedData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'));
+          interpretation = cachedData.interpretation;
+        } catch (cacheError) {
+          console.error("Error reading cache:", cacheError);
+        }
+      }
+
+      // Generate new interpretation if not in cache
+      if (!interpretation) {
+        console.log("Generating new spread interpretation");
+        
+        // Track API usage
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/interpret-spread',
+          model: "gpt-3.5-turbo",
+          operation: 'chat.completion',
+          status: 'success',
+          estimatedCost: API_COSTS["gpt-3.5-turbo"]['chat.completion'],
+          cardId: cards[0].id,
+          cardName: spreadType
+        });
+
+        const prompt = `
+        As an experienced Tarot reader, please provide a complete interpretation of this ${spreadType} spread.
+        
+        CARDS IN SPREAD:
+        ${formattedCards.map((card, i) => 
+          `Card ${i+1}: ${card.name} in the ${card.position} position
+          Description: ${card.description}
+          Upright meanings: ${card.meanings.upright}
+          Reversed meanings: ${card.meanings.reversed}`
+        ).join('\n\n')}
+        
+        Please provide:
+        
+        1. Overview of the entire spread (what overall story or energy is being conveyed)
+        
+        2. For each individual card:
+          - Brief interpretation of what this specific card means in its position
+          - How it relates to other cards in the spread
+        
+        3. Final summary with guidance and advice based on the complete spread
+        
+        Keep the language accessible and conversational while providing genuine spiritual insights.
+        `;
+        
+        const response = await openai.chat.completions.create({
+          model: "gpt-3.5-turbo-16k",
+          messages: [
+            {
+              role: "system",
+              content: "You are a wise and experienced Tarot reader with deep knowledge of card meanings and spread interpretations. You explain readings in a clear, meaningful way that connects with the querent's life situation."
+            },
+            {
+              role: "user",
+              content: prompt
+            }
+          ],
+          temperature: 0.7,
+          max_tokens: 1000
+        });
+        
+        interpretation = response.choices[0].message.content || "";
+        
+        // Cache the result
+        fs.writeFileSync(cacheFilePath, JSON.stringify({ interpretation }));
+      }
+      
+      res.json({ interpretation });
+    } catch (error) {
+      console.error("Spread interpretation error:", error);
+      res.status(500).json({
+        error: "Failed to generate spread interpretation",
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+  
+  // New endpoint for spread meditation
+  app.post("/api/meditate-spread", async (req, res) => {
+    try {
+      const { cardIds, spreadType, positions } = req.body;
+      console.log("Received request for spread meditation:", { cardIds, spreadType, positions });
+
+      if (!Array.isArray(cardIds) || cardIds.length < 2) {
+        return res.status(400).json({
+          error: "Please provide at least two cards for spread meditation"
+        });
+      }
+
+      if (!Array.isArray(positions) || positions.length !== cardIds.length) {
+        return res.status(400).json({
+          error: "Number of positions must match number of cards"
+        });
+      }
+
+      // Get all available cards including imported ones
+      const allCards = await storage.getImportedCards();
+      const availableCards = [...tarotCards, ...allCards.map(card => ({
+        ...card,
+        id: `imported_${card.id}`,
+        arcana: "custom" as const,
+        meanings: {
+          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
+            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+        }
+      }))];
+
+      console.log("Finding requested cards for meditation...");
+      const cards = cardIds.map(id => availableCards.find(c => c.id === id))
+        .filter((card): card is TarotCard => card !== undefined);
+
+      if (cards.length !== cardIds.length) {
+        const missingIds = cardIds.filter(id => !cards.find(c => c.id === id));
+        console.error("Missing cards:", missingIds);
+        return res.status(400).json({
+          error: "One or more invalid card IDs",
+          details: `Missing cards: ${missingIds.join(", ")}`
+        });
+      }
+
+      // Format cards with positions for the prompt
+      const formattedCards = cards.map((card, index) => ({
+        name: card.name,
+        position: positions[index],
+        meanings: {
+          upright: card.meanings.upright.join(", "),
+          reversed: card.meanings.reversed.join(", ")
+        }
+      }));
+
+      // Cache key based on cards and spread type
+      const cacheIdString = cards.map(c => c.id).join('-');
+      const cacheKey = `spread_meditation_${spreadType}_${cacheIdString}`;
+      const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+      
+      // Try to get from cache first
+      if (fs.existsSync(cacheFilePath)) {
+        try {
+          console.log(`Found cached spread meditation at: ${cacheFilePath}`);
+          const cachedData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'));
+          return res.json(cachedData);
+        } catch (cacheError) {
+          console.error("Error reading cache:", cacheError);
+          // Continue to generate new meditation on cache error
+        }
+      } else {
+        console.log(`No cache found at: ${cacheFilePath}, generating new spread meditation`);
+      }
+      
+      console.log(`Generating meditation for ${spreadType} spread`);
+
+      // Generate meditation script referencing all cards but providing a unified narrative
+      const meditationPrompt = `Create a guided meditation script for a ${spreadType} Tarot spread with these cards:
+      ${formattedCards.map((card, i) => 
+        `Card ${i+1}: ${card.name} in the ${card.position} position (meanings: ${card.meanings.upright})`
+      ).join('\n')}
+
+      The meditation should:
+      - Be 3-4 minutes when read aloud at a slow, meditative pace
+      - Start with deep breathing guidance with pauses (use ...... for longer pauses)
+      - Briefly reference each card's position in the spread
+      - Create a unified narrative that weaves all cards together into a cohesive meditation
+      - Incorporate the themes and energies of all cards while creating a singular meditation experience
+      - Guide the listener to reflect on the spread as a whole with each card's influence
+      - Include affirmations related to the spread's overall meaning
+      - End with a gentle return to awareness
+
+      Keep the tone deeply calming and peaceful. Add pause markers (......) between each instruction to ensure a very slow, meditative pacing.`;
+
+      // Track API usage for meditation text generation
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/meditate-spread',
+        model: "gpt-3.5-turbo",
+        operation: 'chat.completion',
+        status: 'success',
+        estimatedCost: API_COSTS["gpt-3.5-turbo"]['chat.completion'],
+        cardId: cards[0].id,
+        cardName: spreadType
+      });
+      
+      const scriptResponse = await openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content: "You are a meditation guide who creates deeply calming, insightful guided meditations. Use extensive pauses between instructions, marked with ...... (six dots for longer pauses). Encourage slow, deep breathing and complete relaxation. Create vivid, peaceful imagery that helps the listener fully immerse in the meditation experience."
+          },
+          {
+            role: "user",
+            content: meditationPrompt
+          }
+        ],
+        temperature: 0.7,
+        max_tokens: 700
+      });
+
+      console.log("Spread meditation script generated successfully");
+      const meditationText = scriptResponse.choices[0].message.content || "";
+
+      // Generate voice audio
+      console.log("Generating audio from spread meditation script");
+      
+      // Track API usage for TTS
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/meditate-spread',
+        model: "tts-1",
+        operation: 'audio.speech',
+        status: 'success',
+        estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+        cardId: cards[0].id,
+        cardName: spreadType
+      });
+      
+      const audioResponse = await openai.audio.speech.create({
+        model: "tts-1",
+        voice: "nova", // Using a calming voice
+        input: meditationText,
+        response_format: "mp3",
+        speed: 0.75, // Slowed down for meditative pacing
+      });
+
+      console.log("Voice audio generated successfully");
+      const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+      
+      // Save the audio file to cache
+      const audioFileName = `${cacheKey}.mp3`;
+      const audioFilePath = path.join(CACHE_DIR, audioFileName);
+      fs.writeFileSync(audioFilePath, audioBuffer);
+      
+      // Use a file path URL instead of base64 to reduce payload size
+      const audioUrl = `/cache/${audioFileName}`;
+
+      // Calculate appropriate theta frequency (average of all cards)
+      const averageThetaFrequency = cards.reduce((sum, card) => sum + getCardFrequency(card), 0) / cards.length;
+
+      // Prepare the result
+      const result = {
+        text: meditationText,
+        audioUrl: audioUrl,
+        thetaFrequency: averageThetaFrequency
+      };
+      
+      // Cache the result
+      fs.writeFileSync(cacheFilePath, JSON.stringify(result));
+      
+      res.json(result);
+    } catch (error) {
+      console.error("Error generating spread meditation:", error);
+      
+      // Check for rate limit errors
+      if (error?.status === 429 || 
+          (error?.error?.code === 'rate_limit_exceeded') || 
+          (error?.message && error.message.toLowerCase().includes('rate limit'))) {
+        
+        console.log(`OpenAI rate limit hit while generating spread meditation`);
+        
+        // Track the rate limit in our usage stats
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/meditate-spread',
+          model: "gpt-3.5-turbo",
+          operation: 'chat.completion',
+          status: 'rate_limited',
+          estimatedCost: 0,
+          cardId: "spread",
+          cardName: "spread"
+        });
+      } else {
+        // Track other errors
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/meditate-spread',
+          model: "gpt-3.5-turbo",
+          operation: 'error',
+          status: 'error',
+          estimatedCost: 0,
+          cardId: "spread",
+          cardName: "spread"
+        });
+      }
+      
+      res.status(500).json({
+        error: "Failed to generate spread meditation",
         details: error instanceof Error ? error.message : "Unknown error"
       });
     }

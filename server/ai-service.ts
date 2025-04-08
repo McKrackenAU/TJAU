@@ -59,7 +59,7 @@ function generateThetaWave(frequency: number, durationSecs: number, sampleRate: 
   return wave;
 }
 
-function getCardFrequency(card: TarotCard): number {
+export function getCardFrequency(card: TarotCard): number {
   if (card.arcana === 'major') {
     // Major Arcana: Higher theta frequencies for spiritual insight (6-7 Hz)
     return 6 + (card.number || 0) / 22;
