@@ -2,6 +2,8 @@ import OpenAI from "openai";
 import { TarotCard } from "@shared/tarot-data";
 import fs from "fs";
 import path from "path";
+import { CACHE_DIR } from "./utils/constants";
+import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 
 if (!process.env.OPENAI_API_KEY) {
   throw new Error("OPENAI_API_KEY environment variable is required");
@@ -11,15 +13,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-// Set up meditation cache directory
-const CACHE_DIR = path.join(process.cwd(), 'public', 'cache');
-try {
-  if (!fs.existsSync(CACHE_DIR)) {
-    fs.mkdirSync(CACHE_DIR, { recursive: true });
-  }
-} catch (error) {
-  console.error("Error creating cache directory:", error);
-}
+// CACHE_DIR is now imported at the top
 
 export async function generateCardInterpretation(
   card: TarotCard,
@@ -124,6 +118,17 @@ The meditation should:
 
 Keep the tone deeply calming and peaceful. Add extensive pause markers (......) between each instruction to ensure a very slow, meditative pacing. The pauses should be longer than usual to allow for deep contemplation.`;
 
+    // Track API usage for meditation text generation
+    apiUsageTracker.trackUsage({
+      endpoint: '/api/cards/:id/meditation',
+      model: "gpt-3.5-turbo",
+      operation: 'chat.completion',
+      status: 'success',
+      estimatedCost: API_COSTS["gpt-3.5-turbo"]['chat.completion'],
+      cardId: card.id,
+      cardName: card.name
+    });
+    
     const scriptResponse = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -145,6 +150,18 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
 
     // Generate voice audio with much slower settings for a deeply meditative pacing
     console.log("Generating audio from meditation script");
+    
+    // Track API usage for TTS
+    apiUsageTracker.trackUsage({
+      endpoint: '/api/cards/:id/meditation',
+      model: "tts-1",
+      operation: 'audio.speech',
+      status: 'success',
+      estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+      cardId: card.id,
+      cardName: card.name
+    });
+    
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
       voice: "nova", // Using a calming voice
@@ -178,8 +195,39 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     fs.writeFileSync(cacheFilePath, JSON.stringify(result));
     
     return result;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error generating meditation:", error);
+    
+    // Check for rate limit errors
+    if (error?.status === 429 || 
+        (error?.error?.code === 'rate_limit_exceeded') || 
+        (error?.message && error.message.toLowerCase().includes('rate limit'))) {
+      
+      console.log(`OpenAI rate limit hit while generating meditation for ${card.name}`);
+      
+      // Track the rate limit in our usage stats
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/meditation',
+        model: "gpt-3.5-turbo",
+        operation: 'chat.completion',
+        status: 'rate_limited',
+        estimatedCost: 0,
+        cardId: card.id,
+        cardName: card.name
+      });
+    } else {
+      // Track other errors
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/meditation',
+        model: "gpt-3.5-turbo",
+        operation: 'error',
+        status: 'error',
+        estimatedCost: 0,
+        cardId: card.id,
+        cardName: card.name
+      });
+    }
+    
     throw error;
   }
 }
@@ -325,6 +373,17 @@ The artwork should have a magical, feminine energy with a modern, polished finis
     }
 
     try {
+      // Track the API usage before making the call
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/image',
+        model: 'dall-e-3',
+        operation: 'image.generate',
+        status: 'success', // We'll update this on error
+        estimatedCost: API_COSTS['dall-e-3']['image.generate'],
+        cardId: card.id,
+        cardName: card.name
+      });
+      
       // Generate the image using DALL-E with vivid style for more vibrant colors
       const response = await openai.images.generate({
         model: "dall-e-3",
@@ -374,6 +433,17 @@ The artwork should have a magical, feminine energy with a modern, polished finis
           (error?.message && error.message.toLowerCase().includes('rate limit'))) {
         
         console.log(`OpenAI rate limit hit while generating image for ${card.name}`);
+        
+        // Track the rate limit in our usage stats
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/cards/:id/image',
+          model: 'dall-e-3',
+          operation: 'image.generate',
+          status: 'rate_limited',
+          estimatedCost: 0, // No cost incurred for rate limited requests
+          cardId: card.id,
+          cardName: card.name
+        });
         
         // Preserve the original error properties for proper error handling upstream
         // This ensures our routes.ts can extract the retry-after header
@@ -432,6 +502,17 @@ Format the response with clear section headings and concise explanations. Keep t
     // Use gpt-4o if available, with fallback to gpt-3.5-turbo
     const model = "gpt-4o"; // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
     
+    // Track API usage
+    apiUsageTracker.trackUsage({
+      endpoint: '/api/cards/:id/symbolism',
+      model,
+      operation: 'chat.completion',
+      status: 'success',
+      estimatedCost: API_COSTS[model]['chat.completion'],
+      cardId: card.id,
+      cardName: card.name
+    });
+    
     const response = await openai.chat.completions.create({
       model,
       messages: [
@@ -473,8 +554,39 @@ Format the response with clear section headings and concise explanations. Keep t
     console.log("Successfully generated card symbolism analysis");
     return symbolism;
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error generating card symbolism:", error);
+    
+    // Check for rate limit errors
+    if (error?.status === 429 || 
+        (error?.error?.code === 'rate_limit_exceeded') || 
+        (error?.message && error.message.toLowerCase().includes('rate limit'))) {
+      
+      console.log(`OpenAI rate limit hit while generating symbolism for ${card.name}`);
+      
+      // Track the rate limit in our usage stats
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/symbolism',
+        model: "gpt-4o",
+        operation: 'chat.completion',
+        status: 'rate_limited',
+        estimatedCost: 0, // No cost incurred for rate limited requests
+        cardId: card.id,
+        cardName: card.name
+      });
+    } else {
+      // Track other errors
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/symbolism',
+        model: "gpt-4o",
+        operation: 'chat.completion',
+        status: 'error',
+        estimatedCost: 0, // No cost for errors
+        cardId: card.id,
+        cardName: card.name
+      });
+    }
+    
     throw error;
   }
 }

@@ -16,6 +16,7 @@ import AuthPage from "@/pages/auth-page";
 import Subscribe from "@/pages/subscribe";
 import VoiceGuidedPage from "@/pages/voice-guided";
 import CreateAdminPage from "@/pages/create-admin";
+import AdminDashboard from "@/pages/admin-dashboard";
 import BottomNav from "@/components/bottom-nav";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
@@ -34,6 +35,7 @@ function Router() {
       <ProtectedRoute path="/test-images" component={TestImages} />
       <ProtectedRoute path="/subscribe" component={Subscribe} />
       <ProtectedRoute path="/voice-guided" component={VoiceGuidedPage} />
+      <ProtectedRoute path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/admin/create" component={CreateAdminPage} />
       <Route component={NotFound} />

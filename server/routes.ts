@@ -9,6 +9,7 @@ import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSc
 import multer from 'multer';
 import { requireAdmin } from "./middleware/admin";
 import { importCardsFromExcel } from "./utils/import-cards";
+import { apiUsageTracker } from "./utils/api-usage-tracker";
 import path from 'path';
 import fs from 'fs/promises';
 import fsSync from 'fs';
@@ -888,6 +889,37 @@ export function registerRoutes(app: Express): Server {
       }
     });
   }
+
+  // API Usage tracking routes - admin only
+  app.get("/api/admin/api-usage", requireAdmin, async (req, res) => {
+    try {
+      const usageSummary = apiUsageTracker.getUsageSummary();
+      res.json(usageSummary);
+    } catch (error) {
+      console.error("Error fetching API usage data:", error);
+      res.status(500).json({ error: "Failed to fetch API usage data" });
+    }
+  });
+
+  app.get("/api/admin/api-usage/logs", requireAdmin, async (req, res) => {
+    try {
+      const usageLogs = apiUsageTracker.getUsageLog();
+      res.json(usageLogs);
+    } catch (error) {
+      console.error("Error fetching API usage logs:", error);
+      res.status(500).json({ error: "Failed to fetch API usage logs" });
+    }
+  });
+
+  app.post("/api/admin/api-usage/clear", requireAdmin, async (req, res) => {
+    try {
+      apiUsageTracker.clearUsageLog();
+      res.json({ success: true, message: "API usage logs cleared successfully" });
+    } catch (error) {
+      console.error("Error clearing API usage logs:", error);
+      res.status(500).json({ error: "Failed to clear API usage logs" });
+    }
+  });
 
   const httpServer = createServer(app);
   return httpServer;
