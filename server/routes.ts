@@ -220,9 +220,34 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/meditate", async (req, res) => {
     try {
       const { cardId } = req.body;
-      const card = tarotCards.find(c => c.id === cardId);
+      
+      // First check standard tarot cards
+      let card = tarotCards.find(c => c.id === cardId);
+      
+      // If not found, check if it's an imported custom card
+      if (!card) {
+        console.log(`Searching for custom card with ID: ${cardId}`);
+        const importedCards = await storage.getImportedCards();
+        const customCard = importedCards.find(c => c.id === cardId);
+        
+        if (customCard) {
+          // Convert imported card to tarot card format
+          card = {
+            id: customCard.id,
+            name: customCard.name,
+            description: customCard.description,
+            arcana: "major", // Default to major arcana for meditation purposes
+            meanings: {
+              upright: customCard.meanings.upright || [],
+              reversed: customCard.meanings.reversed || []
+            }
+          };
+          console.log(`Found custom card: ${card.name}`);
+        }
+      }
 
       if (!card) {
+        console.log(`Card not found with ID: ${cardId}`);
         return res.status(400).json({ error: "Invalid card ID" });
       }
 
