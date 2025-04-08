@@ -1,11 +1,41 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Loader2, Play, Pause, Volume2 } from "lucide-react";
+import { Loader2, Play, Pause, Volume2, Music, VolumeX } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { TarotCard } from "@shared/tarot-data";
+import { audioService } from "@/lib/audio-service";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import YouTube from 'react-youtube';
+
+// Types of available meditation music
+type MeditationMusicType = 'calm' | 'nature' | 'crystal' | 'none';
+
+// Mapping of music types to their URLs
+const MEDITATION_MUSIC = {
+  calm: '/audio/calm-meditation.mp3',
+  nature: '/audio/nature-sounds.mp3', // Kept for fallback
+  crystal: '/audio/crystal-bowls.mp3', // Kept for fallback
+  none: ''
+};
+
+// YouTube video IDs for nature and crystal bowl meditation
+const YOUTUBE_VIDEOS = {
+  nature: 'vBi8FxvoYvo', // Nature sounds
+  crystal: '4GcW45gETv8', // Crystal bowls
+};
+
+// Music descriptions to help users choose
+const MUSIC_DESCRIPTIONS = {
+  calm: 'Soothing ambient meditation music with gentle piano and calming tones',
+  nature: 'Forest ambience with gentle bird songs and natural sounds',
+  crystal: 'Tibetan singing bowls for deep meditation and chakra healing',
+  none: 'No background music, voice narration only',
+};
 
 interface MeditationPlayerProps {
   card: TarotCard;
@@ -15,9 +45,15 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [isRequested, setIsRequested] = useState(false);
+  const [musicType, setMusicType] = useState<MeditationMusicType>('calm');
+  const [musicVolume, setMusicVolume] = useState(0.3);
+  const [voiceVolume, setVoiceVolume] = useState(0.5);
+  const [showSettings, setShowSettings] = useState(false);
+  const [voiceRate, setVoiceRate] = useState(0.8); // Slower default rate
   const oscillatorRef = useRef<OscillatorNode | null>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
   const gainNodeRef = useRef<GainNode | null>(null);
+  const youtubePlayerRef = useRef<any>(null);
   const { toast } = useToast();
 
   const { data, isLoading, error, refetch } = useQuery({
@@ -39,6 +75,15 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
   });
 
   useEffect(() => {
+    // Set voice rate to be slower (for meditation)
+    audioService.setSpeechRate(voiceRate);
+    
+    // Apply current voice volume setting
+    audioService.setSpeechVolume(voiceVolume);
+    
+    // Apply current music volume setting
+    audioService.setMusicVolume(musicVolume);
+    
     return () => {
       // Cleanup audio context and oscillator when component unmounts
       if (oscillatorRef.current) {
@@ -48,8 +93,69 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       if (audioContextRef.current) {
         audioContextRef.current.close();
       }
+      
+      // Make sure to stop any running audio
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+      
+      // Clean up audio service
+      audioService.cleanUp();
+      
+      // Clean up YouTube player if active
+      if (youtubePlayerRef.current && 
+          ['nature', 'crystal'].includes(musicType)) {
+        try {
+          youtubePlayerRef.current.pauseVideo();
+        } catch (err) {
+          console.error("Error stopping YouTube player:", err);
+        }
+      }
     };
-  }, []);
+  }, [voiceRate, voiceVolume, musicVolume]);
+
+  const handleMusicTypeChange = (type: MeditationMusicType) => {
+    setMusicType(type);
+    
+    // Stop current YouTube player if active
+    if (youtubePlayerRef.current && 
+        ['nature', 'crystal'].includes(musicType)) {
+      try {
+        youtubePlayerRef.current.pauseVideo();
+      } catch (err) {
+        console.error("Error stopping YouTube player:", err);
+      }
+    }
+    
+    // Stop current audio service background music
+    audioService.stopBackgroundMusic();
+    
+    // Start new music based on type if currently playing
+    if (isPlaying) {
+      if (type === 'calm') {
+        audioService.playBackgroundMusic(MEDITATION_MUSIC.calm);
+      } else if (type === 'nature' || type === 'crystal') {
+        // Start YouTube player if it's ready
+        if (youtubePlayerRef.current) {
+          youtubePlayerRef.current.setVolume(musicVolume * 100);
+          youtubePlayerRef.current.playVideo();
+        }
+      }
+    }
+  };
+
+  const handleYouTubeReady = (event: any) => {
+    youtubePlayerRef.current = event.target;
+    
+    // Set volume and play if this is the active music type and meditation is playing
+    if (isPlaying && ['nature', 'crystal'].includes(musicType)) {
+      event.target.setVolume(musicVolume * 100);
+      event.target.playVideo();
+    } else {
+      event.target.setVolume(0);
+    }
+  };
 
   const setupThetaWaves = (frequency: number) => {
     try {
@@ -75,7 +181,7 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       gainNodeRef.current = audioContext.createGain();
       // Start with zero volume and gradually increase it
       gainNodeRef.current.gain.setValueAtTime(0, audioContext.currentTime);
-      gainNodeRef.current.gain.linearRampToValueAtTime(2.0, audioContext.currentTime + 2); // Increased volume to maximum safe level
+      gainNodeRef.current.gain.linearRampToValueAtTime(0.5, audioContext.currentTime + 2);
 
       // Connect nodes: oscillator -> filter -> gain -> output
       oscillatorRef.current.connect(filter);
@@ -96,22 +202,82 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
 
   const handlePlay = () => {
     try {
+      if (isPlaying) {
+        // Pause meditation
+        if (audio) {
+          audio.pause();
+        }
+        
+        // Stop theta waves
+        if (oscillatorRef.current) {
+          oscillatorRef.current.stop();
+          oscillatorRef.current.disconnect();
+          oscillatorRef.current = null;
+        }
+        
+        // Pause background music
+        audioService.pauseBackgroundMusic();
+        
+        // Pause YouTube player if active
+        if (youtubePlayerRef.current && 
+            ['nature', 'crystal'].includes(musicType)) {
+          try {
+            youtubePlayerRef.current.pauseVideo();
+          } catch (err) {
+            console.error("Error pausing YouTube player:", err);
+          }
+        }
+        
+        setIsPlaying(false);
+        return;
+      }
+
+      if (!data?.audioUrl) {
+        toast({
+          title: "Error",
+          description: "No meditation audio available",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Start background music based on selected type
+      if (musicType === 'calm') {
+        audioService.playBackgroundMusic(MEDITATION_MUSIC.calm);
+      } else if (musicType === 'nature' || musicType === 'crystal') {
+        // Start YouTube player if it's ready
+        if (youtubePlayerRef.current) {
+          youtubePlayerRef.current.setVolume(musicVolume * 100);
+          youtubePlayerRef.current.playVideo();
+        }
+      }
+      
+      // Lower music volume during narration
+      audioService.setMusicVolume(musicVolume * 0.3);
+      
       if (!audio && data?.audioUrl) {
         console.log("Creating new audio instance");
         const newAudio = new Audio(data.audioUrl);
-        newAudio.volume = 0.2; // Further reduced voice volume to make theta waves more prominent
+        newAudio.volume = voiceVolume; 
 
         newAudio.addEventListener('ended', () => {
           console.log("Audio playback ended");
           setIsPlaying(false);
+          
+          // Fade out theta waves
           if (oscillatorRef.current && gainNodeRef.current) {
-            // Fade out theta waves
             gainNodeRef.current.gain.linearRampToValueAtTime(0, audioContextRef.current!.currentTime + 1);
             setTimeout(() => {
-              oscillatorRef.current?.stop();
-              oscillatorRef.current?.disconnect();
+              if (oscillatorRef.current) {
+                oscillatorRef.current.stop();
+                oscillatorRef.current.disconnect();
+                oscillatorRef.current = null;
+              }
             }, 1000);
           }
+          
+          // Restore normal music volume when narration ends
+          audioService.setMusicVolume(musicVolume);
         });
 
         newAudio.addEventListener('error', (e) => {
@@ -122,6 +288,9 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
             variant: "destructive"
           });
           setIsPlaying(false);
+          
+          // Restore normal music volume on error
+          audioService.setMusicVolume(musicVolume);
         });
 
         setAudio(newAudio);
@@ -142,34 +311,30 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
               description: "Could not start audio playback. Please try again.",
               variant: "destructive"
             });
+            
+            // Restore normal music volume on error
+            audioService.setMusicVolume(musicVolume);
           });
       } else if (audio) {
-        if (isPlaying) {
-          console.log("Pausing audio");
-          audio.pause();
-          if (oscillatorRef.current) {
-            oscillatorRef.current.stop();
-            oscillatorRef.current.disconnect();
-          }
-          setIsPlaying(false);
-        } else {
-          console.log("Resuming audio");
-          audio.play()
-            .then(() => {
-              setIsPlaying(true);
-              if (data?.thetaFrequency) {
-                setupThetaWaves(data.thetaFrequency);
-              }
-            })
-            .catch((error) => {
-              console.error("Error resuming playback:", error);
-              toast({
-                title: "Playback Error",
-                description: "Could not resume audio playback. Please try again.",
-                variant: "destructive"
-              });
+        console.log("Resuming existing audio");
+        audio.play()
+          .then(() => {
+            setIsPlaying(true);
+            if (data?.thetaFrequency) {
+              setupThetaWaves(data.thetaFrequency);
+            }
+          })
+          .catch((error) => {
+            console.error("Error resuming playback:", error);
+            toast({
+              title: "Playback Error",
+              description: "Could not resume audio playback. Please try again.",
+              variant: "destructive"
             });
-        }
+            
+            // Restore normal music volume on error
+            audioService.setMusicVolume(musicVolume);
+          });
       }
     } catch (error) {
       console.error("Error in handlePlay:", error);
@@ -178,6 +343,9 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
         description: "An unexpected error occurred. Please try again.",
         variant: "destructive"
       });
+      
+      // Make sure music volume is restored
+      audioService.setMusicVolume(musicVolume);
     }
   };
 
@@ -236,10 +404,157 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <h4 className="text-lg font-semibold">Guided Meditation</h4>
-            {data?.thetaFrequency && (
-              <span className="text-sm text-muted-foreground">
-                Theta Frequency: {data.thetaFrequency.toFixed(1)}Hz
-              </span>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => setShowSettings(!showSettings)}
+            >
+              <Music className="h-4 w-4 mr-2" />
+              Settings
+            </Button>
+          </div>
+
+          {showSettings && (
+            <div className="space-y-4 mb-4 p-4 bg-muted/40 rounded-lg">
+              {/* Music selection */}
+              <div className="space-y-2">
+                <Label htmlFor="music-type">Background Music</Label>
+                <Select 
+                  value={musicType} 
+                  onValueChange={(value) => handleMusicTypeChange(value as MeditationMusicType)}
+                >
+                  <SelectTrigger id="music-type">
+                    <SelectValue placeholder="Select background music" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="calm">Calm Meditation</SelectItem>
+                    <SelectItem value="nature">Nature Sounds</SelectItem>
+                    <SelectItem value="crystal">Crystal Bowls</SelectItem>
+                    <SelectItem value="none">No Music</SelectItem>
+                  </SelectContent>
+                </Select>
+                <p className="text-xs text-muted-foreground mt-1">
+                  {MUSIC_DESCRIPTIONS[musicType]}
+                </p>
+              </div>
+              
+              {/* Music volume */}
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <Label htmlFor="music-volume">Music Volume</Label>
+                  <span className="text-xs text-muted-foreground">
+                    {Math.round(musicVolume * 100)}%
+                  </span>
+                </div>
+                <Slider 
+                  id="music-volume"
+                  min={0} 
+                  max={1} 
+                  step={0.01} 
+                  value={[musicVolume]} 
+                  onValueChange={(values) => {
+                    const newVolume = values[0];
+                    setMusicVolume(newVolume);
+                    audioService.setMusicVolume(newVolume);
+                    
+                    // Update YouTube volume if active
+                    if (youtubePlayerRef.current && 
+                        ['nature', 'crystal'].includes(musicType)) {
+                      youtubePlayerRef.current.setVolume(newVolume * 100);
+                    }
+                  }}
+                />
+              </div>
+              
+              {/* Voice volume */}
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <Label htmlFor="voice-volume">Voice Volume</Label>
+                  <span className="text-xs text-muted-foreground">
+                    {Math.round(voiceVolume * 100)}%
+                  </span>
+                </div>
+                <Slider 
+                  id="voice-volume"
+                  min={0} 
+                  max={1} 
+                  step={0.01} 
+                  value={[voiceVolume]} 
+                  onValueChange={(values) => {
+                    const newVolume = values[0];
+                    setVoiceVolume(newVolume);
+                    audioService.setSpeechVolume(newVolume);
+                    
+                    // Update current audio if playing
+                    if (audio) {
+                      audio.volume = newVolume;
+                    }
+                  }}
+                />
+              </div>
+              
+              {/* Voice speed */}
+              <div className="space-y-2">
+                <div className="flex justify-between">
+                  <Label htmlFor="voice-speed">Voice Speed</Label>
+                  <span className="text-xs text-muted-foreground">
+                    {Math.round(voiceRate * 100)}%
+                  </span>
+                </div>
+                <Slider 
+                  id="voice-speed"
+                  min={0.5} 
+                  max={1.5} 
+                  step={0.05} 
+                  value={[voiceRate]} 
+                  onValueChange={(values) => {
+                    const newRate = values[0];
+                    setVoiceRate(newRate);
+                    audioService.setSpeechRate(newRate);
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
+          {/* YouTube embedding - hidden until needed */}
+          <div className="youtube-container" style={{ height: 0, overflow: 'hidden', position: 'absolute' }}>
+            {musicType === 'nature' && (
+              <YouTube
+                videoId={YOUTUBE_VIDEOS.nature}
+                opts={{
+                  height: '1',
+                  width: '1',
+                  playerVars: {
+                    autoplay: 0,
+                    controls: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    loop: 1,
+                    modestbranding: 1,
+                  },
+                }}
+                onReady={handleYouTubeReady}
+              />
+            )}
+            
+            {musicType === 'crystal' && (
+              <YouTube
+                videoId={YOUTUBE_VIDEOS.crystal}
+                opts={{
+                  height: '1',
+                  width: '1',
+                  playerVars: {
+                    autoplay: 0,
+                    controls: 0,
+                    disablekb: 1,
+                    fs: 0,
+                    loop: 1,
+                    modestbranding: 1,
+                  },
+                }}
+                onReady={handleYouTubeReady}
+              />
             )}
           </div>
 
@@ -259,6 +574,12 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
             )}
             {isPlaying ? "Pause" : "Play"} Meditation
           </Button>
+
+          {data?.thetaFrequency && (
+            <p className="text-xs text-center text-muted-foreground">
+              This meditation includes theta wave frequency ({data.thetaFrequency.toFixed(1)}Hz) for enhanced relaxation
+            </p>
+          )}
         </div>
       </CardContent>
     </Card>

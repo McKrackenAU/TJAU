@@ -78,23 +78,25 @@ export async function generateMeditation(card: TarotCard): Promise<{
   try {
     console.log(`Generating meditation for card: ${card.name}`);
 
-    // Generate meditation script with more pauses and detailed guidance
+    // Generate meditation script with more extensive pauses and deeply relaxing guidance
     const meditationPrompt = `Create a short guided meditation script based on the ${card.name} Tarot card.
 The meditation should:
-- Be 2-3 minutes when read aloud at a moderate pace
-- Include breathing guidance with long pauses (use ... for pauses)
+- Be 2-3 minutes when read aloud at a slow, meditative pace
+- Include deep breathing guidance with extended pauses (use ...... for longer pauses)
 - Connect to the card's core meanings: ${card.meanings.upright.join(", ")}
-- Guide the listener to reflect on these themes
+- Create a deeply relaxing atmosphere with imagery related to the card
+- Guide the listener to reflect on these themes mindfully
+- Include affirmations related to the card's energy
 - End with a gentle return to awareness
 
-Keep the tone calming and peaceful. Add explicit pause markers (...) between each instruction to ensure proper pacing.`;
+Keep the tone deeply calming and peaceful. Add extensive pause markers (......) between each instruction to ensure a very slow, meditative pacing. The pauses should be longer than usual to allow for deep contemplation.`;
 
     const scriptResponse = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
-          content: "You are a meditation guide who creates calming, insightful guided meditations. Use many pauses between instructions, marked with ..."
+          content: "You are a meditation guide who creates deeply calming, insightful guided meditations. Use extensive pauses between instructions, marked with ...... (six dots for longer pauses). Encourage slow, deep breathing and complete relaxation. Create vivid, peaceful imagery that helps the listener fully immerse in the meditation experience."
         },
         {
           role: "user",
@@ -108,14 +110,14 @@ Keep the tone calming and peaceful. Add explicit pause markers (...) between eac
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate voice audio with slower settings for better meditation pacing
+    // Generate voice audio with much slower settings for a deeply meditative pacing
     console.log("Generating audio from meditation script");
     const audioResponse = await openai.audio.speech.create({
       model: "tts-1",
       voice: "nova", // Using a calming voice
       input: meditationText,
       response_format: "mp3",
-      speed: 0.85, // Slowed down for more meditative pacing
+      speed: 0.75, // Further slowed down for deeper meditative pacing
     });
 
     console.log("Voice audio generated successfully");
