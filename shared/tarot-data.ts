@@ -1,7 +1,7 @@
 export interface TarotCard {
   id: string;
   name: string;
-  arcana: 'major' | 'minor';
+  arcana: 'major' | 'minor' | 'custom';
   suit?: string;
   number?: number;
   meanings: {
@@ -10,6 +10,7 @@ export interface TarotCard {
   };
   description: string;
   element?: string;
+  imageUrl?: string;
 }
 
 export const tarotCards: TarotCard[] = [

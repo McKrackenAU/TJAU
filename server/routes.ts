@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism } from "./ai-service";
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism, generateCardImage } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
@@ -11,14 +11,26 @@ import { requireAdmin } from "./middleware/admin";
 import { importCardsFromExcel } from "./utils/import-cards";
 import path from 'path';
 import fs from 'fs/promises';
+import fsSync from 'fs';
+import express from 'express';
 import { setupAuth } from "./auth";
 import Stripe from 'stripe';
 import { scrypt, randomBytes } from "crypto";
 import { promisify } from "util";
 
+// Define cache directory path
+const CACHE_DIR = path.join(process.cwd(), '.cache');
+
 export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
+  
+  // Serve the cache files
+  const cacheDir = path.join(process.cwd(), '.cache');
+  if (fsSync.existsSync(cacheDir)) {
+    app.use('/cache', express.static(cacheDir));
+    console.log('Serving cache directory at /cache');
+  }
   
   // Special admin creation endpoint for trusted email only
   app.post("/api/create-admin", async (req, res) => {
@@ -566,6 +578,59 @@ export function registerRoutes(app: Express): Server {
     } catch (error) {
       console.error("Error generating symbolism:", error);
       res.status(500).json({ error: "Failed to generate symbolism" });
+    }
+  });
+
+  // Get card image
+  app.get("/api/cards/:id/image", async (req, res) => {
+    try {
+      const { id } = req.params;
+      console.log(`Fetching image for card ${id}`);
+      
+      // Initialize card
+      let card: TarotCard | null = null;
+      
+      // Check if this is an imported card
+      if (id.startsWith("imported_")) {
+        const cardId = parseInt(id.replace("imported_", ""));
+        const importedCard = await storage.getImportedCard(cardId);
+        
+        if (importedCard) {
+          // Format meanings
+          const upright = Array.isArray(importedCard.meanings?.upright) 
+            ? importedCard.meanings.upright 
+            : importedCard.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [];
+            
+          const reversed = Array.isArray(importedCard.meanings?.reversed) 
+            ? importedCard.meanings.reversed 
+            : importedCard.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || [];
+          
+          card = {
+            id: `imported_${importedCard.id}`,
+            name: importedCard.name,
+            description: importedCard.description,
+            arcana: "major" as "major", // Default to major arcana for image generation
+            meanings: {
+              upright,
+              reversed
+            }
+          };
+        }
+      } else {
+        // Standard tarot card
+        card = tarotCards.find(c => c.id === id) || null;
+      }
+
+      if (!card) {
+        return res.status(404).json({ error: "Card not found" });
+      }
+
+      // Generate image for the card
+      const imageUrl = await generateCardImage(card);
+      res.json({ imageUrl });
+    } catch (error) {
+      console.error("Error generating card image:", error);
+      res.status(500).json({ error: "Failed to generate card image" });
     }
   });
 

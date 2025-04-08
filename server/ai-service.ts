@@ -269,6 +269,104 @@ Keep the response concise but insightful, focusing on the unique synergy between
 }
 
 // Generate detailed symbolism information for a card
+export async function generateCardImage(card: TarotCard): Promise<string> {
+  try {
+    // Create images cache directory if it doesn't exist
+    const imagesCacheDir = path.join(CACHE_DIR, 'images');
+    try {
+      if (!fs.existsSync(imagesCacheDir)) {
+        fs.mkdirSync(imagesCacheDir, { recursive: true });
+      }
+    } catch (error) {
+      console.error("Error creating images cache directory:", error);
+    }
+
+    // Create a cache key using the card ID
+    const cacheKey = `image_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    const imageFilePath = path.join(imagesCacheDir, `${cacheKey}.png`);
+    const metaFilePath = path.join(imagesCacheDir, `${cacheKey}.json`);
+    
+    // Check if we have a cached version
+    if (fs.existsSync(imageFilePath) && fs.existsSync(metaFilePath)) {
+      try {
+        console.log(`Loading cached image for ${card.name} from ${imageFilePath}`);
+        const cachedData = JSON.parse(fs.readFileSync(metaFilePath, 'utf8'));
+        return cachedData.imageUrl;
+      } catch (cacheError) {
+        console.error("Error reading image cache:", cacheError);
+        // Continue with generation if cache read fails
+      }
+    }
+
+    console.log(`Generating image for ${card.name}`);
+    
+    // Prepare meanings for the prompt
+    const meanings = card.meanings.upright.slice(0, 3).join(", ");
+    
+    // Craft a detailed prompt for the image generation
+    let prompt = "";
+    
+    if (card.arcana === "major") {
+      prompt = `Create a mystical, detailed tarot card image for "${card.name}" (Major Arcana). 
+The image should be rich in symbolism representing key meanings: ${meanings}. 
+Include appropriate colors, symbols, and elements that convey the card's essence.
+Style: Ornate tarot illustration with gold accents, medieval art influence, high detail.
+Professionally drawn with clean lines, mystical imagery, and symbolic elements.`;
+    } else {
+      prompt = `Create a mystical tarot card image for "${card.name}" of the ${card.suit} suit (Minor Arcana).
+The image should represent key meanings: ${meanings}.
+Include ${card.suit}-related imagery and the appropriate number of suit symbols (${card.number}).
+Style: Ornate tarot illustration with gold accents, medieval art influence, high detail.
+Professionally drawn with clean lines, mystical imagery, and symbolic elements.`;
+    }
+
+    // Generate the image using DALL-E
+    const response = await openai.images.generate({
+      model: "dall-e-3",
+      prompt: prompt,
+      n: 1,
+      size: "1024x1024",
+      quality: "standard",
+      response_format: "url",
+    });
+
+    const imageUrl = response.data[0].url;
+    if (!imageUrl) {
+      throw new Error("No image URL generated from OpenAI");
+    }
+
+    // Download the generated image
+    console.log("Downloading generated image");
+    const imageResponse = await fetch(imageUrl);
+    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
+    fs.writeFileSync(imageFilePath, imageBuffer);
+
+    // Cache the result metadata
+    const publicImageUrl = `/cache/images/${path.basename(imageFilePath)}`;
+    try {
+      fs.writeFileSync(
+        metaFilePath,
+        JSON.stringify({
+          id: card.id,
+          name: card.name,
+          imageUrl: publicImageUrl,
+          generatedAt: new Date().toISOString(),
+        })
+      );
+      console.log(`Cached image for ${card.name} at ${imageFilePath}`);
+    } catch (cacheError) {
+      console.error("Error writing image metadata to cache:", cacheError);
+      // Continue even if caching fails
+    }
+
+    console.log("Successfully generated card image");
+    return publicImageUrl;
+  } catch (error) {
+    console.error("Error generating card image:", error);
+    throw error;
+  }
+}
+
 export async function generateCardSymbolism(card: TarotCard): Promise<string> {
   try {
     // Create symbolism cache directory if it doesn't exist

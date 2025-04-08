@@ -3,6 +3,7 @@ import { memo, useState } from "react";
 import type { TarotCard } from "@shared/tarot-data";
 import CardBack from "./card-back";
 import CardSymbolismTooltip from "./card-symbolism-tooltip";
+import CardImage from "./card-image";
 import { Info } from "lucide-react";
 
 interface CardDisplayProps {
@@ -50,8 +51,8 @@ const CardDisplay = memo(function CardDisplay({
               WebkitBackfaceVisibility: "hidden",
             }}
           >
+            {/* If we have a manually uploaded image, use it */}
             {card.imageUrl ? (
-              // Show uploaded image if available
               <div className="w-full h-full relative">
                 <img 
                   src={card.imageUrl} 
@@ -65,22 +66,8 @@ const CardDisplay = memo(function CardDisplay({
                 </div>
               </div>
             ) : (
-              // Default display if no image
-              <div className="p-4 h-full flex flex-col">
-                <h3 className="text-lg font-bold text-center mb-2">
-                  {card.name}
-                </h3>
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-foreground/20 flex items-center justify-center">
-                    <span className="text-xl font-semibold">
-                      {card.arcana === "major" ? "★" : card.suit?.[0]?.toUpperCase()}
-                    </span>
-                  </div>
-                </div>
-                <p className="text-sm text-center">
-                  {card.arcana === "major" ? "Major Arcana" : card.suit}
-                </p>
-              </div>
+              // Otherwise use the AI-generated image component
+              <CardImage card={card} isRevealed={isRevealed} />
             )}
           </div>
 
@@ -100,7 +87,7 @@ const CardDisplay = memo(function CardDisplay({
         {/* Info button that appears on hover */}
         {isRevealed && (
           <div 
-            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10"
             onClick={handleInfoClick}
           >
             <button 
