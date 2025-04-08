@@ -1,5 +1,7 @@
 import OpenAI from "openai";
 import { TarotCard } from "@shared/tarot-data";
+import fs from "fs";
+import path from "path";
 
 if (!process.env.OPENAI_API_KEY) {
   throw new Error("OPENAI_API_KEY environment variable is required");
@@ -8,6 +10,16 @@ if (!process.env.OPENAI_API_KEY) {
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
+
+// Set up meditation cache directory
+const CACHE_DIR = path.join(process.cwd(), 'public', 'cache');
+try {
+  if (!fs.existsSync(CACHE_DIR)) {
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+  }
+} catch (error) {
+  console.error("Error creating cache directory:", error);
+}
 
 export async function generateCardInterpretation(
   card: TarotCard,
@@ -69,13 +81,29 @@ function getCardFrequency(card: TarotCard): number {
   }
 }
 
-// Enhanced meditation generation with improved prompts and audio
+// Enhanced meditation generation with improved prompts and audio and caching
 export async function generateMeditation(card: TarotCard): Promise<{
   text: string;
   audioUrl: string;
   thetaFrequency: number;
 }> {
   try {
+    // Create a cache key using the card ID
+    const cacheKey = `meditation_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+    
+    // Check if we have a cached meditation for this card
+    if (fs.existsSync(cacheFilePath)) {
+      try {
+        console.log(`Found cached meditation for card: ${card.name}`);
+        const cachedData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'));
+        return cachedData;
+      } catch (cacheError) {
+        console.error("Error reading from cache:", cacheError);
+        // Continue to generate new meditation on cache error
+      }
+    }
+    
     console.log(`Generating meditation for card: ${card.name}`);
 
     // Generate meditation script with more extensive pauses and deeply relaxing guidance
@@ -122,16 +150,29 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
 
     console.log("Voice audio generated successfully");
     const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-    const audioBase64 = audioBuffer.toString('base64');
+    
+    // Save the audio file to cache
+    const audioFileName = `${cacheKey}.mp3`;
+    const audioFilePath = path.join(CACHE_DIR, audioFileName);
+    fs.writeFileSync(audioFilePath, audioBuffer);
+    
+    // Use a file path URL instead of base64 to reduce payload size
+    const audioUrl = `/cache/${audioFileName}`;
 
     // Calculate appropriate theta frequency for this card
     const thetaFrequency = getCardFrequency(card);
 
-    return {
+    // Prepare the result
+    const result = {
       text: meditationText,
-      audioUrl: `data:audio/mpeg;base64,${audioBase64}`,
+      audioUrl: audioUrl,
       thetaFrequency
     };
+    
+    // Cache the result
+    fs.writeFileSync(cacheFilePath, JSON.stringify(result));
+    
+    return result;
   } catch (error) {
     console.error("Error generating meditation:", error);
     throw error;
