@@ -316,25 +316,28 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
             audioService.setMusicVolume(musicVolume);
           });
       } else if (audio) {
-        console.log("Resuming existing audio");
-        audio.play()
-          .then(() => {
-            setIsPlaying(true);
-            if (data?.thetaFrequency) {
-              setupThetaWaves(data.thetaFrequency);
-            }
-          })
-          .catch((error) => {
-            console.error("Error resuming playback:", error);
-            toast({
-              title: "Playback Error",
-              description: "Could not resume audio playback. Please try again.",
-              variant: "destructive"
+        // If audio already exists, just resume it
+        if (audio.paused) {
+          console.log("Resuming existing audio");
+          audio.play()
+            .then(() => {
+              setIsPlaying(true);
+              if (data?.thetaFrequency) {
+                setupThetaWaves(data.thetaFrequency);
+              }
+            })
+            .catch((error) => {
+              console.error("Error resuming playback:", error);
+              toast({
+                title: "Playback Error",
+                description: "Could not resume audio playback. Please try again.",
+                variant: "destructive"
+              });
+              
+              // Restore normal music volume on error
+              audioService.setMusicVolume(musicVolume);
             });
-            
-            // Restore normal music volume on error
-            audioService.setMusicVolume(musicVolume);
-          });
+        }
       }
     } catch (error) {
       console.error("Error in handlePlay:", error);

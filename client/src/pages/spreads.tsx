@@ -125,7 +125,7 @@ export default function Spreads() {
                         card={card}
                         context={`This card represents ${spreads[selectedSpread].positions[i]} in a ${spreads[selectedSpread].name} spread.`}
                       />
-                      <MeditationPlayer card={card} />
+                      {card && card.id && <MeditationPlayer card={card} />}
                     </div>
                   )}
                 </div>
