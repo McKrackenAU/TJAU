@@ -307,20 +307,24 @@ export async function generateCardImage(card: TarotCard): Promise<string> {
     let prompt = "";
     
     if (card.arcana === "major") {
-      prompt = `Create a mystical, detailed tarot card image for "${card.name}" (Major Arcana). 
-The image should be rich in symbolism representing key meanings: ${meanings}. 
-Include appropriate colors, symbols, and elements that convey the card's essence.
-Style: Ornate tarot illustration with gold accents, medieval art influence, high detail.
-Professionally drawn with clean lines, mystical imagery, and symbolic elements.`;
+      prompt = `Create a mystical, ethereal tarot card image for "${card.name}" (Major Arcana). 
+The image should feature a dreamy color palette primarily using soft pinks, magentas, purples, and lavender.
+Rich in symbolism representing key meanings: ${meanings}. 
+Style: Beautiful, ethereal digital art like the "Oracle of Illusion" deck, with elegant flowing lines and soft gradients.
+Include soft glowing light effects, translucent elements, and a dreamlike quality.
+Use pink and purple hues with occasional blue accents, matching the Oracle of Illusion card back design.
+The artwork should have a magical, feminine energy with a modern, polished finish.`;
     } else {
-      prompt = `Create a mystical tarot card image for "${card.name}" of the ${card.suit} suit (Minor Arcana).
-The image should represent key meanings: ${meanings}.
-Include ${card.suit}-related imagery and the appropriate number of suit symbols (${card.number}).
-Style: Ornate tarot illustration with gold accents, medieval art influence, high detail.
-Professionally drawn with clean lines, mystical imagery, and symbolic elements.`;
+      prompt = `Create a mystical, ethereal tarot card image for "${card.name}" of the ${card.suit} suit (Minor Arcana).
+The image should feature a dreamy color palette primarily using soft pinks, magentas, purples, and lavender.
+Represent key meanings: ${meanings} with ${card.suit}-related imagery.
+Style: Beautiful, ethereal digital art like the "Oracle of Illusion" deck, with elegant flowing lines and soft gradients.
+Include soft glowing light effects, translucent elements, and a dreamlike quality.
+Use pink and purple hues with occasional blue accents, matching the Oracle of Illusion card back design.
+The artwork should have a magical, feminine energy with a modern, polished finish.`;
     }
 
-    // Generate the image using DALL-E
+    // Generate the image using DALL-E with vivid style for more vibrant colors
     const response = await openai.images.generate({
       model: "dall-e-3",
       prompt: prompt,
@@ -328,6 +332,7 @@ Professionally drawn with clean lines, mystical imagery, and symbolic elements.`
       size: "1024x1024",
       quality: "standard",
       response_format: "url",
+      style: "vivid", // Use vivid style for more intense colors that match Oracle of Illusion
     });
 
     const imageUrl = response.data[0].url;

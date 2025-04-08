@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { TarotCard } from "@shared/tarot-data";
-import { Loader2 } from "lucide-react";
+import { Loader2, ImageIcon } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
@@ -12,64 +12,81 @@ interface CardImageProps {
 export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
   const { toast } = useToast();
+  
+  // Enhanced background colors that match the Oracle of Illusion color scheme
+  const getCardBackground = () => {
+    const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
+
+    if (card.arcana === "major") {
+      return `${baseClasses} bg-gradient-to-br from-pink-400 via-purple-600 to-indigo-800 border-pink-300/50`;
+    }
+
+    switch (card.suit?.toLowerCase()) {
+      case "wands":
+        return `${baseClasses} bg-gradient-to-br from-pink-500 via-rose-600 to-purple-700 border-pink-300/50`;
+      case "cups":
+        return `${baseClasses} bg-gradient-to-br from-indigo-400 via-purple-600 to-fuchsia-800 border-indigo-300/50`;
+      case "swords":
+        return `${baseClasses} bg-gradient-to-br from-purple-400 via-indigo-600 to-violet-800 border-purple-300/50`;
+      case "pentacles":
+        return `${baseClasses} bg-gradient-to-br from-fuchsia-500 via-purple-600 to-pink-800 border-fuchsia-300/50`;
+      default:
+        return `${baseClasses} bg-gradient-to-br from-pink-400 via-purple-600 to-fuchsia-800 border-pink-300/50`;
+    }
+  };
 
   // Load the card image
   useEffect(() => {
     if (!isRevealed) return; // Don't load image if card is not revealed
+    if (imageUrl) return; // Don't refetch if we already have the image
+    if (loadFailed) return; // Don't retry if we've already failed
     
     const fetchCardImage = async () => {
       try {
         setIsLoading(true);
-        setError(null);
-        
-        // Don't refetch if we already have the image
-        if (imageUrl) return;
         
         const response = await apiRequest('GET', `/api/cards/${card.id}/image`);
         if (!response.ok) {
+          const errorData = await response.json();
+          console.log("Image fetch error:", errorData);
+          
+          if (response.status === 429) {
+            // Rate limit error - fail silently and use the fallback
+            setLoadFailed(true);
+            return;
+          }
+          
           throw new Error('Failed to fetch card image');
         }
         
         const data = await response.json();
-        setImageUrl(data.imageUrl);
-      } catch (err) {
-        console.error('Error fetching card image:', err);
-        setError('Failed to load card image');
-        toast({
-          title: "Error",
-          description: "Failed to load card image",
-          variant: "destructive",
-        });
+        if (data.imageUrl) {
+          setImageUrl(data.imageUrl);
+        } else {
+          setLoadFailed(true);
+        }
+      } catch (error: unknown) {
+        console.error('Error fetching card image:', error);
+        setLoadFailed(true);
+        
+        // Only show toast for non-rate limit errors
+        const errorMessage = String(error);
+        if (errorMessage.indexOf('429') === -1) {
+          toast({
+            title: "Image Loading Issue",
+            description: "Using themed background instead of AI-generated image",
+            variant: "default",
+          });
+        }
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchCardImage();
-  }, [card.id, isRevealed, toast, imageUrl]);
-
-  const getCardBackground = () => {
-    const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
-
-    if (card.arcana === "major") {
-      return `${baseClasses} bg-gradient-to-br from-purple-700 via-purple-900 to-indigo-900 border-yellow-300/50`;
-    }
-
-    switch (card.suit) {
-      case "Wands":
-        return `${baseClasses} bg-gradient-to-br from-orange-500 via-red-600 to-rose-700 border-orange-300/50`;
-      case "Cups":
-        return `${baseClasses} bg-gradient-to-br from-blue-400 via-blue-600 to-indigo-800 border-blue-300/50`;
-      case "Swords":
-        return `${baseClasses} bg-gradient-to-br from-zinc-400 via-slate-600 to-slate-800 border-slate-300/50`;
-      case "Pentacles":
-        return `${baseClasses} bg-gradient-to-br from-emerald-500 via-emerald-700 to-green-900 border-emerald-300/50`;
-      default:
-        return baseClasses;
-    }
-  };
+  }, [card.id, isRevealed, toast, imageUrl, loadFailed]);
 
   return (
     <div className={getCardBackground()}>
@@ -86,6 +103,16 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/20">
           <Loader2 className="w-8 h-8 animate-spin text-white" />
+        </div>
+      )}
+      
+      {/* Fallback placeholder when load failed */}
+      {loadFailed && !isLoading && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center">
+          <div className="text-white bg-purple-800/40 p-4 rounded-lg backdrop-blur-sm flex flex-col items-center">
+            <ImageIcon className="w-10 h-10 mb-2 opacity-70" />
+            <span className="text-sm font-medium">{card.name}</span>
+          </div>
         </div>
       )}
       
