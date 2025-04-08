@@ -32,7 +32,7 @@ const MEDITATION_MUSIC = {
 
 // Music descriptions to help users choose
 const MUSIC_DESCRIPTIONS = {
-  calm: 'Soft piano music for peaceful meditation and relaxation',
+  calm: 'Soothing ambient meditation music with gentle piano and calming tones',
   nature: 'Forest ambience with gentle bird songs and natural sounds',
   crystal: 'Tibetan singing bowls for deep meditation and chakra healing',
   none: 'No background music, voice narration only',

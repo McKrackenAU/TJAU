@@ -625,8 +625,7 @@ export function registerRoutes(app: Express): Server {
         const subscription = await stripe.subscriptions.create({
           customer: customerId,
           items: [{
-            // Use default price ID for now
-            price: process.env.STRIPE_PRICE_ID || 'price_placeholder',
+            price: process.env.STRIPE_PRICE_ID,
           }],
           payment_behavior: 'default_incomplete',
           expand: ['latest_invoice.payment_intent'],
@@ -648,6 +647,58 @@ export function registerRoutes(app: Express): Server {
           error: "Error creating subscription", 
           message: error.message 
         });
+      }
+    });
+    
+    // Stripe webhook handler for subscription events
+    app.post('/api/webhook/stripe', async (req, res) => {
+      const sig = req.headers['stripe-signature'];
+      const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
+      
+      if (!sig || !endpointSecret) {
+        return res.status(400).json({ error: 'Missing signature or webhook secret' });
+      }
+      
+      try {
+        let event;
+        
+        // Verify the event came from Stripe
+        try {
+          const rawBody = Buffer.from(JSON.stringify(req.body));
+          event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+        } catch (err: any) {
+          console.error('Webhook signature verification failed:', err.message);
+          return res.status(400).json({ error: `Webhook Error: ${err.message}` });
+        }
+        
+        // Handle the event
+        if (event.type === 'customer.subscription.updated' || 
+            event.type === 'customer.subscription.created') {
+          const subscription = event.data.object;
+          const customerId = subscription.customer as string;
+          
+          // Get user by Stripe customer ID
+          const user = await storage.getUserByStripeCustomerId(customerId);
+          
+          if (user) {
+            // Update user subscription status based on Stripe status
+            const isActive = 
+              subscription.status === 'active' || 
+              subscription.status === 'trialing';
+            
+            await storage.updateUserSubscription(user.id, {
+              isSubscribed: isActive,
+              stripeSubscriptionId: subscription.id
+            });
+            
+            console.log(`Updated subscription status for user ${user.id} to ${isActive}`);
+          }
+        }
+        
+        res.json({ received: true });
+      } catch (error: any) {
+        console.error('Error handling webhook:', error);
+        res.status(500).json({ error: `Webhook handler failed: ${error.message}` });
       }
     });
   }

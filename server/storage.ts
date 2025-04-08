@@ -38,6 +38,8 @@ export interface IStorage {
   // Stripe integration
   updateStripeCustomerId(userId: number, customerId: string): Promise<User>;
   updateUserStripeInfo(userId: number, stripeInfo: { customerId: string, subscriptionId: string }): Promise<User>;
+  getUserByStripeCustomerId(customerId: string): Promise<User | undefined>;
+  updateUserSubscription(userId: number, subscription: { isSubscribed: boolean, stripeSubscriptionId: string }): Promise<User>;
   // Admin functionality
   setUserAsAdmin(userId: number): Promise<User>;
   // Session store
@@ -289,6 +291,26 @@ export class DatabaseStorage implements IStorage {
         stripeCustomerId: stripeInfo.customerId,
         stripeSubscriptionId: stripeInfo.subscriptionId,
         isSubscribed: true
+      })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async getUserByStripeCustomerId(customerId: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.stripeCustomerId, customerId));
+    return user;
+  }
+
+  async updateUserSubscription(userId: number, subscription: { isSubscribed: boolean, stripeSubscriptionId: string }): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set({ 
+        isSubscribed: subscription.isSubscribed,
+        stripeSubscriptionId: subscription.stripeSubscriptionId
       })
       .where(eq(users.id, userId))
       .returning();
