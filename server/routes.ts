@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
-import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination } from "./ai-service";
+import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
@@ -526,6 +526,50 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Update the /api/cards endpoint with better logging
+  // Get card symbolism details
+  app.get("/api/cards/:id/symbolism", async (req, res) => {
+    try {
+      const { id } = req.params;
+      let card: TarotCard | undefined;
+      
+      if (id.startsWith("imported_")) {
+        // Custom card from database
+        const cardId = parseInt(id.replace("imported_", ""));
+        const importedCard = await storage.getImportedCard(cardId);
+        
+        if (importedCard) {
+          card = {
+            id: `imported_${importedCard.id}`,
+            name: importedCard.name,
+            description: importedCard.description,
+            arcana: "major" as "major", // Default to major arcana for symbolism analysis
+            meanings: {
+              upright: Array.isArray(importedCard.meanings?.upright) ? importedCard.meanings.upright :
+                importedCard.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+              reversed: Array.isArray(importedCard.meanings?.reversed) ? importedCard.meanings.reversed :
+                importedCard.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+            }
+          };
+        }
+      } else {
+        // Standard tarot card
+        card = tarotCards.find(c => c.id === id);
+      }
+
+      if (!card) {
+        return res.status(404).json({ error: "Card not found" });
+      }
+
+      // Generate symbolism details using OpenAI
+      const symbolism = await generateCardSymbolism(card);
+      res.json({ symbolism });
+    } catch (error) {
+      console.error("Error generating symbolism:", error);
+      res.status(500).json({ error: "Failed to generate symbolism" });
+    }
+  });
+
+  // Get all cards
   app.get("/api/cards", async (req, res) => {
     try {
       console.log("Fetching imported cards from database...");

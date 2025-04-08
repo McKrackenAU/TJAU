@@ -267,3 +267,94 @@ Keep the response concise but insightful, focusing on the unique synergy between
     throw error;
   }
 }
+
+// Generate detailed symbolism information for a card
+export async function generateCardSymbolism(card: TarotCard): Promise<string> {
+  try {
+    // Create symbolism cache directory if it doesn't exist
+    const symbolismCacheDir = path.join(CACHE_DIR, 'symbolism');
+    try {
+      if (!fs.existsSync(symbolismCacheDir)) {
+        fs.mkdirSync(symbolismCacheDir, { recursive: true });
+      }
+    } catch (error) {
+      console.error("Error creating symbolism cache directory:", error);
+    }
+
+    // Create a cache key using the card ID
+    const cacheKey = `symbolism_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    const cacheFilePath = path.join(symbolismCacheDir, `${cacheKey}.json`);
+    
+    // Check if we have a cached version
+    if (fs.existsSync(cacheFilePath)) {
+      try {
+        console.log(`Loading cached symbolism for ${card.name} from ${cacheFilePath}`);
+        const cachedData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'));
+        return cachedData.symbolism;
+      } catch (cacheError) {
+        console.error("Error reading symbolism cache:", cacheError);
+        // Continue with generation if cache read fails
+      }
+    }
+
+    console.log(`Generating symbolism information for ${card.name}`);
+
+    const prompt = `Provide a detailed analysis of the symbolism in the ${card.name} tarot card.
+Include the following sections:
+1. Key Symbols - Identify 3-5 important symbols typically found in this card and their meanings
+2. Colors - Explain the significance of the primary colors used in traditional renditions of this card
+3. Numerology - If applicable, explain the numerological significance of this card (${card.number || 'N/A'})
+4. Elemental Associations - Explain the connection to its element (${card.element || 'N/A'})
+5. Hidden Details - Mention 1-2 subtle or easily missed symbolic details that provide deeper insight
+
+Format the response with clear section headings and concise explanations. Keep the total length to around 400 words.`;
+
+    // Use gpt-4o if available, with fallback to gpt-3.5-turbo
+    const model = "gpt-4o"; // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+    
+    const response = await openai.chat.completions.create({
+      model,
+      messages: [
+        {
+          role: "system",
+          content: "You are an expert on tarot symbolism and iconography with deep knowledge of esoteric traditions. Your explanations are insightful, specific, and educational."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 800
+    });
+
+    const symbolism = response.choices[0].message.content;
+    if (!symbolism) {
+      throw new Error("No symbolism analysis generated from OpenAI");
+    }
+
+    // Cache the result
+    try {
+      fs.writeFileSync(
+        cacheFilePath,
+        JSON.stringify({
+          id: card.id,
+          name: card.name,
+          symbolism,
+          generatedAt: new Date().toISOString(),
+        })
+      );
+      console.log(`Cached symbolism for ${card.name} at ${cacheFilePath}`);
+    } catch (cacheError) {
+      console.error("Error writing symbolism to cache:", cacheError);
+      // Continue even if caching fails
+    }
+
+    console.log("Successfully generated card symbolism analysis");
+    return symbolism;
+
+  } catch (error) {
+    console.error("Error generating card symbolism:", error);
+    throw error;
+  }
+}

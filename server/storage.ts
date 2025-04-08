@@ -20,6 +20,7 @@ export interface IStorage {
   getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
   createImportedCard(card: InsertImportedCard): Promise<ImportedCard>;
   getImportedCards(): Promise<ImportedCard[]>;
+  getImportedCard(cardId: number): Promise<ImportedCard | undefined>;
   updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard>;
   createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack>;
   getLearningTracks(): Promise<LearningTrack[]>;
@@ -159,6 +160,15 @@ export class DatabaseStorage implements IStorage {
       .from(importedCards)
       .orderBy(desc(importedCards.dateImported));
   }
+
+  async getImportedCard(cardId: number): Promise<ImportedCard | undefined> {
+    const [card] = await db
+      .select()
+      .from(importedCards)
+      .where(eq(importedCards.id, cardId));
+    return card;
+  }
+  
   async updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard> {
     const [updated] = await db
       .update(importedCards)
