@@ -324,48 +324,65 @@ Use pink and purple hues with occasional blue accents, matching the Oracle of Il
 The artwork should have a magical, feminine energy with a modern, polished finish.`;
     }
 
-    // Generate the image using DALL-E with vivid style for more vibrant colors
-    const response = await openai.images.generate({
-      model: "dall-e-3",
-      prompt: prompt,
-      n: 1,
-      size: "1024x1024",
-      quality: "standard",
-      response_format: "url",
-      style: "vivid", // Use vivid style for more intense colors that match Oracle of Illusion
-    });
-
-    const imageUrl = response.data[0].url;
-    if (!imageUrl) {
-      throw new Error("No image URL generated from OpenAI");
-    }
-
-    // Download the generated image
-    console.log("Downloading generated image");
-    const imageResponse = await fetch(imageUrl);
-    const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
-    fs.writeFileSync(imageFilePath, imageBuffer);
-
-    // Cache the result metadata
-    const publicImageUrl = `/cache/images/${path.basename(imageFilePath)}`;
     try {
-      fs.writeFileSync(
-        metaFilePath,
-        JSON.stringify({
-          id: card.id,
-          name: card.name,
-          imageUrl: publicImageUrl,
-          generatedAt: new Date().toISOString(),
-        })
-      );
-      console.log(`Cached image for ${card.name} at ${imageFilePath}`);
-    } catch (cacheError) {
-      console.error("Error writing image metadata to cache:", cacheError);
-      // Continue even if caching fails
-    }
+      // Generate the image using DALL-E with vivid style for more vibrant colors
+      const response = await openai.images.generate({
+        model: "dall-e-3",
+        prompt: prompt,
+        n: 1,
+        size: "1024x1024",
+        quality: "standard",
+        response_format: "url",
+        style: "vivid", // Use vivid style for more intense colors that match Oracle of Illusion
+      });
 
-    console.log("Successfully generated card image");
-    return publicImageUrl;
+      const imageUrl = response.data[0].url;
+      if (!imageUrl) {
+        throw new Error("No image URL generated from OpenAI");
+      }
+
+      // Download the generated image
+      console.log("Downloading generated image");
+      const imageResponse = await fetch(imageUrl);
+      const imageBuffer = Buffer.from(await imageResponse.arrayBuffer());
+      fs.writeFileSync(imageFilePath, imageBuffer);
+
+      // Cache the result metadata
+      const publicImageUrl = `/cache/images/${path.basename(imageFilePath)}`;
+      try {
+        fs.writeFileSync(
+          metaFilePath,
+          JSON.stringify({
+            id: card.id,
+            name: card.name,
+            imageUrl: publicImageUrl,
+            generatedAt: new Date().toISOString(),
+          })
+        );
+        console.log(`Cached image for ${card.name} at ${imageFilePath}`);
+      } catch (cacheError) {
+        console.error("Error writing image metadata to cache:", cacheError);
+        // Continue even if caching fails
+      }
+
+      console.log("Successfully generated card image");
+      return publicImageUrl;
+    } catch (error: any) {
+      // Enhanced specific handling for rate limit errors
+      if (error?.status === 429 || 
+          (error?.error?.code === 'rate_limit_exceeded') || 
+          (error?.message && error.message.toLowerCase().includes('rate limit'))) {
+        
+        console.log(`OpenAI rate limit hit while generating image for ${card.name}`);
+        
+        // Preserve the original error properties for proper error handling upstream
+        // This ensures our routes.ts can extract the retry-after header
+        throw error;
+      }
+      
+      // For other errors, add more context but still throw to propagate up
+      throw new Error(`Failed to generate image for ${card.name}: ${error.message || 'Unknown error'}`);
+    }
   } catch (error) {
     console.error("Error generating card image:", error);
     throw error;

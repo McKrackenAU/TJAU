@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { TarotCard } from "@shared/tarot-data";
-import { Loader2, ImageIcon } from "lucide-react";
+import { Loader2, ImageIcon, SparklesIcon } from "lucide-react";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 
@@ -9,10 +9,21 @@ interface CardImageProps {
   isRevealed: boolean;
 }
 
+// This session storage key is used to avoid showing rate limit toasts multiple times
+const RATE_LIMIT_TOAST_KEY = 'oracle_illusion_rate_limit_notified';
+
+// Check if we're in a rate limited state globally
+let globalRateLimitDetected = false;
+// Session storage isn't available during server-side rendering
+if (typeof window !== 'undefined') {
+  globalRateLimitDetected = sessionStorage.getItem(RATE_LIMIT_TOAST_KEY) === 'true';
+}
+
 export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
+  const [isRateLimited, setIsRateLimited] = useState(globalRateLimitDetected);
   const { toast } = useToast();
   
   // Enhanced background colors that match the Oracle of Illusion color scheme
@@ -37,15 +48,67 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
   };
 
+  // Get a unique, mystical symbol for each card to use in fallback display
+  const getCardSymbol = () => {
+    const majorSymbols: Record<string, string> = {
+      "The Fool": "✧",
+      "The Magician": "∞",
+      "The High Priestess": "☽",
+      "The Empress": "♀",
+      "The Emperor": "♂",
+      "The Hierophant": "⋆",
+      "The Lovers": "♡",
+      "The Chariot": "⚜",
+      "Strength": "∞",
+      "The Hermit": "✦",
+      "Wheel of Fortune": "⊛",
+      "Justice": "⚖",
+      "The Hanged Man": "⋈",
+      "Death": "♱",
+      "Temperance": "⟳",
+      "The Devil": "⛧",
+      "The Tower": "⚡",
+      "The Star": "★",
+      "The Moon": "☾",
+      "The Sun": "☀",
+      "Judgement": "⚶",
+      "The World": "◯"
+    };
+
+    const suitSymbols: Record<string, string> = {
+      "wands": "🔥",
+      "cups": "💧",
+      "swords": "💨",
+      "pentacles": "⭐"
+    };
+
+    if (card.arcana === "major") {
+      return majorSymbols[card.name] || "✧";
+    } else if (card.suit) {
+      return suitSymbols[card.suit.toLowerCase()] || "✧";
+    }
+    
+    return "✧"; // Default fallback
+  };
+
   // Load the card image
-  // Add a random delay to stagger image loading and avoid overwhelming the OpenAI API
+  // Add a deterministic delay to stagger image loading and avoid overwhelming the OpenAI API
   useEffect(() => {
     if (!isRevealed) return; // Don't load image if card is not revealed
     if (imageUrl) return; // Don't refetch if we already have the image
-    if (loadFailed) return; // Don't retry if we've already failed
+    if (loadFailed && isRateLimited) return; // Don't retry if we've hit rate limits
     
-    // Add a staggered delay to avoid overwhelming the API with multiple requests
-    const delay = Math.random() * 2000; // Random delay up to 2 seconds
+    // Don't even try if we know we're globally rate limited
+    if (globalRateLimitDetected) {
+      setIsRateLimited(true);
+      setLoadFailed(true);
+      return;
+    }
+    
+    // Calculate delay based on card ID for more predictable staggering
+    // Add even more delay between requests to avoid rate limits
+    const idNum = parseInt(card.id.replace(/\D/g, '') || '0');
+    const delay = (idNum % 15) * 500; // Up to 7.5 seconds delay based on ID
     
     const fetchCardImage = async () => {
       try {
@@ -53,7 +116,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         
         // Try to get the image with a timeout for better error handling
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8-second timeout
+        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
         
         try {
           // Use fetch directly with a timeout since apiRequest doesn't support signal yet
@@ -69,16 +132,36 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           clearTimeout(timeoutId);
           
           if (!response.ok) {
-            const errorData = await response.json();
-            console.log("Image fetch error:", errorData);
-            
             if (response.status === 429) {
-              // Rate limit error - fail silently and use the fallback
+              console.log(`Rate limit hit for card ${card.id}`);
+              
+              // Set both local and global rate limit flags
+              setIsRateLimited(true);
+              globalRateLimitDetected = true;
+              
+              // Try to get detailed error message
+              const errorData = await response.json().catch(() => ({}));
+              const limitMessage = errorData.message || "Please try again later";
+              
+              if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
+                sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
+                
+                // Use server-provided message if available
+                toast({
+                  title: "Image Generation Limit Reached",
+                  description: `Using Oracle of Illusion themed backgrounds instead. ${limitMessage}`,
+                  variant: "default",
+                  duration: 10000, // Show for longer
+                });
+              }
+              
               setLoadFailed(true);
               return;
             }
             
-            throw new Error('Failed to fetch card image');
+            const errorData = await response.json().catch(() => ({}));
+            console.log("Image fetch error:", errorData);
+            throw new Error(errorData.message || 'Failed to fetch card image');
           }
           
           const data = await response.json();
@@ -100,9 +183,32 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         console.error('Error fetching card image:', error);
         setLoadFailed(true);
         
-        // Only show toast for non-rate limit errors and only once
+        // Check if this is a rate limit error
         const errorMessage = String(error);
-        if (errorMessage.indexOf('429') === -1) {
+        if (errorMessage.indexOf('429') !== -1 || 
+            errorMessage.toLowerCase().indexOf('rate limit') !== -1) {
+          
+          // Set both local and global rate limit flags
+          setIsRateLimited(true);
+          globalRateLimitDetected = true;
+          
+          // Extract the specific message if possible
+          let limitMessage = "Please try again later";
+          if (error instanceof Error && error.message) {
+            limitMessage = error.message;
+          }
+          
+          if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
+            sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
+            toast({
+              title: "Image Generation Limit Reached",
+              description: `Using Oracle of Illusion themed backgrounds instead. ${limitMessage}`,
+              variant: "default",
+              duration: 10000, // Show for longer
+            });
+          }
+        } else {
+          // Only show toast for non-rate limit errors
           toast({
             title: "Image Loading Issue",
             description: "Using themed background instead of AI-generated image",
@@ -117,7 +223,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     // Use delay to stagger requests
     const timeoutId = setTimeout(fetchCardImage, delay);
     return () => clearTimeout(timeoutId);
-  }, [card.id, isRevealed, toast, imageUrl, loadFailed]);
+  }, [card.id, isRevealed, toast, imageUrl, loadFailed, isRateLimited]);
 
   return (
     <div className={getCardBackground()}>
@@ -137,12 +243,18 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         </div>
       )}
       
-      {/* Fallback placeholder when load failed */}
+      {/* Enhanced fallback placeholder with mystical symbols when load failed */}
       {loadFailed && !isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="text-white bg-purple-800/40 p-4 rounded-lg backdrop-blur-sm flex flex-col items-center">
-            <ImageIcon className="w-10 h-10 mb-2 opacity-70" />
+            <div className="text-5xl mb-2">{getCardSymbol()}</div>
             <span className="text-sm font-medium">{card.name}</span>
+            {isRateLimited && (
+              <div className="mt-2 flex items-center text-xs">
+                <SparklesIcon className="w-3 h-3 mr-1 text-pink-300" />
+                <span>Oracle of Illusion theme</span>
+              </div>
+            )}
           </div>
         </div>
       )}

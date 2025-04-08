@@ -582,8 +582,29 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Get card image
+  // Track rate limiting status
+  let imageGenerationRateLimited = false;
+  let rateLimitResetTime: number | null = null;
+  
   app.get("/api/cards/:id/image", async (req, res) => {
     try {
+      // If we know we're rate limited, don't even try to generate
+      if (imageGenerationRateLimited) {
+        const now = Date.now();
+        if (rateLimitResetTime && now < rateLimitResetTime) {
+          // Calculate minutes until reset
+          const minutesUntilReset = Math.ceil((rateLimitResetTime - now) / 60000);
+          return res.status(429).json({ 
+            error: "Rate limit exceeded", 
+            message: `API rate limit in effect. Try again in ${minutesUntilReset} minutes.`
+          });
+        } else {
+          // If the reset time has passed, clear the rate limit flag
+          imageGenerationRateLimited = false;
+          rateLimitResetTime = null;
+        }
+      }
+    
       const { id } = req.params;
       console.log(`Fetching image for card ${id}`);
       
@@ -625,9 +646,34 @@ export function registerRoutes(app: Express): Server {
         return res.status(404).json({ error: "Card not found" });
       }
 
-      // Generate image for the card
-      const imageUrl = await generateCardImage(card);
-      res.json({ imageUrl });
+      try {
+        // Generate image for the card
+        const imageUrl = await generateCardImage(card);
+        res.json({ imageUrl });
+      } catch (error: any) {
+        // Specifically handle rate limit errors
+        if (error?.status === 429 || 
+            (error?.message && error.message.toLowerCase().includes('rate limit'))) {
+          
+          console.log("OpenAI rate limit hit, setting global rate limit flag");
+          
+          // Set the rate limit flag and calculate reset time
+          imageGenerationRateLimited = true;
+          
+          // Get retry-after header if available, otherwise use 1 hour default
+          const retryAfter = error?.headers?.['retry-after'];
+          const retrySeconds = retryAfter ? parseInt(retryAfter) : 3600;
+          rateLimitResetTime = Date.now() + (retrySeconds * 1000);
+          
+          return res.status(429).json({ 
+            error: "Rate limit exceeded", 
+            message: `API rate limit in effect. Try again in ${Math.ceil(retrySeconds / 60)} minutes.`
+          });
+        }
+        
+        // Rethrow for general error handling
+        throw error;
+      }
     } catch (error) {
       console.error("Error generating card image:", error);
       res.status(500).json({ error: "Failed to generate card image" });
