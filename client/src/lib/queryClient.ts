@@ -11,15 +11,21 @@ export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
+  options?: RequestInit,
 ): Promise<Response> {
   const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
     credentials: "include",
+    ...options, // Allow additional fetch options like signal for AbortController
   });
 
-  await throwIfResNotOk(res);
+  // Only check for ok status if the request wasn't aborted
+  if (!options?.signal || !(options.signal as AbortSignal).aborted) {
+    await throwIfResNotOk(res);
+  }
+  
   return res;
 }
 

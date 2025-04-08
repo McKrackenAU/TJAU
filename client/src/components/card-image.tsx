@@ -38,40 +38,69 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   };
 
   // Load the card image
+  // Add a random delay to stagger image loading and avoid overwhelming the OpenAI API
   useEffect(() => {
     if (!isRevealed) return; // Don't load image if card is not revealed
     if (imageUrl) return; // Don't refetch if we already have the image
     if (loadFailed) return; // Don't retry if we've already failed
     
+    // Add a staggered delay to avoid overwhelming the API with multiple requests
+    const delay = Math.random() * 2000; // Random delay up to 2 seconds
+    
     const fetchCardImage = async () => {
       try {
         setIsLoading(true);
         
-        const response = await apiRequest('GET', `/api/cards/${card.id}/image`);
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.log("Image fetch error:", errorData);
+        // Try to get the image with a timeout for better error handling
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // 8-second timeout
+        
+        try {
+          // Use fetch directly with a timeout since apiRequest doesn't support signal yet
+          const response = await fetch(
+            `/api/cards/${card.id}/image`, 
+            {
+              method: 'GET',
+              credentials: 'include',
+              signal: controller.signal
+            }
+          );
           
-          if (response.status === 429) {
-            // Rate limit error - fail silently and use the fallback
+          clearTimeout(timeoutId);
+          
+          if (!response.ok) {
+            const errorData = await response.json();
+            console.log("Image fetch error:", errorData);
+            
+            if (response.status === 429) {
+              // Rate limit error - fail silently and use the fallback
+              setLoadFailed(true);
+              return;
+            }
+            
+            throw new Error('Failed to fetch card image');
+          }
+          
+          const data = await response.json();
+          if (data.imageUrl) {
+            setImageUrl(data.imageUrl);
+          } else {
+            setLoadFailed(true);
+          }
+        } catch (error: unknown) {
+          // Silently fail if it was an abort error
+          if (error instanceof Error && error.name === 'AbortError') {
+            console.log(`Request for card ${card.id} image timed out`);
             setLoadFailed(true);
             return;
           }
-          
-          throw new Error('Failed to fetch card image');
-        }
-        
-        const data = await response.json();
-        if (data.imageUrl) {
-          setImageUrl(data.imageUrl);
-        } else {
-          setLoadFailed(true);
+          throw error;
         }
       } catch (error: unknown) {
         console.error('Error fetching card image:', error);
         setLoadFailed(true);
         
-        // Only show toast for non-rate limit errors
+        // Only show toast for non-rate limit errors and only once
         const errorMessage = String(error);
         if (errorMessage.indexOf('429') === -1) {
           toast({
@@ -85,7 +114,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       }
     };
 
-    fetchCardImage();
+    // Use delay to stagger requests
+    const timeoutId = setTimeout(fetchCardImage, delay);
+    return () => clearTimeout(timeoutId);
   }, [card.id, isRevealed, toast, imageUrl, loadFailed]);
 
   return (
