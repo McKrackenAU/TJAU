@@ -87,12 +87,24 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
     return () => {
       // Cleanup audio context and oscillator when component unmounts
       if (oscillatorRef.current) {
-        oscillatorRef.current.stop();
-        oscillatorRef.current.disconnect();
+        try {
+          oscillatorRef.current.stop();
+          oscillatorRef.current.disconnect();
+        } catch (err) {
+          console.error("Error stopping oscillator:", err);
+        }
+        oscillatorRef.current = null;
       }
-      if (audioContextRef.current) {
-        audioContextRef.current.close();
+      
+      // Check if the audio context exists and is not already closed
+      if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+        try {
+          audioContextRef.current.close();
+        } catch (err) {
+          console.error("Error closing audio context:", err);
+        }
       }
+      audioContextRef.current = null;
       
       // Make sure to stop any running audio
       if (audio) {
@@ -138,8 +150,12 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       } else if (type === 'nature' || type === 'crystal') {
         // Start YouTube player if it's ready
         if (youtubePlayerRef.current) {
-          youtubePlayerRef.current.setVolume(musicVolume * 100);
-          youtubePlayerRef.current.playVideo();
+          try {
+            youtubePlayerRef.current.setVolume(musicVolume * 100);
+            youtubePlayerRef.current.playVideo();
+          } catch (err) {
+            console.error("Error with YouTube player in handleMusicTypeChange:", err);
+          }
         }
       }
     }
@@ -210,9 +226,23 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
         
         // Stop theta waves
         if (oscillatorRef.current) {
-          oscillatorRef.current.stop();
-          oscillatorRef.current.disconnect();
+          try {
+            oscillatorRef.current.stop();
+            oscillatorRef.current.disconnect();
+          } catch (err) {
+            console.error("Error stopping oscillator in handlePlay:", err);
+          }
           oscillatorRef.current = null;
+        }
+        
+        // Clean up audio context if needed
+        if (audioContextRef.current && audioContextRef.current.state !== 'closed') {
+          try {
+            audioContextRef.current.close();
+          } catch (err) {
+            console.error("Error closing audio context in handlePlay:", err);
+          }
+          audioContextRef.current = null;
         }
         
         // Pause background music
@@ -247,8 +277,12 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       } else if (musicType === 'nature' || musicType === 'crystal') {
         // Start YouTube player if it's ready
         if (youtubePlayerRef.current) {
-          youtubePlayerRef.current.setVolume(musicVolume * 100);
-          youtubePlayerRef.current.playVideo();
+          try {
+            youtubePlayerRef.current.setVolume(musicVolume * 100);
+            youtubePlayerRef.current.playVideo();
+          } catch (err) {
+            console.error("Error with YouTube player in handlePlay:", err);
+          }
         }
       }
       
@@ -265,15 +299,37 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
           setIsPlaying(false);
           
           // Fade out theta waves
-          if (oscillatorRef.current && gainNodeRef.current) {
-            gainNodeRef.current.gain.linearRampToValueAtTime(0, audioContextRef.current!.currentTime + 1);
-            setTimeout(() => {
+          if (oscillatorRef.current && gainNodeRef.current && audioContextRef.current) {
+            try {
+              // Make sure audioContext is still valid before accessing currentTime
+              if (audioContextRef.current.state !== 'closed') {
+                gainNodeRef.current.gain.linearRampToValueAtTime(0, audioContextRef.current.currentTime + 1);
+                
+                setTimeout(() => {
+                  if (oscillatorRef.current) {
+                    try {
+                      oscillatorRef.current.stop();
+                      oscillatorRef.current.disconnect();
+                    } catch (err) {
+                      console.error("Error stopping oscillator on audio end:", err);
+                    }
+                    oscillatorRef.current = null;
+                  }
+                }, 1000);
+              }
+            } catch (err) {
+              console.error("Error with audio context when fading out:", err);
+              // Clean up anyway
               if (oscillatorRef.current) {
-                oscillatorRef.current.stop();
-                oscillatorRef.current.disconnect();
+                try {
+                  oscillatorRef.current.stop();
+                  oscillatorRef.current.disconnect();
+                } catch (innerErr) {
+                  console.error("Failed cleanup attempt:", innerErr);
+                }
                 oscillatorRef.current = null;
               }
-            }, 1000);
+            }
           }
           
           // Restore normal music volume when narration ends
@@ -463,7 +519,11 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
                     // Update YouTube volume if active
                     if (youtubePlayerRef.current && 
                         ['nature', 'crystal'].includes(musicType)) {
-                      youtubePlayerRef.current.setVolume(newVolume * 100);
+                      try {
+                        youtubePlayerRef.current.setVolume(newVolume * 100);
+                      } catch (err) {
+                        console.error("Error setting YouTube volume:", err);
+                      }
                     }
                   }}
                 />

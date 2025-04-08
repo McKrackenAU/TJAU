@@ -174,7 +174,11 @@ export default function VoiceGuidedReading({
       if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
         // If speech is active, keep YouTube at reduced volume
         const volumeLevel = isPlaying ? musicVolume * 0.3 : musicVolume;
-        youtubePlayerRef.current.setVolume(volumeLevel);
+        try {
+          youtubePlayerRef.current.setVolume(volumeLevel);
+        } catch (err) {
+          console.error("Error setting YouTube volume in useEffect:", err);
+        }
       }
     }
   }, [musicVolume, isMusicEnabled, musicType, isPlaying]);
@@ -203,7 +207,11 @@ export default function VoiceGuidedReading({
     
     // Pause YouTube player if it's active
     if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
-      youtubePlayerRef.current.pauseVideo();
+      try {
+        youtubePlayerRef.current.pauseVideo();
+      } catch (err) {
+        console.error("Error pausing YouTube player:", err);
+      }
     }
     
     setIsPlaying(false);
@@ -215,7 +223,11 @@ export default function VoiceGuidedReading({
     
     // Resume YouTube player if it's active
     if ((musicType === 'nature' || musicType === 'crystal') && youtubePlayerRef.current) {
-      youtubePlayerRef.current.playVideo();
+      try {
+        youtubePlayerRef.current.playVideo();
+      } catch (err) {
+        console.error("Error resuming YouTube player:", err);
+      }
     }
     
     setIsPlaying(true);
@@ -251,13 +263,21 @@ export default function VoiceGuidedReading({
       // Stop all music sources
       audioService.pauseBackgroundMusic();
       if (youtubePlayerRef.current) {
-        youtubePlayerRef.current.pauseVideo();
+        try {
+          youtubePlayerRef.current.pauseVideo();
+        } catch (err) {
+          console.error("Error pausing YouTube player in toggleMusic:", err);
+        }
       }
     } else if (musicType !== 'none') {
       // Start appropriate music source
       if (musicType === 'nature' || musicType === 'crystal') {
         if (youtubePlayerRef.current) {
-          youtubePlayerRef.current.playVideo();
+          try {
+            youtubePlayerRef.current.playVideo();
+          } catch (err) {
+            console.error("Error playing YouTube video in toggleMusic:", err);
+          }
         }
       } else {
         audioService.playBackgroundMusic(MEDITATION_MUSIC[musicType]);
@@ -282,7 +302,11 @@ export default function VoiceGuidedReading({
         // Stop all music sources
         audioService.pauseBackgroundMusic();
         if (youtubePlayerRef.current) {
-          youtubePlayerRef.current.pauseVideo();
+          try {
+            youtubePlayerRef.current.pauseVideo();
+          } catch (err) {
+            console.error("Error pausing YouTube player in handleMusicTypeChange:", err);
+          }
         }
       } else {
         // Handle transitions between different music types
@@ -293,7 +317,11 @@ export default function VoiceGuidedReading({
         
         if (isCurrentYouTube && youtubePlayerRef.current) {
           // If we're transitioning from YouTube to other type, pause YouTube
-          youtubePlayerRef.current.pauseVideo();
+          try {
+            youtubePlayerRef.current.pauseVideo();
+          } catch (err) {
+            console.error("Error pausing YouTube during transition:", err);
+          }
         }
         
         if (!isNewYouTube) {
@@ -556,13 +584,21 @@ export default function VoiceGuidedReading({
                   }}
                   onReady={(event: any) => {
                     youtubePlayerRef.current = event.target;
-                    // Set volume based on music volume slider
-                    event.target.setVolume(musicVolume);
+                    try {
+                      // Set volume based on music volume slider
+                      event.target.setVolume(musicVolume);
+                    } catch (err) {
+                      console.error("Error setting YouTube volume on ready:", err);
+                    }
                   }}
                   onPlay={() => {
                     // Lower volume when speech is active
                     if (isPlaying && youtubePlayerRef.current) {
-                      youtubePlayerRef.current.setVolume(musicVolume * 0.3);
+                      try {
+                        youtubePlayerRef.current.setVolume(musicVolume * 0.3);
+                      } catch (err) {
+                        console.error("Error adjusting YouTube volume on play:", err);
+                      }
                     }
                   }}
                   className="absolute inset-0 h-full w-full"
