@@ -92,16 +92,21 @@ export async function generateMeditation(card: TarotCard): Promise<{
     const cacheKey = `meditation_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
     const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
     
+    console.log(`Checking cache for card ${card.id} with cache key: ${cacheKey}`);
+    
     // Check if we have a cached meditation for this card
     if (fs.existsSync(cacheFilePath)) {
       try {
-        console.log(`Found cached meditation for card: ${card.name}`);
+        console.log(`Found cached meditation at: ${cacheFilePath}`);
         const cachedData = JSON.parse(fs.readFileSync(cacheFilePath, 'utf8'));
+        console.log(`Successfully loaded cached meditation data`);
         return cachedData;
       } catch (cacheError) {
         console.error("Error reading from cache:", cacheError);
         // Continue to generate new meditation on cache error
       }
+    } else {
+      console.log(`No cache found at: ${cacheFilePath}, generating new meditation`);
     }
     
     console.log(`Generating meditation for card: ${card.name}`);
