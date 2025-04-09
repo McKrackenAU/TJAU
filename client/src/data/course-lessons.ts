@@ -3721,6 +3721,618 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Techniques for remaining open-hearted while protecting your emotional well-being."
       }
     ]
+  },
+  {
+    id: "intuitive-14",
+    title: "The Spark of Inspiration: Ace of Wands",
+    description: "Explore creative beginnings, passion, and intuitive potential through the Ace of Wands.",
+    cardId: "w1",
+    sections: [
+      {
+        title: "The Intuitive Spark",
+        content: `
+          <p>The Ace of Wands represents the pure potential of creative fire - the initial spark of inspiration, passion, and spiritual energy. As we develop our intuitive reading skills, the Ace of Wands offers rich insights into new beginnings, creative potential, and the ignition of enthusiastic energy.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Creative inspiration and initial ideas</strong></li>
+            <li><strong>Passionate beginnings and enthusiasm</strong></li>
+            <li><strong>Spiritual energy and life force</strong></li>
+            <li><strong>The initial spark of transformation</strong></li>
+            <li><strong>Untapped potential ready to manifest</strong></li>
+            <li><strong>The fire of intuitive vision</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Ace of Wands involves connecting with your own sense of creative fire, enthusiasm, and the initial spark of intuitive insight before it has fully formed into conscious thought.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Ace of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The sprouting wand</strong> - Represents potential growth and creative energy</li>
+            <li><strong>The hand from the cloud</strong> - Symbolizes divine inspiration and gifts from spiritual sources</li>
+            <li><strong>The lush landscape</strong> - Indicates fertile ground for creative development</li>
+            <li><strong>The castle or mountain in the distance</strong> - Shows achievable goals that can manifest from initial inspiration</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Ace of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Notice where in your body you feel a sense of excitement or energy</strong> when viewing the card</li>
+            <li><strong>Allow yourself to sense the quality of potential</strong> before manifestation</li>
+            <li><strong>Connect with fire element sensations</strong> - warmth, light, transformation</li>
+            <li><strong>Be aware of intuitive "sparks"</strong> that arise spontaneously</li>
+            <li><strong>Feel into the enthusiasm and passion</strong> that initiates creative action</li>
+          </ol>
+          
+          <p>The Ace of Wands invites us to approach intuitive reading with openness to the initial spark of insight - the moment of "aha!" before we've fully processed or developed the idea.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Ace of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What creative potential or enthusiasm immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel energy, heat, or excitement in your body?</li>
+            <li><strong>Creative insight</strong>: What new beginning or inspiration might be emerging?</li>
+            <li><strong>Spiritual energy</strong>: What divine or spiritual gift is being offered?</li>
+            <li><strong>Potential vision</strong>: What might grow from this initial spark if nurtured?</li>
+          </ul>
+          
+          <p>Remember that the Ace of Wands represents the purest form of fire energy - unbounded potential and enthusiasm before it takes definite shape. When reading intuitively, trust the initial sparks of insight that come before fully formed interpretations.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach would be most helpful when the Ace of Wands appears in a reading about creative blocks?",
+        options: [
+          "Analyzing the historical origin of the wand symbol",
+          "Connecting with bodily sensations of energy and excitement",
+          "Focusing on the limitations and challenges ahead",
+          "Emphasizing caution and careful planning"
+        ],
+        correctAnswer: 1,
+        explanation: "When the Ace of Wands appears in a reading about creative blocks, connecting with bodily sensations of energy and excitement can help the querent tap into the initial spark of inspiration that may be trying to break through. This approach helps them reconnect with their passionate creative energy at its source, before mental blocks have a chance to interfere."
+      },
+      {
+        question: "Which quality is most important to access when reading the Ace of Wands intuitively?",
+        options: [
+          "Careful analytical thinking",
+          "Critical judgment",
+          "Openness to enthusiasm and potential",
+          "Skepticism and doubt"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Ace of Wands intuitively, openness to enthusiasm and potential is the most important quality to access. The Ace of Wands represents the pure essence of creative fire and possibility before it takes form. Being receptive to the energy of enthusiasm and nascent potential allows you to connect with the card's fundamental energy and receive the intuitive insights it offers about new beginnings and creative inspiration."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Ace of Wands, examining creative beginnings, passion, and untapped potential. We've studied the card's imagery of a sprouting wand offered from the divine, representing the initial spark of inspiration and enthusiasm. By developing techniques to read intuitively about creative fire and new beginnings, we can gain deeper insights about the emergence of passion, creative potential, and spiritual energy in its purest form.",
+    additionalResources: [
+      {
+        title: "Creativity Practices",
+        description: "Exercises for recognizing and nurturing creative sparks when they first appear."
+      },
+      {
+        title: "The Fire Element",
+        description: "Understanding the transformative power of fire energy in intuitive practice."
+      }
+    ]
+  },
+  {
+    id: "intuitive-15",
+    title: "The Power of Choice: Two of Wands",
+    description: "Explore personal power, planning, and decision-making through the Two of Wands.",
+    cardId: "w2",
+    sections: [
+      {
+        title: "The World of Possibilities",
+        content: `
+          <p>The Two of Wands represents the moment when initial inspiration begins to take form through planning, decision-making, and the exercise of personal power. As we develop our intuitive reading skills, the Two of Wands offers rich insights into how we envision future possibilities and make choices that shape our path forward.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Personal power and agency</strong></li>
+            <li><strong>Future vision and planning</strong></li>
+            <li><strong>Decision-making at a crossroads</strong></li>
+            <li><strong>Balancing current success with future potential</strong></li>
+            <li><strong>Expanding horizons and worldview</strong></li>
+            <li><strong>Taking first steps toward manifestation</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Two of Wands involves connecting with your own sense of personal power, capacity for envisioning possibilities, and awareness of choice points in life's journey.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Two of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure holding a globe or world</strong> - Represents viewing life from a broader perspective</li>
+            <li><strong>The held wand and mounted wand</strong> - Symbolizes choice between existing achievement and new ventures</li>
+            <li><strong>The castle or fortress</strong> - Indicates established security and accomplishment</li>
+            <li><strong>The distant landscape</strong> - Shows unexplored territory and potential</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Two of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Notice the feeling of standing at a vantage point</strong> in your body</li>
+            <li><strong>Connect with the sense of having options</strong> and choices</li>
+            <li><strong>Feel into the quality of personal power</strong> and agency</li>
+            <li><strong>Be aware of the tension between security and adventure</strong></li>
+            <li><strong>Sense the expansiveness of considering broader horizons</strong></li>
+          </ol>
+          
+          <p>The Two of Wands invites us to approach intuitive reading with an awareness of how we perceive options and make decisions based on our values and vision.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Two of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What sense of choice or decision immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel a sense of power or potential in your body?</li>
+            <li><strong>Visual perspective</strong>: What broader view or understanding is becoming available?</li>
+            <li><strong>Decision energy</strong>: What qualities are present at this choice point?</li>
+            <li><strong>Future vision</strong>: What possibilities are visible from this vantage point?</li>
+          </ul>
+          
+          <p>Remember that the Two of Wands represents the moment when inspiration begins to take concrete form through planning and choice. When reading intuitively, pay attention to subtle feelings about direction, potential, and the exercise of personal will.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach best captures the essence of the Two of Wands?",
+        options: [
+          "Focusing on immediate emotional reactions",
+          "Sensing the energy of personal power and future vision",
+          "Analyzing the historical context of the card",
+          "Emphasizing random chance and luck"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the Two of Wands is best captured by sensing the energy of personal power and future vision. This intuitive approach connects with the card's fundamental qualities of standing at a vantage point, surveying possibilities, and making choices based on a broader perspective and sense of personal agency."
+      },
+      {
+        question: "When reading intuitively about decision-making with the Two of Wands, which perspective is most helpful?",
+        options: [
+          "Seeing choices as random and meaningless",
+          "Viewing decisions as predetermined by fate",
+          "Recognizing the tension between security and expansion",
+          "Focusing exclusively on limitations and obstacles"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading intuitively about decision-making with the Two of Wands, recognizing the tension between security and expansion is most helpful. This perspective honors the card's energy of balancing what has already been achieved (the fortress, the mounted wand) with the call toward new horizons (the globe, the distant landscape). This tension creates the dynamic energy of choice that is central to the Two of Wands."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Two of Wands, examining personal power, planning, and decision-making. We've studied the card's imagery of a figure at a vantage point, holding a globe and contemplating both established success and future possibilities. By developing techniques to read intuitively about choice points and future vision, we can gain deeper insights about how we exercise personal power, make decisions from a broader perspective, and take the first steps from inspiration toward manifestation.",
+    additionalResources: [
+      {
+        title: "Intuitive Decision-Making",
+        description: "Practices for accessing inner wisdom when faced with important choices."
+      },
+      {
+        title: "Visioning Techniques",
+        description: "Methods for developing and clarifying future possibilities."
+      }
+    ]
+  },
+  {
+    id: "intuitive-16",
+    title: "Expanding Horizons: Three of Wands",
+    description: "Explore vision, expansion, and future growth through the Three of Wands.",
+    cardId: "w3",
+    sections: [
+      {
+        title: "The Visionary Perspective",
+        content: `
+          <p>The Three of Wands represents the moment when our plans begin to manifest, horizons expand, and we watch for the arrival of future opportunities. As we develop our intuitive reading skills, this card offers rich insights into visionary perspective, expansion beyond familiar territory, and the anticipation of growth and results.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Expanded vision and perspective</strong></li>
+            <li><strong>Anticipation of future growth</strong></li>
+            <li><strong>Enterprise and venturing beyond familiar shores</strong></li>
+            <li><strong>Leadership and overseeing development</strong></li>
+            <li><strong>The fruition of initial planning</strong></li>
+            <li><strong>Foresight and long-term thinking</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Three of Wands involves connecting with your capacity for expanded vision, the feeling of anticipation as efforts begin to manifest, and the sense of standing at a threshold of greater possibilities.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Three of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure looking out over water</strong> - Represents visionary perspective and seeing beyond immediate horizons</li>
+            <li><strong>The three planted wands</strong> - Symbolize established foundations and the stability needed for expansion</li>
+            <li><strong>The ocean or waterway</strong> - Indicates pathways to new territories and possibilities</li>
+            <li><strong>Ships or distant lands</strong> - Show opportunities arriving or developing in the distance</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Three of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of expanded perspective</strong> in your awareness</li>
+            <li><strong>Notice the bodily sensation of anticipation</strong> - the feeling of watching for something on the horizon</li>
+            <li><strong>Connect with the confidence that comes from established foundations</strong></li>
+            <li><strong>Sense the expansiveness and openness</strong> to new territories</li>
+            <li><strong>Be aware of the forward-looking energy</strong> and how it differs from the present moment</li>
+          </ol>
+          
+          <p>The Three of Wands invites us to approach intuitive reading with a broader perspective, seeing beyond immediate circumstances to the greater possibilities developing on the horizon.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Three of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What sense of expansiveness or opportunity immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel anticipation or forward momentum in your body?</li>
+            <li><strong>Visual perspective</strong>: What can be seen from this elevated vantage point that might not be visible up close?</li>
+            <li><strong>Growth sensing</strong>: What qualities of development or expansion are present in the situation?</li>
+            <li><strong>Future awareness</strong>: What might be approaching on the horizon that deserves attention?</li>
+          </ul>
+          
+          <p>Remember that the Three of Wands represents the phase where initial plans begin to manifest and expand, with results appearing on the horizon but not yet fully arrived. When reading intuitively, connect with the feeling of standing at a threshold of greater possibilities while maintaining the stable foundation you've already established.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most essential when working with the Three of Wands?",
+        options: [
+          "Caution and skepticism",
+          "Expanded vision and foresight",
+          "Nostalgia for the past",
+          "Immediate gratification"
+        ],
+        correctAnswer: 1,
+        explanation: "When working with the Three of Wands, expanded vision and foresight are the most essential intuitive qualities. This card fundamentally represents the ability to see beyond immediate circumstances, to anticipate developing opportunities, and to maintain a broader perspective that encompasses future possibilities. These visionary qualities allow you to connect with the card's energy of expansion, enterprise, and anticipated growth."
+      },
+      {
+        question: "When reading the Three of Wands intuitively for someone facing a career decision, which approach would be most insightful?",
+        options: [
+          "Focusing on past failures and limitations",
+          "Emphasizing immediate security needs only",
+          "Connecting with the feeling of standing at a threshold of expansion",
+          "Suggesting quick changes without consideration of foundations"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Three of Wands intuitively for someone facing a career decision, connecting with the feeling of standing at a threshold of expansion would be most insightful. This approach taps into the card's energy of established foundations combined with vision of greater possibilities, helping the querent balance their existing achievements with their potential for growth. It encourages them to look beyond immediate circumstances while honoring the stable base they've already created."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Three of Wands, examining vision, expansion, and future growth. We've studied the card's imagery of a figure standing at a vantage point, watching distant horizons where opportunities are developing. By developing techniques to read intuitively about perspective and anticipated manifestation, we can gain deeper insights about how we expand beyond familiar territory, maintain foresight, and prepare for the arrival of future possibilities while standing firmly on established foundations.",
+    additionalResources: [
+      {
+        title: "Developing Foresight",
+        description: "Practices for cultivating the ability to anticipate opportunities and developments."
+      },
+      {
+        title: "Expanding Your Vision",
+        description: "Techniques for broadening perspective and seeing beyond immediate circumstances."
+      }
+    ]
+  },
+  {
+    id: "intuitive-17",
+    title: "Celebration and Community: Four of Wands",
+    description: "Explore harmony, celebration, and community foundations through the Four of Wands.",
+    cardId: "w4",
+    sections: [
+      {
+        title: "The Joyful Foundation",
+        content: `
+          <p>The Four of Wands represents the creation of stable foundations that support celebration, community, and harmonious connection. As we develop our intuitive reading skills, this card offers rich insights into the experience of celebration, milestone achievements, and the creation of supportive structures that foster joy and belonging.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Celebration and recognition of achievements</strong></li>
+            <li><strong>Community and belonging</strong></li>
+            <li><strong>Stable foundations that support joy</strong></li>
+            <li><strong>Harmony between structure and freedom</strong></li>
+            <li><strong>Home, sanctuary, and safe spaces</strong></li>
+            <li><strong>Milestone transitions and rites of passage</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Four of Wands involves connecting with your experience of celebration, community connection, and the feeling of having created stable foundations that support joyful expression.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Four of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The four wands forming a structure</strong> - Represents stability that supports celebration and freedom</li>
+            <li><strong>The flowers or garlands</strong> - Symbolize decoration, beauty, and celebration</li>
+            <li><strong>The castle or home in the background</strong> - Indicates sanctuary and established security</li>
+            <li><strong>The dancing or celebrating figures</strong> - Show community, connection, and shared joy</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Four of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of celebration and joy</strong> in your body</li>
+            <li><strong>Notice the sense of belonging and community</strong> connection</li>
+            <li><strong>Connect with the feeling of achievement</strong> and milestone recognition</li>
+            <li><strong>Sense the stability that allows for freedom</strong> of expression</li>
+            <li><strong>Be aware of the energy of "coming home"</strong> to a place of safety and welcome</li>
+          </ol>
+          
+          <p>The Four of Wands invites us to approach intuitive reading with an awareness of how stable foundations and supportive communities create space for authentic celebration and joyful expression.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Four of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of celebration or harmony immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel a sense of joy, relaxation, or belonging in your body?</li>
+            <li><strong>Community sensing</strong>: What qualities of connection and support are present in the situation?</li>
+            <li><strong>Achievement recognition</strong>: What milestone or accomplishment deserves celebration?</li>
+            <li><strong>Foundation feeling</strong>: What stable structure is supporting growth and freedom?</li>
+          </ul>
+          
+          <p>Remember that the Four of Wands represents the phase where we create foundations strong enough to support both stability and joyful expression. When reading intuitively, connect with the harmonious balance between structure and freedom, and the feeling of community that arises when we celebrate our achievements together.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach best captures the essence of the Four of Wands?",
+        options: [
+          "Focusing on isolation and independence",
+          "Sensing the energy of joyful community and stable foundations",
+          "Emphasizing rigid control and restrictions",
+          "Connecting with solitary achievement"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the Four of Wands is best captured by sensing the energy of joyful community and stable foundations. This intuitive approach connects with the card's fundamental qualities of celebration within supportive structures, shared accomplishment, and the harmony that comes from having created stable foundations that allow for authentic expression and connection with others."
+      },
+      {
+        question: "When reading the Four of Wands intuitively, which bodily sensation most aligns with its energy?",
+        options: [
+          "Tension and constriction",
+          "Heaviness and fatigue",
+          "Warmth, expansion, and relaxation",
+          "Coldness and withdrawal"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Four of Wands intuitively, the bodily sensations of warmth, expansion, and relaxation most align with its energy. These physical experiences mirror the card's qualities of celebration, community belonging, and the security of supportive foundations. The body naturally responds to feelings of safety, joy, and connection with warmth and openness, making these sensations valuable intuitive guides when working with the Four of Wands."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Four of Wands, examining celebration, community, and harmonious foundations. We've studied the card's imagery of decorated wands forming a structure that supports celebration, with figures rejoicing beneath. By developing techniques to read intuitively about joyful achievement and supportive community, we can gain deeper insights about milestone recognition, the creation of stable foundations that allow for authentic expression, and the harmonious balance between structure and freedom that fosters a sense of belonging and celebration.",
+    additionalResources: [
+      {
+        title: "Creating Sacred Space",
+        description: "Practices for establishing environments that support both stability and joyful expression."
+      },
+      {
+        title: "Celebration Rituals",
+        description: "Techniques for meaningful recognition of achievements and milestones."
+      }
+    ]
+  },
+  {
+    id: "intuitive-18",
+    title: "The Enthusiastic Messenger: Page of Wands",
+    description: "Explore new beginnings, enthusiasm, and creative exploration through the Page of Wands.",
+    cardId: "wp",
+    sections: [
+      {
+        title: "The Creative Explorer",
+        content: `
+          <p>The Page of Wands represents the youthful explorer of creative potential - enthusiastic, adventurous, and eager to discover new possibilities. As we develop our intuitive reading skills, this court card offers rich insights into the initial stages of creative exploration, the enthusiasm of new beginnings, and the free-spirited approach to discovering one's passions.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Enthusiasm and excitement about new possibilities</strong></li>
+            <li><strong>Creative exploration and discovery</strong></li>
+            <li><strong>Free-spirited adventure and curiosity</strong></li>
+            <li><strong>The first steps of a creative journey</strong></li>
+            <li><strong>Youthful energy and fresh perspective</strong></li>
+            <li><strong>Messages and news that spark inspiration</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Page of Wands involves connecting with your own sense of enthusiasm, creative curiosity, and the excited energy that comes with discovering new interests and possibilities.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Page of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The budding or flowering wand</strong> - Represents growing creative potential and possibilities</li>
+            <li><strong>The youthful figure</strong> - Symbolizes fresh perspective and enthusiastic approach</li>
+            <li><strong>The open landscape</strong> - Indicates freedom to explore and discover</li>
+            <li><strong>The colorful or distinctive clothing</strong> - Shows unique self-expression and individuality</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Page of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of excitement and enthusiasm</strong> in your body</li>
+            <li><strong>Notice the energetic impulse toward exploration</strong> and discovery</li>
+            <li><strong>Connect with the feeling of beginning something new</strong> with fresh eyes</li>
+            <li><strong>Sense the freedom of not being bound by convention</strong> or expectation</li>
+            <li><strong>Be aware of the spark of creative curiosity</strong> that drives learning</li>
+          </ol>
+          
+          <p>The Page of Wands invites us to approach intuitive reading with the same curious enthusiasm that characterizes this card - being open to discoveries, excited by possibilities, and willing to explore creative terrain with a fresh perspective.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Page of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of enthusiasm or discovery immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel excitement, lightness, or eager energy in your body?</li>
+            <li><strong>Creative sensing</strong>: What new interest or passion might be emerging?</li>
+            <li><strong>Message awareness</strong>: What inspiring news or information might be arriving?</li>
+            <li><strong>Adventure feeling</strong>: What unexplored territory is calling for exploration?</li>
+          </ul>
+          
+          <p>Remember that the Page of Wands represents the enthusiastic beginning of creative discovery - the excitement of first steps before the journey has been fully defined. When reading intuitively, connect with the qualities of curiosity, openness to possibilities, and the eager energy that comes with finding something that ignites your passion.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most important when connecting with the Page of Wands energy?",
+        options: [
+          "Cautious deliberation",
+          "Disciplined structure",
+          "Enthusiastic openness",
+          "Critical analysis"
+        ],
+        correctAnswer: 2,
+        explanation: "When connecting with the Page of Wands energy, enthusiastic openness is the most important intuitive quality. This approach aligns with the card's fundamental energy of curiosity, exploration, and excitement about new possibilities. The Page of Wands embodies the willingness to approach life with fresh eyes and eager enthusiasm, qualities that are best accessed through an open, receptive attitude rather than careful analysis or structured discipline."
+      },
+      {
+        question: "When reading the Page of Wands intuitively for someone considering a new creative pursuit, which approach would offer the most helpful insight?",
+        options: [
+          "Focusing on potential obstacles and limitations",
+          "Connecting with the excitement of exploration without knowing the outcome",
+          "Emphasizing the need for detailed long-term planning",
+          "Suggesting they wait for more evidence before proceeding"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Page of Wands intuitively for someone considering a new creative pursuit, connecting with the excitement of exploration without knowing the outcome would offer the most helpful insight. This approach honors the Page of Wands' essential quality of enthusiastic discovery and the joy found in the process itself, rather than focusing on destinations or limitations. It encourages embracing the creative journey with curiosity and openness to where it might lead."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Page of Wands, examining enthusiastic beginnings, creative exploration, and free-spirited discovery. We've studied the card's imagery of a youthful figure holding a flowering wand, ready to embark on adventures and discover new passions. By developing techniques to read intuitively about creative enthusiasm and the excitement of new beginnings, we can gain deeper insights about the early stages of inspiration, the messages that spark our imagination, and the free-spirited approach to exploring possibilities with fresh perspective.",
+    additionalResources: [
+      {
+        title: "Cultivating Beginner's Mind",
+        description: "Practices for approaching experiences with fresh perspective and openness."
+      },
+      {
+        title: "Creative Exploration",
+        description: "Techniques for discovering new interests and passions without attachment to outcomes."
+      }
+    ]
+  },
+  {
+    id: "intuitive-19",
+    title: "Passionate Leadership: Queen of Wands",
+    description: "Explore confident self-expression, creative nurturing, and charismatic leadership through the Queen of Wands.",
+    cardId: "wq",
+    sections: [
+      {
+        title: "The Charismatic Creative",
+        content: `
+          <p>The Queen of Wands represents the mastery of confident self-expression, passionate leadership, and the nurturing of creative potential. As we develop our intuitive reading skills, this court card offers rich insights into charismatic presence, authentic self-expression, and the ability to inspire others through personal magnetism and creative confidence.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Confident self-expression and authenticity</strong></li>
+            <li><strong>Passionate leadership and inspiration</strong></li>
+            <li><strong>Creative nurturing and encouragement</strong></li>
+            <li><strong>Charismatic presence and personal magnetism</strong></li>
+            <li><strong>The balance of warmth and strength</strong></li>
+            <li><strong>Social connection and community building</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Queen of Wands involves connecting with your own experience of confident self-expression, the ability to nurture creativity in yourself and others, and the warmth of authentic presence that naturally draws people together.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Queen of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The throne adorned with lions</strong> - Represents confident leadership and courage</li>
+            <li><strong>The black cat</strong> - Symbolizes intuition and connection to the mysterious</li>
+            <li><strong>The sunflower</strong> - Indicates vitality, warmth, and alignment with purpose</li>
+            <li><strong>The upright wand or staff</strong> - Shows creative power directed with intention</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Queen of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of confident presence</strong> in your body</li>
+            <li><strong>Notice the warmth and radiance</strong> that naturally attracts others</li>
+            <li><strong>Connect with the energetic quality of enthusiasm</strong> combined with focus</li>
+            <li><strong>Sense how authenticity creates magnetism</strong> and influence</li>
+            <li><strong>Be aware of how creative energy can be channeled</strong> to inspire others</li>
+          </ol>
+          
+          <p>The Queen of Wands invites us to approach intuitive reading with confident authenticity - trusting our unique perspective while maintaining the warmth and openness that creates connection with others.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Queen of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of confidence or warmth immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel charismatic energy, warmth, or creative power in your body?</li>
+            <li><strong>Leadership sensing</strong>: What form of passionate guidance or inspiration is needed?</li>
+            <li><strong>Creative nurturing</strong>: How might enthusiasm and encouragement foster growth?</li>
+            <li><strong>Authentic presence</strong>: What quality of being fully yourself creates magnetic attraction?</li>
+          </ul>
+          
+          <p>Remember that the Queen of Wands represents the mature feminine expression of fire energy - confident, passionate, and nurturing of creative potential. When reading intuitively, pay attention to the balance of warmth and strength, the quality of authentic self-expression, and the natural magnetism that comes from aligning with your passionate purpose.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Queen of Wands?",
+        options: [
+          "Cautious reserve and controlled expression",
+          "Radiant confidence and warm authenticity",
+          "Cold calculation and strategic manipulation",
+          "Passive receptivity and quiet observation"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the Queen of Wands is best captured by radiant confidence and warm authenticity. This intuitive quality reflects the card's fundamental energy of charismatic leadership, passionate self-expression, and the magnetic presence that comes from being genuinely yourself. The Queen of Wands embodies the perfect balance of strength and warmth - confident without being domineering, passionate without being overwhelming."
+      },
+      {
+        question: "When reading the Queen of Wands intuitively, which approach would yield the most insightful understanding?",
+        options: [
+          "Focusing on limitations and potential weaknesses",
+          "Analyzing historical and traditional card meanings",
+          "Connecting with the feeling of confident, warm presence",
+          "Emphasizing caution and careful planning"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Queen of Wands intuitively, connecting with the feeling of confident, warm presence would yield the most insightful understanding. This approach directly accesses the card's essential quality of charismatic leadership and authentic self-expression. By embodying or sensing this quality of radiant confidence balanced with warmth, you can intuitively tap into the Queen of Wands' energy and better understand how it might manifest in the reading situation."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Queen of Wands, examining confident self-expression, creative nurturing, and charismatic leadership. We've studied the card's imagery of a confident figure with symbols of courage, intuition, and vitality. By developing techniques to read intuitively about passionate presence and magnetic authenticity, we can gain deeper insights about charismatic leadership, the balance of warmth and strength, and the power of genuine self-expression to inspire others and create community.",
+    additionalResources: [
+      {
+        title: "Authentic Leadership",
+        description: "Practices for developing confident presence that inspires and encourages others."
+      },
+      {
+        title: "Creative Confidence",
+        description: "Techniques for nurturing and expressing your unique creative voice."
+      }
+    ]
   }
 ];
 
