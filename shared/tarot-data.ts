@@ -545,6 +545,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Ten of Pentacles represents long-term wealth, family legacy, and the establishment of permanent foundations. It embodies the culmination of material efforts into lasting prosperity across generations.",
     element: "Earth"
+  },
+  {
+    id: "wp",
+    name: "Page of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 11,
+    meanings: {
+      upright: ["Enthusiasm", "Exploration", "Discovery", "Free spirit"],
+      reversed: ["Lack of direction", "Procrastination", "Hastiness"]
+    },
+    description: "The Page of Wands represents the spark of a new idea or passion, the initial enthusiasm of starting a creative journey, and the adventurous exploration of new possibilities.",
+    element: "Fire"
+  },
+  {
+    id: "cp",
+    name: "Page of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 11,
+    meanings: {
+      upright: ["Creativity", "Intuition", "Sensitivity", "New feelings"],
+      reversed: ["Emotional immaturity", "Insecurity", "Blocked creativity"]
+    },
+    description: "The Page of Cups represents new emotional beginnings, creative inspiration from the unconscious, and the innocent, open-hearted approach to emotional experiences.",
+    element: "Water"
+  },
+  {
+    id: "sp",
+    name: "Page of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 11,
+    meanings: {
+      upright: ["Curiosity", "Mental agility", "New ideas", "Vigilance"],
+      reversed: ["Deception", "Gossip", "Scattered thoughts", "Harsh words"]
+    },
+    description: "The Page of Swords represents intellectual curiosity, mental alertness, and the beginnings of new ways of thinking. It embodies the energy of seeking truth and gathering information.",
+    element: "Air"
+  },
+  {
+    id: "pp",
+    name: "Page of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 11,
+    meanings: {
+      upright: ["Manifestation", "Study", "Patience", "New opportunity"],
+      reversed: ["Lack of progress", "Procrastination", "Laziness"]
+    },
+    description: "The Page of Pentacles represents the initial stages of manifesting material goals, the patient student approach to practical matters, and the discovery of new opportunities for growth and prosperity.",
+    element: "Earth"
   }
 ];
 

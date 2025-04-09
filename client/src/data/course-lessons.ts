@@ -8045,6 +8045,466 @@ export const minorArcanaLessons: LessonContent[] = [
       }
     ]
   },
+  {
+    id: "minor-41",
+    title: "The Page of Wands: Enthusiasm and New Beginnings",
+    description: "Explore the spark of creativity, enthusiasm, and the beginning of a new passion in the Page of Wands.",
+    cardId: "wp",
+    sections: [
+      {
+        title: "The Page of Wands: Overview",
+        content: `
+          <p>After the burdens and completion of the Ten of Wands, the Page of Wands represents the beginning of a new cycle—bringing fresh enthusiasm, creative sparks, and the adventurous spirit needed to embark on new journeys of passion and inspiration.</p>
+          
+          <p>This card typically depicts a young person in colorful attire, holding a flowering wand and looking at it with curiosity and excitement. The landscape is often open and expansive, suggesting the wide range of possibilities that lie ahead.</p>
+          
+          <p>The Page of Wands asks us to consider:</p>
+          <ul>
+            <li>What new creative or passionate endeavors are calling to me?</li>
+            <li>How can I approach life with more enthusiasm and curiosity?</li>
+            <li>Where might I need to take the first exploratory steps toward something exciting?</li>
+            <li>What message of inspiration is trying to reach me?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Page of Wands contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The young figure</strong> - Represents new beginnings, potential, and a fresh perspective</li>
+            <li><strong>The flowering wand</strong> - Symbolizes creative potential and the sprouting of new ideas</li>
+            <li><strong>The colorful attire</strong> - Indicates enthusiasm, excitement, and creative expression</li>
+            <li><strong>The open landscape</strong> - Shows the unlimited possibilities and space for exploration</li>
+            <li><strong>The salamanders</strong> - Often depicted on the garment, they represent transformation and the elemental force of fire</li>
+          </ul>
+          
+          <p>In readings, the Page of Wands suggests:</p>
+          <ul>
+            <li>The initial spark of a creative idea or passion</li>
+            <li>Enthusiasm and excitement about new possibilities</li>
+            <li>An adventurous spirit ready to explore</li>
+            <li>The arrival of news or messages related to creative projects</li>
+            <li>The early stages of self-discovery and finding one's path</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Page of Wands",
+        content: `
+          <p>When the Page of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What new passion or interest is emerging in my life?</li>
+            <li>How can I nurture the initial sparks of creativity I'm experiencing?</li>
+            <li>Where might I benefit from a more playful, exploratory approach?</li>
+            <li>What message of inspiration is the universe trying to deliver to me?</li>
+          </ul>
+          
+          <p>Actions to take when working with Page of Wands energy:</p>
+          <ul>
+            <li>Say yes to new experiences that excite you</li>
+            <li>Begin exploring a creative interest without worrying about mastery</li>
+            <li>Adopt a more playful, curious approach to a current situation</li>
+            <li>Pay attention to unexpected messages or opportunities</li>
+            <li>Take the first steps toward a passion project without requiring perfection</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What primary element is associated with the Page of Wands?",
+        options: [
+          "Earth - representing stability and material concerns",
+          "Water - representing emotions and intuition",
+          "Air - representing intellect and communication",
+          "Fire - representing passion, creativity, and energy"
+        ],
+        correctAnswer: 3,
+        explanation: "The primary element associated with the Page of Wands is Fire. As with all cards in the Wands suit, the Page of Wands embodies the fiery qualities of passion, creativity, energy, and inspiration. This element reflects the card's themes of enthusiasm, creative sparks, and the burning desire to explore new possibilities."
+      },
+      {
+        question: "What does the flowering wand held by the Page symbolize?",
+        options: [
+          "Established success and achievement",
+          "Creative potential and new growth",
+          "Authority and control",
+          "Completion of a journey"
+        ],
+        correctAnswer: 1,
+        explanation: "The flowering wand held by the Page symbolizes creative potential and new growth. Unlike a fully developed or established wand, the Page's wand often shows buds or new leaves, representing ideas and passions in their nascent stage—full of potential but not yet fully realized or manifested."
+      },
+      {
+        question: "How does the Page of Wands typically approach life and new opportunities?",
+        options: [
+          "With careful planning and systematic analysis",
+          "With emotional depth and intuitive understanding",
+          "With enthusiasm, curiosity, and adventurous spirit",
+          "With skepticism and cautious evaluation"
+        ],
+        correctAnswer: 2,
+        explanation: "The Page of Wands approaches life and new opportunities with enthusiasm, curiosity, and an adventurous spirit. This card embodies the excitement of beginning something new without being weighed down by excessive planning or skepticism. The Page brings fresh eyes, eager engagement, and a willingness to explore unknown territory with optimism and energy."
+      }
+    ],
+    summary: "The Page of Wands represents the spark of a new passion, the enthusiasm of creative beginnings, and the adventurous spirit needed to explore new possibilities. It marks the start of a new cycle after the completion represented by the Ten of Wands, bringing fresh energy and excitement. This card invites us to embrace the beginner's mindset, to follow sparks of inspiration with curiosity, and to approach life with playful enthusiasm as we discover new aspects of our creative potential.",
+    additionalResources: [
+      {
+        title: "Nurturing Creative Sparks",
+        description: "How to develop initial inspiration into sustainable creative practice"
+      },
+      {
+        title: "The Explorer's Mindset",
+        description: "Cultivating curiosity and openness in approaching new experiences"
+      }
+    ]
+  },
+  {
+    id: "minor-42",
+    title: "The Page of Cups: Emotional Awakening and Creative Intuition",
+    description: "Explore the flowering of intuition, new emotional beginnings, and creative imagination in the Page of Cups.",
+    cardId: "cp",
+    sections: [
+      {
+        title: "The Page of Cups: Overview",
+        content: `
+          <p>After the harmonious emotional fulfillment of the Ten of Cups, the Page of Cups introduces a new cycle of emotional and intuitive development—bringing fresh sensitivity, creative inspiration from the unconscious, and the innocent curiosity needed to explore the depths of feelings and imagination.</p>
+          
+          <p>This card typically depicts a young person in flowing robes, often at the seashore, holding a cup from which a fish emerges. The Page looks at this surprising manifestation with wonder and curiosity, embodying openness to the unexpected gifts of the emotional and intuitive realms.</p>
+          
+          <p>The Page of Cups asks us to consider:</p>
+          <ul>
+            <li>What new emotional experiences or intuitive insights are emerging in my life?</li>
+            <li>How might I approach my feelings with more curiosity and less judgment?</li>
+            <li>Where is my creative imagination trying to guide me?</li>
+            <li>What unexpected emotional gifts might I be overlooking?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Page of Cups contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The young figure</strong> - Represents emotional freshness, openness, and innocence</li>
+            <li><strong>The cup</strong> - Symbolizes the emotional and intuitive realm</li>
+            <li><strong>The fish emerging from the cup</strong> - Indicates surprising messages from the unconscious and creative imagination</li>
+            <li><strong>The water or seashore</strong> - Represents the boundary between conscious and unconscious, known and unknown</li>
+            <li><strong>The flowing robes</strong> - Shows emotional fluidity and receptivity</li>
+          </ul>
+          
+          <p>In readings, the Page of Cups suggests:</p>
+          <ul>
+            <li>The beginning of a new emotional or creative phase</li>
+            <li>Heightened intuition and sensitivity</li>
+            <li>Unexpected messages from the unconscious</li>
+            <li>Childlike wonder and openness to emotional experience</li>
+            <li>Creative inspiration that emerges from feelings</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Page of Cups",
+        content: `
+          <p>When the Page of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What new feelings or intuitive insights am I experiencing?</li>
+            <li>How can I approach my emotional life with more curiosity and openness?</li>
+            <li>What creative project might benefit from connecting to my intuition?</li>
+            <li>Where in my life could I benefit from more emotional innocence and wonder?</li>
+          </ul>
+          
+          <p>Actions to take when working with Page of Cups energy:</p>
+          <ul>
+            <li>Start a dream journal to capture messages from your unconscious</li>
+            <li>Engage in creative play without concern for the end result</li>
+            <li>Practice receiving and acknowledging your feelings without judgment</li>
+            <li>Pay attention to synchronicities and intuitive hunches</li>
+            <li>Approach relationships with renewed openness and emotional honesty</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the fish emerging from the cup symbolize in the Page of Cups?",
+        options: [
+          "Material abundance and prosperity",
+          "Messages from the unconscious and creative imagination",
+          "Danger and emotional distress",
+          "Spiritual wisdom and enlightenment"
+        ],
+        correctAnswer: 1,
+        explanation: "The fish emerging from the cup symbolizes messages from the unconscious and creative imagination. This surprising element represents how the Page of Cups receives unexpected insights, creative inspiration, and intuitive guidance that emerges from the depths of the emotional realm (represented by the cup). The fish is something that typically lives in water (the realm of emotions) but has surfaced into consciousness."
+      },
+      {
+        question: "What primary quality does the Page of Cups bring to emotional experiences?",
+        options: [
+          "Analytical reasoning and emotional detachment",
+          "Strategic planning and emotional control",
+          "Wonder, curiosity, and openness",
+          "Practical management and emotional suppression"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary quality the Page of Cups brings to emotional experiences is wonder, curiosity, and openness. Like a child experiencing something for the first time, the Page approaches emotional life and intuitive insights with innocent amazement rather than judgment or analysis. This open, receptive attitude allows for genuine emotional discovery and intuitive development."
+      },
+      {
+        question: "How does the Page of Cups relate to creativity?",
+        options: [
+          "It represents established mastery and refined technique",
+          "It represents the business and promotional aspects of creative work",
+          "It represents critical analysis and evaluation of creative output",
+          "It represents intuitive inspiration and emotional connection to creative process"
+        ],
+        correctAnswer: 3,
+        explanation: "The Page of Cups relates to creativity through intuitive inspiration and emotional connection to the creative process. Rather than representing technical mastery or business aspects, this card embodies the beginning stages of creativity where inspiration bubbles up from the unconscious, emotions fuel expression, and imaginative possibilities are explored with open curiosity. The Page of Cups reminds us that authentic creativity often emerges from emotional depth and intuitive connection."
+      }
+    ],
+    summary: "The Page of Cups represents new emotional beginnings, intuitive awakening, and the flowering of creative imagination. It embodies an innocent, open-hearted approach to feelings and inner guidance, allowing for unexpected messages from the unconscious to emerge. This card invites us to approach our emotional life with childlike wonder, to trust our intuitive hunches, and to remain receptive to the surprising insights that can emerge when we maintain a curious, non-judgmental relationship with our inner world.",
+    additionalResources: [
+      {
+        title: "Developing Intuitive Awareness",
+        description: "Practices for recognizing and trusting intuitive guidance"
+      },
+      {
+        title: "Emotional Curiosity",
+        description: "Approaching feelings as messengers rather than problems to solve"
+      }
+    ]
+  },
+  {
+    id: "minor-43",
+    title: "The Page of Swords: Mental Alertness and Seeking Truth",
+    description: "Explore the qualities of intellectual curiosity, mental vigilance, and the pursuit of truth in the Page of Swords.",
+    cardId: "sp",
+    sections: [
+      {
+        title: "The Page of Swords: Overview",
+        content: `
+          <p>After the painful ending and renewal promised by the Ten of Swords, the Page of Swords represents the beginning of a new mental cycle—bringing intellectual curiosity, mental alertness, and the vigilant pursuit of truth and clarity.</p>
+          
+          <p>This card typically depicts a young person standing in an open, often windy landscape, holding a sword upright as if ready to use it. The figure appears alert and watchful, with the wind symbolizing the realm of thought and communication in motion.</p>
+          
+          <p>The Page of Swords asks us to consider:</p>
+          <ul>
+            <li>What new ideas or perspectives am I beginning to explore?</li>
+            <li>Where do I need to seek greater clarity or truth?</li>
+            <li>How can I approach situations with mental alertness and vigilance?</li>
+            <li>What communication or information might require closer attention?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Page of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The upright sword</strong> - Represents clear thinking, truth-seeking, and mental readiness</li>
+            <li><strong>The watchful stance</strong> - Symbolizes vigilance, alertness, and observation</li>
+            <li><strong>The wind or clouds</strong> - Indicates the active mind, changing thoughts, and intellectual movement</li>
+            <li><strong>The open landscape</strong> - Shows visibility and the ability to see clearly in all directions</li>
+            <li><strong>The youthful figure</strong> - Represents new beginnings in the realm of thought and communication</li>
+          </ul>
+          
+          <p>In readings, the Page of Swords suggests:</p>
+          <ul>
+            <li>Intellectual curiosity and the pursuit of knowledge</li>
+            <li>Mental alertness and vigilance</li>
+            <li>Clear communication and truthful speech</li>
+            <li>The beginning stages of a new way of thinking</li>
+            <li>Preparation and readiness to address challenges</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Page of Swords",
+        content: `
+          <p>When the Page of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What areas of knowledge am I curious to explore?</li>
+            <li>Where might I need to be more vigilant or attentive?</li>
+            <li>How can I communicate my ideas more clearly and truthfully?</li>
+            <li>What new perspective might help me see a situation more objectively?</li>
+          </ul>
+          
+          <p>Actions to take when working with Page of Swords energy:</p>
+          <ul>
+            <li>Research a topic that sparks your intellectual curiosity</li>
+            <li>Practice honest but diplomatic communication</li>
+            <li>Stay mentally alert to subtle signals in a situation</li>
+            <li>Verify information before acting on it or sharing it</li>
+            <li>Develop your ability to observe without immediate judgment</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What element is associated with the Page of Swords?",
+        options: [
+          "Earth - representing stability and manifestation",
+          "Water - representing emotions and intuition",
+          "Air - representing intellect and communication",
+          "Fire - representing passion and creativity"
+        ],
+        correctAnswer: 2,
+        explanation: "The element associated with the Page of Swords is Air. As with all cards in the Swords suit, the Page of Swords embodies the airy qualities of intellect, communication, clarity, and mental activity. This element reflects the card's themes of curiosity, vigilance, truth-seeking, and the beginnings of new thoughts and ideas."
+      },
+      {
+        question: "What is the Page of Swords typically most vigilant about?",
+        options: [
+          "Emotional undercurrents and feelings",
+          "Material resources and physical security",
+          "Creative inspiration and artistic expression",
+          "Information, truth, and communication"
+        ],
+        correctAnswer: 3,
+        explanation: "The Page of Swords is typically most vigilant about information, truth, and communication. This card represents an alert, watchful approach to the realm of thoughts, words, and ideas. The Page of Swords pays close attention to what is being said, written, or communicated, and maintains a commitment to clarity and honesty in these areas."
+      },
+      {
+        question: "What potential challenge should one be aware of when working with Page of Swords energy?",
+        options: [
+          "Emotional coldness and lack of compassion",
+          "Overthinking and verbal sharpness",
+          "Material neglect and impracticality",
+          "Creative blockage and lack of inspiration"
+        ],
+        correctAnswer: 1,
+        explanation: "A potential challenge to be aware of when working with Page of Swords energy is overthinking and verbal sharpness. While the Page's mental alertness and truth-seeking are valuable qualities, they can sometimes manifest as excessive analysis, argumentativeness, or words that cut too deeply. The immature side of this energy might use intellect in ways that are unnecessarily confrontational or that create mental spirals of overthinking."
+      }
+    ],
+    summary: "The Page of Swords represents intellectual curiosity, mental alertness, and the pursuit of truth and clarity. It embodies the beginning stages of new thought patterns, vigilant observation, and the communication of ideas with honesty and precision. This card invites us to stay mentally alert, to seek truth rather than comfortable illusions, and to approach communication with both clarity and diplomacy as we explore new intellectual territory.",
+    additionalResources: [
+      {
+        title: "The Art of Clear Communication",
+        description: "Techniques for expressing ideas with precision and diplomacy"
+      },
+      {
+        title: "Developing Discernment",
+        description: "How to distinguish truth from misinformation in an information-rich world"
+      }
+    ]
+  },
+  {
+    id: "minor-44",
+    title: "The Page of Pentacles: Manifestation and Practical Learning",
+    description: "Explore the qualities of diligent study, practical learning, and the early stages of manifesting material goals in the Page of Pentacles.",
+    cardId: "pp",
+    sections: [
+      {
+        title: "The Page of Pentacles: Overview",
+        content: `
+          <p>After the established legacy and multi-generational wealth of the Ten of Pentacles, the Page of Pentacles represents the beginning of a new cycle of material development—bringing fresh opportunities, a student's approach to practical matters, and the patient groundwork needed to manifest tangible results.</p>
+          
+          <p>This card typically depicts a young person in a lush landscape, intently studying a pentacle held in their hands. The figure's focused attention symbolizes the concentrated effort and careful study that precedes material mastery and manifestation.</p>
+          
+          <p>The Page of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What new practical skill or knowledge am I being called to develop?</li>
+            <li>What material opportunity is emerging that requires careful study?</li>
+            <li>How can I bring more focus and dedication to manifesting my goals?</li>
+            <li>What foundations am I laying now for future prosperity?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Page of Pentacles contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The pentacle held in focus</strong> - Represents concentrated attention on material development</li>
+            <li><strong>The fertile landscape</strong> - Symbolizes potential for growth and abundance</li>
+            <li><strong>The sturdy posture</strong> - Indicates reliability, practicality, and groundedness</li>
+            <li><strong>The contemplative gaze</strong> - Shows careful study and methodical learning</li>
+            <li><strong>The youthful figure</strong> - Represents new beginnings in the material realm</li>
+          </ul>
+          
+          <p>In readings, the Page of Pentacles suggests:</p>
+          <ul>
+            <li>The early stages of manifesting material goals</li>
+            <li>Dedicated study and practical learning</li>
+            <li>A methodical, patient approach to growth</li>
+            <li>New opportunities for financial or educational development</li>
+            <li>The student mentality of continuous improvement</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Page of Pentacles",
+        content: `
+          <p>When the Page of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What practical skill would benefit most from dedicated study right now?</li>
+            <li>What material opportunity is emerging that I should examine carefully?</li>
+            <li>How can I bring more patience and methodical effort to my goals?</li>
+            <li>What resources or support might help me develop in this area?</li>
+          </ul>
+          
+          <p>Actions to take when working with Page of Pentacles energy:</p>
+          <ul>
+            <li>Enroll in a class or find resources to learn a new practical skill</li>
+            <li>Create a step-by-step plan for a material goal</li>
+            <li>Research thoroughly before making financial commitments</li>
+            <li>Practice consistent, daily efforts toward your objectives</li>
+            <li>Adopt a student's mindset of curiosity and continuous improvement</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What element is associated with the Page of Pentacles?",
+        options: [
+          "Earth - representing stability, practicality, and material concerns",
+          "Water - representing emotions and intuition",
+          "Air - representing intellect and communication",
+          "Fire - representing passion and creativity"
+        ],
+        correctAnswer: 0,
+        explanation: "The element associated with the Page of Pentacles is Earth. As with all cards in the Pentacles suit, the Page of Pentacles embodies the earthy qualities of practicality, stability, manifestation, and material development. This element reflects the card's themes of groundedness, patient growth, and the methodical approach to building tangible results."
+      },
+      {
+        question: "What distinguishes the Page of Pentacles from the other Pages?",
+        options: [
+          "A focus on emotional depth and intuitive development",
+          "A focus on verbal communication and mental agility",
+          "A focus on creative passion and spontaneous inspiration",
+          "A focus on practical learning and methodical manifestation"
+        ],
+        correctAnswer: 3,
+        explanation: "What distinguishes the Page of Pentacles from the other Pages is a focus on practical learning and methodical manifestation. While the Page of Cups focuses on emotional and intuitive development, the Page of Swords on mental clarity and communication, and the Page of Wands on creative passion and inspiration, the Page of Pentacles is devoted to the patient, step-by-step process of learning practical skills and manifesting tangible results in the material world."
+      },
+      {
+        question: "What approach to learning does the Page of Pentacles represent?",
+        options: [
+          "Quick, intuitive leaps of understanding",
+          "Abstract theoretical analysis",
+          "Patient, methodical study with practical application",
+          "Competitive, achievement-focused advancement"
+        ],
+        correctAnswer: 2,
+        explanation: "The Page of Pentacles represents a patient, methodical study approach with practical application. This card embodies the student who is willing to start at the beginning, master fundamentals through consistent practice, apply knowledge in concrete ways, and progress steadily rather than seeking shortcuts. The Page understands that lasting material success comes through thorough groundwork and practical experimentation, not just theory or quick fixes."
+      }
+    ],
+    summary: "The Page of Pentacles represents the early stages of manifesting material goals, the patient student approach to practical matters, and the methodical development of skills that create tangible results. It embodies a grounded, focused attitude toward learning and growth in the physical world. This card invites us to adopt a beginner's mindset when approaching material concerns, to invest in developing practical knowledge, and to trust that consistent, focused effort will eventually yield abundant harvests.",
+    additionalResources: [
+      {
+        title: "The Student Mindset",
+        description: "How to maintain continuous growth through lifelong learning"
+      },
+      {
+        title: "Methodical Manifestation",
+        description: "Step-by-step approaches to bringing goals into physical reality"
+      }
+    ]
+  },
 ];
 
 // Map track IDs to their corresponding lesson sets
