@@ -1410,6 +1410,128 @@ export function registerRoutes(app: Express): Server {
       res.status(500).json({ error: "Failed to clear API usage logs" });
     }
   });
+  
+  // Learning tracks API endpoints
+  app.get("/api/learning/tracks", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const tracks = await storage.getLearningTracks();
+      res.json(tracks);
+    } catch (error) {
+      console.error("Error fetching learning tracks:", error);
+      res.status(500).send("Error fetching learning tracks");
+    }
+  });
+  
+  app.get("/api/learning/tracks/:id", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const track = await storage.getLearningTrack(parseInt(req.params.id, 10));
+      if (!track) {
+        return res.status(404).send("Learning track not found");
+      }
+      res.json(track);
+    } catch (error) {
+      console.error("Error fetching learning track:", error);
+      res.status(500).send("Error fetching learning track");
+    }
+  });
+  
+  app.post("/api/learning/tracks", requireAdmin, async (req, res) => {
+    try {
+      const track = await storage.createLearningTrack(req.body);
+      res.status(201).json(track);
+    } catch (error) {
+      console.error("Error creating learning track:", error);
+      res.status(500).send("Error creating learning track");
+    }
+  });
+  
+  app.post("/api/learning/progress/start/:trackId", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const trackId = parseInt(req.params.trackId, 10);
+      
+      // Check if user already has progress for this track
+      const existingProgress = await storage.getUserProgress(trackId);
+      if (existingProgress) {
+        return res.json(existingProgress);
+      }
+      
+      // Create new progress
+      const newProgress = {
+        trackId,
+        userId: req.user.id,
+        currentLesson: 1,
+        completedLessons: [],
+        lastAccessed: new Date()
+      };
+      
+      const progress = await storage.createUserProgress(newProgress);
+      res.status(201).json(progress);
+    } catch (error) {
+      console.error("Error starting track progress:", error);
+      res.status(500).send("Error starting track progress");
+    }
+  });
+  
+  app.get("/api/learning/progress/:trackId", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const trackId = parseInt(req.params.trackId, 10);
+      const progress = await storage.getUserProgress(trackId);
+      
+      if (!progress) {
+        return res.status(404).send("No progress found for this track");
+      }
+      
+      res.json(progress);
+    } catch (error) {
+      console.error("Error fetching track progress:", error);
+      res.status(500).send("Error fetching track progress");
+    }
+  });
+  
+  app.patch("/api/learning/progress/:progressId", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const progressId = parseInt(req.params.progressId, 10);
+      const updatedProgress = await storage.updateUserProgress(progressId, req.body);
+      res.json(updatedProgress);
+    } catch (error) {
+      console.error("Error updating track progress:", error);
+      res.status(500).send("Error updating track progress");
+    }
+  });
+  
+  app.get("/api/learning/recent-quiz-results", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+    
+    try {
+      const results = await storage.getRecentQuizResults(5);
+      res.json(results);
+    } catch (error) {
+      console.error("Error fetching quiz results:", error);
+      res.status(500).send("Error fetching quiz results");
+    }
+  });
 
   const httpServer = createServer(app);
   return httpServer;

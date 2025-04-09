@@ -11,6 +11,7 @@ import History from "@/pages/history";
 import Study from "@/pages/study";
 import Journal from "@/pages/journal";
 import Learning from "@/pages/learning";
+import LessonPage from "@/pages/lesson";
 import TestImages from "@/pages/test-images";
 import AuthPage from "@/pages/auth-page";
 import Subscribe from "@/pages/subscribe";
@@ -33,6 +34,7 @@ function Router() {
       <ProtectedRoute path="/study" component={Study} />
       <ProtectedRoute path="/journal" component={Journal} />
       <ProtectedRoute path="/learning" component={Learning} />
+      <ProtectedRoute path="/learning/:trackId/:lessonId" component={LessonPage} />
       <ProtectedRoute path="/test-images" component={TestImages} />
       <ProtectedRoute path="/subscribe" component={Subscribe} />
       <ProtectedRoute path="/voice-guided" component={VoiceGuidedPage} />

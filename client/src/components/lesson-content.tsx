@@ -330,8 +330,7 @@ export function LessonContent({
                     </p>
                     <Progress 
                       value={score * 100} 
-                      className="h-2 w-full max-w-md mx-auto"
-                      indicatorColor={score >= 0.7 ? "bg-green-500" : "bg-amber-500"}
+                      className={`h-2 w-full max-w-md mx-auto ${score >= 0.7 ? "bg-green-500" : "bg-amber-500"}`}
                     />
                   </div>
                   

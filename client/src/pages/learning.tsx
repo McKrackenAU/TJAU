@@ -125,7 +125,22 @@ export default function Learning() {
                     </p>
                     <Button 
                       className="w-full"
-                      onClick={handleContinueLearning}
+                      onClick={() => {
+                        // Get the lessons for this track
+                        const trackId = track.id;
+                        const lessonId = progress.currentLesson <= track.requiredCards.length 
+                          ? trackId === 1 ? `beginner-${progress.currentLesson}` 
+                            : trackId === 2 ? `intuitive-${progress.currentLesson}`
+                            : `advanced-${progress.currentLesson}`
+                          : null;
+                        
+                        if (lessonId) {
+                          setLocation(`/learning/${trackId}/${lessonId}`);
+                        } else {
+                          // Fallback to old behavior if we can't determine the lesson
+                          handleContinueLearning();
+                        }
+                      }}
                     >
                       <ArrowRight className="h-4 w-4 mr-2" />
                       Continue Learning
