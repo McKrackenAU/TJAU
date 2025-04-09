@@ -1139,58 +1139,110 @@ export function registerRoutes(app: Express): Server {
         }
 
         const user = req.user;
+        console.log("Processing subscription for user:", user.id, user.username);
 
         if (user.stripeSubscriptionId) {
-          // User already has a subscription, retrieve it
-          const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+          console.log("User already has subscription ID:", user.stripeSubscriptionId);
+          try {
+            // User already has a subscription, retrieve it
+            const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+            console.log("Retrieved existing subscription:", subscription.id, "status:", subscription.status);
+            
+            // Check if it has a payment_intent
+            const clientSecret = subscription.latest_invoice?.payment_intent?.client_secret;
+            console.log("Client secret from existing subscription:", clientSecret ? "Found" : "Not found");
 
-          res.json({
-            subscriptionId: subscription.id,
-            clientSecret: subscription.latest_invoice?.payment_intent?.client_secret,
-          });
-          return;
+            res.json({
+              subscriptionId: subscription.id,
+              clientSecret,
+            });
+            return;
+          } catch (subscriptionError) {
+            console.error("Error retrieving existing subscription:", subscriptionError);
+            // Continue to create a new subscription if retrieval fails
+          }
         }
         
         if (!user.email) {
-          throw new Error('No user email on file');
+          console.error("User has no email address");
+          return res.status(400).json({ error: "User email is required for subscription" });
+        }
+
+        console.log("Using Stripe price ID:", process.env.STRIPE_PRICE_ID);
+        if (!process.env.STRIPE_PRICE_ID) {
+          return res.status(500).json({ error: "Stripe price ID is not configured" });
         }
 
         // Create a new customer if needed
         let customerId = user.stripeCustomerId;
         if (!customerId) {
+          console.log("Creating new Stripe customer for user:", user.id);
           const customer = await stripe.customers.create({
             email: user.email,
             name: user.username,
           });
           customerId = customer.id;
+          console.log("Created customer:", customerId);
           await storage.updateStripeCustomerId(user.id, customer.id);
+        } else {
+          console.log("Using existing customer ID:", customerId);
         }
 
         // Create subscription
+        console.log("Creating subscription with customer:", customerId);
         const subscription = await stripe.subscriptions.create({
           customer: customerId,
           items: [{
             price: process.env.STRIPE_PRICE_ID,
           }],
           payment_behavior: 'default_incomplete',
+          payment_settings: {
+            payment_method_types: ['card'],
+            save_default_payment_method: 'on_subscription'
+          },
           expand: ['latest_invoice.payment_intent'],
         });
+
+        console.log("Created subscription:", subscription.id);
+        console.log("Invoice:", subscription.latest_invoice ? "Present" : "Missing");
+        console.log("Payment intent:", subscription.latest_invoice?.payment_intent ? "Present" : "Missing");
+        
+        // Check if we have a client secret
+        const clientSecret = subscription.latest_invoice?.payment_intent?.client_secret;
+        if (!clientSecret) {
+          console.error("No client secret found in subscription response");
+          console.log("Latest invoice:", JSON.stringify(subscription.latest_invoice, null, 2));
+          return res.status(500).json({ 
+            error: "Subscription created but payment setup failed",
+            message: "Could not retrieve payment information from Stripe" 
+          });
+        }
 
         // Update user with subscription information
         await storage.updateUserStripeInfo(user.id, {
           customerId, 
           subscriptionId: subscription.id
         });
-    
+        
+        console.log("Sending client secret to frontend");
         res.json({
           subscriptionId: subscription.id,
-          clientSecret: subscription.latest_invoice?.payment_intent?.client_secret,
+          clientSecret,
         });
       } catch (error: any) {
         console.error("Stripe subscription error:", error);
+        // Provide more detailed error information
+        let errorMessage = error.message;
+        if (error.type === 'StripeCardError') {
+          errorMessage = `Card error: ${error.message}`;
+        } else if (error.type === 'StripeInvalidRequestError') {
+          errorMessage = `Invalid request: ${error.message}`;
+        }
+        
         res.status(500).json({ 
           error: "Error creating subscription", 
-          message: error.message 
+          message: errorMessage,
+          details: error.type || 'unknown'
         });
       }
     });
