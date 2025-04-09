@@ -4542,6 +4542,238 @@ export const minorArcanaLessons: LessonContent[] = [
         description: "Creating intentional ways to mark important moments with others."
       }
     ]
+  },
+  {
+    id: "minor-11",
+    title: "The Three of Swords: Heartbreak and Clarity",
+    description: "Explore the challenging but transformative energy of heartbreak, grief, and mental clarity in the Three of Swords.",
+    cardId: "s3",
+    sections: [
+      {
+        title: "The Three of Swords: Overview",
+        content: `
+          <p>After the stalemate of the Two of Swords, the Three of Swords represents the painful but necessary breakthrough of truth and reality, often manifesting as heartbreak, grief, or difficult realizations.</p>
+          
+          <p>This card often depicts a heart pierced by three swords, symbolizing emotional pain that leads to mental clarity and the ability to face difficult truths directly.</p>
+          
+          <p>The Three of Swords asks us to consider:</p>
+          <ul>
+            <li>What painful truth am I facing or needing to face?</li>
+            <li>How might current grief or heartbreak lead to greater clarity?</li>
+            <li>What illusions need to be cut through in my situation?</li>
+            <li>How can I process emotional pain in a healthy way?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Three of Swords contains powerful symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Heart pierced by swords</strong> - Represents emotional pain caused by mental clarity or truth</li>
+            <li><strong>Three swords</strong> - Symbolize the painful convergence of thoughts that cannot be denied</li>
+            <li><strong>Rain or storm clouds</strong> - Often shown in the background, suggesting emotional release and cleansing tears</li>
+            <li><strong>Geometric arrangement</strong> - The balanced, symmetrical placement suggests an inevitable, almost mathematical truth</li>
+          </ul>
+          
+          <p>In readings, the Three of Swords suggests:</p>
+          <ul>
+            <li>Heartbreak, grief, or significant emotional pain</li>
+            <li>Necessary but painful truths</li>
+            <li>The release that comes from facing reality</li>
+            <li>Healing through acknowledging pain</li>
+            <li>Clarity that emerges from difficult experiences</li>
+            <li>The removal of illusions or false hope</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Three of Swords",
+        content: `
+          <p>When the Three of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What truth am I avoiding or struggling to accept?</li>
+            <li>How can I honor my grief while moving toward healing?</li>
+            <li>What clarity might be emerging from this painful experience?</li>
+            <li>What would healthy emotional processing look like in this situation?</li>
+            <li>How have past experiences of heartbreak ultimately led to growth?</li>
+          </ul>
+          
+          <p>Actions to take when working with Three of Swords energy:</p>
+          <ul>
+            <li>Allow yourself to feel and express grief rather than suppressing it</li>
+            <li>Journal about painful experiences to gain perspective and clarity</li>
+            <li>Seek support from trusted friends or professionals during difficult times</li>
+            <li>Practice self-compassion while facing challenging truths</li>
+            <li>Look for the wisdom that can emerge from suffering</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the Three of Swords primarily represent?",
+        options: [
+          "Unnecessary suffering that should be avoided",
+          "Heartbreak and painful truths that lead to clarity",
+          "Aggressive thoughts and intentions toward others",
+          "Intellectual victory over opponents"
+        ],
+        correctAnswer: 1,
+        explanation: "The Three of Swords primarily represents heartbreak and painful truths that lead to clarity - the necessary suffering that comes from facing reality and cutting through illusions."
+      },
+      {
+        question: "What do the storm clouds or rain often depicted in the Three of Swords symbolize?",
+        options: [
+          "Bad luck and misfortune",
+          "Divine punishment",
+          "Emotional release, cleansing, and eventually clearing",
+          "The need to take shelter from problems"
+        ],
+        correctAnswer: 2,
+        explanation: "The storm clouds or rain in the Three of Swords symbolize emotional release, cleansing through tears, and the eventual clearing that follows expressing grief - a necessary part of the healing process."
+      },
+      {
+        question: "What healthy approach does the Three of Swords encourage?",
+        options: [
+          "Avoiding painful situations at all costs",
+          "Blaming others for your suffering",
+          "Acknowledging pain and allowing grief while seeking clarity",
+          "Becoming emotionally detached and cold"
+        ],
+        correctAnswer: 2,
+        explanation: "The Three of Swords encourages acknowledging pain, allowing grief its natural expression, and seeking the clarity and wisdom that can emerge through this process - neither avoiding nor becoming lost in suffering."
+      }
+    ],
+    summary: "The Three of Swords represents the painful but necessary experience of heartbreak, grief, and difficult truths. While one of the more challenging cards in the deck, it reminds us that emotional pain, when faced directly, leads to mental clarity and the release of illusions. This card invites us to honor our grief as a natural and important part of life, while recognizing that the storm eventually clears, leaving space for new understanding and growth.",
+    additionalResources: [
+      {
+        title: "The Wisdom of Grief",
+        description: "How facing emotional pain can lead to profound insights and personal growth."
+      },
+      {
+        title: "Healing Practices After Heartbreak",
+        description: "Therapeutic approaches for processing grief and finding renewal after painful experiences."
+      }
+    ]
+  },
+  {
+    id: "minor-12",
+    title: "The Three of Pentacles: Collaboration and Skill",
+    description: "Learn about the productive energy of teamwork, craftsmanship, and collaborative creation in the Three of Pentacles.",
+    cardId: "p3",
+    sections: [
+      {
+        title: "The Three of Pentacles: Overview",
+        content: `
+          <p>After the balancing act of the Two of Pentacles, the Three of Pentacles represents the stage where skilled work combines with collaboration to create something of quality and lasting value.</p>
+          
+          <p>This card often depicts a craftsperson or artisan working alongside others to build or create something, usually in a cathedral or other significant building, symbolizing the beautiful results that come from combining expertise with teamwork.</p>
+          
+          <p>The Three of Pentacles asks us to consider:</p>
+          <ul>
+            <li>How can I develop and apply my skills more effectively?</li>
+            <li>Where might collaboration enhance my work?</li>
+            <li>What am I building that has lasting value?</li>
+            <li>How can I better recognize and appreciate others' contributions?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Three of Pentacles contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Craftsperson/artisan</strong> - Represents skill, dedication to quality, and expertise</li>
+            <li><strong>Collaborators/advisors</strong> - Symbolize teamwork, different perspectives, and community support</li>
+            <li><strong>Cathedral/architectural setting</strong> - Suggests building something meaningful and enduring</li>
+            <li><strong>Blueprint or plans</strong> - Often shown in the card, representing planning, design, and shared vision</li>
+          </ul>
+          
+          <p>In readings, the Three of Pentacles suggests:</p>
+          <ul>
+            <li>Skilled work and craftsmanship</li>
+            <li>Productive collaboration and teamwork</li>
+            <li>Recognition of talents and abilities</li>
+            <li>Learning through practical application</li>
+            <li>Building something of lasting value</li>
+            <li>The early stages of successful projects</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Three of Pentacles",
+        content: `
+          <p>When the Three of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What skills am I currently developing or applying?</li>
+            <li>Who might I collaborate with to enhance my work?</li>
+            <li>How can I better receive feedback and guidance from others?</li>
+            <li>What am I building that might have lasting significance?</li>
+            <li>Where am I receiving or deserving recognition for my efforts?</li>
+          </ul>
+          
+          <p>Actions to take when working with Three of Pentacles energy:</p>
+          <ul>
+            <li>Seek opportunities to develop and refine your skills</li>
+            <li>Collaborate with others who complement your abilities</li>
+            <li>Be open to feedback and different perspectives</li>
+            <li>Take pride in quality work and attention to detail</li>
+            <li>Recognize and appreciate the contributions of team members</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What key theme does the Three of Pentacles primarily represent?",
+        options: [
+          "Solitary achievement and independent work",
+          "Skilled craftsmanship and productive collaboration",
+          "Financial wealth and material abundance",
+          "Competition and outdoing others"
+        ],
+        correctAnswer: 1,
+        explanation: "The Three of Pentacles primarily represents skilled craftsmanship and productive collaboration - the combination of individual expertise with teamwork to create quality results."
+      },
+      {
+        question: "What does the architectural setting (often a cathedral) in the Three of Pentacles symbolize?",
+        options: [
+          "Religious devotion",
+          "Building something meaningful and enduring",
+          "Institutional power and authority",
+          "Ancient knowledge and mysteries"
+        ],
+        correctAnswer: 1,
+        explanation: "The architectural setting in the Three of Pentacles symbolizes building something meaningful and enduring - work that has substance, quality, and lasting value beyond the immediate moment."
+      },
+      {
+        question: "What attitude toward feedback does the Three of Pentacles encourage?",
+        options: [
+          "Avoiding feedback to protect your creative vision",
+          "Accepting only positive feedback and ignoring criticism",
+          "Openness to guidance and different perspectives",
+          "Competing with others for the best feedback"
+        ],
+        correctAnswer: 2,
+        explanation: "The Three of Pentacles encourages openness to guidance and different perspectives - recognizing that collaboration and constructive feedback enhance the quality of our work and help us develop our skills."
+      }
+    ],
+    summary: "The Three of Pentacles represents the productive harmony of skilled work and effective collaboration. It reminds us that creating something of quality and lasting value often requires both individual expertise and the ability to work well with others. This card encourages us to develop our skills, appreciate the contributions of collaborators, and take pride in building something meaningful through careful, quality-focused work.",
+    additionalResources: [
+      {
+        title: "The Craft Mindset",
+        description: "How developing a craftsperson's approach can enhance quality and satisfaction in any work."
+      },
+      {
+        title: "Effective Collaboration Principles",
+        description: "Key practices for creating productive partnerships and team dynamics."
+      }
+    ]
   }
 ];
 
