@@ -1,4 +1,5 @@
 import { LessonContent } from "@/components/lesson-content";
+import { eightOfWands, eightOfCups, eightOfSwords, eightOfPentacles } from "../../all-eight-cards";
 
 // BEGINNER'S JOURNEY - All 22 Major Arcana cards
 export const beginnerLessons: LessonContent[] = [
@@ -3427,10 +3428,15 @@ export const advancedSymbolismLessons: LessonContent[] = [
   }
 ];
 
-// Eight cards content will be imported from a separate file
+// Import Eight cards content
+import { eightOfWands, eightOfCups, eightOfSwords, eightOfPentacles } from "../../all-eight-cards";
 
 // MINOR ARCANA JOURNEY
 export const minorArcanaLessons: LessonContent[] = [
+  eightOfWands,
+  eightOfCups,
+  eightOfSwords,
+  eightOfPentacles,
   {
     id: "minor-1",
     title: "Introduction to the Minor Arcana",
