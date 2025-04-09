@@ -174,14 +174,11 @@ export default function Learning() {
                       >
                         <div className="flex flex-col items-center text-center">
                           <div className="flex items-center justify-center mb-1">
-                            <span className="text-xs font-medium">{index + 1}</span>
                             {progress.completedLessons.includes(cardId) && (
-                              <GraduationCap className="h-3 w-3 text-primary ml-1" />
+                              <GraduationCap className="h-3 w-3 text-primary mr-1" />
                             )}
+                            <span className="text-xs font-medium">{card?.name}</span>
                           </div>
-                          <p className="text-xs text-muted-foreground truncate w-full" title={card?.name}>
-                            {card?.name}
-                          </p>
                         </div>
                       </div>
                     );

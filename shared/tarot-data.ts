@@ -233,6 +233,110 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Four of Pentacles represents security, control, and conservation of resources. It suggests a need for balance between holding on and letting go.",
     element: "Earth"
+  },
+  {
+    id: "w5",
+    name: "Five of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 5,
+    meanings: {
+      upright: ["Competition", "Conflict", "Creative tension"],
+      reversed: ["Avoiding conflict", "Tension release", "Resisting change"]
+    },
+    description: "The Five of Wands represents competition, conflict, and creative tension. It suggests growth through challenge and the productive clash of different ideas.",
+    element: "Fire"
+  },
+  {
+    id: "c5",
+    name: "Five of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 5,
+    meanings: {
+      upright: ["Loss", "Grief", "Disappointment", "Regret"],
+      reversed: ["Acceptance", "Moving on", "Finding what remains"]
+    },
+    description: "The Five of Cups represents emotional disappointment, grief, and loss. It also reminds us that not everything is lost, and that recovery begins with acknowledging what remains.",
+    element: "Water"
+  },
+  {
+    id: "s5",
+    name: "Five of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 5,
+    meanings: {
+      upright: ["Conflict", "Defeat", "Win at all costs", "Disagreement"],
+      reversed: ["Reconciliation", "Making amends", "Release from conflict"]
+    },
+    description: "The Five of Swords represents conflict, tension, and the aftermath of battles. It suggests the hollow nature of some victories and the importance of perspective.",
+    element: "Air"
+  },
+  {
+    id: "p5",
+    name: "Five of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 5,
+    meanings: {
+      upright: ["Hardship", "Poverty", "Isolation", "Worry"],
+      reversed: ["Recovery", "Finding help", "Spiritual growth despite material loss"]
+    },
+    description: "The Five of Pentacles represents material hardship, health challenges, or feelings of exclusion. It reminds us that help and resources may be available even when overlooked.",
+    element: "Earth"
+  },
+  {
+    id: "w6",
+    name: "Six of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 6,
+    meanings: {
+      upright: ["Victory", "Recognition", "Public reward", "Progress"],
+      reversed: ["Fall from grace", "Egotism", "Self-doubt", "Excessive pride"]
+    },
+    description: "The Six of Wands represents achievement, recognition, and the rewards of effort. It suggests victory and public acknowledgment of success.",
+    element: "Fire"
+  },
+  {
+    id: "c6",
+    name: "Six of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 6,
+    meanings: {
+      upright: ["Nostalgia", "Childhood memories", "Innocence", "Joy"],
+      reversed: ["Stuck in the past", "Unrealistic memories", "Moving forward"]
+    },
+    description: "The Six of Cups represents nostalgia, innocence, and reunion with people or elements from the past. It suggests finding joy in simple pleasures and positive memories.",
+    element: "Water"
+  },
+  {
+    id: "s6",
+    name: "Six of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 6,
+    meanings: {
+      upright: ["Transition", "Moving on", "Leaving behind", "Mental progress"],
+      reversed: ["Emotional baggage", "Resistance to change", "Unfinished business"]
+    },
+    description: "The Six of Swords represents transition, moving away from difficulty, and gradual progress toward healing. It suggests the journey from turbulent to calmer waters.",
+    element: "Air"
+  },
+  {
+    id: "p6",
+    name: "Six of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 6,
+    meanings: {
+      upright: ["Generosity", "Charity", "Giving", "Receiving"],
+      reversed: ["Strings attached", "Power imbalance", "Self-interest"]
+    },
+    description: "The Six of Pentacles represents generosity, sharing wealth, and the balance of giving and receiving. It suggests material support flowing where it is needed.",
+    element: "Earth"
   }
 ];
 

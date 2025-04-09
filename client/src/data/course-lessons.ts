@@ -5472,6 +5472,470 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-21",
+    title: "The Six of Wands: Victory and Recognition",
+    description: "Explore the triumphant energy of achievement, success, and public recognition in the Six of Wands.",
+    cardId: "w6",
+    sections: [
+      {
+        title: "The Six of Wands: Overview",
+        content: `
+          <p>After the competitive clashes of the Five of Wands, the Six of Wands represents a moment of triumph, recognition, and the successful culmination of your efforts. It's a card of victory and public acknowledgment.</p>
+          
+          <p>This card often depicts a figure riding a horse in a victory parade, often holding a wand or staff adorned with a laurel wreath, while others around them celebrate their achievement, symbolizing not just personal success but also public recognition of your accomplishments.</p>
+          
+          <p>The Six of Wands asks us to consider:</p>
+          <ul>
+            <li>What achievements in my life deserve recognition?</li>
+            <li>How do I respond to praise and public attention?</li>
+            <li>What success am I currently working toward?</li>
+            <li>When have I felt truly victorious, and what can I learn from that experience?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Six of Wands contains triumphant symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Rider on horseback</strong> - Represents elevation, success, and being "lifted up" above previous challenges</li>
+            <li><strong>Laurel wreath</strong> - Symbolizes victory, achievement, and honor dating back to ancient traditions</li>
+            <li><strong>Adoring crowd</strong> - Suggests public recognition, applause, and the social acknowledgment of success</li>
+            <li><strong>Upright staff/wand</strong> - Indicates the clear direction and purpose that comes with achievement</li>
+          </ul>
+          
+          <p>In readings, the Six of Wands suggests:</p>
+          <ul>
+            <li>Victory and success after effort</li>
+            <li>Public recognition or acclaim</li>
+            <li>Confidence and pride in achievements</li>
+            <li>Rewards for hard work and talent</li>
+            <li>Leadership and being looked up to by others</li>
+            <li>The boost that comes from having your efforts validated</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Six of Wands",
+        content: `
+          <p>When the Six of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What recent victory or achievement might I be overlooking or undervaluing?</li>
+            <li>How comfortable am I with receiving recognition and praise?</li>
+            <li>What would true success look like for my current endeavors?</li>
+            <li>How can I celebrate my victories while remaining grounded?</li>
+            <li>Where might I offer recognition to others who deserve it?</li>
+          </ul>
+          
+          <p>Actions to take when working with Six of Wands energy:</p>
+          <ul>
+            <li>Acknowledge and celebrate your achievements, even small ones</li>
+            <li>Accept compliments and recognition graciously</li>
+            <li>Document your successes for times when you need encouragement</li>
+            <li>Offer sincere recognition to others whose efforts you admire</li>
+            <li>Use the confidence from one success to fuel your next endeavor</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary energy of the Six of Wands?",
+        options: [
+          "Struggle and competition",
+          "Victory and public recognition",
+          "Hard work and effort",
+          "Strategic planning"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary energy of the Six of Wands is victory and public recognition - it represents the moment of triumph, achievement, and the acknowledgment of your success by others."
+      },
+      {
+        question: "What balanced approach does the Six of Wands encourage?",
+        options: [
+          "Working harder and never resting on your laurels",
+          "Avoiding recognition to remain humble",
+          "Celebrating achievements while maintaining perspective",
+          "Focusing solely on competition and winning"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Wands encourages celebrating achievements while maintaining perspective - enjoying the moment of victory and recognition while understanding that both success and challenge are part of life's journey."
+      },
+      {
+        question: "What can the Six of Wands teach us about leadership?",
+        options: [
+          "True leaders never need recognition",
+          "Leadership comes from dominating others",
+          "Effective leadership involves recognizing others' contributions",
+          "Leadership is always a solitary journey"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Wands teaches that effective leadership involves recognizing others' contributions - just as the figure receives acclaim, good leaders understand the importance of acknowledging the efforts of those who helped make success possible."
+      }
+    ],
+    summary: "The Six of Wands represents a moment of triumph, public recognition, and well-deserved success after the conflicts and competitions of the Five. It reminds us of the importance of acknowledging achievements, accepting praise graciously, and recognizing how our victories can inspire others. This card encourages us to celebrate our wins while maintaining perspective, understanding that success often comes after challenges and that recognition can fuel our confidence for future endeavors.",
+    additionalResources: [
+      {
+        title: "The Psychology of Achievement",
+        description: "How success and recognition affect motivation, confidence, and future performance."
+      },
+      {
+        title: "Celebrating Success",
+        description: "Healthy ways to acknowledge achievements without developing an ego attachment to outcomes."
+      }
+    ]
+  },
+  {
+    id: "minor-22",
+    title: "The Six of Cups: Nostalgia and Innocence",
+    description: "Explore the heartwarming energy of nostalgia, childhood innocence, and joyful memories in the Six of Cups.",
+    cardId: "c6",
+    sections: [
+      {
+        title: "The Six of Cups: Overview",
+        content: `
+          <p>After the emotional loss and grief of the Five of Cups, the Six of Cups brings a refreshing energy of nostalgia, innocence, and the sweet remembrance of joyful times. It invites us to reconnect with simple pleasures and the uncomplicated happiness of our past.</p>
+          
+          <p>This card often depicts children in a garden, one giving cups filled with flowers to the other, symbolizing the pure exchange of affection, generosity without expectation, and the simple joys that we sometimes forget as adults.</p>
+          
+          <p>The Six of Cups asks us to consider:</p>
+          <ul>
+            <li>What positive memories bring me comfort and joy?</li>
+            <li>How can I reconnect with my more innocent, playful self?</li>
+            <li>What simple pleasures might I be overlooking in my current life?</li>
+            <li>How can nostalgia serve as a healing force without becoming an escape?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Six of Cups contains heartwarming symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Children</strong> - Represent innocence, purity of intention, and uncomplicated joy</li>
+            <li><strong>Flowers in cups</strong> - Symbolize beauty growing from emotional vessels, gifts from the heart</li>
+            <li><strong>The garden setting</strong> - Suggests a protected, nurturing space where innocence can flourish</li>
+            <li><strong>The act of giving</strong> - Indicates generosity, kindness, and relationships based on simple affection</li>
+          </ul>
+          
+          <p>In readings, the Six of Cups suggests:</p>
+          <ul>
+            <li>Nostalgia and fond memories</li>
+            <li>Innocence and childlike joy</li>
+            <li>Reunions with people from your past</li>
+            <li>Simple pleasures and uncomplicated happiness</li>
+            <li>Gifts given without expectation</li>
+            <li>Healing through reconnecting with positive aspects of your past</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Six of Cups",
+        content: `
+          <p>When the Six of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What positive memories could I revisit to bring comfort or inspiration?</li>
+            <li>How might I bring more simple joys and playfulness into my current life?</li>
+            <li>Are there relationships from my past that could benefit from reconnection?</li>
+            <li>What childhood passions or interests might I want to explore again?</li>
+            <li>How can I balance nostalgia with present awareness?</li>
+          </ul>
+          
+          <p>Actions to take when working with Six of Cups energy:</p>
+          <ul>
+            <li>Create a memory box or journal of positive experiences</li>
+            <li>Reconnect with old friends or places that brought you joy</li>
+            <li>Engage in activities that evoke childlike wonder and playfulness</li>
+            <li>Practice giving gifts or acts of kindness without expectation</li>
+            <li>Identify values from your past that you want to carry forward</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What lesson about joy does the Six of Cups offer?",
+        options: [
+          "Joy comes primarily from material possessions",
+          "Joy must be earned through struggle and hardship",
+          "Simple pleasures often provide the most genuine happiness",
+          "Joy is rare and should be viewed with suspicion"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Cups offers the lesson that simple pleasures often provide the most genuine happiness - reminding us that uncomplicated joys, childlike wonder, and heartfelt connections frequently bring more fulfillment than complex or costly pursuits."
+      },
+      {
+        question: "What balanced relationship with the past does the Six of Cups suggest?",
+        options: [
+          "Completely letting go of the past to focus on the future",
+          "Living primarily in past memories to avoid present difficulties",
+          "Drawing comfort and wisdom from positive memories while living in the present",
+          "Focusing only on childhood experiences"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Cups suggests drawing comfort and wisdom from positive memories while living in the present - finding the balance between honoring the past as a source of joy and insight without becoming stuck there."
+      },
+      {
+        question: "What aspect of giving does the Six of Cups emphasize?",
+        options: [
+          "Giving only to those who can repay you",
+          "Giving from a place of obligation or duty",
+          "Giving with pure intentions and without expectation of return",
+          "Giving only to family members"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Cups emphasizes giving with pure intentions and without expectation of return - the simple, heartfelt generosity that comes from genuine care rather than calculation or obligation."
+      }
+    ],
+    summary: "The Six of Cups represents nostalgia, innocence, and the sweet remembrance of joyful times. It invites us to reconnect with simple pleasures, childlike wonder, and the uncomplicated happiness that we sometimes forget in the complexity of adult life. This card reminds us that revisiting positive memories can be healing, that reunions with people or activities from our past can bring special joy, and that there is profound value in approaching relationships with the openheartedness and generosity of a child.",
+    additionalResources: [
+      {
+        title: "The Healing Power of Nostalgia",
+        description: "Research on how positive reminiscence can contribute to emotional wellbeing and identity."
+      },
+      {
+        title: "Reclaiming Play and Wonder",
+        description: "How incorporating childlike qualities like curiosity and playfulness can enrich adult life."
+      }
+    ]
+  },
+  {
+    id: "minor-23",
+    title: "The Six of Swords: Transition and Healing",
+    description: "Explore the transitional journey from troubled waters to calmer shores in the Six of Swords.",
+    cardId: "s6",
+    sections: [
+      {
+        title: "The Six of Swords: Overview",
+        content: `
+          <p>After the conflicts and divided perspectives of the Five of Swords, the Six of Swords represents a necessary transition away from trouble toward calmer circumstances. It suggests movement from difficulty toward recovery and the journey of healing.</p>
+          
+          <p>This card often depicts a figure guiding a boat carrying passengers away from turbulent waters toward a calmer shore, with six swords standing upright in the boat, symbolizing the mental clarity that comes with moving beyond conflict and difficulty.</p>
+          
+          <p>The Six of Swords asks us to consider:</p>
+          <ul>
+            <li>What situations or mental states am I ready to move away from?</li>
+            <li>What would help me transition to calmer circumstances?</li>
+            <li>Who might help guide me through current difficulties?</li>
+            <li>What insights from past challenges can I carry forward?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Six of Swords contains powerful transitional symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Boat journey</strong> - Represents transition, moving from one state or place to another</li>
+            <li><strong>Turbulent to calm waters</strong> - Symbolizes leaving behind difficulties for more peaceful circumstances</li>
+            <li><strong>Ferryman/guide</strong> - Indicates the help or support that assists during transitions</li>
+            <li><strong>Swords in boat</strong> - Suggest carrying forward the mental lessons and insights gained from challenges</li>
+          </ul>
+          
+          <p>In readings, the Six of Swords suggests:</p>
+          <ul>
+            <li>Transition and necessary movement</li>
+            <li>Gradual recovery from difficulties</li>
+            <li>Mental healing and increasing clarity</li>
+            <li>Support during challenging times</li>
+            <li>Leaving behind turbulent situations</li>
+            <li>The journey between trouble and peace</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Six of Swords",
+        content: `
+          <p>When the Six of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What difficult situations might I need to move away from?</li>
+            <li>What support systems could help me navigate current transitions?</li>
+            <li>What mental burdens am I ready to set down?</li>
+            <li>How have past transitions eventually led to calmer waters?</li>
+            <li>What lessons from challenges do I want to carry forward?</li>
+          </ul>
+          
+          <p>Actions to take when working with Six of Swords energy:</p>
+          <ul>
+            <li>Create a transition plan for moving away from difficult circumstances</li>
+            <li>Seek support from those who can help guide you to calmer shores</li>
+            <li>Journal about insights gained from challenges</li>
+            <li>Practice patience with the gradual nature of healing and recovery</li>
+            <li>Honor the courage it takes to leave troubled situations behind</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of journey does the Six of Swords primarily represent?",
+        options: [
+          "A physical journey to distant lands",
+          "A spiritual journey of enlightenment",
+          "A mental and emotional transition from difficulty toward healing",
+          "A journey back to the past"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Swords primarily represents a mental and emotional transition from difficulty toward healing - the necessary movement away from troubled waters toward calmer shores and greater peace of mind."
+      },
+      {
+        question: "What insight about healing does the Six of Swords offer?",
+        options: [
+          "Healing happens instantly if you want it badly enough",
+          "Recovery is often a gradual process that requires movement and transition",
+          "Healing only comes through remaining in difficult situations",
+          "Recovery is impossible after serious mental challenges"
+        ],
+        correctAnswer: 1,
+        explanation: "The Six of Swords offers the insight that recovery is often a gradual process that requires movement and transition - healing isn't usually instantaneous but comes through the journey away from difficulties toward calmer circumstances."
+      },
+      {
+        question: "What does the ferryman or boat guide in the Six of Swords symbolize?",
+        options: [
+          "The need to escape problems alone",
+          "Support and assistance during difficult transitions",
+          "Authority figures who control our fate",
+          "The unconscious mind"
+        ],
+        correctAnswer: 1,
+        explanation: "The ferryman or boat guide symbolizes support and assistance during difficult transitions - representing the help we often need from others to navigate away from troubled waters toward recovery and peace."
+      }
+    ],
+    summary: "The Six of Swords represents the necessary journey from troubled to calmer waters, the transition away from difficulty, and the process of mental healing and recovery. It reminds us that moving forward sometimes requires leaving certain situations behind, that support during transitions is valuable, and that healing often happens gradually rather than instantly. This card offers hope that while the journey may be solemn or challenging, it leads toward greater peace and mental clarity.",
+    additionalResources: [
+      {
+        title: "Navigating Life Transitions",
+        description: "Strategies for moving through significant changes with resilience and clarity."
+      },
+      {
+        title: "The Stages of Healing",
+        description: "Understanding the process of recovery from mental and emotional difficulties."
+      }
+    ]
+  },
+  {
+    id: "minor-24",
+    title: "The Six of Pentacles: Generosity and Exchange",
+    description: "Explore the balanced flow of giving and receiving, generosity, and material support in the Six of Pentacles.",
+    cardId: "p6",
+    sections: [
+      {
+        title: "The Six of Pentacles: Overview",
+        content: `
+          <p>After the material hardship of the Five of Pentacles, the Six of Pentacles represents a restoration of balance through generosity, charity, and the healthy flow of resources. It shows how abundance can be shared to benefit both giver and receiver.</p>
+          
+          <p>This card often depicts a wealthy figure giving coins to those in need, while holding scales that symbolize balance and fairness in the distribution of resources and the interconnected nature of giving and receiving.</p>
+          
+          <p>The Six of Pentacles asks us to consider:</p>
+          <ul>
+            <li>Where am I positioned in the cycle of giving and receiving?</li>
+            <li>How do I share my resources, whether material, emotional, or spiritual?</li>
+            <li>What does generosity without strings attached look like?</li>
+            <li>How can I receive help graciously when needed?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Six of Pentacles contains meaningful symbolism that helps us understand its balanced meaning:</p>
+          
+          <ul>
+            <li><strong>The scales</strong> - Represent fairness, justice, and balanced exchange in material matters</li>
+            <li><strong>The act of giving</strong> - Symbolizes generosity, charity, and the sharing of resources</li>
+            <li><strong>The recipients</strong> - Indicate the humility of receiving and the cycle of need and support</li>
+            <li><strong>Coins/pentacles</strong> - Suggest tangible resources, practical help, and material abundance</li>
+          </ul>
+          
+          <p>In readings, the Six of Pentacles suggests:</p>
+          <ul>
+            <li>Generosity and charity</li>
+            <li>Giving and receiving support</li>
+            <li>Fair exchange of resources</li>
+            <li>Financial or material assistance</li>
+            <li>The balance of power in resource-based relationships</li>
+            <li>Both sides of the abundance equation</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Six of Pentacles",
+        content: `
+          <p>When the Six of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>In what areas of life am I primarily a giver, and where am I a receiver?</li>
+            <li>How comfortable am I with both giving and receiving?</li>
+            <li>What resources (material, emotional, time, skills) do I have that could benefit others?</li>
+            <li>Where might I need to accept help rather than struggling alone?</li>
+            <li>How can I ensure my giving comes without unhealthy strings attached?</li>
+          </ul>
+          
+          <p>Actions to take when working with Six of Pentacles energy:</p>
+          <ul>
+            <li>Practice generosity in ways that truly serve others' needs</li>
+            <li>Accept help graciously when it's offered and needed</li>
+            <li>Consider volunteering or donating to causes you believe in</li>
+            <li>Check for balance in your giving relationships</li>
+            <li>Express gratitude both when giving and receiving</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the scales in the Six of Pentacles symbolize?",
+        options: [
+          "Judgment of who deserves help",
+          "Legal requirements for charity",
+          "Fairness and balance in giving and receiving",
+          "The weight of obligations when accepting help"
+        ],
+        correctAnswer: 2,
+        explanation: "The scales in the Six of Pentacles symbolize fairness and balance in giving and receiving - representing the importance of equitable exchange and the understanding that resources should flow where they're needed with proper discernment."
+      },
+      {
+        question: "What aspect of receiving does the Six of Pentacles highlight?",
+        options: [
+          "Receiving should be avoided to maintain independence",
+          "Receiving creates debts that must be repaid exactly",
+          "Receiving with grace is part of the natural flow of resources",
+          "Receiving is always a sign of personal failure"
+        ],
+        correctAnswer: 2,
+        explanation: "The Six of Pentacles highlights that receiving with grace is part of the natural flow of resources - teaching that accepting help when needed is not shameful but part of the balanced cycle of giving and receiving that connects us all."
+      },
+      {
+        question: "What insight about generosity does the Six of Pentacles offer?",
+        options: [
+          "True generosity expects nothing in return",
+          "Generosity should only be practiced when you have excess",
+          "Generosity is only needed in extreme circumstances",
+          "Generosity should focus only on material gifts"
+        ],
+        correctAnswer: 0,
+        explanation: "The Six of Pentacles offers the insight that true generosity expects nothing in return - giving from a place of abundance and compassion rather than with an expectation of repayment or control."
+      }
+    ],
+    summary: "The Six of Pentacles represents the balanced flow of giving and receiving, the restoration of material equilibrium through generosity, and the understanding that we all play different roles in the cycle of abundance. It reminds us of the importance of both sharing our resources with others and accepting help when needed. This card teaches that true generosity comes without unhealthy attachments or power dynamics, and that both giving and receiving can be practiced with grace and dignity.",
+    additionalResources: [
+      {
+        title: "The Psychology of Generosity",
+        description: "Research on how giving benefits both the recipient and the giver."
+      },
+      {
+        title: "Graceful Receiving",
+        description: "The art of accepting help and gifts with dignity and appreciation."
+      }
+    ]
+  },
+  {
     id: "minor-19",
     title: "The Five of Swords: Conflict and Perspective",
     description: "Examine the complex dynamics of conflict, victory at a cost, and differing perspectives in the Five of Swords.",
