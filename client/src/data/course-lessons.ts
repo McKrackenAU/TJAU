@@ -7104,7 +7104,488 @@ export const minorArcanaLessons: LessonContent[] = [
         description: "Approaches for cultivating attention to detail and quality-oriented thinking in any field."
       }
     ]
-  }
+  },
+
+  // NINE OF WANDS
+  {
+    id: "minor-33",
+    title: "The Nine of Wands: Resilience and Perseverance",
+    description: "Explore the qualities of persistence, resilience, and defensive strength in the Nine of Wands.",
+    cardId: "w9",
+    sections: [
+      {
+        title: "The Nine of Wands: Overview",
+        content: `
+          <p>After the swift movement and alignment of the Eight of Wands, the Nine of Wands reveals the resilience and determination needed to protect what you've built and complete your journey despite challenges, fatigue, and resistance.</p>
+          
+          <p>This card typically depicts a figure standing guard with eight wands planted behind them like a fence, while holding a ninth wand like a staff. The figure often appears bandaged or wounded, suggesting they've been through battles but remain vigilant and determined.</p>
+          
+          <p>The Nine of Wands asks us to consider:</p>
+          <ul>
+            <li>Where in my life am I being called to persevere despite difficulty?</li>
+            <li>What hard-won wisdom have I gained from past challenges?</li>
+            <li>How can I maintain boundaries while remaining open to support?</li>
+            <li>Where might I need to conserve energy for the final push?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Nine of Wands contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The wounded figure</strong> - Represents resilience despite injury or setback</li>
+            <li><strong>Eight wands as a barrier</strong> - Symbolizes boundaries and defenses built from experience</li>
+            <li><strong>The ninth wand held as a staff</strong> - Indicates readiness and vigilance</li>
+            <li><strong>Bandages or signs of battle</strong> - Show the wisdom gained through difficult experiences</li>
+            <li><strong>Wary but determined expression</strong> - Suggests cautious optimism and preparedness</li>
+          </ul>
+          
+          <p>In readings, the Nine of Wands suggests:</p>
+          <ul>
+            <li>Perseverance through difficulty and near the finish line</li>
+            <li>Defensive posture based on past experiences</li>
+            <li>Resilience and inner strength despite fatigue</li>
+            <li>The importance of maintaining healthy boundaries</li>
+            <li>Last tests of determination before completion</li>
+            <li>Applying lessons from past challenges</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Nine of Wands",
+        content: `
+          <p>When the Nine of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What battle scars or experiences have made me stronger and wiser?</li>
+            <li>Where might I be maintaining defenses that are no longer serving me?</li>
+            <li>How can I gather my remaining strength for a final push toward completion?</li>
+            <li>What support systems can I draw on when my own resources feel depleted?</li>
+            <li>What wisdom from past challenges can help me navigate current situations?</li>
+          </ul>
+          
+          <p>Actions to take when working with Nine of Wands energy:</p>
+          <ul>
+            <li>Review what you've accomplished so far and acknowledge your resilience</li>
+            <li>Establish clear boundaries to protect your energy</li>
+            <li>Identify allies who can support you through the final push</li>
+            <li>Practice techniques for rejuvenation when fatigued</li>
+            <li>Draw on past experiences to navigate current challenges</li>
+            <li>Consider where defensive postures may be unnecessary</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary quality embodied by the Nine of Wands?",
+        options: [
+          "Aggressive action and initiative",
+          "Creative collaboration and teamwork",
+          "Resilience and perseverance despite fatigue",
+          "Abandoning difficult projects to preserve energy"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary quality embodied by the Nine of Wands is resilience and perseverance despite fatigue or challenges. The card represents the strength to continue and protect what you've built even when you're tired or have faced setbacks."
+      },
+      {
+        question: "What does the bandaged or wounded appearance of the figure in the Nine of Wands suggest?",
+        options: [
+          "Defeat and the need to surrender",
+          "Weakness that needs to be overcome",
+          "Experience and hard-won wisdom from past challenges",
+          "The danger of taking any action"
+        ],
+        correctAnswer: 2,
+        explanation: "The bandaged or wounded appearance of the figure suggests experience and hard-won wisdom from past challenges. These 'battle scars' represent valuable lessons learned that provide strength and insight for current situations."
+      },
+      {
+        question: "What lesson about boundaries does the Nine of Wands teach?",
+        options: [
+          "Boundaries should always be rigid and impenetrable",
+          "Healthy boundaries protect your energy while allowing appropriate support",
+          "All boundaries are limiting and should be eliminated",
+          "Boundaries only matter in professional settings"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Wands teaches that healthy boundaries protect your energy while allowing appropriate support. The card shows the balance between maintaining necessary defenses based on experience while remaining open enough to receive help when needed."
+      }
+    ],
+    summary: "The Nine of Wands represents resilience, perseverance, and defensive strength when nearing the completion of a challenging journey. It embodies the energy of standing firm despite fatigue, drawing on past experiences to navigate current challenges, and maintaining boundaries that protect without isolating. This card teaches us about the courage to continue when we feel we have little left to give, the wisdom gained through difficult experiences, and the importance of recognizing when defenses are necessary versus when they might be limiting. The Nine of Wands encourages us to gather our strength for the final push while acknowledging both our vulnerability and our tremendous inner resources.",
+    additionalResources: [
+      {
+        title: "Resilience Practices for Challenging Times",
+        description: "Techniques for maintaining determination and strength during periods of difficulty."
+      },
+      {
+        title: "Healthy Boundary Setting",
+        description: "Approaches for creating boundaries that protect your energy while allowing connection."
+      }
+    ]
+  },
+
+  // NINE OF CUPS
+  {
+    id: "minor-34",
+    title: "The Nine of Cups: Emotional Fulfillment and Wish Fulfillment",
+    description: "Explore the energy of emotional satisfaction, wish fulfillment, and contentment in the Nine of Cups.",
+    cardId: "c9",
+    sections: [
+      {
+        title: "The Nine of Cups: Overview",
+        content: `
+          <p>After seeking deeper emotional truth in the Eight of Cups, the Nine of Cups represents a moment of emotional abundance, satisfaction, and the manifestation of wishes. It's often called the "wish card" of the tarot, suggesting a time when emotional fulfillment is within reach.</p>
+          
+          <p>This card typically depicts a figure seated in front of a curved table or display of nine cups, often with a satisfied expression and posture suggesting contentment and pride in what they've manifested. The arrangement suggests both abundance and the culmination of emotional efforts.</p>
+          
+          <p>The Nine of Cups asks us to consider:</p>
+          <ul>
+            <li>What brings me genuine emotional satisfaction and contentment?</li>
+            <li>What wishes have manifested in my life that I can celebrate?</li>
+            <li>How might I share my emotional abundance with others?</li>
+            <li>What is the difference between temporary pleasure and lasting fulfillment?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Nine of Cups contains meaningful symbols that help us understand its essence:</p>
+          
+          <ul>
+            <li><strong>The curved arrangement of cups</strong> - Represents emotional abundance and the arc of wish fulfillment</li>
+            <li><strong>The seated figure</strong> - Symbolizes satisfaction, contentment, and taking a moment to appreciate achievements</li>
+            <li><strong>The fine clothes often worn by the figure</strong> - Indicate prosperity and success</li>
+            <li><strong>The relaxed, sometimes smug expression</strong> - Suggests pride in accomplishments and emotional well-being</li>
+            <li><strong>The table or structure supporting the cups</strong> - Shows how emotional fulfillment is built on solid foundations</li>
+          </ul>
+          
+          <p>In readings, the Nine of Cups suggests:</p>
+          <ul>
+            <li>Emotional satisfaction and contentment</li>
+            <li>Wishes coming true or manifesting</li>
+            <li>Sensory pleasure and enjoyment</li>
+            <li>Feeling blessed or fortunate</li>
+            <li>Abundance mindset and gratitude</li>
+            <li>The importance of celebrating achievements</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Nine of Cups",
+        content: `
+          <p>When the Nine of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What wishes have manifested in my life that I haven't fully acknowledged or celebrated?</li>
+            <li>Where am I experiencing emotional contentment, and how can I deepen this?</li>
+            <li>How might I share my good fortune or emotional abundance with others?</li>
+            <li>What's the difference between temporary pleasure and lasting fulfillment in my life?</li>
+            <li>What new wishes are forming in my heart now that previous ones have manifested?</li>
+          </ul>
+          
+          <p>Actions to take when working with Nine of Cups energy:</p>
+          <ul>
+            <li>Create rituals to celebrate and acknowledge achievements and blessings</li>
+            <li>Express gratitude for emotional abundance in your life</li>
+            <li>Share your good fortune with others through generosity</li>
+            <li>Allow yourself to fully enjoy sensory pleasures without guilt</li>
+            <li>Consciously formulate new wishes with clear intention</li>
+            <li>Take time to experience contentment before rushing to the next goal</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the Nine of Cups often called in tarot?",
+        options: [
+          "The Hermit's Card",
+          "The Wish Card",
+          "The Abundance Card",
+          "The Gratitude Card"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Cups is often called 'The Wish Card' because it represents wish fulfillment, manifested desires, and the emotional satisfaction that comes when our hopes become reality."
+      },
+      {
+        question: "What important balance does the Nine of Cups suggest we find?",
+        options: [
+          "Balance between material and spiritual rewards",
+          "Balance between self-satisfaction and sharing abundance with others",
+          "Balance between past achievements and future goals",
+          "Balance between emotional and intellectual fulfillment"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Cups suggests finding balance between self-satisfaction and sharing abundance with others. While it's important to celebrate our own achievements and enjoy their rewards, true emotional fulfillment often comes from sharing our good fortune and joy with others."
+      },
+      {
+        question: "What aspect of wishes does the Nine of Cups specifically relate to?",
+        options: [
+          "The initial formation of wishes and desires",
+          "The strategic planning needed to achieve wishes",
+          "The manifestation and fulfillment of wishes",
+          "The disappointment when wishes don't come true"
+        ],
+        correctAnswer: 2,
+        explanation: "The Nine of Cups specifically relates to the manifestation and fulfillment of wishes - the moment when desires become reality and we can enjoy the emotional satisfaction of achievement and manifestation."
+      }
+    ],
+    summary: "The Nine of Cups represents emotional satisfaction, wish fulfillment, and the contentment that comes from manifesting our desires. It embodies the energy of abundance, celebration, and taking time to appreciate what we've created in our lives. This card teaches us about the importance of acknowledging our achievements, sharing our good fortune with others, and finding balance between enjoying the fruits of our efforts and avoiding complacency or excess. The Nine of Cups encourages us to fully experience satisfaction when wishes come true while maintaining gratitude and generosity, understanding that true emotional fulfillment often combines personal contentment with connection to others.",
+    additionalResources: [
+      {
+        title: "Gratitude Practices for Deepening Contentment",
+        description: "Techniques for enhancing awareness of abundance and blessings in daily life."
+      },
+      {
+        title: "Wish Manifestation Methods",
+        description: "Approaches for clarifying desires and supporting their manifestation through aligned action."
+      }
+    ]
+  },
+
+  // NINE OF SWORDS
+  {
+    id: "minor-35",
+    title: "The Nine of Swords: Mental Anguish and Perspective",
+    description: "Explore the challenging energies of worry, anxiety, and the path to mental peace in the Nine of Swords.",
+    cardId: "s9",
+    sections: [
+      {
+        title: "The Nine of Swords: Overview",
+        content: `
+          <p>After experiencing the self-imposed limitations of the Eight of Swords, the Nine of Swords reveals the deep mental anguish that can arise when we allow fear, worry, and rumination to dominate our thoughts, while also pointing toward the possibility of relief through perspective and support.</p>
+          
+          <p>This card typically depicts a figure sitting up in bed, face buried in hands in a gesture of despair, with nine swords displayed on the wall behind them. The setting is often dark, suggesting the middle of the night when worries seem most overwhelming.</p>
+          
+          <p>The Nine of Swords asks us to consider:</p>
+          <ul>
+            <li>What thought patterns are causing me unnecessary suffering?</li>
+            <li>How might I be magnifying problems through rumination?</li>
+            <li>Where can I find perspective when my mind spirals into worry?</li>
+            <li>What support might help me through periods of mental distress?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Nine of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The figure sitting up in bed</strong> - Represents insomnia and being kept awake by troubled thoughts</li>
+            <li><strong>Hands covering the face</strong> - Symbolizes shame, despair, and being overwhelmed by mental anguish</li>
+            <li><strong>The nine swords on the wall</strong> - Indicate accumulated worries, fears, and mental conflicts</li>
+            <li><strong>The dark setting</strong> - Suggests how problems often seem worst during sleepless nights</li>
+            <li><strong>The patterned bedspread (in traditional decks)</strong> - Often shows astrological or rose symbols, hinting that perspective can be found even in dark times</li>
+          </ul>
+          
+          <p>In readings, the Nine of Swords suggests:</p>
+          <ul>
+            <li>Anxiety, worry, and rumination</li>
+            <li>Nightmares or insomnia</li>
+            <li>Mental anguish that may exceed the actual problem</li>
+            <li>The need for perspective and support</li>
+            <li>Confronting fears rather than letting them grow in isolation</li>
+            <li>The opportunity to break cycles of negative thinking</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Nine of Swords",
+        content: `
+          <p>When the Nine of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What specific thoughts or worries are causing me the most distress?</li>
+            <li>How might my perception be magnifying problems beyond their actual severity?</li>
+            <li>What perspective might help me see my situation more clearly?</li>
+            <li>Who can I reach out to for support rather than suffering alone?</li>
+            <li>What practical steps might help me address the root causes of my anxiety?</li>
+          </ul>
+          
+          <p>Actions to take when working with Nine of Swords energy:</p>
+          <ul>
+            <li>Practice mindfulness techniques to create space between yourself and distressing thoughts</li>
+            <li>Share your concerns with a trusted friend, family member, or counselor</li>
+            <li>Write down worries to externalize them and evaluate them more objectively</li>
+            <li>Develop a calming nighttime routine to support restful sleep</li>
+            <li>Distinguish between problems you can act on and those you need to accept</li>
+            <li>Seek professional support if anxiety or depression is persistent</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What aspect of mental suffering does the Nine of Swords particularly highlight?",
+        options: [
+          "External conflicts with others",
+          "Self-created anguish through rumination and worry",
+          "Physical illness causing mental symptoms",
+          "Intellectual confusion and lack of clarity"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Swords particularly highlights self-created anguish through rumination and worry. The card illustrates how our own thoughts and mental patterns can create suffering that may be disproportionate to our actual circumstances."
+      },
+      {
+        question: "What important insight about perspective does the Nine of Swords offer?",
+        options: [
+          "Problems are always worse than they appear",
+          "Nighttime is when spiritual insights are strongest",
+          "Difficulties often appear magnified when faced alone in darkness",
+          "Mental suffering is inevitable and cannot be addressed"
+        ],
+        correctAnswer: 2,
+        explanation: "The Nine of Swords offers the insight that difficulties often appear magnified when faced alone in darkness (literal or metaphorical). The card suggests that gaining perspective - through connection with others, bringing worries to light, or seeing situations more objectively - can help reduce mental anguish."
+      },
+      {
+        question: "What constructive approach does the Nine of Swords suggest for dealing with anxiety?",
+        options: [
+          "Completely ignoring all worries and concerns",
+          "Sharing burdens and seeking support rather than suffering alone",
+          "Focusing exclusively on positive thinking",
+          "Accepting that anxiety is permanent and unchangeable"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Swords suggests sharing burdens and seeking support rather than suffering alone as a constructive approach to dealing with anxiety. The card indicates that bringing our fears into the open, whether through conversation with others or through externalization techniques like journaling, can help reduce their power over us."
+      }
+    ],
+    summary: "The Nine of Swords represents mental anguish, anxiety, and the suffering created when we allow worried thoughts to dominate our minds. It embodies the energy of nighttime fears, rumination, and the way problems can seem overwhelming when faced alone in darkness. This card teaches us about recognizing when our perception magnifies difficulties beyond their actual severity, the importance of seeking perspective and support rather than suffering in isolation, and practical approaches for breaking cycles of negative thinking. The Nine of Swords reminds us that while mental suffering is a universal human experience, we have the capacity to find relief through connection, perspective, and developing healthier thought patterns.",
+    additionalResources: [
+      {
+        title: "Mindfulness Techniques for Anxiety Relief",
+        description: "Practices for creating space between yourself and distressing thoughts."
+      },
+      {
+        title: "Cognitive Restructuring Methods",
+        description: "Approaches for identifying and challenging unhelpful thought patterns."
+      }
+    ]
+  },
+
+  // NINE OF PENTACLES
+  {
+    id: "minor-36",
+    title: "The Nine of Pentacles: Self-Sufficiency and Cultivated Abundance",
+    description: "Explore the rewards of discipline, self-reliance, and cultivated prosperity in the Nine of Pentacles.",
+    cardId: "p9",
+    sections: [
+      {
+        title: "The Nine of Pentacles: Overview",
+        content: `
+          <p>After the dedicated craftsmanship of the Eight of Pentacles, the Nine of Pentacles reveals the refined abundance, self-sufficiency, and well-earned rewards that come through discipline, patience, and cultivating your resources over time.</p>
+          
+          <p>This card typically depicts a well-dressed figure (often a woman) standing in a lush garden or vineyard with nine pentacles displayed throughout the scene. A hooded falcon or bird is frequently shown on the figure's hand, symbolizing the disciplined mind and refined instincts that have contributed to this prosperity.</p>
+          
+          <p>The Nine of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What material and personal achievements have I cultivated that allow for greater independence?</li>
+            <li>How might I enjoy the fruits of my labor while continuing to nurture growth?</li>
+            <li>What refinements in my approach to resources would enhance my security?</li>
+            <li>How can I balance self-sufficiency with connection to others?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Nine of Pentacles contains rich symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The cultivated garden or vineyard</strong> - Represents refined abundance created through patience and care</li>
+            <li><strong>The elegant attire</strong> - Symbolizes refinement, accomplishment, and enjoying quality</li>
+            <li><strong>The trained falcon or bird</strong> - Indicates disciplined instincts and mastered impulses</li>
+            <li><strong>The solitary figure</strong> - Suggests self-sufficiency and independence</li>
+            <li><strong>The nine pentacles integrated into the landscape</strong> - Show how prosperity has become a natural part of life</li>
+            <li><strong>The garden walls</strong> - Represent boundaries that protect what has been cultivated</li>
+          </ul>
+          
+          <p>In readings, the Nine of Pentacles suggests:</p>
+          <ul>
+            <li>Financial and material independence</li>
+            <li>Enjoying the fruits of disciplined effort</li>
+            <li>Refined tastes and appreciation for quality</li>
+            <li>Self-sufficiency and the ability to care for oneself</li>
+            <li>Success achieved through patience and personal discipline</li>
+            <li>Creating a sanctuary of beauty and abundance in your life</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Nine of Pentacles",
+        content: `
+          <p>When the Nine of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What achievements have created greater independence and self-sufficiency in my life?</li>
+            <li>How can I better enjoy the fruits of my labor without feeling guilty or immediately pushing for more?</li>
+            <li>What areas of my life would benefit from more refined tastes or standards?</li>
+            <li>How might I create more beauty and comfort in my everyday environment?</li>
+            <li>What balance between independence and connection feels right for me at this time?</li>
+          </ul>
+          
+          <p>Actions to take when working with Nine of Pentacles energy:</p>
+          <ul>
+            <li>Create or enhance a personal sanctuary space in your home or garden</li>
+            <li>Allow yourself to enjoy quality experiences that reflect your accomplishments</li>
+            <li>Refine your relationship with material resources through mindful consumption</li>
+            <li>Develop greater self-sufficiency in an area that increases your independence</li>
+            <li>Share your abundance in ways that maintain appropriate boundaries</li>
+            <li>Invest in experiences or items of lasting value rather than temporary pleasures</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of abundance does the Nine of Pentacles primarily represent?",
+        options: [
+          "Sudden windfall or inherited wealth",
+          "Cultivated prosperity through patience and discipline",
+          "Material gain through aggressive competition",
+          "Shared resources within a community"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Pentacles primarily represents cultivated prosperity through patience and discipline. The card shows abundance that has been carefully developed over time through personal effort, refinement, and the ability to delay gratification for greater long-term rewards."
+      },
+      {
+        question: "What does the trained falcon or bird in the Nine of Pentacles symbolize?",
+        options: [
+          "Freedom and wild instincts",
+          "Communication with the spiritual realm",
+          "Disciplined instincts and mastered impulses",
+          "Predatory financial practices"
+        ],
+        correctAnswer: 2,
+        explanation: "The trained falcon or bird in the Nine of Pentacles symbolizes disciplined instincts and mastered impulses. It represents how the figure has refined their natural desires and impulses through discipline, allowing them to achieve greater results than if they had acted on every immediate urge."
+      },
+      {
+        question: "What balance does the Nine of Pentacles invite us to consider?",
+        options: [
+          "Balance between saving and spending",
+          "Balance between self-sufficiency and connection with others",
+          "Balance between work and leisure",
+          "Balance between spiritual and material concerns"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Pentacles invites us to consider the balance between self-sufficiency and connection with others. While the card celebrates independence and personal achievement, it also suggests that true fulfillment comes from finding the right balance between autonomy and meaningful relationships with others."
+      }
+    ],
+    summary: "The Nine of Pentacles represents self-sufficiency, cultivated abundance, and the refined rewards that come through discipline and patience. It embodies the energy of independence, enjoying the fruits of one's labor, and creating a personal sanctuary of beauty and quality. This card teaches us about the value of developing mastery over our impulses, the importance of appreciating what we've cultivated rather than constantly striving for more, and finding the right balance between self-reliance and connection with others. The Nine of Pentacles encourages us to create material security and comfort through disciplined effort while developing the refined tastes and values that allow us to truly appreciate quality over quantity.",
+    additionalResources: [
+      {
+        title: "Financial Independence Strategies",
+        description: "Approaches for developing greater self-sufficiency through mindful resource management."
+      },
+      {
+        title: "Creating Personal Sanctuary Spaces",
+        description: "Techniques for designing environments that support wellbeing and reflect personal achievement."
+      }
+    ]
+  },
 ];
 
 // Map track IDs to their corresponding lesson sets

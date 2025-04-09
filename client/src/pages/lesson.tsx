@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
 import { trackLessonMap } from "@/data/course-lessons";
+import { tarotCards } from "@shared/tarot-data";
 
 // Type assertion to help TypeScript with indexing
 const typedTrackLessonMap: Record<string, LessonContent[]> = trackLessonMap as Record<string, LessonContent[]>;
@@ -16,6 +17,8 @@ export default function LessonPage() {
   const [lesson, setLesson] = useState<LessonContent | null>(null);
   const [nextLesson, setNextLesson] = useState<string | null>(null);
   const [prevLesson, setPrevLesson] = useState<string | null>(null);
+  const [nextCardName, setNextCardName] = useState<string | null>(null);
+  const [prevCardName, setPrevCardName] = useState<string | null>(null);
   
   // Get track details
   const { data: track, isLoading: trackLoading } = useQuery({
@@ -57,15 +60,27 @@ export default function LessonPage() {
     // Find next and previous lessons
     const currentIndex = lessons.findIndex((l: LessonContent) => l.id === lessonId);
     if (currentIndex > 0) {
-      setPrevLesson(lessons[currentIndex - 1].id);
+      const prevLessonData = lessons[currentIndex - 1];
+      setPrevLesson(prevLessonData.id);
+      
+      // Get the name of the previous card
+      const prevCard = tarotCards.find(card => card.id === prevLessonData.cardId);
+      setPrevCardName(prevCard?.name || prevLessonData.title.split(':')[0].trim());
     } else {
       setPrevLesson(null);
+      setPrevCardName(null);
     }
     
     if (currentIndex < lessons.length - 1) {
-      setNextLesson(lessons[currentIndex + 1].id);
+      const nextLessonData = lessons[currentIndex + 1];
+      setNextLesson(nextLessonData.id);
+      
+      // Get the name of the next card
+      const nextCard = tarotCards.find(card => card.id === nextLessonData.cardId);
+      setNextCardName(nextCard?.name || nextLessonData.title.split(':')[0].trim());
     } else {
       setNextLesson(null);
+      setNextCardName(null);
     }
   }, [trackId, lessonId, navigate]);
   
@@ -149,6 +164,8 @@ export default function LessonPage() {
         onBack={handleBack}
         onNext={handleNext}
         isCompleted={isLessonCompleted()}
+        prevCardName={prevCardName}
+        nextCardName={nextCardName}
       />
     </div>
   );

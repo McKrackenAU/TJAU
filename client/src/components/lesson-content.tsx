@@ -46,6 +46,8 @@ interface LessonContentProps {
   onBack?: () => void;
   onNext?: () => void;
   isCompleted: boolean;
+  prevCardName?: string | null;
+  nextCardName?: string | null;
 }
 
 export function LessonContent({
@@ -56,7 +58,9 @@ export function LessonContent({
   onComplete,
   onBack,
   onNext,
-  isCompleted
+  isCompleted,
+  prevCardName,
+  nextCardName
 }: LessonContentProps) {
   const [activeTab, setActiveTab] = useState("content");
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>([]);
@@ -239,12 +243,12 @@ export function LessonContent({
             {onBack && (
               <Button variant="outline" onClick={onBack}>
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Previous Lesson
+                {prevCardName ? `Previous: ${prevCardName}` : `Previous Lesson`}
               </Button>
             )}
             {onNext && (
               <Button onClick={onNext} className="ml-auto">
-                Next Lesson
+                {nextCardName ? `Next: ${nextCardName}` : `Next Lesson`}
                 <ArrowRight className="h-4 w-4 ml-2" />
               </Button>
             )}
@@ -374,7 +378,7 @@ export function LessonContent({
                     </Button>
                     {score >= 0.7 && onNext && (
                       <Button onClick={onNext}>
-                        Next Lesson
+                        {nextCardName ? `Next: ${nextCardName}` : `Next Lesson`}
                         <ArrowRight className="h-4 w-4 ml-2" />
                       </Button>
                     )}
