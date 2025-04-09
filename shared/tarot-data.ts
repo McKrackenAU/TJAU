@@ -493,6 +493,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Nine of Pentacles represents self-sufficiency, cultivated abundance, and the refined rewards that come through discipline and patience. It embodies material independence.",
     element: "Earth"
+  },
+  {
+    id: "w10",
+    name: "Ten of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 10,
+    meanings: {
+      upright: ["Burden", "Responsibility", "Hard work", "Completion"],
+      reversed: ["Inability to delegate", "Overwhelmed", "Collapse"]
+    },
+    description: "The Ten of Wands represents the burdens and responsibilities we carry when we've taken on too much. It shows the final stage of a journey but with the weight of accumulated obligations.",
+    element: "Fire"
+  },
+  {
+    id: "c10",
+    name: "Ten of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 10,
+    meanings: {
+      upright: ["Harmony", "Emotional fulfillment", "Family contentment", "Perfect love"],
+      reversed: ["Broken home", "Dysfunctional family", "Disconnection"]
+    },
+    description: "The Ten of Cups represents emotional fulfillment, particularly in family and community bonds. It embodies the happiness and contentment that come from harmonious relationships and shared values.",
+    element: "Water"
+  },
+  {
+    id: "s10",
+    name: "Ten of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 10,
+    meanings: {
+      upright: ["Painful endings", "Deep wounds", "Betrayal", "Loss", "Crisis"],
+      reversed: ["Recovery", "Regeneration", "Resisting an inevitable end"]
+    },
+    description: "The Ten of Swords represents a painful ending or rock bottom moment. It signifies the completion of a difficult situation, suggesting that while this ending may be painful, it also creates space for renewal.",
+    element: "Air"
+  },
+  {
+    id: "p10",
+    name: "Ten of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 10,
+    meanings: {
+      upright: ["Wealth", "Family", "Establishment", "Inheritance", "Long-term success"],
+      reversed: ["Financial failure", "Family problems", "Loss of legacy"]
+    },
+    description: "The Ten of Pentacles represents long-term wealth, family legacy, and the establishment of permanent foundations. It embodies the culmination of material efforts into lasting prosperity across generations.",
+    element: "Earth"
   }
 ];
 

@@ -7586,6 +7586,465 @@ export const minorArcanaLessons: LessonContent[] = [
       }
     ]
   },
+  {
+    id: "minor-37",
+    title: "The Ten of Wands: Burden and Completion",
+    description: "Explore the challenges of carrying too many responsibilities and the completion of a cycle in the Ten of Wands.",
+    cardId: "w10",
+    sections: [
+      {
+        title: "The Ten of Wands: Overview",
+        content: `
+          <p>After the resilience and defensive posture of the Nine of Wands, the Ten of Wands represents the final stage of the Wands journey—where success has brought burdens, responsibilities, and the weight of commitments that may feel overwhelming but mark the completion of a cycle.</p>
+          
+          <p>This card typically depicts a figure struggling to carry ten heavy wands, often bent over from their weight and unable to see the path ahead clearly. The destination may be in sight, but the burden of accumulated responsibilities makes the final stretch challenging.</p>
+          
+          <p>The Ten of Wands asks us to consider:</p>
+          <ul>
+            <li>What responsibilities have I taken on that may no longer serve me?</li>
+            <li>Where might I need to delegate or release some burdens?</li>
+            <li>How has success created unexpected obligations in my life?</li>
+            <li>What cycle is completing, and what lessons have I learned from it?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Ten of Wands contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The burdened figure</strong> - Represents the weight of accumulated responsibilities</li>
+            <li><strong>The ten wands</strong> - Symbolizes the maximum capacity and completion of a cycle</li>
+            <li><strong>The obscured view</strong> - Indicates how excessive burdens can prevent clear vision</li>
+            <li><strong>The destination in sight</strong> - Shows that despite difficulties, completion is near</li>
+          </ul>
+          
+          <p>In readings, the Ten of Wands suggests:</p>
+          <ul>
+            <li>Feeling overburdened by responsibilities and commitments</li>
+            <li>The challenges that come from taking on too much</li>
+            <li>The need to delegate or release non-essential tasks</li>
+            <li>The completion of a project or cycle, albeit with strain</li>
+            <li>The final push needed before a new beginning</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Ten of Wands",
+        content: `
+          <p>When the Ten of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Which of my current responsibilities are truly mine to carry?</li>
+            <li>What would happen if I delegated or released some of my burdens?</li>
+            <li>How might I create systems that distribute weight more effectively?</li>
+            <li>What completion or achievement awaits me after this final stretch?</li>
+          </ul>
+          
+          <p>Actions to take when working with Ten of Wands energy:</p>
+          <ul>
+            <li>Assess your commitments and identify those that no longer serve you</li>
+            <li>Practice the art of delegation and asking for help</li>
+            <li>Develop systems that distribute responsibilities more effectively</li>
+            <li>Celebrate the completion of cycles, even when they end with struggle</li>
+            <li>Prepare for the new beginning that awaits after this cycle ends</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary challenge represented by the Ten of Wands?",
+        options: [
+          "Fear of beginning a new project",
+          "Lack of creative inspiration",
+          "The burden of excessive responsibilities",
+          "Conflict with colleagues or team members"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary challenge represented by the Ten of Wands is the burden of excessive responsibilities. The card depicts a figure struggling under the weight of too many wands, symbolizing how success can sometimes lead to taking on more obligations than one can comfortably carry."
+      },
+      {
+        question: "What is one positive aspect of the Ten of Wands?",
+        options: [
+          "It represents a time of easy progress",
+          "It signals the near completion of a cycle or project",
+          "It indicates freedom from all responsibilities",
+          "It shows the elimination of obstacles"
+        ],
+        correctAnswer: 1,
+        explanation: "One positive aspect of the Ten of Wands is that it signals the near completion of a cycle or project. Though the journey may be difficult at this stage, the destination is in sight, and the completion of this cycle will allow for a new beginning with the Ace of Wands."
+      },
+      {
+        question: "What action is most recommended when the Ten of Wands appears in a reading?",
+        options: [
+          "Taking on additional responsibilities to prove your strength",
+          "Avoiding all forms of work or obligation",
+          "Delegating tasks and releasing non-essential burdens",
+          "Pushing harder without asking for help"
+        ],
+        correctAnswer: 2,
+        explanation: "When the Ten of Wands appears in a reading, the most recommended action is delegating tasks and releasing non-essential burdens. This card teaches us the importance of discerning which responsibilities are truly ours to carry and finding ways to lighten our load through proper delegation and prioritization."
+      }
+    ],
+    summary: "The Ten of Wands represents the burden of excessive responsibilities and the completion of a cycle. It reminds us that success often brings additional obligations, and that knowing when to delegate, release, or redistribute weight is essential for sustainable progress. This card invites us to examine what we're carrying, determine what's truly ours to bear, and find more balanced ways to approach our commitments as we complete one cycle and prepare for the next.",
+    additionalResources: [
+      {
+        title: "The Art of Delegation",
+        description: "Strategies for effectively sharing responsibilities"
+      },
+      {
+        title: "Sustainable Success",
+        description: "Maintaining achievement without burnout"
+      }
+    ]
+  },
+  {
+    id: "minor-38",
+    title: "The Ten of Cups: Emotional Fulfillment and Harmony",
+    description: "Explore the joy of emotional fulfillment, family bonds, and harmony in the Ten of Cups.",
+    cardId: "c10",
+    sections: [
+      {
+        title: "The Ten of Cups: Overview",
+        content: `
+          <p>After the personal satisfaction and wish fulfillment of the Nine of Cups, the Ten of Cups expands to show the fullness of emotional fulfillment in community, family, and shared values—representing the completion of the emotional journey in its most harmonious form.</p>
+          
+          <p>This card typically depicts a happy family or community under a rainbow of ten cups, often with a peaceful home or landscape in the background. The scene radiates joy, contentment, and the deep satisfaction that comes from meaningful connections with others.</p>
+          
+          <p>The Ten of Cups asks us to consider:</p>
+          <ul>
+            <li>What gives me a sense of belonging and emotional fulfillment?</li>
+            <li>How do shared values create harmony in my relationships?</li>
+            <li>Where do I experience true emotional alignment with others?</li>
+            <li>What does my ideal vision of harmonious community look like?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Ten of Cups contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The rainbow</strong> - Represents promise, hope, and divine blessing</li>
+            <li><strong>The ten cups in an arc</strong> - Symbolizes emotional completion and divine order</li>
+            <li><strong>The family/community</strong> - Indicates the importance of shared bonds</li>
+            <li><strong>The peaceful home</strong> - Represents emotional security and belonging</li>
+            <li><strong>The open arms</strong> - Shows celebration, joy, and openness</li>
+          </ul>
+          
+          <p>In readings, the Ten of Cups suggests:</p>
+          <ul>
+            <li>Harmonious relationships and emotional fulfillment</li>
+            <li>Family happiness and deep bonds with loved ones</li>
+            <li>Alignment of values within a community</li>
+            <li>The joy that comes from meaningful connection</li>
+            <li>A sense of emotional completion and contentment</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Ten of Cups",
+        content: `
+          <p>When the Ten of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What relationships in my life bring the deepest sense of fulfillment?</li>
+            <li>How can I contribute to greater harmony in my family or community?</li>
+            <li>What shared values form the foundation of my most meaningful connections?</li>
+            <li>Where might I open myself to deeper emotional bonds with others?</li>
+          </ul>
+          
+          <p>Actions to take when working with Ten of Cups energy:</p>
+          <ul>
+            <li>Express appreciation to those who contribute to your sense of belonging</li>
+            <li>Create rituals that celebrate and strengthen community bonds</li>
+            <li>Align your actions with the values you share with loved ones</li>
+            <li>Open yourself to deeper levels of emotional intimacy and connection</li>
+            <li>Extend the harmony you experience to wider circles of community</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of the Ten of Cups?",
+        options: [
+          "Material prosperity and wealth",
+          "Emotional fulfillment in community and family",
+          "Intellectual achievement and recognition",
+          "Spiritual enlightenment through solitude"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary theme of the Ten of Cups is emotional fulfillment in community and family. The card represents the joy, harmony, and deep satisfaction that comes from meaningful connections with others, shared values, and a sense of belonging."
+      },
+      {
+        question: "Which symbol in the Ten of Cups represents divine blessing and promise?",
+        options: [
+          "The home",
+          "The family",
+          "The rainbow",
+          "The river"
+        ],
+        correctAnswer: 2,
+        explanation: "In the Ten of Cups, the rainbow represents divine blessing and promise. Traditionally appearing as an arc over the scene with ten cups aligned along it, the rainbow symbolizes the covenant between heaven and earth, divine approval, and the promise of continued harmony."
+      },
+      {
+        question: "How does the Ten of Cups differ from the Nine of Cups?",
+        options: [
+          "The Ten focuses on community fulfillment while the Nine focuses on personal wishes",
+          "The Ten represents disappointment while the Nine represents satisfaction",
+          "The Ten is about material wealth while the Nine is about emotions",
+          "The Ten shows conflict while the Nine shows harmony"
+        ],
+        correctAnswer: 0,
+        explanation: "The Ten of Cups differs from the Nine of Cups in that the Ten focuses on community fulfillment while the Nine focuses on personal wishes. While the Nine of Cups (often called the 'wish card') represents individual satisfaction and personal emotional fulfillment, the Ten expands this to include the joy that comes from shared emotional bonds, family connections, and community harmony."
+      }
+    ],
+    summary: "The Ten of Cups represents emotional fulfillment, harmonious relationships, and the joy that comes from deep connection with others. It shows the completion of the emotional journey in its most ideal form—where personal happiness extends to create bonds of love, shared values, and a sense of belonging. This card invites us to appreciate, cultivate, and extend the harmony we experience in our closest relationships, creating ripples of emotional wellbeing throughout our communities.",
+    additionalResources: [
+      {
+        title: "Building Family Harmony",
+        description: "Practices for creating deeper bonds with loved ones"
+      },
+      {
+        title: "Community Connection",
+        description: "Extending personal fulfillment to wider circles of belonging"
+      }
+    ]
+  },
+  {
+    id: "minor-39",
+    title: "The Ten of Swords: Painful Endings and New Beginnings",
+    description: "Explore the significance of painful endings, rock bottom moments, and the potential for renewal in the Ten of Swords.",
+    cardId: "s10",
+    sections: [
+      {
+        title: "The Ten of Swords: Overview",
+        content: `
+          <p>After the mental anguish and anxiety of the Nine of Swords, the Ten of Swords represents the completion of a difficult cycle—a painful ending or rock bottom moment that, while devastating, creates the necessary space for eventual renewal and transformation.</p>
+          
+          <p>This card typically depicts a figure lying face down with ten swords piercing their back, often against a dark sky that shows the first hints of dawn on the horizon. The imagery is dramatic and often shocking, symbolizing a definitive ending or moment of ultimate surrender.</p>
+          
+          <p>The Ten of Swords asks us to consider:</p>
+          <ul>
+            <li>What situation in my life needs to be completely released?</li>
+            <li>How might this ending, though painful, create space for something new?</li>
+            <li>Where am I holding on when I need to surrender?</li>
+            <li>What dawn is breaking, even in this moment of darkness?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Ten of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The ten swords</strong> - Represents complete and definitive ending</li>
+            <li><strong>The prone figure</strong> - Symbolizes surrender and the inability to fight further</li>
+            <li><strong>The dark sky</strong> - Indicates the depth of the challenge or crisis</li>
+            <li><strong>The dawning horizon</strong> - Shows that even in darkness, new light is emerging</li>
+            <li><strong>The red cloak</strong> - Often interpreted as passion or life force that continues despite the ending</li>
+          </ul>
+          
+          <p>In readings, the Ten of Swords suggests:</p>
+          <ul>
+            <li>A painful but necessary ending</li>
+            <li>Hitting rock bottom or a crisis point</li>
+            <li>The completion of a difficult cycle</li>
+            <li>Surrender after fighting a losing battle</li>
+            <li>The potential for renewal after devastation</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Ten of Swords",
+        content: `
+          <p>When the Ten of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What needs to be completely released so I can move forward?</li>
+            <li>How might I honor this ending while beginning to look toward the horizon?</li>
+            <li>What lessons can I take from this experience?</li>
+            <li>Where can I see the first glimmers of a new dawn in my situation?</li>
+          </ul>
+          
+          <p>Actions to take when working with Ten of Swords energy:</p>
+          <ul>
+            <li>Accept the reality of an ending rather than fighting against it</li>
+            <li>Create rituals to honor and release what has been lost</li>
+            <li>Allow yourself to fully feel grief without becoming trapped in it</li>
+            <li>Look for small signs of renewal and hope on the horizon</li>
+            <li>Begin to imagine possibilities that exist beyond this ending</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the most hopeful symbol in the Ten of Swords?",
+        options: [
+          "The ten swords",
+          "The prone figure",
+          "The dawning horizon",
+          "The blood"
+        ],
+        correctAnswer: 2,
+        explanation: "The most hopeful symbol in the Ten of Swords is the dawning horizon. While the card depicts a painful ending, the dawning light on the horizon symbolizes that this darkness is not permanent—a new day is beginning, suggesting that renewal and new beginnings await after this difficult ending."
+      },
+      {
+        question: "What distinguishes the Ten of Swords from the Nine of Swords?",
+        options: [
+          "The Ten is about physical pain while the Nine is about emotional pain",
+          "The Ten shows a real ending while the Nine shows anticipated suffering",
+          "The Ten is always negative while the Nine can be positive",
+          "The Ten indicates betrayal while the Nine indicates personal failure"
+        ],
+        correctAnswer: 1,
+        explanation: "What distinguishes the Ten of Swords from the Nine of Swords is that the Ten shows a real ending while the Nine shows anticipated suffering. The Nine of Swords depicts anxiety, worry, and mental anguish—often about things that haven't happened yet. The Ten, however, shows an actual ending or rock bottom moment that has already occurred. Paradoxically, this can be easier to deal with than the anticipatory suffering of the Nine."
+      },
+      {
+        question: "What is one constructive approach when the Ten of Swords appears in a reading?",
+        options: [
+          "Fighting harder to prevent the ending",
+          "Blaming others for the situation",
+          "Accepting the ending and looking for signs of renewal",
+          "Ignoring the situation entirely"
+        ],
+        correctAnswer: 2,
+        explanation: "One constructive approach when the Ten of Swords appears in a reading is accepting the ending and looking for signs of renewal. This card teaches that some battles cannot be won, and that there is wisdom in surrender. By accepting what has ended and turning attention to the dawning light on the horizon, we can begin the process of healing and discovering the new possibilities that exist beyond this painful conclusion."
+      }
+    ],
+    summary: "The Ten of Swords represents painful endings, rock bottom moments, and the potential for renewal that exists even in our darkest hours. It marks the completion of a difficult cycle in the most dramatic way, suggesting that some situations must fully end before new beginnings are possible. This card invites us to surrender to what is already over, to honor our grief, and to gradually turn our attention to the dawn that is breaking on the horizon, trusting in the cycle of renewal that follows even the most difficult endings.",
+    additionalResources: [
+      {
+        title: "Sacred Surrender",
+        description: "Finding peace in letting go of lost causes"
+      },
+      {
+        title: "From Endings to Beginnings",
+        description: "Navigating transitions after significant losses"
+      }
+    ]
+  },
+  {
+    id: "minor-40",
+    title: "The Ten of Pentacles: Legacy and Long-term Prosperity",
+    description: "Explore the themes of family legacy, generational wealth, and enduring foundations in the Ten of Pentacles.",
+    cardId: "p10",
+    sections: [
+      {
+        title: "The Ten of Pentacles: Overview",
+        content: `
+          <p>After the personal achievement and refined independence of the Nine of Pentacles, the Ten of Pentacles expands to show the culmination of material efforts—the establishment of lasting wealth, family legacy, and structures that extend beyond individual prosperity to benefit future generations.</p>
+          
+          <p>This card typically depicts a multi-generational family scene, often in a prosperous setting with elders, adults, children, and pets. Ten pentacles are arranged in the tree of life pattern, suggesting divinely-ordered abundance. The scene conveys stability, tradition, and the transmission of resources and wisdom across generations.</p>
+          
+          <p>The Ten of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What lasting structures am I building that will benefit others after me?</li>
+            <li>How can I contribute to the security and prosperity of my family or community?</li>
+            <li>What traditions or wisdom do I want to pass on to future generations?</li>
+            <li>How might I create wealth that has meaning beyond my own lifetime?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Ten of Pentacles contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The multi-generational family</strong> - Represents legacy, continuity, and the passage of time</li>
+            <li><strong>The ancestral home or estate</strong> - Symbolizes established foundations and permanent structures</li>
+            <li><strong>The ten pentacles in the tree of life pattern</strong> - Indicates divinely-ordered material abundance</li>
+            <li><strong>The elder figure</strong> - Represents wisdom, tradition, and the passing down of knowledge</li>
+            <li><strong>The dog</strong> - Often shown to symbolize loyalty and protection of what matters</li>
+          </ul>
+          
+          <p>In readings, the Ten of Pentacles suggests:</p>
+          <ul>
+            <li>Financial security and long-term wealth</li>
+            <li>Family legacy and inheritance</li>
+            <li>Established traditions and structures</li>
+            <li>Belonging to something larger than oneself</li>
+            <li>The fruits of long-term planning and investment</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Ten of Pentacles",
+        content: `
+          <p>When the Ten of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What values, traditions, or resources have I inherited from previous generations?</li>
+            <li>How am I building structures that will benefit future generations?</li>
+            <li>What would constitute true wealth for me in the long-term?</li>
+            <li>How might I contribute to the security and legacy of my family or community?</li>
+          </ul>
+          
+          <p>Actions to take when working with Ten of Pentacles energy:</p>
+          <ul>
+            <li>Consider estate planning or creating a will to manage your legacy</li>
+            <li>Invest in sustainable structures and assets with long-term value</li>
+            <li>Document and share important family stories, recipes, or traditions</li>
+            <li>Connect with elders to learn from their wisdom and experience</li>
+            <li>Consider how your work might benefit future generations</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of the Ten of Pentacles?",
+        options: [
+          "Individual achievement and personal success",
+          "Short-term financial gain and immediate rewards",
+          "Legacy, long-term wealth, and family continuity",
+          "Freedom from material concerns and simplicity"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary theme of the Ten of Pentacles is legacy, long-term wealth, and family continuity. Unlike cards that focus on individual achievement or temporary gains, the Ten of Pentacles represents established prosperity that extends beyond an individual lifetime, creating security and abundance that can be passed down through generations."
+      },
+      {
+        question: "How does the Ten of Pentacles differ from the Nine of Pentacles?",
+        options: [
+          "The Ten focuses on shared or family wealth while the Nine focuses on individual prosperity",
+          "The Ten represents poverty while the Nine represents wealth",
+          "The Ten is about spiritual matters while the Nine is about material concerns",
+          "The Ten shows beginning stages while the Nine shows completion"
+        ],
+        correctAnswer: 0,
+        explanation: "The Ten of Pentacles differs from the Nine of Pentacles in that the Ten focuses on shared or family wealth while the Nine focuses on individual prosperity. While the Nine shows personal achievement, self-sufficiency, and refined independence, the Ten expands this to include wealth that is shared across generations, established structures that benefit many, and the security that comes from belonging to something larger than oneself."
+      },
+      {
+        question: "What does the multi-generational family in the Ten of Pentacles symbolize?",
+        options: [
+          "The burden of family obligations",
+          "Legacy, continuity, and the passage of time",
+          "The need to escape family traditions",
+          "Conflict between different generations"
+        ],
+        correctAnswer: 1,
+        explanation: "The multi-generational family in the Ten of Pentacles symbolizes legacy, continuity, and the passage of time. The presence of elders, adults, children, and often even pets in a single scene represents how wealth, values, and traditions can flow through time, creating a sense of belonging and continuity that extends beyond individual lifespans."
+      }
+    ],
+    summary: "The Ten of Pentacles represents legacy, long-term wealth, and the establishment of enduring foundations. It shows the culmination of material efforts in their most stable and meaningful form—where prosperity extends beyond individual achievement to create security for families, communities, and future generations. This card invites us to think beyond our immediate needs and consider how we might contribute to lasting structures that will continue to provide value long after we're gone.",
+    additionalResources: [
+      {
+        title: "Creating Lasting Value",
+        description: "Principles for building wealth that endures"
+      },
+      {
+        title: "Family Legacy Planning",
+        description: "Approaches to preserving traditions and resources across generations"
+      }
+    ]
+  },
 ];
 
 // Map track IDs to their corresponding lesson sets
