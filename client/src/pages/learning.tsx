@@ -130,7 +130,8 @@ export default function Learning() {
                         const trackId = track.id;
                         const lessonId = progress.currentLesson <= track.requiredCards.length 
                           ? trackId === 1 ? `beginner-${progress.currentLesson}` 
-                            : trackId === 2 ? `intuitive-${progress.currentLesson}`
+                            : trackId === 2 ? `minor-${progress.currentLesson}`
+                            : trackId === 10 ? `intuitive-${progress.currentLesson}`
                             : `advanced-${progress.currentLesson}`
                           : null;
                         
@@ -164,7 +165,8 @@ export default function Learning() {
                         onClick={() => {
                           const trackId = track.id;
                           const lessonId = trackId === 1 ? `beginner-${index + 1}` 
-                            : trackId === 2 ? `intuitive-${index + 1}`
+                            : trackId === 2 ? `minor-${index + 1}`
+                            : trackId === 10 ? `intuitive-${index + 1}`
                             : `advanced-${index + 1}`;
                           setLocation(`/learning/${trackId}/${lessonId}`);
                         }}

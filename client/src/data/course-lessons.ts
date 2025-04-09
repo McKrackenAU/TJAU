@@ -3853,7 +3853,7 @@ export const minorArcanaLessons: LessonContent[] = [
 // Map track IDs to their corresponding lesson sets
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
-  2: intuitiveReadingLessons, // Intuitive Reading 
-  3: advancedSymbolismLessons, // Advanced Symbolism
-  4: minorArcanaLessons       // Minor Arcana Journey
+  2: minorArcanaLessons,      // Minor Arcana Journey
+  10: intuitiveReadingLessons, // Intuitive Reading 
+  11: advancedSymbolismLessons // Advanced Symbolism
 };
