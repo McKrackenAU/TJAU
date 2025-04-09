@@ -1,5 +1,4 @@
 import { LessonContent } from "@/components/lesson-content";
-import { eightOfWands, eightOfCups, eightOfSwords, eightOfPentacles } from "../../all-eight-cards";
 
 // BEGINNER'S JOURNEY - All 22 Major Arcana cards
 export const beginnerLessons: LessonContent[] = [
@@ -3428,15 +3427,10 @@ export const advancedSymbolismLessons: LessonContent[] = [
   }
 ];
 
-// Import Eight cards content
-import { eightOfWands, eightOfCups, eightOfSwords, eightOfPentacles } from "../../all-eight-cards";
+// Eight cards content will be imported from a separate file
 
 // MINOR ARCANA JOURNEY
 export const minorArcanaLessons: LessonContent[] = [
-  eightOfWands,
-  eightOfCups,
-  eightOfSwords,
-  eightOfPentacles,
   {
     id: "minor-1",
     title: "Introduction to the Minor Arcana",
@@ -6865,7 +6859,24 @@ export const minorArcanaLessons: LessonContent[] = [
     cardId: "c8",
     sections: [
       {
-        question: "What is the primary energy of the Eight of Wands?",
+        title: "The Eight of Cups: Overview",
+        content: `
+          <p>Following the emotional balance achieved in the Seven of Cups, the Eight of Cups represents a pivotal moment where despite having achieved some measure of emotional fulfillment or success, you recognize it's not enough for your deeper needs and choose to walk away in search of greater meaning.</p>
+          
+          <p>The card typically depicts a figure walking away from eight stacked cups under a moon in eclipse, symbolizing the courage to leave behind what's comfortable but incomplete in pursuit of greater emotional truth and fulfillment.</p>
+          
+          <p>The Eight of Cups asks us to consider:</p>
+          <ul>
+            <li>What emotional situations or relationships have I outgrown?</li>
+            <li>Where am I settling for "good enough" when my soul craves more?</li>
+            <li>What deeper fulfillment am I being called toward?</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of the Eight of Cups?",
         options: [
           "Careful planning and deliberation",
           "Swift movement, action, and progress",
@@ -6981,24 +6992,7 @@ export const minorArcanaLessons: LessonContent[] = [
         `
       }
     ],
-    exercise: {
-      title: "The Courage to Seek More",
-      description: "This exercise helps you identify where you might need to walk away from what no longer serves your deeper purpose.",
-      instructions: `
-        <p>The Eight of Cups asks us to honestly evaluate where we might be settling for less than what truly fulfills us. Complete the following steps:</p>
-        
-        <ol>
-          <li>Create two columns on a piece of paper: "Surface Satisfaction" and "Deep Fulfillment"</li>
-          <li>In the first column, list aspects of your life that provide comfort, security, or status, but perhaps lack deeper meaning</li>
-          <li>In the second column, list experiences, activities, or connections that bring genuine emotional fulfillment and sense of purpose</li>
-          <li>Circle items from the first column that might be taking energy away from pursuing items in the second column</li>
-          <li>For each circled item, write one small step you could take to begin shifting energy toward deeper fulfillment</li>
-        </ol>
-        
-        <p>The key insight of this exercise is recognizing that sometimes we must find the courage to walk away from what seems "good enough" to create space for what truly nourishes our soul.</p>
-      `
-    },
-    quiz: [
+    exercises: [
       {
         question: "What is the primary wisdom of the Eight of Cups?",
         options: [

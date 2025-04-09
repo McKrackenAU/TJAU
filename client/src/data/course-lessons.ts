@@ -3432,6 +3432,122 @@ export const advancedSymbolismLessons: LessonContent[] = [
 // MINOR ARCANA JOURNEY
 export const minorArcanaLessons: LessonContent[] = [
   {
+    id: "minor-29",
+    title: "The Eight of Wands: Movement and Swift Action",
+    description: "Explore the dynamic energy of movement, acceleration, and aligned action in the Eight of Wands.",
+    cardId: "w8",
+    sections: [
+      {
+        title: "The Eight of Wands: Overview",
+        content: `
+          <p>Following the defensive stance of the Seven of Wands, the Eight of Wands introduces a period of swift movement, where resistance falls away and energy flows freely toward its target with acceleration and clarity of purpose.</p>
+          
+          <p>This card typically depicts eight wands or staffs flying through the air in parallel formation, suggesting aligned energies, rapid progress, and events coming together quickly after a period of struggle or waiting.</p>
+          
+          <p>The Eight of Wands asks us to consider:</p>
+          <ul>
+            <li>Where in my life am I experiencing (or needing) forward momentum?</li>
+            <li>How can I best prepare for swift developments or opportunities?</li>
+            <li>What communications need to be expedited or clarified?</li>
+            <li>How can I maintain focus when events are moving quickly?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Eight of Wands contains dynamic symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Wands in flight</strong> - Represents swift movement, action, and progress</li>
+            <li><strong>Parallel alignment</strong> - Symbolizes coordinated efforts and energies moving in harmony</li>
+            <li><strong>Clear sky</strong> - Indicates lack of obstacles and unimpeded forward motion</li>
+            <li><strong>Lack of human figures</strong> - Suggests events may be in motion beyond direct control</li>
+          </ul>
+          
+          <p>In readings, the Eight of Wands suggests:</p>
+          <ul>
+            <li>Swift developments and accelerated progress</li>
+            <li>Communications or messages arriving quickly</li>
+            <li>Travel or movement over distances</li>
+            <li>Events aligning after previous delays</li>
+            <li>The need to stay nimble and responsive</li>
+            <li>Momentum building toward conclusion</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Eight of Wands",
+        content: `
+          <p>When the Eight of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What areas of my life are ready for acceleration or forward movement?</li>
+            <li>How can I prepare myself for swift developments or opportunities?</li>
+            <li>What communications need to be expedited or clarified?</li>
+            <li>How can I maintain focus and direction when events are moving quickly?</li>
+            <li>Where might I need to "strike while the iron is hot"?</li>
+          </ul>
+          
+          <p>Actions to take when working with Eight of Wands energy:</p>
+          <ul>
+            <li>Clear your schedule to focus on emerging opportunities</li>
+            <li>Expedite important communications or decisions</li>
+            <li>Prepare for quick developments by organizing resources in advance</li>
+            <li>Create systems to help you stay focused amid acceleration</li>
+            <li>Practice saying "yes" quickly to aligned opportunities</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary energy of the Eight of Wands?",
+        options: [
+          "Careful planning and deliberation",
+          "Swift movement, action, and progress",
+          "Defensive stand-offs and conflicts",
+          "Patient waiting and delayed gratification"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary energy of the Eight of Wands is swift movement, action, and progress - represented by the eight wands flying through the air in parallel formation, indicating acceleration, aligned energies, and rapid developments."
+      },
+      {
+        question: "What relationship between timing and opportunity does the Eight of Wands suggest?",
+        options: [
+          "Opportunities should always be approached with caution and lengthy consideration",
+          "Timing is irrelevant to success as long as the intention is clear",
+          "Recognizing and acting on moments of alignment and momentum can create powerful results",
+          "It's always better to wait and see rather than take swift action"
+        ],
+        correctAnswer: 2,
+        explanation: "The Eight of Wands suggests that recognizing and acting on moments of alignment and momentum can create powerful results - teaching that there are times when swift action and responsiveness to accelerating developments brings greater success than deliberation."
+      },
+      {
+        question: "What insight about communication does the Eight of Wands offer?",
+        options: [
+          "Communication should always be slow and methodical",
+          "Clear, direct communication can help propel situations forward",
+          "It's better to withhold information until absolutely necessary",
+          "Written communication is always superior to verbal messages"
+        ],
+        correctAnswer: 1,
+        explanation: "The Eight of Wands offers the insight that clear, direct communication can help propel situations forward - as the card is often associated with messages and information traveling quickly and clearly to their destination, removing confusion and accelerating progress."
+      }
+    ],
+    summary: "The Eight of Wands represents a time of swift movement, aligned action, and accelerated progress after a period of resistance or waiting. It embodies the energy of momentum building, communications flowing freely, and events coming together quickly. This card teaches us about the importance of preparation, focus, and responsiveness during periods of acceleration, and reminds us that there are moments when direct action and clear communication create powerful forward movement. The Eight of Wands encourages us to recognize and align with the natural timing of opportunities rather than forcing or resisting the flow of events.",
+    additionalResources: [
+      {
+        title: "Decision-Making Under Time Pressure",
+        description: "Techniques for making sound decisions when events are moving quickly."
+      },
+      {
+        title: "Finding Focus in Fast-Paced Environments",
+        description: "Practices for maintaining clarity and direction during accelerated periods."
+      }
+    ]
+  },
+  {
     id: "minor-1",
     title: "Introduction to the Minor Arcana",
     description: "Learn about the structure and symbolism of the Minor Arcana suits.",
@@ -6859,7 +6975,24 @@ export const minorArcanaLessons: LessonContent[] = [
     cardId: "c8",
     sections: [
       {
-        question: "What is the primary energy of the Eight of Wands?",
+        title: "The Eight of Cups: Overview",
+        content: `
+          <p>Following the emotional balance achieved in the Seven of Cups, the Eight of Cups represents a pivotal moment where despite having achieved some measure of emotional fulfillment or success, you recognize it's not enough for your deeper needs and choose to walk away in search of greater meaning.</p>
+          
+          <p>The card typically depicts a figure walking away from eight stacked cups under a moon in eclipse, symbolizing the courage to leave behind what's comfortable but incomplete in pursuit of greater emotional truth and fulfillment.</p>
+          
+          <p>The Eight of Cups asks us to consider:</p>
+          <ul>
+            <li>What emotional situations or relationships have I outgrown?</li>
+            <li>Where am I settling for "good enough" when my soul craves more?</li>
+            <li>What deeper fulfillment am I being called toward?</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of the Eight of Cups?",
         options: [
           "Careful planning and deliberation",
           "Swift movement, action, and progress",
@@ -6975,24 +7108,7 @@ export const minorArcanaLessons: LessonContent[] = [
         `
       }
     ],
-    exercise: {
-      title: "The Courage to Seek More",
-      description: "This exercise helps you identify where you might need to walk away from what no longer serves your deeper purpose.",
-      instructions: `
-        <p>The Eight of Cups asks us to honestly evaluate where we might be settling for less than what truly fulfills us. Complete the following steps:</p>
-        
-        <ol>
-          <li>Create two columns on a piece of paper: "Surface Satisfaction" and "Deep Fulfillment"</li>
-          <li>In the first column, list aspects of your life that provide comfort, security, or status, but perhaps lack deeper meaning</li>
-          <li>In the second column, list experiences, activities, or connections that bring genuine emotional fulfillment and sense of purpose</li>
-          <li>Circle items from the first column that might be taking energy away from pursuing items in the second column</li>
-          <li>For each circled item, write one small step you could take to begin shifting energy toward deeper fulfillment</li>
-        </ol>
-        
-        <p>The key insight of this exercise is recognizing that sometimes we must find the courage to walk away from what seems "good enough" to create space for what truly nourishes our soul.</p>
-      `
-    },
-    quiz: [
+    exercises: [
       {
         question: "What is the primary wisdom of the Eight of Cups?",
         options: [
