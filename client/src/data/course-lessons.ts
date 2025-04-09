@@ -3413,6 +3413,314 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Understanding how shared values create foundations for collective emotional wellbeing."
       }
     ]
+  },
+  {
+    id: "intuitive-11",
+    title: "The Messenger of Emotions: Page of Cups",
+    description: "Explore intuitive communication, emotional beginnings, and creative inspiration through the Page of Cups.",
+    cardId: "cp",
+    sections: [
+      {
+        title: "The Intuitive Messenger",
+        content: `
+          <p>The Page of Cups represents the initial stage of emotional and intuitive development, embodying openness, curiosity, and the first stirrings of creative inspiration. As we develop our intuitive reading skills, the Page of Cups offers rich insights into new emotional beginnings and the innocent receptivity that makes intuitive insights possible.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>New emotional beginnings and fresh feelings</strong></li>
+            <li><strong>Creative inspiration and artistic impulses</strong></li>
+            <li><strong>Openness to intuitive messages</strong></li>
+            <li><strong>Childlike wonder and emotional innocence</strong></li>
+            <li><strong>The first stages of emotional development</strong></li>
+            <li><strong>Surprise messages from the unconscious</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Page of Cups involves connecting with your own sense of emotional openness, creative curiosity, and willingness to receive unexpected insights.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Page of Cups contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The fish in the cup</strong> - Represents the surprising messages that emerge from the emotional unconscious</li>
+            <li><strong>The flowing robes</strong> - Symbolize emotional fluidity and adaptability</li>
+            <li><strong>The dreamy expression</strong> - Indicates intuitive receptivity and imagination</li>
+            <li><strong>The shoreline setting</strong> - Shows the meeting place between conscious (land) and unconscious (sea)</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Page of Cups, consider:</p>
+          
+          <ol>
+            <li><strong>Notice your immediate emotional response</strong> to the imagery</li>
+            <li><strong>Pay attention to any creative ideas</strong> that surface spontaneously</li>
+            <li><strong>Connect with the feeling of childlike wonder</strong> or innocence</li>
+            <li><strong>Be receptive to unexpected emotional insights</strong> that may appear</li>
+            <li><strong>Consider where new emotional beginnings</strong> might be emerging</li>
+          </ol>
+          
+          <p>The Page of Cups invites us to approach intuitive reading with the same openness, curiosity, and receptivity that the Page embodies - making it an excellent card for developing our intuitive muscles.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Page of Cups appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What surprising emotion or insight immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Do you feel a sense of lightness, curiosity, or openness in your body?</li>
+            <li><strong>Creative connection</strong>: What artistic expression or creative activity does this card suggest?</li>
+            <li><strong>Emotional beginnings</strong>: What new feeling or emotional experience might be emerging?</li>
+            <li><strong>Messenger energy</strong>: What unexpected message or insight might be trying to reach the querent?</li>
+          </ul>
+          
+          <p>Remember that the Page of Cups often represents the beginning stages of emotional or intuitive development. When reading intuitively, consider not just what is present now, but what might be starting to emerge from the depths of feeling and imagination.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach would be most helpful when the Page of Cups appears in a reading about creative blocks?",
+        options: [
+          "Focus on the fish as a symbol of surprising insights from the unconscious",
+          "Emphasize the Page's position of authority and expertise",
+          "Concentrate on setting firm boundaries and limitations",
+          "Highlight the need for careful planning and research"
+        ],
+        correctAnswer: 0,
+        explanation: "When the Page of Cups appears in a reading about creative blocks, focusing intuitively on the fish as a symbol of surprising insights from the unconscious can help the querent connect with unexpected creative inspiration that may emerge when they maintain an attitude of openness and curiosity."
+      },
+      {
+        question: "When reading the Page of Cups intuitively, which approach helps access its energy most directly?",
+        options: [
+          "Analyzing the historical context of the card",
+          "Connecting with your own sense of childlike wonder and openness",
+          "Focusing on strict traditional interpretations",
+          "Emphasizing the hierarchical position of the Page"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Page of Cups intuitively, connecting with your own sense of childlike wonder and openness helps access its energy most directly. The Page of Cups embodies receptivity, curiosity, and emotional openness - qualities that are best understood through direct experience rather than intellectual analysis."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Page of Cups, examining new emotional beginnings, creative inspiration, and openness to intuitive messages. We've studied the card's imagery of a youthful figure with a cup containing a fish, representing surprising insights from the emotional unconscious. By developing techniques to read intuitively about creative beginnings and emotional receptivity, we can gain deeper insights about the early stages of intuitive development and the openness needed to receive messages from our deeper awareness.",
+    additionalResources: [
+      {
+        title: "Developing Emotional Intelligence",
+        description: "Practices for cultivating emotional awareness and receptivity."
+      },
+      {
+        title: "Creative Beginnings",
+        description: "Techniques for nurturing new creative inspirations and artistic impulses."
+      }
+    ]
+  },
+  {
+    id: "intuitive-12",
+    title: "Emotional Mastery: The King of Cups",
+    description: "Explore emotional wisdom, balanced leadership, and compassionate understanding through the King of Cups.",
+    cardId: "ck",
+    sections: [
+      {
+        title: "The Emotionally Intelligent Leader",
+        content: `
+          <p>The King of Cups represents the mastery of emotional wisdom - the ability to remain deeply connected to feelings while maintaining appropriate boundaries and direction. As we develop our intuitive reading skills, the King of Cups offers rich insights into emotional maturity, compassionate leadership, and the integration of heart and head.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Emotional wisdom and maturity</strong></li>
+            <li><strong>Compassionate leadership and guidance</strong></li>
+            <li><strong>The balance of feeling and thought</strong></li>
+            <li><strong>Calm centeredness amid emotional currents</strong></li>
+            <li><strong>Diplomatic handling of emotional situations</strong></li>
+            <li><strong>Mature masculinity in relationship to feelings</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the King of Cups involves connecting with your own sense of emotional wisdom, compassionate understanding, and the ability to remain steady amid emotional intensity.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The King of Cups contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The throne on water</strong> - Represents mastery of the emotional realm while remaining connected to it</li>
+            <li><strong>The calm demeanor</strong> - Symbolizes emotional regulation and inner peace</li>
+            <li><strong>The cup</strong> - Indicates emotional depth and receptivity</li>
+            <li><strong>The scepter</strong> - Shows authority and the ability to direct emotional energy</li>
+            <li><strong>The fish amulet</strong> - Often shown to represent the spiritual dimension of emotional life</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the King of Cups, consider:</p>
+          
+          <ol>
+            <li><strong>Notice the feeling of calm centeredness</strong> in your body</li>
+            <li><strong>Connect with your capacity for compassion</strong> without being overwhelmed</li>
+            <li><strong>Feel into the balance of heart and head</strong> in your understanding</li>
+            <li><strong>Sense the quality of contained yet accessible emotion</strong></li>
+            <li><strong>Be aware of mature guidance</strong> that emerges from emotional wisdom</li>
+          </ol>
+          
+          <p>The King of Cups invites us to approach intuitive reading with the same balanced integration of feeling and wisdom that the King embodies - making it an excellent card for developing mature emotional intelligence in readings.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the King of Cups appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of emotional maturity does this card immediately evoke?</li>
+            <li><strong>Body awareness</strong>: Where do you feel a sense of calm centeredness in your body?</li>
+            <li><strong>Emotional leadership</strong>: What form of compassionate guidance might be needed in this situation?</li>
+            <li><strong>Balance point</strong>: How does the integration of heart and head inform this reading?</li>
+            <li><strong>Contained depth</strong>: What deep emotional understanding is present but appropriately channeled?</li>
+          </ul>
+          
+          <p>Remember that the King of Cups often represents mature emotional intelligence that comes from experience and integration. When reading intuitively, consider not just emotional content, but the wise, compassionate handling of emotional realities.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach would be most helpful when the King of Cups appears in a reading about emotional conflict?",
+        options: [
+          "Focus on suppressing all emotions to maintain control",
+          "Connect with the energy of diplomatic emotional intelligence",
+          "Emphasize the need to avoid emotional engagement entirely",
+          "Suggest surrendering completely to emotional expression"
+        ],
+        correctAnswer: 1,
+        explanation: "When the King of Cups appears in a reading about emotional conflict, connecting intuitively with the energy of diplomatic emotional intelligence can help the querent access mature ways of acknowledging and addressing emotions without being overwhelmed by them, finding balanced solutions that honor feelings while maintaining appropriate boundaries."
+      },
+      {
+        question: "What potential shadow aspect should one be aware of when working with King of Cups energy?",
+        options: [
+          "Emotional manipulation or passive-aggressive behavior",
+          "Complete emotional detachment and coldness",
+          "Excessive focus on practical matters without empathy",
+          "Impulsive emotional reactions without control"
+        ],
+        correctAnswer: 0,
+        explanation: "When working with King of Cups energy, one should be aware of the potential shadow aspect of emotional manipulation or passive-aggressive behavior. The deep understanding of emotional currents that makes the King of Cups so empathetic can, in its shadow form, become a tool for subtle emotional control or indirect expression of negative feelings. This might manifest as using emotional insight to influence others or appearing calm on the surface while harboring unexpressed resentments."
+      }
+    ],
+    summary: "The King of Cups represents emotional wisdom, compassionate leadership, and the masterful balance of feeling and thought. This card embodies the culmination of emotional development—where one can remain deeply connected to feelings while maintaining appropriate boundaries and direction. The King invites us to integrate heart and head, to offer compassionate guidance without becoming overwhelmed, and to navigate complex emotional waters with the calm centeredness that comes from true emotional maturity.",
+    additionalResources: [
+      {
+        title: "Emotional Leadership",
+        description: "Practices for developing the ability to guide others through emotional challenges with wisdom and compassion."
+      },
+      {
+        title: "Heart-Head Integration",
+        description: "Techniques for balancing emotional intelligence with clear thinking."
+      }
+    ]
+  },
+  {
+    id: "intuitive-13",
+    title: "Intuitive Nurturing: The Queen of Cups",
+    description: "Explore emotional depths, intuitive wisdom, and compassionate connection through the Queen of Cups.",
+    cardId: "cq",
+    sections: [
+      {
+        title: "The Compassionate Intuitive",
+        content: `
+          <p>The Queen of Cups represents the mastery of intuitive wisdom and emotional nurturing - the ability to remain deeply attuned to the inner world while offering compassionate support to others. As we develop our intuitive reading skills, the Queen of Cups offers rich insights into receptive awareness, compassionate presence, and the flowing depths of feeling.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Intuitive wisdom and psychic receptivity</strong></li>
+            <li><strong>Emotional nurturing and compassionate care</strong></li>
+            <li><strong>Deep feeling with healthy boundaries</strong></li>
+            <li><strong>The inner world of dreams and imagination</strong></li>
+            <li><strong>Reflective emotional understanding</strong></li>
+            <li><strong>The balance of sensitivity and strength</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Queen of Cups involves connecting with your own capacity for deep emotional attunement, intuitive understanding, and compassionate presence without becoming overwhelmed.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Queen of Cups contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The ornate cup</strong> - Represents the richness of emotional and intuitive life</li>
+            <li><strong>The throne at the water's edge</strong> - Symbolizes the position between conscious awareness and the unconscious depths</li>
+            <li><strong>The reflective gaze</strong> - Indicates inner attunement and contemplation</li>
+            <li><strong>The flowing robes</strong> - Suggest emotional fluidity and adaptability</li>
+            <li><strong>The shell decorations</strong> - Often shown to represent the treasures brought from emotional depths</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Queen of Cups, consider:</p>
+          
+          <ol>
+            <li><strong>Notice the quality of receptive listening</strong> in your body</li>
+            <li><strong>Allow impressions to arise</strong> from your emotional depths</li>
+            <li><strong>Feel into the nurturing, caring energy</strong> of compassionate presence</li>
+            <li><strong>Be aware of the boundary between receptivity and overwhelm</strong></li>
+            <li><strong>Trust the intuitive wisdom</strong> that emerges from deep feeling</li>
+          </ol>
+          
+          <p>The Queen of Cups invites us to approach intuitive reading with the same receptive attunement and compassionate understanding that she embodies - making this card especially powerful for developing intuitive reading skills.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Queen of Cups appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What emotional quality or intuitive insight immediately surfaces?</li>
+            <li><strong>Body awareness</strong>: Where do you feel a sense of receptive openness in your body?</li>
+            <li><strong>Mirroring presence</strong>: How might reflecting back emotions with compassion serve this situation?</li>
+            <li><strong>Intuitive depths</strong>: What wisdom emerges when you access deeper levels of feeling?</li>
+            <li><strong>Nurturing energy</strong>: What form of emotional support or care is being highlighted?</li>
+          </ul>
+          
+          <p>Remember that the Queen of Cups represents the mature feminine wisdom of emotional and intuitive life. When reading intuitively, allow yourself to access her gifts of deep listening, compassionate understanding, and the ability to draw meaning from the unconscious depths.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach best captures the Queen of Cups' unique strength?",
+        options: [
+          "Detached logical analysis",
+          "Aggressive confrontation of issues",
+          "Receptive listening that creates space for authentic expression",
+          "Rigid structuring of emotional responses"
+        ],
+        correctAnswer: 2,
+        explanation: "The Queen of Cups' unique strength is best captured through receptive listening that creates space for authentic expression. Her power lies in the ability to hold a compassionate space where emotions can be fully acknowledged and received without judgment, creating conditions where healing insights and authentic self-expression can naturally emerge through the power of being fully received."
+      },
+      {
+        question: "What important balance does the Queen of Cups teach us?",
+        options: [
+          "The balance between work and play",
+          "The balance between empathy and healthy boundaries",
+          "The balance between saving and spending",
+          "The balance between tradition and innovation"
+        ],
+        correctAnswer: 1,
+        explanation: "The important balance that the Queen of Cups teaches us is between empathy and healthy boundaries. While her gift is deep emotional sensitivity and compassionate connection, the mature expression of Queen of Cups energy includes the wisdom to maintain appropriate boundaries that prevent emotional overwhelm or depletion. She models how to remain open-hearted and receptive while still honoring one's own emotional needs and limitations—offering compassion without becoming submerged in others' emotional states."
+      }
+    ],
+    summary: "The Queen of Cups represents intuitive wisdom, emotional nurturing, and the flowing depths of compassion. This card embodies the balance of sensitive receptivity with healthy boundaries, showing how to remain attuned to the rich inner world of feelings and intuition while maintaining emotional well-being. The Queen invites us to trust our intuitive knowing, to offer healing through compassionate presence, and to draw creative inspiration from the deep wells of the unconscious realm.",
+    additionalResources: [
+      {
+        title: "Developing Intuitive Listening",
+        description: "Practices for deepening your ability to hear beneath the surface of what is said."
+      },
+      {
+        title: "Compassionate Boundaries",
+        description: "Techniques for remaining open-hearted while protecting your emotional well-being."
+      }
+    ]
   }
 ];
 
