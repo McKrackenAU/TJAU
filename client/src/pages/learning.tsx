@@ -173,11 +173,16 @@ export default function Learning() {
                         }}
                       >
                         <div className="flex flex-col items-center text-center">
-                          <div className="flex items-center justify-center mb-1">
-                            {progress.completedLessons.includes(cardId) && (
-                              <GraduationCap className="h-3 w-3 text-primary mr-1" />
-                            )}
-                            <span className="text-xs font-medium">{card?.name}</span>
+                          <div className="flex flex-col items-center justify-center mb-1">
+                            <div className="flex items-center">
+                              {progress.completedLessons.includes(cardId) && (
+                                <GraduationCap className="h-3 w-3 text-primary mr-1" />
+                              )}
+                              <span className="text-xs font-medium">{index + 1}</span>
+                            </div>
+                            <span className="text-xs text-muted-foreground truncate w-full text-center mt-1" title={card?.name}>
+                              {card?.name}
+                            </span>
                           </div>
                         </div>
                       </div>

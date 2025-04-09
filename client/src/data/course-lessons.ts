@@ -5936,6 +5936,470 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-25",
+    title: "The Seven of Wands: Defense and Perseverance",
+    description: "Explore the courageous energy of standing your ground, defending your position, and persevering against challenges in the Seven of Wands.",
+    cardId: "w7",
+    sections: [
+      {
+        title: "The Seven of Wands: Overview",
+        content: `
+          <p>After the public recognition and triumph of the Six of Wands, the Seven of Wands presents a new challenge: defending what you've gained and standing firm in your position against opposition or competition.</p>
+          
+          <p>This card often depicts a figure on higher ground, wielding a wand defensively while fending off six other wands from below, symbolizing the courage to maintain your stance, defend your achievements, and persevere when challenged by others.</p>
+          
+          <p>The Seven of Wands asks us to consider:</p>
+          <ul>
+            <li>What values, ideas, or achievements am I willing to defend?</li>
+            <li>Where do I need to stand my ground despite opposition?</li>
+            <li>How can I maintain conviction in my path when others question it?</li>
+            <li>What's worth fighting for, and what battles can I let go?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Seven of Wands contains powerful symbols of courage and defense that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Figure on higher ground</strong> - Represents having a solid position or moral advantage in a conflict</li>
+            <li><strong>Defensive stance</strong> - Symbolizes protection of what's been achieved rather than aggression</li>
+            <li><strong>Multiple opposing wands</strong> - Suggest facing numerous challenges or competitors simultaneously</li>
+            <li><strong>Uneven terrain</strong> - Often shown, indicating the challenging circumstances under which one must defend oneself</li>
+          </ul>
+          
+          <p>In readings, the Seven of Wands suggests:</p>
+          <ul>
+            <li>Standing your ground against opposition</li>
+            <li>Defending your position or achievements</li>
+            <li>Perseverance through challenges</li>
+            <li>Maintaining conviction despite criticism</li>
+            <li>Competition that requires courage</li>
+            <li>The need to protect what you've gained</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Seven of Wands",
+        content: `
+          <p>When the Seven of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What am I currently defending, and is it truly worth the effort?</li>
+            <li>How can I maintain my boundaries while remaining open to valid feedback?</li>
+            <li>What inner resources can I draw upon when facing opposition?</li>
+            <li>Where might I be unnecessarily defensive rather than confidently assertive?</li>
+            <li>What strategies could help me persevere through current challenges?</li>
+          </ul>
+          
+          <p>Actions to take when working with Seven of Wands energy:</p>
+          <ul>
+            <li>Practice articulating your position clearly and confidently</li>
+            <li>Develop healthy boundaries that protect your work and wellbeing</li>
+            <li>Distinguish between constructive criticism and unhelpful opposition</li>
+            <li>Conserve energy by choosing which battles are truly important</li>
+            <li>Draw inspiration from others who have maintained their stance despite pressure</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary difference between the Six and Seven of Wands?",
+        options: [
+          "The Six represents failure while the Seven represents success",
+          "The Six represents triumph and recognition while the Seven represents defending what you've gained",
+          "The Six is about teamwork while the Seven is about isolation",
+          "The Six concerns the past while the Seven concerns the future"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary difference is that the Six of Wands represents triumph and recognition (the victory), while the Seven of Wands represents defending what you've gained (maintaining that position against challenges that follow success)."
+      },
+      {
+        question: "What healthy approach does the Seven of Wands encourage?",
+        options: [
+          "Avoiding all conflict and yielding to opposition",
+          "Fighting aggressively against anyone who disagrees",
+          "Standing firm in your convictions while discerning which battles are worth fighting",
+          "Seeking constant validation from others"
+        ],
+        correctAnswer: 2,
+        explanation: "The Seven of Wands encourages standing firm in your convictions while discerning which battles are worth fighting - maintaining your position with courage when it matters, but not becoming needlessly combative about every challenge."
+      },
+      {
+        question: "What does the higher ground in the Seven of Wands symbolize?",
+        options: [
+          "Physical superiority over others",
+          "Having a solid position, advantage, or moral high ground in a conflict",
+          "Being distant and removed from others",
+          "Spiritual enlightenment"
+        ],
+        correctAnswer: 1,
+        explanation: "The higher ground symbolizes having a solid position, advantage, or moral high ground in a conflict - suggesting that when your stance is well-founded, you have a better position from which to defend it against challenges."
+      }
+    ],
+    summary: "The Seven of Wands represents the courage to defend your position, stand your ground, and persevere against challenges or opposition. It reminds us that after achievement often comes the need to protect what we've gained, and that conviction in our values and work is essential when facing criticism or competition. This card encourages healthy assertiveness, the wisdom to choose our battles carefully, and the persistence to maintain our stance even when it would be easier to yield.",
+    additionalResources: [
+      {
+        title: "Healthy Assertiveness",
+        description: "Techniques for standing your ground with confidence rather than aggression."
+      },
+      {
+        title: "Perseverance Psychology",
+        description: "Research on what enables people to persist through challenges and opposition."
+      }
+    ]
+  },
+  {
+    id: "minor-26",
+    title: "The Seven of Cups: Choices and Illusions",
+    description: "Explore the dreamy realm of possibilities, choices, fantasies, and discernment in the Seven of Cups.",
+    cardId: "c7",
+    sections: [
+      {
+        title: "The Seven of Cups: Overview",
+        content: `
+          <p>After the sweet nostalgia and innocent joy of the Six of Cups, the Seven of Cups introduces a more complex emotional landscape filled with choices, fantasies, and the need to distinguish between illusion and reality.</p>
+          
+          <p>This card often depicts a figure facing seven cups floating in a cloud, each containing different visions or treasures—ranging from jewels and victory wreaths to monsters and phantoms—symbolizing the variety of options, dreams, and potential illusions that present themselves when many emotional pathways are open.</p>
+          
+          <p>The Seven of Cups asks us to consider:</p>
+          <ul>
+            <li>What choices am I currently facing, and which might be illusions?</li>
+            <li>How can I discern between fantasy and achievable possibilities?</li>
+            <li>Where might I be scattered by too many options or dreams?</li>
+            <li>What would help me focus and make grounded choices?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Seven of Cups contains dreamlike symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Multiple cups with different contents</strong> - Represent various options, possibilities, and emotional paths</li>
+            <li><strong>Treasures and gifts</strong> - Symbolize potential rewards and attractive opportunities</li>
+            <li><strong>Monsters or snakes</strong> - Suggest hidden dangers, temptations, or illusory options</li>
+            <li><strong>Cloud formation</strong> - Indicates the foggy, nebulous nature of fantasies and indecision</li>
+          </ul>
+          
+          <p>In readings, the Seven of Cups suggests:</p>
+          <ul>
+            <li>Multiple choices or possibilities</li>
+            <li>Fantasy, illusion, and dreams</li>
+            <li>The need for discernment and clarity</li>
+            <li>Being overwhelmed by options</li>
+            <li>Distinguishing between wishful thinking and reality</li>
+            <li>Creative potential that needs focus</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Seven of Cups",
+        content: `
+          <p>When the Seven of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Which of my current options are based in reality, and which might be illusions?</li>
+            <li>How can I apply more discernment to my choices?</li>
+            <li>What would help me focus my energy rather than being scattered?</li>
+            <li>How might my emotions be clouding my judgment?</li>
+            <li>What concrete steps could help transform dreams into reality?</li>
+          </ul>
+          
+          <p>Actions to take when working with Seven of Cups energy:</p>
+          <ul>
+            <li>List your options and evaluate them objectively</li>
+            <li>Create practical criteria for making decisions</li>
+            <li>Distinguish between immediate possibilities and long-term dreams</li>
+            <li>Ground yourself through meditation or physical activity</li>
+            <li>Seek feedback from others who can help you see more clearly</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What primary challenge does the Seven of Cups present?",
+        options: [
+          "Having too few options to choose from",
+          "Being excessively practical and not dreaming enough",
+          "Distinguishing between viable options and wishful thinking",
+          "Avoiding emotional connections entirely"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary challenge the Seven of Cups presents is distinguishing between viable options and wishful thinking - learning to see through illusions and fantasies to identify which possibilities are actually achievable and worth pursuing."
+      },
+      {
+        question: "What does the Seven of Cups teach about creativity?",
+        options: [
+          "Creative people should pursue all ideas simultaneously",
+          "Imagination must be balanced with discernment for creativity to manifest productively",
+          "Creativity is dangerous and should be limited",
+          "Creative people never need to make practical choices"
+        ],
+        correctAnswer: 1,
+        explanation: "The Seven of Cups teaches that imagination must be balanced with discernment for creativity to manifest productively - showing that while having many ideas and visions is valuable, focus and clarity are needed to bring the best ones into reality."
+      },
+      {
+        question: "What balanced approach to dreams does the Seven of Cups encourage?",
+        options: [
+          "Abandoning all dreams as impractical fantasies",
+          "Pursuing every dream without consideration of reality",
+          "Dreaming only of material success",
+          "Maintaining vision while developing the discernment to choose wisely"
+        ],
+        correctAnswer: 3,
+        explanation: "The Seven of Cups encourages maintaining vision while developing the discernment to choose wisely - not abandoning dreams entirely, but developing the clarity to distinguish between fantasy and achievable possibilities, and the focus to manifest what's truly valuable."
+      }
+    ],
+    summary: "The Seven of Cups represents the realm of choices, possibilities, fantasies, and the need for discernment. It shows us both the creative potential of having many options and the confusion that can arise when we're unable to distinguish illusion from reality. This card reminds us that while dreams and visions are important, they require clarity, focus, and groundedness to manifest in meaningful ways. The Seven of Cups invites us to look beyond attractive surfaces to determine which cups contain true nourishment for our growth.",
+    additionalResources: [
+      {
+        title: "Decision-Making Psychology",
+        description: "Understanding how to make choices when faced with multiple options and emotional factors."
+      },
+      {
+        title: "Turning Dreams into Reality",
+        description: "Practical steps for moving from vision and imagination to concrete manifestation."
+      }
+    ]
+  },
+  {
+    id: "minor-27",
+    title: "The Seven of Swords: Strategy and Ethics",
+    description: "Explore the complex terrain of mental strategy, stealth, and ethical considerations in the Seven of Swords.",
+    cardId: "s7",
+    sections: [
+      {
+        title: "The Seven of Swords: Overview",
+        content: `
+          <p>After the transitional journey of the Six of Swords, the Seven of Swords introduces more complex mental strategies that might involve cunning, stealth, or even deception. It asks us to consider not just what we can do, but what we should do.</p>
+          
+          <p>This card often depicts a figure sneaking away from a camp with five swords, leaving two behind, suggesting strategic thinking that might involve taking shortcuts, being selective about what battles to fight, or in some cases, acting in ways that require ethical consideration.</p>
+          
+          <p>The Seven of Swords asks us to consider:</p>
+          <ul>
+            <li>Where might I need to use strategy rather than direct confrontation?</li>
+            <li>What ethical considerations should guide my approach?</li>
+            <li>When is it wise to withdraw or be selective about engagement?</li>
+            <li>How can I be clever without compromising integrity?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Seven of Swords contains nuanced symbols that help us understand its complex meaning:</p>
+          
+          <ul>
+            <li><strong>Figure carrying some but not all swords</strong> - Represents being selective, strategic, or only partially committed</li>
+            <li><strong>Sneaking away</strong> - Symbolizes indirect approaches, stealth, or avoiding direct confrontation</li>
+            <li><strong>Camp in background</strong> - Suggests a social context or established group from which one is departing</li>
+            <li><strong>Looking back</strong> - Indicates awareness of risk, consequences, or what's being left behind</li>
+          </ul>
+          
+          <p>In readings, the Seven of Swords suggests:</p>
+          <ul>
+            <li>Strategic thinking and clever approaches</li>
+            <li>Avoiding direct confrontation when appropriate</li>
+            <li>Being selective about battles or commitments</li>
+            <li>Potential deception or unethical shortcuts</li>
+            <li>Mental agility and adaptability</li>
+            <li>Independence that may conflict with group expectations</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Seven of Swords",
+        content: `
+          <p>When the Seven of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where might I need to be more strategic rather than direct?</li>
+            <li>How can I maintain integrity while still being clever or resourceful?</li>
+            <li>What battles might I be better off avoiding rather than engaging?</li>
+            <li>Am I being fully honest with myself and others about my intentions?</li>
+            <li>What ethical considerations should guide my approach to current challenges?</li>
+          </ul>
+          
+          <p>Actions to take when working with Seven of Swords energy:</p>
+          <ul>
+            <li>Consider alternative approaches to difficult situations</li>
+            <li>Reflect on your ethical boundaries before taking shortcuts</li>
+            <li>Develop mental agility through strategic games or exercises</li>
+            <li>Practice discernment about which engagements are worth your energy</li>
+            <li>Be honest with yourself about your motives and methods</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What nuanced aspect of strategy does the Seven of Swords highlight?",
+        options: [
+          "Strategy always involves deception and should be avoided",
+          "The most direct approach is always best",
+          "Strategy involves choices about engagement, including when to withdraw or be selective",
+          "Strategic thinking is only appropriate in business contexts"
+        ],
+        correctAnswer: 2,
+        explanation: "The Seven of Swords highlights that strategy involves choices about engagement, including when to withdraw or be selective - teaching that wisdom sometimes means knowing which battles to fight directly, which to approach indirectly, and which to avoid entirely."
+      },
+      {
+        question: "What ethical question does the Seven of Swords often raise?",
+        options: [
+          "Is it sometimes appropriate to use cleverness and indirect approaches?",
+          "Should we always be completely transparent regardless of circumstances?",
+          "Is intellect more important than emotion?",
+          "Should we always follow established rules without question?"
+        ],
+        correctAnswer: 0,
+        explanation: "The Seven of Swords raises the ethical question of whether it's sometimes appropriate to use cleverness and indirect approaches - inviting us to consider the complex moral territory between harmful deception and wise strategy that protects ourselves or others."
+      },
+      {
+        question: "What balanced perspective on independence does the Seven of Swords suggest?",
+        options: [
+          "Complete independence from others is always best",
+          "Independence of thought must be balanced with ethical consideration",
+          "Independence should be avoided in favor of always following the group",
+          "Independent thinking is only appropriate for leaders"
+        ],
+        correctAnswer: 1,
+        explanation: "The Seven of Swords suggests that independence of thought must be balanced with ethical consideration - showing that while mental autonomy and strategic thinking are valuable, they should be guided by integrity and awareness of how our actions affect others."
+      }
+    ],
+    summary: "The Seven of Swords represents strategic thinking, mental agility, and the complex ethical terrain of being clever in a world that sometimes requires indirect approaches. It reminds us that not every battle should be fought directly, and that discernment about engagement is part of wisdom. While this card can suggest potentially deceptive behavior, it also invites us to consider more nuanced approaches that maintain integrity while still being strategic. The Seven of Swords ultimately asks us to balance cleverness with ethics, and independence with responsibility.",
+    additionalResources: [
+      {
+        title: "Ethical Decision-Making",
+        description: "Frameworks for navigating complex moral choices when direct approaches aren't always feasible."
+      },
+      {
+        title: "Strategic Thinking",
+        description: "How to develop mental agility and consider multiple approaches to challenges."
+      }
+    ]
+  },
+  {
+    id: "minor-28",
+    title: "The Seven of Pentacles: Patience and Assessment",
+    description: "Explore the contemplative energy of evaluation, patience, and long-term development in the Seven of Pentacles.",
+    cardId: "p7",
+    sections: [
+      {
+        title: "The Seven of Pentacles: Overview",
+        content: `
+          <p>After the balanced exchange of resources in the Six of Pentacles, the Seven of Pentacles introduces a moment of pause and assessment, where we evaluate our progress, consider long-term growth, and practice the patience needed for material development.</p>
+          
+          <p>This card often depicts a figure leaning on a tool, contemplating a vine or plant bearing pentacles, suggesting the need to step back and evaluate what we've cultivated, consider what's working and what isn't, and make decisions about future investments of time and energy.</p>
+          
+          <p>The Seven of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What projects or investments need evaluation at this time?</li>
+            <li>Where am I seeing growth, and where might I need to redirect efforts?</li>
+            <li>How can I develop more patience with slow-developing processes?</li>
+            <li>What long-term vision guides my current efforts?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Seven of Pentacles contains contemplative symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Figure pausing from labor</strong> - Represents taking time to assess and evaluate rather than just continuing to work</li>
+            <li><strong>Growing plant with pentacles</strong> - Symbolizes material or tangible developments that take time to mature</li>
+            <li><strong>Leaning on tool</strong> - Indicates the relationship between work and assessment, effort and reflection</li>
+            <li><strong>Contemplative posture</strong> - Suggests the value of patience and thoughtful consideration</li>
+          </ul>
+          
+          <p>In readings, the Seven of Pentacles suggests:</p>
+          <ul>
+            <li>Evaluation of progress and efforts</li>
+            <li>Patience with long-term developments</li>
+            <li>Assessment before further investment</li>
+            <li>Recognition that growth takes time</li>
+            <li>The need to consider whether current efforts will lead to desired outcomes</li>
+            <li>Making adjustments to improve results</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Seven of Pentacles",
+        content: `
+          <p>When the Seven of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What current projects would benefit from thoughtful assessment?</li>
+            <li>Where am I seeing progress, even if it's slower than I'd like?</li>
+            <li>What might need to be pruned or redirected to improve long-term results?</li>
+            <li>How can I develop more patience with processes that take time?</li>
+            <li>What metrics or indicators will help me evaluate success?</li>
+          </ul>
+          
+          <p>Actions to take when working with Seven of Pentacles energy:</p>
+          <ul>
+            <li>Create a progress review for important projects or goals</li>
+            <li>Practice mindfulness to develop greater patience</li>
+            <li>Establish realistic timelines that account for natural growth cycles</li>
+            <li>Celebrate small signs of progress even before full harvest</li>
+            <li>Make strategic adjustments based on your assessment</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary focus of the Seven of Pentacles?",
+        options: [
+          "Immediate results and quick profits",
+          "Evaluation, patience, and assessment of long-term growth",
+          "Abandoning projects that don't show immediate results",
+          "Working harder without taking breaks"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary focus of the Seven of Pentacles is evaluation, patience, and assessment of long-term growth - the importance of pausing to consider progress, being patient with development processes, and making thoughtful decisions about future efforts."
+      },
+      {
+        question: "What productive relationship between work and reflection does the Seven of Pentacles suggest?",
+        options: [
+          "Work should always take priority over reflection",
+          "Reflection should replace practical effort",
+          "Work and reflection are complementary aspects of successful development",
+          "Reflection is only necessary when projects fail"
+        ],
+        correctAnswer: 2,
+        explanation: "The Seven of Pentacles suggests that work and reflection are complementary aspects of successful development - showing that periods of active effort need to be balanced with moments of assessment to ensure that energy is being directed effectively."
+      },
+      {
+        question: "What insight about growth does the Seven of Pentacles offer?",
+        options: [
+          "Growth should always be rapid to be valuable",
+          "Meaningful growth often requires patience and careful tending",
+          "Growth is entirely unpredictable and cannot be influenced",
+          "Only material growth matters"
+        ],
+        correctAnswer: 1,
+        explanation: "The Seven of Pentacles offers the insight that meaningful growth often requires patience and careful tending - teaching that like plants, our projects, skills, and investments develop according to natural cycles that cannot always be rushed."
+      }
+    ],
+    summary: "The Seven of Pentacles represents a moment of assessment, evaluation, and patience in the development of material projects and investments. It reminds us of the importance of stepping back to consider our progress, the value of patience with slow-growing endeavors, and the need to sometimes make adjustments based on thoughtful evaluation. This card teaches us that meaningful growth and lasting results often require both dedicated effort and the wisdom to pause, reflect, and plan for long-term development rather than expecting immediate harvests.",
+    additionalResources: [
+      {
+        title: "The Psychology of Patience",
+        description: "Understanding how patience contributes to achievement and wellbeing in a culture of immediate gratification."
+      },
+      {
+        title: "Effective Progress Assessment",
+        description: "Tools and approaches for evaluating growth and development in various areas of life."
+      }
+    ]
+  },
+  {
     id: "minor-19",
     title: "The Five of Swords: Conflict and Perspective",
     description: "Examine the complex dynamics of conflict, victory at a cost, and differing perspectives in the Five of Swords.",

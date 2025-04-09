@@ -337,6 +337,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Six of Pentacles represents generosity, sharing wealth, and the balance of giving and receiving. It suggests material support flowing where it is needed.",
     element: "Earth"
+  },
+  {
+    id: "w7",
+    name: "Seven of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 7,
+    meanings: {
+      upright: ["Defense", "Perseverance", "Standing your ground", "Conviction"],
+      reversed: ["Exhaustion", "Giving up", "Overwhelmed", "Surrender"]
+    },
+    description: "The Seven of Wands represents standing your ground, defending your position, and persevering against challenges or opposition. It suggests the courage to maintain your stance despite pressure.",
+    element: "Fire"
+  },
+  {
+    id: "c7",
+    name: "Seven of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 7,
+    meanings: {
+      upright: ["Choices", "Fantasy", "Illusion", "Possibilities"],
+      reversed: ["Clarity", "Focus", "Commitment", "Reality check"]
+    },
+    description: "The Seven of Cups represents choices, fantasy, and multiple possibilities that may not all be realistic. It suggests the need to distinguish between illusion and achievable options.",
+    element: "Water"
+  },
+  {
+    id: "s7",
+    name: "Seven of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 7,
+    meanings: {
+      upright: ["Deception", "Strategy", "Sneakiness", "Mental agility"],
+      reversed: ["Confession", "Exposure", "Rethinking approach", "Coming clean"]
+    },
+    description: "The Seven of Swords represents strategic thinking, but also potential deception or taking shortcuts. It suggests employing cleverness while considering ethical implications.",
+    element: "Air"
+  },
+  {
+    id: "p7",
+    name: "Seven of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 7,
+    meanings: {
+      upright: ["Patience", "Assessment", "Investment", "Long-term view"],
+      reversed: ["Poor planning", "Lack of progress", "Impatience", "Missed opportunities"]
+    },
+    description: "The Seven of Pentacles represents assessment, patience, and the evaluation of long-term investments. It suggests the importance of reviewing progress and considering future growth.",
+    element: "Earth"
   }
 ];
 
