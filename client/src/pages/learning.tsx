@@ -151,7 +151,31 @@ export default function Learning() {
 
                 <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1">
                   {track.requiredCards.map((cardId, index) => {
-                    const card = tarotCards.find(c => c.id === cardId);
+                    // Try to find card by exact ID
+                    let card = tarotCards.find(c => c.id === cardId);
+                    
+                    // If not found, try to match major arcana name to ID
+                    if (!card && track.id === 1) {
+                      // Map beginner's journey card names to numeric IDs
+                      const majorArcanaMap: Record<string, string> = {
+                        "fool": "0", "magician": "1", "high-priestess": "2", "empress": "3", 
+                        "emperor": "4", "hierophant": "5", "lovers": "6", "chariot": "7", 
+                        "strength": "8", "hermit": "9", "wheel-of-fortune": "10", "justice": "11",
+                        "hanged-man": "12", "death": "13", "temperance": "14", "devil": "15",
+                        "tower": "16", "star": "17", "moon": "18", "sun": "19",
+                        "judgement": "20", "world": "21"
+                      };
+                      
+                      if (majorArcanaMap[cardId]) {
+                        card = tarotCards.find(c => c.id === majorArcanaMap[cardId]);
+                      }
+                    }
+                    
+                    // If still no card found, create a placeholder with the ID as name
+                    const displayCard = card || { 
+                      name: cardId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') 
+                    };
+                    
                     return (
                       <div
                         key={cardId}
@@ -180,8 +204,8 @@ export default function Learning() {
                               )}
                               <span className="text-xs font-medium">{index + 1}</span>
                             </div>
-                            <span className="text-xs text-muted-foreground truncate w-full text-center mt-1" title={card?.name}>
-                              {card?.name}
+                            <span className="text-xs text-muted-foreground truncate w-full text-center mt-1" title={displayCard.name}>
+                              {displayCard.name}
                             </span>
                           </div>
                         </div>
