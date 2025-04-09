@@ -28,7 +28,7 @@ export default function TermsAndConditions({ onAccept, disabled = false }: Terms
           <div>
             <h3 className="text-lg font-semibold mb-2">1. Introduction</h3>
             <p>
-              Welcome to Tarot Journey. This application (the "App") is operated by Tarot Journey Pty Ltd. By accessing or using the App, you agree to be bound by these Terms and Conditions (the "Terms"). Please read these Terms carefully before using the App.
+              Welcome to Tarot Journey. This application (the "App") is operated by JMRVBS Pty Ltd. By accessing or using the App, you agree to be bound by these Terms and Conditions (the "Terms"). Please read these Terms carefully before using the App.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ export default function TermsAndConditions({ onAccept, disabled = false }: Terms
               To the maximum extent permitted by law, we exclude all representations, warranties, and guarantees relating to the App and the services provided.
             </p>
             <p className="mt-2">
-              Tarot Journey Pty Ltd, its directors, employees, or affiliates will not be liable for any damages, losses, costs, or expenses of any kind arising from your use of the App, including but not limited to direct, indirect, incidental, consequential, or punitive damages.
+              JMRVBS Pty Ltd, its directors, employees, or affiliates will not be liable for any damages, losses, costs, or expenses of any kind arising from your use of the App, including but not limited to direct, indirect, incidental, consequential, or punitive damages.
             </p>
             <p className="mt-2">
               This limitation of liability applies to the fullest extent permitted by Australian law and shall apply regardless of whether we have been advised of the possibility of such damages.
@@ -179,9 +179,8 @@ export default function TermsAndConditions({ onAccept, disabled = false }: Terms
                     If you have any questions about these Terms, please contact us at:
                   </p>
                   <p className="mt-2">
-                    Tarot Journey Pty Ltd<br />
-                    Email: support@tarotjourney.com.au<br />
-                    Address: Level 4, 123 George Street, Sydney, NSW 2000
+                    JMRVBS Pty Ltd<br />
+                    Email: info@jmvirtualbusinessservices.com.au
                   </p>
                 </div>
               </AccordionContent>

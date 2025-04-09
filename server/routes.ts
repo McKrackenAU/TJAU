@@ -1271,6 +1271,62 @@ export function registerRoutes(app: Express): Server {
       }
     });
     
+    // Endpoint to cancel a subscription
+    app.post('/api/cancel-subscription', async (req, res) => {
+      try {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+
+        const user = req.user;
+        console.log("Processing subscription cancellation for user:", user.id, user.username);
+
+        if (!user.stripeSubscriptionId) {
+          return res.status(400).json({ error: "No active subscription found" });
+        }
+
+        // Retrieve the subscription to check its status
+        const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+        console.log("Retrieved subscription for cancellation:", subscription.id, "status:", subscription.status);
+
+        if (subscription.status === 'canceled') {
+          console.log("Subscription already canceled");
+          
+          // Update user record
+          await storage.updateUserSubscription(user.id, {
+            isSubscribed: false,
+            stripeSubscriptionId: ''
+          });
+          
+          return res.json({ 
+            success: true, 
+            message: "Subscription was already canceled" 
+          });
+        }
+
+        // Cancel the subscription
+        const canceledSubscription = await stripe.subscriptions.cancel(subscription.id);
+        console.log("Canceled subscription:", canceledSubscription.id);
+
+        // Update user record
+        await storage.updateUserSubscription(user.id, {
+          isSubscribed: false,
+          stripeSubscriptionId: ''
+        });
+
+        res.json({ 
+          success: true, 
+          message: "Subscription successfully canceled" 
+        });
+      } catch (error: any) {
+        console.error("Subscription cancellation error:", error);
+        res.status(500).json({ 
+          error: "Error canceling subscription", 
+          message: error.message 
+        });
+      }
+    });
+
     // Stripe webhook handler for subscription events
     app.post('/api/webhook/stripe', async (req, res) => {
       const sig = req.headers['stripe-signature'];

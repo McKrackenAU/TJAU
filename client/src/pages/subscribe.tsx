@@ -193,7 +193,7 @@ export default function Subscribe() {
           <CardHeader>
             <CardTitle>Premium Subscription</CardTitle>
             <CardDescription>
-              Subscribe to Tarot Journey Premium for unlimited readings, in-depth analysis, and exclusive content.
+              Subscribe to Tarot Journey Premium from JMRVBS Pty Ltd for unlimited readings, in-depth analysis, and exclusive content.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -201,7 +201,7 @@ export default function Subscribe() {
               <div className="flex justify-between items-baseline mb-4">
                 <h3 className="text-lg font-medium">Premium Plan</h3>
                 <div>
-                  <span className="text-2xl font-bold">$9.99</span>
+                  <span className="text-2xl font-bold">$11.11</span>
                   <span className="text-sm text-muted-foreground ml-1">/month</span>
                 </div>
               </div>

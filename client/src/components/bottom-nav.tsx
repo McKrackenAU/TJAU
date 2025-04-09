@@ -1,4 +1,4 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert } from "lucide-react";
+import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 
@@ -20,8 +20,9 @@ export default function BottomNav() {
   
   const navItems = [...baseNavItems];
   
-  // Add subscription link if user is logged in
+  // Add account-related links if user is logged in
   if (user) {
+    navItems.push({ icon: User, label: "Account", href: "/account" });
     navItems.push({ icon: CreditCard, label: "Subscribe", href: "/subscribe" });
     
     // Add admin dashboard link for admin users
