@@ -3427,9 +3427,433 @@ export const advancedSymbolismLessons: LessonContent[] = [
   }
 ];
 
+// MINOR ARCANA JOURNEY
+export const minorArcanaLessons: LessonContent[] = [
+  {
+    id: "minor-1",
+    title: "Introduction to the Minor Arcana",
+    description: "Learn about the structure and symbolism of the Minor Arcana suits.",
+    cardId: "w1",
+    sections: [
+      {
+        title: "Understanding the Minor Arcana",
+        content: `
+          <p>The Minor Arcana makes up 56 of the 78 cards in a standard tarot deck. While the Major Arcana deals with significant life events and spiritual lessons, the Minor Arcana reflects our everyday experiences, challenges, and opportunities.</p>
+          
+          <p>The Minor Arcana is divided into four suits, each representing different aspects of human experience:</p>
+          <ul>
+            <li><strong>Wands (or Staves)</strong>: Associated with energy, passion, creativity, and action</li>
+            <li><strong>Cups</strong>: Associated with emotions, relationships, intuition, and the subconscious</li>
+            <li><strong>Swords</strong>: Associated with intellect, thought, communication, and conflict</li>
+            <li><strong>Pentacles (or Coins/Disks)</strong>: Associated with material matters, work, finances, and physical reality</li>
+          </ul>
+          
+          <p>Each suit contains cards numbered Ace through Ten, plus four court cards (Page, Knight, Queen, and King), creating a total of 14 cards per suit.</p>
+        `
+      },
+      {
+        title: "The Elements and the Suits",
+        content: `
+          <p>Each suit of the Minor Arcana corresponds to one of the four classical elements, which helps us understand their overall energy and themes:</p>
+          
+          <ul>
+            <li><strong>Wands — Fire</strong>: Dynamic, passionate, creative energy</li>
+            <li><strong>Cups — Water</strong>: Flowing, emotional, intuitive energy</li>
+            <li><strong>Swords — Air</strong>: Intellectual, communicative, mental energy</li>
+            <li><strong>Pentacles — Earth</strong>: Practical, physical, material energy</li>
+          </ul>
+          
+          <p>Understanding these elemental associations helps deepen your interpretation of the cards and provides a framework for understanding how they interact with each other in readings.</p>
+        `
+      },
+      {
+        title: "The Ace of Wands",
+        content: `
+          <p>The Ace of Wands represents the pure essence of the Wands suit - the spark of creation, inspiration, and new beginnings in the realm of passion, creativity, and action.</p>
+          
+          <p>In traditional imagery, the Ace of Wands shows a hand emerging from a cloud, holding a sprouting, flowering wand. The lush landscape below suggests fertility and growth potential.</p>
+          
+          <p>Key symbols in the Ace of Wands:</p>
+          <ul>
+            <li><strong>The sprouting wand</strong>: New growth, potential, the beginning of creative endeavors</li>
+            <li><strong>Leaves on the wand</strong>: Vitality, life force, natural development</li>
+            <li><strong>The hand from the clouds</strong>: Divine inspiration, opportunity presented from the universe</li>
+            <li><strong>The lush landscape</strong>: Fertile ground for your ideas and projects to flourish</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Which element is associated with the Wands suit?",
+        options: [
+          "Water",
+          "Earth",
+          "Fire",
+          "Air"
+        ],
+        correctAnswer: 2,
+        explanation: "The Wands suit is associated with the element of Fire, which represents energy, passion, creativity, and action."
+      },
+      {
+        question: "How many cards are in each suit of the Minor Arcana?",
+        options: [
+          "10 cards",
+          "12 cards",
+          "14 cards",
+          "16 cards"
+        ],
+        correctAnswer: 2,
+        explanation: "Each suit of the Minor Arcana contains 14 cards: Ace through Ten, plus the four court cards (Page, Knight, Queen, and King)."
+      },
+      {
+        question: "What does the Ace of Wands primarily represent?",
+        options: [
+          "Completion of a creative project",
+          "Intellectual breakthrough",
+          "Emotional healing",
+          "New creative beginnings and inspiration"
+        ],
+        correctAnswer: 3,
+        explanation: "The Ace of Wands represents new beginnings in the realm of creativity, passion, and action. It symbolizes the initial spark of inspiration and the potential for growth."
+      }
+    ],
+    summary: "In this lesson, we've explored the structure and symbolism of the Minor Arcana, which makes up 56 of the 78 cards in a standard tarot deck. We've learned that the Minor Arcana is divided into four suits (Wands, Cups, Swords, and Pentacles), each associated with a classical element and representing different aspects of human experience. We've also examined the Ace of Wands, which represents new beginnings, inspiration, and potential in the realm of creativity and action.",
+    additionalResources: [
+      {
+        title: "The Four Elements in Tarot",
+        description: "A deeper exploration of how the classical elements inform tarot interpretation."
+      },
+      {
+        title: "Working with the Minor Arcana",
+        description: "Practical techniques for incorporating the Minor Arcana into your daily readings."
+      }
+    ]
+  },
+  {
+    id: "minor-2",
+    title: "The Suit of Cups: Emotions and Relationships",
+    description: "Explore the water element and the emotional world of the Cups suit.",
+    cardId: "c1",
+    sections: [
+      {
+        title: "Understanding the Cups Suit",
+        content: `
+          <p>The Cups suit (sometimes called Chalices or Hearts) represents the emotional and intuitive aspects of our lives. Associated with the element of Water, Cups cards deal with feelings, relationships, creativity, and spiritual connection.</p>
+          
+          <p>When Cups appear prominently in a reading, they often suggest:</p>
+          <ul>
+            <li>Emotional experiences and how we process them</li>
+            <li>Relationships with others and ourselves</li>
+            <li>Intuitive insights and subconscious patterns</li>
+            <li>Imagination, dreams, and creative expression</li>
+            <li>Love in its many forms - romantic, familial, platonic, self-love</li>
+          </ul>
+          
+          <p>The flowing nature of water reminds us that emotions are constantly changing. Like water, they can be gentle and nurturing or powerful and overwhelming.</p>
+        `
+      },
+      {
+        title: "The Ace of Cups",
+        content: `
+          <p>The Ace of Cups represents the pure essence of the water element - emotional beginnings, love, compassion, and creative abundance.</p>
+          
+          <p>In traditional imagery, the Ace of Cups shows a hand emerging from clouds holding an overflowing cup or chalice. Often, the cup has five streams of water flowing from it, and sometimes a white dove (representing divine love) descends toward it.</p>
+          
+          <p>Key symbols in the Ace of Cups:</p>
+          <ul>
+            <li><strong>The chalice/cup</strong>: The vessel of emotions, the heart, receptivity</li>
+            <li><strong>Overflowing water</strong>: Emotional abundance, love that cannot be contained</li>
+            <li><strong>Five streams</strong>: Connection to the five senses through which we experience emotion</li>
+            <li><strong>The dove</strong>: Divine love, peace, blessing from above</li>
+            <li><strong>The hand from clouds</strong>: Gift from the universe, divine offering</li>
+          </ul>
+          
+          <p>The Ace of Cups invites us to open ourselves to new emotional experiences, to give and receive love freely, and to tap into our intuitive and creative potential.</p>
+        `
+      },
+      {
+        title: "Water Element in Tarot",
+        content: `
+          <p>Understanding the water element deepens our interpretation of Cups cards. Water has several important qualities that mirror emotional experience:</p>
+          
+          <ul>
+            <li><strong>Flowing</strong>: Emotions naturally move and change; resisting this flow creates stagnation</li>
+            <li><strong>Reflective</strong>: Still water reflects images, just as our emotional state colors how we see ourselves and the world</li>
+            <li><strong>Connective</strong>: Water connects all it touches, as emotions connect us to others and ourselves</li>
+            <li><strong>Depth</strong>: Water can be shallow or deep, as can our emotional experiences</li>
+            <li><strong>Transformative</strong>: Water changes form (ice, liquid, steam) as emotions transform through different expressions</li>
+          </ul>
+          
+          <p>When working with Cups cards, consider which qualities of water are most present in the imagery and meaning of the card, and how that might inform your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Which element is associated with the Cups suit?",
+        options: [
+          "Fire",
+          "Earth",
+          "Air",
+          "Water"
+        ],
+        correctAnswer: 3,
+        explanation: "The Cups suit is associated with the element of Water, which represents emotions, intuition, relationships, and creativity."
+      },
+      {
+        question: "What do the streams flowing from the Ace of Cups often symbolize?",
+        options: [
+          "The five fingers of the hand",
+          "The five senses through which we experience emotion",
+          "The five stages of grief",
+          "The five elements in certain esoteric traditions"
+        ],
+        correctAnswer: 1,
+        explanation: "The five streams often flowing from the Ace of Cups are frequently interpreted as representing the five senses through which we experience and express our emotions."
+      },
+      {
+        question: "Which of these is NOT typically associated with the Cups suit?",
+        options: [
+          "Emotional healing",
+          "Logical analysis",
+          "Intuitive insights",
+          "Romantic relationships"
+        ],
+        correctAnswer: 1,
+        explanation: "Logical analysis is more associated with the Swords suit (Air element). The Cups suit primarily deals with emotions, intuition, relationships, and creativity."
+      }
+    ],
+    summary: "In this lesson, we've explored the Cups suit of the Minor Arcana, which is associated with the water element and represents our emotional life, relationships, intuition, and creativity. We've examined the Ace of Cups, which symbolizes emotional new beginnings, love, compassion, and creative potential. We've also discussed how the qualities of water—flowing, reflective, connective, depth, and transformative—provide a framework for understanding the emotional realm represented by the Cups suit.",
+    additionalResources: [
+      {
+        title: "Emotional Intelligence and Tarot",
+        description: "How working with the Cups suit can enhance your emotional awareness and intelligence."
+      },
+      {
+        title: "Water Symbolism Across Cultures",
+        description: "Exploring how different traditions understand and work with the water element."
+      }
+    ]
+  },
+  {
+    id: "minor-3",
+    title: "The Suit of Swords: Intellect and Challenge",
+    description: "Explore the air element and the mental world of the Swords suit.",
+    cardId: "s1",
+    sections: [
+      {
+        title: "Understanding the Swords Suit",
+        content: `
+          <p>The Swords suit represents the realm of the mind - our thoughts, ideas, communication, decisions, and conflicts. Associated with the element of Air, Swords cards deal with intellectual activity, clarity, challenges, and truth.</p>
+          
+          <p>When Swords appear prominently in a reading, they often suggest:</p>
+          <ul>
+            <li>Mental processes and patterns of thinking</li>
+            <li>Communication with others and ourselves</li>
+            <li>Conflict, challenges, and life lessons</li>
+            <li>Decision-making and difficult choices</li>
+            <li>Truth-seeking and clarity</li>
+          </ul>
+          
+          <p>Swords can represent both the constructive and destructive power of the mind - how our thoughts can either liberate or trap us. They remind us of the double-edged nature of intellect.</p>
+        `
+      },
+      {
+        title: "The Ace of Swords",
+        content: `
+          <p>The Ace of Swords represents the pure essence of the air element - mental clarity, breakthrough insights, truth, and new intellectual beginnings.</p>
+          
+          <p>In traditional imagery, the Ace of Swords shows a hand emerging from clouds holding an upright sword, often crowned with a wreath or crown. The sword often pierces through clouds or mist, symbolizing cutting through confusion.</p>
+          
+          <p>Key symbols in the Ace of Swords:</p>
+          <ul>
+            <li><strong>The sword</strong>: Intellect, discernment, clarity, the power to cut through illusion</li>
+            <li><strong>The crown/wreath</strong>: Victory of mind, achievement through mental effort</li>
+            <li><strong>Clouds and mist</strong>: Confusion or unclear thinking being dispersed</li>
+            <li><strong>The hand from clouds</strong>: Divine inspiration, gift of clarity from the universe</li>
+            <li><strong>The double edge</strong>: The sword's ability to both protect and harm, representing the dual nature of intellect</li>
+          </ul>
+          
+          <p>The Ace of Swords invites us to embrace mental clarity, to cut through confusion and deception, and to pursue truth even when it may be difficult.</p>
+        `
+      },
+      {
+        title: "Air Element in Tarot",
+        content: `
+          <p>Understanding the air element deepens our interpretation of Swords cards. Air has several important qualities that mirror intellectual experience:</p>
+          
+          <ul>
+            <li><strong>Invisible yet powerful</strong>: Like thoughts, we can't see air but feel its effects</li>
+            <li><strong>In constant motion</strong>: The mind is always active, thoughts continually arising</li>
+            <li><strong>Connecting</strong>: Air moves between people, like communication and shared ideas</li>
+            <li><strong>Life-sustaining</strong>: Clear thinking is essential to navigating life effectively</li>
+            <li><strong>Can be gentle or destructive</strong>: From a soft breeze to a hurricane, like the mind's capacity for both gentle insight and destructive overthinking</li>
+          </ul>
+          
+          <p>When working with Swords cards, consider which qualities of air are most present in the imagery and meaning of the card, and how that might inform your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Which element is associated with the Swords suit?",
+        options: [
+          "Fire",
+          "Earth",
+          "Air",
+          "Water"
+        ],
+        correctAnswer: 2,
+        explanation: "The Swords suit is associated with the element of Air, which represents intellect, communication, challenges, and mental clarity."
+      },
+      {
+        question: "What does the crown or wreath on the Ace of Swords typically symbolize?",
+        options: [
+          "Royal authority",
+          "Victory of mind and achievement through mental effort",
+          "The burden of knowledge",
+          "Physical prowess and strength"
+        ],
+        correctAnswer: 1,
+        explanation: "The crown or wreath often depicted on the Ace of Swords typically symbolizes victory of the mind and achievement through mental effort and clarity."
+      },
+      {
+        question: "Which of these themes is MOST associated with the Swords suit?",
+        options: [
+          "Emotional growth",
+          "Material prosperity",
+          "Mental challenges and conflict",
+          "Creative passion"
+        ],
+        correctAnswer: 2,
+        explanation: "Mental challenges and conflict are central themes of the Swords suit, which deals with the realm of the mind, difficult decisions, and intellectual clarity."
+      }
+    ],
+    summary: "In this lesson, we've explored the Swords suit of the Minor Arcana, which is associated with the air element and represents our mental life, communication, challenges, and truth-seeking. We've examined the Ace of Swords, which symbolizes mental clarity, breakthrough insights, and new intellectual beginnings. We've also discussed how the qualities of air—invisible yet powerful, in constant motion, connecting, life-sustaining, and potentially gentle or destructive—provide a framework for understanding the mental realm represented by the Swords suit.",
+    additionalResources: [
+      {
+        title: "Working with Challenging Swords Energy",
+        description: "Techniques for navigating the more difficult aspects of the mind represented in the Swords suit."
+      },
+      {
+        title: "Air Symbolism in Spiritual Traditions",
+        description: "How different cultures and spiritual systems understand and work with the air element."
+      }
+    ]
+  },
+  {
+    id: "minor-4",
+    title: "The Suit of Pentacles: Material World and Prosperity",
+    description: "Explore the earth element and the physical world of the Pentacles suit.",
+    cardId: "p1",
+    sections: [
+      {
+        title: "Understanding the Pentacles Suit",
+        content: `
+          <p>The Pentacles suit (also called Coins, Disks, or Diamonds) represents the material world - our physical well-being, finances, work, home, and environment. Associated with the element of Earth, Pentacles cards deal with practical matters, security, and manifestation in the physical realm.</p>
+          
+          <p>When Pentacles appear prominently in a reading, they often suggest:</p>
+          <ul>
+            <li>Financial and material circumstances</li>
+            <li>Work, career, and skills development</li>
+            <li>Physical health and well-being</li>
+            <li>Home, possessions, and environment</li>
+            <li>Manifestation of ideas into tangible reality</li>
+          </ul>
+          
+          <p>Pentacles remind us that spiritual growth occurs within physical reality, and that our material circumstances both reflect and influence our inner development.</p>
+        `
+      },
+      {
+        title: "The Ace of Pentacles",
+        content: `
+          <p>The Ace of Pentacles represents the pure essence of the earth element - new material beginnings, prosperity potential, and the seed of abundance.</p>
+          
+          <p>In traditional imagery, the Ace of Pentacles shows a hand emerging from clouds holding or offering a pentacle or coin. Below is often a lush garden or landscape with a path leading through it, sometimes to an archway or gateway.</p>
+          
+          <p>Key symbols in the Ace of Pentacles:</p>
+          <ul>
+            <li><strong>The pentacle/coin</strong>: Material abundance, prosperity, something of tangible value</li>
+            <li><strong>The garden landscape</strong>: Fertility, cultivation, the need to tend to what's been planted</li>
+            <li><strong>The path</strong>: Journey toward manifestation and material development</li>
+            <li><strong>The gateway/arch</strong>: Opportunity, threshold to new possibilities</li>
+            <li><strong>The hand from clouds</strong>: Divine gift, opportunity presented from the universe</li>
+          </ul>
+          
+          <p>The Ace of Pentacles invites us to recognize and cultivate new opportunities for prosperity, to value the physical world as sacred, and to begin building something of lasting material value.</p>
+        `
+      },
+      {
+        title: "Earth Element in Tarot",
+        content: `
+          <p>Understanding the earth element deepens our interpretation of Pentacles cards. Earth has several important qualities that mirror our experience of the material world:</p>
+          
+          <ul>
+            <li><strong>Solid and tangible</strong>: Providing form and substance to our experiences</li>
+            <li><strong>Nurturing</strong>: Supporting growth and providing resources for life</li>
+            <li><strong>Stable</strong>: Creating foundation, security, and reliability</li>
+            <li><strong>Fertile</strong>: Possessing potential for growth and abundance when properly tended</li>
+            <li><strong>Slow-moving</strong>: Changes in earth take time, just as material manifestation requires patience</li>
+          </ul>
+          
+          <p>When working with Pentacles cards, consider which qualities of earth are most present in the imagery and meaning of the card, and how that might inform your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Which element is associated with the Pentacles suit?",
+        options: [
+          "Fire",
+          "Earth",
+          "Air",
+          "Water"
+        ],
+        correctAnswer: 1,
+        explanation: "The Pentacles suit is associated with the element of Earth, which represents the material world, security, prosperity, and physical manifestation."
+      },
+      {
+        question: "What does the path often shown in the Ace of Pentacles typically symbolize?",
+        options: [
+          "Escape from material concerns",
+          "The journey toward manifestation and material development",
+          "Spiritual enlightenment",
+          "The need to leave possessions behind"
+        ],
+        correctAnswer: 1,
+        explanation: "The path often depicted in the Ace of Pentacles typically symbolizes the journey toward manifestation and material development - showing that prosperity requires a process and path of development."
+      },
+      {
+        question: "Which of these themes is MOST associated with the Pentacles suit?",
+        options: [
+          "Emotional relationships",
+          "Intellectual debate",
+          "Creative passion",
+          "Financial security and practical matters"
+        ],
+        correctAnswer: 3,
+        explanation: "Financial security and practical matters are central themes of the Pentacles suit, which deals with the material world, work, resources, and physical well-being."
+      }
+    ],
+    summary: "In this lesson, we've explored the Pentacles suit of the Minor Arcana, which is associated with the earth element and represents our material world, finances, work, physical health, and environment. We've examined the Ace of Pentacles, which symbolizes new material beginnings, prosperity potential, and opportunities for abundance. We've also discussed how the qualities of earth—solid, nurturing, stable, fertile, and slow-moving—provide a framework for understanding the physical realm represented by the Pentacles suit.",
+    additionalResources: [
+      {
+        title: "Sacred Relationship with Prosperity",
+        description: "Approaches to developing a healthy, spiritual relationship with money and material resources."
+      },
+      {
+        title: "Earth Wisdom in Tarot Practice",
+        description: "How to incorporate earth element teachings into practical tarot readings and daily life."
+      }
+    ]
+  }
+];
+
 // Map track IDs to their corresponding lesson sets
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
   2: intuitiveReadingLessons, // Intuitive Reading 
-  3: advancedSymbolismLessons // Advanced Symbolism
+  3: advancedSymbolismLessons, // Advanced Symbolism
+  4: minorArcanaLessons       // Minor Arcana Journey
 };
