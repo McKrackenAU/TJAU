@@ -188,7 +188,8 @@ export class DatabaseStorage implements IStorage {
   async getLearningTracks(): Promise<LearningTrack[]> {
     return db
       .select()
-      .from(learningTracks);
+      .from(learningTracks)
+      .orderBy(learningTracks.id);
   }
 
   async getLearningTrack(id: number): Promise<LearningTrack | undefined> {
