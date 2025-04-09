@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema } from "@shared/schema";
+import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema, users } from "@shared/schema";
 import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism, generateCardImage, getCardFrequency } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
 import { addDays } from "date-fns";
@@ -18,6 +18,8 @@ import { setupAuth } from "./auth";
 import Stripe from 'stripe';
 import { scrypt, randomBytes } from "crypto";
 import { promisify } from "util";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // Define cache directory path
 const CACHE_DIR = path.join(process.cwd(), '.cache');
@@ -1148,15 +1150,37 @@ export function registerRoutes(app: Express): Server {
             const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
             console.log("Retrieved existing subscription:", subscription.id, "status:", subscription.status);
             
-            // Check if it has a payment_intent
-            const clientSecret = subscription.latest_invoice?.payment_intent?.client_secret;
-            console.log("Client secret from existing subscription:", clientSecret ? "Found" : "Not found");
-
-            res.json({
-              subscriptionId: subscription.id,
-              clientSecret,
-            });
-            return;
+            // Check if this is an incomplete subscription
+            if (subscription.status === 'incomplete') {
+              console.log("Found incomplete subscription - cancelling and creating a new one");
+              // Cancel the incomplete subscription
+              await stripe.subscriptions.cancel(subscription.id);
+              console.log("Cancelled incomplete subscription:", subscription.id);
+              
+              // Clear the subscription ID from the user
+              await db
+                .update(users)
+                .set({ stripeSubscriptionId: '' })
+                .where(eq(users.id, user.id));
+              
+              console.log("Cleared subscription ID from user record");
+              // Will continue to create a new subscription
+            } else {
+              // Check if it has a payment_intent for active subscriptions
+              const clientSecret = subscription.latest_invoice?.payment_intent?.client_secret;
+              console.log("Client secret from existing subscription:", clientSecret ? "Found" : "Not found");
+              
+              if (clientSecret) {
+                res.json({
+                  subscriptionId: subscription.id,
+                  clientSecret,
+                });
+                return;
+              } else {
+                console.log("No client secret found for existing subscription, creating a new one");
+                // Will continue to create a new subscription
+              }
+            }
           } catch (subscriptionError) {
             console.error("Error retrieving existing subscription:", subscriptionError);
             // Continue to create a new subscription if retrieval fails
