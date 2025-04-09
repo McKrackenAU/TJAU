@@ -389,6 +389,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Seven of Pentacles represents assessment, patience, and the evaluation of long-term investments. It suggests the importance of reviewing progress and considering future growth.",
     element: "Earth"
+  },
+  {
+    id: "w8",
+    name: "Eight of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 8,
+    meanings: {
+      upright: ["Speed", "Action", "Movement", "Quick decisions"],
+      reversed: ["Delays", "Frustration", "Slowing down", "Obstacles"]
+    },
+    description: "The Eight of Wands represents swift action, movement, and decision-making. It suggests a time of acceleration, progress, and things coming together quickly.",
+    element: "Fire"
+  },
+  {
+    id: "c8",
+    name: "Eight of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 8,
+    meanings: {
+      upright: ["Walking away", "Abandonment", "Seeking more", "Moving on"],
+      reversed: ["Fear of change", "Clinging to the past", "Avoidance"]
+    },
+    description: "The Eight of Cups represents emotional detachment, walking away from something that no longer serves you, and seeking deeper meaning or fulfillment in life.",
+    element: "Water"
+  },
+  {
+    id: "s8",
+    name: "Eight of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 8,
+    meanings: {
+      upright: ["Restriction", "Imprisonment", "Self-victimization", "Mental traps"],
+      reversed: ["Self-acceptance", "Freedom", "New perspective"]
+    },
+    description: "The Eight of Swords represents feeling trapped, restricted, and victimized by circumstances. It suggests mental imprisonment and the inability to see solutions.",
+    element: "Air"
+  },
+  {
+    id: "p8",
+    name: "Eight of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 8,
+    meanings: {
+      upright: ["Skill development", "Craftsmanship", "Diligence", "Quality work"],
+      reversed: ["Lack of focus", "Shortcuts", "Perfectionism"]
+    },
+    description: "The Eight of Pentacles represents dedication to craftsmanship, skill development, and focused work. It suggests a time of learning, apprenticeship, and perfecting your trade.",
+    element: "Earth"
   }
 ];
 
