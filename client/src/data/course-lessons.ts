@@ -1,6 +1,6 @@
 import { LessonContent } from "@/components/lesson-content";
 
-// BEGINNER'S JOURNEY - 5 lessons
+// BEGINNER'S JOURNEY - All 22 Major Arcana cards
 export const beginnerLessons: LessonContent[] = [
   {
     id: "beginner-1",
@@ -520,6 +520,1831 @@ export const beginnerLessons: LessonContent[] = [
       {
         title: "The Balance of Structure and Flexibility",
         description: "Finding the optimal balance between order and adaptability in personal and professional contexts."
+      }
+    ]
+  },
+  {
+    id: "beginner-6",
+    title: "The Hierophant: Tradition & Spirituality",
+    description: "Explore spiritual wisdom and traditional knowledge with The Hierophant.",
+    cardId: "hierophant",
+    sections: [
+      {
+        title: "Understanding The Hierophant",
+        content: `
+          <p>The Hierophant (card 5) follows The Emperor in the Major Arcana. While The Emperor represents worldly authority and structure, The Hierophant represents spiritual authority, tradition, and established systems of belief.</p>
+          
+          <p>In traditional imagery, The Hierophant sits between two pillars, wearing triple crown and holding a staff, symbolizing his religious authority. Before him kneel two acolytes, often depicted with tonsured heads, representing the passing of spiritual knowledge.</p>
+          
+          <p>Key symbols in The Hierophant card:</p>
+          <ul>
+            <li><strong>Triple crown</strong>: spiritual authority over the three realms</li>
+            <li><strong>Two keys</strong>: keys to heaven, balance of conscious and unconscious</li>
+            <li><strong>Two pillars</strong>: duality, established traditions</li>
+            <li><strong>Hand gesture</strong>: blessing, teaching</li>
+            <li><strong>Acolytes</strong>: students, followers, initiation</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Hierophant's Message",
+        content: `
+          <p>The Hierophant carries these key messages when he appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Traditional wisdom</strong>: Valuing established knowledge and institutions</li>
+            <li><strong>Spiritual guidance</strong>: Seeking wisdom from teachers or mentors</li>
+            <li><strong>Conformity</strong>: Following established rules and social norms</li>
+            <li><strong>Education</strong>: Formal learning and structured knowledge</li>
+            <li><strong>Rituals and ceremonies</strong>: Finding meaning in established practices</li>
+            <li><strong>Moral compass</strong>: Ethical guidelines and principles</li>
+          </ul>
+          
+          <p>When The Hierophant appears, he often suggests seeking guidance from established sources, following traditional paths, or connecting with spiritual teachings.</p>
+        `
+      },
+      {
+        title: "The Hierophant in Practice",
+        content: `
+          <p>Ways to connect with The Hierophant energy:</p>
+          
+          <ol>
+            <li><strong>Seek mentorship</strong>: Connect with teachers who can guide your path</li>
+            <li><strong>Study traditions</strong>: Explore established wisdom and practices</li>
+            <li><strong>Create meaningful rituals</strong>: Establish routines that have personal significance</li>
+            <li><strong>Join communities</strong>: Connect with groups that share your values</li>
+            <li><strong>Balance conformity and individuality</strong>: Honor tradition while maintaining personal truth</li>
+          </ol>
+          
+          <p>The Hierophant reminds us that while personal discovery is valuable, there is also wisdom in established knowledge and traditions that have stood the test of time.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of authority does The Hierophant primarily represent?",
+        options: [
+          "Military authority",
+          "Spiritual or religious authority",
+          "Political authority",
+          "Financial authority"
+        ],
+        correctAnswer: 1,
+        explanation: "The Hierophant represents spiritual or religious authority, tradition, and established belief systems."
+      },
+      {
+        question: "Which of these is NOT typically associated with The Hierophant?",
+        options: [
+          "Education and learning",
+          "Rebellion and breaking traditions",
+          "Established institutions",
+          "Spiritual guidance"
+        ],
+        correctAnswer: 1,
+        explanation: "The Hierophant represents conformity and tradition rather than rebellion or breaking away from established norms."
+      },
+      {
+        question: "How does The Hierophant relate to The High Priestess?",
+        options: [
+          "They represent opposing forces",
+          "The Hierophant represents outer/formal spiritual teachings while The High Priestess represents inner/intuitive wisdom",
+          "They represent the same energy in different forms",
+          "They are unrelated"
+        ],
+        correctAnswer: 1,
+        explanation: "While both cards deal with spiritual wisdom, The Hierophant represents formalized, external spiritual knowledge and institutions, while The High Priestess represents intuitive, internal spiritual knowing."
+      }
+    ],
+    summary: "In this lesson, we've explored The Hierophant, the embodiment of spiritual authority, tradition and established wisdom. We've examined his rich symbolism and the ways he represents conventional knowledge and conformity. The Hierophant reminds us that there is value in established traditions, formal education, and seeking guidance from those who have walked the path before us.",
+    additionalResources: [
+      {
+        title: "Spiritual Traditions Around the World",
+        description: "An exploration of various spiritual practices and what they share in common."
+      },
+      {
+        title: "Creating Personal Rituals",
+        description: "How to develop meaningful rituals that honor both tradition and personal meaning."
+      }
+    ]
+  },
+  {
+    id: "beginner-7",
+    title: "The Lovers: Choice & Harmony",
+    description: "Discover the deeper meaning of The Lovers card beyond romance.",
+    cardId: "lovers",
+    sections: [
+      {
+        title: "The Lovers: Beyond Romance",
+        content: `
+          <p>The Lovers (card 6) follows The Hierophant in the Major Arcana. While often associated with romantic relationships, The Lovers represents much more – it symbolizes choices, alignment of values, and integration of dualities.</p>
+          
+          <p>In traditional Rider-Waite imagery, The Lovers card shows a naked man and woman standing beneath an angel. Behind them are two trees (or a tree and mountains in some decks), representing duality. Above them, an angel or sun symbolizes divine blessing.</p>
+          
+          <p>Key symbols in The Lovers card:</p>
+          <ul>
+            <li><strong>The angel/sun</strong>: divine guidance, higher consciousness</li>
+            <li><strong>The man and woman</strong>: duality, masculine and feminine energies</li>
+            <li><strong>Nakedness</strong>: vulnerability, authenticity, truth</li>
+            <li><strong>The trees</strong>: knowledge, duality, choices (often referencing the Garden of Eden)</li>
+            <li><strong>Mountain</strong>: challenges, the subconscious</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Message of The Lovers",
+        content: `
+          <p>The Lovers card carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Choice</strong>: Making significant decisions, often between two paths</li>
+            <li><strong>Values alignment</strong>: Ensuring actions match personal values</li>
+            <li><strong>Partnerships</strong>: Romantic relationships, but also business partnerships and friendships</li>
+            <li><strong>Integration</strong>: Unifying different aspects of self</li>
+            <li><strong>Harmony</strong>: Balance between opposing forces</li>
+            <li><strong>Authenticity</strong>: Being true to oneself in relationships</li>
+          </ul>
+          
+          <p>When The Lovers appears, it often suggests facing an important choice, aligning with your true values, or exploring meaningful relationships that reflect your authentic self.</p>
+        `
+      },
+      {
+        title: "Working with The Lovers Energy",
+        content: `
+          <p>Ways to connect with The Lovers energy in your life:</p>
+          
+          <ol>
+            <li><strong>Examine your values</strong>: Reflect on what truly matters to you</li>
+            <li><strong>Evaluate alignment</strong>: Consider if your choices reflect your values</li>
+            <li><strong>Embrace authenticity</strong>: Allow yourself to be vulnerable and true</li>
+            <li><strong>Seek harmony</strong>: Look for balance between competing aspects of yourself</li>
+            <li><strong>Make conscious choices</strong>: When at a crossroads, choose consciously rather than by default</li>
+            <li><strong>Honor relationships</strong>: Recognize the sacred nature of deep connections</li>
+          </ol>
+          
+          <p>The Lovers reminds us that our choices define us, and that alignment between our values and actions creates harmony and authenticity in our lives.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Beyond romantic love, what major theme does The Lovers card represent?",
+        options: [
+          "Financial decisions",
+          "Career advancement",
+          "Significant life choices and alignment with values",
+          "Family disputes"
+        ],
+        correctAnswer: 2,
+        explanation: "While The Lovers can represent romance, it more broadly symbolizes important life choices and aligning your actions with your true values."
+      },
+      {
+        question: "Which astrological sign is associated with The Lovers?",
+        options: [
+          "Libra",
+          "Gemini",
+          "Taurus",
+          "Cancer"
+        ],
+        correctAnswer: 1,
+        explanation: "The Lovers card is associated with Gemini, which represents duality, communication, and choices."
+      },
+      {
+        question: "In what way does The Lovers card follow thematically from The Hierophant?",
+        options: [
+          "It doesn't - they represent opposing forces",
+          "The Hierophant represents societal rules, while The Lovers represents personal choice",
+          "They both represent different types of relationships",
+          "The Hierophant represents spiritual authority, while The Lovers represents romantic authority"
+        ],
+        correctAnswer: 1,
+        explanation: "The Hierophant represents following established traditions and societal rules, while The Lovers represents making personal choices based on your own values."
+      }
+    ],
+    summary: "In this lesson, we've explored The Lovers, a card that goes far beyond romantic relationships to represent significant choices, alignment with our values, and the integration of opposing aspects of ourselves. The Lovers invites us to make conscious choices that reflect our authentic selves and to seek harmony between competing aspects of our nature.",
+    additionalResources: [
+      {
+        title: "Decision-Making Techniques",
+        description: "Tools for making important life decisions that align with your core values."
+      },
+      {
+        title: "The Psychology of Choice",
+        description: "How our choices shape our identity and life path."
+      }
+    ]
+  },
+  {
+    id: "beginner-8",
+    title: "The Chariot: Will & Victory",
+    description: "Explore determination, willpower, and triumph with The Chariot.",
+    cardId: "chariot",
+    sections: [
+      {
+        title: "Understanding The Chariot",
+        content: `
+          <p>The Chariot (card 7) follows The Lovers in the Major Arcana. While The Lovers represents choice and alignment, The Chariot represents willpower, determination, and the victory that comes from harnessing opposing forces.</p>
+          
+          <p>In traditional imagery, The Chariot shows a regal figure standing in a chariot drawn by two sphinxes or horses (often one black and one white). The charioteer holds no reins but controls the creatures through willpower alone.</p>
+          
+          <p>Key symbols in The Chariot card:</p>
+          <ul>
+            <li><strong>The charioteer</strong>: the self, willpower, control</li>
+            <li><strong>The chariot</strong>: vehicle of achievement, protection</li>
+            <li><strong>Black and white sphinxes/horses</strong>: opposing forces, duality</li>
+            <li><strong>Armor</strong>: protection, preparation</li>
+            <li><strong>Crown/stars</strong>: victory, divine guidance</li>
+            <li><strong>Lack of reins</strong>: control through will rather than force</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Chariot's Message",
+        content: `
+          <p>The Chariot carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Willpower</strong>: Controlling opposing forces through determination</li>
+            <li><strong>Victory</strong>: Overcoming obstacles and achieving success</li>
+            <li><strong>Direction</strong>: Moving forward with purpose and conviction</li>
+            <li><strong>Self-discipline</strong>: Mastering impulses and staying focused</li>
+            <li><strong>Conflict resolution</strong>: Balancing opposing forces or viewpoints</li>
+            <li><strong>Inner strength</strong>: Harnessing personal power</li>
+            <li><strong>Journey</strong>: Movement toward a goal, physical or metaphorical travel</li>
+          </ul>
+          
+          <p>When The Chariot appears, it often suggests victory through willpower, the need to harness opposing forces in your life, or a journey (literal or figurative) that requires determination.</p>
+        `
+      },
+      {
+        title: "Embodying The Chariot",
+        content: `
+          <p>Ways to connect with The Chariot energy:</p>
+          
+          <ol>
+            <li><strong>Develop self-discipline</strong>: Create structures to support your goals</li>
+            <li><strong>Harness opposing forces</strong>: Find ways to make conflicting aspects of yourself work together</li>
+            <li><strong>Focus on your destination</strong>: Maintain clarity about your goals</li>
+            <li><strong>Balance control</strong>: Learn when to assert control and when to allow things to flow</li>
+            <li><strong>Prepare for your journey</strong>: Gather what you need for success</li>
+            <li><strong>Cultivate determination</strong>: Practice perseverance and resilience</li>
+          </ol>
+          
+          <p>The Chariot reminds us that true victory comes not from forcing our will upon others, but from mastering ourselves and directing our energy with purpose and focus.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of The Chariot card?",
+        options: [
+          "Romantic relationships",
+          "Financial success",
+          "Victory through willpower and determination",
+          "Spiritual enlightenment"
+        ],
+        correctAnswer: 2,
+        explanation: "The Chariot primarily represents victory through willpower, determination, and the ability to control opposing forces."
+      },
+      {
+        question: "What is significant about how the charioteer controls the sphinxes/horses?",
+        options: [
+          "They are controlled by whips",
+          "They are controlled by reins",
+          "They are controlled by fear",
+          "They are controlled by willpower alone (no reins)"
+        ],
+        correctAnswer: 3,
+        explanation: "The charioteer typically has no physical means of control (no reins), symbolizing mastery through willpower rather than force."
+      },
+      {
+        question: "How does The Chariot follow thematically from The Lovers?",
+        options: [
+          "It doesn't - they represent unrelated concepts",
+          "The Lovers represents choosing a path, while The Chariot represents moving forward on that path with determination",
+          "The Lovers represents relationships, while The Chariot represents leaving relationships",
+          "They represent the same concept in different contexts"
+        ],
+        correctAnswer: 1,
+        explanation: "The Lovers represents making a choice or decision about which path to take, while The Chariot represents moving forward on that chosen path with determination and willpower."
+      }
+    ],
+    summary: "In this lesson, we've explored The Chariot, the embodiment of willpower, determination, and victory through self-mastery. We've examined how The Chariot represents our ability to harness opposing forces and direct them toward our goals, not through force but through inner strength and focus. The Chariot reminds us that true victory comes from within, through discipline and clarity of purpose.",
+    additionalResources: [
+      {
+        title: "Building Self-Discipline",
+        description: "Practical techniques for developing willpower and determination."
+      },
+      {
+        title: "The Hero's Journey",
+        description: "How The Chariot relates to the archetypal journey of personal transformation."
+      }
+    ]
+  },
+  {
+    id: "beginner-9",
+    title: "Strength: Inner Power & Compassion",
+    description: "Learn about inner strength, patience and gentle power with the Strength card.",
+    cardId: "strength",
+    sections: [
+      {
+        title: "Understanding Strength",
+        content: `
+          <p>The Strength card (card 8 in most modern decks, though 11 in some traditional decks) represents inner strength, patience, and gentle power rather than brute force.</p>
+          
+          <p>In traditional imagery, Strength shows a woman calmly closing (or opening) the mouth of a lion. She does this not through physical force, but through inner power, gentleness, and compassion. Often, an infinity symbol (∞) hovers above her head, similar to The Magician.</p>
+          
+          <p>Key symbols in the Strength card:</p>
+          <ul>
+            <li><strong>The woman</strong>: inner strength, gentle control, compassion</li>
+            <li><strong>The lion</strong>: raw instincts, passions, primal energy</li>
+            <li><strong>Infinity symbol</strong>: endless spiritual power, mastery</li>
+            <li><strong>White dress</strong>: purity of intention, spiritual strength</li>
+            <li><strong>Flowers</strong>: gentleness, cultivation of nature</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Message of Strength",
+        content: `
+          <p>The Strength card carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Inner strength</strong>: Power that comes from within rather than physical force</li>
+            <li><strong>Patience</strong>: Gentle persistence rather than forceful action</li>
+            <li><strong>Courage</strong>: Facing fears and challenges with calmness</li>
+            <li><strong>Compassion</strong>: Approaching difficulties with understanding and love</li>
+            <li><strong>Self-control</strong>: Mastering impulses and emotions</li>
+            <li><strong>Persuasion</strong>: Influencing through gentleness rather than domination</li>
+          </ul>
+          
+          <p>When Strength appears, it often suggests approaching challenges with patience and inner fortitude rather than aggression or force.</p>
+        `
+      },
+      {
+        title: "Embodying Strength",
+        content: `
+          <p>Ways to connect with the Strength energy in your life:</p>
+          
+          <ol>
+            <li><strong>Practice patience</strong>: Develop the ability to wait for the right moment</li>
+            <li><strong>Cultivate compassion</strong>: Approach difficulties with understanding</li>
+            <li><strong>Master impulses</strong>: Work with rather than against your instinctual nature</li>
+            <li><strong>Build resilience</strong>: Develop the ability to endure challenges</li>
+            <li><strong>Choose gentle influence</strong>: Persuade rather than force</li>
+            <li><strong>Face fears</strong>: Approach what frightens you with courage</li>
+          </ol>
+          
+          <p>Strength reminds us that true power often lies in gentleness, patience, and compassion rather than force or aggression. It invites us to master our own nature rather than trying to dominate others or circumstances.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of strength does the Strength card primarily represent?",
+        options: [
+          "Physical strength and power",
+          "Military might",
+          "Inner strength, patience, and gentle persuasion",
+          "Financial strength"
+        ],
+        correctAnswer: 2,
+        explanation: "The Strength card represents inner strength, patience, and the ability to influence through gentleness rather than brute force."
+      },
+      {
+        question: "What does the lion represent in the Strength card?",
+        options: [
+          "Danger and threats",
+          "Raw instincts and passions that need to be mastered",
+          "Power and dominance",
+          "Courage and bravery"
+        ],
+        correctAnswer: 1,
+        explanation: "The lion represents our raw instincts, passions, and primal energies that need to be mastered through compassion rather than suppressed through force."
+      },
+      {
+        question: "How does Strength differ from The Chariot in its approach to control?",
+        options: [
+          "They represent the same type of control",
+          "The Chariot represents control through willpower, while Strength represents control through gentleness and compassion",
+          "Strength represents external control, while The Chariot represents self-control",
+          "The Chariot represents movement, while Strength represents stillness"
+        ],
+        correctAnswer: 1,
+        explanation: "While both cards deal with mastery, The Chariot represents control through willpower and determination, while Strength represents control through gentleness, patience, and compassion."
+      }
+    ],
+    summary: "In this lesson, we've explored the Strength card, which represents inner power, patience, and gentle persuasion rather than brute force. The woman taming the lion symbolizes our ability to master our own primal nature through compassion rather than suppression. Strength reminds us that true power often comes through gentleness, persistence, and understanding rather than domination.",
+    additionalResources: [
+      {
+        title: "The Power of Compassion",
+        description: "How compassionate approaches can be more effective than forceful ones."
+      },
+      {
+        title: "Working with Your Shadow",
+        description: "Techniques for integrating rather than suppressing challenging aspects of yourself."
+      }
+    ]
+  },
+  {
+    id: "beginner-10",
+    title: "The Hermit: Solitude & Inner Guidance",
+    description: "Explore introspection, inner wisdom, and spiritual seeking with The Hermit.",
+    cardId: "hermit",
+    sections: [
+      {
+        title: "Meeting The Hermit",
+        content: `
+          <p>The Hermit (card 9) represents solitude, introspection, inner guidance, and the search for deeper wisdom. Following the mastery of inner strength in the previous card, The Hermit turns inward to find spiritual illumination.</p>
+          
+          <p>In traditional imagery, The Hermit is depicted as an old man standing alone on a mountain peak. He holds a lantern with a six-pointed star (representing wisdom) and a staff (representing authority and support). His gray robe suggests neutrality and wisdom.</p>
+          
+          <p>Key symbols in The Hermit card:</p>
+          <ul>
+            <li><strong>The lantern</strong>: inner light, wisdom, illumination</li>
+            <li><strong>The staff</strong>: support, authority, experience</li>
+            <li><strong>Mountain peak</strong>: spiritual achievement, perspective, isolation</li>
+            <li><strong>Gray robe</strong>: neutrality, wisdom, renunciation</li>
+            <li><strong>Solitude</strong>: inner journey, self-sufficiency</li>
+            <li><strong>Age</strong>: experience, wisdom gained over time</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Hermit's Message",
+        content: `
+          <p>The Hermit carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Introspection</strong>: Looking within for answers</li>
+            <li><strong>Inner guidance</strong>: Trusting your inner light</li>
+            <li><strong>Solitude</strong>: Taking time alone for reflection</li>
+            <li><strong>Spiritual seeking</strong>: The search for deeper truth</li>
+            <li><strong>Patience</strong>: Allowing wisdom to unfold naturally</li>
+            <li><strong>Mentorship</strong>: Seeking guidance or becoming a guide for others</li>
+          </ul>
+          
+          <p>When The Hermit appears, it often suggests a time for withdrawal, reflection, and inner searching. It may indicate a need for solitude or a period of spiritual questioning and growth.</p>
+        `
+      },
+      {
+        title: "Embodying The Hermit",
+        content: `
+          <p>Ways to connect with The Hermit energy in your life:</p>
+          
+          <ol>
+            <li><strong>Create solitude</strong>: Make time for quiet reflection away from distractions</li>
+            <li><strong>Develop inner listening</strong>: Practice meditation or contemplation</li>
+            <li><strong>Seek wisdom</strong>: Pursue knowledge that has depth and meaning</li>
+            <li><strong>Be patient</strong>: Allow insights to emerge naturally rather than forcing them</li>
+            <li><strong>Simplify</strong>: Remove unnecessary complications from your life</li>
+            <li><strong>Find higher ground</strong>: Gain perspective by stepping back from situations</li>
+            <li><strong>Share your light</strong>: Offer guidance without imposing your views</li>
+          </ol>
+          
+          <p>The Hermit reminds us that there is profound wisdom to be found in solitude and that sometimes we need to step back from the noise of daily life to hear our inner voice.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary purpose of the lantern in The Hermit card?",
+        options: [
+          "To find the way in darkness",
+          "To represent intellectual knowledge",
+          "To symbolize inner wisdom that guides oneself and others",
+          "To ward off danger"
+        ],
+        correctAnswer: 2,
+        explanation: "The lantern represents inner wisdom and illumination - the light that guides both the Hermit on his own path and that he holds up to guide others."
+      },
+      {
+        question: "Which of these is NOT typically associated with The Hermit?",
+        options: [
+          "Introspection and solitude",
+          "Social gathering and community",
+          "Spiritual seeking",
+          "Inner guidance"
+        ],
+        correctAnswer: 1,
+        explanation: "The Hermit represents withdrawal and solitude, not social gathering and community."
+      },
+      {
+        question: "How does The Hermit relate to the preceding card (Strength)?",
+        options: [
+          "They represent opposing energies",
+          "They represent the same energy in different contexts",
+          "After mastering inner strength, one turns inward for deeper wisdom",
+          "They are unrelated"
+        ],
+        correctAnswer: 2,
+        explanation: "After mastering one's inner nature through the gentle strength of the previous card, The Hermit represents turning inward to find deeper wisdom and spiritual illumination."
+      }
+    ],
+    summary: "In this lesson, we've explored The Hermit, who represents solitude, introspection, and the search for inner wisdom. We've examined the symbolism of the lantern, staff, and mountain, which represent illumination, support, and spiritual perspective. The Hermit reminds us of the value of solitude and quiet reflection, and that wisdom often comes from within when we take time to listen to our inner voice.",
+    additionalResources: [
+      {
+        title: "Meditation Practices",
+        description: "Simple techniques for developing inner listening and stillness."
+      },
+      {
+        title: "The Value of Solitude",
+        description: "Understanding the psychological and spiritual benefits of time alone."
+      }
+    ]
+  },
+  {
+    id: "beginner-11",
+    title: "Wheel of Fortune: Cycles & Destiny",
+    description: "Understand cycles, karma, and destiny with the Wheel of Fortune.",
+    cardId: "wheel-of-fortune",
+    sections: [
+      {
+        title: "The Wheel of Fortune: Cosmic Cycles",
+        content: `
+          <p>The Wheel of Fortune (card 10) represents cycles, destiny, karma, and the ever-changing nature of life. Following the inner wisdom of The Hermit, The Wheel reminds us that everything is in constant motion and change.</p>
+          
+          <p>In traditional imagery, The Wheel of Fortune shows a wheel with various symbols and figures. Often, mystical creatures (a sphinx, an angel, an eagle, a lion) are positioned around the wheel, representing stability amid change. Hebrew letters YHVH (the name of God) may appear, along with alchemical symbols for the elements.</p>
+          
+          <p>Key symbols in The Wheel of Fortune card:</p>
+          <ul>
+            <li><strong>The wheel</strong>: cycles, change, fortune, destiny</li>
+            <li><strong>The sphinx</strong>: wisdom, balance atop the wheel</li>
+            <li><strong>The creatures</strong>: the fixed signs of the zodiac, stability amid change</li>
+            <li><strong>Hebrew letters</strong>: divine order behind apparent chaos</li>
+            <li><strong>Egyptian figures</strong>: rising and falling fortunes</li>
+            <li><strong>Center of wheel</strong>: stillness amid motion</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Wheel's Message",
+        content: `
+          <p>The Wheel of Fortune carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Change</strong>: Life is in constant motion</li>
+            <li><strong>Cycles</strong>: What goes around comes around</li>
+            <li><strong>Destiny</strong>: Some events may be fated or part of a larger pattern</li>
+            <li><strong>Karma</strong>: Actions have consequences that return</li>
+            <li><strong>Opportunity</strong>: Being ready when fortune favors you</li>
+            <li><strong>Adaptability</strong>: Finding stability amid change</li>
+            <li><strong>Perspective</strong>: Seeing the bigger picture in life events</li>
+          </ul>
+          
+          <p>When The Wheel of Fortune appears, it often suggests that significant changes are occurring or imminent. It reminds us that both good and challenging times are temporary, and that there is often a larger pattern or purpose at work.</p>
+        `
+      },
+      {
+        title: "Working with The Wheel",
+        content: `
+          <p>Ways to connect with The Wheel of Fortune energy:</p>
+          
+          <ol>
+            <li><strong>Embrace change</strong>: Recognize that change is the only constant</li>
+            <li><strong>Find the center</strong>: Cultivate inner stability amid external changes</li>
+            <li><strong>Notice patterns</strong>: Look for recurring cycles in your life</li>
+            <li><strong>Accept timing</strong>: Recognize when to act and when to wait</li>
+            <li><strong>Consider karma</strong>: Be mindful that actions have consequences</li>
+            <li><strong>Trust the process</strong>: Recognize that challenges may serve a purpose</li>
+            <li><strong>Maintain perspective</strong>: Remember that both good and difficult times pass</li>
+          </ol>
+          
+          <p>The Wheel of Fortune reminds us that while we cannot control all external circumstances, we can choose how we respond to the turning of the wheel in our lives.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the central theme of The Wheel of Fortune?",
+        options: [
+          "Gambling and taking risks",
+          "Cycles, change, and the ups and downs of life",
+          "Financial fortune",
+          "Predicting the future"
+        ],
+        correctAnswer: 1,
+        explanation: "The Wheel of Fortune represents the cyclical nature of life, the inevitability of change, and the ups and downs of fortune."
+      },
+      {
+        question: "What does the sphinx atop the wheel typically represent?",
+        options: [
+          "Egyptian mythology",
+          "Riddles and mysteries",
+          "Wisdom and maintaining balance amid change",
+          "The dangers of pride"
+        ],
+        correctAnswer: 2,
+        explanation: "The sphinx at the top of the wheel represents wisdom and the ability to maintain balance and perspective amid life's changes."
+      },
+      {
+        question: "How might The Wheel of Fortune suggest we approach change?",
+        options: [
+          "By trying to control all outcomes",
+          "By resisting change as much as possible",
+          "By finding inner stability while adapting to external changes",
+          "By becoming completely passive"
+        ],
+        correctAnswer: 2,
+        explanation: "The Wheel suggests finding inner stability (the hub of the wheel) while adapting to the inevitable changes of life (the turning of the wheel)."
+      }
+    ],
+    summary: "In this lesson, we've explored The Wheel of Fortune, which represents the cyclical nature of life, destiny, karma, and the inevitability of change. We've examined the rich symbolism of the wheel and its surrounding figures, which remind us of the cosmic order underlying apparent chaos. The Wheel encourages us to find our center amidst life's changes and to recognize that both good and challenging times are part of the greater cycle.",
+    additionalResources: [
+      {
+        title: "Understanding Life Cycles",
+        description: "How to recognize and work with the natural cycles in your life."
+      },
+      {
+        title: "Finding Stability in Change",
+        description: "Techniques for maintaining inner balance during times of transition."
+      }
+    ]
+  },
+  {
+    id: "beginner-12",
+    title: "Justice: Balance & Truth",
+    description: "Explore fairness, truth, and karmic balance with the Justice card.",
+    cardId: "justice",
+    sections: [
+      {
+        title: "Understanding Justice",
+        content: `
+          <p>Justice (card 11 in most modern decks, though 8 in some traditional decks) represents fairness, truth, law, and karmic balance. Following the cycles of The Wheel of Fortune, Justice reminds us that our actions have consequences.</p>
+          
+          <p>In traditional imagery, Justice is depicted as a figure (often female) seated between two pillars, holding scales in one hand and a sword in the other. She wears a crown or headpiece, symbolizing authority, and often a red robe, representing action.</p>
+          
+          <p>Key symbols in the Justice card:</p>
+          <ul>
+            <li><strong>The scales</strong>: balance, fairness, cause and effect</li>
+            <li><strong>The sword</strong>: truth, clarity, impartial judgment</li>
+            <li><strong>The crown</strong>: authority, wisdom</li>
+            <li><strong>The pillars</strong>: structure, law, balance</li>
+            <li><strong>Upright posture</strong>: impartiality, fairness</li>
+          </ul>
+        `
+      },
+      {
+        title: "Justice's Message",
+        content: `
+          <p>Justice carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Balance</strong>: Finding equilibrium in life situations</li>
+            <li><strong>Truth</strong>: Seeing clearly and honestly</li>
+            <li><strong>Fairness</strong>: Acting with impartiality</li>
+            <li><strong>Cause and effect</strong>: Recognizing that actions have consequences</li>
+            <li><strong>Legal matters</strong>: Issues involving the law or formal agreements</li>
+            <li><strong>Accountability</strong>: Taking responsibility for your actions</li>
+            <li><strong>Karma</strong>: Universal balance being restored</li>
+          </ul>
+          
+          <p>When Justice appears, it often suggests a time for truth-telling, fair decisions, or taking responsibility. It may indicate legal matters or situations where balance needs to be restored.</p>
+        `
+      },
+      {
+        title: "Embodying Justice",
+        content: `
+          <p>Ways to connect with Justice energy in your life:</p>
+          
+          <ol>
+            <li><strong>Seek truth</strong>: Be honest with yourself and others</li>
+            <li><strong>Consider consequences</strong>: Recognize the effects of your choices</li>
+            <li><strong>Practice fairness</strong>: Treat others impartially</li>
+            <li><strong>Take responsibility</strong>: Acknowledge your role in situations</li>
+            <li><strong>Balance giving and receiving</strong>: Ensure fair exchanges in relationships</li>
+            <li><strong>Make clear decisions</strong>: Cut through confusion with logic</li>
+            <li><strong>Restore balance</strong>: Address situations where fairness is lacking</li>
+          </ol>
+          
+          <p>Justice reminds us that truth and fairness are essential principles, and that we must be willing to face the consequences of our actions with integrity and accountability.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What do the scales in the Justice card represent?",
+        options: [
+          "Weighing pros and cons before making decisions",
+          "Balance, fairness, and karmic equilibrium",
+          "Financial matters",
+          "The legal system"
+        ],
+        correctAnswer: 1,
+        explanation: "The scales represent balance, fairness, and the universal principle that actions have consequences (karma)."
+      },
+      {
+        question: "What does the sword in the Justice card symbolize?",
+        options: [
+          "Punishment and retribution",
+          "War and conflict",
+          "Protection and defense",
+          "Truth, clarity, and impartial judgment"
+        ],
+        correctAnswer: 3,
+        explanation: "The sword symbolizes truth, clarity, and the ability to cut through confusion to make fair and impartial judgments."
+      },
+      {
+        question: "How does Justice relate to The Wheel of Fortune that precedes it?",
+        options: [
+          "They represent opposing forces",
+          "The Wheel shows that life changes, while Justice shows that our actions within those changes have consequences",
+          "Justice punishes those who try to control the Wheel",
+          "They are unrelated concepts"
+        ],
+        correctAnswer: 1,
+        explanation: "While The Wheel of Fortune shows that life is filled with cycles and changes, Justice reminds us that within those cycles, our actions have consequences and there is a universal principle of balance at work."
+      }
+    ],
+    summary: "In this lesson, we've explored the Justice card, which represents balance, truth, fairness, and accountability. We've examined the symbolism of the scales and sword, representing balance and truth-seeking. Justice reminds us that our actions have consequences, that truth matters, and that maintaining balance in our relationships and decisions leads to integrity and fairness.",
+    additionalResources: [
+      {
+        title: "Ethical Decision Making",
+        description: "Frameworks for making fair and balanced choices."
+      },
+      {
+        title: "Restorative Justice",
+        description: "Understanding how balance can be restored in relationships and communities."
+      }
+    ]
+  },
+  {
+    id: "beginner-13",
+    title: "The Hanged Man: Surrender & New Perspective",
+    description: "Learn about surrender, letting go, and gaining new perspectives with The Hanged Man.",
+    cardId: "hanged-man",
+    sections: [
+      {
+        title: "Meeting The Hanged Man",
+        content: `
+          <p>The Hanged Man (card 12) represents surrender, new perspectives, suspension, and spiritual insight. Following Justice's emphasis on cause and effect, The Hanged Man shows that sometimes we must let go of control to gain wisdom.</p>
+          
+          <p>In traditional imagery, The Hanged Man shows a figure suspended upside-down from a T-shaped structure, often with his legs forming a figure 4. Despite his seemingly uncomfortable position, his face is peaceful, often with a halo around his head.</p>
+          
+          <p>Key symbols in The Hanged Man card:</p>
+          <ul>
+            <li><strong>Inverted position</strong>: new perspective, seeing things differently</li>
+            <li><strong>Serene expression</strong>: willing surrender, acceptance</li>
+            <li><strong>Halo</strong>: spiritual insight, enlightenment</li>
+            <li><strong>Bound leg</strong>: voluntary sacrifice, submission</li>
+            <li><strong>Free leg</strong>: balance of surrender and freedom</li>
+            <li><strong>Tree/T-shaped structure</strong>: connection between worlds</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Hanged Man's Message",
+        content: `
+          <p>The Hanged Man carries these key messages when he appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Surrender</strong>: Letting go of control</li>
+            <li><strong>New perspective</strong>: Seeing situations from a different angle</li>
+            <li><strong>Pause</strong>: A period of suspension or waiting</li>
+            <li><strong>Sacrifice</strong>: Giving up something for greater wisdom</li>
+            <li><strong>Paradox</strong>: Gaining by letting go</li>
+            <li><strong>Liminality</strong>: Being between worlds or states</li>
+            <li><strong>Spiritual insight</strong>: Wisdom gained through surrender</li>
+          </ul>
+          
+          <p>When The Hanged Man appears, it often suggests a time for surrendering control, gaining a new perspective, or voluntarily putting something on hold. It may indicate a period of productive waiting or a needed pause.</p>
+        `
+      },
+      {
+        title: "Embodying The Hanged Man",
+        content: `
+          <p>Ways to connect with The Hanged Man energy:</p>
+          
+          <ol>
+            <li><strong>Practice surrender</strong>: Let go of the need to control outcomes</li>
+            <li><strong>Change perspective</strong>: Look at situations from a different angle</li>
+            <li><strong>Embrace paradox</strong>: Recognize that sometimes we gain by giving up</li>
+            <li><strong>Allow pauses</strong>: See value in periods of waiting or suspension</li>
+            <li><strong>Make willing sacrifices</strong>: Give up something in service of a higher good</li>
+            <li><strong>Practice receptivity</strong>: Be open to insights and guidance</li>
+            <li><strong>Find meaning in challenges</strong>: See difficult situations as opportunities for growth</li>
+          </ol>
+          
+          <p>The Hanged Man reminds us that sometimes we need to let go of our usual ways of thinking and being to gain new insights and wisdom. By surrendering control, we may paradoxically gain what we truly need.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of The Hanged Man?",
+        options: [
+          "Punishment and suffering",
+          "Surrender, new perspective, and willing sacrifice",
+          "Failure and defeat",
+          "Physical flexibility"
+        ],
+        correctAnswer: 1,
+        explanation: "The Hanged Man represents willing surrender, gaining new perspectives, and the wisdom that comes through letting go."
+      },
+      {
+        question: "What does the peaceful expression on The Hanged Man's face symbolize?",
+        options: [
+          "Resignation to fate",
+          "Numbness from pain",
+          "Willing surrender and acceptance",
+          "Relief from stress"
+        ],
+        correctAnswer: 2,
+        explanation: "His peaceful expression shows that his surrender is willing and that wisdom can be found in acceptance rather than resistance."
+      },
+      {
+        question: "How does The Hanged Man relate to conventional approaches to problem-solving?",
+        options: [
+          "It reinforces conventional approaches",
+          "It suggests taking direct action",
+          "It suggests that sometimes we need to let go of conventional approaches to gain new insights",
+          "It has no relation to problem-solving"
+        ],
+        correctAnswer: 2,
+        explanation: "The Hanged Man suggests that sometimes we need to let go of our usual way of seeing and doing things to gain new insights and solutions."
+      }
+    ],
+    summary: "In this lesson, we've explored The Hanged Man, representing surrender, new perspectives, and the wisdom gained through letting go. We've examined the symbolism of his inverted position, peaceful expression, and willing sacrifice. The Hanged Man reminds us that sometimes we need to pause, let go of control, and look at situations from a different angle to gain the insights we need.",
+    additionalResources: [
+      {
+        title: "The Art of Surrender",
+        description: "Practices for letting go of control and finding wisdom in acceptance."
+      },
+      {
+        title: "Liminal Spaces",
+        description: "Understanding the value of in-between times and transitional states."
+      }
+    ]
+  },
+  {
+    id: "beginner-14",
+    title: "Death: Transformation & Renewal",
+    description: "Understand transformation, endings, and new beginnings with the Death card.",
+    cardId: "death",
+    sections: [
+      {
+        title: "Understanding Death (The Card)",
+        content: `
+          <p>The Death card (13) represents transformation, endings, and new beginnings. Following The Hanged Man's surrender, Death represents the natural conclusion of letting go - transformation. Despite its intimidating imagery, Death is primarily about necessary change, not literal death.</p>
+          
+          <p>In traditional imagery, Death is depicted as a skeleton in armor, often riding a white horse. Various figures may be shown in the foreground - some falling, others bowing or pleading. In the background, the sun often rises between two pillars or towers.</p>
+          
+          <p>Key symbols in the Death card:</p>
+          <ul>
+            <li><strong>Skeleton</strong>: what remains when the non-essential is stripped away</li>
+            <li><strong>Armor</strong>: the inevitability and impartiality of transformation</li>
+            <li><strong>White horse</strong>: purity and power</li>
+            <li><strong>Flag or banner</strong>: victory, transformation</li>
+            <li><strong>Rising sun</strong>: new beginnings after endings</li>
+            <li><strong>Various figures</strong>: different responses to change</li>
+          </ul>
+        `
+      },
+      {
+        title: "Death's Message",
+        content: `
+          <p>The Death card carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Transformation</strong>: Fundamental change</li>
+            <li><strong>Endings</strong>: Something is coming to its natural conclusion</li>
+            <li><strong>New beginnings</strong>: What follows endings</li>
+            <li><strong>Release</strong>: Letting go of what no longer serves</li>
+            <li><strong>Transition</strong>: Moving from one state to another</li>
+            <li><strong>Renewal</strong>: Fresh energy after a completion</li>
+            <li><strong>Inevitable change</strong>: Accepting what cannot be avoided</li>
+          </ul>
+          
+          <p>When Death appears, it often signals that something in your life is ending to make way for something new. It rarely predicts literal death, but rather represents profound transformation and the natural cycles of endings and beginnings.</p>
+        `
+      },
+      {
+        title: "Working with Death Energy",
+        content: `
+          <p>Ways to connect with the Death card energy:</p>
+          
+          <ol>
+            <li><strong>Release the past</strong>: Let go of what no longer serves you</li>
+            <li><strong>Accept endings</strong>: Recognize when something has completed its natural cycle</li>
+            <li><strong>Embrace change</strong>: Be willing to transform</li>
+            <li><strong>Focus on essentials</strong>: Identify what truly matters</li>
+            <li><strong>Welcome renewal</strong>: Be open to new beginnings</li>
+            <li><strong>Accept impermanence</strong>: Recognize that all things change</li>
+            <li><strong>Trust the process</strong>: Have faith in life's cycles</li>
+          </ol>
+          
+          <p>The Death card reminds us that endings are a natural part of life's cycle and that transformation, though sometimes challenging, leads to renewal and new possibilities.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary meaning of the Death card in tarot?",
+        options: [
+          "Physical death and mortality",
+          "Transformation, endings, and new beginnings",
+          "Bad luck and misfortune",
+          "Illness and suffering"
+        ],
+        correctAnswer: 1,
+        explanation: "The Death card primarily represents transformation, necessary endings, and the new beginnings that follow - rarely literal death."
+      },
+      {
+        question: "What does the rising sun often depicted in the Death card symbolize?",
+        options: [
+          "The afterlife",
+          "The passing of time",
+          "New beginnings that follow endings",
+          "Hope in difficult times"
+        ],
+        correctAnswer: 2,
+        explanation: "The rising sun in the Death card symbolizes the new beginnings that naturally follow endings - the dawn after the night."
+      },
+      {
+        question: "How does the Death card follow thematically from The Hanged Man?",
+        options: [
+          "They represent opposing forces",
+          "The Hanged Man represents punishment, and Death represents its ultimate conclusion",
+          "After the surrender and new perspective of The Hanged Man comes the transformation of Death",
+          "They are unrelated cards"
+        ],
+        correctAnswer: 2,
+        explanation: "After The Hanged Man's surrender and shift in perspective comes Death's transformation - the natural progression from letting go to fundamental change."
+      }
+    ],
+    summary: "In this lesson, we've explored the Death card, which represents transformation, necessary endings, and new beginnings. We've examined the symbolism of the skeleton, white horse, and rising sun, which represent the stripping away of the non-essential, the power of change, and the new beginnings that follow endings. The Death card reminds us that transformation is a natural part of life's cycle and that endings make way for new growth.",
+    additionalResources: [
+      {
+        title: "Embracing Life Transitions",
+        description: "Techniques for moving through major life changes with grace."
+      },
+      {
+        title: "The Art of Letting Go",
+        description: "Practices for releasing what no longer serves your growth and evolution."
+      }
+    ]
+  },
+  {
+    id: "beginner-15",
+    title: "Temperance: Balance & Moderation",
+    description: "Explore balance, moderation, and harmony with the Temperance card.",
+    cardId: "temperance",
+    sections: [
+      {
+        title: "Understanding Temperance",
+        content: `
+          <p>Temperance (card 14) represents balance, moderation, patience, and harmony. Following the transformation of Death, Temperance represents the integration and healing that comes after major change.</p>
+          
+          <p>In traditional imagery, Temperance is depicted as an angel (often with both masculine and feminine attributes) standing with one foot on land and one in water. The angel pours liquid between two cups, often creating a continuous flow between them.</p>
+          
+          <p>Key symbols in the Temperance card:</p>
+          <ul>
+            <li><strong>Angel</strong>: divine guidance, transcendence of dualities</li>
+            <li><strong>One foot on land, one in water</strong>: balance between physical and emotional realms</li>
+            <li><strong>Two cups</strong>: blending of opposites, exchange of energies</li>
+            <li><strong>Flowing water</strong>: emotions, unconscious, flow of life</li>
+            <li><strong>Path/river</strong>: journey, flow between different states</li>
+            <li><strong>Triangle/solar symbol</strong>: often on the angel's chest, representing spiritual wisdom</li>
+          </ul>
+        `
+      },
+      {
+        title: "Temperance's Message",
+        content: `
+          <p>Temperance carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Balance</strong>: Finding equilibrium between opposing forces</li>
+            <li><strong>Moderation</strong>: Avoiding extremes</li>
+            <li><strong>Patience</strong>: Allowing things to unfold in their own time</li>
+            <li><strong>Harmony</strong>: Creating flow between different aspects of life</li>
+            <li><strong>Integration</strong>: Bringing together disparate elements</li>
+            <li><strong>Middle path</strong>: Finding the way between extremes</li>
+            <li><strong>Healing</strong>: Recovery and restoration after transformation</li>
+          </ul>
+          
+          <p>When Temperance appears, it often suggests a need for balance, moderation, and patience. It may indicate a time of healing or integration after a period of change or challenge.</p>
+        `
+      },
+      {
+        title: "Embodying Temperance",
+        content: `
+          <p>Ways to connect with Temperance energy:</p>
+          
+          <ol>
+            <li><strong>Practice moderation</strong>: Avoid extremes in any area of life</li>
+            <li><strong>Seek balance</strong>: Find equilibrium between work and rest, giving and receiving</li>
+            <li><strong>Cultivate patience</strong>: Allow processes to unfold naturally</li>
+            <li><strong>Blend opposites</strong>: Integrate seemingly contradictory aspects of yourself</li>
+            <li><strong>Create flow</strong>: Move smoothly between different activities and states</li>
+            <li><strong>Practice mindfulness</strong>: Stay present with what is</li>
+            <li><strong>Allow healing</strong>: Give yourself time to integrate after changes</li>
+          </ol>
+          
+          <p>Temperance reminds us that balance, moderation, and the middle path often lead to the greatest harmony and well-being. By blending opposing forces rather than choosing extremes, we create a sustainable way of living.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the angel in Temperance pouring liquid between two cups symbolize?",
+        options: [
+          "Wasting resources",
+          "The mixing and balancing of opposing forces or energies",
+          "The passage of time",
+          "Confusion and uncertainty"
+        ],
+        correctAnswer: 1,
+        explanation: "The pouring between cups represents the blending and balancing of different energies or aspects of life, creating harmony and flow between opposites."
+      },
+      {
+        question: "What does it signify that the angel has one foot on land and one in water?",
+        options: [
+          "Indecision and hesitation",
+          "The ability to bridge different realms or aspects of life",
+          "Instability and precariousness",
+          "The danger of falling"
+        ],
+        correctAnswer: 1,
+        explanation: "This posture represents the ability to balance and bridge different realms - typically the physical (earth) and emotional (water) aspects of life."
+      },
+      {
+        question: "How does Temperance follow thematically from the Death card?",
+        options: [
+          "Death represents endings, while Temperance represents new beginnings",
+          "They represent opposing forces",
+          "After the transformation of Death comes the healing and integration of Temperance",
+          "They have no thematic connection"
+        ],
+        correctAnswer: 2,
+        explanation: "After the major transformation represented by Death comes the period of healing, integration, and finding a new balance represented by Temperance."
+      }
+    ],
+    summary: "In this lesson, we've explored Temperance, the card of balance, moderation, and harmony. We've examined the symbolism of the angel, the mixing of waters between cups, and the bridging of different realms. Temperance reminds us of the value of the middle path, of patience, and of integrating opposing forces in our lives rather than choosing extremes.",
+    additionalResources: [
+      {
+        title: "The Art of Balance",
+        description: "Practical techniques for creating equilibrium in daily life."
+      },
+      {
+        title: "Healing Through Integration",
+        description: "How to bring together different aspects of yourself after periods of change."
+      }
+    ]
+  },
+  {
+    id: "beginner-16",
+    title: "The Devil: Bondage & Liberation",
+    description: "Understand limitation, attachment, and liberation with The Devil card.",
+    cardId: "devil",
+    sections: [
+      {
+        title: "Meeting The Devil",
+        content: `
+          <p>The Devil (card 15) represents bondage, attachment, limitation, and the potential for liberation. Following the balance of Temperance, The Devil shows what happens when we fall into extremes and become trapped by our own choices.</p>
+          
+          <p>In traditional imagery, The Devil is depicted as a satyr-like figure (part human, part goat) with bat wings. Below the figure are two human figures, often a man and woman, chained but with chains loose enough that they could free themselves if they chose.</p>
+          
+          <p>Key symbols in The Devil card:</p>
+          <ul>
+            <li><strong>The Devil figure</strong>: illusion, attachment, materialism</li>
+            <li><strong>Inverted pentagram</strong>: matter over spirit, material concerns dominating</li>
+            <li><strong>Chains</strong>: bondage that could be escaped, self-limitation</li>
+            <li><strong>Human figures</strong>: enslavement to desires, addictions, or limiting beliefs</li>
+            <li><strong>Bat wings</strong>: darkness, illusion, fear</li>
+            <li><strong>Torch</strong>: often held downward, representing misdirected energy</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Devil's Message",
+        content: `
+          <p>The Devil carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Bondage</strong>: Being trapped or limited, often by choice</li>
+            <li><strong>Attachment</strong>: Unhealthy connections to material things, people, or habits</li>
+            <li><strong>Shadow aspects</strong>: Confronting repressed parts of yourself</li>
+            <li><strong>Materialism</strong>: Over-focus on physical pleasures or possessions</li>
+            <li><strong>Illusion</strong>: Being deceived, often by yourself</li>
+            <li><strong>Dependency</strong>: Unhealthy relationships or addictions</li>
+            <li><strong>Potential liberation</strong>: Recognition that you hold the keys to your own freedom</li>
+          </ul>
+          
+          <p>When The Devil appears, it often suggests examining where you may be trapped by your own choices, attachments, or beliefs. It reminds you that while you may feel bound, you likely have more freedom than you realize.</p>
+        `
+      },
+      {
+        title: "Working with The Devil Energy",
+        content: `
+          <p>Ways to work with The Devil card:</p>
+          
+          <ol>
+            <li><strong>Examine attachments</strong>: Identify where you may be overly attached</li>
+            <li><strong>Recognize self-imposed limitations</strong>: Notice where you restrict yourself unnecessarily</li>
+            <li><strong>Face shadow aspects</strong>: Acknowledge parts of yourself you've denied or repressed</li>
+            <li><strong>Question fears</strong>: Examine what fears may be holding you back</li>
+            <li><strong>Seek balance</strong>: Find moderation between denying and overindulging desires</li>
+            <li><strong>Practice awareness</strong>: Notice patterns of dependency or unhealthy behavior</li>
+            <li><strong>Choose liberation</strong>: Remember that you often have more choices than you realize</li>
+          </ol>
+          
+          <p>The Devil reminds us that we often create our own limitations and that awareness is the first step toward liberation. By recognizing where we are bound, we can begin to free ourselves.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What do the chains in The Devil card represent?",
+        options: [
+          "Permanent imprisonment",
+          "Self-imposed limitations that could be escaped if chosen",
+          "Divine punishment",
+          "Protection from harm"
+        ],
+        correctAnswer: 1,
+        explanation: "The chains in The Devil card are typically loose enough that the figures could remove them if they chose, representing self-imposed limitations and the potential for liberation."
+      },
+      {
+        question: "Which of these is NOT typically associated with The Devil card?",
+        options: [
+          "Attachment and dependency",
+          "Material obsessions",
+          "Spiritual freedom and enlightenment",
+          "Self-imposed limitations"
+        ],
+        correctAnswer: 2,
+        explanation: "The Devil typically represents bondage, attachment, and limitation rather than spiritual freedom and enlightenment."
+      },
+      {
+        question: "How does The Devil follow thematically from Temperance?",
+        options: [
+          "Temperance represents balance, while The Devil shows what happens when we fall into extremes and attachment",
+          "They represent the same energy in different forms",
+          "They are unrelated cards",
+          "Temperance represents restriction while The Devil represents freedom"
+        ],
+        correctAnswer: 0,
+        explanation: "After the balance and moderation of Temperance, The Devil shows what happens when we lose that balance and fall into extremes, becoming attached and limited by our own choices."
+      }
+    ],
+    summary: "In this lesson, we've explored The Devil card, which represents bondage, attachment, and the potential for liberation. We've examined the symbolism of the chains, the human figures, and The Devil figure itself, which represent self-imposed limitations and the illusion of being trapped. The Devil reminds us that we often create our own restrictions and that awareness is the first step toward freedom.",
+    additionalResources: [
+      {
+        title: "Working with the Shadow",
+        description: "Techniques for acknowledging and integrating denied aspects of yourself."
+      },
+      {
+        title: "Breaking Unhealthy Patterns",
+        description: "Strategies for recognizing and releasing limiting attachments and behaviors."
+      }
+    ]
+  },
+  {
+    id: "beginner-17",
+    title: "The Tower: Revelation & Breakdown",
+    description: "Explore sudden change, revelation, and necessary destruction with The Tower.",
+    cardId: "tower",
+    sections: [
+      {
+        title: "Understanding The Tower",
+        content: `
+          <p>The Tower (card 16) represents sudden change, revelation, breakdown, and the destruction of false structures. Following The Devil's bondage, The Tower represents the often sudden and disruptive liberation from what no longer serves us.</p>
+          
+          <p>In traditional imagery, The Tower shows a tall tower being struck by lightning, with people falling from it. Often the tower is on fire, and the lightning bolt or a crown may be knocked from the top.</p>
+          
+          <p>Key symbols in The Tower card:</p>
+          <ul>
+            <li><strong>Tower</strong>: false structures, ego constructs, illusions of security</li>
+            <li><strong>Lightning</strong>: sudden revelation, divine intervention, illumination</li>
+            <li><strong>Fire</strong>: destruction, purification, transformation</li>
+            <li><strong>Crown falling</strong>: collapse of false authority or beliefs</li>
+            <li><strong>People falling</strong>: sudden change, release from confinement</li>
+            <li><strong>Rocky foundation</strong>: unstable basis for beliefs or situations</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Tower's Message",
+        content: `
+          <p>The Tower carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Sudden change</strong>: Unexpected disruption or revelation</li>
+            <li><strong>Breaking down</strong>: Destruction of false structures or beliefs</li>
+            <li><strong>Liberation</strong>: Freedom through collapse of limitations</li>
+            <li><strong>Truth revealed</strong>: Seeing clearly what was hidden</li>
+            <li><strong>Divine intervention</strong>: Forces beyond your control creating necessary change</li>
+            <li><strong>Paradigm shift</strong>: Fundamental change in perspective</li>
+            <li><strong>Clearing the way</strong>: Destruction that makes room for new growth</li>
+          </ul>
+          
+          <p>When The Tower appears, it often signals sudden, sometimes disruptive change that ultimately leads to liberation. While Tower experiences may be challenging, they typically clear away what is false or no longer serves your growth.</p>
+        `
+      },
+      {
+        title: "Working with Tower Energy",
+        content: `
+          <p>Ways to work with The Tower energy:</p>
+          
+          <ol>
+            <li><strong>Embrace necessary change</strong>: Recognize when structures need to fall</li>
+            <li><strong>Release false security</strong>: Let go of illusions of control or stability</li>
+            <li><strong>Welcome truth</strong>: Be open to revelations, even difficult ones</li>
+            <li><strong>Trust the process</strong>: See breakdowns as potential breakthroughs</li>
+            <li><strong>Examine foundations</strong>: Question what your beliefs and life are built upon</li>
+            <li><strong>Practice resilience</strong>: Develop the ability to recover from sudden changes</li>
+            <li><strong>Find the liberation</strong>: Look for the freedom in what initially seems like chaos</li>
+          </ol>
+          
+          <p>The Tower reminds us that sometimes what appears catastrophic is actually liberation in disguise. By releasing what is false or no longer serves us - even through sudden change - we make way for more authentic structures and beliefs.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the lightning striking The Tower represent?",
+        options: [
+          "Random destruction",
+          "Divine punishment",
+          "Sudden illumination and revelation of truth",
+          "Bad luck"
+        ],
+        correctAnswer: 2,
+        explanation: "The lightning represents sudden illumination or revelation - truth breaking through illusion, often experienced as disruptive but ultimately liberating."
+      },
+      {
+        question: "What is the typical relationship between The Tower and The Devil cards?",
+        options: [
+          "They represent the same energy in different forms",
+          "They are unrelated cards",
+          "The Tower represents the sudden breaking of the chains depicted in The Devil",
+          "The Tower represents punishment for the sins shown in The Devil"
+        ],
+        correctAnswer: 2,
+        explanation: "The Tower often represents the sudden, sometimes dramatic breaking of the bonds and illusions depicted in The Devil card - a forceful liberation from self-imposed limitations."
+      },
+      {
+        question: "Which of these is the most constructive response to Tower energy in your life?",
+        options: [
+          "Fighting against change and trying to maintain the status quo",
+          "Becoming passive and giving up",
+          "Recognizing the opportunity for liberation and authentic rebuilding",
+          "Blaming others for the disruption"
+        ],
+        correctAnswer: 2,
+        explanation: "While Tower moments can be challenging, the most constructive response is to recognize the opportunity for liberation and authentic rebuilding that they offer."
+      }
+    ],
+    summary: "In this lesson, we've explored The Tower card, which represents sudden change, revelation, breakdown, and ultimately liberation. We've examined the symbolism of the lightning strike, the crumbling tower, and the falling figures, which represent the collapse of false structures and the revelation of truth. The Tower reminds us that sometimes disruptive change is necessary for growth and authentic rebuilding.",
+    additionalResources: [
+      {
+        title: "Navigating Major Life Changes",
+        description: "Strategies for finding stability during times of upheaval and transformation."
+      },
+      {
+        title: "The Gift in Disruption",
+        description: "How to find meaning and opportunity in unexpected change and challenge."
+      }
+    ]
+  },
+  {
+    id: "beginner-18",
+    title: "The Star: Hope & Inspiration",
+    description: "Discover renewal, hope, and spiritual connection with The Star.",
+    cardId: "star",
+    sections: [
+      {
+        title: "Understanding The Star",
+        content: `
+          <p>The Star (card 17) represents hope, inspiration, renewal, and spiritual connection. Following the breakdown of The Tower, The Star brings healing, renewal, and a new sense of purpose.</p>
+          
+          <p>In traditional imagery, The Star shows a naked woman kneeling by a pool, pouring water from two jugs - one onto land and one into water. Above her, a large star shines, often surrounded by seven smaller stars.</p>
+          
+          <p>Key symbols in The Star card:</p>
+          <ul>
+            <li><strong>The woman</strong>: natural truth, vulnerability, authenticity</li>
+            <li><strong>The large star</strong>: hope, inspiration, spiritual guidance, higher purpose</li>
+            <li><strong>Seven smaller stars</strong>: often representing chakras or planetary energies</li>
+            <li><strong>Water jugs</strong>: giving and receiving, balancing material and spiritual</li>
+            <li><strong>Pool/water</strong>: subconscious, emotions, renewal</li>
+            <li><strong>Land</strong>: physical realm, practical matters</li>
+            <li><strong>Bird</strong>: often an ibis, representing wisdom and transcendence</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Star's Message",
+        content: `
+          <p>The Star carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Hope</strong>: Faith in positive outcomes after difficulty</li>
+            <li><strong>Renewal</strong>: Fresh energy and healing</li>
+            <li><strong>Inspiration</strong>: Creative flow and divine guidance</li>
+            <li><strong>Serenity</strong>: Calm after turmoil</li>
+            <li><strong>Authenticity</strong>: Being true to your essence</li>
+            <li><strong>Connection</strong>: Alignment with higher purpose</li>
+            <li><strong>Generosity</strong>: Giving and receiving in balance</li>
+          </ul>
+          
+          <p>When The Star appears, it often signals a time of healing, hope, and renewal after a period of challenge. It suggests connecting with your authentic self and higher purpose.</p>
+        `
+      },
+      {
+        title: "Embodying Star Energy",
+        content: `
+          <p>Ways to connect with The Star energy:</p>
+          
+          <ol>
+            <li><strong>Cultivate hope</strong>: Focus on possibilities rather than limitations</li>
+            <li><strong>Embrace authenticity</strong>: Be true to yourself without pretense</li>
+            <li><strong>Seek inspiration</strong>: Connect with what uplifts and inspires you</li>
+            <li><strong>Practice generosity</strong>: Give freely while remaining in balance</li>
+            <li><strong>Trust intuition</strong>: Listen to your inner guidance</li>
+            <li><strong>Allow healing</strong>: Be open to renewal after difficulty</li>
+            <li><strong>Connect with nature</strong>: Find serenity and perspective in natural settings</li>
+          </ol>
+          
+          <p>The Star reminds us that after breakdowns come renewal and hope. It encourages us to trust in the process of life and to remain connected to our authentic selves and higher purpose.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of The Star card?",
+        options: [
+          "Material success and wealth",
+          "Hope, renewal, and spiritual connection",
+          "Psychic abilities and fortune-telling",
+          "Fame and recognition"
+        ],
+        correctAnswer: 1,
+        explanation: "The Star primarily represents hope, renewal, spiritual connection, and the healing that comes after difficult times."
+      },
+      {
+        question: "What does the woman pouring water from two jugs symbolize?",
+        options: [
+          "Waste and excess",
+          "Indecision and confusion",
+          "The balance of giving and receiving, and between material and spiritual realms",
+          "The need to conserve resources"
+        ],
+        correctAnswer: 2,
+        explanation: "The woman pouring water from two jugs represents the balance between giving and receiving, as well as between material (earth) and emotional/spiritual (water) aspects of life."
+      },
+      {
+        question: "How does The Star follow thematically from The Tower?",
+        options: [
+          "They represent opposing forces",
+          "They are unrelated cards",
+          "After the breakdown and revelation of The Tower comes the healing and renewal of The Star",
+          "The Star represents escape from the destruction of The Tower"
+        ],
+        correctAnswer: 2,
+        explanation: "After the breakdown and revelation of false structures in The Tower comes the healing, renewal, and hope represented by The Star - the calm and inspiration that follows disruption."
+      }
+    ],
+    summary: "In this lesson, we've explored The Star card, which represents hope, renewal, inspiration, and connection after challenge. We've examined the symbolism of the stars, the kneeling woman, and the pouring of water, which represent guidance, authenticity, and the balance of giving and receiving. The Star reminds us that after difficult periods come healing and a renewed sense of purpose and possibility.",
+    additionalResources: [
+      {
+        title: "Cultivating Authentic Hope",
+        description: "Practices for maintaining optimism grounded in reality."
+      },
+      {
+        title: "Connecting with Inspiration",
+        description: "Ways to tap into creative flow and spiritual guidance in daily life."
+      }
+    ]
+  },
+  {
+    id: "beginner-19",
+    title: "The Moon: Intuition & Unconscious",
+    description: "Explore the unconscious, intuition, and illusion with The Moon card.",
+    cardId: "moon",
+    sections: [
+      {
+        title: "Understanding The Moon",
+        content: `
+          <p>The Moon (card 18) represents the unconscious, intuition, illusion, and the unknown. Following the hope and clarity of The Star, The Moon takes us into the depths of our psyche, where things may be less clear but equally important.</p>
+          
+          <p>In traditional imagery, The Moon shows a full moon with a face, often with drops falling from it. Below, a dog and wolf (or two dogs) howl at the moon. A crayfish or lobster emerges from water, and a path winds between two towers into the distance.</p>
+          
+          <p>Key symbols in The Moon card:</p>
+          <ul>
+            <li><strong>The moon</strong>: unconscious, intuition, cycles, feminine energy</li>
+            <li><strong>Drops/dew</strong>: intuitive inspiration, lunar influence</li>
+            <li><strong>Dog and wolf</strong>: domesticated and wild aspects of mind, the known and unknown</li>
+            <li><strong>Crayfish/lobster</strong>: emerging from the unconscious, primitive fears</li>
+            <li><strong>Water</strong>: emotions, subconscious, the unknown depths</li>
+            <li><strong>Path</strong>: journey through the unconscious, spiritual path</li>
+            <li><strong>Towers</strong>: gateways between conscious and unconscious</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Moon's Message",
+        content: `
+          <p>The Moon carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Intuition</strong>: Trusting inner knowing beyond logic</li>
+            <li><strong>Unconscious</strong>: Exploring the deeper mind</li>
+            <li><strong>Illusion</strong>: Recognizing what may be unclear or deceptive</li>
+            <li><strong>Mystery</strong>: Embracing the unknown</li>
+            <li><strong>Dreams</strong>: Paying attention to dream messages</li>
+            <li><strong>Fears</strong>: Confronting hidden anxieties or insecurities</li>
+            <li><strong>Cycles</strong>: Recognizing natural rhythms and patterns</li>
+          </ul>
+          
+          <p>When The Moon appears, it often suggests a time to trust intuition over logic, to explore the unconscious mind, or to be aware of illusions or unclear situations. It may indicate a period of uncertainty that requires patience and trust.</p>
+        `
+      },
+      {
+        title: "Working with Moon Energy",
+        content: `
+          <p>Ways to connect with The Moon energy:</p>
+          
+          <ol>
+            <li><strong>Develop intuition</strong>: Practice trusting your inner knowing</li>
+            <li><strong>Pay attention to dreams</strong>: Keep a dream journal and notice patterns</li>
+            <li><strong>Explore the unconscious</strong>: Consider therapy, meditation, or journaling</li>
+            <li><strong>Question perceptions</strong>: Notice when things may not be as they seem</li>
+            <li><strong>Face fears</strong>: Acknowledge anxieties that may be hidden</li>
+            <li><strong>Honor cycles</strong>: Notice patterns in your emotions and life</li>
+            <li><strong>Embrace mystery</strong>: Become comfortable with not knowing everything</li>
+          </ol>
+          
+          <p>The Moon reminds us that not everything can or should be understood through logic alone. By embracing mystery, trusting our intuition, and exploring our unconscious, we gain a more complete understanding of ourselves and our path.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the path between the towers in The Moon card represent?",
+        options: [
+          "The need to escape from danger",
+          "The journey through the unconscious or unknown",
+          "The path to material success",
+          "The division between good and evil"
+        ],
+        correctAnswer: 1,
+        explanation: "The path winding between the towers and into the distance represents the journey through the unconscious mind or through uncertain, mysterious territories."
+      },
+      {
+        question: "What do the dog and wolf (or two dogs) typically symbolize in The Moon card?",
+        options: [
+          "Danger and safety",
+          "Friends and enemies",
+          "The domesticated and wild aspects of the mind",
+          "Day and night"
+        ],
+        correctAnswer: 2,
+        explanation: "The dog and wolf (or two dogs) represent the tame/domesticated and wild/instinctual aspects of our minds and nature."
+      },
+      {
+        question: "How does The Moon differ from The Star in terms of clarity?",
+        options: [
+          "They both represent equal clarity",
+          "The Star represents inspiration and hope, while The Moon represents the unconscious and uncertainty",
+          "The Moon represents clarity while The Star represents confusion",
+          "They are unrelated in terms of clarity"
+        ],
+        correctAnswer: 1,
+        explanation: "While The Star represents clear inspiration and hope after difficulty, The Moon represents the more mysterious, unclear realm of the unconscious and intuition."
+      }
+    ],
+    summary: "In this lesson, we've explored The Moon card, which represents the unconscious mind, intuition, mystery, and the unknown. We've examined the symbolism of the moon itself, the path between towers, and the animals, which represent our journey through the less clear but equally important realms of the psyche. The Moon reminds us to trust our intuition, pay attention to our dreams, and be willing to explore the deeper aspects of ourselves.",
+    additionalResources: [
+      {
+        title: "Developing Intuition",
+        description: "Practices for strengthening your intuitive abilities."
+      },
+      {
+        title: "Working with Dreams",
+        description: "Techniques for recording and interpreting dream symbolism."
+      }
+    ]
+  },
+  {
+    id: "beginner-20",
+    title: "The Sun: Joy & Vitality",
+    description: "Discover joy, success, and vitality with The Sun card.",
+    cardId: "sun",
+    sections: [
+      {
+        title: "Understanding The Sun",
+        content: `
+          <p>The Sun (card 19) represents joy, success, clarity, and vitality. Following the uncertainty of The Moon, The Sun brings illumination, clarity, and the joy of accomplishment and truth.</p>
+          
+          <p>In traditional imagery, The Sun shows a radiant sun with a face, often with alternating straight and wavy rays. Below, a child (sometimes naked) rides a white horse under the sun, often with a red banner or feather. Sunflowers may appear in the background.</p>
+          
+          <p>Key symbols in The Sun card:</p>
+          <ul>
+            <li><strong>The sun</strong>: illumination, vitality, truth, joy</li>
+            <li><strong>The child</strong>: innocence, joy, new beginnings</li>
+            <li><strong>White horse</strong>: strength, purity, success</li>
+            <li><strong>Sunflowers</strong>: growth, abundance, following the light</li>
+            <li><strong>Banner/feather</strong>: victory, achievement, freedom</li>
+            <li><strong>Rays</strong>: divine energy, enlightenment, vitality</li>
+          </ul>
+        `
+      },
+      {
+        title: "The Sun's Message",
+        content: `
+          <p>The Sun carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Joy</strong>: Happiness, celebration, playfulness</li>
+            <li><strong>Success</strong>: Achievement, recognition, fulfillment</li>
+            <li><strong>Clarity</strong>: Truth, clear vision, understanding</li>
+            <li><strong>Vitality</strong>: Energy, health, enthusiasm</li>
+            <li><strong>Radiance</strong>: Sharing your light with others</li>
+            <li><strong>Confidence</strong>: Self-assurance, positive self-image</li>
+            <li><strong>Optimism</strong>: Positive outlook, faith in good outcomes</li>
+          </ul>
+          
+          <p>When The Sun appears, it often signals a time of joy, success, clarity, and vitality. It suggests that a period of uncertainty has passed, and that you can now see clearly and enjoy the fruits of your efforts.</p>
+        `
+      },
+      {
+        title: "Embodying Sun Energy",
+        content: `
+          <p>Ways to connect with The Sun energy:</p>
+          
+          <ol>
+            <li><strong>Celebrate success</strong>: Acknowledge and enjoy achievements</li>
+            <li><strong>Cultivate joy</strong>: Make time for play and activities that bring happiness</li>
+            <li><strong>Embrace vitality</strong>: Engage in activities that energize body and mind</li>
+            <li><strong>Share your light</strong>: Allow your joy and enthusiasm to benefit others</li>
+            <li><strong>See clearly</strong>: Appreciate truth and clarity</li>
+            <li><strong>Reconnect with innocence</strong>: Approach life with fresh eyes</li>
+            <li><strong>Express gratitude</strong>: Appreciate the positive aspects of life</li>
+          </ol>
+          
+          <p>The Sun reminds us that after periods of uncertainty comes clarity and joy. It encourages us to celebrate success, to approach life with enthusiasm and optimism, and to share our light with others.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary meaning of The Sun card?",
+        options: [
+          "Danger and warning",
+          "Joy, success, clarity, and vitality",
+          "Hard work and effort",
+          "Spiritual enlightenment and transcendence"
+        ],
+        correctAnswer: 1,
+        explanation: "The Sun primarily represents joy, success, clarity, and vitality - the experience of illumination and accomplishment after uncertainty."
+      },
+      {
+        question: "What does the child riding a horse symbolize in The Sun card?",
+        options: [
+          "Immaturity and recklessness",
+          "The combination of innocence and strength, joy and achievement",
+          "The need for protection and guidance",
+          "Reincarnation and rebirth"
+        ],
+        correctAnswer: 1,
+        explanation: "The child on the horse represents the combination of innocence and strength, joy and achievement - approaching life with enthusiasm while having the power to move forward successfully."
+      },
+      {
+        question: "How does The Sun follow thematically from The Moon?",
+        options: [
+          "They represent opposing forces",
+          "After the uncertainty and mystery of The Moon comes the clarity and illumination of The Sun",
+          "The Sun represents day and The Moon represents night",
+          "They are unrelated cards"
+        ],
+        correctAnswer: 1,
+        explanation: "After the uncertainty, illusion, and mystery represented by The Moon comes the clarity, illumination, and certainty of The Sun - the progression from unclear to clear, from hidden to revealed."
+      }
+    ],
+    summary: "In this lesson, we've explored The Sun card, which represents joy, success, clarity, and vitality. We've examined the symbolism of the radiant sun, the child on horseback, and the sunflowers, which represent illumination, the combination of innocence and strength, and alignment with positive energy. The Sun reminds us to celebrate achievements, approach life with enthusiasm, and share our light with others.",
+    additionalResources: [
+      {
+        title: "Cultivating Joy",
+        description: "Practices for developing and maintaining a joyful approach to life."
+      },
+      {
+        title: "Living Authentically",
+        description: "How to align your outer life with your inner truth and values."
+      }
+    ]
+  },
+  {
+    id: "beginner-21",
+    title: "Judgement: Awakening & Rebirth",
+    description: "Explore spiritual awakening, calling, and renewal with the Judgement card.",
+    cardId: "judgement",
+    sections: [
+      {
+        title: "Understanding Judgement",
+        content: `
+          <p>Judgement (card 20) represents awakening, calling, renewal, and evaluation. Following the clarity and joy of The Sun, Judgement represents spiritual awakening and the call to a higher purpose.</p>
+          
+          <p>In traditional imagery, Judgement shows an angel (often Gabriel) blowing a trumpet. Below, people rise from coffins or graves with their arms upraised, representing resurrection and awakening. Mountains are often visible in the background.</p>
+          
+          <p>Key symbols in the Judgement card:</p>
+          <ul>
+            <li><strong>Angel/trumpet</strong>: divine calling, awakening, announcement</li>
+            <li><strong>Rising figures</strong>: resurrection, spiritual rebirth, answering the call</li>
+            <li><strong>Coffins/graves</strong>: past limitations, old life</li>
+            <li><strong>Upraised arms</strong>: receptivity, acceptance, surrender</li>
+            <li><strong>Mountains</strong>: spiritual achievement, higher perspective</li>
+            <li><strong>Water</strong>: emotion, unconscious, renewal</li>
+          </ul>
+        `
+      },
+      {
+        title: "Judgement's Message",
+        content: `
+          <p>Judgement carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Awakening</strong>: Spiritual realization or insight</li>
+            <li><strong>Calling</strong>: Being called to a higher purpose</li>
+            <li><strong>Renewal</strong>: Rebirth and fresh start after completion</li>
+            <li><strong>Evaluation</strong>: Honest assessment of past choices and actions</li>
+            <li><strong>Transformation</strong>: Profound change in perspective or life direction</li>
+            <li><strong>Forgiveness</strong>: Release from past regrets or guilt</li>
+            <li><strong>Purpose</strong>: Clarity about life path and meaning</li>
+          </ul>
+          
+          <p>When Judgement appears, it often signals a time of awakening, calling, or profound renewal. It suggests the need to honestly evaluate your life and choices, and possibly to answer a call to a higher purpose or new direction.</p>
+        `
+      },
+      {
+        title: "Working with Judgement Energy",
+        content: `
+          <p>Ways to connect with Judgement energy:</p>
+          
+          <ol>
+            <li><strong>Listen for calling</strong>: Be attentive to inner guidance about your purpose</li>
+            <li><strong>Self-evaluate</strong>: Honestly assess your life and choices</li>
+            <li><strong>Practice forgiveness</strong>: Release yourself and others from past mistakes</li>
+            <li><strong>Embrace awakening</strong>: Be open to new spiritual insights</li>
+            <li><strong>Welcome renewal</strong>: Allow yourself to begin again</li>
+            <li><strong>Answer the call</strong>: Respond to intuitive guidance about your path</li>
+            <li><strong>Rise above</strong>: Transcend past limitations and patterns</li>
+          </ol>
+          
+          <p>Judgement reminds us to listen for our calling and to be willing to evaluate our lives honestly. It encourages us to forgive ourselves and others, to release the past, and to embrace spiritual awakening and renewal.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the trumpet in Judgement primarily symbolize?",
+        options: [
+          "Warning and alarm",
+          "Divine calling, awakening, and announcement",
+          "Celebration and victory",
+          "The end of the world"
+        ],
+        correctAnswer: 1,
+        explanation: "The trumpet in Judgement represents a divine calling or awakening - a summons to a higher purpose or new spiritual understanding."
+      },
+      {
+        question: "What do the rising figures in Judgement represent?",
+        options: [
+          "The dead returning to life",
+          "Ghosts and spirits",
+          "Spiritual awakening, rebirth, and answering a higher calling",
+          "Judgment Day in Christian theology"
+        ],
+        correctAnswer: 2,
+        explanation: "While the imagery draws from resurrection symbolism, in tarot the rising figures represent spiritual awakening, rebirth, and the response to a higher calling."
+      },
+      {
+        question: "How does Judgement differ from The Sun in terms of awakening?",
+        options: [
+          "The Sun represents physical vitality, while Judgement represents spiritual awakening",
+          "They represent the same type of energy",
+          "Judgement represents punishment while The Sun represents reward",
+          "The Sun represents external success while Judgement represents internal failure"
+        ],
+        correctAnswer: 0,
+        explanation: "While The Sun represents clarity, vitality, and external success, Judgement represents spiritual awakening, calling, and inner transformation."
+      }
+    ],
+    summary: "In this lesson, we've explored the Judgement card, which represents spiritual awakening, calling, renewal, and honest evaluation. We've examined the symbolism of the trumpet, the rising figures, and the upraised arms, which represent divine calling, spiritual rebirth, and receptivity to higher guidance. Judgement reminds us to listen for our true calling, to evaluate our lives honestly, and to embrace spiritual awakening and renewal.",
+    additionalResources: [
+      {
+        title: "Finding Your Life Purpose",
+        description: "Techniques for discovering and aligning with your deeper calling."
+      },
+      {
+        title: "The Art of Self-Forgiveness",
+        description: "Practices for releasing regret and guilt from past actions."
+      }
+    ]
+  },
+  {
+    id: "beginner-22",
+    title: "The World: Completion & Integration",
+    description: "Understand completion, wholeness, and integration with The World card.",
+    cardId: "world",
+    sections: [
+      {
+        title: "Understanding The World",
+        content: `
+          <p>The World (card 21) represents completion, wholeness, integration, and accomplishment. As the final card of the Major Arcana, The World represents the successful completion of a cycle and the integration of all lessons learned.</p>
+          
+          <p>In traditional imagery, The World shows a dancing figure (often androgynous or female) within a wreath or ouroboros (snake eating its tail). In each corner is one of the four fixed signs of the zodiac: a bull (Taurus), a lion (Leo), an eagle (Scorpio), and an angel or human (Aquarius).</p>
+          
+          <p>Key symbols in The World card:</p>
+          <ul>
+            <li><strong>Central figure</strong>: the self in balance, wholeness, integration</li>
+            <li><strong>Dance pose</strong>: joy in completion, balance, movement within stillness</li>
+            <li><strong>Wreath/ouroboros</strong>: completion, eternity, wholeness</li>
+            <li><strong>Four figures</strong>: the elements, completeness, stability amid change</li>
+            <li><strong>Wands/batons</strong>: often held by the figure, representing mastery and balance</li>
+            <li><strong>Purple sash</strong>: spiritual wisdom, transformation</li>
+          </ul>
+        `
+      },
+      {
+        title: "The World's Message",
+        content: `
+          <p>The World carries these key messages when it appears in a reading:</p>
+          
+          <ul>
+            <li><strong>Completion</strong>: Successful conclusion of a cycle or journey</li>
+            <li><strong>Integration</strong>: Bringing together all aspects of self or experience</li>
+            <li><strong>Wholeness</strong>: Feeling complete and balanced</li>
+            <li><strong>Achievement</strong>: Recognition of accomplishment</li>
+            <li><strong>Fulfillment</strong>: Satisfaction and contentment</li>
+            <li><strong>Synthesis</strong>: Understanding how all parts create a whole</li>
+            <li><strong>Transcendence</strong>: Moving beyond limitations</li>
+          </ul>
+          
+          <p>When The World appears, it often signals the successful completion of a cycle, achievement, or journey. It suggests a time of integration, wholeness, and appreciation before beginning a new cycle.</p>
+        `
+      },
+      {
+        title: "Embodying World Energy",
+        content: `
+          <p>Ways to connect with The World energy:</p>
+          
+          <ol>
+            <li><strong>Celebrate completion</strong>: Acknowledge and honor achievements</li>
+            <li><strong>Integrate experiences</strong>: Reflect on what you've learned</li>
+            <li><strong>Appreciate wholeness</strong>: Recognize how all aspects of yourself work together</li>
+            <li><strong>Acknowledge mastery</strong>: Recognize skills and wisdom gained</li>
+            <li><strong>Find balance</strong>: Integrate opposing aspects of yourself</li>
+            <li><strong>Express gratitude</strong>: Appreciate the journey and those who helped</li>
+            <li><strong>Prepare for new cycles</strong>: Look ahead to new beginnings</li>
+          </ol>
+          
+          <p>The World reminds us to pause and celebrate completion before moving on to new beginnings. It encourages us to integrate what we've learned, to recognize our achievements, and to appreciate the wholeness of our experience.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the wreath or circle in The World card represent?",
+        options: [
+          "Limitations and boundaries",
+          "Completion, wholeness, and the cyclical nature of life",
+          "Protection from outside forces",
+          "Fame and public recognition"
+        ],
+        correctAnswer: 1,
+        explanation: "The wreath or circle in The World represents completion, wholeness, and the cyclical nature of existence - one cycle ends and another begins."
+      },
+      {
+        question: "What is the significance of the four figures in the corners of The World card?",
+        options: [
+          "The four seasons",
+          "The four elements (earth, air, fire, water) and completeness",
+          "The four directions",
+          "The four suits of tarot"
+        ],
+        correctAnswer: 1,
+        explanation: "The four figures in the corners represent the four fixed signs of the zodiac and the four elements, symbolizing completeness, stability, and the integration of all aspects of existence."
+      },
+      {
+        question: "How does The World represent the completion of the Major Arcana journey?",
+        options: [
+          "It represents failure and the need to start over",
+          "It has no relation to the other cards",
+          "It represents integration of all lessons learned throughout the journey that began with The Fool",
+          "It represents escape from the journey"
+        ],
+        correctAnswer: 2,
+        explanation: "As the final card of the Major Arcana, The World represents the successful completion of the journey that began with The Fool, the integration of all lessons learned, and the wholeness achieved before beginning a new cycle."
+      }
+    ],
+    summary: "In this lesson, we've explored The World card, which represents completion, wholeness, integration, and accomplishment. We've examined the symbolism of the dancing figure, the wreath, and the four figures in the corners, which represent wholeness, completion, and the integration of all elements. The World reminds us to celebrate our achievements, integrate what we've learned, and appreciate the completion of cycles before moving on to new beginnings.",
+    additionalResources: [
+      {
+        title: "Celebrating Achievement",
+        description: "Practices for honoring and fully experiencing completion."
+      },
+      {
+        title: "Integration Practices",
+        description: "Methods for bringing together all aspects of your experiences and self."
       }
     ]
   }

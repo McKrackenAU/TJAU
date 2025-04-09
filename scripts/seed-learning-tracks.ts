@@ -17,12 +17,18 @@ async function main() {
   console.log("Creating Beginner's Journey track...");
   await storage.createLearningTrack({
     name: "Beginner's Journey",
-    description: "Start your tarot learning journey with the foundational Major Arcana cards.",
+    description: "Master all 22 Major Arcana cards with detailed lessons on their symbolism and meanings.",
     difficulty: "beginner",
-    requiredCards: ["fool", "magician", "high-priestess", "empress", "emperor"],
+    requiredCards: [
+      "fool", "magician", "high-priestess", "empress", "emperor", 
+      "hierophant", "lovers", "chariot", "strength", "hermit", 
+      "wheel-of-fortune", "justice", "hanged-man", "death", "temperance", 
+      "devil", "tower", "star", "moon", "sun", 
+      "judgement", "world"
+    ],
     // The first image will be used as the track thumbnail
     cardImages: ["/api/card/image/fool", "/api/card/image/magician", "/api/card/image/high-priestess"],
-    estimatedHours: 5,
+    estimatedHours: 22,
     // No prerequisites for beginner track
     prerequisites: []
   });
