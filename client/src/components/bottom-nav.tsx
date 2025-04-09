@@ -1,50 +1,60 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User } from "lucide-react";
+import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
+import { useState, useRef, useEffect } from "react";
 
-const baseNavItems = [
+// Main navigation items that will always be visible
+const mainNavItems = [
   { icon: Home, label: "Home", href: "/" },
   { icon: Sun, label: "Daily", href: "/daily" },
   { icon: Layout, label: "Spreads", href: "/spreads" },
   { icon: Mic, label: "Voice", href: "/voice-guided" },
   { icon: History, label: "History", href: "/history" },
+  { icon: BookOpen, label: "Library", href: "/library" },
+];
+
+// Items that can be moved to the "More" dropdown if needed
+const secondaryNavItems = [
   { icon: GraduationCap, label: "Study", href: "/study" },
   { icon: PenTool, label: "Journal", href: "/journal" },
-  { icon: BookOpen, label: "Library", href: "/library" },
   { icon: Compass, label: "Learn", href: "/learning" },
 ];
 
 export default function BottomNav() {
   const [location] = useLocation();
   const { user } = useAuth();
+  const [showMoreMenu, setShowMoreMenu] = useState(false);
+  const moreMenuRef = useRef<HTMLDivElement>(null);
   
-  const navItems = [...baseNavItems];
-  
-  // Add account-related links if user is logged in
-  if (user) {
-    navItems.push({ icon: User, label: "Account", href: "/account" });
-    navItems.push({ icon: CreditCard, label: "Subscribe", href: "/subscribe" });
-    
-    // Add admin dashboard link for admin users
-    if (user.isAdmin) {
-      navItems.push({ icon: ShieldAlert, label: "Admin", href: "/admin/dashboard" });
-    }
-  }
+  // Account-related items that will be in the "More" dropdown if user is logged in
+  const accountItems = user ? [
+    { icon: User, label: "Account", href: "/account" },
+    { icon: CreditCard, label: "Subscribe", href: "/subscribe" },
+    ...(user.isAdmin ? [{ icon: ShieldAlert, label: "Admin", href: "/admin/dashboard" }] : [])
+  ] : [];
 
-  // Function to get the appropriate grid column class
-  const getGridColsClass = () => {
-    const count = navItems.length;
-    // Handle specific number of columns based on count
-    if (count === 9) return 'grid-cols-9';
-    if (count === 10) return 'grid-cols-10';
-    if (count === 11) return 'grid-cols-11';
-    return 'grid-cols-9'; // Default fallback
-  };
+  // Combined secondary and account items for the More dropdown
+  const moreItems = [...secondaryNavItems, ...accountItems];
+  
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target as Node)) {
+        setShowMoreMenu(false);
+      }
+    }
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border h-16">
-      <div className={`grid ${getGridColsClass()} h-full max-w-lg mx-auto`}>
-        {navItems.map(({ icon: Icon, label, href }) => (
+      <div className="grid grid-cols-8 h-full max-w-lg mx-auto">
+        {/* Main navigation items */}
+        {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
             <div className={`flex flex-col items-center justify-center gap-1 ${
               location === href ? "text-primary" : "text-muted-foreground"
@@ -54,6 +64,38 @@ export default function BottomNav() {
             </div>
           </Link>
         ))}
+        
+        {/* More button */}
+        <div className="relative" ref={moreMenuRef}>
+          <div 
+            className={`flex flex-col items-center justify-center gap-1 cursor-pointer ${
+              showMoreMenu ? "text-primary" : "text-muted-foreground"
+            }`}
+            onClick={() => setShowMoreMenu(!showMoreMenu)}
+          >
+            <MoreHorizontal className="h-5 w-5" />
+            <span className="text-xs">More</span>
+          </div>
+          
+          {/* Dropdown menu */}
+          {showMoreMenu && (
+            <div className="absolute bottom-16 right-0 w-48 py-2 bg-background rounded-md shadow-lg border border-border z-10">
+              {moreItems.map(({ icon: Icon, label, href }) => (
+                <Link key={href} href={href}>
+                  <div 
+                    className={`flex items-center gap-3 px-4 py-2 hover:bg-accent ${
+                      location === href ? "text-primary" : "text-foreground"
+                    }`}
+                    onClick={() => setShowMoreMenu(false)}
+                  >
+                    <Icon className="h-4 w-4" />
+                    <span>{label}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );
