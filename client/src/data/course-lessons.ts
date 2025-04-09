@@ -2882,6 +2882,537 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Techniques for shifting focus from what's lost to what remains, without dismissing valid feelings."
       }
     ]
+  },
+  {
+    id: "intuitive-6",
+    title: "Nostalgia and Innocence: The Six of Cups",
+    description: "Explore childhood memories, nostalgia, and emotional gifts through intuitive tarot reading.",
+    cardId: "c6",
+    sections: [
+      {
+        title: "The Gift of Remembrance",
+        content: `
+          <p>The Six of Cups follows the emotional journey from loss and disappointment in the Five of Cups to a place of sweet remembrance, innocence, and emotional gifts. This card offers an opportunity to access intuitive wisdom about the healing power of nostalgia and the pure emotions of childhood.</p>
+          
+          <p>This card opens rich intuitive territory around:</p>
+          <ul>
+            <li><strong>Childhood memories and their emotional impact</strong></li>
+            <li><strong>The healing power of nostalgia</strong></li>
+            <li><strong>Emotional gifts or kindness between people</strong></li>
+            <li><strong>Innocence and trust in relationships</strong></li>
+            <li><strong>Reunions with people from our past</strong></li>
+            <li><strong>The inner child and its needs</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with this card involves connecting to your own experiences of childhood joy, meaningful reunions, or moments of simple emotional connection that feel timeless.</p>
+        `
+      },
+      {
+        title: "The Six of Cups: Gifts and Memory",
+        content: `
+          <p>In traditional imagery, the Six of Cups shows a child giving a cup filled with flowers to another child. They stand in a courtyard or garden that suggests a safe, enclosed space from the past. The cups are often arranged to suggest sharing or exchange.</p>
+          
+          <p>Key elements to notice intuitively in the Six of Cups:</p>
+          <ul>
+            <li><strong>The children</strong>: Innocence, playfulness, and the uncomplicated emotions of youth</li>
+            <li><strong>The flowers in cups</strong>: Emotional gifts, beauty offered without expectation</li>
+            <li><strong>The protected courtyard</strong>: Safe spaces in our memories, protected from present concerns</li>
+            <li><strong>The act of giving</strong>: Generosity, sharing, and the joy of making others happy</li>
+            <li><strong>The golden/warm color palette</strong>: The golden glow of memories, often more beautiful in recollection</li>
+          </ul>
+          
+          <p>When reading this card intuitively, notice which elements resonate most strongly. Are you drawn to the innocence of the children? The act of giving? The protected space? Your intuitive focus guides your interpretation.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading for Nostalgia and Gifts",
+        content: `
+          <p>When using the Six of Cups to read intuitively about nostalgia and emotional gifts, try these approaches:</p>
+          
+          <ol>
+            <li><strong>Allow yourself to feel nostalgia</strong> - what childhood memory surfaces as you view the card?</li>
+            <li><strong>Notice any physical sensations</strong> - does your body relax, opening to feelings of safety?</li>
+            <li><strong>Consider what 'gifts' are being exchanged</strong> in the situation at hand</li>
+            <li><strong>Feel into the quality of innocence</strong> - where might this quality be needed?</li>
+            <li><strong>Sense if there's a message from your past</strong> that offers healing in the present</li>
+            <li><strong>Consider if someone from your past</strong> is returning or has wisdom to offer</li>
+          </ol>
+          
+          <p>Remember that nostalgia can be both healing and potentially limiting if we get stuck there. Your intuitive sense will guide whether the Six of Cups indicates healthy reconnection with positive aspects of the past or a need to move beyond dwelling in memories.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What emotional transition does the Six of Cups represent after the Five of Cups?",
+        options: [
+          "From grief to nostalgia and sweetness",
+          "From celebration to isolation",
+          "From passion to boredom",
+          "From dreams to reality"
+        ],
+        correctAnswer: 0,
+        explanation: "The Six of Cups represents a transition from the grief and disappointment of the Five of Cups to the sweeter emotions of nostalgia, innocence, and the healing aspects of positive memories."
+      },
+      {
+        question: "Which intuitive approach would be most helpful when working with the Six of Cups?",
+        options: [
+          "Analyzing the mathematical properties of the number six",
+          "Focusing only on future possibilities and ignoring the past",
+          "Allowing yourself to feel nostalgia and notice what memories arise",
+          "Being strictly logical and avoiding emotional responses"
+        ],
+        correctAnswer: 2,
+        explanation: "When working intuitively with the Six of Cups, allowing yourself to feel nostalgia and notice what specific memories arise provides valuable intuitive information about what aspects of the past might be relevant to the current situation."
+      },
+      {
+        question: "What might the flowers in the cups symbolize intuitively?",
+        options: [
+          "Burdens that weigh us down",
+          "Emotional gifts and beauty offered without expectation",
+          "Obstacles to progress",
+          "Warnings about future dangers"
+        ],
+        correctAnswer: 1,
+        explanation: "Intuitively, the flowers placed in cups in the Six of Cups symbolize emotional gifts, beauty, and pleasures that are freely given or exchanged without expectation of return—representing the pure, uncomplicated generosity often associated with childhood."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Six of Cups, examining the healing power of nostalgia, childhood memories, and emotional gifts. We've studied the card's imagery of children exchanging flower-filled cups in a safe, enclosed space. By developing techniques to read intuitively about sweet memories, innocence, and emotional exchanges, we can gain deeper insights about how the past can provide healing resources for the present.",
+    additionalResources: [
+      {
+        title: "Inner Child Work",
+        description: "Techniques for connecting with and healing your inner child through tarot."
+      },
+      {
+        title: "The Healing Power of Nostalgia",
+        description: "Understanding when revisiting the past supports emotional wellbeing."
+      }
+    ]
+  },
+  {
+    id: "intuitive-7",
+    title: "Dreams and Choices: The Seven of Cups",
+    description: "Explore fantasy, illusion, and decision-making through intuitive tarot reading.",
+    cardId: "c7",
+    sections: [
+      {
+        title: "The Realm of Possibilities",
+        content: `
+          <p>The Seven of Cups moves our emotional journey from the sweet nostalgia of the Six of Cups into a realm of multiple possibilities, fantasies, and choices that may not all be grounded in reality. This card invites us to develop intuitive discernment about our dreams, illusions, and options.</p>
+          
+          <p>This card creates space for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Wishful thinking versus realistic options</strong></li>
+            <li><strong>The allure of fantasy and escapism</strong></li>
+            <li><strong>Decision-making when faced with many choices</strong></li>
+            <li><strong>Illusions and projections in emotional situations</strong></li>
+            <li><strong>Creative imagination and its potentials</strong></li>
+            <li><strong>Confusion or being overwhelmed by options</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with this card involves connecting to your own experiences of being captivated by possibilities, confused by too many options, or needing to distinguish between fantasies and achievable goals.</p>
+        `
+      },
+      {
+        title: "The Seven of Cups: Visions and Choices",
+        content: `
+          <p>In traditional imagery, the Seven of Cups shows a silhouetted figure facing seven cups suspended in a cloud-like formation. Each cup contains a different vision or temptation: often including symbols like a castle, jewels, a wreath, a dragon, a snake, a head, and a shrouded figure.</p>
+          
+          <p>Key elements to notice intuitively in the Seven of Cups:</p>
+          <ul>
+            <li><strong>The shadowy figure</strong>: Indicates being in a dream-like or not fully conscious state</li>
+            <li><strong>The floating cups</strong>: Options that aren't fully grounded in reality</li>
+            <li><strong>The different visions</strong>: Various desires, fears, or possibilities competing for attention</li>
+            <li><strong>The cloud formation</strong>: The nebulous nature of fantasies and dreams</li>
+            <li><strong>The contrast between appealing and frightening images</strong>: The mixed nature of our desires and fears</li>
+          </ul>
+          
+          <p>When reading this card intuitively, notice which cup or vision draws your attention most strongly. This focus can reveal what aspect of the situation—whether a desire, fear, or potential—is most energetically significant.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading for Dreams and Choices",
+        content: `
+          <p>When using the Seven of Cups to read intuitively about fantasies and decision-making, try these approaches:</p>
+          
+          <ol>
+            <li><strong>Notice which cup draws your eye first</strong> and what might this represent in the situation</li>
+            <li><strong>Feel the quality of the energy</strong> - dreamy, confused, enchanted, or overwhelmed?</li>
+            <li><strong>Sense whether the visions feel like warnings or opportunities</strong></li>
+            <li><strong>Ask which options are grounded in reality</strong> versus pure fantasy</li>
+            <li><strong>Feel into the shadowy figure's perspective</strong> - what is being sought or feared?</li>
+            <li><strong>Consider where clarity and focus may be needed</strong> to make a wise choice</li>
+          </ol>
+          
+          <p>Remember that the Seven of Cups isn't inherently negative—it can represent wonderful creative possibilities or spiritual visions. Your intuitive sense of whether the energy feels scattered and confused or creatively inspired will guide your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What emotional state does the Seven of Cups most often represent?",
+        options: [
+          "Grounded certainty and practicality",
+          "Facing multiple possibilities, fantasies, or choices",
+          "Deep grief and disappointment",
+          "Committed partnership and collaboration"
+        ],
+        correctAnswer: 1,
+        explanation: "The Seven of Cups represents an emotional state of facing multiple possibilities, fantasies, or choices—often with some confusion about which options are realistic or which would truly bring fulfillment."
+      },
+      {
+        question: "Which intuitive approach would be most helpful when working with the Seven of Cups?",
+        options: [
+          "Ignoring all the options and focusing only on limitations",
+          "Noticing which cup or vision draws your attention most strongly",
+          "Assuming all possibilities are equally valid and achievable",
+          "Focusing only on material concerns"
+        ],
+        correctAnswer: 1,
+        explanation: "When working intuitively with the Seven of Cups, noticing which cup or vision draws your attention most strongly can reveal what aspect of the situation—whether a desire, fear, or potential—is most energetically significant for the reading."
+      },
+      {
+        question: "What quality of discernment does the Seven of Cups invite us to develop?",
+        options: [
+          "Distinguishing between fantasies and realistic options",
+          "Judging other people's choices harshly",
+          "Avoiding all emotional considerations in decisions",
+          "Rejecting all creative possibilities as impractical"
+        ],
+        correctAnswer: 0,
+        explanation: "The Seven of Cups invites us to develop the intuitive discernment needed to distinguish between fantasies and realistic options—learning to recognize which possibilities are grounded in reality and which are primarily wishful thinking or illusions."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Seven of Cups, examining the realm of dreams, possibilities, and choices. We've studied the card's imagery of floating cups containing various visions that may represent desires, fears, or potentials. By developing techniques to read intuitively about fantasy versus reality, we can gain deeper insights about decision-making, creative imagination, and the discernment needed to navigate multiple options.",
+    additionalResources: [
+      {
+        title: "Intuitive Decision-Making",
+        description: "Techniques for using intuition to choose between multiple options."
+      },
+      {
+        title: "Creative Visualization",
+        description: "Harnessing the positive aspects of Seven of Cups energy for manifestation."
+      }
+    ]
+  },
+  {
+    id: "intuitive-8",
+    title: "Walking Away: The Eight of Cups",
+    description: "Explore emotional detachment, seeking deeper meaning, and necessary departures through intuitive tarot reading.",
+    cardId: "c8",
+    sections: [
+      {
+        title: "The Journey Beyond Satisfaction",
+        content: `
+          <p>The Eight of Cups moves our emotional journey from the many possibilities of the Seven of Cups to a place of conscious departure and seeking deeper fulfillment. This card invites us to develop intuitive wisdom about when to walk away from situations that no longer serve our emotional growth, even when they appear outwardly satisfactory.</p>
+          
+          <p>This card creates powerful territory for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Leaving behind what is familiar but no longer fulfilling</strong></li>
+            <li><strong>The search for deeper meaning and emotional truth</strong></li>
+            <li><strong>Spiritual quests and personal growth journeys</strong></li>
+            <li><strong>Necessary transitions and life passages</strong></li>
+            <li><strong>Knowing when you've outgrown a situation</strong></li>
+            <li><strong>The courage to follow inner callings</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with this card involves connecting to your own experiences of walking away from situations that no longer served your growth, or recognizing when something is missing despite outward appearance of completeness.</p>
+        `
+      },
+      {
+        title: "The Eight of Cups: Departure and Seeking",
+        content: `
+          <p>In traditional imagery, the Eight of Cups shows a cloaked figure walking away from a stack of cups, typically arranged in two rows of four and three, with one cup missing. The scene is often set at night with a moon above, and the figure walks toward mountains or a more challenging path.</p>
+          
+          <p>Key elements to notice intuitively in the Eight of Cups:</p>
+          <ul>
+            <li><strong>The departing figure</strong>: The courage to leave behind the familiar</li>
+            <li><strong>The staff or walking stick</strong>: Support for the journey ahead</li>
+            <li><strong>The cups left behind</strong>: Emotional investments or attachments being released</li>
+            <li><strong>The missing cup</strong>: The sense that something is incomplete or unfulfilling</li>
+            <li><strong>The moon</strong>: Intuitive guidance and emotional cycles</li>
+            <li><strong>The mountains ahead</strong>: The challenging but meaningful path forward</li>
+          </ul>
+          
+          <p>When reading this card intuitively, notice whether your attention is drawn more to what is being left behind, the solitary journey, or the destination ahead. Your focus can reveal whether the primary energy is about release, transition, or future seeking.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading for Departure and Seeking",
+        content: `
+          <p>When using the Eight of Cups to read intuitively about walking away and seeking deeper fulfillment, try these approaches:</p>
+          
+          <ol>
+            <li><strong>Feel the emotional quality of the departure</strong> - sad, liberating, frightening, or necessary?</li>
+            <li><strong>Sense what is being left behind</strong> and why it's no longer enough</li>
+            <li><strong>Notice any resistance to the journey</strong> - fear of the unknown or attachment to comfort</li>
+            <li><strong>Connect with the moonlight guidance</strong> - what intuitive knowing is illuminating this path?</li>
+            <li><strong>Feel into the solitude of the journey</strong> - what inner resources are being called upon?</li>
+            <li><strong>Sense what deeper fulfillment</strong> is being sought beyond the horizon</li>
+          </ol>
+          
+          <p>Remember that the Eight of Cups isn't about impulsive abandonment, but rather conscious, often difficult choices to seek greater meaning. Your intuitive sense of whether this departure is premature or perfectly timed will guide your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What primary theme does the Eight of Cups represent in the emotional journey?",
+        options: [
+          "Celebrating achievements and material success",
+          "Walking away from what no longer serves deeper fulfillment",
+          "Building new relationships and connections",
+          "Fighting against challenges and obstacles"
+        ],
+        correctAnswer: 1,
+        explanation: "The Eight of Cups represents walking away from what no longer serves deeper fulfillment—the conscious choice to leave behind situations, relationships, or achievements that may appear satisfactory but don't provide spiritual or emotional depth."
+      },
+      {
+        question: "What might the missing cup in the traditional imagery symbolize intuitively?",
+        options: [
+          "Something stolen or taken by force",
+          "A sense that something is incomplete or unfulfilling despite outward appearance",
+          "A person who has rejected the seeker",
+          "A physical object that needs to be found"
+        ],
+        correctAnswer: 1,
+        explanation: "Intuitively, the missing cup in the arrangement of cups left behind symbolizes a sense that something is incomplete or unfulfilling despite the outward appearance of having 'enough'—representing the emotional void or lack of deeper meaning that motivates the departure."
+      },
+      {
+        question: "Which intuitive approach would be most helpful when working with the Eight of Cups?",
+        options: [
+          "Focusing only on the negative aspects of what is being left",
+          "Ignoring feelings of sadness or loss about the departure",
+          "Feeling the emotional quality of the departure—whether sad, liberating, frightening, or necessary",
+          "Assuming the journey is always wrong and should be avoided"
+        ],
+        correctAnswer: 2,
+        explanation: "When working intuitively with the Eight of Cups, feeling the emotional quality of the departure—whether it feels sad, liberating, frightening, or necessary—provides valuable intuitive information about the nature and timing of this transition in the querent's life."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Eight of Cups, examining the conscious choice to walk away from what is familiar but no longer deeply fulfilling. We've studied the card's imagery of a solitary figure departing from cups by moonlight toward a more challenging but meaningful path. By developing techniques to read intuitively about necessary departures and the search for greater depth, we can gain deeper insights about transitions, spiritual seeking, and the courage to follow inner guidance.",
+    additionalResources: [
+      {
+        title: "The Hero's Journey",
+        description: "Understanding spiritual quests and necessary departures in mythic patterns."
+      },
+      {
+        title: "Inner Calling vs. Running Away",
+        description: "Distinguishing between authentic spiritual seeking and avoidance behavior."
+      }
+    ]
+  },
+  {
+    id: "intuitive-9",
+    title: "Emotional Fulfillment: The Nine of Cups",
+    description: "Explore wish fulfillment, satisfaction, and true contentment through intuitive tarot reading.",
+    cardId: "c9",
+    sections: [
+      {
+        title: "The Wish Card",
+        content: `
+          <p>The Nine of Cups moves our emotional journey from the departure and seeking of the Eight of Cups to a place of fulfillment, contentment, and wishes made manifest. Often called the "Wish Card," this image invites us to develop intuitive connections to states of emotional satisfaction and the manifestation of heart-centered desires.</p>
+          
+          <p>This card creates fertile ground for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Emotional satisfaction and contentment</strong></li>
+            <li><strong>Wishes fulfilled and desires manifested</strong></li>
+            <li><strong>The difference between true happiness and material indulgence</strong></li>
+            <li><strong>Emotional abundance and having your "cups filled"</strong></li>
+            <li><strong>The culmination of emotional work or healing</strong></li>
+            <li><strong>Generosity from a place of fullness</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with this card involves connecting to your own experiences of deep satisfaction, moments when wishes came true, or times when your emotional needs were fully met.</p>
+        `
+      },
+      {
+        title: "The Nine of Cups: Satisfaction and Wishes",
+        content: `
+          <p>In traditional imagery, the Nine of Cups shows a well-dressed, often portly figure seated before a curved arrangement of nine cups. The person typically has an expression of satisfaction, with arms crossed in a gesture of contentment or completion. The background may be plain, focusing attention on the fulfilled figure and the cups.</p>
+          
+          <p>Key elements to notice intuitively in the Nine of Cups:</p>
+          <ul>
+            <li><strong>The satisfied expression</strong>: Emotional contentment and happiness</li>
+            <li><strong>The crossed arms</strong>: A sense of completion or having received what was desired</li>
+            <li><strong>The curved arrangement of cups</strong>: Abundance and emotional fulfillment</li>
+            <li><strong>The fine clothing</strong>: Enjoying prosperity and good fortune</li>
+            <li><strong>The seated posture</strong>: Being at rest after achieving satisfaction</li>
+          </ul>
+          
+          <p>When reading this card intuitively, notice the quality of satisfaction present. Is it generous and radiant, or possibly self-satisfied and exclusive? Your sense of the emotional tone guides your interpretation of how this fulfillment is being experienced and shared.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading for Wishes and Fulfillment",
+        content: `
+          <p>When using the Nine of Cups to read intuitively about emotional satisfaction and wishes, try these approaches:</p>
+          
+          <ol>
+            <li><strong>Feel into your own sense of contentment</strong> as you view the card</li>
+            <li><strong>Consider what wish or desire</strong> is most relevant to the reading</li>
+            <li><strong>Notice whether the satisfaction feels individual or shared</strong> with others</li>
+            <li><strong>Sense the difference between surface pleasure and deeper fulfillment</strong></li>
+            <li><strong>Connect with the feeling of having "enough" emotionally</strong></li>
+            <li><strong>Be aware of any intuitive guidance about being careful what you wish for</strong></li>
+          </ol>
+          
+          <p>Remember that the Nine of Cups can represent both the genuine joy of fulfillment and sometimes the more shadow aspects of self-indulgence or smugness. Your intuitive sense of whether the energy feels open-hearted or closed will guide your interpretation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the Nine of Cups often called in tarot tradition?",
+        options: [
+          "The Hermit Card",
+          "The Wish Card",
+          "The Challenge Card",
+          "The Journey Card"
+        ],
+        correctAnswer: 1,
+        explanation: "The Nine of Cups is often called 'The Wish Card' in tarot tradition because it represents emotional fulfillment, satisfaction, and the manifestation of desires—particularly those connected to emotional wellbeing and happiness."
+      },
+      {
+        question: "Which intuitive approach would be most helpful when working with the Nine of Cups?",
+        options: [
+          "Ignoring all positive feelings as unrealistic",
+          "Focusing only on material achievements",
+          "Feeling into your own sense of contentment as you view the card",
+          "Assuming wishes never truly come true"
+        ],
+        correctAnswer: 2,
+        explanation: "When working intuitively with the Nine of Cups, feeling into your own sense of contentment as you view the card helps you connect with the energy of satisfaction and fulfillment, providing insight into how this energy is manifesting in the reading."
+      },
+      {
+        question: "What important distinction might your intuition help discern with the Nine of Cups?",
+        options: [
+          "The difference between surface pleasure/self-indulgence and deeper fulfillment",
+          "The difference between red and white cups",
+          "The difference between night and day",
+          "The distinction between male and female figures"
+        ],
+        correctAnswer: 0,
+        explanation: "Your intuition can help discern the important distinction between surface pleasure or self-indulgence and deeper, more meaningful emotional fulfillment when reading the Nine of Cups. This helps determine whether the card represents genuine contentment or potentially excessive self-satisfaction."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Nine of Cups, examining emotional fulfillment, wish manifestation, and true contentment. We've studied the card's imagery of a satisfied figure seated before an abundant arrangement of cups. By developing techniques to read intuitively about satisfaction and desires made manifest, we can gain deeper insights about emotional abundance, the nature of true fulfillment, and the manifestation of heart-centered wishes.",
+    additionalResources: [
+      {
+        title: "The Psychology of Contentment",
+        description: "Understanding the difference between hedonic pleasure and eudaimonic wellbeing."
+      },
+      {
+        title: "Mindful Manifestation",
+        description: "Approaches to clarifying and manifesting wishes with awareness and intention."
+      }
+    ]
+  },
+  {
+    id: "intuitive-10",
+    title: "Family Harmony: The Ten of Cups",
+    description: "Explore emotional completeness, family harmony, and shared values through intuitive tarot reading.",
+    cardId: "c10",
+    sections: [
+      {
+        title: "The Rainbow of Emotional Fulfillment",
+        content: `
+          <p>The Ten of Cups completes our journey through the cups suit, moving from the individual satisfaction of the Nine of Cups to a place of shared joy, family harmony, and emotional fulfillment that extends beyond the self to include community and loved ones. This card invites us to develop intuitive connections to states of harmonious relationship and values-based contentment.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Family harmony and loving relationships</strong></li>
+            <li><strong>Shared values and collective joy</strong></li>
+            <li><strong>Emotional security and safe havens</strong></li>
+            <li><strong>The fulfillment of emotional dreams</strong></li>
+            <li><strong>Communities built on mutual care</strong></li>
+            <li><strong>The integration of love across generations</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with this card involves connecting to your own experiences of harmonious relationships, times when you felt part of something larger than yourself, or moments when your values and emotions were aligned with those around you.</p>
+        `
+      },
+      {
+        title: "The Ten of Cups: Harmony and Shared Joy",
+        content: `
+          <p>In traditional imagery, the Ten of Cups shows a couple with their arms outstretched in joy, often with children dancing nearby. Above them appears a rainbow with ten cups embedded in its arc. The scene typically includes a peaceful home and landscape, suggesting security and established happiness.</p>
+          
+          <p>Key elements to notice intuitively in the Ten of Cups:</p>
+          <ul>
+            <li><strong>The rainbow</strong>: The beauty that follows storms, divine blessing, covenant</li>
+            <li><strong>The family unit</strong>: Loving bonds, generational connections, chosen family</li>
+            <li><strong>The home</strong>: Emotional security, belonging, and safe haven</li>
+            <li><strong>The expansive landscape</strong>: Abundance and room for growth within security</li>
+            <li><strong>The gesture of celebration</strong>: Gratitude and recognition of blessings</li>
+          </ul>
+          
+          <p>When reading this card intuitively, notice whether your attention is drawn more to the rainbow, the family, the home, or the landscape. Your focus can reveal which aspect of emotional harmony—divine blessing, loving relationships, security, or expansiveness—is most significant in the reading.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading for Harmony and Shared Values",
+        content: `
+          <p>When using the Ten of Cups to read intuitively about emotional harmony and shared values, try these approaches:</p>
+          
+          <ol>
+            <li><strong>Feel into your own experiences of family or community harmony</strong></li>
+            <li><strong>Notice what "home" feels like in your body</strong> - security, love, belonging</li>
+            <li><strong>Sense what shared values</strong> might be creating the foundation for harmony</li>
+            <li><strong>Feel the quality of completion</strong> - what emotional journey is reaching its fulfillment?</li>
+            <li><strong>Connect with the rainbow's energy</strong> - what covenant or blessing is present?</li>
+            <li><strong>Consider whose perspectives are included</strong> in this vision of harmony</li>
+          </ol>
+          
+          <p>Remember that the Ten of Cups represents an ideal of emotional harmony that may be present, emerging, or aspired to. Your intuitive sense of whether this energy feels present, possible, or distant will guide your interpretation of its significance in a reading.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "How does the Ten of Cups expand upon the fulfillment found in the Nine of Cups?",
+        options: [
+          "It focuses on material wealth instead of emotions",
+          "It moves from individual satisfaction to shared joy and family/community harmony",
+          "It represents disappointment after initial fulfillment",
+          "It emphasizes solitude rather than connection"
+        ],
+        correctAnswer: 1,
+        explanation: "The Ten of Cups expands upon the fulfillment found in the Nine of Cups by moving from individual satisfaction to shared joy and family/community harmony—showing how emotional fulfillment reaches its completion when it encompasses loving relationships and shared values with others."
+      },
+      {
+        question: "What might the rainbow symbolize intuitively in the Ten of Cups?",
+        options: [
+          "Impending storms and difficulties",
+          "Unrealistic fantasy and delusion",
+          "Divine blessing, covenant, and the beauty that follows emotional storms",
+          "Material possessions and wealth"
+        ],
+        correctAnswer: 2,
+        explanation: "Intuitively, the rainbow in the Ten of Cups symbolizes divine blessing, covenant, and the beauty that follows emotional storms—representing the harmonious alignment of heaven and earth, the fulfillment of emotional promises, and the multi-faceted beauty of complete emotional wellbeing."
+      },
+      {
+        question: "Which aspect of the Ten of Cups would be most helpful to focus on intuitively when reading about someone seeking greater emotional fulfillment?",
+        options: [
+          "The sense of what 'home' and belonging feels like in your body",
+          "Only the material value of the house shown",
+          "The statistical likelihood of finding perfect happiness",
+          "Historical meanings of rainbows in various cultures"
+        ],
+        correctAnswer: 0,
+        explanation: "When reading about someone seeking greater emotional fulfillment, focusing intuitively on the sense of what 'home' and belonging feels like in your body helps you connect with the energy of emotional security and harmonious relationships that the querent may be seeking to create or enhance in their life."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Ten of Cups, examining emotional completeness, family harmony, and shared values. We've studied the card's imagery of a joyful family beneath a rainbow of cups, with a peaceful home and landscape suggesting security and established happiness. By developing techniques to read intuitively about harmonious relationships and collective joy, we can gain deeper insights about emotional fulfillment that extends beyond the self to include connection with loved ones and community.",
+    additionalResources: [
+      {
+        title: "Creating Emotional Safe Havens",
+        description: "Practices for building relationships and spaces characterized by security and harmony."
+      },
+      {
+        title: "Values-Based Communities",
+        description: "Understanding how shared values create foundations for collective emotional wellbeing."
+      }
+    ]
   }
 ];
 
