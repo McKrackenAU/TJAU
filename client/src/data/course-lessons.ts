@@ -8965,6 +8965,466 @@ export const minorArcanaLessons: LessonContent[] = [
       }
     ]
   },
+  {
+    id: "minor-49",
+    title: "The Queen of Wands: Confident Self-Expression and Creative Nurturing",
+    description: "Explore the qualities of passionate confidence, independent action, and the nurturing of creative potential in the Queen of Wands.",
+    cardId: "wq",
+    sections: [
+      {
+        title: "The Queen of Wands: Overview",
+        content: `
+          <p>Following the King of Wands' visionary leadership, the Queen of Wands represents another aspect of mature fiery energy—bringing confident self-expression, passionate independence, and the warm nurturing needed to encourage creative growth in oneself and others.</p>
+          
+          <p>This card typically depicts a regal figure seated on a throne adorned with lions and sunflowers, often holding a sunflower and a staff. The Queen's posture is confident and direct, while her expression remains warm and engaging, embodying the social magnetism and enthusiastic presence that draws others to her flame.</p>
+          
+          <p>The Queen of Wands asks us to consider:</p>
+          <ul>
+            <li>How can I express myself more confidently and authentically?</li>
+            <li>Where might my enthusiasm and warmth inspire others?</li>
+            <li>How can I balance independence with social connection?</li>
+            <li>What creative potentials in myself and others am I called to nurture?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Queen of Wands contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The sunflower</strong> - Represents vitality, radiance, and the ability to turn toward light and growth</li>
+            <li><strong>The lions</strong> - Symbolize courage, strength, and the solar qualities of confidence</li>
+            <li><strong>The black cat</strong> - Often depicted at her feet, represents her connection to intuition and independence</li>
+            <li><strong>The vibrant clothing</strong> - Shows expressive creativity and passionate engagement with life</li>
+            <li><strong>The confident posture</strong> - Indicates self-assurance and comfort with being seen</li>
+          </ul>
+          
+          <p>In readings, the Queen of Wands suggests:</p>
+          <ul>
+            <li>Confident self-expression and authentic presence</li>
+            <li>Passionate independence balanced with social warmth</li>
+            <li>Magnetic charisma and natural leadership</li>
+            <li>Nurturing creative potential in self and others</li>
+            <li>Optimistic determination and enthusiastic action</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Queen of Wands",
+        content: `
+          <p>When the Queen of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where am I holding back from expressing myself confidently?</li>
+            <li>How might I better nurture the creative potential in myself and others?</li>
+            <li>What would it look like to balance independence with warm engagement?</li>
+            <li>How can I bring more authentic enthusiasm to my interactions?</li>
+          </ul>
+          
+          <p>Actions to take when working with Queen of Wands energy:</p>
+          <ul>
+            <li>Express yourself authentically without dimming your light</li>
+            <li>Create environments where others feel inspired and encouraged</li>
+            <li>Take independent action while maintaining warm connections</li>
+            <li>Trust your intuition while remaining open to others</li>
+            <li>Approach challenges with optimistic determination</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the most distinctive quality of the Queen of Wands?",
+        options: [
+          "Cautious planning and risk avoidance",
+          "Analytical detachment and intellectual focus",
+          "Confident self-expression balanced with social warmth",
+          "Quiet introspection and emotional depth"
+        ],
+        correctAnswer: 2,
+        explanation: "The most distinctive quality of the Queen of Wands is confident self-expression balanced with social warmth. Unlike approaches that emphasize caution, analysis, or introspection, the Queen embodies the ability to express herself boldly and authentically while maintaining a warm, engaging presence that connects with others. This balanced approach allows her to be both independent and magnetic, standing in her power while creating environments where others feel welcomed and inspired."
+      },
+      {
+        question: "How does the Queen of Wands typically approach challenges?",
+        options: [
+          "With careful analysis and methodical planning",
+          "With optimistic determination and enthusiastic action",
+          "With emotional intuition and adaptable responses",
+          "With practical solutions and conservative choices"
+        ],
+        correctAnswer: 1,
+        explanation: "The Queen of Wands typically approaches challenges with optimistic determination and enthusiastic action. Her fiery nature gives her the confidence to face difficulties directly, bringing energy, creativity, and a can-do attitude to obstacles. Rather than getting bogged down in excessive analysis, emotional processing, or cautious pragmatism, she maintains a positive outlook and takes decisive action, inspiring others with her courageous approach to life's challenges."
+      },
+      {
+        question: "What potential shadow aspect should one be mindful of when embodying Queen of Wands energy?",
+        options: [
+          "Becoming too domineering or attention-seeking",
+          "Becoming too passive or indecisive",
+          "Becoming too analytical or emotionally detached",
+          "Becoming too cautious or risk-averse"
+        ],
+        correctAnswer: 0,
+        explanation: "When embodying Queen of Wands energy, one should be mindful of the potential shadow aspect of becoming too domineering or attention-seeking. The confidence, independence, and magnetic presence that make this energy so powerful can, if unbalanced, manifest as demanding behavior, jealousy when others receive attention, or a need to be the center of focus at all times. This might appear as interrupting others, taking over collaborative projects, or becoming impatient when the spotlight shifts elsewhere."
+      }
+    ],
+    summary: "The Queen of Wands represents confident self-expression, passionate independence, and the warm nurturing of creative potential. This card embodies the balance of fiery self-assurance with social magnetism, showing how to stand fully in one's power while creating connections that inspire others. The Queen invites us to express ourselves authentically, to approach life with enthusiastic determination, and to create environments where both our own creative fire and that of others can flourish.",
+    additionalResources: [
+      {
+        title: "Authentic Presence",
+        description: "Practices for developing confident self-expression without fear or apology"
+      },
+      {
+        title: "Creative Encouragement",
+        description: "How to nurture creative potential in yourself and others"
+      }
+    ]
+  },
+  {
+    id: "minor-50",
+    title: "The Queen of Cups: Emotional Nurturing and Intuitive Wisdom",
+    description: "Explore the qualities of emotional depth, intuitive understanding, and compassionate nurturing in the Queen of Cups.",
+    cardId: "cq",
+    sections: [
+      {
+        title: "The Queen of Cups: Overview",
+        content: `
+          <p>Following the King of Cups' emotional wisdom and balance, the Queen of Cups represents another aspect of mature watery energy—bringing intuitive understanding, compassionate nurturing, and the flowing depths of emotional connection that create healing and creative inspiration.</p>
+          
+          <p>This card typically depicts a gentle figure seated on a throne at the edge of the sea, holding an ornate cup or chalice. The Queen's gaze is often directed at the cup, suggesting her deep attunement to the inner emotional and intuitive realms. Her throne may feature water imagery and she is often surrounded by shells, fish, or other water symbols.</p>
+          
+          <p>The Queen of Cups asks us to consider:</p>
+          <ul>
+            <li>How can I better connect with my intuition and emotional wisdom?</li>
+            <li>Where might my compassion and empathy be most needed?</li>
+            <li>How can I nurture others without depleting myself?</li>
+            <li>What creative inspiration is arising from my emotional depths?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Queen of Cups contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The ornate cup</strong> - Represents the richness of emotional life and intuitive capacity</li>
+            <li><strong>The sea or water</strong> - Symbolizes the unconscious, intuition, and the flowing nature of feelings</li>
+            <li><strong>The throne at water's edge</strong> - Indicates the balance between conscious awareness and unconscious depths</li>
+            <li><strong>The gentle gaze</strong> - Shows receptivity, reflection, and inner attunement</li>
+            <li><strong>The shell and water imagery</strong> - Represents sensitivity, permeability, and connection to the emotional realm</li>
+          </ul>
+          
+          <p>In readings, the Queen of Cups suggests:</p>
+          <ul>
+            <li>Intuitive wisdom and emotional intelligence</li>
+            <li>Compassionate understanding and empathy</li>
+            <li>Nurturing presence that fosters healing</li>
+            <li>Creative inspiration flowing from emotional depth</li>
+            <li>The balance of sensitivity with healthy boundaries</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Queen of Cups",
+        content: `
+          <p>When the Queen of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>How can I develop greater trust in my intuition?</li>
+            <li>Where might my empathy and compassion create healing?</li>
+            <li>What creative inspiration is emerging from my emotional depths?</li>
+            <li>How can I nurture others while maintaining healthy boundaries?</li>
+          </ul>
+          
+          <p>Actions to take when working with Queen of Cups energy:</p>
+          <ul>
+            <li>Create time and space for listening to your intuition</li>
+            <li>Offer compassionate presence without trying to fix or solve</li>
+            <li>Express emotions through creative arts like poetry, music, or painting</li>
+            <li>Practice empathetic listening that creates space for others to feel understood</li>
+            <li>Develop healthy boundaries that allow you to nurture without depletion</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the source of the Queen of Cups' wisdom?",
+        options: [
+          "Rational analysis and logical deduction",
+          "Intuitive understanding and emotional depth",
+          "Practical experience and methodical observation",
+          "Scholarly study and intellectual research"
+        ],
+        correctAnswer: 1,
+        explanation: "The source of the Queen of Cups' wisdom is intuitive understanding and emotional depth. Unlike approaches that rely primarily on rational analysis, practical experience, or scholarly research, the Queen of Cups accesses knowledge through her deep connection to the unconscious, her emotional sensitivity, and her receptivity to intuitive insights. This form of wisdom comes through feeling, inner knowing, and the ability to perceive subtle emotional currents and symbolic meanings that may not be immediately apparent to logical analysis."
+      },
+      {
+        question: "How does the Queen of Cups typically nurture others?",
+        options: [
+          "By providing practical solutions and material support",
+          "By offering logical advice and clear direction",
+          "By creating excitement and motivational energy",
+          "By providing emotional understanding and compassionate presence"
+        ],
+        correctAnswer: 3,
+        explanation: "The Queen of Cups typically nurtures others by providing emotional understanding and compassionate presence. Rather than focusing primarily on practical solutions, logical advice, or motivational energy, she creates a space of deep listening, empathy, and acceptance where others feel truly seen and understood. This form of nurturing acknowledges and validates emotional experiences, creating a container where healing and authentic self-expression can naturally emerge through the power of being fully received."
+      },
+      {
+        question: "What important balance does the Queen of Cups teach us?",
+        options: [
+          "The balance between work and play",
+          "The balance between empathy and healthy boundaries",
+          "The balance between saving and spending",
+          "The balance between tradition and innovation"
+        ],
+        correctAnswer: 1,
+        explanation: "The important balance that the Queen of Cups teaches us is between empathy and healthy boundaries. While her gift is deep emotional sensitivity and compassionate connection, the mature expression of Queen of Cups energy includes the wisdom to maintain appropriate boundaries that prevent emotional overwhelm or depletion. She models how to remain open-hearted and receptive while still honoring one's own emotional needs and limitations—offering compassion without becoming submerged in others' emotional states."
+      }
+    ],
+    summary: "The Queen of Cups represents intuitive wisdom, emotional nurturing, and the flowing depths of compassion. This card embodies the balance of sensitive receptivity with healthy boundaries, showing how to remain attuned to the rich inner world of feelings and intuition while maintaining emotional well-being. The Queen invites us to trust our intuitive knowing, to offer healing through compassionate presence, and to draw creative inspiration from the deep wellsprings of emotional experience.",
+    additionalResources: [
+      {
+        title: "Intuitive Development",
+        description: "Practices for deepening your connection to inner wisdom and guidance"
+      },
+      {
+        title: "Compassionate Presence",
+        description: "The art of nurturing others through deep listening and empathy"
+      }
+    ]
+  },
+  {
+    id: "minor-51",
+    title: "The Queen of Swords: Clear Perception and Independent Thinking",
+    description: "Explore the qualities of mental clarity, perceptive discernment, and independent thinking in the Queen of Swords.",
+    cardId: "sq",
+    sections: [
+      {
+        title: "The Queen of Swords: Overview",
+        content: `
+          <p>Following the King of Swords' intellectual authority and ethical leadership, the Queen of Swords represents another aspect of mature airy energy—bringing clear perception, independent thinking, and the perceptive discernment needed to separate truth from illusion while maintaining compassionate understanding.</p>
+          
+          <p>This card typically depicts a forthright figure seated on a throne, often with clouds in the background. The Queen holds an upright sword, symbolizing clear mental faculties and the ability to cut through confusion. Her gaze is direct and penetrating, yet often contains a hint of compassion that balances her sharp clarity.</p>
+          
+          <p>The Queen of Swords asks us to consider:</p>
+          <ul>
+            <li>Where do I need greater clarity and honest perception?</li>
+            <li>How can I think more independently, free from unconscious biases?</li>
+            <li>What illusions or unnecessary complications might I need to cut away?</li>
+            <li>How can I balance intellectual clarity with compassionate understanding?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Queen of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The upright sword</strong> - Represents clarity, truth, and the power of the intellect</li>
+            <li><strong>The clouds</strong> - Symbolize the realm of thought and the ability to rise above emotional fog</li>
+            <li><strong>The direct gaze</strong> - Indicates perceptiveness, honesty, and the capacity to see clearly</li>
+            <li><strong>The throne with butterfly imagery</strong> - Often depicted to represent transformation through truth</li>
+            <li><strong>The extended hand</strong> - Sometimes shown as a gesture of both boundary-setting and invitation to truth</li>
+          </ul>
+          
+          <p>In readings, the Queen of Swords suggests:</p>
+          <ul>
+            <li>Clear perception that sees beyond illusions</li>
+            <li>Independent thinking free from groupthink or people-pleasing</li>
+            <li>Honest communication that's both direct and considerate</li>
+            <li>Perceptive understanding of others' motivations</li>
+            <li>The balance of intellectual clarity with compassion</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Queen of Swords",
+        content: `
+          <p>When the Queen of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where do I need to see a situation more clearly, without emotional distortion?</li>
+            <li>How might I communicate my truth more directly yet compassionately?</li>
+            <li>What unnecessary complications or relationships might I need to cut away?</li>
+            <li>How can I think more independently while remaining open to others' perspectives?</li>
+          </ul>
+          
+          <p>Actions to take when working with Queen of Swords energy:</p>
+          <ul>
+            <li>Practice seeing situations objectively, without emotional bias</li>
+            <li>Communicate your truth with both clarity and consideration</li>
+            <li>Set clear boundaries where needed</li>
+            <li>Evaluate information critically rather than accepting it at face value</li>
+            <li>Create space between yourself and drama or unnecessary complications</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What primary gift does the Queen of Swords bring to difficult situations?",
+        options: [
+          "Emotional comfort and nurturing support",
+          "Practical solutions and material resources",
+          "Enthusiastic motivation and creative inspiration",
+          "Clear perception and honest assessment"
+        ],
+        correctAnswer: 3,
+        explanation: "The primary gift that the Queen of Swords brings to difficult situations is clear perception and honest assessment. Unlike approaches that focus primarily on emotional comfort, practical solutions, or motivational energy, the Queen of Swords offers the ability to see things as they truly are, without distortion from wishful thinking, emotional bias, or social conditioning. This clarity creates the foundation for wise decisions and authentic growth, even when the truth may initially be uncomfortable."
+      },
+      {
+        question: "How does the Queen of Swords typically communicate?",
+        options: [
+          "With inspiring enthusiasm and motivational language",
+          "With diplomatic indirectness and people-pleasing",
+          "With direct honesty balanced by compassionate consideration",
+          "With practical instructions and concrete details"
+        ],
+        correctAnswer: 2,
+        explanation: "The Queen of Swords typically communicates with direct honesty balanced by compassionate consideration. She values truth and clarity above social niceties or emotional comfort, yet she delivers her insights with an awareness of how they might be received. Unlike approaches that prioritize enthusiasm, diplomacy, or practicality, the Queen of Swords aims to communicate clearly and truthfully while remaining mindful of the human impact of her words—cutting through confusion without cutting down the person."
+      },
+      {
+        question: "What distinguishes the Queen of Swords from the other Queens in tarot?",
+        options: [
+          "Her focus on clear perception and independent thinking",
+          "Her emphasis on emotional nurturing and intuitive understanding",
+          "Her dedication to practical care and material abundance",
+          "Her commitment to enthusiastic leadership and creative inspiration"
+        ],
+        correctAnswer: 0,
+        explanation: "What distinguishes the Queen of Swords from the other Queens in tarot is her focus on clear perception and independent thinking. While the Queen of Cups emphasizes emotional nurturing and intuition, the Queen of Pentacles focuses on practical care and abundance, and the Queen of Wands prioritizes enthusiastic leadership and creative inspiration, the Queen of Swords specializes in mental clarity, honest perception, and the courage to think independently regardless of social pressure. She represents the wisdom that comes from seeing clearly and speaking truthfully."
+      }
+    ],
+    summary: "The Queen of Swords represents clear perception, independent thinking, and the ability to separate truth from illusion. This card embodies the balance of intellectual clarity with compassionate understanding, showing how direct honesty can be delivered with grace and consideration. The Queen invites us to see situations clearly without emotional distortion, to think for ourselves rather than following the crowd, and to communicate our truth in ways that cut through confusion without cutting down others.",
+    additionalResources: [
+      {
+        title: "Perceptive Clarity",
+        description: "Practices for seeing beyond bias, projection, and wishful thinking"
+      },
+      {
+        title: "Compassionate Honesty",
+        description: "The art of communicating difficult truths with both clarity and consideration"
+      }
+    ]
+  },
+  {
+    id: "minor-52",
+    title: "The Queen of Pentacles: Nurturing Abundance and Practical Wisdom",
+    description: "Explore the qualities of nurturing prosperity, practical care, and the creation of security and comfort in the Queen of Pentacles.",
+    cardId: "pq",
+    sections: [
+      {
+        title: "The Queen of Pentacles: Overview",
+        content: `
+          <p>Following the King of Pentacles' material mastery and business acumen, the Queen of Pentacles represents another aspect of mature earthly energy—bringing nurturing abundance, practical wisdom, and the generous care needed to create environments of comfort, security, and sustainable prosperity.</p>
+          
+          <p>This card typically depicts a welcoming figure seated in a lush garden, often with animals nearby. The Queen holds a pentacle in her lap, symbolizing her ability to manifest and share material abundance. Her surroundings are fertile and abundant, reflecting the prosperity that flows from her practical wisdom and nurturing care.</p>
+          
+          <p>The Queen of Pentacles asks us to consider:</p>
+          <ul>
+            <li>How can I create greater comfort and security for myself and those I care about?</li>
+            <li>Where might my practical wisdom and nurturing care be most valuable?</li>
+            <li>What aspects of my physical environment need more attention and tending?</li>
+            <li>How can I balance material success with generosity and care for others?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Queen of Pentacles contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The pentacle in lap</strong> - Represents material abundance held with care and readiness to share</li>
+            <li><strong>The lush garden</strong> - Symbolizes fertility, growth, and the fruits of attentive nurturing</li>
+            <li><strong>The animals</strong> - Indicate connection to nature and care for all living things</li>
+            <li><strong>The comfortable throne</strong> - Shows the creation of comfort, security, and a welcoming space</li>
+            <li><strong>The flowing robes with earth tones</strong> - Represent groundedness combined with generous abundance</li>
+          </ul>
+          
+          <p>In readings, the Queen of Pentacles suggests:</p>
+          <ul>
+            <li>Nurturing prosperity and practical caregiving</li>
+            <li>Creating comfort and security in physical environments</li>
+            <li>Resourcefulness and down-to-earth problem solving</li>
+            <li>Generosity that flows from material competence</li>
+            <li>The balance of productivity with warmth and hospitality</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Queen of Pentacles",
+        content: `
+          <p>When the Queen of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>How can I create more comfort and security in my physical environment?</li>
+            <li>Where might my practical skills and nurturing care be needed?</li>
+            <li>What resources do I have that could be shared more generously?</li>
+            <li>How can I balance productive work with rest and enjoyment?</li>
+          </ul>
+          
+          <p>Actions to take when working with Queen of Pentacles energy:</p>
+          <ul>
+            <li>Bring more comfort and beauty to your home or workspace</li>
+            <li>Share your practical skills and resources with others</li>
+            <li>Approach problems with grounded, common-sense solutions</li>
+            <li>Create routines that balance productivity with genuine self-care</li>
+            <li>Express care through tangible acts of service and physical comfort</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What form of nurturing is most characteristic of the Queen of Pentacles?",
+        options: [
+          "Emotional nurturing through deep listening and empathy",
+          "Intellectual nurturing through stimulating conversation and ideas",
+          "Practical nurturing through tangible care and physical comfort",
+          "Spiritual nurturing through inspirational guidance and vision"
+        ],
+        correctAnswer: 2,
+        explanation: "The form of nurturing most characteristic of the Queen of Pentacles is practical nurturing through tangible care and physical comfort. While other forms of nurturing focus primarily on emotional support, intellectual stimulation, or spiritual inspiration, the Queen of Pentacles expresses care through concrete actions that address physical and material needs. This might include preparing nutritious meals, creating comfortable environments, providing practical assistance, or sharing resources—forms of nurturing that can be seen, touched, and experienced in the material world."
+      },
+      {
+        question: "What wisdom does the Queen of Pentacles embody?",
+        options: [
+          "Philosophical wisdom about abstract concepts and principles",
+          "Emotional wisdom about feelings and relationships",
+          "Practical wisdom about creating security and managing resources",
+          "Visionary wisdom about future possibilities and potential"
+        ],
+        correctAnswer: 2,
+        explanation: "The Queen of Pentacles embodies practical wisdom about creating security and managing resources. Her wisdom is grounded in real-world experience and focuses on the tangible aspects of life—how to create comfort, build security, manage material resources effectively, and solve problems in pragmatic ways. Unlike more abstract, emotional, or visionary forms of wisdom, the Queen's knowledge is directly applicable to everyday concerns and physical well-being, helping to establish the material foundation that supports all other aspects of life."
+      },
+      {
+        question: "What potential shadow aspect should one be mindful of when working with Queen of Pentacles energy?",
+        options: [
+          "Becoming overly protective and controlling",
+          "Becoming too idealistic and impractical",
+          "Becoming excessively analytical and critical",
+          "Becoming overly spontaneous and disorganized"
+        ],
+        correctAnswer: 0,
+        explanation: "When working with Queen of Pentacles energy, one should be mindful of the potential shadow aspect of becoming overly protective and controlling. The nurturing, security-focused qualities that make this energy so supportive can, if unbalanced, manifest as smothering behavior, excessive worry, or controlling tendencies justified as 'taking care' of others. This might appear as difficulty allowing others to make their own choices, overconcern with material security at the expense of joy, or defining self-worth primarily through caregiving roles."
+      }
+    ],
+    summary: "The Queen of Pentacles represents nurturing abundance, practical wisdom, and the creation of comfort and security. This card embodies the balance of material competence with generous care, showing how to build prosperity that sustains both self and others. The Queen invites us to tend to our physical environments with loving attention, to share our resources and practical skills generously, and to express care through tangible actions that create real-world comfort and security.",
+    additionalResources: [
+      {
+        title: "Practical Nurturing",
+        description: "Expressing care through tangible actions and material support"
+      },
+      {
+        title: "Abundant Living",
+        description: "Creating environments of comfort and beauty that sustain well-being"
+      }
+    ]
+  },
 ];
 
 // Map track IDs to their corresponding lesson sets

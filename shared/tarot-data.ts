@@ -649,6 +649,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The King of Pentacles represents material mastery, practical wisdom, and accomplished prosperity. He embodies security, reliability, and the ability to create lasting wealth through methodical effort and sound management.",
     element: "Earth"
+  },
+  {
+    id: "wq",
+    name: "Queen of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 13,
+    meanings: {
+      upright: ["Confidence", "Independence", "Social butterfly", "Determination"],
+      reversed: ["Demanding", "Jealous", "Insecure", "Selfish"]
+    },
+    description: "The Queen of Wands represents confident self-expression, passionate independence, and the nurturing of creative potential. She embodies the balance of fiery determination with warmth and social magnetism.",
+    element: "Fire"
+  },
+  {
+    id: "cq",
+    name: "Queen of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 13,
+    meanings: {
+      upright: ["Compassionate", "Caring", "Emotionally stable", "Intuitive", "Nurturing"],
+      reversed: ["Overly emotional", "Insecure", "Dependent", "Martyr mentality"]
+    },
+    description: "The Queen of Cups represents emotional nurturing, intuitive wisdom, and the flowing depths of compassion. She embodies the balance of deep feeling with healthy boundaries, showing how to care for others while honoring one's own emotional needs.",
+    element: "Water"
+  },
+  {
+    id: "sq",
+    name: "Queen of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 13,
+    meanings: {
+      upright: ["Independent", "Objective", "Clear-minded", "Perceptive"],
+      reversed: ["Cold", "Bitter", "Harsh", "Sharp-tongued"]
+    },
+    description: "The Queen of Swords represents clear perception, independent thinking, and the ability to separate truth from illusion. She embodies the balance of sharp intellect with compassionate wisdom, cutting through confusion with both honesty and grace.",
+    element: "Air"
+  },
+  {
+    id: "pq",
+    name: "Queen of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 13,
+    meanings: {
+      upright: ["Nurturing", "Practical", "Providing", "Security-focused", "Abundance"],
+      reversed: ["Smothering", "Materialistic", "Status-focused", "Worrying"]
+    },
+    description: "The Queen of Pentacles represents nurturing abundance, practical wisdom, and the creation of comfort and security. She embodies the balance of material competence with generous care, showing how to build prosperity that sustains both self and others.",
+    element: "Earth"
   }
 ];
 
