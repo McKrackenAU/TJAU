@@ -218,16 +218,16 @@ export function LessonContent({
                     <li key={index} className="p-3 border rounded-lg">
                       <h4 className="font-medium">{resource.title}</h4>
                       <p className="text-sm text-muted-foreground">{resource.description}</p>
-                      {resource.url && (
-                        <a 
-                          href={resource.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-sm text-primary hover:underline mt-1 inline-block"
-                        >
-                          Learn more →
-                        </a>
-                      )}
+                      <a 
+                        href="#" 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          alert(`Resource: ${resource.title}\n\n${resource.description}\n\nThis resource will be available in a future update.`);
+                        }}
+                        className="text-sm text-primary hover:underline mt-1 inline-block"
+                      >
+                        Learn more →
+                      </a>
                     </li>
                   ))}
                 </ul>

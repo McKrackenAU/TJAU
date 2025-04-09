@@ -168,6 +168,7 @@ export default function Learning() {
                             : trackId === 2 ? `minor-${index + 1}`
                             : trackId === 10 ? `intuitive-${index + 1}`
                             : `advanced-${index + 1}`;
+                          console.log(`Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
                           setLocation(`/learning/${trackId}/${lessonId}`);
                         }}
                       >
