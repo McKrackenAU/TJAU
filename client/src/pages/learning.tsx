@@ -148,29 +148,38 @@ export default function Learning() {
                   </div>
                 )}
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1">
                   {track.requiredCards.map((cardId, index) => {
                     const card = tarotCards.find(c => c.id === cardId);
                     return (
                       <div
                         key={cardId}
-                        className={`p-3 rounded-lg border ${
+                        className={`p-2 rounded-lg border cursor-pointer hover:bg-muted/80 ${
                           progress.completedLessons.includes(cardId)
                             ? "bg-primary/10 border-primary"
                             : index + 1 === progress.currentLesson
                             ? "bg-card border-primary border-dashed"
                             : "bg-muted/50 border-border"
                         }`}
+                        onClick={() => {
+                          const trackId = track.id;
+                          const lessonId = trackId === 1 ? `beginner-${index + 1}` 
+                            : trackId === 2 ? `intuitive-${index + 1}`
+                            : `advanced-${index + 1}`;
+                          setLocation(`/learning/${trackId}/${lessonId}`);
+                        }}
                       >
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm">Lesson {index + 1}</span>
-                          {progress.completedLessons.includes(cardId) && (
-                            <GraduationCap className="h-4 w-4 text-primary" />
-                          )}
+                        <div className="flex flex-col items-center text-center">
+                          <div className="flex items-center justify-center mb-1">
+                            <span className="text-xs font-medium">{index + 1}</span>
+                            {progress.completedLessons.includes(cardId) && (
+                              <GraduationCap className="h-3 w-3 text-primary ml-1" />
+                            )}
+                          </div>
+                          <p className="text-xs text-muted-foreground truncate w-full" title={card?.name}>
+                            {card?.name}
+                          </p>
                         </div>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {card?.name}
-                        </p>
                       </div>
                     );
                   })}
