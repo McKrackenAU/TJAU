@@ -441,6 +441,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Eight of Pentacles represents dedication to craftsmanship, skill development, and focused work. It suggests a time of learning, apprenticeship, and perfecting your trade.",
     element: "Earth"
+  },
+  {
+    id: "w9",
+    name: "Nine of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 9,
+    meanings: {
+      upright: ["Resilience", "Persistence", "Last stand", "Boundaries"],
+      reversed: ["Exhaustion", "Giving up", "Overwhelmed"]
+    },
+    description: "The Nine of Wands represents resilience, perseverance, and defensive strength when nearing the completion of a challenging journey. It embodies standing firm despite fatigue.",
+    element: "Fire"
+  },
+  {
+    id: "c9",
+    name: "Nine of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 9,
+    meanings: {
+      upright: ["Emotional fulfillment", "Wishes coming true", "Contentment", "Satisfaction"],
+      reversed: ["Dissatisfaction", "Materialism", "Overindulgence"]
+    },
+    description: "The Nine of Cups represents emotional satisfaction, wish fulfillment, and the contentment that comes from manifesting our desires. Often called the 'Wish Card' in tarot.",
+    element: "Water"
+  },
+  {
+    id: "s9",
+    name: "Nine of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 9,
+    meanings: {
+      upright: ["Anxiety", "Worry", "Fear", "Depression"],
+      reversed: ["Hopelessness", "Releasing fear", "Facing anxiety"]
+    },
+    description: "The Nine of Swords represents mental anguish, anxiety, and the suffering created when worried thoughts dominate our minds. It shows that problems often seem magnified in darkness.",
+    element: "Air"
+  },
+  {
+    id: "p9",
+    name: "Nine of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 9,
+    meanings: {
+      upright: ["Self-sufficiency", "Financial independence", "Luxury", "Self-discipline"],
+      reversed: ["Codependence", "Financial setback", "Overindependence"]
+    },
+    description: "The Nine of Pentacles represents self-sufficiency, cultivated abundance, and the refined rewards that come through discipline and patience. It embodies material independence.",
+    element: "Earth"
   }
 ];
 
