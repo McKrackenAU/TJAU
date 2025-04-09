@@ -6756,41 +6756,6 @@ export const minorArcanaLessons: LessonContent[] = [
     title: "The Eight of Wands: Movement and Swift Action",
     description: "Explore the dynamic energy of movement, acceleration, and aligned action in the Eight of Wands.",
     cardId: "w8",
-    exercises: [
-      {
-        question: "What is the primary energy of the Eight of Wands?",
-        options: [
-          "Careful planning and deliberation",
-          "Swift movement, action, and progress",
-          "Defensive stand-offs and conflicts",
-          "Patient waiting and delayed gratification"
-        ],
-        correctAnswer: 1,
-        explanation: "The primary energy of the Eight of Wands is swift movement, action, and progress - represented by the eight wands flying through the air in parallel formation, indicating acceleration, aligned energies, and rapid developments."
-      },
-      {
-        question: "What relationship between timing and opportunity does the Eight of Wands suggest?",
-        options: [
-          "Opportunities should always be approached with caution and lengthy consideration",
-          "Timing is irrelevant to success as long as the intention is clear",
-          "Recognizing and acting on moments of alignment and momentum can create powerful results",
-          "It's always better to wait and see rather than take swift action"
-        ],
-        correctAnswer: 2,
-        explanation: "The Eight of Wands suggests that recognizing and acting on moments of alignment and momentum can create powerful results - teaching that there are times when swift action and responsiveness to accelerating developments brings greater success than deliberation."
-      },
-      {
-        question: "What insight about communication does the Eight of Wands offer?",
-        options: [
-          "Communication should always be slow and methodical",
-          "Clear, direct communication can help propel situations forward",
-          "It's better to withhold information until absolutely necessary",
-          "Written communication is always superior to verbal messages"
-        ],
-        correctAnswer: 1,
-        explanation: "The Eight of Wands offers the insight that clear, direct communication can help propel situations forward - as the card is often associated with messages and information traveling quickly and clearly to their destination, removing confusion and accelerating progress."
-      }
-    ],
     sections: [
       {
         title: "The Eight of Wands: Overview",
@@ -6858,141 +6823,6 @@ export const minorArcanaLessons: LessonContent[] = [
     exercises: [
       {
         question: "What is the primary energy of the Eight of Wands?",
-        options: [
-          "Careful planning and deliberation",
-          "Swift movement, action, and progress",
-          "Defensive stand-offs and conflicts",
-          "Patient waiting and delayed gratification"
-        ],
-        correctAnswer: 1,
-        explanation: "The primary energy of the Eight of Wands is swift movement, action, and progress - represented by the eight wands flying through the air in parallel formation, indicating acceleration, aligned energies, and rapid developments."
-      },
-      {
-        question: "What relationship between timing and opportunity does the Eight of Wands suggest?",
-        options: [
-          "Opportunities should always be approached with caution and lengthy consideration",
-          "Timing is irrelevant to success as long as the intention is clear",
-          "Recognizing and acting on moments of alignment and momentum can create powerful results",
-          "It's always better to wait and see rather than take swift action"
-        ],
-        correctAnswer: 2,
-        explanation: "The Eight of Wands suggests that recognizing and acting on moments of alignment and momentum can create powerful results - teaching that there are times when swift action and responsiveness to accelerating developments brings greater success than deliberation."
-      },
-      {
-        question: "What insight about communication does the Eight of Wands offer?",
-        options: [
-          "Communication should always be slow and methodical",
-          "Clear, direct communication can help propel situations forward",
-          "It's better to withhold information until absolutely necessary",
-          "Written communication is always superior to verbal messages"
-        ],
-        correctAnswer: 1,
-        explanation: "The Eight of Wands offers the insight that clear, direct communication can help propel situations forward - as the card is often associated with messages and information traveling quickly and clearly to their destination, removing confusion and accelerating progress."
-      }
-    ],
-    sections: [
-      {
-        title: "The Eight of Wands: Overview",
-        content: `
-          <p>Following the defensive stance of the Seven of Wands, the Eight of Wands introduces a period of swift movement, where resistance falls away and energy flows freely toward its target with acceleration and clarity of purpose.</p>
-          
-          <p>This card typically depicts eight wands or staffs flying through the air in parallel formation, suggesting aligned energies, rapid progress, and events coming together quickly after a period of struggle or waiting.</p>
-          
-          <p>The Eight of Wands asks us to consider:</p>
-          <ul>
-            <li>Where in my life am I experiencing (or needing) forward momentum?</li>
-            <li>How can I best prepare for swift developments or opportunities?</li>
-            <li>What communications need to be expedited or clarified?</li>
-            <li>How can I maintain focus when events are moving quickly?</li>
-          </ul>
-        `
-      },
-      {
-        title: "Key Meanings and Symbols",
-        content: `
-          <p>The Eight of Wands contains dynamic symbols that help us understand its meaning:</p>
-          
-          <ul>
-            <li><strong>Wands in flight</strong> - Represents swift movement, action, and progress</li>
-            <li><strong>Parallel alignment</strong> - Symbolizes coordinated efforts and energies moving in harmony</li>
-            <li><strong>Clear sky</strong> - Indicates lack of obstacles and unimpeded forward motion</li>
-            <li><strong>Lack of human figures</strong> - Suggests events may be in motion beyond direct control</li>
-          </ul>
-          
-          <p>In readings, the Eight of Wands suggests:</p>
-          <ul>
-            <li>Swift developments and accelerated progress</li>
-            <li>Communications or messages arriving quickly</li>
-            <li>Travel or movement over distances</li>
-            <li>Events aligning after previous delays</li>
-            <li>The need to stay nimble and responsive</li>
-            <li>Momentum building toward conclusion</li>
-          </ul>
-        `
-      },
-      {
-        title: "Working with the Eight of Wands",
-        content: `
-          <p>When the Eight of Wands appears in your reading, consider these reflective questions:</p>
-          
-          <ul>
-            <li>What areas of my life are ready for acceleration or forward movement?</li>
-            <li>How can I prepare myself for swift developments or opportunities?</li>
-            <li>What communications need to be expedited or clarified?</li>
-            <li>How can I maintain focus and direction when events are moving quickly?</li>
-            <li>Where might I need to "strike while the iron is hot"?</li>
-          </ul>
-          
-          <p>Actions to take when working with Eight of Wands energy:</p>
-          <ul>
-            <li>Clear your schedule to focus on emerging opportunities</li>
-            <li>Expedite important communications or decisions</li>
-            <li>Prepare for quick developments by organizing resources in advance</li>
-            <li>Create systems to help you stay focused amid acceleration</li>
-            <li>Practice saying "yes" quickly to aligned opportunities</li>
-          </ul>
-        `
-      }
-    ],
-    summary: "The Eight of Wands represents a time of swift movement, aligned action, and accelerated progress after a period of resistance or waiting. It embodies the energy of momentum building, communications flowing freely, and events coming together quickly. This card teaches us about the importance of preparation, focus, and responsiveness during periods of acceleration, and reminds us that there are moments when direct action and clear communication create powerful forward movement. The Eight of Wands encourages us to recognize and align with the natural timing of opportunities rather than forcing or resisting the flow of events.",
-    additionalResources: [
-      {
-        title: "Decision-Making Under Time Pressure",
-        description: "Techniques for making sound decisions when events are moving quickly."
-      },
-      {
-        title: "Finding Focus in Fast-Paced Environments",
-        description: "Practices for maintaining clarity and direction during accelerated periods."
-      }
-    ]
-  },
-
-  // EIGHT OF CUPS
-  {
-    id: "minor-30",
-    title: "The Eight of Cups: Seeking Deeper Fulfillment",
-    description: "Explore the emotional journey of walking away, seeking deeper meaning, and emotional evolution in the Eight of Cups.",
-    cardId: "c8",
-    sections: [
-      {
-        title: "The Eight of Cups: Overview",
-        content: `
-          <p>Following the emotional balance achieved in the Seven of Cups, the Eight of Cups represents a pivotal moment where despite having achieved some measure of emotional fulfillment or success, you recognize it's not enough for your deeper needs and choose to walk away in search of greater meaning.</p>
-          
-          <p>The card typically depicts a figure walking away from eight stacked cups under a moon in eclipse, symbolizing the courage to leave behind what's comfortable but incomplete in pursuit of greater emotional truth and fulfillment.</p>
-          
-          <p>The Eight of Cups asks us to consider:</p>
-          <ul>
-            <li>What emotional situations or relationships have I outgrown?</li>
-            <li>Where am I settling for "good enough" when my soul craves more?</li>
-            <li>What deeper fulfillment am I being called toward?</li>
-          </ul>
-        `
-      }
-    ],
-    exercises: [
-      {
-        question: "What is the primary theme of the Eight of Cups?",
         options: [
           "Careful planning and deliberation",
           "Swift movement, action, and progress",
@@ -7226,25 +7056,7 @@ export const minorArcanaLessons: LessonContent[] = [
         `
       }
     ],
-    exercise: {
-      title: "Removing the Blindfold",
-      description: "This exercise helps you identify and challenge self-imposed mental restrictions.",
-      instructions: `
-        <p>The Eight of Swords teaches us how our thoughts create our reality and can either imprison or liberate us. Complete the following steps:</p>
-        
-        <ol>
-          <li>Identify a situation where you feel trapped, restricted, or without options.</li>
-          <li>Write down the specific thoughts or beliefs that create this feeling of limitation.</li>
-          <li>For each limiting thought, ask: "Is this absolutely true? How do I know?"</li>
-          <li>Write alternative perspectives or interpretations that might be equally or more true.</li>
-          <li>List at least three options or choices you actually have in this situation, however small.</li>
-          <li>Choose one small action to take that challenges your sense of restriction.</li>
-        </ol>
-        
-        <p>The key insight of this exercise is recognizing that our mental interpretations often create more severe restrictions than our actual circumstances, and freedom begins with changing our perspective.</p>
-      `
-    },
-    quiz: [
+    exercises: [
       {
         question: "What is the primary cause of restriction in the Eight of Swords?",
         options: [
@@ -7362,25 +7174,7 @@ export const minorArcanaLessons: LessonContent[] = [
         `
       }
     ],
-    exercise: {
-      title: "The Craftsperson's Approach",
-      description: "This exercise helps you develop a craftsperson's mindset toward skill development and quality work.",
-      instructions: `
-        <p>The Eight of Pentacles teaches us about the dedication required for mastery and the satisfaction that comes from quality work. Complete the following steps:</p>
-        
-        <ol>
-          <li>Select one skill or area of knowledge you wish to develop greater mastery in.</li>
-          <li>Research what true mastery looks like in this domain - what specific capabilities do experts demonstrate?</li>
-          <li>Break down this skill into smaller component skills or knowledge areas that can be practiced separately.</li>
-          <li>Create a deliberate practice plan with specific exercises focused on improving one component at a time.</li>
-          <li>Establish a regular schedule with uninterrupted time blocks dedicated to focused practice.</li>
-          <li>Develop a system for tracking improvements and gathering feedback on your progress.</li>
-        </ol>
-        
-        <p>The key insight of this exercise is recognizing that mastery comes not just from putting in time, but from deliberately focusing on specific aspects of a skill with full attention and a commitment to quality.</p>
-      `
-    },
-    quiz: [
+    exercises: [
       {
         question: "What is the primary focus of the Eight of Pentacles?",
         options: [
