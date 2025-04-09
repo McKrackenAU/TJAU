@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { useLocation } from 'wouter';
+import TermsAndConditions from '@/components/terms-and-conditions';
 
 // Make sure to call `loadStripe` outside of a component's render to avoid
 // recreating the `Stripe` object on every render.
@@ -16,7 +17,11 @@ if (!import.meta.env.VITE_STRIPE_PUBLIC_KEY) {
 }
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
-const SubscribeForm = () => {
+interface SubscribeFormProps {
+  termsAccepted: boolean;
+}
+
+const SubscribeForm = ({ termsAccepted }: SubscribeFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
   const { toast } = useToast();
@@ -61,13 +66,22 @@ const SubscribeForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <PaymentElement />
-      <Button type="submit" className="w-full" disabled={!stripe || isLoading}>
+      <Button 
+        type="submit" 
+        className="w-full" 
+        disabled={!stripe || isLoading || !termsAccepted}
+        title={!termsAccepted ? "You must accept the terms and conditions first" : ""}
+      >
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             Processing...
           </>
-        ) : "Subscribe Now"}
+        ) : !termsAccepted ? (
+          "Accept Terms to Continue"
+        ) : (
+          "Subscribe Now"
+        )}
       </Button>
     </form>
   );
@@ -77,6 +91,8 @@ export default function Subscribe() {
   const [clientSecret, setClientSecret] = useState("");
   const { user } = useAuth();
   const [isLoading, setIsLoading] = useState(true);
+  const [termsAccepted, setTermsAccepted] = useState(false);
+  const [showTerms, setShowTerms] = useState(true);
   const { toast } = useToast();
   const [_, navigate] = useLocation();
 
@@ -159,48 +175,77 @@ export default function Subscribe() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <Card className="max-w-md w-full">
-        <CardHeader>
-          <CardTitle>Premium Subscription</CardTitle>
-          <CardDescription>
-            Subscribe to Tarot Journey Premium for unlimited readings, in-depth analysis, and exclusive content.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="mb-6">
-            <div className="flex justify-between items-baseline mb-4">
-              <h3 className="text-lg font-medium">Premium Plan</h3>
-              <div>
-                <span className="text-2xl font-bold">$9.99</span>
-                <span className="text-sm text-muted-foreground ml-1">/month</span>
+      {showTerms ? (
+        <div className="max-w-4xl">
+          <TermsAndConditions 
+            onAccept={() => {
+              setTermsAccepted(true);
+              setShowTerms(false);
+              toast({
+                title: "Terms Accepted",
+                description: "Thank you for accepting our terms and conditions.",
+              });
+            }}
+          />
+        </div>
+      ) : (
+        <Card className="max-w-md w-full">
+          <CardHeader>
+            <CardTitle>Premium Subscription</CardTitle>
+            <CardDescription>
+              Subscribe to Tarot Journey Premium for unlimited readings, in-depth analysis, and exclusive content.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mb-6">
+              <div className="flex justify-between items-baseline mb-4">
+                <h3 className="text-lg font-medium">Premium Plan</h3>
+                <div>
+                  <span className="text-2xl font-bold">$9.99</span>
+                  <span className="text-sm text-muted-foreground ml-1">/month</span>
+                </div>
               </div>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Unlimited AI card interpretations</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Advanced spreads with detailed analysis</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Exclusive learning content and tracks</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">✓</span>
+                  <span>Priority customer support</span>
+                </li>
+              </ul>
             </div>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Unlimited AI card interpretations</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Advanced spreads with detailed analysis</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Exclusive learning content and tracks</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-green-500">✓</span>
-                <span>Priority customer support</span>
-              </li>
-            </ul>
-          </div>
-          
-          {/* The Elements provider is required to render the payment form */}
-          <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <SubscribeForm />
-          </Elements>
-        </CardContent>
-      </Card>
+            
+            <div className="text-sm mb-6 p-3 bg-muted/40 rounded-lg">
+              <p>
+                By subscribing, you agree to our Terms and Conditions. This app is for 
+                <strong> entertainment purposes only</strong>. 
+                <Button 
+                  variant="link" 
+                  className="p-0 h-auto text-primary" 
+                  onClick={() => setShowTerms(true)}
+                >
+                  View Terms & Conditions
+                </Button>
+              </p>
+            </div>
+            
+            {/* The Elements provider is required to render the payment form */}
+            <Elements stripe={stripePromise} options={{ clientSecret }}>
+              <SubscribeForm termsAccepted={termsAccepted} />
+            </Elements>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }
