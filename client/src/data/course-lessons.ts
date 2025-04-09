@@ -3847,6 +3847,701 @@ export const minorArcanaLessons: LessonContent[] = [
         description: "How to incorporate earth element teachings into practical tarot readings and daily life."
       }
     ]
+  },
+  {
+    id: "minor-5",
+    title: "The Two of Wands: Planning and Decision-Making",
+    description: "Explore the energy of planning, foresight, and decision-making with the Two of Wands.",
+    cardId: "w2",
+    sections: [
+      {
+        title: "The Two of Wands: Overview",
+        content: `
+          <p>After the initial spark of the Ace of Wands, the Two of Wands represents the stage where we begin to plan and make decisions about how to move forward with our creative inspiration.</p>
+          
+          <p>This card often depicts a figure holding a small globe or looking out from a castle balcony, symbolizing a broader perspective and the ability to see potential futures.</p>
+          
+          <p>The Two of Wands asks us to consider:</p>
+          <ul>
+            <li>What do I want to create in the world?</li>
+            <li>What path should I choose to manifest my ideas?</li>
+            <li>How can I expand my horizons and perspective?</li>
+            <li>What initial steps should I take toward my goals?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Two of Wands contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The globe or world map</strong> - Represents a broader perspective and global thinking</li>
+            <li><strong>The castle or balcony</strong> - Symbolizes achievement so far and the secure position from which to plan</li>
+            <li><strong>Two wands</strong> - Represent choice, duality, and the need to make decisions</li>
+            <li><strong>Looking outward</strong> - Suggests foresight, vision, and consideration of possibilities</li>
+          </ul>
+          
+          <p>In readings, the Two of Wands suggests:</p>
+          <ul>
+            <li>Planning for the future</li>
+            <li>Making important decisions</li>
+            <li>Considering your options carefully</li>
+            <li>Taking the first steps toward a larger goal</li>
+            <li>Expanding your horizons and perspective</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Two of Wands",
+        content: `
+          <p>When the Two of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What am I currently planning or considering?</li>
+            <li>How can I gain a broader perspective on my situation?</li>
+            <li>What decision am I facing, and what information do I need to make it?</li>
+            <li>How can I best prepare for my next steps?</li>
+            <li>Where might my current path lead me?</li>
+          </ul>
+          
+          <p>Actions to take when working with Two of Wands energy:</p>
+          <ul>
+            <li>Create a vision board or map out your goals</li>
+            <li>Research options before making a decision</li>
+            <li>Take time to reflect on the bigger picture</li>
+            <li>Make lists of pros and cons for different choices</li>
+            <li>Take the first concrete step toward a larger goal</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What stage of manifestation does the Two of Wands represent?",
+        options: [
+          "Completion and celebration",
+          "Planning and decision-making",
+          "Active creation and building",
+          "Rest and reflection"
+        ],
+        correctAnswer: 1,
+        explanation: "The Two of Wands represents the planning and decision-making stage that follows the initial inspiration of the Ace of Wands. It's about considering options and deciding how to move forward."
+      },
+      {
+        question: "What does the globe or world map often depicted in the Two of Wands symbolize?",
+        options: [
+          "Travel plans",
+          "Broader perspective and global thinking",
+          "Conquest and domination",
+          "Environmental concerns"
+        ],
+        correctAnswer: 1,
+        explanation: "The globe or world map in the Two of Wands symbolizes a broader perspective and global thinking, representing the ability to see the bigger picture and consider future possibilities."
+      },
+      {
+        question: "What kind of questions does the Two of Wands encourage us to ask ourselves?",
+        options: [
+          "How can I avoid taking risks?",
+          "How can I get others to do work for me?",
+          "What path should I choose and how should I plan my next steps?",
+          "How can I finish this project as quickly as possible?"
+        ],
+        correctAnswer: 2,
+        explanation: "The Two of Wands encourages us to ask questions about which path to choose, how to plan our next steps, and how to gain perspective on our goals and options."
+      }
+    ],
+    summary: "The Two of Wands represents the stage of planning and decision-making that follows initial inspiration. It encourages us to gain a broader perspective, consider our options carefully, and make thoughtful choices about how to proceed. This card reminds us of the importance of foresight and preparation before taking action, while also nudging us to take those first concrete steps toward our larger goals.",
+    additionalResources: [
+      {
+        title: "Effective Goal Planning",
+        description: "Techniques for mapping out your vision and creating achievable plans."
+      },
+      {
+        title: "Decision-Making Methods",
+        description: "Tools and approaches for making confident, well-informed choices."
+      }
+    ]
+  },
+  {
+    id: "minor-6",
+    title: "The Two of Cups: Connection and Partnership",
+    description: "Discover the beautiful energy of connection, harmony, and balanced relationships in the Two of Cups.",
+    cardId: "c2",
+    sections: [
+      {
+        title: "The Two of Cups: Overview",
+        content: `
+          <p>After the abundant emotional potential of the Ace of Cups, the Two of Cups represents the formation of meaningful connections and partnerships between two entities.</p>
+          
+          <p>This card often depicts two people sharing cups in a ceremony or toast, symbolizing mutual attraction, balanced emotional exchange, and harmonious union.</p>
+          
+          <p>The Two of Cups asks us to consider:</p>
+          <ul>
+            <li>What relationships are developing in my life?</li>
+            <li>How am I connecting with others on an emotional level?</li>
+            <li>Where is balance being created in my partnerships?</li>
+            <li>What mutual exchange am I participating in?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Two of Cups contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Two people</strong> - Represent partnership, duality, and exchange</li>
+            <li><strong>Shared cups</strong> - Symbolize emotional exchange and giving/receiving</li>
+            <li><strong>Caduceus</strong> - Often shown between the figures, representing healing, balance, and transformation</li>
+            <li><strong>Equal postures</strong> - Suggests equality and mutual respect</li>
+          </ul>
+          
+          <p>In readings, the Two of Cups suggests:</p>
+          <ul>
+            <li>Romantic partnerships and relationships</li>
+            <li>Meaningful friendships</li>
+            <li>Business partnerships based on mutual respect</li>
+            <li>Harmonious connections</li>
+            <li>Healing in relationships</li>
+            <li>Reconciliation and understanding</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Two of Cups",
+        content: `
+          <p>When the Two of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What relationships are forming or deepening in my life?</li>
+            <li>Where do I experience mutual understanding and respect?</li>
+            <li>How can I create more balance in my important relationships?</li>
+            <li>What emotional exchanges feel particularly meaningful right now?</li>
+            <li>How am I both giving and receiving in my connections?</li>
+          </ul>
+          
+          <p>Actions to take when working with Two of Cups energy:</p>
+          <ul>
+            <li>Nurture important relationships through quality time</li>
+            <li>Express appreciation and gratitude to loved ones</li>
+            <li>Create ceremonies or rituals that honor connection</li>
+            <li>Seek reconciliation where relationships have been strained</li>
+            <li>Be open to new connections that offer mutual respect</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of relationships does the Two of Cups primarily represent?",
+        options: [
+          "Competitive relationships",
+          "Harmonious partnerships based on mutual respect",
+          "Hierarchical relationships with clear power dynamics",
+          "Distant, professional connections"
+        ],
+        correctAnswer: 1,
+        explanation: "The Two of Cups primarily represents harmonious partnerships based on mutual respect, balance, and emotional exchange - whether romantic, friendship, or professional."
+      },
+      {
+        question: "What symbol often appears between the two figures in traditional Two of Cups imagery?",
+        options: [
+          "A sword",
+          "A pentacle",
+          "A caduceus",
+          "A wand"
+        ],
+        correctAnswer: 2,
+        explanation: "A caduceus (the winged staff with two serpents) often appears between the figures in the Two of Cups, symbolizing healing, balance, and transformation in relationships."
+      },
+      {
+        question: "What does the equal posture of the figures in the Two of Cups symbolize?",
+        options: [
+          "Confrontation",
+          "Indifference",
+          "Equality and mutual respect",
+          "Competition"
+        ],
+        correctAnswer: 2,
+        explanation: "The equal posture of the figures in the Two of Cups symbolizes equality and mutual respect in the relationship, indicating a balanced exchange rather than one-sided dynamics."
+      }
+    ],
+    summary: "The Two of Cups represents the formation of balanced, harmonious relationships and emotional connections. It speaks to mutual attraction, respect, and the beautiful exchange that happens when two entities meet in a space of openness and reciprocity. Whether in romance, friendship, or professional partnerships, this card reminds us of the healing and transformative power of meaningful connection.",
+    additionalResources: [
+      {
+        title: "The Psychology of Healthy Relationships",
+        description: "Understanding the foundations of balanced partnerships and connections."
+      },
+      {
+        title: "Rituals for Honoring Relationships",
+        description: "Creating meaningful ceremonies and practices to nurture important connections."
+      }
+    ]
+  },
+  {
+    id: "minor-7",
+    title: "The Two of Swords: Decisions and Balance",
+    description: "Understand the complex energy of stalemate, difficult choices, and finding balance in the Two of Swords.",
+    cardId: "s2",
+    sections: [
+      {
+        title: "The Two of Swords: Overview",
+        content: `
+          <p>After the sharp clarity of the Ace of Swords, the Two of Swords represents a moment of stalemate, difficult decisions, and the need to find balance between opposing forces.</p>
+          
+          <p>This card often depicts a blindfolded figure holding two swords in perfect balance, symbolizing the challenge of making choices without complete information and the temporary peace of avoiding a decision.</p>
+          
+          <p>The Two of Swords asks us to consider:</p>
+          <ul>
+            <li>What difficult decision am I avoiding?</li>
+            <li>Where am I creating a stalemate in my life?</li>
+            <li>What information am I missing or blocking out?</li>
+            <li>How can I find balance between opposing viewpoints or needs?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Two of Swords contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Blindfold</strong> - Represents blocked vision, avoidance, or impartiality</li>
+            <li><strong>Crossed swords</strong> - Symbolize conflict, opposing forces, or difficult choices</li>
+            <li><strong>Water in background</strong> - Suggests emotional undercurrents beneath intellectual stalemate</li>
+            <li><strong>Seated position</strong> - Indicates a pause or moment of stillness</li>
+          </ul>
+          
+          <p>In readings, the Two of Swords suggests:</p>
+          <ul>
+            <li>Difficult decisions that require careful thought</li>
+            <li>Temporary stalemate or truce</li>
+            <li>Balancing opposing needs or viewpoints</li>
+            <li>The need to remove blindfolds and see clearly</li>
+            <li>Finding middle ground or compromise</li>
+            <li>Emotional or mental impasse</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Two of Swords",
+        content: `
+          <p>When the Two of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What decision have I been avoiding or postponing?</li>
+            <li>What additional information might help me see more clearly?</li>
+            <li>Where might I be deliberately blocking something from my awareness?</li>
+            <li>How can I find balance between opposing needs or perspectives?</li>
+            <li>What would happen if I removed my blindfold and faced the truth?</li>
+          </ul>
+          
+          <p>Actions to take when working with Two of Swords energy:</p>
+          <ul>
+            <li>Create a pros and cons list for difficult decisions</li>
+            <li>Seek mediation or a neutral perspective on conflicts</li>
+            <li>Practice mindfulness to become aware of what you might be avoiding</li>
+            <li>Gather more information before making your choice</li>
+            <li>Look for compromise or middle ground where possible</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the blindfold in the Two of Swords typically symbolize?",
+        options: [
+          "Enhanced intuition",
+          "Blocked vision, avoidance, or chosen impartiality",
+          "Protection from harm",
+          "Divine guidance"
+        ],
+        correctAnswer: 1,
+        explanation: "The blindfold in the Two of Swords symbolizes blocked vision, avoidance of the truth, or a deliberate choice to remain impartial in a situation."
+      },
+      {
+        question: "What kind of situation does the Two of Swords most often represent?",
+        options: [
+          "Celebration and achievement",
+          "Rapid progress and action",
+          "Stalemate, difficult decisions, or the balancing of opposing forces",
+          "Material abundance and security"
+        ],
+        correctAnswer: 2,
+        explanation: "The Two of Swords most often represents a stalemate, difficult decisions that must be made, or the need to balance opposing forces or perspectives."
+      },
+      {
+        question: "What is often recommended when the Two of Swords appears in a reading?",
+        options: [
+          "Act impulsively to break the stalemate",
+          "Gather more information and remove 'blindfolds' to see clearly",
+          "Maintain the stalemate indefinitely",
+          "Let someone else make the decision for you"
+        ],
+        correctAnswer: 1,
+        explanation: "When the Two of Swords appears, it's often recommended to gather more information and remove 'blindfolds' to see the situation clearly before making a decision."
+      }
+    ],
+    summary: "The Two of Swords represents a moment of stalemate, difficult decisions, and the challenge of finding balance between opposing forces or perspectives. It reminds us that while avoiding decisions may create temporary peace, eventually we must remove our blindfolds, gather information, and face our choices with clarity. This card invites us to find the middle ground and make decisions with both intellect and intuition.",
+    additionalResources: [
+      {
+        title: "Decision-Making Frameworks",
+        description: "Tools and techniques for approaching difficult choices with clarity."
+      },
+      {
+        title: "The Psychology of Avoidance",
+        description: "Understanding why we sometimes block our vision and how to move forward."
+      }
+    ]
+  },
+  {
+    id: "minor-8",
+    title: "The Two of Pentacles: Balance and Adaptability",
+    description: "Learn about juggling priorities, managing resources, and adapting to change with the Two of Pentacles.",
+    cardId: "p2",
+    sections: [
+      {
+        title: "The Two of Pentacles: Overview",
+        content: `
+          <p>After the initial opportunity of the Ace of Pentacles, the Two of Pentacles represents the challenge of balancing multiple priorities, juggling resources, and adapting to the natural ups and downs of life.</p>
+          
+          <p>This card often depicts a figure juggling two pentacles connected by an infinity symbol, symbolizing the ongoing dance of balance and the cyclical nature of material matters.</p>
+          
+          <p>The Two of Pentacles asks us to consider:</p>
+          <ul>
+            <li>How am I managing multiple responsibilities?</li>
+            <li>Where do I need to be more flexible and adaptable?</li>
+            <li>How well am I balancing different areas of my material life?</li>
+            <li>What might need adjusting in my schedule or resource allocation?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Two of Pentacles contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Juggling figure</strong> - Represents multitasking, dexterity, and skill</li>
+            <li><strong>Infinity symbol</strong> - Symbolizes continuous flow, cycles, and ongoing balance</li>
+            <li><strong>Ships on waves</strong> - Often shown in the background, suggesting navigation through changing circumstances</li>
+            <li><strong>Dancing posture</strong> - Indicates flexibility, rhythm, and movement</li>
+          </ul>
+          
+          <p>In readings, the Two of Pentacles suggests:</p>
+          <ul>
+            <li>Balancing multiple priorities or responsibilities</li>
+            <li>Adaptability during changing circumstances</li>
+            <li>Skillful resource management</li>
+            <li>The need for flexibility and good timing</li>
+            <li>Juggling finances or time commitments</li>
+            <li>Finding harmony amid fluctuation</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Two of Pentacles",
+        content: `
+          <p>When the Two of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What areas of my life am I currently juggling?</li>
+            <li>How well am I maintaining balance between different priorities?</li>
+            <li>Where might I need more flexibility or adaptability?</li>
+            <li>What resources (time, money, energy) need better management?</li>
+            <li>How can I create a rhythm that accommodates necessary changes?</li>
+          </ul>
+          
+          <p>Actions to take when working with Two of Pentacles energy:</p>
+          <ul>
+            <li>Create a realistic schedule that includes flexibility</li>
+            <li>Review and adjust your budget to accommodate changing needs</li>
+            <li>Practice adapting gracefully to unexpected changes</li>
+            <li>Develop systems for tracking multiple responsibilities</li>
+            <li>Find moments of play and enjoyment amid busy times</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary theme of the Two of Pentacles?",
+        options: [
+          "Spiritual enlightenment",
+          "Romantic partnership",
+          "Balance, adaptability, and juggling priorities",
+          "Confrontation and conflict"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary theme of the Two of Pentacles is balance, adaptability, and the skill of juggling multiple priorities or responsibilities, particularly in the material realm."
+      },
+      {
+        question: "What does the infinity symbol connecting the pentacles represent?",
+        options: [
+          "Mathematical precision",
+          "Continuous flow, cycles, and ongoing balance",
+          "Unlimited wealth",
+          "Technological advancement"
+        ],
+        correctAnswer: 1,
+        explanation: "The infinity symbol connecting the pentacles represents continuous flow, cycles, and the ongoing nature of balance - suggesting that maintaining equilibrium is a dynamic, ongoing process rather than a static state."
+      },
+      {
+        question: "What kind of approach does the Two of Pentacles suggest for handling life's challenges?",
+        options: [
+          "Rigid planning and strict routines",
+          "Delegating all responsibilities to others",
+          "Flexibility, adaptability, and skillful resource management",
+          "Avoiding all new commitments"
+        ],
+        correctAnswer: 2,
+        explanation: "The Two of Pentacles suggests approaching life's challenges with flexibility, adaptability, and skillful resource management - dancing with changes rather than resisting them."
+      }
+    ],
+    summary: "The Two of Pentacles represents the art of balance, adaptability, and skillful juggling of multiple priorities. It reminds us that life's circumstances are constantly changing, requiring us to be flexible and develop good resource management. Rather than seeing this as overwhelming, the card encourages us to find the rhythm and even enjoy the dance of keeping multiple aspects of our material life in harmony.",
+    additionalResources: [
+      {
+        title: "Time Management for Balance",
+        description: "Practical techniques for juggling multiple responsibilities while maintaining wellbeing."
+      },
+      {
+        title: "Adaptability as a Life Skill",
+        description: "How developing flexibility can help navigate life's inevitable changes with grace."
+      }
+    ]
+  },
+  {
+    id: "minor-9",
+    title: "The Three of Wands: Expansion and Foresight",
+    description: "Discover the expansive energy of vision, growth, and long-term planning in the Three of Wands.",
+    cardId: "w3",
+    sections: [
+      {
+        title: "The Three of Wands: Overview",
+        content: `
+          <p>After the planning stage of the Two of Wands, the Three of Wands represents the moment when plans begin to unfold and expand, bringing new opportunities and perspectives.</p>
+          
+          <p>This card often depicts a figure standing on a high vantage point, looking out over the sea or landscape with three wands planted firmly in the ground beside them, symbolizing established foundations and the ability to see far into the distance.</p>
+          
+          <p>The Three of Wands asks us to consider:</p>
+          <ul>
+            <li>What possibilities are opening up on the horizon?</li>
+            <li>How can I expand my current projects or vision?</li>
+            <li>What long-term perspective do I need to adopt?</li>
+            <li>Where might collaboration or new partnerships lead me?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Three of Wands contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Elevated position</strong> - Represents perspective, foresight, and the ability to see the bigger picture</li>
+            <li><strong>Three wands</strong> - Symbolize established foundations and the stability needed for expansion</li>
+            <li><strong>Sea or distant landscape</strong> - Suggests unexplored territory, potential, and opportunities that lie ahead</li>
+            <li><strong>Ships</strong> - Often shown in the distance, representing commerce, exchange, and ventures moving forward</li>
+          </ul>
+          
+          <p>In readings, the Three of Wands suggests:</p>
+          <ul>
+            <li>Expansion of projects, business, or creative endeavors</li>
+            <li>Long-term vision and planning</li>
+            <li>Seeing the first results of prior efforts</li>
+            <li>Trade, commerce, and productive exchange</li>
+            <li>Leadership and taking the broader view</li>
+            <li>Travel or exploring new territories (literal or figurative)</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Three of Wands",
+        content: `
+          <p>When the Three of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What is currently expanding in my life or work?</li>
+            <li>Where do I need to take a longer-term perspective?</li>
+            <li>What opportunities are appearing on my horizon?</li>
+            <li>How can I build on the foundations I've already established?</li>
+            <li>What collaborations or partnerships might help me move forward?</li>
+          </ul>
+          
+          <p>Actions to take when working with Three of Wands energy:</p>
+          <ul>
+            <li>Take time to look at the bigger picture of your projects or goals</li>
+            <li>Consider international or broader market opportunities</li>
+            <li>Network with people who can help expand your reach</li>
+            <li>Be open to educational or travel experiences that broaden your horizons</li>
+            <li>Strengthen foundations before expanding further</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What stage of manifestation does the Three of Wands represent?",
+        options: [
+          "Initial inspiration",
+          "Planning and decision-making",
+          "Expansion and seeing first results",
+          "Completion and celebration"
+        ],
+        correctAnswer: 2,
+        explanation: "The Three of Wands represents the expansion stage that follows planning (Two of Wands), where you begin to see the first results of your efforts and gain a broader perspective on future possibilities."
+      },
+      {
+        question: "What does the elevated position of the figure in the Three of Wands symbolize?",
+        options: [
+          "Spiritual enlightenment",
+          "Social status and power",
+          "Perspective, foresight, and ability to see the bigger picture",
+          "Isolation and loneliness"
+        ],
+        correctAnswer: 2,
+        explanation: "The elevated position of the figure symbolizes perspective, foresight, and the ability to see the bigger picture - a higher vantage point that allows for long-term vision."
+      },
+      {
+        question: "What kind of opportunities does the Three of Wands often suggest?",
+        options: [
+          "Spiritual retreats and inner work",
+          "Expansion, trade, new territories, and broader horizons",
+          "Family gatherings and domestic improvements",
+          "Academic study and theoretical learning"
+        ],
+        correctAnswer: 1,
+        explanation: "The Three of Wands often suggests opportunities related to expansion, trade, exploring new territories (literal or metaphorical), and broadening one's horizons through collaboration or ventures."
+      }
+    ],
+    summary: "The Three of Wands represents the stage of expansion and foresight that follows planning. It encourages us to take the long view, look beyond immediate circumstances, and recognize the opportunities appearing on our horizon. This card reminds us that with a solid foundation in place, we can confidently explore new territories and collaborations, seeing the first fruits of our previous efforts while continuing to grow our vision.",
+    additionalResources: [
+      {
+        title: "Strategic Vision in Business and Life",
+        description: "How to develop and maintain a long-term perspective in your projects."
+      },
+      {
+        title: "The Psychology of Growth and Expansion",
+        description: "Understanding the inner processes that support healthy expansion and development."
+      }
+    ]
+  },
+  {
+    id: "minor-10",
+    title: "The Three of Cups: Celebration and Community",
+    description: "Explore the joyful energy of celebration, friendship, and community in the Three of Cups.",
+    cardId: "c3",
+    sections: [
+      {
+        title: "The Three of Cups: Overview",
+        content: `
+          <p>After the partnership of the Two of Cups, the Three of Cups expands the circle to celebrate community, friendship, and the joy of sharing emotional connections with others.</p>
+          
+          <p>This card often depicts three figures raising their cups in celebration, dancing or rejoicing together, symbolizing the abundance that comes from shared joy and mutual support.</p>
+          
+          <p>The Three of Cups asks us to consider:</p>
+          <ul>
+            <li>What is worth celebrating in my life right now?</li>
+            <li>How am I nourished by my community and friendships?</li>
+            <li>Where can I experience more joy and shared positive emotions?</li>
+            <li>How can I contribute to collective happiness and well-being?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Three of Cups contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Three figures</strong> - Represent community, friendship circles, and social connections</li>
+            <li><strong>Raised cups</strong> - Symbolize toasts, celebration, and shared emotional abundance</li>
+            <li><strong>Dancing or circular arrangement</strong> - Suggests harmony, flow, and the cyclical nature of gathering</li>
+            <li><strong>Fruits or harvest imagery</strong> - Often shown in the card, representing abundance, fertility, and the fruits of collaborative efforts</li>
+          </ul>
+          
+          <p>In readings, the Three of Cups suggests:</p>
+          <ul>
+            <li>Celebrations, parties, and joyful gatherings</li>
+            <li>Supportive friendships and community connections</li>
+            <li>Creative collaboration and group projects</li>
+            <li>Harmony in social relationships</li>
+            <li>Shared emotional experiences</li>
+            <li>Milestones worth commemorating</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Three of Cups",
+        content: `
+          <p>When the Three of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What achievements or events in my life deserve celebration?</li>
+            <li>How can I deepen my connections with supportive friends?</li>
+            <li>Where might collaboration lead to greater creative results?</li>
+            <li>What communities nourish my emotional well-being?</li>
+            <li>How can I contribute to collective joy and happiness?</li>
+          </ul>
+          
+          <p>Actions to take when working with Three of Cups energy:</p>
+          <ul>
+            <li>Organize or attend a gathering to celebrate recent achievements</li>
+            <li>Reach out to friends you haven't connected with in a while</li>
+            <li>Join groups or communities aligned with your interests and values</li>
+            <li>Collaborate on creative projects that bring joy</li>
+            <li>Express gratitude for the supportive people in your life</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of energy does the Three of Cups primarily represent?",
+        options: [
+          "Solitary contemplation and introspection",
+          "Competitive achievement and individual success",
+          "Celebration, friendship, and community joy",
+          "Serious study and academic pursuit"
+        ],
+        correctAnswer: 2,
+        explanation: "The Three of Cups primarily represents celebration, friendship, and community joy - the positive emotional energy that comes from harmonious social connections and shared happiness."
+      },
+      {
+        question: "What do the raised cups in the Three of Cups symbolize?",
+        options: [
+          "Religious ritual",
+          "Toasts, celebration, and shared emotional abundance",
+          "Excessive drinking",
+          "Secret societies"
+        ],
+        correctAnswer: 1,
+        explanation: "The raised cups symbolize toasts, celebration, and shared emotional abundance - the act of coming together to honor achievements, relationships, or significant moments."
+      },
+      {
+        question: "What kind of connections does the Three of Cups emphasize?",
+        options: [
+          "Professional networking for career advancement",
+          "Formal hierarchical relationships",
+          "Supportive friendships and community bonds",
+          "Superficial acquaintances"
+        ],
+        correctAnswer: 2,
+        explanation: "The Three of Cups emphasizes supportive friendships and community bonds - genuine connections characterized by mutual support, shared joy, and emotional authenticity."
+      }
+    ],
+    summary: "The Three of Cups represents the joy of celebration, friendship, and community. It reminds us of the importance of sharing our happiness with others and the emotional fulfillment that comes from being part of supportive social circles. This card encourages us to nurture our friendships, celebrate life's achievements (big and small), and recognize how our connections with others enrich our lives and create a sense of belonging.",
+    additionalResources: [
+      {
+        title: "The Power of Community",
+        description: "Research on how social connections contribute to well-being and resilience."
+      },
+      {
+        title: "Meaningful Celebration Rituals",
+        description: "Creating intentional ways to mark important moments with others."
+      }
+    ]
   }
 ];
 

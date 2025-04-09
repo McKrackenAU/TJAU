@@ -37,12 +37,17 @@ export default function LessonPage() {
     const lessons = typedTrackLessonMap[trackIdNum.toString()];
     
     if (!lessons) {
+      console.log(`No lessons found for track ID: ${trackIdNum}`);
       navigate("/learning");
       return;
     }
     
+    console.log(`Looking for lesson with ID: ${lessonId} in track: ${trackIdNum}`);
+    console.log(`Available lessons: ${lessons.map((l: LessonContent) => l.id).join(', ')}`);
+    
     const currentLesson = lessons.find((l: LessonContent) => l.id === lessonId);
     if (!currentLesson) {
+      console.log(`Lesson ${lessonId} not found in track ${trackIdNum}`);
       navigate(`/learning`);
       return;
     }
