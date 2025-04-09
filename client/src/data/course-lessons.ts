@@ -4774,6 +4774,470 @@ export const minorArcanaLessons: LessonContent[] = [
         description: "Key practices for creating productive partnerships and team dynamics."
       }
     ]
+  },
+  {
+    id: "minor-13",
+    title: "The Four of Wands: Celebration and Home",
+    description: "Discover the joyful energy of celebration, community, and creating foundations in the Four of Wands.",
+    cardId: "w4",
+    sections: [
+      {
+        title: "The Four of Wands: Overview",
+        content: `
+          <p>After the expansion of the Three of Wands, the Four of Wands represents a moment of stability, celebration, and the creation of foundations that bring a sense of belonging and community.</p>
+          
+          <p>This card often depicts a decorated gateway or arched structure made of four wands, with people celebrating beneath it, symbolizing the joy of homecoming, establishing roots, and celebrating milestones within a supportive community.</p>
+          
+          <p>The Four of Wands asks us to consider:</p>
+          <ul>
+            <li>What foundations am I building in my life?</li>
+            <li>What accomplishments deserve celebration?</li>
+            <li>Where do I find a sense of belonging and community?</li>
+            <li>How can I create more stability while maintaining creative freedom?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Four of Wands contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Four wands forming a structure</strong> - Represents stability, foundations, and the framework for further growth</li>
+            <li><strong>Decorations or flowers</strong> - Symbolize celebration, beauty, and the adornment of what has been built</li>
+            <li><strong>People celebrating</strong> - Suggest community, belonging, and shared joy</li>
+            <li><strong>Castle or home in background</strong> - Often shown, representing security, achievement, and having established something meaningful</li>
+          </ul>
+          
+          <p>In readings, the Four of Wands suggests:</p>
+          <ul>
+            <li>Celebrations and milestone achievements</li>
+            <li>Homecoming or finding where you belong</li>
+            <li>Creating foundations for future growth</li>
+            <li>Community support and belonging</li>
+            <li>Stability that still allows for freedom</li>
+            <li>Harmonious relationships and environments</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Four of Wands",
+        content: `
+          <p>When the Four of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What foundations have I successfully established in my life?</li>
+            <li>Which achievements deserve recognition and celebration?</li>
+            <li>Where do I feel a sense of belonging and community?</li>
+            <li>How can I create more stability without limiting my freedom?</li>
+            <li>What "home" (literal or figurative) am I creating or returning to?</li>
+          </ul>
+          
+          <p>Actions to take when working with Four of Wands energy:</p>
+          <ul>
+            <li>Celebrate achievements and milestones with others</li>
+            <li>Create rituals that honor your sense of home and belonging</li>
+            <li>Strengthen foundations in important areas of your life</li>
+            <li>Connect with communities that share your values</li>
+            <li>Express gratitude for stability and support in your life</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What key theme does the Four of Wands primarily represent?",
+        options: [
+          "Solitary spiritual practice",
+          "Celebration, stability, and creating foundations",
+          "Aggressive competition",
+          "Intellectual debate"
+        ],
+        correctAnswer: 1,
+        explanation: "The Four of Wands primarily represents celebration, stability, and the creation of foundations - particularly those that provide a sense of belonging and community."
+      },
+      {
+        question: "What do the four wands forming a structure symbolize?",
+        options: [
+          "Imprisonment and limitation",
+          "Stability, foundations, and framework for growth",
+          "Barriers against outsiders",
+          "Military defense"
+        ],
+        correctAnswer: 1,
+        explanation: "The four wands forming a structure symbolize stability, foundations, and providing the framework for further growth - creating boundaries that support rather than limit."
+      },
+      {
+        question: "What kind of foundations does the Four of Wands represent?",
+        options: [
+          "Rigid structures that limit movement",
+          "Temporary arrangements with no permanence",
+          "Stable bases that still allow for freedom and creativity",
+          "Isolating barriers that separate you from others"
+        ],
+        correctAnswer: 2,
+        explanation: "The Four of Wands represents foundations that provide stability while still allowing for freedom and creativity - supportive structures rather than confining ones."
+      }
+    ],
+    summary: "The Four of Wands represents celebration, homecoming, and the creation of stable foundations within community. It reminds us to honor our achievements, create spaces where we feel a sense of belonging, and build frameworks that support our continued growth. This card encourages us to find the beautiful balance between stability and freedom, recognizing that the right foundations don't confine us but actually give us a secure base from which to flourish.",
+    additionalResources: [
+      {
+        title: "The Psychology of Belonging",
+        description: "Research on why feeling part of a community is essential for wellbeing."
+      },
+      {
+        title: "Creating Meaningful Celebrations",
+        description: "How to design rituals that honor important transitions and achievements."
+      }
+    ]
+  },
+  {
+    id: "minor-14",
+    title: "The Four of Cups: Contemplation and Apathy",
+    description: "Explore the introspective energy of contemplation, dissatisfaction, and missed opportunities in the Four of Cups.",
+    cardId: "c4",
+    sections: [
+      {
+        title: "The Four of Cups: Overview",
+        content: `
+          <p>After the celebration of the Three of Cups, the Four of Cups represents a moment of withdrawal, contemplation, and potentially apathy or dissatisfaction with what is being offered.</p>
+          
+          <p>This card often depicts a figure sitting under a tree, arms crossed, looking at three cups on the ground while a fourth cup is being offered by a hand emerging from a cloud. This symbolizes self-absorption, contemplation, and sometimes the inability to see new opportunities due to fixation on what's already present.</p>
+          
+          <p>The Four of Cups asks us to consider:</p>
+          <ul>
+            <li>Where have I become emotionally stagnant or dissatisfied?</li>
+            <li>What opportunities might I be overlooking?</li>
+            <li>How has contemplation or introspection become excessive?</li>
+            <li>What would help me reconnect with a sense of emotional freshness?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Four of Cups contains thought-provoking symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Figure with crossed arms</strong> - Represents self-containment, withdrawal, or reluctance to engage</li>
+            <li><strong>Three cups on the ground</strong> - Symbolize what is already known, familiar, or perhaps taken for granted</li>
+            <li><strong>Fourth cup being offered</strong> - Suggests a new opportunity, perspective, or gift that might be overlooked</li>
+            <li><strong>Tree</strong> - Indicates introspection, shelter, but possibly also being "rooted" in one perspective</li>
+          </ul>
+          
+          <p>In readings, the Four of Cups suggests:</p>
+          <ul>
+            <li>Contemplation and introspection</li>
+            <li>Emotional dissatisfaction or apathy</li>
+            <li>Missing opportunities due to self-absorption</li>
+            <li>Reevaluation of what truly matters</li>
+            <li>The need for emotional renewal</li>
+            <li>Taking time for inner reflection</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Four of Cups",
+        content: `
+          <p>When the Four of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where in my life have I become complacent or dissatisfied?</li>
+            <li>What opportunities might I be missing because I'm focused elsewhere?</li>
+            <li>How can I distinguish between healthy contemplation and unhelpful withdrawal?</li>
+            <li>What would help me feel emotionally refreshed and engaged again?</li>
+            <li>What gifts or opportunities am I not seeing clearly?</li>
+          </ul>
+          
+          <p>Actions to take when working with Four of Cups energy:</p>
+          <ul>
+            <li>Take time for genuine introspection about what truly matters to you</li>
+            <li>Practice mindfulness to become more aware of opportunities around you</li>
+            <li>Explore whether dissatisfaction is a signal that change is needed</li>
+            <li>Try something new to break out of emotional stagnation</li>
+            <li>Consider whether you're saying "no" to something valuable out of habit</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the figure's posture in the Four of Cups typically convey?",
+        options: [
+          "Enthusiastic engagement with surroundings",
+          "Self-containment, withdrawal, or reluctance to engage",
+          "Aggressive defensiveness",
+          "Physical exhaustion"
+        ],
+        correctAnswer: 1,
+        explanation: "The figure's posture in the Four of Cups typically conveys self-containment, withdrawal, or reluctance to engage - a turning inward that can represent contemplation but also potential apathy or disinterest."
+      },
+      {
+        question: "What does the fourth cup being offered in the Four of Cups symbolize?",
+        options: [
+          "Unwanted advice",
+          "A new opportunity or perspective that might be overlooked",
+          "An obligation or burden",
+          "A distraction from important work"
+        ],
+        correctAnswer: 1,
+        explanation: "The fourth cup being offered symbolizes a new opportunity, perspective, or gift that might be overlooked due to self-absorption, fixation on what's already present, or emotional withdrawal."
+      },
+      {
+        question: "What healthy approach does the Four of Cups suggest we might need?",
+        options: [
+          "Complete isolation from others",
+          "Forcing yourself to accept everything offered to you",
+          "Balance between contemplation and openness to new opportunities",
+          "Focusing only on what you already have"
+        ],
+        correctAnswer: 2,
+        explanation: "The Four of Cups suggests finding a balance between healthy contemplation and remaining open to new opportunities - neither becoming lost in self-absorption nor accepting things without reflection."
+      }
+    ],
+    summary: "The Four of Cups represents a moment of contemplation, introspection, and potentially emotional stagnation or apathy. It reminds us that while turning inward can be valuable, we may miss opportunities when we become too self-absorbed or fixed in our perspective. This card invites us to find the balance between thoughtful reflection and remaining open to new emotional experiences and gifts that life continues to offer.",
+    additionalResources: [
+      {
+        title: "Mindfulness and Awareness",
+        description: "Practices for remaining present and receptive while still honoring introspection."
+      },
+      {
+        title: "Overcoming Emotional Stagnation",
+        description: "Techniques for refreshing your emotional perspective when feeling stuck or apathetic."
+      }
+    ]
+  },
+  {
+    id: "minor-15",
+    title: "The Four of Swords: Rest and Recovery",
+    description: "Explore the restorative energy of rest, recovery, and mental renewal in the Four of Swords.",
+    cardId: "s4",
+    sections: [
+      {
+        title: "The Four of Swords: Overview",
+        content: `
+          <p>After the painful clarity of the Three of Swords, the Four of Swords represents a necessary period of rest, recuperation, and mental quietude to process and heal from difficulties.</p>
+          
+          <p>This card often depicts a figure lying in repose on a tomb or bed, with three swords hanging on the wall above and one beneath, symbolizing a temporary retreat from mental conflict to restore balance and perspective.</p>
+          
+          <p>The Four of Swords asks us to consider:</p>
+          <ul>
+            <li>Where do I need to allow myself rest and recovery?</li>
+            <li>How can I create mental stillness after a period of turmoil?</li>
+            <li>What healing and integration needs to happen before I move forward?</li>
+            <li>How might strategic withdrawal serve my long-term wellbeing?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Four of Swords contains powerful symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Reclining figure</strong> - Represents retreat, rest, and the need to withdraw from activity</li>
+            <li><strong>Three swords on wall</strong> - Symbolize mental challenges temporarily set aside but not forgotten</li>
+            <li><strong>Fourth sword beneath</strong> - Suggests that even in rest, we maintain some protection and awareness</li>
+            <li><strong>Church or sanctuary setting</strong> - Often depicted, indicating a sacred or protected space for healing</li>
+          </ul>
+          
+          <p>In readings, the Four of Swords suggests:</p>
+          <ul>
+            <li>Rest, recuperation, and convalescence</li>
+            <li>Mental quiet and stillness</li>
+            <li>Strategic withdrawal to regain strength</li>
+            <li>Healing after difficulty or illness</li>
+            <li>Meditation and contemplative practices</li>
+            <li>The need to pace yourself and prevent burnout</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Four of Swords",
+        content: `
+          <p>When the Four of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>How have I been pushing myself beyond healthy limits?</li>
+            <li>What would true rest look like for me right now?</li>
+            <li>What mental battles can I temporarily set aside?</li>
+            <li>How can I create more sanctuary and peace in my life?</li>
+            <li>What healing or integration needs to happen before I move forward?</li>
+          </ul>
+          
+          <p>Actions to take when working with Four of Swords energy:</p>
+          <ul>
+            <li>Create dedicated time for rest and quiet contemplation</li>
+            <li>Temporarily withdraw from demanding situations if possible</li>
+            <li>Establish better boundaries to protect your energy</li>
+            <li>Practice meditation or mindfulness to still mental chatter</li>
+            <li>Allow yourself proper recovery after illness or difficulty</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the primary message of the Four of Swords?",
+        options: [
+          "Confront all challenges directly without delay",
+          "The need for rest, recuperation, and mental quiet",
+          "Prepare for immediate action and movement",
+          "Focus on solving intellectual problems"
+        ],
+        correctAnswer: 1,
+        explanation: "The primary message of the Four of Swords is the need for rest, recuperation, and mental quiet - a time of strategic withdrawal to heal and integrate after difficulty."
+      },
+      {
+        question: "What do the three swords hanging on the wall symbolize?",
+        options: [
+          "Immediate threats that must be addressed",
+          "Mental challenges temporarily set aside but not forgotten",
+          "Weapons to be used in upcoming battles",
+          "Achievements and victories"
+        ],
+        correctAnswer: 1,
+        explanation: "The three swords hanging on the wall symbolize mental challenges that have been temporarily set aside but not forgotten - we acknowledge them but create distance to recover."
+      },
+      {
+        question: "What kind of withdrawal does the Four of Swords suggest?",
+        options: [
+          "Permanent isolation from others",
+          "Apathetic resignation from life's challenges",
+          "Strategic, temporary rest to regain strength and perspective",
+          "Escapism through entertainment and distraction"
+        ],
+        correctAnswer: 2,
+        explanation: "The Four of Swords suggests strategic, temporary withdrawal or rest to regain strength and perspective - not permanent isolation or escapism, but necessary recuperation."
+      }
+    ],
+    summary: "The Four of Swords represents a necessary period of rest, recovery, and mental quiet after difficulty or exertion. It reminds us that strategic withdrawal is not the same as giving up, but rather a vital part of maintaining our wellbeing and preparing for future challenges. This card invites us to honor our need for sanctuary, contemplation, and healing, recognizing that proper rest is essential for sustainable action and mental clarity.",
+    additionalResources: [
+      {
+        title: "The Healing Power of Rest",
+        description: "Research on how rest and recuperation contribute to mental and physical health."
+      },
+      {
+        title: "Contemplative Practices",
+        description: "Different approaches to finding mental stillness and quiet in a busy world."
+      }
+    ]
+  },
+  {
+    id: "minor-16",
+    title: "The Four of Pentacles: Security and Control",
+    description: "Study the complex energy of stability, security, and the potential for over-control in the Four of Pentacles.",
+    cardId: "p4",
+    sections: [
+      {
+        title: "The Four of Pentacles: Overview",
+        content: `
+          <p>After the skilled collaboration of the Three of Pentacles, the Four of Pentacles represents establishing security and control over material resources, sometimes to the point of becoming overly protective or possessive.</p>
+          
+          <p>This card often depicts a figure tightly holding one pentacle to their chest, with one beneath their feet and two more over their head, symbolizing security and stability but also potential rigidity and fear of loss.</p>
+          
+          <p>The Four of Pentacles asks us to consider:</p>
+          <ul>
+            <li>Where am I seeking security and stability in my life?</li>
+            <li>How might my desire for control be limiting growth or connection?</li>
+            <li>What fears about scarcity or loss might be driving my behavior?</li>
+            <li>How can I balance healthy boundaries with unhealthy hoarding?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Four of Pentacles contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Figure tightly holding pentacle</strong> - Represents protection, security, but possibly excessive attachment</li>
+            <li><strong>Pentacle under feet</strong> - Symbolizes stability and grounded foundation in material matters</li>
+            <li><strong>Pentacles around crown</strong> - Suggest preoccupation with material concerns affecting thoughts</li>
+            <li><strong>City in background</strong> - Often shown, indicating civilization, society, and material achievement</li>
+          </ul>
+          
+          <p>In readings, the Four of Pentacles suggests:</p>
+          <ul>
+            <li>Financial security and stability</li>
+            <li>Conservation of resources</li>
+            <li>Established boundaries and control</li>
+            <li>Potential fear of loss or scarcity</li>
+            <li>Resistance to change or risk</li>
+            <li>The need to examine attachments to possessions or control</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Four of Pentacles",
+        content: `
+          <p>When the Four of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where do I seek stability and security in healthy ways?</li>
+            <li>In what areas might I be holding on too tightly?</li>
+            <li>What fears about not having enough might be influencing me?</li>
+            <li>How could loosening my grip in certain areas benefit me?</li>
+            <li>What's the difference between healthy boundaries and unhealthy control?</li>
+          </ul>
+          
+          <p>Actions to take when working with Four of Pentacles energy:</p>
+          <ul>
+            <li>Create financial security through saving and planning</li>
+            <li>Examine beliefs about scarcity and abundance</li>
+            <li>Practice generosity in small, manageable ways</li>
+            <li>Establish healthy boundaries without rigidity</li>
+            <li>Reflect on what truly provides lasting security</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What dual aspects does the Four of Pentacles illustrate?",
+        options: [
+          "Intellect versus emotion",
+          "Spiritual growth versus material concerns",
+          "Healthy security versus excessive control",
+          "Past versus future"
+        ],
+        correctAnswer: 2,
+        explanation: "The Four of Pentacles illustrates the dual aspects of healthy security versus excessive control - showing both the benefits of stability and the potential pitfalls of holding on too tightly."
+      },
+      {
+        question: "What might the city often depicted in the background of the Four of Pentacles symbolize?",
+        options: [
+          "Escape and freedom",
+          "Civilization, society, and material achievement",
+          "Danger and chaos",
+          "Isolation and loneliness"
+        ],
+        correctAnswer: 1,
+        explanation: "The city in the background symbolizes civilization, society, and material achievement - representing the structured world of material security and social status."
+      },
+      {
+        question: "What balanced approach does the Four of Pentacles invite us to find?",
+        options: [
+          "Giving away all possessions versus hoarding everything",
+          "Focusing exclusively on either material or spiritual concerns",
+          "Security and stability without excessive control or fear",
+          "Complete isolation versus constant social engagement"
+        ],
+        correctAnswer: 2,
+        explanation: "The Four of Pentacles invites us to find balance between security and stability without excessive control or fear - recognizing the value of material stability while avoiding the trap of attachment and scarcity mentality."
+      }
+    ],
+    summary: "The Four of Pentacles represents the establishment of material security and control, illustrating both the benefits of stability and the potential pitfalls of holding on too tightly. This card reminds us that while creating security in our resources is important, excessive control or fear-based hoarding can limit growth and connection. It invites us to examine our relationship with possessions, money, and control, finding the balance between healthy boundaries and unhealthy attachment.",
+    additionalResources: [
+      {
+        title: "Abundance Mindset",
+        description: "How shifting from scarcity thinking to abundance awareness affects wellbeing and decisions."
+      },
+      {
+        title: "The Psychology of Security",
+        description: "Understanding what creates genuine feelings of security beyond material possessions."
+      }
+    ]
   }
 ];
 
