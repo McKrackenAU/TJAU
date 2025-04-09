@@ -5238,6 +5238,470 @@ export const minorArcanaLessons: LessonContent[] = [
         description: "Understanding what creates genuine feelings of security beyond material possessions."
       }
     ]
+  },
+  {
+    id: "minor-17",
+    title: "The Five of Wands: Conflict and Competition",
+    description: "Explore the dynamic energy of competition, conflict, and creative tension in the Five of Wands.",
+    cardId: "w5",
+    sections: [
+      {
+        title: "The Five of Wands: Overview",
+        content: `
+          <p>After the stable foundations of the Four of Wands, the Five of Wands introduces a necessary phase of conflict, competition, and creative tension that challenges us to grow stronger and more skillful.</p>
+          
+          <p>This card often depicts five people wielding wands in what appears to be either a battle or a training exercise, symbolizing the clash of different energies, ideas, and wills that leads to both struggle and eventual growth.</p>
+          
+          <p>The Five of Wands asks us to consider:</p>
+          <ul>
+            <li>What conflicts or competing energies am I facing?</li>
+            <li>How can I use competition as a catalyst for growth?</li>
+            <li>Where might I need to assert myself more effectively?</li>
+            <li>How can I navigate differences without unnecessary strife?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Five of Wands contains dynamic symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Five figures with wands</strong> - Represent different energies, ideas, or people coming into conflict</li>
+            <li><strong>Wands raised in different directions</strong> - Symbolize a lack of coordination, competing priorities, or divergent goals</li>
+            <li><strong>Training ground</strong> - In some interpretations, suggests that the conflict may be more about practice than actual harm</li>
+            <li><strong>No clear winner</strong> - Indicates that the situation involves ongoing negotiation rather than decisive victory</li>
+          </ul>
+          
+          <p>In readings, the Five of Wands suggests:</p>
+          <ul>
+            <li>Competition and rivalry</li>
+            <li>Conflict and disagreement</li>
+            <li>Creative tension and brainstorming</li>
+            <li>Testing your abilities against challenges</li>
+            <li>The need to assert yourself</li>
+            <li>Growth through overcoming obstacles</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Five of Wands",
+        content: `
+          <p>When the Five of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What conflicts am I currently experiencing, and what might they be teaching me?</li>
+            <li>How do I typically respond to competition or opposition?</li>
+            <li>Where might healthy competition help me grow stronger?</li>
+            <li>What skills or qualities could I develop to navigate conflict more effectively?</li>
+            <li>How can I distinguish between productive and unproductive struggles?</li>
+          </ul>
+          
+          <p>Actions to take when working with Five of Wands energy:</p>
+          <ul>
+            <li>Use debates or brainstorming sessions to generate better ideas</li>
+            <li>Engage in healthy competition that pushes you to improve</li>
+            <li>Practice asserting yourself constructively in group settings</li>
+            <li>Develop conflict resolution and negotiation skills</li>
+            <li>Find ways to channel competitive energy into productive outlets</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What type of energy does the Five of Wands primarily represent?",
+        options: [
+          "Peaceful harmony and cooperation",
+          "Conflict, competition, and creative tension",
+          "Isolation and solitary work",
+          "Devastating defeat and surrender"
+        ],
+        correctAnswer: 1,
+        explanation: "The Five of Wands primarily represents conflict, competition, and creative tension - the dynamic but challenging energy that arises when different forces, ideas, or wills come into contact."
+      },
+      {
+        question: "What positive potential does the Five of Wands suggest?",
+        options: [
+          "Avoiding all forms of conflict",
+          "Dominating others through force",
+          "Growth and improvement through healthy competition",
+          "Escape from challenging situations"
+        ],
+        correctAnswer: 2,
+        explanation: "The Five of Wands suggests the positive potential for growth and improvement through healthy competition - using the energy of challenge to become stronger, more skilled, and more resilient."
+      },
+      {
+        question: "What distinguishes productive conflict from unproductive conflict in the context of the Five of Wands?",
+        options: [
+          "Productive conflict leads to a clear winner",
+          "Productive conflict focuses on ideas rather than personal attacks",
+          "Productive conflict always involves physical activity",
+          "Productive conflict happens in private, not in groups"
+        ],
+        correctAnswer: 1,
+        explanation: "In the context of the Five of Wands, productive conflict focuses on ideas rather than personal attacks - it's about the creative friction that leads to innovation and improvement, not about tearing others down."
+      }
+    ],
+    summary: "The Five of Wands represents a necessary phase of conflict, competition, and creative tension that comes after establishing foundations. It reminds us that growth often requires us to engage with opposing forces and ideas, testing our abilities against challenges. While this card can indicate struggles, it also suggests the potential for improvement through healthy competition and the dynamic energy that comes from the clash of different perspectives.",
+    additionalResources: [
+      {
+        title: "Conflict Resolution Skills",
+        description: "Practical techniques for navigating disagreements constructively."
+      },
+      {
+        title: "The Psychology of Healthy Competition",
+        description: "How rivalry and challenge can foster growth and excellence when approached properly."
+      }
+    ]
+  },
+  {
+    id: "minor-18",
+    title: "The Five of Cups: Loss and Renewal",
+    description: "Examine the emotional journey of loss, grief, and finding what remains in the Five of Cups.",
+    cardId: "c5",
+    sections: [
+      {
+        title: "The Five of Cups: Overview",
+        content: `
+          <p>After the contemplative withdrawal of the Four of Cups, the Five of Cups represents a time of emotional loss, disappointment, and grief, but also contains the seeds of recovery and the recognition of what remains.</p>
+          
+          <p>This card often depicts a figure in a posture of mourning, looking down at three spilled cups, while two cups remain standing behind them, symbolizing that even in times of loss, not everything is lost, and renewal awaits if we are willing to turn around.</p>
+          
+          <p>The Five of Cups asks us to consider:</p>
+          <ul>
+            <li>What losses or disappointments am I grieving?</li>
+            <li>What remains that I might be overlooking?</li>
+            <li>How might I be fixating on what's gone rather than what's left?</li>
+            <li>What would help me move through grief toward acceptance?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Five of Cups contains poignant symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Three spilled cups</strong> - Represent loss, disappointment, and what has been taken away</li>
+            <li><strong>Two upright cups</strong> - Symbolize what remains, often unseen when we're focused on our loss</li>
+            <li><strong>Mourning figure</strong> - Shows the natural and necessary process of grief</li>
+            <li><strong>Bridge in background</strong> - Often shown, suggesting the path forward and potential for crossing to a new emotional state</li>
+          </ul>
+          
+          <p>In readings, the Five of Cups suggests:</p>
+          <ul>
+            <li>Grief and emotional loss</li>
+            <li>Disappointment or regret</li>
+            <li>The process of coming to terms with what can't be changed</li>
+            <li>The need to recognize what remains</li>
+            <li>The beginning of emotional healing</li>
+            <li>Finding the path forward after setbacks</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Five of Cups",
+        content: `
+          <p>When the Five of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What losses am I currently grieving, and how am I honoring that process?</li>
+            <li>What might I be overlooking that still remains valuable in my life?</li>
+            <li>How can I acknowledge my feelings while also beginning to move forward?</li>
+            <li>What would help me "turn around" to see the cups that are still standing?</li>
+            <li>What lessons might this loss be teaching me?</li>
+          </ul>
+          
+          <p>Actions to take when working with Five of Cups energy:</p>
+          <ul>
+            <li>Allow yourself to fully feel and process grief rather than suppressing it</li>
+            <li>Practice gratitude for what remains in your life</li>
+            <li>Seek support from trusted friends or professionals during difficult transitions</li>
+            <li>Create rituals to honor what has been lost while affirming what continues</li>
+            <li>Take small steps toward the "bridge" that leads to emotional renewal</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What do the two upright cups behind the figure symbolize?",
+        options: [
+          "New relationships that will replace what was lost",
+          "What remains valuable even after loss",
+          "More losses to come in the future",
+          "Emotional support from others"
+        ],
+        correctAnswer: 1,
+        explanation: "The two upright cups behind the figure symbolize what remains valuable even after loss - the resources, relationships, or aspects of life that are still present but may be overlooked when we're focused on our grief."
+      },
+      {
+        question: "What balanced approach does the Five of Cups invite?",
+        options: [
+          "Avoiding grief entirely to focus on positive thinking",
+          "Remaining permanently in mourning to honor what was lost",
+          "Honoring grief while eventually recognizing what remains",
+          "Replacing lost things immediately with new substitutes"
+        ],
+        correctAnswer: 2,
+        explanation: "The Five of Cups invites honoring grief while eventually recognizing what remains - acknowledging loss fully while also, in time, turning to see what still stands and what possibilities await."
+      },
+      {
+        question: "What does the bridge often depicted in the background of the Five of Cups represent?",
+        options: [
+          "Permanent separation from what was lost",
+          "The path forward and transition to a new emotional state",
+          "The boundary between life and death",
+          "The need to build new relationships"
+        ],
+        correctAnswer: 1,
+        explanation: "The bridge in the background represents the path forward and the potential for transition to a new emotional state - suggesting that while we may need to grieve, there is eventually a way to cross over to renewal."
+      }
+    ],
+    summary: "The Five of Cups represents the emotional journey through loss, disappointment, and grief, while also containing the seeds of renewal and the reminder that not everything is lost. It honors the necessary process of mourning while gently suggesting that, when we're ready, turning to see what remains can help us find a path forward. This card reminds us that healing doesn't mean forgetting what was lost, but rather integrating that loss into a new emotional landscape that includes both what's gone and what continues.",
+    additionalResources: [
+      {
+        title: "Healthy Grieving Processes",
+        description: "Understanding the stages of grief and how to move through them in a healing way."
+      },
+      {
+        title: "Finding Meaning After Loss",
+        description: "How focusing on what remains can help rebuild purpose and connection after disappointment."
+      }
+    ]
+  },
+  {
+    id: "minor-19",
+    title: "The Five of Swords: Conflict and Perspective",
+    description: "Examine the complex dynamics of conflict, victory at a cost, and differing perspectives in the Five of Swords.",
+    cardId: "s5",
+    sections: [
+      {
+        title: "The Five of Swords: Overview",
+        content: `
+          <p>After the restorative rest of the Four of Swords, the Five of Swords introduces a challenging phase of conflict, tension, and the sometimes hollow nature of victory when it comes at the expense of others.</p>
+          
+          <p>This card often depicts a figure collecting swords from defeated opponents who are walking away, suggesting an outcome where someone has "won" but relationships or trust may have been damaged in the process.</p>
+          
+          <p>The Five of Swords asks us to consider:</p>
+          <ul>
+            <li>Where have I experienced conflict, and what perspective am I taking?</li>
+            <li>What victories might not be worth the cost?</li>
+            <li>How might different parties view the same situation?</li>
+            <li>What would a more balanced approach to conflict resolution look like?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Five of Swords contains multi-layered symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Figure collecting swords</strong> - Represents victory, but perhaps at a cost to relationships or principles</li>
+            <li><strong>Walking away figures</strong> - Symbolize the aftermath of conflict and potential resentment or alienation</li>
+            <li><strong>Cloudy sky</strong> - Suggests unclear communication or murky moral territory</li>
+            <li><strong>Multiple swords</strong> - Indicate the various mental positions, arguments, or perspectives in a conflict</li>
+          </ul>
+          
+          <p>In readings, the Five of Swords suggests:</p>
+          <ul>
+            <li>Conflict and its aftermath</li>
+            <li>Winning at a cost</li>
+            <li>Different perspectives on the same situation</li>
+            <li>The need to consider long-term consequences of "victories"</li>
+            <li>Potential for discord, arguments, or power struggles</li>
+            <li>Valuable lessons about conflict resolution</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Five of Swords",
+        content: `
+          <p>When the Five of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>In current conflicts, am I primarily "collecting swords" or "walking away"?</li>
+            <li>What might be the perspective of others involved in this situation?</li>
+            <li>When has winning an argument cost me something more valuable?</li>
+            <li>How might I approach conflict in a way that preserves relationships?</li>
+            <li>What would a true win-win solution look like in this situation?</li>
+          </ul>
+          
+          <p>Actions to take when working with Five of Swords energy:</p>
+          <ul>
+            <li>Practice seeing situations from multiple perspectives</li>
+            <li>Focus on solutions that benefit all parties when possible</li>
+            <li>Consider whether being "right" is always worth the potential cost</li>
+            <li>Learn effective communication techniques for difficult conversations</li>
+            <li>Reflect on past conflicts to identify patterns in your approach</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the Five of Swords often reveal about victory?",
+        options: [
+          "Victory is always worth pursuing at any cost",
+          "Victory can sometimes be hollow or come at too high a price",
+          "Victory is never possible in conflicts",
+          "Victory belongs only to the physically strongest"
+        ],
+        correctAnswer: 1,
+        explanation: "The Five of Swords reveals that victory can sometimes be hollow or come at too high a price - winning an argument or conflict might result in damaged relationships, resentment, or other losses that outweigh the gain."
+      },
+      {
+        question: "What perspective does the Five of Swords encourage us to consider?",
+        options: [
+          "Only our own point of view matters",
+          "The views of authorities should always prevail",
+          "Multiple perspectives exist in any conflict situation",
+          "The winner's perspective is the only valid one"
+        ],
+        correctAnswer: 2,
+        explanation: "The Five of Swords encourages us to consider that multiple perspectives exist in any conflict situation - what looks like victory to one person may feel like defeat or injustice to another."
+      },
+      {
+        question: "What lesson about conflict does the Five of Swords teach?",
+        options: [
+          "Always avoid conflict at all costs",
+          "The most aggressive person will always win",
+          "Consider the long-term consequences of how conflicts are handled",
+          "Conflict is always destructive with no positive outcomes"
+        ],
+        correctAnswer: 2,
+        explanation: "The Five of Swords teaches us to consider the long-term consequences of how conflicts are handled - looking beyond immediate 'winning' to how relationships, trust, and cooperation might be affected."
+      }
+    ],
+    summary: "The Five of Swords represents the complex dynamics of conflict, revealing how victory can sometimes come at a cost and how the same situation may be perceived very differently by various parties involved. It invites us to consider multiple perspectives and the potential long-term consequences of how we handle disagreements. This card reminds us that true resolution often requires looking beyond 'winning' to find approaches that preserve relationships and mutual respect, even in difficult situations.",
+    additionalResources: [
+      {
+        title: "Conflict Resolution Strategies",
+        description: "Approaches to disagreement that seek mutual understanding rather than domination."
+      },
+      {
+        title: "The Psychology of Perspective-Taking",
+        description: "How developing the ability to see situations from multiple viewpoints enhances relationships and decision-making."
+      }
+    ]
+  },
+  {
+    id: "minor-20",
+    title: "The Five of Pentacles: Hardship and Support",
+    description: "Explore the challenging energy of material hardship, spiritual resources, and finding help in difficult times through the Five of Pentacles.",
+    cardId: "p5",
+    sections: [
+      {
+        title: "The Five of Pentacles: Overview",
+        content: `
+          <p>After the controlled stability of the Four of Pentacles, the Five of Pentacles introduces a period of material challenge, hardship, or feelings of exclusion, while also suggesting that help and resources might be closer than they appear.</p>
+          
+          <p>This card often depicts two figures struggling through snow, one appearing ill or injured, passing beneath a stained glass window with five pentacles, symbolizing hardship that occurs despite the presence of nearby resources that the figures may not notice or access.</p>
+          
+          <p>The Five of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What material or physical challenges am I facing?</li>
+            <li>Where might I be overlooking available help or resources?</li>
+            <li>How do feelings of exclusion or lack affect my perspective?</li>
+            <li>What spiritual or community resources might support me through difficult times?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Five of Pentacles contains rich symbolism that helps us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>Two struggling figures</strong> - Represent hardship, poverty, illness, or feeling excluded</li>
+            <li><strong>Snow</strong> - Symbolizes cold times, difficult conditions, or emotional coldness</li>
+            <li><strong>Stained glass window</strong> - Suggests spiritual resources, community support, or help that is available but not accessed</li>
+            <li><strong>Pentacles in window</strong> - Indicate that material abundance exists, though the figures aren't partaking in it</li>
+          </ul>
+          
+          <p>In readings, the Five of Pentacles suggests:</p>
+          <ul>
+            <li>Financial difficulties or material hardship</li>
+            <li>Health challenges or physical problems</li>
+            <li>Feelings of exclusion or being "left out in the cold"</li>
+            <li>The need to seek help or support</li>
+            <li>Resources that may be overlooked</li>
+            <li>Faith and spiritual comfort during difficult times</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Five of Pentacles",
+        content: `
+          <p>When the Five of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What material or physical challenges am I currently facing?</li>
+            <li>What resources or support might be available that I haven't considered?</li>
+            <li>How might pride or shame be preventing me from seeking help?</li>
+            <li>Where can I find community or spiritual support during this difficult time?</li>
+            <li>What inner resources can I draw upon when external conditions are challenging?</li>
+          </ul>
+          
+          <p>Actions to take when working with Five of Pentacles energy:</p>
+          <ul>
+            <li>Reach out to support systems rather than struggling alone</li>
+            <li>Look for unconventional or overlooked resources</li>
+            <li>Cultivate spiritual practices that provide inner warmth during "cold" times</li>
+            <li>Offer support to others who may be experiencing hardship</li>
+            <li>Develop resilience and practical skills for navigating difficult circumstances</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What does the stained glass window in the Five of Pentacles symbolize?",
+        options: [
+          "Unattainable wealth that will never be accessible",
+          "Available help, resources, or spiritual support that may be overlooked",
+          "The barriers between the wealthy and the poor",
+          "The coldness of religious institutions"
+        ],
+        correctAnswer: 1,
+        explanation: "The stained glass window symbolizes available help, resources, or spiritual support that may be overlooked - suggesting that assistance is often closer than we realize during difficult times, if we're willing to look for it and accept it."
+      },
+      {
+        question: "What dual aspects does the Five of Pentacles illustrate?",
+        options: [
+          "Material abundance versus spiritual poverty",
+          "Hardship and suffering versus available help and resources",
+          "Youth versus age",
+          "Individual struggle versus governmental assistance"
+        ],
+        correctAnswer: 1,
+        explanation: "The Five of Pentacles illustrates the dual aspects of hardship and suffering versus available help and resources - showing both the reality of difficult circumstances and the possibility of finding support that might change the situation."
+      },
+      {
+        question: "What insight about difficult times does the Five of Pentacles offer?",
+        options: [
+          "Hardship is always permanent and unchangeable",
+          "Material wealth is the only solution to problems",
+          "Suffering is unnecessary and can always be avoided",
+          "Support and resources often exist, though we may need to seek them out"
+        ],
+        correctAnswer: 3,
+        explanation: "The Five of Pentacles offers the insight that support and resources often exist, though we may need to seek them out - suggesting that even in our darkest moments, help may be available if we're willing to look beyond our immediate circumstances."
+      }
+    ],
+    summary: "The Five of Pentacles represents times of material challenge, hardship, or feelings of exclusion, while simultaneously pointing to the resources and support that may be available but overlooked. It reminds us that during difficult circumstances, help often exists nearby - whether in the form of community, spiritual comfort, or practical assistance - if we're willing to recognize it and accept support. This card acknowledges the reality of suffering while suggesting that connection and resources can provide warmth even in the coldest seasons of life.",
+    additionalResources: [
+      {
+        title: "Building Resilience During Hardship",
+        description: "Practical approaches to developing inner strength when facing material challenges."
+      },
+      {
+        title: "Community Resources and Support Systems",
+        description: "How to identify and access help during difficult times without shame or hesitation."
+      }
+    ]
   }
 ];
 
