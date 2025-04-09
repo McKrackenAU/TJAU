@@ -597,6 +597,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Page of Pentacles represents the initial stages of manifesting material goals, the patient student approach to practical matters, and the discovery of new opportunities for growth and prosperity.",
     element: "Earth"
+  },
+  {
+    id: "wk",
+    name: "King of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 14,
+    meanings: {
+      upright: ["Leadership", "Vision", "Entrepreneurship", "Honor"],
+      reversed: ["Impulsiveness", "Domination", "Harshness", "Ruthlessness"]
+    },
+    description: "The King of Wands represents visionary leadership, creative authority, and the mastery of inspiration and passion. He embodies the energy of bold action guided by experience and charismatic influence.",
+    element: "Fire"
+  },
+  {
+    id: "ck",
+    name: "King of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 14,
+    meanings: {
+      upright: ["Emotional balance", "Compassion", "Diplomacy", "Wisdom"],
+      reversed: ["Emotional manipulation", "Moodiness", "Coldness"]
+    },
+    description: "The King of Cups represents emotional wisdom, compassionate leadership, and the mastery of feelings. He embodies the balance of heart and head, showing how to remain in control while still being connected to emotions.",
+    element: "Water"
+  },
+  {
+    id: "sk",
+    name: "King of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 14,
+    meanings: {
+      upright: ["Intellectual power", "Authority", "Truth", "Mental clarity"],
+      reversed: ["Abuse of power", "Manipulation", "Cruelty", "Dogmatism"]
+    },
+    description: "The King of Swords represents intellectual authority, clear judgment, and the mastery of thought and communication. He embodies the power of objective truth and ethical decision-making based on impartial wisdom.",
+    element: "Air"
+  },
+  {
+    id: "pk",
+    name: "King of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 14,
+    meanings: {
+      upright: ["Abundance", "Security", "Business acumen", "Wealth"],
+      reversed: ["Greed", "Materialism", "Stubbornness", "Inflexibility"]
+    },
+    description: "The King of Pentacles represents material mastery, practical wisdom, and accomplished prosperity. He embodies security, reliability, and the ability to create lasting wealth through methodical effort and sound management.",
+    element: "Earth"
   }
 ];
 

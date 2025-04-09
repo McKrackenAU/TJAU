@@ -8505,6 +8505,466 @@ export const minorArcanaLessons: LessonContent[] = [
       }
     ]
   },
+  {
+    id: "minor-45",
+    title: "The King of Wands: Visionary Leadership and Creative Authority",
+    description: "Explore the qualities of visionary leadership, passionate authority, and creative mastery in the King of Wands.",
+    cardId: "wk",
+    sections: [
+      {
+        title: "The King of Wands: Overview",
+        content: `
+          <p>After the enthusiastic beginnings and explorations of the Page of Wands, the King of Wands represents the culmination of the fiery energy of the Wands suit—bringing visionary leadership, creative mastery, and the charismatic authority needed to inspire and transform the world through bold action.</p>
+          
+          <p>This card typically depicts a mature figure seated on a throne adorned with lions and salamanders, holding a flowering staff. The King's posture is commanding yet approachable, embodying the balance of authority with warmth and inspiration that characterizes effective leadership.</p>
+          
+          <p>The King of Wands asks us to consider:</p>
+          <ul>
+            <li>How can I step more fully into my leadership and creative potential?</li>
+            <li>Where might my vision and passion inspire positive change?</li>
+            <li>How can I balance authority with warmth and enthusiasm?</li>
+            <li>What bold action am I uniquely positioned to take in service of what matters?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The King of Wands contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The throne with lions</strong> - Represents established authority and the noble, courageous aspects of leadership</li>
+            <li><strong>The salamanders</strong> - Symbolize transformation and the elemental force of fire that the King has mastered</li>
+            <li><strong>The flowering staff</strong> - Indicates creative power that continues to grow and manifest</li>
+            <li><strong>The confident posture</strong> - Shows comfort with authority and the ability to command respect</li>
+            <li><strong>The expansive landscape</strong> - Reflects the broad vision and wide influence of the King</li>
+          </ul>
+          
+          <p>In readings, the King of Wands suggests:</p>
+          <ul>
+            <li>Visionary leadership and the ability to inspire others</li>
+            <li>Creative mastery and the authority that comes from experience</li>
+            <li>Bold action guided by clear vision and purpose</li>
+            <li>Charismatic influence and natural command</li>
+            <li>The courage to take risks in service of transformation</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the King of Wands",
+        content: `
+          <p>When the King of Wands appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where am I being called to step into greater leadership or authority?</li>
+            <li>How can I use my creative vision to inspire positive change?</li>
+            <li>What bold action would align with my deepest values and purpose?</li>
+            <li>How might I balance assertiveness with warmth and inclusion?</li>
+          </ul>
+          
+          <p>Actions to take when working with King of Wands energy:</p>
+          <ul>
+            <li>Take the lead on a creative project or initiative that inspires you</li>
+            <li>Share your vision in a way that motivates and energizes others</li>
+            <li>Make bold decisions that align with your values and long-term goals</li>
+            <li>Balance confidence with genuine warmth and appreciation for others</li>
+            <li>Mentor or support others in developing their creative potential</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What quality distinguishes the King of Wands from the other court cards in the Wands suit?",
+        options: [
+          "Unbridled enthusiasm without direction",
+          "Conservative caution that avoids all risks",
+          "Mature authority balanced with charismatic inspiration",
+          "Analytical detachment from creative processes"
+        ],
+        correctAnswer: 2,
+        explanation: "What distinguishes the King of Wands from the other court cards in the Wands suit is mature authority balanced with charismatic inspiration. Unlike the Page's raw enthusiasm or the Knight's adventurous action, the King represents the culmination of fiery energy that has been tempered by experience and wisdom. The King has learned to direct passion with purposeful authority while maintaining the warmth and inspiration that makes them an effective leader who can transform vision into reality."
+      },
+      {
+        question: "What leadership style does the King of Wands typically embody?",
+        options: [
+          "Authoritarian control and dominance",
+          "Passive delegation without involvement",
+          "Visionary inspiration that empowers others",
+          "Analytical management focused on process"
+        ],
+        correctAnswer: 2,
+        explanation: "The King of Wands typically embodies a visionary inspiration that empowers others. This leadership style combines clear direction with the ability to ignite passion and creativity in those around them. Rather than controlling through dominance or remaining passive, the King of Wands leads by example, shares compelling visions, and creates an environment where others feel inspired to contribute their best. This charismatic approach transforms followers into collaborators in bringing a shared vision to life."
+      },
+      {
+        question: "What potential challenge should one be mindful of when embodying King of Wands energy?",
+        options: [
+          "Becoming too dispassionate and calculating",
+          "Being overly impulsive or domineering",
+          "Avoiding all forms of risk or change",
+          "Excessive focus on minor details"
+        ],
+        correctAnswer: 1,
+        explanation: "When embodying King of Wands energy, one should be mindful of becoming overly impulsive or domineering. The shadow side of this powerful energy can manifest as impatience with others' processes, steamrolling over opposition, or making hasty decisions without sufficient consideration. While confidence and bold action are strengths of the King of Wands, without balance they can turn into arrogance or an authoritarian approach that alienates rather than inspires others."
+      }
+    ],
+    summary: "The King of Wands represents visionary leadership, creative mastery, and the charismatic authority that comes from fully embodying one's passionate purpose. It shows the culmination of the fiery energy of the Wands suit in its most mature and effective form. This card invites us to step into our full leadership potential, to inspire others through authentic enthusiasm and clear vision, and to take bold action that transforms possibilities into reality.",
+    additionalResources: [
+      {
+        title: "Visionary Leadership",
+        description: "Principles for inspiring others through compelling vision and purpose"
+      },
+      {
+        title: "Creative Authority",
+        description: "How to balance confidence with openness when directing creative processes"
+      }
+    ]
+  },
+  {
+    id: "minor-46",
+    title: "The King of Cups: Emotional Wisdom and Compassionate Leadership",
+    description: "Explore the qualities of emotional wisdom, compassionate authority, and balanced feeling in the King of Cups.",
+    cardId: "ck",
+    sections: [
+      {
+        title: "The King of Cups: Overview",
+        content: `
+          <p>After the innocent openness and intuitive beginnings of the Page of Cups, the King of Cups represents the culmination of the watery energy of the Cups suit—bringing emotional wisdom, compassionate leadership, and the masterful balance of feeling and thought needed to navigate the depths of emotional experience with maturity.</p>
+          
+          <p>This card typically depicts a mature figure seated on a throne that appears to float upon a calm sea. The King holds a cup and a scepter, symbolizing the balance of emotional depth with controlled authority. Despite turbulent waters or skies around him, the King remains centered and serene.</p>
+          
+          <p>The King of Cups asks us to consider:</p>
+          <ul>
+            <li>How can I better balance emotional awareness with clear boundaries?</li>
+            <li>Where might my compassion and emotional wisdom serve others?</li>
+            <li>How can I remain centered amid emotional turbulence?</li>
+            <li>What does mature, heart-centered leadership look like in my life?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The King of Cups contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The throne on water</strong> - Represents mastery of the emotional realm while remaining connected to it</li>
+            <li><strong>The calm demeanor</strong> - Symbolizes emotional regulation and inner peace</li>
+            <li><strong>The cup</strong> - Indicates emotional depth and receptivity</li>
+            <li><strong>The scepter</strong> - Shows authority and the ability to direct emotional energy</li>
+            <li><strong>The fish amulet</strong> - Often shown to represent the spiritual dimension of emotional life</li>
+          </ul>
+          
+          <p>In readings, the King of Cups suggests:</p>
+          <ul>
+            <li>Emotional wisdom and balance</li>
+            <li>Compassionate leadership and empathic understanding</li>
+            <li>Diplomacy and the ability to handle emotional complexity</li>
+            <li>Calm guidance during turbulent times</li>
+            <li>The integration of heart and head in decision-making</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the King of Cups",
+        content: `
+          <p>When the King of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>How can I better balance emotional awareness with clear boundaries?</li>
+            <li>Where might my compassion and understanding be needed?</li>
+            <li>What emotional wisdom have I gained that could benefit others?</li>
+            <li>How can I remain centered when surrounded by emotional intensity?</li>
+          </ul>
+          
+          <p>Actions to take when working with King of Cups energy:</p>
+          <ul>
+            <li>Practice emotional regulation while remaining open to feelings</li>
+            <li>Offer compassionate guidance without taking on others' emotional burdens</li>
+            <li>Find opportunities to mediate conflicts with empathy and fairness</li>
+            <li>Integrate emotion and intuition into your decision-making process</li>
+            <li>Create spaces where others feel emotionally safe and understood</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What is the most distinctive quality of the King of Cups?",
+        options: [
+          "Emotional suppression and detachment",
+          "Overwhelming emotional expression without boundaries",
+          "Emotional wisdom balanced with clear boundaries",
+          "Intellectual analysis of emotions without experiencing them"
+        ],
+        correctAnswer: 2,
+        explanation: "The most distinctive quality of the King of Cups is emotional wisdom balanced with clear boundaries. Unlike approaches that either suppress emotions or express them without restraint, the King demonstrates the mature ability to remain deeply connected to feelings while maintaining appropriate containment and direction. This balanced approach allows for true emotional intelligence—experiencing feelings fully while preventing them from overwhelming rational judgment."
+      },
+      {
+        question: "How does the King of Cups typically respond to others' emotional distress?",
+        options: [
+          "By offering logical solutions without emotional engagement",
+          "By mirroring and amplifying others' emotional states",
+          "By avoiding emotional conversations entirely",
+          "By offering compassionate understanding with calm guidance"
+        ],
+        correctAnswer: 3,
+        explanation: "The King of Cups typically responds to others' emotional distress by offering compassionate understanding with calm guidance. This approach combines genuine empathy with the stabilizing presence that comes from emotional maturity. The King can sit with others in their difficult feelings without becoming overwhelmed, providing a containing presence that helps others process their emotions while gently guiding them toward healing perspectives."
+      },
+      {
+        question: "What potential shadow aspect should one be aware of when working with King of Cups energy?",
+        options: [
+          "Emotional manipulation or passive-aggressive behavior",
+          "Complete emotional detachment and coldness",
+          "Excessive focus on practical matters without empathy",
+          "Impulsive emotional reactions without control"
+        ],
+        correctAnswer: 0,
+        explanation: "When working with King of Cups energy, one should be aware of the potential shadow aspect of emotional manipulation or passive-aggressive behavior. The deep understanding of emotional currents that makes the King of Cups so empathetic can, in its shadow form, become a tool for subtle emotional control or indirect expression of negative feelings. This might manifest as using emotional insight to influence others or appearing calm on the surface while harboring unexpressed resentments."
+      }
+    ],
+    summary: "The King of Cups represents emotional wisdom, compassionate leadership, and the masterful balance of feeling and thought. This card embodies the culmination of emotional development—where one can remain deeply connected to feelings while maintaining appropriate boundaries and direction. The King invites us to integrate heart and head, to offer compassionate guidance without becoming overwhelmed, and to navigate complex emotional waters with the calm centeredness that comes from true emotional maturity.",
+    additionalResources: [
+      {
+        title: "Emotional Leadership",
+        description: "How to guide others through emotional challenges with wisdom and compassion"
+      },
+      {
+        title: "Heart-Centered Decision Making",
+        description: "Integrating emotional intelligence with clear judgment in leadership roles"
+      }
+    ]
+  },
+  {
+    id: "minor-47",
+    title: "The King of Swords: Intellectual Authority and Clear Judgment",
+    description: "Explore the qualities of intellectual mastery, ethical leadership, and the power of clear judgment in the King of Swords.",
+    cardId: "sk",
+    sections: [
+      {
+        title: "The King of Swords: Overview",
+        content: `
+          <p>After the intellectual curiosity and vigilant truth-seeking of the Page of Swords, the King of Swords represents the culmination of the airy energy of the Swords suit—bringing intellectual mastery, ethical authority, and the balanced judgment needed to wield the power of the mind with wisdom and integrity.</p>
+          
+          <p>This card typically depicts a mature figure seated on a stone throne, often positioned in the clouds to represent the realm of thought. The King holds an upright sword, symbolizing clear discernment and decisive action based on truth rather than emotion or bias.</p>
+          
+          <p>The King of Swords asks us to consider:</p>
+          <ul>
+            <li>How can I apply my intellectual abilities to serve truth and justice?</li>
+            <li>Where might I need to make clear, decisive judgments based on ethical principles?</li>
+            <li>How can I communicate complex ideas with greater clarity and authority?</li>
+            <li>What does wise, principled leadership look like in challenging situations?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The King of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The upright sword</strong> - Represents clear thought, truth, and the decisive application of intellect</li>
+            <li><strong>The stone throne</strong> - Symbolizes firm foundations for judgment and authority based on principles</li>
+            <li><strong>The clouds or sky setting</strong> - Indicates the realm of thought and intellectual clarity</li>
+            <li><strong>The direct gaze</strong> - Shows perceptiveness and the ability to see truth without bias</li>
+            <li><strong>The geometric patterns</strong> - Often shown on clothing to represent structured thought and order</li>
+          </ul>
+          
+          <p>In readings, the King of Swords suggests:</p>
+          <ul>
+            <li>Intellectual authority and mastery of complex concepts</li>
+            <li>Ethical leadership based on clear principles</li>
+            <li>Impartial judgment and fair decision-making</li>
+            <li>Clear communication that cuts through confusion</li>
+            <li>The ability to separate truth from falsehood</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the King of Swords",
+        content: `
+          <p>When the King of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where am I called to exercise clearer judgment or intellectual leadership?</li>
+            <li>How can I communicate more effectively and authoritatively?</li>
+            <li>What ethical principles should guide my decisions in this situation?</li>
+            <li>How can I balance intellectual clarity with appropriate compassion?</li>
+          </ul>
+          
+          <p>Actions to take when working with King of Swords energy:</p>
+          <ul>
+            <li>Apply logical analysis to complex situations requiring clear judgment</li>
+            <li>Communicate your ideas with precision and confidence</li>
+            <li>Make decisions based on ethical principles rather than emotional reactions</li>
+            <li>Create structures that promote fairness and clear standards</li>
+            <li>Mentor others in developing critical thinking and ethical reasoning</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What primary quality characterizes the King of Swords' approach to leadership?",
+        options: [
+          "Emotional inspiration and intuitive guidance",
+          "Practical management focused on tangible results",
+          "Intellectual clarity and principled judgment",
+          "Creative vision and passionate motivation"
+        ],
+        correctAnswer: 2,
+        explanation: "The primary quality that characterizes the King of Swords' approach to leadership is intellectual clarity and principled judgment. The King leads through the strength of clear thinking, ethical principles, and the ability to discern truth from falsehood. Unlike leadership styles that rely primarily on emotional connection, creative vision, or practical management, the King of Swords establishes authority through articulate communication, logical consistency, and the fair application of principles and standards."
+      },
+      {
+        question: "How does the King of Swords typically make decisions?",
+        options: [
+          "Based on emotional responses and intuitive hunches",
+          "Based on short-term practical considerations",
+          "Based on objective analysis and ethical principles",
+          "Based on maintaining status quo and avoiding change"
+        ],
+        correctAnswer: 2,
+        explanation: "The King of Swords typically makes decisions based on objective analysis and ethical principles. This approach involves gathering relevant information, analyzing it logically, and applying consistent standards and values to reach a conclusion. The King strives to minimize the influence of personal bias, emotional reactions, or situational pressures when making judgments, instead prioritizing truth, fairness, and sound reasoning as the foundations for decision-making."
+      },
+      {
+        question: "What potential challenge should one be aware of when embodying King of Swords energy?",
+        options: [
+          "Becoming overly intellectual and emotionally detached",
+          "Becoming too passive and indecisive",
+          "Focusing excessively on material concerns",
+          "Being too impulsive and disorganized"
+        ],
+        correctAnswer: 0,
+        explanation: "When embodying King of Swords energy, one should be aware of the potential challenge of becoming overly intellectual and emotionally detached. While the King's mental clarity and objective approach are strengths, in their shadow form they can manifest as coldness, rigidity, or a failure to consider the human and emotional dimensions of situations. This can lead to technically correct but uncompassionate decisions, or to an intellectual aloofness that creates distance in relationships."
+      }
+    ],
+    summary: "The King of Swords represents intellectual mastery, ethical authority, and the power of clear judgment. It embodies the culmination of mental development, where analytical ability is balanced with wisdom and principle. This card invites us to exercise intellectual leadership with integrity, to communicate complex ideas with clarity and conviction, and to make decisions based on truth and fairness rather than bias or emotional reaction.",
+    additionalResources: [
+      {
+        title: "Ethical Leadership",
+        description: "Frameworks for making principled decisions in complex situations"
+      },
+      {
+        title: "Clear Communication",
+        description: "Techniques for articulating ideas with precision and authority"
+      }
+    ]
+  },
+  {
+    id: "minor-48",
+    title: "The King of Pentacles: Material Mastery and Practical Wisdom",
+    description: "Explore the qualities of material abundance, practical authority, and the stewardship of resources in the King of Pentacles.",
+    cardId: "pk",
+    sections: [
+      {
+        title: "The King of Pentacles: Overview",
+        content: `
+          <p>After the diligent study and methodical beginnings of the Page of Pentacles, the King of Pentacles represents the culmination of the earthly energy of the Pentacles suit—bringing material mastery, practical wisdom, and the generous abundance that comes from skilled stewardship of resources and talents.</p>
+          
+          <p>This card typically depicts a mature figure seated on a throne adorned with bull and vine motifs, holding a pentacle and scepter. The setting is usually lush and prosperous, reflecting the material abundance and security that the King both creates and enjoys.</p>
+          
+          <p>The King of Pentacles asks us to consider:</p>
+          <ul>
+            <li>How can I build lasting prosperity and security for myself and others?</li>
+            <li>Where might my practical wisdom and experience be valuable?</li>
+            <li>How can I balance material success with generosity and ethical values?</li>
+            <li>What resources am I responsible for stewarding wisely?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The King of Pentacles contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The pentacle</strong> - Represents material wealth, abundance, and practical mastery</li>
+            <li><strong>The throne with bull imagery</strong> - Symbolizes stability, strength, and connection to earth</li>
+            <li><strong>The vine decorations</strong> - Indicates growth, abundance, and prosperity</li>
+            <li><strong>The rich clothing</strong> - Shows success, quality, and material comfort</li>
+            <li><strong>The lush landscape</strong> - Represents fertility, cultivation, and the fruits of labor</li>
+          </ul>
+          
+          <p>In readings, the King of Pentacles suggests:</p>
+          <ul>
+            <li>Material success and financial security</li>
+            <li>Practical wisdom and business acumen</li>
+            <li>Reliability, stability, and trustworthiness</li>
+            <li>Skilled management of resources</li>
+            <li>Abundance that supports both self and others</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the King of Pentacles",
+        content: `
+          <p>When the King of Pentacles appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>How can I build greater financial security and abundance in my life?</li>
+            <li>Where might my practical skills and experience be most valuable?</li>
+            <li>What resources am I responsible for managing, and how can I steward them more effectively?</li>
+            <li>How might I balance material success with generosity and ethical values?</li>
+          </ul>
+          
+          <p>Actions to take when working with King of Pentacles energy:</p>
+          <ul>
+            <li>Take a methodical, practical approach to building wealth and security</li>
+            <li>Share your practical knowledge and experience with others</li>
+            <li>Create systems that generate sustainable abundance</li>
+            <li>Balance material pursuits with generosity and ethical considerations</li>
+            <li>Invest in quality and value that will last over time</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What distinguishes the King of Pentacles from the other Kings in the tarot?",
+        options: [
+          "A focus on intellectual principles rather than practical matters",
+          "A preference for emotional connection over material security",
+          "An emphasis on established, tangible abundance and reliability",
+          "A tendency toward impulsive creativity and constant change"
+        ],
+        correctAnswer: 2,
+        explanation: "What distinguishes the King of Pentacles from the other Kings in the tarot is an emphasis on established, tangible abundance and reliability. While the King of Wands focuses on visionary leadership, the King of Cups on emotional wisdom, and the King of Swords on intellectual authority, the King of Pentacles specializes in creating material security, practical results, and the kind of solid, dependable prosperity that comes from methodical effort and sound resource management over time."
+      },
+      {
+        question: "What type of leadership does the King of Pentacles typically embody?",
+        options: [
+          "Visionary leadership focused on future possibilities",
+          "Practical leadership focused on tangible results and security",
+          "Intellectual leadership focused on concepts and principles",
+          "Emotional leadership focused on relationships and feelings"
+        ],
+        correctAnswer: 1,
+        explanation: "The King of Pentacles typically embodies practical leadership focused on tangible results and security. This leadership style prioritizes creating stability, ensuring resources are managed effectively, and building systems that generate reliable outcomes. The King leads by example through demonstrated competence, sound judgment in practical matters, and the ability to create prosperity not just for themselves but for all those within their domain of responsibility."
+      },
+      {
+        question: "What potential shadow aspect should one be mindful of when working with King of Pentacles energy?",
+        options: [
+          "Materialism and inflexibility",
+          "Impulsiveness and recklessness",
+          "Emotional manipulation and moodiness",
+          "Intellectual arrogance and detachment"
+        ],
+        correctAnswer: 0,
+        explanation: "When working with King of Pentacles energy, one should be mindful of the potential shadow aspects of materialism and inflexibility. The very qualities that make this energy so effective in creating stability and abundance—practicality, focus on tangible results, and methodical approaches—can, in their shadow form, manifest as excessive attachment to material wealth, resistance to change, stubbornness, or valuing financial success above all other considerations including relationships and ethical principles."
+      }
+    ],
+    summary: "The King of Pentacles represents material mastery, practical wisdom, and the abundance that comes from skilled stewardship of resources. This card embodies the culmination of earthly development, where reliable methods and sound management create lasting prosperity that benefits both self and others. The King invites us to take a grounded, methodical approach to building security, to share our practical wisdom generously, and to ensure that material success remains in service to deeper values rather than becoming an end in itself.",
+    additionalResources: [
+      {
+        title: "Abundance Mindset",
+        description: "Developing the prosperity consciousness that creates sustainable wealth"
+      },
+      {
+        title: "Resource Stewardship",
+        description: "Principles for managing material resources with wisdom and integrity"
+      }
+    ]
+  },
 ];
 
 // Map track IDs to their corresponding lesson sets
