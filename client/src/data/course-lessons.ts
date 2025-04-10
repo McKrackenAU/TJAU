@@ -12334,7 +12334,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-47",
+    id: "intuitive-56",
     title: "The King of Swords: Intellectual Authority and Clear Judgment",
     description: "Explore the qualities of intellectual mastery, ethical leadership, and the power of clear judgment in the King of Swords.",
     cardId: "sk",
@@ -12794,7 +12794,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-51",
+    id: "intuitive-55",
     title: "The Queen of Swords: Clear Perception and Independent Thinking",
     description: "Explore the qualities of mental clarity, perceptive discernment, and independent thinking in the Queen of Swords.",
     cardId: "sq",
