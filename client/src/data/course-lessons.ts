@@ -13364,38 +13364,35 @@ export const knightOfSwords: LessonContent = {
 // Map track IDs to their corresponding lesson sets
 // Create a properly ordered lessons array for track 10
 const orderedLessons = (() => {
-  // First extract all the Cups lessons (1-13)
-  const cupsLessons = intuitiveReadingLessons.filter(lesson => 
-    lesson.id.startsWith("intuitive-") && 
-    parseInt(lesson.id.split("-")[1]) <= 13 &&
-    lesson.cardId.startsWith("c")
-  );
+  // Create a map of cardId to lesson for quick lookup
+  const lessonMap: Record<string, LessonContent> = {};
   
-  // Extract Wands Ace through Ten (lessons 14-25)
-  const aceToTenWands = intuitiveReadingLessons.filter(lesson => 
-    lesson.cardId.match(/^w[1-9]|w10$/)
-  );
+  // Add all existing lessons to the map
+  for (const lesson of intuitiveReadingLessons) {
+    lessonMap[lesson.cardId] = lesson;
+  }
   
-  // Get the court cards in proper order
-  const pageOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wp")!;
-  const kingOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wk")!;
-  const queenOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wq")!;
+  // Override with module-level Knight cards to ensure content exists
+  lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-19' };
+  lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-18' };
+  lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-29' };
   
-  // Get the Knight cards from our exported constants
-  // These are defined fully at the module level and already available
-  
-  // Combine everything in the correct order
-  return [
-    ...cupsLessons,              // Cups cards (intuitive-1 through intuitive-13)
-    ...aceToTenWands,            // Ace through Ten of Wands
-    pageOfWands,                 // Page of Wands
-    knightOfWands,               // Knight of Wands (imported from module level)
-    kingOfWands,                 // King of Wands
-    queenOfWands,                // Queen of Wands
-    knightOfCups,                // Knight of Cups (imported from module level)
-    knightOfSwords,              // Knight of Swords (imported from module level)
-    ...intuitivePentaclesLessons  // All Pentacles lessons
+  // Define the desired card order for each suit
+  const cardOrder = [
+    // Cups order (c1-c10, cp, cn, ck, cq)
+    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'ck', 'cq',
+    // Wands order (w1-w10, wp, wn, wk, wq)
+    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wk', 'wq',
+    // Swords and Pentacles
+    'sn',
+    // All Pentacles lessons at the end
+    ...intuitivePentaclesLessons.map(lesson => lesson.cardId)
   ];
+  
+  // Create ordered array based on card order
+  return cardOrder
+    .filter(cardId => lessonMap[cardId]) // Only include cards that exist in the map
+    .map(cardId => lessonMap[cardId]); // Map to actual lesson objects
 })();
 
 export const trackLessonMap = {
