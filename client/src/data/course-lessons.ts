@@ -13362,36 +13362,41 @@ export const knightOfSwords: LessonContent = {
 };
 
 // Map track IDs to their corresponding lesson sets
-// Helper function to extract cards from an array while maintaining order
-function extractLessons(lessons: LessonContent[], stopId: string) {
-  const index = lessons.findIndex(lesson => lesson.id === stopId);
-  if (index === -1) return { extracted: [], remaining: [...lessons] };
-  return {
-    extracted: lessons.slice(0, index),
-    remaining: lessons.slice(index)
-  };
-}
-
-// Create properly ordered Wands section
-const { extracted: preWandsLessons, remaining: wAndAfter } = extractLessons(intuitiveReadingLessons, "intuitive-14"); // Up to Ace of Wands
-const aceToTenWands = wAndAfter.slice(0, 12); // Ace through Ten of Wands
-const pageOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-27")!; // Page of Wands
-const knightOfWandObj = knightOfWands; // Knight of Wands
-const kingOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-26")!; // King of Wands
-const queenOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-28")!; // Queen of Wands
-
-// Properly ordered lessons for track 10
-const orderedLessons = [
-  ...preWandsLessons,         // First part of intuitive lessons (Cups)
-  ...aceToTenWands,           // Ace through Ten of Wands
-  pageOfWands,                // Page of Wands
-  knightOfWandObj,            // Knight of Wands
-  kingOfWands,                // King of Wands
-  queenOfWands,               // Queen of Wands
-  knightOfCups,               // Keep other Knight cards
-  knightOfSwords,             // Keep other Knight cards
-  ...intuitivePentaclesLessons // Pentacles lessons
-];
+// Create a properly ordered lessons array for track 10
+const orderedLessons = (() => {
+  // First extract all the Cups lessons (1-13)
+  const cupsLessons = intuitiveReadingLessons.filter(lesson => 
+    lesson.id.startsWith("intuitive-") && 
+    parseInt(lesson.id.split("-")[1]) <= 13 &&
+    lesson.cardId.startsWith("c")
+  );
+  
+  // Extract Wands Ace through Ten (lessons 14-25)
+  const aceToTenWands = intuitiveReadingLessons.filter(lesson => 
+    lesson.cardId.match(/^w[1-9]|w10$/)
+  );
+  
+  // Get the court cards in proper order
+  const pageOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wp")!;
+  const kingOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wk")!;
+  const queenOfWands = intuitiveReadingLessons.find(lesson => lesson.cardId === "wq")!;
+  
+  // Get the Knight cards from our exported constants
+  // These are defined fully at the module level and already available
+  
+  // Combine everything in the correct order
+  return [
+    ...cupsLessons,              // Cups cards (intuitive-1 through intuitive-13)
+    ...aceToTenWands,            // Ace through Ten of Wands
+    pageOfWands,                 // Page of Wands
+    knightOfWands,               // Knight of Wands (imported from module level)
+    kingOfWands,                 // King of Wands
+    queenOfWands,                // Queen of Wands
+    knightOfCups,                // Knight of Cups (imported from module level)
+    knightOfSwords,              // Knight of Swords (imported from module level)
+    ...intuitivePentaclesLessons  // All Pentacles lessons
+  ];
+})();
 
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
