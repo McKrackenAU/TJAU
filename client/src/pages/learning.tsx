@@ -131,17 +131,55 @@ export default function Learning() {
                       onClick={() => {
                         // Get the lessons for this track
                         const trackId = track.id;
-                        const lessonId = progress.currentLesson <= track.requiredCards.length 
-                          ? trackId === 1 ? `beginner-${progress.currentLesson}` 
-                            : trackId === 2 ? `minor-${progress.currentLesson}`
-                            : trackId === 10 ? `intuitive-${progress.currentLesson}`
-                            : `advanced-${progress.currentLesson}`
-                          : null;
                         
-                        if (lessonId) {
-                          setLocation(`/learning/${trackId}/${lessonId}`);
+                        if (progress && progress.currentLesson) {
+                          // Get the current card ID based on progress
+                          const currentCardId = track.requiredCards[progress.currentLesson - 1];
+                          
+                          if (currentCardId) {
+                            // Look up the lesson in trackLessonMap to find the correct ID
+                            import('../data/course-lessons').then(({ trackLessonMap }) => {
+                              // Find the track lessons by index - avoiding TypeScript indexing issues
+                              const lessonsForTrack = 
+                                trackId === 1 ? trackLessonMap[1] :
+                                trackId === 2 ? trackLessonMap[2] : 
+                                trackId === 10 ? trackLessonMap[10] : 
+                                trackId === 11 ? trackLessonMap[11] : null;
+                                
+                              if (lessonsForTrack) {
+                                const foundLesson = lessonsForTrack.find(
+                                  (l: any) => l.cardId === currentCardId
+                                );
+                                
+                                if (foundLesson) {
+                                  console.log(`Continue: Found lesson ${foundLesson.id} for card ${currentCardId} in trackLessonMap`);
+                                  setLocation(`/learning/${trackId}/${foundLesson.id}`);
+                                  return;
+                                }
+                              }
+                              
+                              // Fallback to index-based ID if lesson not found in map
+                              const lessonId = progress.currentLesson <= track.requiredCards.length 
+                                ? trackId === 1 ? `beginner-${progress.currentLesson}` 
+                                  : trackId === 2 ? `minor-${progress.currentLesson}`
+                                  : trackId === 10 ? `intuitive-${progress.currentLesson}`
+                                  : `advanced-${progress.currentLesson}`
+                                : null;
+                              
+                              if (lessonId) {
+                                console.log(`Continue: Fallback to /learning/${trackId}/${lessonId} for card ${currentCardId}`);
+                                setLocation(`/learning/${trackId}/${lessonId}`);
+                              } else {
+                                // Final fallback to old behavior
+                                handleContinueLearning();
+                              }
+                            });
+                          } else {
+                            // Fallback to old behavior if no card ID
+                            handleContinueLearning();
+                          }
                         } else {
-                          // Fallback to old behavior if we can't determine the lesson
+                          // Fallback to old behavior if no progress
                           handleContinueLearning();
                         }
                       }}
@@ -213,8 +251,15 @@ export default function Learning() {
                           if (lessons.length > 0) {
                             // Look up the lesson in trackLessonMap to find the correct ID
                             import('../data/course-lessons').then(({ trackLessonMap }) => {
-                              if (trackLessonMap[trackId]) {
-                                const foundLesson = trackLessonMap[trackId].find(
+                              // Find the track lessons by index - avoiding TypeScript indexing issues
+                              const lessonsForTrack = 
+                                trackId === 1 ? trackLessonMap[1] :
+                                trackId === 2 ? trackLessonMap[2] : 
+                                trackId === 10 ? trackLessonMap[10] : 
+                                trackId === 11 ? trackLessonMap[11] : null;
+                                
+                              if (lessonsForTrack) {
+                                const foundLesson = lessonsForTrack.find(
                                   (l: any) => l.cardId === cardId
                                 );
                                 
