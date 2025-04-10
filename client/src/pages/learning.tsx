@@ -137,43 +137,32 @@ export default function Learning() {
                           const currentCardId = track.requiredCards[progress.currentLesson - 1];
                           
                           if (currentCardId) {
-                            // Look up the lesson in trackLessonMap to find the correct ID
-                            import('../data/course-lessons').then(({ trackLessonMap }) => {
-                              // Find the track lessons by index - avoiding TypeScript indexing issues
-                              const lessonsForTrack = 
-                                trackId === 1 ? trackLessonMap[1] :
-                                trackId === 2 ? trackLessonMap[2] : 
-                                trackId === 10 ? trackLessonMap[10] : 
-                                trackId === 11 ? trackLessonMap[11] : null;
+                            // For the Intuitive Reading track, use our ordered mapping
+                            if (trackId === 10) {
+                              import('../data/ordered-lessons').then(({ getOrderedLessonId }) => {
+                                const orderedLessonId = getOrderedLessonId(currentCardId);
                                 
-                              if (lessonsForTrack) {
-                                const foundLesson = lessonsForTrack.find(
-                                  (l: any) => l.cardId === currentCardId
-                                );
-                                
-                                if (foundLesson) {
-                                  console.log(`Continue: Found lesson ${foundLesson.id} for card ${currentCardId} in trackLessonMap`);
-                                  setLocation(`/learning/${trackId}/${foundLesson.id}`);
+                                if (orderedLessonId) {
+                                  console.log(`Continue: Using ordered mapping: card ${currentCardId} -> lesson ${orderedLessonId}`);
+                                  setLocation(`/learning/${trackId}/${orderedLessonId}`);
                                   return;
+                                } else {
+                                  console.log(`Continue: No ordered mapping found for card ${currentCardId}, using fallback`);
+                                  const fallbackLessonId = `intuitive-${progress.currentLesson}`;
+                                  setLocation(`/learning/${trackId}/${fallbackLessonId}`);
                                 }
-                              }
-                              
-                              // Fallback to index-based ID if lesson not found in map
-                              const lessonId = progress.currentLesson <= track.requiredCards.length 
-                                ? trackId === 1 ? `beginner-${progress.currentLesson}` 
-                                  : trackId === 2 ? `minor-${progress.currentLesson}`
-                                  : trackId === 10 ? `intuitive-${progress.currentLesson}`
-                                  : `advanced-${progress.currentLesson}`
-                                : null;
-                              
-                              if (lessonId) {
-                                console.log(`Continue: Fallback to /learning/${trackId}/${lessonId} for card ${currentCardId}`);
-                                setLocation(`/learning/${trackId}/${lessonId}`);
-                              } else {
-                                // Final fallback to old behavior
-                                handleContinueLearning();
-                              }
-                            });
+                              });
+                              return;
+                            }
+                            
+                            // For other tracks, use original approach
+                            // Fallback to index-based ID for other tracks
+                            const lessonId = trackId === 1 ? `beginner-${progress.currentLesson}` 
+                              : trackId === 2 ? `minor-${progress.currentLesson}`
+                              : `advanced-${progress.currentLesson}`;
+                            
+                            console.log(`Continue: Navigating to /learning/${trackId}/${lessonId} for card ${currentCardId}`);
+                            setLocation(`/learning/${trackId}/${lessonId}`);
                           } else {
                             // Fallback to old behavior if no card ID
                             handleContinueLearning();
@@ -230,6 +219,25 @@ export default function Learning() {
                         onClick={() => {
                           const trackId = track.id;
                           
+                          // For the Intuitive Reading track, use our ordered mapping
+                          if (trackId === 10) {
+                            import('../data/ordered-lessons').then(({ getOrderedLessonId }) => {
+                              const orderedLessonId = getOrderedLessonId(cardId);
+                              
+                              if (orderedLessonId) {
+                                console.log(`Using ordered mapping: card ${cardId} -> lesson ${orderedLessonId}`);
+                                setLocation(`/learning/${trackId}/${orderedLessonId}`);
+                                return;
+                              } else {
+                                console.log(`No ordered mapping found for card ${cardId}, using fallback`);
+                                const fallbackLessonId = `intuitive-${index + 1}`;
+                                setLocation(`/learning/${trackId}/${fallbackLessonId}`);
+                              }
+                            });
+                            return;
+                          }
+                          
+                          // For other tracks, use original approach
                           // Get the actual lessons for this track
                           const allLessons = queryClient.getQueryData<any>([`/api/learning/tracks/${trackId}`]);
                           
@@ -243,50 +251,12 @@ export default function Learning() {
                             }
                           }
                           
-                          // Fallback using the trackLessonMap from course-lessons.ts
-                          const lessons = queryClient.getQueryCache().getAll()
-                            .filter(q => q.queryKey[0] === `/api/learning/tracks/${trackId}`)
-                            .map(q => q.state.data);
-                            
-                          if (lessons.length > 0) {
-                            // Look up the lesson in trackLessonMap to find the correct ID
-                            import('../data/course-lessons').then(({ trackLessonMap }) => {
-                              // Find the track lessons by index - avoiding TypeScript indexing issues
-                              const lessonsForTrack = 
-                                trackId === 1 ? trackLessonMap[1] :
-                                trackId === 2 ? trackLessonMap[2] : 
-                                trackId === 10 ? trackLessonMap[10] : 
-                                trackId === 11 ? trackLessonMap[11] : null;
-                                
-                              if (lessonsForTrack) {
-                                const foundLesson = lessonsForTrack.find(
-                                  (l: any) => l.cardId === cardId
-                                );
-                                
-                                if (foundLesson) {
-                                  console.log(`Found lesson ${foundLesson.id} for card ${cardId} in trackLessonMap`);
-                                  setLocation(`/learning/${trackId}/${foundLesson.id}`);
-                                  return;
-                                }
-                              }
-                              
-                              // If still not found, fallback to index-based ID
-                              const lessonId = trackId === 1 ? `beginner-${index + 1}` 
-                                : trackId === 2 ? `minor-${index + 1}`
-                                : trackId === 10 ? `intuitive-${index + 1}`
-                                : `advanced-${index + 1}`;
-                              console.log(`Fallback: Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
-                              setLocation(`/learning/${trackId}/${lessonId}`);
-                            });
-                          } else {
-                            // If still no data, use index-based fallback
-                            const lessonId = trackId === 1 ? `beginner-${index + 1}` 
-                              : trackId === 2 ? `minor-${index + 1}`
-                              : trackId === 10 ? `intuitive-${index + 1}`
-                              : `advanced-${index + 1}`;
-                            console.log(`No lessons data, fallback to /learning/${trackId}/${lessonId} for card ${cardId}`);
-                            setLocation(`/learning/${trackId}/${lessonId}`);
-                          }
+                          // Fallback to index-based ID for other tracks
+                          const lessonId = trackId === 1 ? `beginner-${index + 1}` 
+                            : trackId === 2 ? `minor-${index + 1}`
+                            : `advanced-${index + 1}`;
+                          console.log(`Fallback: Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
+                          setLocation(`/learning/${trackId}/${lessonId}`);
                         }}
                       >
                         <div className="flex flex-col items-center text-center">

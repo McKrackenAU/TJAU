@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
 import { trackLessonMap } from "@/data/course-lessons";
 import { tarotCards } from "@shared/tarot-data";
+import { orderedCards, getOrderedLessonId } from "@/data/ordered-lessons";
 
 // Type assertion to help TypeScript with indexing
 const typedTrackLessonMap: Record<string, LessonContent[]> = trackLessonMap as Record<string, LessonContent[]>;
