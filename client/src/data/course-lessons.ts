@@ -10946,7 +10946,7 @@ export const minorArcanaLessons: LessonContent[] = [
 
   // NINE OF SWORDS
   {
-    id: "minor-35",
+    id: "intuitive-51",
     title: "The Nine of Swords: Mental Anguish and Perspective",
     description: "Explore the challenging energies of worry, anxiety, and the path to mental peace in the Nine of Swords.",
     cardId: "s9",
@@ -11414,7 +11414,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-39",
+    id: "intuitive-52",
     title: "The Ten of Swords: Painful Endings and New Beginnings",
     description: "Explore the significance of painful endings, rock bottom moments, and the potential for renewal in the Ten of Swords.",
     cardId: "s10",
@@ -11874,7 +11874,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-43",
+    id: "intuitive-53",
     title: "The Page of Swords: Mental Alertness and Seeking Truth",
     description: "Explore the qualities of intellectual curiosity, mental vigilance, and the pursuit of truth in the Page of Swords.",
     cardId: "sp",
