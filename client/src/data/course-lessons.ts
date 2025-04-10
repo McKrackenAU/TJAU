@@ -13025,10 +13025,346 @@ export const minorArcanaLessons: LessonContent[] = [
   },
 ];
 
+// Knight of Cups lesson for Intuitive Reading
+export const knightOfCups: LessonContent = {
+  id: "intuitive-knight-cups",
+  title: "Emotional Pursuit: Knight of Cups",
+  description: "Explore romantic energy, creative action, and emotional pursuit through the Knight of Cups.",
+  cardId: "cn",
+  sections: [
+    {
+      title: "Intuitive Understanding",
+      content: `
+          <p>The Knight of Cups represents romantic pursuit and imaginative action - the messenger of emotional opportunity who approaches life with sensitivity and artistic flair. As we develop our intuitive reading skills, this court card offers rich insights into emotional intelligence, the power of creative inspiration, and the beauty of approaching life's journey with heart-centered idealism.</p>
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Romance and emotional connection</li>
+            <li>Creative inspiration and artistic expression</li>
+            <li>Idealistic pursuits</li>
+            <li>Charm and emotional intelligence</li>
+          </ul>
+      `
+    },
+    {
+      title: "Developing Intuition",
+      content: `
+          <p>Developing intuitive reading with the Knight of Cups involves connecting with your experience of romantic pursuit, the feeling of creative inspiration, and the heart-centered idealism that creates meaningful connections through emotional intelligence and artistic sensitivity.</p>
+      `
+    },
+    {
+      title: "Symbolic Imagery",
+      content: `
+          <p>The Knight of Cups contains several evocative symbols that can enhance intuitive reading:</p>
+          <ul>
+            <li>The knight in decorative armor, representing emotional protection balanced with sensitivity</li>
+            <li>The graceful horse moving forward at a steady pace, showing measured emotional movement</li>
+            <li>The cup held forward as an offering, symbolizing emotional openness and giving</li>
+            <li>The flowing water or river, representing the movement of feelings and creative flow</li>
+          </ul>
+      `
+    },
+    {
+      title: "Intuitive Approaches",
+      content: `
+          <p>When developing intuitive approaches to the Knight of Cups, consider:</p>
+          <ul>
+            <li>The feeling of being drawn toward emotional or creative opportunities</li>
+            <li>The experience of approaching situations with sensitivity and artistic awareness</li>
+            <li>The balance between romantic idealism and emotional reality</li>
+            <li>The movement of creative energy from inspiration to expression</li>
+          </ul>
+      `
+    },
+    {
+      title: "Essence of the Card",
+      content: `
+          <p>The Knight of Cups invites us to approach intuitive reading with appreciation for emotional intelligence - recognizing the value of creative inspiration, romantic pursuit, and the transformative power of approaching life with heart-centered idealism and artistic sensitivity.</p>
+      `
+    },
+    {
+      title: "Reading Practice",
+      content: `
+          <p>When the Knight of Cups appears in a reading, try these intuitive approaches:</p>
+          <ul>
+            <li>Notice where in your body you feel a response to this card - perhaps a warmth in the heart center or a feeling of creative flow</li>
+            <li>Consider what romantic or creative "quest" might be relevant to the situation</li>
+            <li>Reflect on how emotional intelligence and artistic sensitivity could bring new perspective</li>
+            <li>Ask how the querent might benefit from approaching a situation with more heart-centered idealism</li>
+          </ul>
+      `
+    },
+    {
+      title: "Integration",
+      content: `
+          <p>Remember that the Knight of Cups represents the energy of creative and emotional pursuit - the inspired messenger who brings opportunities for heart-centered connection and artistic expression. When reading intuitively, connect with the quality of romantic idealism, the feeling of creative inspiration, and the transformative power of approaching life's journey with emotional intelligence and artistic sensitivity.</p>
+      `
+    }
+  ],
+  exercises: [
+    {
+      question: "What intuitive quality best captures the essence of the Knight of Cups?",
+      options: [
+        "Romantic idealism and creative inspiration",
+        "Logical analysis and strategic planning",
+        "Practical management and careful organization",
+        "Rebellious challenge and forceful confrontation"
+      ],
+      correctAnswer: 0,
+      explanation: "The essence of the Knight of Cups is best captured by romantic idealism and creative inspiration. This intuitive quality reflects the card's fundamental energy of heart-centered pursuit and artistic sensitivity. Unlike logical analysis, practical management, or rebellious confrontation, the Knight of Cups embodies the inspired messenger who approaches life with emotional intelligence, creative vision, and an idealistic quest for meaningful connection."
+    },
+    {
+      question: "When reading the Knight of Cups intuitively, what balanced perspective offers the most helpful understanding?",
+      options: [
+        "Focusing exclusively on romantic relationships and ignoring other applications",
+        "Appreciating creative inspiration while recognizing the need for practical follow-through",
+        "Dismissing emotional approaches as impractical and emphasizing logic instead",
+        "Encouraging reckless emotional expression without boundaries"
+      ],
+      correctAnswer: 1,
+      explanation: "When reading the Knight of Cups intuitively, appreciating creative inspiration while recognizing the need for practical follow-through offers the most helpful balanced perspective. This approach honors the card's primary strength of romantic idealism and artistic sensitivity while acknowledging its potential limitation. It values the transformative power of heart-centered approaches and creative vision, while remaining mindful of the importance of grounding inspired ideas in reality and following through beyond the initial excitement."
+    }
+  ],
+  summary: "In this lesson, we've explored intuitive reading through the Knight of Cups, examining romance, creative action, and emotional pursuit. We've studied the card's imagery of a knight gracefully moving forward with a cup offered as a gift, representing the power of heart-centered idealism and artistic sensitivity. By developing techniques to read intuitively about emotional intelligence, we can gain deeper insights about the value of creative inspiration, the beauty of romantic idealism, and the transformative power of approaching life with emotional openness and artistic vision.",
+  additionalResources: [
+    {
+      title: "Creative Inspiration",
+      description: "Exploring the relationship between emotional openness and artistic expression"
+    },
+    {
+      title: "Heart-Centered Approaches",
+      description: "Developing emotional intelligence as a pathway to more meaningful readings"
+    }
+  ]
+};
+
+// Knight of Wands lesson for Intuitive Reading
+export const knightOfWands: LessonContent = {
+  id: "intuitive-knight-wands",
+  title: "Dynamic Action: Knight of Wands",
+  description: "Explore passionate energy, enthusiastic pursuit, and bold action through the Knight of Wands.",
+  cardId: "wn",
+  sections: [
+    {
+      title: "Intuitive Understanding",
+      content: `
+          <p>The Knight of Wands represents passionate energy and enthusiastic pursuit - the adventurous messenger who brings opportunities for bold action and creative projects. As we develop our intuitive reading skills, this court card offers rich insights into confident self-expression, the power of charismatic leadership, and the transformative nature of pursuing goals with determination and charm.</p>
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Energy and enthusiasm</li>
+            <li>Adventure and passionate pursuit</li>
+            <li>Bold action and confident movement</li>
+            <li>Charisma and creative leadership</li>
+          </ul>
+      `
+    },
+    {
+      title: "Developing Intuition",
+      content: `
+          <p>Developing intuitive reading with the Knight of Wands involves connecting with your experience of passionate energy, the feeling of enthusiastic pursuit, and the confident determination that creates dynamic movement through bold action and creative charm.</p>
+      `
+    },
+    {
+      title: "Symbolic Imagery",
+      content: `
+          <p>The Knight of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          <ul>
+            <li>The knight in light armor, representing protection balanced with freedom of movement</li>
+            <li>The prancing or rearing horse, showing eager energy and readiness for action</li>
+            <li>The flowering wand held upright, symbolizing creative potential and growing passion</li>
+            <li>The desert or plains landscape, representing opportunities for adventure and exploration</li>
+          </ul>
+      `
+    },
+    {
+      title: "Intuitive Approaches",
+      content: `
+          <p>When developing intuitive approaches to the Knight of Wands, consider:</p>
+          <ul>
+            <li>The feeling of being energized and drawn toward exciting opportunities</li>
+            <li>The experience of approaching situations with confidence and creative enthusiasm</li>
+            <li>The balance between passionate pursuit and sustainable follow-through</li>
+            <li>The movement of inspirational energy from spark to dynamic action</li>
+          </ul>
+      `
+    },
+    {
+      title: "Essence of the Card",
+      content: `
+          <p>The Knight of Wands invites us to approach intuitive reading with appreciation for passionate energy - recognizing the value of enthusiastic pursuit, bold action, and the transformative power of approaching life with confident creativity and adventurous spirit.</p>
+      `
+    },
+    {
+      title: "Reading Practice",
+      content: `
+          <p>When the Knight of Wands appears in a reading, try these intuitive approaches:</p>
+          <ul>
+            <li>Notice where in your body you feel a response to this card - perhaps a surge of energy in the solar plexus or a feeling of excitement</li>
+            <li>Consider what passionate "quest" or creative project might be relevant to the situation</li>
+            <li>Reflect on how confident action and enthusiastic energy could bring new momentum</li>
+            <li>Ask how the querent might benefit from approaching a situation with more bold creativity</li>
+          </ul>
+      `
+    },
+    {
+      title: "Integration",
+      content: `
+          <p>Remember that the Knight of Wands represents the energy of passionate pursuit - the enthusiastic messenger who brings opportunities for bold action and creative leadership. When reading intuitively, connect with the quality of adventurous spirit, the feeling of confident determination, and the transformative power of approaching life's journey with charismatic energy and creative charm.</p>
+      `
+    }
+  ],
+  exercises: [
+    {
+      question: "What intuitive quality best captures the essence of the Knight of Wands?",
+      options: [
+        "Passionate enthusiasm and adventurous spirit",
+        "Careful analysis and detailed planning",
+        "Emotional sensitivity and romantic idealism",
+        "Practical reliability and methodical approach"
+      ],
+      correctAnswer: 0,
+      explanation: "The essence of the Knight of Wands is best captured by passionate enthusiasm and adventurous spirit. This intuitive quality reflects the card's fundamental energy of dynamic action and creative confidence. Unlike careful analysis, emotional sensitivity, or methodical reliability, the Knight of Wands embodies the energetic messenger who approaches life with bold determination, charismatic leadership, and an enthusiastic quest for exciting opportunities and creative expression."
+    },
+    {
+      question: "When reading the Knight of Wands intuitively, what balanced perspective offers the most helpful understanding?",
+      options: [
+        "Celebrating passionate energy while recognizing the need for sustainable follow-through",
+        "Dismissing enthusiasm as impulsive and focusing only on careful planning",
+        "Encouraging reckless action without consideration of consequences",
+        "Focusing exclusively on physical attraction and ignoring other applications"
+      ],
+      correctAnswer: 0,
+      explanation: "When reading the Knight of Wands intuitively, celebrating passionate energy while recognizing the need for sustainable follow-through offers the most helpful balanced perspective. This approach honors the card's primary strength of enthusiastic determination and creative confidence while acknowledging its potential limitation. It values the transformative power of bold action and charismatic leadership, while remaining mindful of the importance of channeling that energy in sustainable ways that maintain momentum beyond the initial excitement."
+    }
+  ],
+  summary: "In this lesson, we've explored intuitive reading through the Knight of Wands, examining passionate energy, enthusiastic pursuit, and bold action. We've studied the card's imagery of a knight confidently moving forward with a flowering wand, representing the power of creative determination and adventurous spirit. By developing techniques to read intuitively about dynamic energy, we can gain deeper insights about the value of confident expression, the excitement of new creative projects, and the transformative power of approaching life with passionate enthusiasm and charismatic leadership.",
+  additionalResources: [
+    {
+      title: "Creative Confidence",
+      description: "Exploring the relationship between enthusiastic energy and bold self-expression"
+    },
+    {
+      title: "Dynamic Leadership",
+      description: "Developing charismatic presence as a pathway to inspiring creative action"
+    }
+  ]
+};
+
+// Knight of Swords lesson for Intuitive Reading
+export const knightOfSwords: LessonContent = {
+  id: "intuitive-knight-swords",
+  title: "Intellectual Action: Knight of Swords",
+  description: "Explore mental clarity, direct communication, and decisive action through the Knight of Swords.",
+  cardId: "sn",
+  sections: [
+    {
+      title: "Intuitive Understanding",
+      content: `
+          <p>The Knight of Swords represents intellectual action and direct communication - the focused messenger who brings opportunities for decisive movement and clear thinking. As we develop our intuitive reading skills, this court card offers rich insights into mental clarity, the power of strategic action, and the importance of pursuing truth with determination and courage.</p>
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Mental clarity and intellectual focus</li>
+            <li>Direct communication and honest expression</li>
+            <li>Decisive action and swift movement</li>
+            <li>Strategic thinking and problem-solving</li>
+          </ul>
+      `
+    },
+    {
+      title: "Developing Intuition",
+      content: `
+          <p>Developing intuitive reading with the Knight of Swords involves connecting with your experience of mental clarity, the feeling of direct communication, and the focused determination that creates decisive movement through honest expression and intellectual courage.</p>
+      `
+    },
+    {
+      title: "Symbolic Imagery",
+      content: `
+          <p>The Knight of Swords contains several evocative symbols that can enhance intuitive reading:</p>
+          <ul>
+            <li>The knight in full armor, representing intellectual protection and mental preparation</li>
+            <li>The horse charging forward at full speed, showing decisive movement and swift action</li>
+            <li>The sword held high, symbolizing clear thinking and the pursuit of truth</li>
+            <li>The cloudy, windy sky, representing the element of air and the realm of thought</li>
+          </ul>
+      `
+    },
+    {
+      title: "Intuitive Approaches",
+      content: `
+          <p>When developing intuitive approaches to the Knight of Swords, consider:</p>
+          <ul>
+            <li>The feeling of mental clarity and focused determination</li>
+            <li>The experience of communicating directly and honestly</li>
+            <li>The balance between decisive action and thoughtful consideration</li>
+            <li>The movement of intellectual energy from idea to implementation</li>
+          </ul>
+      `
+    },
+    {
+      title: "Essence of the Card",
+      content: `
+          <p>The Knight of Swords invites us to approach intuitive reading with appreciation for intellectual clarity - recognizing the value of direct communication, decisive action, and the transformative power of pursuing truth with focused determination and strategic thinking.</p>
+      `
+    },
+    {
+      title: "Reading Practice",
+      content: `
+          <p>When the Knight of Swords appears in a reading, try these intuitive approaches:</p>
+          <ul>
+            <li>Notice where in your body you feel a response to this card - perhaps a sense of alertness in the mind or a feeling of forward momentum</li>
+            <li>Consider what truth or communication "quest" might be relevant to the situation</li>
+            <li>Reflect on how mental clarity and direct expression could bring new perspective</li>
+            <li>Ask how the querent might benefit from approaching a situation with more decisive action</li>
+          </ul>
+      `
+    },
+    {
+      title: "Integration",
+      content: `
+          <p>Remember that the Knight of Swords represents the energy of intellectual action - the focused messenger who brings opportunities for clear thinking and decisive movement. When reading intuitively, connect with the quality of mental clarity, the feeling of direct communication, and the transformative power of approaching life's challenges with strategic thinking and courageous pursuit of truth.</p>
+      `
+    }
+  ],
+  exercises: [
+    {
+      question: "What intuitive quality best captures the essence of the Knight of Swords?",
+      options: [
+        "Mental clarity and decisive action",
+        "Emotional sensitivity and nurturing care",
+        "Practical reliability and patient persistence",
+        "Creative inspiration and artistic expression"
+      ],
+      correctAnswer: 0,
+      explanation: "The essence of the Knight of Swords is best captured by mental clarity and decisive action. This intuitive quality reflects the card's fundamental energy of intellectual focus and direct communication. Unlike emotional sensitivity, practical reliability, or creative inspiration, the Knight of Swords embodies the focused messenger who approaches life with strategic thinking, honest expression, and a determined quest for truth and clear understanding."
+    },
+    {
+      question: "When reading the Knight of Swords intuitively, what balanced perspective offers the most helpful understanding?",
+      options: [
+        "Valuing direct communication while recognizing the importance of tact and timing",
+        "Dismissing intellectual approaches as cold and emphasizing only emotions",
+        "Encouraging aggressive confrontation without consideration of consequences",
+        "Focusing exclusively on academic knowledge and ignoring practical application"
+      ],
+      correctAnswer: 0,
+      explanation: "When reading the Knight of Swords intuitively, valuing direct communication while recognizing the importance of tact and timing offers the most helpful balanced perspective. This approach honors the card's primary strength of intellectual clarity and honest expression while acknowledging its potential limitation. It values the transformative power of decisive action and strategic thinking, while remaining mindful of how directness can be balanced with appropriate sensitivity to others and consideration of timing."
+    }
+  ],
+  summary: "In this lesson, we've explored intuitive reading through the Knight of Swords, examining mental clarity, direct communication, and decisive action. We've studied the card's imagery of a knight charging forward with sword held high, representing the power of intellectual focus and courageous pursuit of truth. By developing techniques to read intuitively about mental energy, we can gain deeper insights about the value of clear expression, the importance of strategic thinking, and the transformative power of approaching challenges with focused determination and intellectual courage.",
+  additionalResources: [
+    {
+      title: "Strategic Communication",
+      description: "Exploring the relationship between mental clarity and effective expression"
+    },
+    {
+      title: "Intellectual Courage",
+      description: "Developing focused determination as a pathway to pursuing truth and understanding"
+    }
+  ]
+};
+
 // Map track IDs to their corresponding lesson sets
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
   2: minorArcanaLessons,      // Minor Arcana Journey
-  10: [...intuitiveReadingLessons, ...intuitivePentaclesLessons], // Intuitive Reading 
+  10: [...intuitiveReadingLessons, knightOfCups, knightOfWands, knightOfSwords, ...intuitivePentaclesLessons], // Intuitive Reading 
   11: advancedSymbolismLessons // Advanced Symbolism
 };

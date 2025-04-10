@@ -701,6 +701,58 @@ export const tarotCards: TarotCard[] = [
     },
     description: "The Queen of Pentacles represents nurturing abundance, practical wisdom, and the creation of comfort and security. She embodies the balance of material competence with generous care, showing how to build prosperity that sustains both self and others.",
     element: "Earth"
+  },
+  {
+    id: "cn",
+    name: "Knight of Cups",
+    arcana: "minor",
+    suit: "cups",
+    number: 12,
+    meanings: {
+      upright: ["Emotional intelligence", "Romance", "Charm", "Idealism"],
+      reversed: ["Moodiness", "Unrealistic expectations", "Disappointment"]
+    },
+    description: "The Knight of Cups represents romance, charm, and imaginative action. He embodies the pursuit of creative or emotional ventures, approaching life with sensitivity and artistic flair.",
+    element: "Water"
+  },
+  {
+    id: "wn",
+    name: "Knight of Wands",
+    arcana: "minor",
+    suit: "wands",
+    number: 12,
+    meanings: {
+      upright: ["Energy", "Passion", "Adventure", "Impulsiveness"],
+      reversed: ["Haste", "Scattered energy", "Delays", "Frustration"]
+    },
+    description: "The Knight of Wands represents energy, passion, and adventurous pursuit. He embodies enthusiasm and bold action, bringing creative projects forward with determination and charm.",
+    element: "Fire"
+  },
+  {
+    id: "sn",
+    name: "Knight of Swords",
+    arcana: "minor",
+    suit: "swords",
+    number: 12,
+    meanings: {
+      upright: ["Intelligence", "Action", "Direct approach", "Decisive"],
+      reversed: ["Impatience", "Impulsive decisions", "Aggression"]
+    },
+    description: "The Knight of Swords represents intellectual action, direct communication, and swift decision-making. He embodies a focused, determined approach to mental challenges.",
+    element: "Air"
+  },
+  {
+    id: "pn",
+    name: "Knight of Pentacles",
+    arcana: "minor",
+    suit: "pentacles",
+    number: 12,
+    meanings: {
+      upright: ["Reliability", "Hard work", "Responsibility", "Practicality"],
+      reversed: ["Stagnation", "Laziness", "Stubbornness", "Obsessiveness"]
+    },
+    description: "The Knight of Pentacles represents reliability, methodical progress, and determined persistence. He embodies patient dedication to practical goals and thorough attention to detail.",
+    element: "Earth"
   }
 ];
 
