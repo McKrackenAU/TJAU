@@ -13372,21 +13372,49 @@ const orderedLessons = (() => {
     lessonMap[lesson.cardId] = lesson;
   }
   
+  // Add all pentacles lessons to the map
+  for (const lesson of intuitivePentaclesLessons) {
+    lessonMap[lesson.cardId] = lesson;
+  }
+  
   // Override with module-level Knight cards to ensure content exists
   lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-19' };
   lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-18' };
+  
+  // Ensure the Knight of Swords is correctly placed with the Swords
+  // We'll place it after the Swords sequence since we want it shown after Page of Swords
+  // but we don't have the full Swords set yet
   lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-29' };
+  
+  // Create proper lesson IDs for pentacles
+  // These IDs are sequential starting from intuitive-30 for Ace of Pentacles
+  const pentaclesCardOrder = [
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq'
+  ];
+  
+  // Ensure all pentacles cards have unique IDs to avoid navigation issues
+  pentaclesCardOrder.forEach((cardId, index) => {
+    if (lessonMap[cardId]) {
+      lessonMap[cardId] = {
+        ...lessonMap[cardId],
+        id: `intuitive-p${index + 1}` // p1, p2, etc. instead of 30, 31, etc.
+      };
+    }
+  });
   
   // Define the desired card order for each suit
   const cardOrder = [
     // Cups order (c1-c10, cp, cn, ck, cq)
     'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'ck', 'cq',
+    
     // Wands order (w1-w10, wp, wn, wk, wq)
     'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wk', 'wq',
-    // Swords and Pentacles
-    'sn',
-    // All Pentacles lessons at the end
-    ...intuitivePentaclesLessons.map(lesson => lesson.cardId)
+    
+    // Swords (just Knight for now, would have more if all Swords cards were added)
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sk', 'sq',
+    
+    // Pentacles order (p1-p10, pp, pn, pk, pq)
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq'
   ];
   
   // Create ordered array based on card order
