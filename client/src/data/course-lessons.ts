@@ -7680,7 +7680,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-7",
+    id: "intuitive-44",
     title: "The Two of Swords: Decisions and Balance",
     description: "Understand the complex energy of stalemate, difficult choices, and finding balance in the Two of Swords.",
     cardId: "s2",
@@ -8144,7 +8144,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-11",
+    id: "intuitive-45",
     title: "The Three of Swords: Heartbreak and Clarity",
     description: "Explore the challenging but transformative energy of heartbreak, grief, and mental clarity in the Three of Swords.",
     cardId: "s3",
@@ -13251,7 +13251,7 @@ export const knightOfWands: LessonContent = {
 
 // Knight of Swords lesson for Intuitive Reading
 export const knightOfSwords: LessonContent = {
-  id: "intuitive-29",
+  id: "intuitive-54",
   title: "Intellectual Action: Knight of Swords",
   description: "Explore mental clarity, direct communication, and decisive action through the Knight of Swords.",
   cardId: "sn",
@@ -13381,8 +13381,8 @@ const orderedLessons = (() => {
   lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-26' }; // Knight of Wands
   lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-12' };  // Knight of Cups
   
-  // Knight of Swords is removed for now until we're ready to implement the full Swords suit
-  // lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
+  // Knight of Swords is now added back to the lesson map
+  lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
   
   // Define proper numeric IDs for our cards - Reorganized to follow the order:
   // Cups, Wands, Pentacles, Swords with each suit going from Ace through King
