@@ -13451,7 +13451,7 @@ const orderedLessons = (() => {
     }
   });
   
-  // Define the desired card order for each suit
+  // Define the desired card order for each suit (following the requested order: Cups, Wands, Pentacles, Swords)
   const cardOrder = [
     // Cups order (c1-c10, cp, cn, ck, cq)
     'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'ck', 'cq',
@@ -13459,11 +13459,11 @@ const orderedLessons = (() => {
     // Wands order (w1-w10, wp, wn, wk, wq)
     'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wk', 'wq',
     
-    // Swords (just Knight for now, would have more if all Swords cards were added)
-    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sk', 'sq',
-    
     // Pentacles order (p1-p10, pp, pn, pk, pq)
-    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq'
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq',
+    
+    // Swords order (s1-s10, sp, sn, sk, sq)
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sk', 'sq'
   ];
   
   // Create ordered array based on card order
