@@ -51,35 +51,35 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   // Get a unique, mystical symbol for each card to use in fallback display
   const getCardSymbol = () => {
     const majorSymbols: Record<string, string> = {
-      "The Fool": "⭐",
-      "The Magician": "⭐",
-      "The High Priestess": "⭐",
-      "The Empress": "⭐",
-      "The Emperor": "⭐",
-      "The Hierophant": "⭐",
-      "The Lovers": "⭐",
-      "The Chariot": "⭐",
-      "Strength": "⭐",
-      "The Hermit": "⭐",
-      "Wheel of Fortune": "⭐",
-      "Justice": "⭐",
-      "The Hanged Man": "⭐",
-      "Death": "⭐",
-      "Temperance": "⭐",
-      "The Devil": "⭐",
-      "The Tower": "⭐",
-      "The Star": "⭐",
-      "The Moon": "⭐",
-      "The Sun": "⭐",
-      "Judgement": "⭐",
-      "The World": "⭐"
+      "The Fool": "✧",
+      "The Magician": "∞",
+      "The High Priestess": "☽",
+      "The Empress": "♀",
+      "The Emperor": "♂",
+      "The Hierophant": "⋆",
+      "The Lovers": "♡",
+      "The Chariot": "⚜",
+      "Strength": "∞",
+      "The Hermit": "✦",
+      "Wheel of Fortune": "⊛",
+      "Justice": "⚖",
+      "The Hanged Man": "⋈",
+      "Death": "♱",
+      "Temperance": "⟳",
+      "The Devil": "⛧",
+      "The Tower": "⚡",
+      "The Star": "★",
+      "The Moon": "☾",
+      "The Sun": "☀",
+      "Judgement": "⚶",
+      "The World": "◯"
     };
 
     const suitSymbols: Record<string, string> = {
-      "wands": "⚡",  // Magic wand symbol
-      "cups": "🏆",   // Chalice/cup symbol
-      "swords": "⚔️",  // Sword symbol
-      "pentacles": "🪙" // Coin symbol
+      "wands": "🔥",
+      "cups": "💧",
+      "swords": "💨",
+      "pentacles": "⭐"
     };
 
     if (card.arcana === "major") {
