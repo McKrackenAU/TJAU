@@ -4744,6 +4744,108 @@ export const intuitiveReadingLessons: LessonContent[] = [
     ]
   },
   {
+    id: "intuitive-27",
+    title: "The Enthusiastic Messenger: Page of Wands",
+    description: "Explore new beginnings, enthusiasm, and creative exploration through the Page of Wands.",
+    cardId: "wp",
+    sections: [
+      {
+        title: "The Creative Explorer",
+        content: `
+          <p>The Page of Wands represents the youthful explorer of creative potential - enthusiastic, adventurous, and eager to discover new possibilities. As we develop our intuitive reading skills, this court card offers rich insights into the initial stages of creative exploration, the enthusiasm of new beginnings, and the free-spirited approach to discovering one's passions.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Enthusiasm and excitement about new possibilities</strong></li>
+            <li><strong>Creative exploration and discovery</strong></li>
+            <li><strong>Free-spirited adventure and curiosity</strong></li>
+            <li><strong>The first steps of a creative journey</strong></li>
+            <li><strong>Youthful energy and fresh perspective</strong></li>
+            <li><strong>Messages and news that spark inspiration</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Page of Wands involves connecting with your own sense of enthusiasm, creative curiosity, and the excited energy that comes with discovering new interests and possibilities.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Page of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The budding or flowering wand</strong> - Represents growing creative potential and possibilities</li>
+            <li><strong>The youthful figure</strong> - Symbolizes fresh perspective and enthusiastic approach</li>
+            <li><strong>The open landscape</strong> - Indicates freedom to explore and discover</li>
+            <li><strong>The colorful or distinctive clothing</strong> - Shows unique self-expression and individuality</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Page of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of excitement and enthusiasm</strong> in your body</li>
+            <li><strong>Notice the energetic impulse toward exploration</strong> and discovery</li>
+            <li><strong>Connect with the feeling of beginning something new</strong> with fresh eyes</li>
+            <li><strong>Sense the freedom of not being bound by convention</strong> or expectation</li>
+            <li><strong>Be aware of the spark of creative curiosity</strong> that drives learning</li>
+          </ol>
+          
+          <p>The Page of Wands invites us to approach intuitive reading with the same curious enthusiasm that characterizes this card - being open to discoveries, excited by possibilities, and willing to explore creative terrain with a fresh perspective.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Page of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of enthusiasm or discovery immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel excitement, lightness, or eager energy in your body?</li>
+            <li><strong>Creative sensing</strong>: What new interest or passion might be emerging?</li>
+            <li><strong>Message awareness</strong>: What inspiring news or information might be arriving?</li>
+            <li><strong>Adventure feeling</strong>: What unexplored territory is calling for exploration?</li>
+          </ul>
+          
+          <p>Remember that the Page of Wands represents the enthusiastic beginning of creative discovery - the excitement of first steps before the journey has been fully defined. When reading intuitively, connect with the qualities of curiosity, openness to possibilities, and the eager energy that comes with finding something that ignites your passion.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most important when connecting with the Page of Wands energy?",
+        options: [
+          "Cautious deliberation",
+          "Disciplined structure",
+          "Enthusiastic openness",
+          "Critical analysis"
+        ],
+        correctAnswer: 2,
+        explanation: "When connecting with the Page of Wands energy, enthusiastic openness is the most important intuitive quality. This approach aligns with the card's fundamental energy of curiosity, exploration, and excitement about new possibilities. The Page of Wands embodies the willingness to approach life with fresh eyes and eager enthusiasm, qualities that are best accessed through an open, receptive attitude rather than careful analysis or structured discipline."
+      },
+      {
+        question: "When reading the Page of Wands intuitively for someone considering a new creative pursuit, which approach would offer the most helpful insight?",
+        options: [
+          "Focusing on potential obstacles and limitations",
+          "Connecting with the excitement of exploration without knowing the outcome",
+          "Emphasizing the need for detailed long-term planning",
+          "Suggesting they wait for more evidence before proceeding"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Page of Wands intuitively for someone considering a new creative pursuit, connecting with the excitement of exploration without knowing the outcome would offer the most helpful insight. This approach honors the Page of Wands' essential quality of enthusiastic discovery and the joy found in the process itself, rather than focusing on destinations or limitations. It encourages embracing the creative journey with curiosity and openness to where it might lead."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Page of Wands, examining enthusiastic beginnings, creative exploration, and free-spirited discovery. We've studied the card's imagery of a youthful figure holding a flowering wand, ready to embark on adventures and discover new passions. By developing techniques to read intuitively about creative enthusiasm and the excitement of new beginnings, we can gain deeper insights about the early stages of inspiration, the messages that spark our imagination, and the free-spirited approach to exploring possibilities with fresh perspective.",
+    additionalResources: [
+      {
+        title: "Cultivating Beginner's Mind",
+        description: "Practices for approaching experiences with fresh perspective and openness."
+      },
+      {
+        title: "Creative Exploration",
+        description: "Techniques for discovering new interests and passions without attachment to outcomes."
+      }
+    ]
+  },
+  {
     id: "intuitive-26",
     title: "Masterful Authority: King of Wands",
     description: "Explore charismatic leadership, creative authority, and visionary power through the King of Wands.",
