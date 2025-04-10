@@ -4333,6 +4333,720 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Techniques for nurturing and expressing your unique creative voice."
       }
     ]
+  },
+  {
+    id: "intuitive-20",
+    title: "Energy in Transition: Five of Wands",
+    description: "Explore creative conflict, healthy competition, and energetic growth through the Five of Wands.",
+    cardId: "w5",
+    sections: [
+      {
+        title: "The Dynamic Challenge",
+        content: `
+          <p>The Five of Wands represents the dynamic energy of creative conflict, competition, and the growth that comes through navigating differences. As we develop our intuitive reading skills, this card offers rich insights into how constructive challenges can stimulate growth, the beneficial aspects of diversity, and the transformation possible through engaging with opposing forces.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Creative tension and productive conflict</strong></li>
+            <li><strong>Healthy competition and challenge</strong></li>
+            <li><strong>Diversity of approaches and perspectives</strong></li>
+            <li><strong>The energy of transition and change</strong></li>
+            <li><strong>Testing and strengthening through opposition</strong></li>
+            <li><strong>The chaos that precedes new organization</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Five of Wands involves connecting with your experience of creative friction, the feeling of testing your abilities against challenges, and the growth that emerges from navigating different perspectives and approaches.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Five of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The five figures with raised wands</strong> - Represents different energies or perspectives in dynamic interaction</li>
+            <li><strong>The crossing or clashing wands</strong> - Symbolizes the meeting of diverse approaches and ideas</li>
+            <li><strong>The open sky</strong> - Indicates the freedom and space for expression and competition</li>
+            <li><strong>The apparent disorder</strong> - Shows creative chaos that contains potential for new organization</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Five of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of energetic stimulation</strong> in your body</li>
+            <li><strong>Notice where tension creates alertness and engagement</strong></li>
+            <li><strong>Connect with the feeling of creative friction</strong> and how it generates new ideas</li>
+            <li><strong>Sense the diversity of energies</strong> and how they interact</li>
+            <li><strong>Be aware of the transformative potential</strong> in apparent conflict</li>
+          </ol>
+          
+          <p>The Five of Wands invites us to approach intuitive reading with an appreciation for the growth that comes through challenge, the value of diversity, and the creative potential contained in the dynamic meeting of different energies.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Five of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of energetic engagement or creative tension immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel activation, alertness, or the stimulation of challenge in your body?</li>
+            <li><strong>Dynamic sensing</strong>: What different energies or perspectives are in creative friction?</li>
+            <li><strong>Growth recognition</strong>: How might challenge be serving development and strengthening?</li>
+            <li><strong>Transformation awareness</strong>: What new organization might emerge from this creative chaos?</li>
+          </ul>
+          
+          <p>Remember that the Five of Wands represents a necessary phase of testing, diversity, and creative challenge. When reading intuitively, look beyond apparent conflict to see the growth potential, the strengthening through opposition, and the creation of something new through the dynamic interaction of different energies.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach best captures the constructive aspect of the Five of Wands energy?",
+        options: [
+          "Avoiding all tension and seeking only harmony",
+          "Recognizing how creative friction stimulates growth and innovation",
+          "Identifying who is winning and who is losing",
+          "Focusing on eliminating all differences"
+        ],
+        correctAnswer: 1,
+        explanation: "The constructive aspect of the Five of Wands energy is best captured by recognizing how creative friction stimulates growth and innovation. This intuitive approach acknowledges that the apparent conflict or competition in the card represents a productive process that generates new ideas, tests strength, and leads to development through the dynamic interaction of diverse perspectives and approaches."
+      },
+      {
+        question: "When reading the Five of Wands intuitively for someone navigating workplace tensions, which perspective offers the most growth-oriented insight?",
+        options: [
+          "Suggesting they avoid all challenging interactions",
+          "Focusing exclusively on who is right and who is wrong",
+          "Recognizing the diversity of perspectives as potentially valuable",
+          "Advising them to withdraw from any situation involving differences"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Five of Wands intuitively for someone navigating workplace tensions, recognizing the diversity of perspectives as potentially valuable offers the most growth-oriented insight. This approach honors the card's core energy of productive challenge and creative friction. It helps the querent see beyond apparent conflict to recognize how different viewpoints can lead to innovation, more robust solutions, and personal growth through engaging constructively with diverse approaches."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Five of Wands, examining creative conflict, healthy competition, and the growth that emerges through navigating differences. We've studied the card's imagery of diverse figures with crossing wands, representing the dynamic interaction of different energies and approaches. By developing techniques to read intuitively about productive challenge and creative friction, we can gain deeper insights about the value of diversity, the strengthening that comes through testing, and the innovative potential contained in the meeting of different perspectives.",
+    additionalResources: [
+      {
+        title: "Constructive Conflict",
+        description: "Practices for engaging with differences in ways that promote growth and innovation."
+      },
+      {
+        title: "Creative Chaos",
+        description: "Understanding the productive potential in apparent disorder and transition."
+      }
+    ]
+  },
+  {
+    id: "intuitive-21",
+    title: "Victory and Recognition: Six of Wands",
+    description: "Explore achievement, public recognition, and confident success through the Six of Wands.",
+    cardId: "w6",
+    sections: [
+      {
+        title: "The Triumphal Energy",
+        content: `
+          <p>The Six of Wands represents the energy of achievement, recognition, and the confidence that comes from successfully expressing your creative fire. As we develop our intuitive reading skills, this card offers rich insights into the experience of victory, public acknowledgment, and the alignment of personal accomplishment with external validation.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Achievement and successful manifestation</strong></li>
+            <li><strong>Public recognition and validation</strong></li>
+            <li><strong>Confident leadership after proving yourself</strong></li>
+            <li><strong>The balance of personal and collective celebration</strong></li>
+            <li><strong>Visibility and being seen for your contributions</strong></li>
+            <li><strong>The responsibility that comes with success</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Six of Wands involves connecting with your experience of achievement, the feeling of being recognized for your authentic contributions, and the confident expansion that comes from successful creative expression.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Six of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The mounted figure</strong> - Represents elevation and achievement</li>
+            <li><strong>The laurel wreath or crown</strong> - Symbolizes victory and recognition</li>
+            <li><strong>The crowd or supporters</strong> - Indicates public acknowledgment and community celebration</li>
+            <li><strong>The raised wand or staff</strong> - Shows the successful manifestation of creative power</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Six of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of confident achievement</strong> in your body</li>
+            <li><strong>Notice the energetic uplift</strong> that comes with recognition</li>
+            <li><strong>Connect with the feeling of alignment</strong> between inner accomplishment and outer validation</li>
+            <li><strong>Sense the responsibility that accompanies visibility</strong> and leadership</li>
+            <li><strong>Be aware of how success creates momentum</strong> for further creative expression</li>
+          </ol>
+          
+          <p>The Six of Wands invites us to approach intuitive reading with an appreciation for the power of recognition, the importance of celebrating achievements, and the confident energy that emerges when our creative fire is successfully expressed and acknowledged.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Six of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of achievement or recognition immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel expansion, uplift, or confident energy in your body?</li>
+            <li><strong>Success sensing</strong>: What accomplishment deserves acknowledgment?</li>
+            <li><strong>Visibility recognition</strong>: How is authentic expression being seen and validated?</li>
+            <li><strong>Leadership awareness</strong>: What new responsibility comes with this achievement?</li>
+          </ul>
+          
+          <p>Remember that the Six of Wands represents the phase of recognizing and celebrating achievement - the moment when creative efforts are validated and acknowledged. When reading intuitively, connect with the confidence that comes from success, the importance of allowing recognition, and the balance between personal accomplishment and community celebration.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most essential when connecting with the Six of Wands energy?",
+        options: [
+          "Skepticism and doubt about success",
+          "Confident recognition of achievement",
+          "Fear of visibility and exposure",
+          "Rejection of all external validation"
+        ],
+        correctAnswer: 1,
+        explanation: "When connecting with the Six of Wands energy, confident recognition of achievement is the most essential intuitive quality. This approach aligns with the card's fundamental energy of victory, public acknowledgment, and successful creative expression. The Six of Wands invites us to embrace and celebrate achievements, allowing both inner confidence and external validation to reinforce each other in a positive cycle of recognition and continued growth."
+      },
+      {
+        question: "When reading the Six of Wands intuitively, which perspective offers the most balanced understanding?",
+        options: [
+          "Success is dangerous and should be minimized",
+          "Only internal validation matters, external recognition is meaningless",
+          "Achievement should be celebrated while recognizing the responsibility it brings",
+          "Public acclaim is the only measure of true accomplishment"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Six of Wands intuitively, the perspective that achievement should be celebrated while recognizing the responsibility it brings offers the most balanced understanding. This approach honors both the triumphant aspect of the card and its deeper implications. It acknowledges the importance of recognition and celebration while also recognizing that success brings new leadership opportunities and responsibilities. This balanced perspective connects with the card's energy of confident achievement that becomes a foundation for continued growth and service."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Six of Wands, examining achievement, public recognition, and confident success. We've studied the card's imagery of a triumphant figure honored by supporters, representing the successful manifestation of creative fire and its acknowledgment by others. By developing techniques to read intuitively about victory and validation, we can gain deeper insights about the importance of celebrating achievements, the confidence that comes from being recognized for authentic expression, and the responsibility that accompanies visible success.",
+    additionalResources: [
+      {
+        title: "Authentic Recognition",
+        description: "Practices for acknowledging achievements and allowing success to be celebrated."
+      },
+      {
+        title: "Visibility and Leadership",
+        description: "Understanding the responsibilities that come with recognition and success."
+      }
+    ]
+  },
+  {
+    id: "intuitive-22",
+    title: "Strategic Advantage: Seven of Wands",
+    description: "Explore conviction, defense of values, and standing your ground through the Seven of Wands.",
+    cardId: "w7",
+    sections: [
+      {
+        title: "The Courageous Stance",
+        content: `
+          <p>The Seven of Wands represents the energy of defending your position, standing firm in your convictions, and maintaining the courage of your creative vision against challenges. As we develop our intuitive reading skills, this card offers rich insights into the experience of asserting your unique perspective, protecting what you've built, and drawing on inner determination when faced with opposition.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Conviction and courage in your beliefs</strong></li>
+            <li><strong>Defense of your creative territory</strong></li>
+            <li><strong>Standing your ground against opposition</strong></li>
+            <li><strong>The advantages of higher perspective</strong></li>
+            <li><strong>Perseverance and determination</strong></li>
+            <li><strong>The strength that comes from testing and challenge</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Seven of Wands involves connecting with your experience of standing firm in your values, the feeling of defending what matters to you, and the determination that arises when your creative vision faces challenge or opposition.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Seven of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure on higher ground</strong> - Represents the advantage of perspective and principle</li>
+            <li><strong>The defensive stance</strong> - Symbolizes protection of what's been created or achieved</li>
+            <li><strong>The six challenging wands</strong> - Indicates opposing forces or perspectives</li>
+            <li><strong>The different footwear or uneven ground</strong> - Shows the imbalance or challenge of the situation</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Seven of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of determined stance</strong> in your body</li>
+            <li><strong>Notice where courage and conviction</strong> create a sense of stability</li>
+            <li><strong>Connect with the feeling of defending</strong> what matters to you</li>
+            <li><strong>Sense the advantage of elevated perspective</strong> or moral high ground</li>
+            <li><strong>Be aware of how challenge strengthens</strong> authentic commitment</li>
+          </ol>
+          
+          <p>The Seven of Wands invites us to approach intuitive reading with an appreciation for the power of conviction, the importance of defending creative vision, and the strength that emerges when we stand firm in our values and perspective despite opposition.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Seven of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of determined defense or conviction immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel courage, strength, or the energy of standing firm in your body?</li>
+            <li><strong>Defense sensing</strong>: What values or creative vision needs protection?</li>
+            <li><strong>Perspective recognition</strong>: What advantage comes from maintaining higher ground?</li>
+            <li><strong>Challenge awareness</strong>: How might current opposition actually strengthen authentic position?</li>
+          </ul>
+          
+          <p>Remember that the Seven of Wands represents the phase of defending what you've created - the moment when your vision or accomplishments face challenge and require courageous protection. When reading intuitively, connect with the determination that comes from deep conviction, the strategic advantage of higher perspective, and the strengthening that occurs when we defend what truly matters to us.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the constructive aspect of the Seven of Wands energy?",
+        options: [
+          "Defensive aggression and combativeness",
+          "Avoidance of all conflict and challenge",
+          "Courageous conviction and principled defense",
+          "Rigid inflexibility regardless of circumstances"
+        ],
+        correctAnswer: 2,
+        explanation: "The constructive aspect of the Seven of Wands energy is best captured by courageous conviction and principled defense. This intuitive quality recognizes that the card represents standing firm in meaningful values and defending authentic creative vision - not from aggression or rigid inflexibility, but from deep conviction and a higher perspective. It acknowledges that some positions are worth defending, especially when they align with your authentic purpose and values."
+      },
+      {
+        question: "When reading the Seven of Wands intuitively for someone facing criticism of their innovative approach, which insight would be most empowering?",
+        options: [
+          "Advising them to abandon their unique vision to avoid conflict",
+          "Recognizing that defending their authentic perspective strengthens their contribution",
+          "Suggesting they attack their critics with equal force",
+          "Focusing on the unfairness of the situation"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Seven of Wands intuitively for someone facing criticism of their innovative approach, recognizing that defending their authentic perspective strengthens their contribution would be most empowering. This insight honors the card's energy of courageous conviction and principled defense. It helps the querent see that standing firm in their unique vision - especially when it faces challenge - can refine and strengthen their work, ultimately making their creative contribution more valuable and impactful."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Seven of Wands, examining conviction, defense of values, and standing your ground. We've studied the card's imagery of a figure on higher ground defending against challenging wands, representing the courageous protection of authentic vision and the advantage of principled perspective. By developing techniques to read intuitively about determined defense and conviction, we can gain deeper insights about the importance of standing firm in our values, the strategic advantage of higher perspective, and the strengthening that occurs when we protect what truly matters to us.",
+    additionalResources: [
+      {
+        title: "Principled Defense",
+        description: "Practices for discerning which positions are worth defending and how to do so constructively."
+      },
+      {
+        title: "Courage Under Pressure",
+        description: "Techniques for maintaining conviction and clarity when facing opposition."
+      }
+    ]
+  },
+  {
+    id: "intuitive-23",
+    title: "Swift Momentum: Eight of Wands",
+    description: "Explore acceleration, alignment, and focused direction through the Eight of Wands.",
+    cardId: "w8",
+    sections: [
+      {
+        title: "The Aligned Movement",
+        content: `
+          <p>The Eight of Wands represents the energy of swift movement, aligned action, and the acceleration that comes when creative fire finds clear direction. As we develop our intuitive reading skills, this card offers rich insights into the experience of synchronicity, momentum, and the focused flow that emerges when energy moves without obstruction toward a clear target.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Acceleration and swift progress</strong></li>
+            <li><strong>Alignment of multiple energies</strong></li>
+            <li><strong>Focus and clear direction</strong></li>
+            <li><strong>Synchronicity and timing</strong></li>
+            <li><strong>Communication and messages</strong></li>
+            <li><strong>The removal of obstacles</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Eight of Wands involves connecting with your experience of accelerated movement, the feeling of synchronized flow, and the clarity that comes when energy aligns toward a shared destination or purpose.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Eight of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The parallel flying wands</strong> - Represents aligned energies moving in harmony</li>
+            <li><strong>The diagonal trajectory</strong> - Symbolizes forward and upward movement</li>
+            <li><strong>The open sky</strong> - Indicates freedom from obstacles and clear passage</li>
+            <li><strong>The distant landscape</strong> - Shows the destination or target of focused energy</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Eight of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of accelerated movement</strong> in your body</li>
+            <li><strong>Notice the energetic sensation of momentum</strong> and flow</li>
+            <li><strong>Connect with the feeling of alignment</strong> when multiple aspects move together</li>
+            <li><strong>Sense the clarity that comes with focused direction</strong></li>
+            <li><strong>Be aware of timing and synchronicity</strong> in the situation</li>
+          </ol>
+          
+          <p>The Eight of Wands invites us to approach intuitive reading with an appreciation for the power of aligned movement, the importance of clear direction, and the acceleration that occurs when creative energy flows without obstruction toward its target.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Eight of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of swift movement or aligned energy immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel acceleration, forward movement, or the energy of flow in your body?</li>
+            <li><strong>Momentum sensing</strong>: What is gaining speed and moving toward manifestation?</li>
+            <li><strong>Alignment recognition</strong>: How are multiple energies synchronizing for greater impact?</li>
+            <li><strong>Timing awareness</strong>: What role does acceleration or perfect timing play in this situation?</li>
+          </ul>
+          
+          <p>Remember that the Eight of Wands represents the phase of aligned movement - the moment when creative energy finds clear direction and accelerates toward its target. When reading intuitively, connect with the quality of synchronized flow, the importance of removed obstacles, and the power that emerges when multiple energies align in focused movement toward a shared destination.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Eight of Wands energy?",
+        options: [
+          "Careful slowness and methodical plodding",
+          "Aligned momentum and synchronized flow",
+          "Scattered activity without direction",
+          "Static stability and resistance to change"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the Eight of Wands energy is best captured by aligned momentum and synchronized flow. This intuitive quality recognizes that the card represents the power of multiple energies moving swiftly and harmoniously in a clear direction. Unlike scattered activity or methodical plodding, the Eight of Wands embodies the acceleration and focus that comes when obstacles are removed and energy moves freely toward its destination."
+      },
+      {
+        question: "When reading the Eight of Wands intuitively for someone facing a creative project deadline, which insight would be most helpful?",
+        options: [
+          "Suggesting they slow down and delay as much as possible",
+          "Advising them to work on many unrelated projects simultaneously",
+          "Recognizing the importance of aligning their efforts with clear focus and timing",
+          "Emphasizing the need to create more obstacles and complications"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Eight of Wands intuitively for someone facing a creative project deadline, recognizing the importance of aligning their efforts with clear focus and timing would be most helpful. This insight honors the card's energy of swift, synchronized movement toward a destination. It encourages the querent to remove obstacles, streamline their process, and allow their creative energy to flow with focused momentum, helping them harness the power of alignment and timing to meet their deadline effectively."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Eight of Wands, examining acceleration, alignment, and focused direction. We've studied the card's imagery of parallel wands flying through the air, representing synchronized movement and the swift progress that comes when energy flows without obstruction toward a clear target. By developing techniques to read intuitively about momentum and alignment, we can gain deeper insights about the power of focused direction, the importance of timing and synchronicity, and the acceleration that occurs when multiple energies move together in harmony.",
+    additionalResources: [
+      {
+        title: "Flow States",
+        description: "Practices for entering and maintaining the experience of aligned, accelerated creativity."
+      },
+      {
+        title: "Synchronicity",
+        description: "Understanding and working with meaningful coincidence and perfect timing."
+      }
+    ]
+  },
+  {
+    id: "intuitive-24",
+    title: "Inner Resilience: Nine of Wands",
+    description: "Explore perseverance, inner strength, and resilient boundaries through the Nine of Wands.",
+    cardId: "w9",
+    sections: [
+      {
+        title: "The Persistent Guardian",
+        content: `
+          <p>The Nine of Wands represents the energy of resilience, perseverance, and the inner strength that comes from weathering challenges. As we develop our intuitive reading skills, this card offers rich insights into the experience of continuing despite difficulty, protecting boundaries with wisdom gained from experience, and drawing on reserves of determination when faced with final tests.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Resilience and perseverance</strong></li>
+            <li><strong>Wisdom gained through challenge</strong></li>
+            <li><strong>Protective boundaries and vigilance</strong></li>
+            <li><strong>Inner reserves of strength</strong></li>
+            <li><strong>The courage to continue despite weariness</strong></li>
+            <li><strong>The final test before completion</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Nine of Wands involves connecting with your experience of persisting through difficulty, the feeling of drawing on inner reserves of strength, and the resilience that emerges when we continue to stand firm despite past wounds or current exhaustion.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Nine of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The wounded or bandaged figure</strong> - Represents experience gained through previous challenges</li>
+            <li><strong>The defensive stance</strong> - Symbolizes vigilance and protection of boundaries</li>
+            <li><strong>The row of eight wands</strong> - Indicates boundaries established from past experience</li>
+            <li><strong>The ninth wand held firmly</strong> - Shows determination and readiness to face final challenges</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Nine of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of resilient determination</strong> in your body</li>
+            <li><strong>Notice where past challenges have created strength</strong> and wisdom</li>
+            <li><strong>Connect with the feeling of protective boundaries</strong> and vigilance</li>
+            <li><strong>Sense the reserves of energy</strong> available despite apparent exhaustion</li>
+            <li><strong>Be aware of the courage to continue</strong> when facing a final test</li>
+          </ol>
+          
+          <p>The Nine of Wands invites us to approach intuitive reading with an appreciation for the power of perseverance, the wisdom gained through challenge, and the resilient strength that emerges when we draw on inner reserves to continue protecting what matters despite difficulty.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Nine of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of resilience or determination immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel perseverance, protective energy, or inner reserves of strength in your body?</li>
+            <li><strong>Boundary sensing</strong>: What wisdom about protection has been gained through experience?</li>
+            <li><strong>Resilience recognition</strong>: What inner resources are available despite apparent weariness?</li>
+            <li><strong>Persistence awareness</strong>: What final test requires continued courage and determination?</li>
+          </ul>
+          
+          <p>Remember that the Nine of Wands represents the phase of determined resilience - the moment when we must draw on inner reserves of strength to persist despite challenges. When reading intuitively, connect with the quality of experienced vigilance, the importance of maintaining protective boundaries, and the courage that emerges when we continue to stand firm even when weary or wounded.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the deep strength of the Nine of Wands?",
+        options: [
+          "Stubborn rigidity and paranoid defensiveness",
+          "Resilient perseverance and experienced vigilance",
+          "Defeated surrender and passive resignation",
+          "Reckless aggression and attacking energy"
+        ],
+        correctAnswer: 1,
+        explanation: "The deep strength of the Nine of Wands is best captured by resilient perseverance and experienced vigilance. This intuitive quality recognizes that the card represents not mere stubborn defensiveness or defeated weariness, but a profound resilience forged through experience. The Nine of Wands embodies the wisdom of protective boundaries combined with the courage to draw on inner reserves of strength to continue standing firm despite challenges - a perseverance informed by past tests and ready to face final obstacles."
+      },
+      {
+        question: "When reading the Nine of Wands intuitively for someone nearing burnout in a meaningful project, which insight offers the most supportive guidance?",
+        options: [
+          "Encouraging them to give up immediately and walk away",
+          "Suggesting they ignore their limits and push harder without boundaries",
+          "Recognizing their inner reserves of strength and the wisdom gained from their journey",
+          "Focusing exclusively on their exhaustion and wounds"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Nine of Wands intuitively for someone nearing burnout in a meaningful project, recognizing their inner reserves of strength and the wisdom gained from their journey offers the most supportive guidance. This insight honors the card's energy of resilient perseverance while acknowledging the real challenges they've faced. It helps the querent recognize that their experience has given them both protective wisdom and hidden reserves of strength, encouraging them to draw on these resources for the final push while maintaining appropriate boundaries."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Nine of Wands, examining perseverance, inner strength, and resilient boundaries. We've studied the card's imagery of a vigilant figure with protective wands, representing the determined guardian who continues to stand firm despite past wounds or current weariness. By developing techniques to read intuitively about resilience and protective boundaries, we can gain deeper insights about the wisdom gained through challenge, the importance of maintaining vigilance based on experience, and the courage to draw on inner reserves of strength when facing final tests on our path.",
+    additionalResources: [
+      {
+        title: "Resilient Boundaries",
+        description: "Practices for establishing protective limits based on wisdom gained through experience."
+      },
+      {
+        title: "Inner Reserves",
+        description: "Techniques for accessing hidden strengths when facing challenges that require perseverance."
+      }
+    ]
+  },
+  {
+    id: "intuitive-25",
+    title: "Burden of Success: Ten of Wands",
+    description: "Explore responsibility, accumulated obligations, and the completion of a cycle through the Ten of Wands.",
+    cardId: "w10",
+    sections: [
+      {
+        title: "The Weight of Accomplishment",
+        content: `
+          <p>The Ten of Wands represents the energy of accumulated responsibility, the burden of success, and the completion of a creative cycle that brings both achievement and overwhelming obligation. As we develop our intuitive reading skills, this card offers rich insights into the experience of carrying too many commitments, the need to reassess priorities, and the final stage of a process before release and renewal.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Responsibility and accumulated obligations</strong></li>
+            <li><strong>The burden that can come with success</strong></li>
+            <li><strong>Overcommitment and carrying too much</strong></li>
+            <li><strong>The need for reassessment and delegation</strong></li>
+            <li><strong>The completion of a cycle before release</strong></li>
+            <li><strong>The wisdom gained through carrying a heavy load</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Ten of Wands involves connecting with your experience of shouldering responsibilities, the feeling of being burdened by accumulated obligations, and the awareness that comes when we recognize we're carrying more than is sustainable.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Ten of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure burdened with ten wands</strong> - Represents accumulated responsibilities and commitments</li>
+            <li><strong>The bent or strained posture</strong> - Symbolizes the weight of obligations and their impact</li>
+            <li><strong>The destination in sight</strong> - Indicates that completion is near despite the current burden</li>
+            <li><strong>The awkward carrying method</strong> - Shows inefficiency and the potential for reassessment</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Ten of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of weight and burden</strong> in your body</li>
+            <li><strong>Notice where carrying too much creates tension</strong> or restriction</li>
+            <li><strong>Connect with the feeling of determination</strong> despite overwhelming responsibility</li>
+            <li><strong>Sense the nearness of completion</strong> and the potential for release</li>
+            <li><strong>Be aware of the need for reassessment</strong> and more sustainable approaches</li>
+          </ol>
+          
+          <p>The Ten of Wands invites us to approach intuitive reading with an awareness of how accumulated responsibilities can become burdensome, the importance of recognizing when we're carrying too much, and the completion that's possible if we continue toward our destination while considering more sustainable ways to manage our obligations.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Ten of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of burden or overwhelming responsibility immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel heaviness, pressure, or the strain of carrying too much in your body?</li>
+            <li><strong>Burden sensing</strong>: What accumulated obligations or commitments have become difficult to sustain?</li>
+            <li><strong>Completion recognition</strong>: How close is the destination or end of this cycle?</li>
+            <li><strong>Reassessment awareness</strong>: What more efficient or sustainable approach might be possible?</li>
+          </ul>
+          
+          <p>Remember that the Ten of Wands represents the final phase of a creative cycle - the moment when success brings accumulated responsibilities that become burdensome. When reading intuitively, connect with the quality of determination to complete what's been started, the wisdom to recognize unsustainable patterns, and the potential for release and renewal once the current cycle is completed.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive insight offers the most constructive understanding of the Ten of Wands energy?",
+        options: [
+          "All responsibility should be immediately abandoned",
+          "Success always brings unbearable suffering",
+          "Recognition of unsustainable patterns creates opportunity for reassessment",
+          "Struggle and burden are the only ways to achieve goals"
+        ],
+        correctAnswer: 2,
+        explanation: "The most constructive understanding of the Ten of Wands energy comes through recognizing that unsustainable patterns create an opportunity for reassessment. This insight acknowledges the card's message about accumulated burdens while highlighting the potential for positive change. Rather than suggesting total abandonment of responsibilities or accepting suffering as inevitable, this perspective recognizes that awareness of overwhelming patterns is the first step toward finding more sustainable approaches to carrying our commitments and completing our cycles."
+      },
+      {
+        question: "When reading the Ten of Wands intuitively for someone experiencing burnout from too many commitments, which approach offers the most helpful guidance?",
+        options: [
+          "Encouraging them to immediately quit everything without consideration",
+          "Suggesting they take on even more responsibilities to prove their worth",
+          "Acknowledging both their determination and the need to reassess priorities",
+          "Focusing exclusively on their suffering without offering perspective"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Ten of Wands intuitively for someone experiencing burnout from too many commitments, acknowledging both their determination and the need to reassess priorities offers the most helpful guidance. This approach honors their dedication and the valid responsibilities they've undertaken while recognizing the unsustainable nature of their current situation. It helps them see that their commitment to completing what they've started can be balanced with wiser management of their energy and obligations, perhaps through delegation, prioritization, or finding more efficient approaches."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Ten of Wands, examining responsibility, accumulated obligations, and the completion of a cycle. We've studied the card's imagery of a figure burdened with too many wands, representing the overwhelming responsibilities that can come with success and achievement. By developing techniques to read intuitively about burden and completion, we can gain deeper insights about recognizing unsustainable patterns, the importance of reassessing priorities when carrying too much, and the potential for release and renewal once we complete the current cycle of obligations.",
+    additionalResources: [
+      {
+        title: "Sustainable Success",
+        description: "Practices for managing responsibilities without becoming overwhelmed by them."
+      },
+      {
+        title: "Completion and Release",
+        description: "Understanding the importance of finishing cycles before beginning new ones."
+      }
+    ]
+  },
+  {
+    id: "intuitive-26",
+    title: "Masterful Authority: King of Wands",
+    description: "Explore charismatic leadership, creative authority, and visionary power through the King of Wands.",
+    cardId: "wk",
+    sections: [
+      {
+        title: "The Creative Leader",
+        content: `
+          <p>The King of Wands represents the mastery of creative authority, passionate leadership, and the power that comes from aligning vision with decisive action. As we develop our intuitive reading skills, this court card offers rich insights into charismatic influence, the embodiment of confident purpose, and the ability to inspire others through visionary leadership and passionate conviction.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Charismatic authority and natural leadership</strong></li>
+            <li><strong>Visionary direction and bold creativity</strong></li>
+            <li><strong>Passionate conviction and decisive action</strong></li>
+            <li><strong>The power of inspired purpose</strong></li>
+            <li><strong>Controlled enthusiasm and directed fire</strong></li>
+            <li><strong>The balance of passion and mature responsibility</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the King of Wands involves connecting with your experience of creative authority, the feeling of aligned purpose and conviction, and the charismatic presence that emerges when passionate vision combines with confident action.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The King of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The throne adorned with lions or salamanders</strong> - Represents mastery of fire energy and natural authority</li>
+            <li><strong>The flowing robe or cloak</strong> - Symbolizes dynamic movement within contained form</li>
+            <li><strong>The firmly held wand or staff</strong> - Indicates directed creative power and decisive vision</li>
+            <li><strong>The outward gaze</strong> - Shows visionary perspective and confident engagement with the world</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the King of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of charismatic presence</strong> in your body</li>
+            <li><strong>Notice the energetic balance of passion and control</strong></li>
+            <li><strong>Connect with the feeling of aligned purpose</strong> and conviction</li>
+            <li><strong>Sense the authority that comes from authenticity</strong> and experience</li>
+            <li><strong>Be aware of the inspiring effect</strong> of confident creative vision</li>
+          </ol>
+          
+          <p>The King of Wands invites us to approach intuitive reading with the confident authority of embodied purpose, the power of aligned creative vision, and the charismatic presence that naturally emerges when passionate conviction combines with mature leadership.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the King of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of charismatic leadership or creative authority immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel confident power, aligned purpose, or inspiring presence in your body?</li>
+            <li><strong>Leadership sensing</strong>: What form of visionary direction or passionate conviction is needed?</li>
+            <li><strong>Authority recognition</strong>: How might authentic creative mastery express itself?</li>
+            <li><strong>Charismatic awareness</strong>: What quality of inspiring presence would serve the situation?</li>
+          </ul>
+          
+          <p>Remember that the King of Wands represents the mature masculine expression of fire energy - directed, purposeful, and charismatically powerful. When reading intuitively, connect with the qualities of visionary leadership, the authority that comes from authentic creative mastery, and the inspiring influence created when passionate conviction aligns with confident action.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the King of Wands' leadership style?",
+        options: [
+          "Cold calculation and emotionless control",
+          "Charismatic vision and passionate inspiration",
+          "Hesitant caution and risk avoidance",
+          "Arbitrary domination and forceful imposition"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the King of Wands' leadership style is best captured by charismatic vision and passionate inspiration. This intuitive quality reflects the card's fundamental energy of creative authority aligned with purpose. Unlike leadership styles based on cold control, hesitant caution, or forceful domination, the King of Wands leads through the natural authority of authentic conviction, inspiring vision, and the charismatic presence that emerges when passionate creativity combines with confident direction."
+      },
+      {
+        question: "When reading the King of Wands intuitively, which approach offers the deepest insight into its mature fire energy?",
+        options: [
+          "Focusing on uncontrolled impulsiveness and scattered enthusiasm",
+          "Emphasizing rigid control and suppression of all passion",
+          "Recognizing the powerful balance of passionate vision with directed action",
+          "Suggesting that all leadership requires aggressive domination"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the King of Wands intuitively, recognizing the powerful balance of passionate vision with directed action offers the deepest insight into its mature fire energy. This approach acknowledges the card's fundamental quality of mastered creative power - neither uncontrolled nor suppressed, but channeled with purpose and authority. It understands that the King of Wands represents fire energy in its most effective form: passionate and inspiring while also focused and directed toward meaningful manifestation."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the King of Wands, examining charismatic leadership, creative authority, and visionary power. We've studied the card's imagery of a confident ruler on a throne adorned with symbols of fire, representing the mastery of creative energy and the natural authority that comes from aligned purpose. By developing techniques to read intuitively about passionate leadership and confident vision, we can gain deeper insights about the power of charismatic presence, the balance of enthusiasm with mature direction, and the inspiring influence created when authentic creative mastery expresses itself through decisive action.",
+    additionalResources: [
+      {
+        title: "Charismatic Presence",
+        description: "Practices for developing the natural authority that comes from aligned purpose and authenticity."
+      },
+      {
+        title: "Visionary Leadership",
+        description: "Understanding how passionate conviction combined with clear direction can inspire and transform."
+      }
+    ]
   }
 ];
 
