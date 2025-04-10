@@ -269,18 +269,8 @@ export default function Learning() {
                         onClick={() => {
                           const trackId = track.id;
                           
-                          // Get the actual lessons for this track
-                          const allLessons = queryClient.getQueryData<any>([`/api/learning/tracks/${trackId}`]);
-                          
-                          // Find the lesson with this cardId
-                          if (allLessons && allLessons.lessons) {
-                            const lesson = allLessons.lessons.find((l: any) => l.cardId === cardId);
-                            if (lesson) {
-                              console.log(`Found lesson with ID: ${lesson.id} for card ${cardId}`);
-                              setLocation(`/learning/${trackId}/${lesson.id}`);
-                              return;
-                            }
-                          }
+                          // Skip directly to generating the lesson ID since allLessons.lessons doesn't exist in the API response
+                          // The correct approach is to use the mapping logic below
                           
                           // Fallback to index-based ID for all tracks, with special handling for intuitive track (ID 10)
                           let lessonId;
