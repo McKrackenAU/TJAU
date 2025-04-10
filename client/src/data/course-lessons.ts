@@ -2356,7 +2356,7 @@ export const intuitiveReadingLessons: LessonContent[] = [
     id: "intuitive-1",
     title: "The Foundations of Intuitive Reading",
     description: "Learn to move beyond memorized meanings into intuitive card interpretation.",
-    cardId: "ace-of-cups",
+    cardId: "c1", // Ace of Cups
     sections: [
       {
         title: "Moving Beyond Memorization",
@@ -2463,7 +2463,7 @@ export const intuitiveReadingLessons: LessonContent[] = [
     id: "intuitive-2",
     title: "Reading with Emotion: The Two of Cups",
     description: "Explore emotional connections and relationships through intuitive card reading.",
-    cardId: "two-of-cups",
+    cardId: "c2", // Two of Cups
     sections: [
       {
         title: "The Emotional Language of Cups",
@@ -2569,7 +2569,7 @@ export const intuitiveReadingLessons: LessonContent[] = [
     id: "intuitive-3",
     title: "Community and Celebration: The Three of Cups",
     description: "Explore group dynamics, celebration, and community through intuitive reading.",
-    cardId: "three-of-cups",
+    cardId: "c3", // Three of Cups
     sections: [
       {
         title: "Expanding the Circle",
@@ -2675,7 +2675,7 @@ export const intuitiveReadingLessons: LessonContent[] = [
     id: "intuitive-4",
     title: "Self-Reflection: The Four of Cups",
     description: "Explore contemplation, dissatisfaction, and new perspectives through intuitive reading.",
-    cardId: "four-of-cups",
+    cardId: "c4", // Four of Cups
     sections: [
       {
         title: "The Pause in the Emotional Journey",
