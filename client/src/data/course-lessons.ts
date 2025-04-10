@@ -4946,6 +4946,108 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Understanding how passionate conviction combined with clear direction can inspire and transform."
       }
     ]
+  },
+  {
+    id: "intuitive-28",
+    title: "Passionate Leadership: Queen of Wands",
+    description: "Explore confident self-expression, creative nurturing, and charismatic leadership through the Queen of Wands.",
+    cardId: "wq",
+    sections: [
+      {
+        title: "The Charismatic Creative",
+        content: `
+          <p>The Queen of Wands represents the mastery of confident self-expression, passionate leadership, and the nurturing of creative potential. As we develop our intuitive reading skills, this court card offers rich insights into charismatic presence, authentic self-expression, and the ability to inspire others through personal magnetism and creative confidence.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Confident self-expression and authenticity</strong></li>
+            <li><strong>Passionate leadership and inspiration</strong></li>
+            <li><strong>Creative nurturing and encouragement</strong></li>
+            <li><strong>Charismatic presence and personal magnetism</strong></li>
+            <li><strong>The balance of warmth and strength</strong></li>
+            <li><strong>Social connection and community building</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Queen of Wands involves connecting with your own experience of confident self-expression, the ability to nurture creativity in yourself and others, and the warmth of authentic presence that naturally draws people together.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Queen of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The throne adorned with lions</strong> - Represents confident leadership and courage</li>
+            <li><strong>The black cat</strong> - Symbolizes intuition and connection to the mysterious</li>
+            <li><strong>The sunflower</strong> - Indicates vitality, warmth, and alignment with purpose</li>
+            <li><strong>The upright wand or staff</strong> - Shows creative power directed with intention</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Queen of Wands, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of confident presence</strong> in your body</li>
+            <li><strong>Notice the warmth and radiance</strong> that naturally attracts others</li>
+            <li><strong>Connect with the energetic quality of enthusiasm</strong> combined with focus</li>
+            <li><strong>Sense how authenticity creates magnetism</strong> and influence</li>
+            <li><strong>Be aware of how creative energy can be channeled</strong> to inspire others</li>
+          </ol>
+          
+          <p>The Queen of Wands invites us to approach intuitive reading with confident authenticity - trusting our unique perspective while maintaining the warmth and openness that creates connection with others.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Queen of Wands appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of confidence or warmth immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel charismatic energy, warmth, or creative power in your body?</li>
+            <li><strong>Leadership sensing</strong>: What form of passionate guidance or inspiration is needed?</li>
+            <li><strong>Creative nurturing</strong>: How might enthusiasm and encouragement foster growth?</li>
+            <li><strong>Authentic presence</strong>: What quality of being fully yourself creates magnetic attraction?</li>
+          </ul>
+          
+          <p>Remember that the Queen of Wands represents the mature feminine expression of fire energy - confident, passionate, and nurturing of creative potential. When reading intuitively, pay attention to the balance of warmth and strength, the quality of authentic self-expression, and the natural magnetism that comes from aligning with your passionate purpose.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Queen of Wands?",
+        options: [
+          "Cautious reserve and controlled expression",
+          "Radiant confidence and warm authenticity",
+          "Cold calculation and strategic manipulation",
+          "Passive receptivity and quiet observation"
+        ],
+        correctAnswer: 1,
+        explanation: "The essence of the Queen of Wands is best captured by radiant confidence and warm authenticity. This intuitive quality reflects the card's fundamental energy of charismatic leadership, passionate self-expression, and the magnetic presence that comes from being genuinely yourself. The Queen of Wands embodies the perfect balance of strength and warmth - confident without being domineering, passionate without being overwhelming."
+      },
+      {
+        question: "When reading the Queen of Wands intuitively, which approach would yield the most insightful understanding?",
+        options: [
+          "Focusing on limitations and potential weaknesses",
+          "Analyzing historical and traditional card meanings",
+          "Connecting with the feeling of confident, warm presence",
+          "Emphasizing caution and careful planning"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Queen of Wands intuitively, connecting with the feeling of confident, warm presence would yield the most insightful understanding. This approach directly accesses the card's essential quality of charismatic leadership and authentic self-expression. By embodying or sensing this quality of radiant confidence balanced with warmth, you can intuitively tap into the Queen of Wands' energy and better understand how it might manifest in the reading situation."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Queen of Wands, examining confident self-expression, creative nurturing, and charismatic leadership. We've studied the card's imagery of a confident figure with symbols of courage, intuition, and vitality. By developing techniques to read intuitively about passionate presence and magnetic authenticity, we can gain deeper insights about charismatic leadership, the balance of warmth and strength, and the power of genuine self-expression to inspire others and create community.",
+    additionalResources: [
+      {
+        title: "Authentic Leadership",
+        description: "Practices for developing confident presence that inspires and encourages others."
+      },
+      {
+        title: "Creative Confidence",
+        description: "Techniques for nurturing and expressing your unique creative voice."
+      }
+    ]
   }
 ];
 
