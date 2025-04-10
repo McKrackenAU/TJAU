@@ -120,27 +120,64 @@ export default function LessonPage() {
     
     // Handle special cases by lesson ID
     if (!currentLesson) {
-      // Try to map Pentacles lessons with the new ID pattern
+      // Enhanced lesson ID mapping for all suits in Intuitive Reading track
       if (lessonId.includes("intuitive-")) {
         const lessonNumber = parseInt(lessonId.replace(/intuitive-/, ""), 10);
         
-        // Pentacles lesson IDs are mapped from 30-43
-        if (lessonNumber >= 30 && lessonNumber <= 43) {
-          const pentaclesIndex = lessonNumber - 30 + 1; // Convert to 1-14 for Pentacles cards
-          
-          // Handle court cards (p11=pp, p12=pn, p13=pk, p14=pq)
-          let pentaclesCardId: string;
-          if (pentaclesIndex <= 10) {
-            // Numeric cards: p1-p10
-            pentaclesCardId = `p${pentaclesIndex}`;
+        // Map lesson number to the corresponding card ID
+        let cardId: string | null = null;
+        
+        // Cups (1-14)
+        if (lessonNumber >= 1 && lessonNumber <= 14) {
+          if (lessonNumber <= 10) {
+            // Numeric cards: c1-c10
+            cardId = `c${lessonNumber}`;
           } else {
-            // Court cards: pp, pn, pk, pq
-            const courtRanks = ["p", "n", "k", "q"];
-            pentaclesCardId = `p${courtRanks[pentaclesIndex - 11]}`;
+            // Court cards: cp, cn, cq, ck
+            const courtRanks = ["p", "n", "q", "k"];
+            cardId = `c${courtRanks[lessonNumber - 11]}`;
           }
-          
-          console.log(`Fallback: Looking for Pentacles card with ID ${pentaclesCardId} from lesson ID ${lessonId}`);
-          currentLesson = lessons.find((l: LessonContent) => l.cardId === pentaclesCardId);
+        } 
+        // Wands (15-28)
+        else if (lessonNumber >= 15 && lessonNumber <= 28) {
+          const wandsNumber = lessonNumber - 14;
+          if (wandsNumber <= 10) {
+            // Numeric cards: w1-w10
+            cardId = `w${wandsNumber}`;
+          } else {
+            // Court cards: wp, wn, wq, wk
+            const courtRanks = ["p", "n", "q", "k"];
+            cardId = `w${courtRanks[wandsNumber - 11]}`;
+          }
+        } 
+        // Pentacles (29-42)
+        else if (lessonNumber >= 29 && lessonNumber <= 42) {
+          const pentaclesNumber = lessonNumber - 28;
+          if (pentaclesNumber <= 10) {
+            // Numeric cards: p1-p10
+            cardId = `p${pentaclesNumber}`;
+          } else {
+            // Court cards: pp, pn, pq, pk
+            const courtRanks = ["p", "n", "q", "k"];
+            cardId = `p${courtRanks[pentaclesNumber - 11]}`;
+          }
+        } 
+        // Swords (43-56)
+        else if (lessonNumber >= 43 && lessonNumber <= 56) {
+          const swordsNumber = lessonNumber - 42;
+          if (swordsNumber <= 10) {
+            // Numeric cards: s1-s10
+            cardId = `s${swordsNumber}`;
+          } else {
+            // Court cards: sp, sn, sq, sk
+            const courtRanks = ["p", "n", "q", "k"];
+            cardId = `s${courtRanks[swordsNumber - 11]}`;
+          }
+        }
+        
+        if (cardId) {
+          console.log(`Fallback: Looking for card with ID ${cardId} from lesson ID ${lessonId}`);
+          currentLesson = lessons.find((l: LessonContent) => l.cardId === cardId);
         }
       }
     }

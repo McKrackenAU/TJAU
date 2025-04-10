@@ -214,11 +214,78 @@ export default function Learning() {
                             }
                           }
                           
-                          // Fallback to index-based ID for all tracks
-                          const lessonId = trackId === 1 ? `beginner-${index + 1}` 
-                            : trackId === 2 ? `minor-${index + 1}`
-                            : trackId === 10 ? `intuitive-${index + 1}`
-                            : `advanced-${index + 1}`;
+                          // Fallback to index-based ID for all tracks, with special handling for intuitive track (ID 10)
+                          let lessonId;
+                          if (trackId === 1) {
+                            lessonId = `beginner-${index + 1}`;
+                          } else if (trackId === 2) {
+                            lessonId = `minor-${index + 1}`;
+                          } else if (trackId === 10) {
+                            // For the Intuitive Reading track, we need to map the card ID to the correct intuitive lesson ID
+                            // First determine the suit
+                            const suitCode = cardId.charAt(0);
+                            // Then the rank (number or court card)
+                            const rank = cardId.substring(1);
+                            
+                            if (suitCode === 'c') {
+                              // Cups are 1-14
+                              if (rank >= '1' && rank <= '10') {
+                                lessonId = `intuitive-${rank}`;
+                              } else if (rank === 'p') {
+                                lessonId = 'intuitive-11'; // Page
+                              } else if (rank === 'n') {
+                                lessonId = 'intuitive-12'; // Knight
+                              } else if (rank === 'q') {
+                                lessonId = 'intuitive-13'; // Queen
+                              } else if (rank === 'k') {
+                                lessonId = 'intuitive-14'; // King
+                              }
+                            } else if (suitCode === 'w') {
+                              // Wands are 15-28
+                              if (rank >= '1' && rank <= '10') {
+                                lessonId = `intuitive-${parseInt(rank) + 14}`; 
+                              } else if (rank === 'p') {
+                                lessonId = 'intuitive-25'; // Page
+                              } else if (rank === 'n') {
+                                lessonId = 'intuitive-26'; // Knight
+                              } else if (rank === 'q') {
+                                lessonId = 'intuitive-27'; // Queen
+                              } else if (rank === 'k') {
+                                lessonId = 'intuitive-28'; // King
+                              }
+                            } else if (suitCode === 'p') {
+                              // Pentacles are 29-42
+                              if (rank >= '1' && rank <= '10') {
+                                lessonId = `intuitive-${parseInt(rank) + 28}`; 
+                              } else if (rank === 'p') {
+                                lessonId = 'intuitive-39'; // Page
+                              } else if (rank === 'n') {
+                                lessonId = 'intuitive-40'; // Knight
+                              } else if (rank === 'q') {
+                                lessonId = 'intuitive-41'; // Queen
+                              } else if (rank === 'k') {
+                                lessonId = 'intuitive-42'; // King
+                              }
+                            } else if (suitCode === 's') {
+                              // Swords are 43-56
+                              if (rank >= '1' && rank <= '10') {
+                                lessonId = `intuitive-${parseInt(rank) + 42}`; 
+                              } else if (rank === 'p') {
+                                lessonId = 'intuitive-53'; // Page
+                              } else if (rank === 'n') {
+                                lessonId = 'intuitive-54'; // Knight
+                              } else if (rank === 'q') {
+                                lessonId = 'intuitive-55'; // Queen
+                              } else if (rank === 'k') {
+                                lessonId = 'intuitive-56'; // King
+                              }
+                            } else {
+                              // Default fallback 
+                              lessonId = `intuitive-${index + 1}`;
+                            }
+                          } else {
+                            lessonId = `advanced-${index + 1}`;
+                          }
                           console.log(`Fallback: Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
                           setLocation(`/learning/${trackId}/${lessonId}`);
                         }}
