@@ -13027,7 +13027,7 @@ export const minorArcanaLessons: LessonContent[] = [
 
 // Knight of Cups lesson for Intuitive Reading
 export const knightOfCups: LessonContent = {
-  id: "intuitive-knight-cups",
+  id: "intuitive-18",
   title: "Emotional Pursuit: Knight of Cups",
   description: "Explore romantic energy, creative action, and emotional pursuit through the Knight of Cups.",
   cardId: "cn",
@@ -13139,7 +13139,7 @@ export const knightOfCups: LessonContent = {
 
 // Knight of Wands lesson for Intuitive Reading
 export const knightOfWands: LessonContent = {
-  id: "intuitive-knight-wands",
+  id: "intuitive-19",
   title: "Dynamic Action: Knight of Wands",
   description: "Explore passionate energy, enthusiastic pursuit, and bold action through the Knight of Wands.",
   cardId: "wn",
@@ -13251,7 +13251,7 @@ export const knightOfWands: LessonContent = {
 
 // Knight of Swords lesson for Intuitive Reading
 export const knightOfSwords: LessonContent = {
-  id: "intuitive-knight-swords",
+  id: "intuitive-29",
   title: "Intellectual Action: Knight of Swords",
   description: "Explore mental clarity, direct communication, and decisive action through the Knight of Swords.",
   cardId: "sn",

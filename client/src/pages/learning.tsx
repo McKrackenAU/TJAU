@@ -56,9 +56,12 @@ export default function Learning() {
       : 0;
 
     const handleContinueLearning = () => {
-      const currentCardId = track.requiredCards[progress?.currentLesson - 1];
-      if (currentCardId) {
-        setLocation(`/library#${currentCardId}`);
+      // If progress exists and has a currentLesson, get the corresponding card
+      if (progress && progress.currentLesson) {
+        const currentCardId = track.requiredCards[progress.currentLesson - 1];
+        if (currentCardId) {
+          setLocation(`/library#${currentCardId}`);
+        }
       }
     };
 
@@ -188,6 +191,21 @@ export default function Learning() {
                         }`}
                         onClick={() => {
                           const trackId = track.id;
+                          
+                          // Get the actual lessons for this track
+                          const allLessons = queryClient.getQueryData<any>([`/api/learning/tracks/${trackId}`]);
+                          
+                          // Find the lesson with this cardId
+                          if (allLessons && allLessons.lessons) {
+                            const lesson = allLessons.lessons.find((l: any) => l.cardId === cardId);
+                            if (lesson) {
+                              console.log(`Found lesson with ID: ${lesson.id} for card ${cardId}`);
+                              setLocation(`/learning/${trackId}/${lesson.id}`);
+                              return;
+                            }
+                          }
+                          
+                          // Fallback to index-based ID if lesson not found
                           const lessonId = trackId === 1 ? `beginner-${index + 1}` 
                             : trackId === 2 ? `minor-${index + 1}`
                             : trackId === 10 ? `intuitive-${index + 1}`
