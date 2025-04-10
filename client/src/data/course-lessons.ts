@@ -7237,9 +7237,9 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-3",
-    title: "The Suit of Swords: Intellect and Challenge",
-    description: "Explore the air element and the mental world of the Swords suit.",
+    id: "intuitive-43",
+    title: "The Sword of Truth: Ace of Swords",
+    description: "Explore clarity, breakthrough insights, and mental power through intuitive reading.",
     cardId: "s1",
     sections: [
       {
