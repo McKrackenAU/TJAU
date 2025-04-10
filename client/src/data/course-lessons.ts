@@ -13362,9 +13362,40 @@ export const knightOfSwords: LessonContent = {
 };
 
 // Map track IDs to their corresponding lesson sets
+// Helper function to extract cards from an array while maintaining order
+function extractLessons(lessons: LessonContent[], stopId: string) {
+  const index = lessons.findIndex(lesson => lesson.id === stopId);
+  if (index === -1) return { extracted: [], remaining: [...lessons] };
+  return {
+    extracted: lessons.slice(0, index),
+    remaining: lessons.slice(index)
+  };
+}
+
+// Create properly ordered Wands section
+const { extracted: preWandsLessons, remaining: wAndAfter } = extractLessons(intuitiveReadingLessons, "intuitive-14"); // Up to Ace of Wands
+const aceToTenWands = wAndAfter.slice(0, 12); // Ace through Ten of Wands
+const pageOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-27")!; // Page of Wands
+const knightOfWandObj = knightOfWands; // Knight of Wands
+const kingOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-26")!; // King of Wands
+const queenOfWands = intuitiveReadingLessons.find(lesson => lesson.id === "intuitive-28")!; // Queen of Wands
+
+// Properly ordered lessons for track 10
+const orderedLessons = [
+  ...preWandsLessons,         // First part of intuitive lessons (Cups)
+  ...aceToTenWands,           // Ace through Ten of Wands
+  pageOfWands,                // Page of Wands
+  knightOfWandObj,            // Knight of Wands
+  kingOfWands,                // King of Wands
+  queenOfWands,               // Queen of Wands
+  knightOfCups,               // Keep other Knight cards
+  knightOfSwords,             // Keep other Knight cards
+  ...intuitivePentaclesLessons // Pentacles lessons
+];
+
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
   2: minorArcanaLessons,      // Minor Arcana Journey
-  10: [...intuitiveReadingLessons, knightOfCups, knightOfWands, knightOfSwords, ...intuitivePentaclesLessons], // Intuitive Reading 
+  10: orderedLessons,         // Intuitive Reading with proper card order
   11: advancedSymbolismLessons // Advanced Symbolism
 };
