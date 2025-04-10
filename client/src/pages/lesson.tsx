@@ -7,7 +7,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
 import { trackLessonMap } from "@/data/course-lessons";
 import { tarotCards } from "@shared/tarot-data";
-import { orderedCards, getOrderedLessonId } from "@/data/ordered-lessons";
 
 // Type assertion to help TypeScript with indexing
 const typedTrackLessonMap: Record<string, LessonContent[]> = trackLessonMap as Record<string, LessonContent[]>;
@@ -79,72 +78,30 @@ export default function LessonPage() {
     
     setLesson(currentLesson);
     
-    // For Intuitive Reading track, use ordered mapping for prev/next
-    if (parseInt(trackId, 10) === 10) {
-      // Find the card ID for the current lesson
-      const currentCardId = currentLesson.cardId;
-      // Find index in ordered array
-      const orderedIndex = orderedCards.indexOf(currentCardId);
+    // Use standard approach with lessons array for all tracks
+    const currentIndex = lessons.findIndex((l: LessonContent) => l.id === lessonId);
+    if (currentIndex > 0) {
+      const prevLessonData = lessons[currentIndex - 1];
+      setPrevLesson(prevLessonData.id);
       
-      if (orderedIndex > 0) {
-        // Get previous card ID
-        const prevCardId = orderedCards[orderedIndex - 1];
-        // Get prev lesson ID from ordered mapping
-        const prevLessonId = getOrderedLessonId(prevCardId);
-        if (prevLessonId) {
-          setPrevLesson(prevLessonId as string);
-        }
-        
-        // Get the prev card name
-        const prevCard = tarotCards.find(card => card.id === prevCardId);
-        setPrevCardName(prevCard?.name || prevCardId);
-      } else {
-        setPrevLesson(null);
-        setPrevCardName(null);
-      }
-      
-      if (orderedIndex < orderedCards.length - 1) {
-        // Get next card ID
-        const nextCardId = orderedCards[orderedIndex + 1];
-        // Get next lesson ID from ordered mapping
-        const nextLessonId = getOrderedLessonId(nextCardId);
-        if (nextLessonId) {
-          setNextLesson(nextLessonId as string);
-        }
-        
-        // Get the next card name
-        const nextCard = tarotCards.find(card => card.id === nextCardId);
-        setNextCardName(nextCard?.name || nextCardId);
-      } else {
-        setNextLesson(null);
-        setNextCardName(null);
-      }
+      // Get the name of the previous card
+      const prevCard = tarotCards.find(card => card.id === prevLessonData.cardId);
+      setPrevCardName(prevCard?.name || prevLessonData.title.split(':')[0].trim());
     } else {
-      // For other tracks, use original approach with lessons array
-      const currentIndex = lessons.findIndex((l: LessonContent) => l.id === lessonId);
-      if (currentIndex > 0) {
-        const prevLessonData = lessons[currentIndex - 1];
-        setPrevLesson(prevLessonData.id);
-        
-        // Get the name of the previous card
-        const prevCard = tarotCards.find(card => card.id === prevLessonData.cardId);
-        setPrevCardName(prevCard?.name || prevLessonData.title.split(':')[0].trim());
-      } else {
-        setPrevLesson(null);
-        setPrevCardName(null);
-      }
+      setPrevLesson(null);
+      setPrevCardName(null);
+    }
+    
+    if (currentIndex < lessons.length - 1) {
+      const nextLessonData = lessons[currentIndex + 1];
+      setNextLesson(nextLessonData.id);
       
-      if (currentIndex < lessons.length - 1) {
-        const nextLessonData = lessons[currentIndex + 1];
-        setNextLesson(nextLessonData.id);
-        
-        // Get the name of the next card
-        const nextCard = tarotCards.find(card => card.id === nextLessonData.cardId);
-        setNextCardName(nextCard?.name || nextLessonData.title.split(':')[0].trim());
-      } else {
-        setNextLesson(null);
-        setNextCardName(null);
-      }
+      // Get the name of the next card
+      const nextCard = tarotCards.find(card => card.id === nextLessonData.cardId);
+      setNextCardName(nextCard?.name || nextLessonData.title.split(':')[0].trim());
+    } else {
+      setNextLesson(null);
+      setNextCardName(null);
     }
   }, [trackId, lessonId, navigate]);
   

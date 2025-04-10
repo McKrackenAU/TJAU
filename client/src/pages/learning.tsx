@@ -137,28 +137,10 @@ export default function Learning() {
                           const currentCardId = track.requiredCards[progress.currentLesson - 1];
                           
                           if (currentCardId) {
-                            // For the Intuitive Reading track, use our ordered mapping
-                            if (trackId === 10) {
-                              import('../data/ordered-lessons').then(({ getOrderedLessonId }) => {
-                                const orderedLessonId = getOrderedLessonId(currentCardId);
-                                
-                                if (orderedLessonId) {
-                                  console.log(`Continue: Using ordered mapping: card ${currentCardId} -> lesson ${orderedLessonId}`);
-                                  setLocation(`/learning/${trackId}/${orderedLessonId}`);
-                                  return;
-                                } else {
-                                  console.log(`Continue: No ordered mapping found for card ${currentCardId}, using fallback`);
-                                  const fallbackLessonId = `intuitive-${progress.currentLesson}`;
-                                  setLocation(`/learning/${trackId}/${fallbackLessonId}`);
-                                }
-                              });
-                              return;
-                            }
-                            
-                            // For other tracks, use original approach
-                            // Fallback to index-based ID for other tracks
+                            // Use standard approach for all tracks - fallback to index-based ID
                             const lessonId = trackId === 1 ? `beginner-${progress.currentLesson}` 
                               : trackId === 2 ? `minor-${progress.currentLesson}`
+                              : trackId === 10 ? `intuitive-${progress.currentLesson}`
                               : `advanced-${progress.currentLesson}`;
                             
                             console.log(`Continue: Navigating to /learning/${trackId}/${lessonId} for card ${currentCardId}`);
@@ -219,25 +201,6 @@ export default function Learning() {
                         onClick={() => {
                           const trackId = track.id;
                           
-                          // For the Intuitive Reading track, use our ordered mapping
-                          if (trackId === 10) {
-                            import('../data/ordered-lessons').then(({ getOrderedLessonId }) => {
-                              const orderedLessonId = getOrderedLessonId(cardId);
-                              
-                              if (orderedLessonId) {
-                                console.log(`Using ordered mapping: card ${cardId} -> lesson ${orderedLessonId}`);
-                                setLocation(`/learning/${trackId}/${orderedLessonId}`);
-                                return;
-                              } else {
-                                console.log(`No ordered mapping found for card ${cardId}, using fallback`);
-                                const fallbackLessonId = `intuitive-${index + 1}`;
-                                setLocation(`/learning/${trackId}/${fallbackLessonId}`);
-                              }
-                            });
-                            return;
-                          }
-                          
-                          // For other tracks, use original approach
                           // Get the actual lessons for this track
                           const allLessons = queryClient.getQueryData<any>([`/api/learning/tracks/${trackId}`]);
                           
@@ -251,9 +214,10 @@ export default function Learning() {
                             }
                           }
                           
-                          // Fallback to index-based ID for other tracks
+                          // Fallback to index-based ID for all tracks
                           const lessonId = trackId === 1 ? `beginner-${index + 1}` 
                             : trackId === 2 ? `minor-${index + 1}`
+                            : trackId === 10 ? `intuitive-${index + 1}`
                             : `advanced-${index + 1}`;
                           console.log(`Fallback: Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
                           setLocation(`/learning/${trackId}/${lessonId}`);
