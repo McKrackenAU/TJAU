@@ -58,6 +58,47 @@ export default function LessonPage() {
     const card = tarotCards.find(c => c.id === cardId);
     return card ? card.name : null;
   };
+  
+  // Helper function to get the card name by suit and number
+  const getCardNameBySuitNumber = (cardId: string): string => {
+    if (!cardId) return "Unknown Card";
+    
+    const suitMap: Record<string, string> = {
+      'c': 'Cups',
+      'w': 'Wands',
+      's': 'Swords',
+      'p': 'Pentacles'
+    };
+    
+    const rankMap: Record<string, string> = {
+      '1': 'Ace',
+      '2': 'Two',
+      '3': 'Three',
+      '4': 'Four',
+      '5': 'Five',
+      '6': 'Six',
+      '7': 'Seven',
+      '8': 'Eight',
+      '9': 'Nine',
+      '10': 'Ten',
+      'p': 'Page',
+      'n': 'Knight',
+      'q': 'Queen',
+      'k': 'King'
+    };
+    
+    // Parse the card ID to get suit and rank
+    if (cardId.length === 2 || cardId.length === 3) {
+      const suit = cardId[0];
+      const rank = cardId.substring(1);
+      
+      if (suitMap[suit] && rankMap[rank]) {
+        return `${rankMap[rank]} of ${suitMap[suit]}`;
+      }
+    }
+    
+    return "Unknown Card";
+  };
 
   // Find the appropriate lesson from our course data
   useEffect(() => {
@@ -77,14 +118,31 @@ export default function LessonPage() {
     // First try to find the lesson by its exact ID
     let currentLesson = lessons.find((l: LessonContent) => l.id === lessonId);
     
-    // If not found, try a fallback for the lesson IDs with specific patterns
-    if (!currentLesson && lessonId.includes("-p")) {
-      // For pentacles lessons with custom IDs
-      const penIndex = parseInt(lessonId.split("-p")[1], 10);
-      // Find the pentacles card at that index (cardId pattern is pX where X is 1-14)
-      const pentaclesCardId = `p${penIndex}`;
-      console.log(`Fallback: Looking for pentacles card with ID ${pentaclesCardId}`);
-      currentLesson = lessons.find((l: LessonContent) => l.cardId === pentaclesCardId);
+    // Handle special cases by lesson ID
+    if (!currentLesson) {
+      // Try to map Pentacles lessons with the new ID pattern
+      if (lessonId.includes("intuitive-")) {
+        const lessonNumber = parseInt(lessonId.replace(/intuitive-/, ""), 10);
+        
+        // Pentacles lesson IDs are mapped from 30-43
+        if (lessonNumber >= 30 && lessonNumber <= 43) {
+          const pentaclesIndex = lessonNumber - 30 + 1; // Convert to 1-14 for Pentacles cards
+          
+          // Handle court cards (p11=pp, p12=pn, p13=pk, p14=pq)
+          let pentaclesCardId: string;
+          if (pentaclesIndex <= 10) {
+            // Numeric cards: p1-p10
+            pentaclesCardId = `p${pentaclesIndex}`;
+          } else {
+            // Court cards: pp, pn, pk, pq
+            const courtRanks = ["p", "n", "k", "q"];
+            pentaclesCardId = `p${courtRanks[pentaclesIndex - 11]}`;
+          }
+          
+          console.log(`Fallback: Looking for Pentacles card with ID ${pentaclesCardId} from lesson ID ${lessonId}`);
+          currentLesson = lessons.find((l: LessonContent) => l.cardId === pentaclesCardId);
+        }
+      }
     }
     
     // If still not found, redirect back to learning page
@@ -105,9 +163,13 @@ export default function LessonPage() {
       const prevLessonData = lessons[currentIndex - 1];
       setPrevLesson(prevLessonData.id);
       
-      // Get the name of the previous card
+      // Get the name of the previous card - try multiple methods to get a good name
       const prevCard = tarotCards.find(card => card.id === prevLessonData.cardId);
-      setPrevCardName(prevCard?.name || getCardName(prevLessonData.cardId) || prevLessonData.title.split(':')[0].trim());
+      setPrevCardName(
+        prevCard?.name || 
+        getCardNameBySuitNumber(prevLessonData.cardId) || 
+        prevLessonData.title.split(':')[0].trim()
+      );
     } else {
       setPrevLesson(null);
       setPrevCardName(null);
@@ -117,9 +179,13 @@ export default function LessonPage() {
       const nextLessonData = lessons[currentIndex + 1];
       setNextLesson(nextLessonData.id);
       
-      // Get the name of the next card
+      // Get the name of the next card - try multiple methods to get a good name
       const nextCard = tarotCards.find(card => card.id === nextLessonData.cardId);
-      setNextCardName(nextCard?.name || getCardName(nextLessonData.cardId) || nextLessonData.title.split(':')[0].trim());
+      setNextCardName(
+        nextCard?.name || 
+        getCardNameBySuitNumber(nextLessonData.cardId) || 
+        nextLessonData.title.split(':')[0].trim()
+      );
     } else {
       setNextLesson(null);
       setNextCardName(null);

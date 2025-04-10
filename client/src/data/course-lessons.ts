@@ -13386,18 +13386,67 @@ const orderedLessons = (() => {
   // but we don't have the full Swords set yet
   lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-29' };
   
-  // Create proper lesson IDs for pentacles
-  // These IDs are sequential starting from intuitive-30 for Ace of Pentacles
-  const pentaclesCardOrder = [
-    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq'
-  ];
+  // Define proper numeric IDs for our cards
+  // These IDs provide consistent, non-overlapping ranges for each suit
+  const cardIdMappings = {
+    // Cups cards: 1-14
+    'c1': 'intuitive-1',
+    'c2': 'intuitive-2',
+    'c3': 'intuitive-3',
+    'c4': 'intuitive-4',
+    'c5': 'intuitive-5',
+    'c6': 'intuitive-6',
+    'c7': 'intuitive-7',
+    'c8': 'intuitive-8',
+    'c9': 'intuitive-9',
+    'c10': 'intuitive-10',
+    'cp': 'intuitive-11',
+    'cn': 'intuitive-18', // Knight of Cups
+    'ck': 'intuitive-12',
+    'cq': 'intuitive-13',
+    
+    // Wands cards: 14-27
+    'w1': 'intuitive-14',
+    'w2': 'intuitive-15',
+    'w3': 'intuitive-16',
+    'w4': 'intuitive-17',
+    'w5': 'intuitive-20',
+    'w6': 'intuitive-21',
+    'w7': 'intuitive-22',
+    'w8': 'intuitive-23',
+    'w9': 'intuitive-24',
+    'w10': 'intuitive-25',
+    'wp': 'intuitive-27',
+    'wn': 'intuitive-19', // Knight of Wands
+    'wk': 'intuitive-26',
+    'wq': 'intuitive-28',
+    
+    // Swords cards: 28-41 (only Knight available now)
+    'sn': 'intuitive-29', // Knight of Swords
+    
+    // Pentacles cards: 42-55 (use explicit IDs starting at 30)
+    'p1': 'intuitive-30',
+    'p2': 'intuitive-31',
+    'p3': 'intuitive-32',
+    'p4': 'intuitive-33',
+    'p5': 'intuitive-34',
+    'p6': 'intuitive-35',
+    'p7': 'intuitive-36',
+    'p8': 'intuitive-37',
+    'p9': 'intuitive-38',
+    'p10': 'intuitive-39',
+    'pp': 'intuitive-40',
+    'pn': 'intuitive-41',
+    'pk': 'intuitive-42',
+    'pq': 'intuitive-43'
+  };
   
-  // Ensure all pentacles cards have unique IDs to avoid navigation issues
-  pentaclesCardOrder.forEach((cardId, index) => {
+  // Ensure all cards have their proper IDs to avoid navigation issues
+  Object.entries(cardIdMappings).forEach(([cardId, lessonId]) => {
     if (lessonMap[cardId]) {
       lessonMap[cardId] = {
         ...lessonMap[cardId],
-        id: `intuitive-p${index + 1}` // p1, p2, etc. instead of 30, 31, etc.
+        id: lessonId
       };
     }
   });
