@@ -13384,6 +13384,23 @@ const orderedLessons = (() => {
   // Knight of Swords is now added back to the lesson map
   lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
   
+  // Find all Swords lessons in the course and add them to the map
+  // This ensures the Swords cards are available in the intuitive reading track
+  const allLessons = [
+    ...beginnerLessons,
+    ...minorArcanaLessons,
+    ...intuitiveReadingLessons,
+    ...intuitivePentaclesLessons,
+    ...advancedSymbolismLessons
+  ];
+  
+  // Look for Swords cards (s1, s2, etc.) and add them to the map
+  for (const lesson of allLessons) {
+    if (lesson.cardId.startsWith('s') && !lessonMap[lesson.cardId]) {
+      lessonMap[lesson.cardId] = lesson;
+    }
+  }
+  
   // Define proper numeric IDs for our cards - Reorganized to follow the order:
   // Cups, Wands, Pentacles, Swords with each suit going from Ace through King
   const cardIdMappings = {
