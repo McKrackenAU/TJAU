@@ -13401,6 +13401,38 @@ const orderedLessons = (() => {
     }
   }
   
+  // Explicitly map Swords cards with their expected IDs
+  // This is to ensure all the Swords cards are available with correct IDs
+  // The order is crucial for proper navigation
+  const swordsCardMappings = {
+    's1': 'intuitive-43', // Ace of Swords
+    's2': 'intuitive-44', // Two of Swords
+    's3': 'intuitive-45', // Three of Swords
+    's4': 'intuitive-46', // Four of Swords
+    's5': 'intuitive-47', // Five of Swords
+    's6': 'intuitive-48', // Six of Swords
+    's7': 'intuitive-49', // Seven of Swords
+    's8': 'intuitive-50', // Eight of Swords
+    's9': 'intuitive-51', // Nine of Swords
+    's10': 'intuitive-52', // Ten of Swords
+    'sp': 'intuitive-53', // Page of Swords
+    'sn': 'intuitive-54', // Knight of Swords
+    'sq': 'intuitive-55', // Queen of Swords
+    'sk': 'intuitive-56'  // King of Swords
+  };
+  
+  // Find all lessons with Swords cards and map them correctly
+  for (const lesson of allLessons) {
+    const cardId = lesson.cardId;
+    if (cardId.startsWith('s') && swordsCardMappings[cardId]) {
+      // Set the correct ID for the Swords card
+      lessonMap[cardId] = {
+        ...lesson,
+        id: swordsCardMappings[cardId]
+      };
+    }
+  }
+  
   // Define proper numeric IDs for our cards - Reorganized to follow the order:
   // Cups, Wands, Pentacles, Swords with each suit going from Ace through King
   const cardIdMappings = {
