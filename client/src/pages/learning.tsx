@@ -205,13 +205,43 @@ export default function Learning() {
                             }
                           }
                           
-                          // Fallback to index-based ID if lesson not found
-                          const lessonId = trackId === 1 ? `beginner-${index + 1}` 
-                            : trackId === 2 ? `minor-${index + 1}`
-                            : trackId === 10 ? `intuitive-${index + 1}`
-                            : `advanced-${index + 1}`;
-                          console.log(`Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
-                          setLocation(`/learning/${trackId}/${lessonId}`);
+                          // Fallback using the trackLessonMap from course-lessons.ts
+                          const lessons = queryClient.getQueryCache().getAll()
+                            .filter(q => q.queryKey[0] === `/api/learning/tracks/${trackId}`)
+                            .map(q => q.state.data);
+                            
+                          if (lessons.length > 0) {
+                            // Look up the lesson in trackLessonMap to find the correct ID
+                            import('../data/course-lessons').then(({ trackLessonMap }) => {
+                              if (trackLessonMap[trackId]) {
+                                const foundLesson = trackLessonMap[trackId].find(
+                                  (l: any) => l.cardId === cardId
+                                );
+                                
+                                if (foundLesson) {
+                                  console.log(`Found lesson ${foundLesson.id} for card ${cardId} in trackLessonMap`);
+                                  setLocation(`/learning/${trackId}/${foundLesson.id}`);
+                                  return;
+                                }
+                              }
+                              
+                              // If still not found, fallback to index-based ID
+                              const lessonId = trackId === 1 ? `beginner-${index + 1}` 
+                                : trackId === 2 ? `minor-${index + 1}`
+                                : trackId === 10 ? `intuitive-${index + 1}`
+                                : `advanced-${index + 1}`;
+                              console.log(`Fallback: Navigating to /learning/${trackId}/${lessonId} for card ${cardId}`);
+                              setLocation(`/learning/${trackId}/${lessonId}`);
+                            });
+                          } else {
+                            // If still no data, use index-based fallback
+                            const lessonId = trackId === 1 ? `beginner-${index + 1}` 
+                              : trackId === 2 ? `minor-${index + 1}`
+                              : trackId === 10 ? `intuitive-${index + 1}`
+                              : `advanced-${index + 1}`;
+                            console.log(`No lessons data, fallback to /learning/${trackId}/${lessonId} for card ${cardId}`);
+                            setLocation(`/learning/${trackId}/${lessonId}`);
+                          }
                         }}
                       >
                         <div className="flex flex-col items-center text-center">
