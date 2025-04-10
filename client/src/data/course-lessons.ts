@@ -8608,7 +8608,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-15",
+    id: "intuitive-46",
     title: "The Four of Swords: Rest and Recovery",
     description: "Explore the restorative energy of rest, recovery, and mental renewal in the Four of Swords.",
     cardId: "s4",
@@ -9304,7 +9304,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-23",
+    id: "intuitive-48",
     title: "The Six of Swords: Transition and Healing",
     description: "Explore the transitional journey from troubled waters to calmer shores in the Six of Swords.",
     cardId: "s6",
@@ -9768,7 +9768,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-27",
+    id: "intuitive-49",
     title: "The Seven of Swords: Strategy and Ethics",
     description: "Explore the complex terrain of mental strategy, stealth, and ethical considerations in the Seven of Swords.",
     cardId: "s7",
@@ -10000,7 +10000,7 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-19",
+    id: "intuitive-47",
     title: "The Five of Swords: Conflict and Perspective",
     description: "Examine the complex dynamics of conflict, victory at a cost, and differing perspectives in the Five of Swords.",
     cardId: "s5",
@@ -10470,7 +10470,7 @@ export const minorArcanaLessons: LessonContent[] = [
 
   // EIGHT OF SWORDS
   {
-    id: "minor-31",
+    id: "intuitive-50",
     title: "The Eight of Swords: Mental Restriction and Freedom",
     description: "Explore the dynamics of self-limitation, mental traps, and the path to liberation in the Eight of Swords.",
     cardId: "s8",
