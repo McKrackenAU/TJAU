@@ -2781,7 +2781,7 @@ export const intuitiveReadingLessons: LessonContent[] = [
     id: "intuitive-5",
     title: "Loss and Perspective: The Five of Cups",
     description: "Explore grief, loss, and finding hope through intuitive tarot reading.",
-    cardId: "five-of-cups",
+    cardId: "c5", // Five of Cups
     sections: [
       {
         title: "Navigating Emotional Challenge",
