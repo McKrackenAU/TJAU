@@ -5051,6 +5051,1438 @@ export const intuitiveReadingLessons: LessonContent[] = [
   }
 ];
 
+// INTUITIVE PENTACLES LESSONS
+export const intuitivePentaclesLessons: LessonContent[] = [
+  {
+    id: "intuitive-p1",
+    title: "Material Beginnings: Ace of Pentacles",
+    description: "Explore new opportunities, prosperity, and grounded potential through the Ace of Pentacles.",
+    cardId: "p1",
+    sections: [
+      {
+        title: "The Seed of Manifestation",
+        content: `
+          <p>The Ace of Pentacles represents the initial seed of material manifestation - the gift of opportunity, prosperity, and grounded potential. As we develop our intuitive reading skills, this card offers rich insights into the beginning of tangible creation, the promise of resources, and the foundation of physical well-being.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>New opportunities in the material world</strong></li>
+            <li><strong>The seedling of prosperity and abundance</strong></li>
+            <li><strong>Grounded potential and practical beginnings</strong></li>
+            <li><strong>The body's wisdom and physical well-being</strong></li>
+            <li><strong>The connection between spiritual and material realms</strong></li>
+            <li><strong>The foundation of security and resources</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Ace of Pentacles involves connecting with your embodied sense of opportunity, the feeling of being offered something valuable and tangible, and the grounded potential that comes with new material beginnings.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Ace of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The hand emerging from the cloud</strong> - Represents divine gifts and opportunities from the universe</li>
+            <li><strong>The pentacle or coin</strong> - Symbolizes material resources, prosperity, and earth energy</li>
+            <li><strong>The garden or lush landscape</strong> - Indicates fertility, cultivation, and natural abundance</li>
+            <li><strong>The pathway</strong> - Shows the journey toward manifestation and growth</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Ace of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of grounded potential</strong> in your body</li>
+            <li><strong>Notice where you sense solidity or substance</strong> in relation to new beginnings</li>
+            <li><strong>Connect with the feeling of receiving a tangible gift</strong> or opportunity</li>
+            <li><strong>Sense the embodied wisdom</strong> of what wants to manifest</li>
+            <li><strong>Be aware of the connection between spiritual clarity</strong> and material expression</li>
+          </ol>
+          
+          <p>The Ace of Pentacles invites us to approach intuitive reading through embodied awareness - recognizing how new opportunities feel in our physical being, and connecting with the grounded wisdom that guides practical manifestation.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Ace of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of practical opportunity or material beginning immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel stability, groundedness, or the excitement of new potential in your body?</li>
+            <li><strong>Resource sensing</strong>: What valuable gift or resource is being offered?</li>
+            <li><strong>Manifestation awareness</strong>: What wants to take form in the physical world?</li>
+            <li><strong>Earth connection</strong>: What relationship with the material realm is being initiated?</li>
+          </ul>
+          
+          <p>Remember that the Ace of Pentacles represents the pure essence of earth energy - the beginning of manifestation before it takes specific form. When reading intuitively, connect with the tangible promise of new beginnings, the gift of opportunity that has real-world potential, and the solid foundation from which material growth can develop.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most helpful when connecting with the Ace of Pentacles energy?",
+        options: [
+          "Airy detachment from physical concerns",
+          "Passionate intensity and immediate action",
+          "Grounded receptivity to tangible opportunity",
+          "Emotional resistance to material matters"
+        ],
+        correctAnswer: 2,
+        explanation: "When connecting with the Ace of Pentacles energy, grounded receptivity to tangible opportunity is the most helpful intuitive quality. This approach aligns with the card's fundamental essence of earth energy and material beginnings. The Ace of Pentacles invites us to be open to receiving practical gifts and opportunities while maintaining a grounded connection to physical reality - sensing potential through embodied awareness rather than detachment, impulsiveness, or resistance."
+      },
+      {
+        question: "When reading the Ace of Pentacles intuitively, which perspective offers the most insightful understanding?",
+        options: [
+          "Focusing exclusively on financial gain",
+          "Dismissing material concerns as unspiritual",
+          "Recognizing the sacred nature of manifestation in the physical world",
+          "Emphasizing immediate results over process"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Ace of Pentacles intuitively, recognizing the sacred nature of manifestation in the physical world offers the most insightful understanding. This perspective honors the card's representation of the connection between spiritual and material realms - understanding that tangible creation is a sacred process of bringing energy into form. It embraces the holistic nature of prosperity beyond just financial gain, and respects the gradual unfolding of potential rather than demanding immediate results."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Ace of Pentacles, examining material beginnings, prosperity, and grounded potential. We've studied the card's imagery of a divine hand offering a pentacle in a flourishing garden, representing the gift of opportunity and the seed of manifestation. By developing techniques to read intuitively about tangible beginnings and embodied wisdom, we can gain deeper insights about new opportunities, the foundation of prosperity, and the sacred connection between spiritual energy and material expression.",
+    additionalResources: [
+      {
+        title: "Embodied Intuition",
+        description: "Practices for developing intuitive awareness through physical sensations and body wisdom."
+      },
+      {
+        title: "Sacred Prosperity",
+        description: "Understanding the spiritual dimensions of material abundance and manifestation."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p2",
+    title: "Balanced Exchange: Two of Pentacles",
+    description: "Explore adaptability, resource management, and dynamic balance through the Two of Pentacles.",
+    cardId: "p2",
+    sections: [
+      {
+        title: "The Dance of Resources",
+        content: `
+          <p>The Two of Pentacles represents the dynamic dance of balancing resources, adapting to changing circumstances, and maintaining flexibility amidst the flow of material demands. As we develop our intuitive reading skills, this card offers rich insights into juggling priorities, managing resources with adaptability, and finding equilibrium through motion rather than stillness.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Dynamic balance and flexible adaptation</strong></li>
+            <li><strong>Juggling multiple responsibilities or resources</strong></li>
+            <li><strong>The rhythmic flow of giving and receiving</strong></li>
+            <li><strong>Maintaining equilibrium during change</strong></li>
+            <li><strong>Prioritizing with awareness and flexibility</strong></li>
+            <li><strong>The playful aspect of material management</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Two of Pentacles involves connecting with your experience of maintaining balance through movement, the feeling of skillfully responding to changing demands, and the embodied wisdom of rhythmic adaptation.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Two of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure juggling or dancing</strong> - Represents skillful adaptability and dynamic movement</li>
+            <li><strong>The infinity symbol connecting the pentacles</strong> - Symbolizes the continuous flow of resources and endless exchange</li>
+            <li><strong>The ships on waves in the background</strong> - Indicates navigation of changing circumstances and rhythmic fluctuations</li>
+            <li><strong>The multicolored clothing</strong> - Shows versatility and the blending of different aspects of life</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Two of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of rhythmic movement</strong> in your body</li>
+            <li><strong>Notice where adaptability creates grace</strong> rather than strain</li>
+            <li><strong>Connect with the feeling of playful coordination</strong> amid multiple demands</li>
+            <li><strong>Sense the dance of prioritization</strong> and flexible response</li>
+            <li><strong>Be aware of how balance comes through movement</strong> rather than rigidity</li>
+          </ol>
+          
+          <p>The Two of Pentacles invites us to approach intuitive reading with awareness of dynamic balance - recognizing the skillful dance of adaptation, the rhythm of exchange, and the flexible coordination that allows us to respond to changing material circumstances with grace.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Two of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of movement, rhythm, or juggling immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel the dance of balance, coordination, or flexible adaptation in your body?</li>
+            <li><strong>Flow sensing</strong>: What resources or responsibilities are in dynamic exchange?</li>
+            <li><strong>Rhythm recognition</strong>: What pattern of giving and receiving is creating balance?</li>
+            <li><strong>Adaptability awareness</strong>: How is flexible response creating harmony amid change?</li>
+          </ul>
+          
+          <p>Remember that the Two of Pentacles represents the dynamic beginning of material management - finding equilibrium not through stillness but through skillful movement. When reading intuitively, connect with the qualities of adaptability, prioritization through awareness, and the dance of balancing multiple concerns with grace and even enjoyment.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Two of Pentacles?",
+        options: [
+          "Rigid control and fixed structure",
+          "Overwhelm and chaos from too many demands",
+          "Rhythmic adaptability and dynamic balance",
+          "Complete surrender to external forces"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Two of Pentacles is best captured by rhythmic adaptability and dynamic balance. This intuitive quality reflects the card's fundamental energy of maintaining equilibrium through movement rather than rigidity. Unlike rigid control, overwhelm, or surrender, the Two of Pentacles embodies skillful coordination and flexible response - the ability to dance with changing circumstances while maintaining a sense of balance through rhythmic adaptation."
+      },
+      {
+        question: "When reading the Two of Pentacles intuitively, which approach would yield the most helpful insights?",
+        options: [
+          "Focusing on the need to eliminate responsibilities",
+          "Emphasizing rigid scheduling and fixed plans",
+          "Connecting with the feeling of rhythmic coordination and flexible prioritization",
+          "Suggesting complete delegation of all tasks"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Two of Pentacles intuitively, connecting with the feeling of rhythmic coordination and flexible prioritization would yield the most helpful insights. This approach honors the card's essential quality of dynamic balance through skillful adaptation. Rather than eliminating responsibilities, imposing rigid structure, or completely delegating everything, this perspective recognizes the dance of juggling multiple concerns with grace, awareness, and the ability to shift priorities as circumstances change."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Two of Pentacles, examining adaptability, resource management, and dynamic balance. We've studied the card's imagery of a figure juggling pentacles connected by an infinity symbol, representing the continuous flow of exchange and the dance of managing multiple priorities. By developing techniques to read intuitively about rhythmic balance and flexible coordination, we can gain deeper insights about navigating changing circumstances, juggling responsibilities with grace, and finding equilibrium through movement rather than rigidity.",
+    additionalResources: [
+      {
+        title: "Dynamic Balance",
+        description: "Practices for maintaining equilibrium through flexibility rather than fixed positioning."
+      },
+      {
+        title: "Resource Choreography",
+        description: "Understanding the rhythmic patterns of giving and receiving in material management."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p3",
+    title: "Skilled Craftsmanship: Three of Pentacles",
+    description: "Explore collaboration, mastery, and the foundations of expertise through the Three of Pentacles.",
+    cardId: "p3",
+    sections: [
+      {
+        title: "The Apprentice Master",
+        content: `
+          <p>The Three of Pentacles represents the development of skill through collaborative effort, the recognition of expertise, and the solid foundation of learning that creates quality work. As we develop our intuitive reading skills, this card offers rich insights into the process of mastery, the value of teamwork, and the satisfaction that comes from applying knowledge to create something of lasting value.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Skill development and craftsmanship</strong></li>
+            <li><strong>Collaboration and teamwork</strong></li>
+            <li><strong>Recognition of expertise and contribution</strong></li>
+            <li><strong>The foundation of quality and excellence</strong></li>
+            <li><strong>The integration of planning and implementation</strong></li>
+            <li><strong>Learning through practical application</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Three of Pentacles involves connecting with your experience of developing mastery, the feeling of valuable collaboration, and the solid satisfaction that comes from creating work with integrity and skill.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Three of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The craftsperson/apprentice at work</strong> - Represents developing skill and hands-on expertise</li>
+            <li><strong>The monks or advisors with plans</strong> - Symbolize collaboration, guidance, and recognition</li>
+            <li><strong>The cathedral or stone structure</strong> - Indicates creation of lasting value and solid foundations</li>
+            <li><strong>The pentacles in the archway</strong> - Shows the integration of spiritual principles with material creation</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Three of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of focused craftsmanship</strong> in your body</li>
+            <li><strong>Notice where skill development creates confidence</strong> and satisfaction</li>
+            <li><strong>Connect with the feeling of collaborative synergy</strong> and shared purpose</li>
+            <li><strong>Sense the solid foundation</strong> that comes from learning and application</li>
+            <li><strong>Be aware of the recognition</strong> that validates expertise and contribution</li>
+          </ol>
+          
+          <p>The Three of Pentacles invites us to approach intuitive reading with appreciation for the process of mastery - recognizing the value of skill development, the power of collaboration, and the satisfaction that comes from creating work with integrity and excellence.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Three of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of craftsmanship, collaboration, or recognition immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel the focus, skill development, or satisfaction of quality work in your body?</li>
+            <li><strong>Mastery sensing</strong>: What expertise or capability is being developed or recognized?</li>
+            <li><strong>Collaboration awareness</strong>: What combination of perspectives or skills creates greater value?</li>
+            <li><strong>Foundation recognition</strong>: What solid learning or practice is supporting growth?</li>
+          </ul>
+          
+          <p>Remember that the Three of Pentacles represents the development stage of material creation - the point where learning combines with application to create something of quality. When reading intuitively, connect with the satisfaction of developing expertise, the value of collaborative effort, and the solid foundation that comes from dedicated practice and recognition.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Three of Pentacles?",
+        options: [
+          "Isolated genius working alone",
+          "Cutting corners for quick results",
+          "Dedicated craftsmanship and collaborative excellence",
+          "Competition for individual recognition"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Three of Pentacles is best captured by dedicated craftsmanship and collaborative excellence. This intuitive quality reflects the card's fundamental energy of skill development, teamwork, and creating work of lasting value. Unlike isolated effort, rushed production, or competitive dynamics, the Three of Pentacles embodies the integration of learning with application, the power of combining different perspectives, and the satisfaction that comes from building something of quality through shared expertise."
+      },
+      {
+        question: "When reading the Three of Pentacles intuitively, which insight offers the most valuable perspective?",
+        options: [
+          "True mastery requires working completely independently",
+          "Recognition from others diminishes personal achievement",
+          "Quality foundations require both skill development and collaborative input",
+          "Planning should always be kept separate from implementation"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Three of Pentacles intuitively, the insight that quality foundations require both skill development and collaborative input offers the most valuable perspective. This understanding honors the card's essential message about the integration of personal expertise with external guidance and recognition. It acknowledges that mastery develops through both dedicated practice and the valuable feedback and contributions of others, creating work that has integrity, quality, and lasting value."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Three of Pentacles, examining collaboration, mastery, and the foundations of expertise. We've studied the card's imagery of a craftsperson working on a cathedral with guidance from others, representing the development of skill through practice and collaborative effort. By developing techniques to read intuitively about craftsmanship and teamwork, we can gain deeper insights about the process of building expertise, the value of combining different perspectives, and the satisfaction that comes from creating work of quality and integrity.",
+    additionalResources: [
+      {
+        title: "The Apprentice Path",
+        description: "Understanding the stages of mastery development from novice to expert."
+      },
+      {
+        title: "Collaborative Creation",
+        description: "Practices for integrating different perspectives and skills in shared endeavors."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p4",
+    title: "Foundational Security: Four of Pentacles",
+    description: "Explore stability, conservation, and the relationship with resources through the Four of Pentacles.",
+    cardId: "p4",
+    sections: [
+      {
+        title: "The Guardian of Resources",
+        content: `
+          <p>The Four of Pentacles represents our relationship with material security - the conservation of resources, establishment of foundations, and the complex balance between prudent stability and potential limitation. As we develop our intuitive reading skills, this card offers rich insights into our attachment to security, the foundations of material well-being, and the psychological dimensions of how we hold and protect what we value.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Financial and material security</strong></li>
+            <li><strong>The conservation and protection of resources</strong></li>
+            <li><strong>The foundations of stability and structure</strong></li>
+            <li><strong>Attachment and the fear of loss</strong></li>
+            <li><strong>The balance between prudence and limitation</strong></li>
+            <li><strong>Control and our relationship with having enough</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Four of Pentacles involves connecting with your experience of seeking security, the feeling of establishing stable foundations, and the nuanced awareness of when protection becomes limitation.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Four of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure holding the pentacle tightly</strong> - Represents attachment to resources and protection of what's valued</li>
+            <li><strong>The crown pentacle</strong> - Symbolizes thoughts focused on material security and control</li>
+            <li><strong>The pentacles under the feet</strong> - Indicates the foundation of stability and grounded security</li>
+            <li><strong>The city in the background</strong> - Shows the established structures of security in the material world</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Four of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of stability and security</strong> in your body</li>
+            <li><strong>Notice where holding creates safety</strong> and where it might create tension</li>
+            <li><strong>Connect with the feeling of having enough</strong> and the fear of loss</li>
+            <li><strong>Sense the foundations that provide structure</strong> and support</li>
+            <li><strong>Be aware of the balance between protection</strong> and potential restriction</li>
+          </ol>
+          
+          <p>The Four of Pentacles invites us to approach intuitive reading with awareness of our relationship with material security - recognizing the value of stable foundations while maintaining insight into when protection becomes limitation.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Four of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of security, stability, or conservation immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel holding, grounding, or the tension of protection in your body?</li>
+            <li><strong>Security sensing</strong>: What resources or values are being protected or conserved?</li>
+            <li><strong>Foundation awareness</strong>: What stable structures are creating support?</li>
+            <li><strong>Attachment recognition</strong>: What relationship with having enough is being expressed?</li>
+          </ul>
+          
+          <p>Remember that the Four of Pentacles represents our complex relationship with material security - neither inherently positive nor negative, but a reflection of how we establish stability and define sufficiency. When reading intuitively, connect with the nuanced balance between prudent protection and potential limitation, the foundations that provide necessary structure, and the psychological dimensions of how we hold what we value.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive approach offers the most balanced understanding of the Four of Pentacles?",
+        options: [
+          "Viewing all conservation as unhealthy hoarding",
+          "Seeing only the positive aspects of security without limitation",
+          "Recognizing both the wisdom of stability and the potential for restriction",
+          "Focusing exclusively on financial interpretation"
+        ],
+        correctAnswer: 2,
+        explanation: "The most balanced understanding of the Four of Pentacles comes through recognizing both the wisdom of stability and the potential for restriction. This intuitive approach honors the card's complex message about our relationship with material security. Rather than judging all conservation negatively, seeing only positive aspects, or limiting interpretation to finances alone, this perspective acknowledges the necessary foundations security provides while maintaining awareness of when protective holding might become limiting."
+      },
+      {
+        question: "When reading the Four of Pentacles intuitively, which body awareness might offer the deepest insight?",
+        options: [
+          "Ignoring all physical sensations",
+          "Noticing where you feel both grounding stability and potential tension from holding",
+          "Focusing only on negative constriction",
+          "Paying attention exclusively to the head and thoughts"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Four of Pentacles intuitively, noticing where you feel both grounding stability and potential tension from holding offers the deepest insight. This body awareness connects with the card's nuanced energy - recognizing the physical experience of security and foundation that serves us, alongside the potential tension that can emerge when protective holding becomes too rigid. This balanced awareness helps reveal the most helpful relationship with security in any situation."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Four of Pentacles, examining stability, conservation, and our relationship with resources. We've studied the card's imagery of a figure holding pentacles carefully, representing the establishment of material security and the protection of what we value. By developing techniques to read intuitively about foundational stability and resource conservation, we can gain deeper insights about the balance between prudent protection and potential limitation, the psychological dimensions of security, and the foundations that provide necessary structure in our material lives.",
+    additionalResources: [
+      {
+        title: "Security Psychology",
+        description: "Understanding the emotional dimensions of our relationship with having enough."
+      },
+      {
+        title: "Balanced Conservation",
+        description: "Practices for maintaining stability while avoiding unnecessary restriction."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p5",
+    title: "Material Challenge: Five of Pentacles",
+    description: "Explore hardship, exclusion, and finding support through the Five of Pentacles.",
+    cardId: "p5",
+    sections: [
+      {
+        title: "The Outsider Experience",
+        content: `
+          <p>The Five of Pentacles represents the experience of material hardship, feelings of exclusion, and the unseen support that may be available during challenging times. As we develop our intuitive reading skills, this card offers rich insights into financial difficulty, health challenges, the psychological impact of lack, and the resources that might be overlooked when we feel isolated in our struggles.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Material hardship and scarcity</strong></li>
+            <li><strong>Feelings of exclusion and being left out in the cold</strong></li>
+            <li><strong>The overlooked resources that might offer support</strong></li>
+            <li><strong>Health challenges and physical vulnerability</strong></li>
+            <li><strong>Faith and spiritual connection during difficult times</strong></li>
+            <li><strong>The potential for community and assistance</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Five of Pentacles involves connecting with your experience of material challenge, the feeling of being excluded or overlooked, and the awareness of support that might be available but not yet recognized.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Five of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figures walking in snow</strong> - Represents hardship, difficulty, and the experience of being out in the cold</li>
+            <li><strong>The illuminated stained glass window</strong> - Symbolizes available resources, support, or spiritual comfort that may be overlooked</li>
+            <li><strong>The crutch or injury</strong> - Indicates physical vulnerability, health challenges, or temporary limitation</li>
+            <li><strong>The tattered clothing</strong> - Shows material lack, reduced circumstances, or damaged resources</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Five of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of vulnerability and hardship</strong> in your body</li>
+            <li><strong>Notice where you sense exclusion</strong> or isolation</li>
+            <li><strong>Connect with the feeling of looking down</strong> rather than seeing available resources</li>
+            <li><strong>Sense the potential supports</strong> that might be overlooked</li>
+            <li><strong>Be aware of both material challenge</strong> and spiritual connection</li>
+          </ol>
+          
+          <p>The Five of Pentacles invites us to approach intuitive reading with compassionate awareness of material struggle - recognizing both the reality of hardship and the possibility of unseen support that might be available if we look beyond our immediate circumstances.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Five of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of hardship, exclusion, or overlooked support immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel vulnerability, coldness, or the need for support in your body?</li>
+            <li><strong>Challenge sensing</strong>: What material difficulty or health concern is present?</li>
+            <li><strong>Resource awareness</strong>: What support might be available but currently overlooked?</li>
+            <li><strong>Connection recognition</strong>: What potential for community or assistance exists beyond isolation?</li>
+          </ul>
+          
+          <p>Remember that the Five of Pentacles represents a challenging phase in the material journey - a time of difficulty that contains both real hardship and the seeds of potential support. When reading intuitively, connect with compassion for the experience of lack, awareness of overlooked resources, and the possibility of finding unexpected assistance when we look beyond our immediate circumstances.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality offers the most compassionate understanding of the Five of Pentacles?",
+        options: [
+          "Dismissing hardship as merely psychological",
+          "Focusing exclusively on scarcity without hope",
+          "Recognizing both genuine difficulty and potential overlooked support",
+          "Blaming the individual for their challenges"
+        ],
+        correctAnswer: 2,
+        explanation: "The most compassionate understanding of the Five of Pentacles comes through recognizing both genuine difficulty and potential overlooked support. This intuitive quality honors the reality of material challenges and hardship while maintaining awareness of resources that might be available but not yet seen. Unlike dismissing, fixating only on lack, or assigning blame, this balanced perspective acknowledges suffering while maintaining hope for connection and assistance."
+      },
+      {
+        question: "When reading the Five of Pentacles intuitively for someone facing financial challenges, which approach would be most helpful?",
+        options: [
+          "Predicting continued hardship without possibility of improvement",
+          "Dismissing their difficulties as unimportant compared to spiritual matters",
+          "Noticing both their current struggles and potential resources or support they might not be seeing",
+          "Suggesting that their challenges are entirely their own fault"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Five of Pentacles intuitively for someone facing financial challenges, noticing both their current struggles and potential resources or support they might not be seeing would be most helpful. This approach validates their real difficulties while gently directing attention toward possible assistance or overlooked opportunities. It offers compassion for their present circumstances while maintaining hope and practical guidance toward potential support, whether material, communal, or spiritual."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Five of Pentacles, examining material hardship, exclusion, and finding support during challenging times. We've studied the card's imagery of figures struggling in the cold outside an illuminated window, representing both real difficulty and overlooked resources. By developing techniques to read intuitively about material challenges, we can gain deeper insights about the experience of lack, the psychological impact of feeling excluded, and the potential supports that might be available when we look beyond our immediate circumstances.",
+    additionalResources: [
+      {
+        title: "Resource Recognition",
+        description: "Practices for identifying available support during challenging times."
+      },
+      {
+        title: "Compassionate Perspective",
+        description: "Developing balanced awareness that acknowledges both hardship and hope."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p6",
+    title: "Balanced Giving: Six of Pentacles",
+    description: "Explore generosity, power dynamics, and reciprocity through the Six of Pentacles.",
+    cardId: "p6",
+    sections: [
+      {
+        title: "The Flow of Resources",
+        content: `
+          <p>The Six of Pentacles represents the dynamics of giving and receiving - generosity, the flow of resources, and the subtle power relationships that exist in material exchange. As we develop our intuitive reading skills, this card offers rich insights into benevolence, the balance of abundance and need, and the psychological dimensions of both giving help and accepting assistance.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Generosity and sharing of resources</strong></li>
+            <li><strong>The balance of giving and receiving</strong></li>
+            <li><strong>Power dynamics in material exchange</strong></li>
+            <li><strong>Gratitude and acknowledgment</strong></li>
+            <li><strong>Fair distribution and justice in resources</strong></li>
+            <li><strong>The subtle psychology of charity and assistance</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Six of Pentacles involves connecting with your experience of both giving and receiving, the feeling of balanced exchange, and the awareness of power dynamics that exist when resources flow between people.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Six of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The merchant or wealthy figure giving coins</strong> - Represents generosity, abundance, and the position of having resources to share</li>
+            <li><strong>The scales</strong> - Symbolize justice, fair distribution, and the balance of exchange</li>
+            <li><strong>The receiving figures</strong> - Indicate need, gratitude, and the position of accepting assistance</li>
+            <li><strong>The differential in clothing and position</strong> - Shows the power dynamics and social hierarchies in material exchange</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Six of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of generosity and sharing</strong> in your body</li>
+            <li><strong>Notice the dynamics of having and needing</strong> in the situation</li>
+            <li><strong>Connect with the feeling of both giving</strong> and receiving</li>
+            <li><strong>Sense the subtle power relationships</strong> in material exchange</li>
+            <li><strong>Be aware of what constitutes fairness</strong> and balanced distribution</li>
+          </ol>
+          
+          <p>The Six of Pentacles invites us to approach intuitive reading with awareness of resource dynamics - recognizing the flow of giving and receiving, the power positions involved, and what creates true balance and fairness in material exchange.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Six of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of generosity, exchange, or power dynamics immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel the energy of giving, receiving, or balancing resources in your body?</li>
+            <li><strong>Exchange sensing</strong>: What flow of resources or assistance is occurring?</li>
+            <li><strong>Power awareness</strong>: What dynamics of having and needing are present?</li>
+            <li><strong>Balance recognition</strong>: What would create fair distribution and genuine reciprocity?</li>
+          </ul>
+          
+          <p>Remember that the Six of Pentacles represents the complex dynamics of material exchange - neither inherently positive nor negative, but inviting awareness of how resources flow and what creates true balance. When reading intuitively, connect with the nuances of both giving and receiving, the subtle power relationships involved, and the qualities that create genuine fairness and reciprocity in sharing resources.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality offers the most insightful understanding of the Six of Pentacles?",
+        options: [
+          "Seeing only the positive aspects of charity without power dynamics",
+          "Viewing all giving as manipulation and control",
+          "Awareness of both generosity and the subtle relationships in resource exchange",
+          "Focusing exclusively on financial transactions"
+        ],
+        correctAnswer: 2,
+        explanation: "The most insightful understanding of the Six of Pentacles comes through awareness of both generosity and the subtle relationships in resource exchange. This intuitive quality acknowledges the positive aspects of sharing resources while maintaining awareness of the power dynamics involved. Rather than one-sided interpretations that either ignore or overemphasize power, or reducing the card to mere financial transactions, this balanced perspective recognizes the complex psychology and social dynamics of giving and receiving."
+      },
+      {
+        question: "When reading the Six of Pentacles intuitively, which approach offers the deepest insight into balanced exchange?",
+        options: [
+          "Focusing exclusively on who has more power",
+          "Suggesting that giving is always superior to receiving",
+          "Recognizing the dignity and value of both giving and receiving positions",
+          "Assuming that material assistance is never appropriate"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Six of Pentacles intuitively, recognizing the dignity and value of both giving and receiving positions offers the deepest insight into balanced exchange. This approach acknowledges that healthy flow involves both generosity and gracious acceptance, with each position having its own importance and wisdom. It understands that true balance comes not from rigid equality but from respectful exchange that honors the value of each person, regardless of their current resource position."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Six of Pentacles, examining generosity, power dynamics, and reciprocity in material exchange. We've studied the card's imagery of a merchant sharing coins with those in need while holding scales, representing both the flow of resources and the balance of fairness. By developing techniques to read intuitively about giving and receiving, we can gain deeper insights about the complex dynamics of material assistance, the psychology of both generosity and acceptance, and what creates true balance and dignity in the exchange of resources.",
+    additionalResources: [
+      {
+        title: "The Psychology of Giving",
+        description: "Understanding the complex motivations and dynamics in generosity and charity."
+      },
+      {
+        title: "Resource Reciprocity",
+        description: "Practices for creating balanced and dignified exchange in material assistance."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p7",
+    title: "Patient Growth: Seven of Pentacles",
+    description: "Explore investment, evaluation, and long-term development through the Seven of Pentacles.",
+    cardId: "p7",
+    sections: [
+      {
+        title: "The Mindful Gardener",
+        content: `
+          <p>The Seven of Pentacles represents the moment of assessment in long-term development - the pause to evaluate progress, the patience required for growth, and the consideration of whether current investments will yield the desired harvest. As we develop our intuitive reading skills, this card offers rich insights into the nature of gradual manifestation, the wisdom of periodic review, and the balance between continued effort and potential redirection.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Patient investment and gradual development</strong></li>
+            <li><strong>Evaluation of progress and results</strong></li>
+            <li><strong>The balance between continued effort and redirection</strong></li>
+            <li><strong>The relationship between work and meaningful harvest</strong></li>
+            <li><strong>Sustainable growth and long-term perspective</strong></li>
+            <li><strong>The wisdom of periodic assessment</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Seven of Pentacles involves connecting with your experience of patient cultivation, the feeling of pausing to evaluate what's developing, and the discernment that guides decisions about future investment.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Seven of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure leaning on a tool</strong> - Represents the pause for reflection after period of effort</li>
+            <li><strong>The growing plant with pentacles</strong> - Symbolizes development that takes time and shows visible results</li>
+            <li><strong>The garden or agricultural setting</strong> - Indicates cultivation, natural cycles, and the patience of working with earth energy</li>
+            <li><strong>The thoughtful posture</strong> - Shows contemplation, assessment, and evaluation of progress</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Seven of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of patient assessment</strong> in your body</li>
+            <li><strong>Notice the relationship between effort and results</strong> in the situation</li>
+            <li><strong>Connect with the feeling of watching development unfold</strong> over time</li>
+            <li><strong>Sense what might need continued nurturing</strong> or potential redirection</li>
+            <li><strong>Be aware of the wisdom of natural timing</strong> and sustainable growth</li>
+          </ol>
+          
+          <p>The Seven of Pentacles invites us to approach intuitive reading with appreciation for developmental processes - recognizing the value of patience, the importance of periodic review, and the discernment needed to guide long-term investments wisely.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Seven of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of patience, assessment, or development immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel the pause for evaluation, the relationship with time, or the consideration of results in your body?</li>
+            <li><strong>Investment sensing</strong>: What efforts or resources have been invested for future growth?</li>
+            <li><strong>Development awareness</strong>: What is currently growing or manifesting, even if not fully mature?</li>
+            <li><strong>Timing recognition</strong>: What wisdom about patience or potential redirection is emerging?</li>
+          </ul>
+          
+          <p>Remember that the Seven of Pentacles represents the midpoint assessment in material development - neither the beginning of effort nor the final harvest, but the important pause to evaluate progress and guide future investment. When reading intuitively, connect with the value of patient cultivation, the discernment that comes from honest evaluation, and the wisdom of sustainable growth that honors natural timing.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Seven of Pentacles?",
+        options: [
+          "Impatient demand for immediate results",
+          "Avoidance of all evaluation or assessment",
+          "Mindful patience combined with discerning evaluation",
+          "Detachment from all material outcomes"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Seven of Pentacles is best captured by mindful patience combined with discerning evaluation. This intuitive quality reflects the card's fundamental energy of pausing to assess progress while maintaining a long-term perspective. Unlike demanding immediate results, avoiding assessment altogether, or detaching from outcomes, the Seven of Pentacles embodies the wisdom of patient cultivation balanced with periodic review - understanding that meaningful development takes time while still requiring thoughtful guidance."
+      },
+      {
+        question: "When reading the Seven of Pentacles intuitively for someone considering whether to continue a long-term project, which approach would offer the most valuable insight?",
+        options: [
+          "Encouraging them to abandon all efforts that haven't produced immediate success",
+          "Suggesting they never evaluate results and just keep working indefinitely",
+          "Connecting with both the visible progress so far and the wisdom of honest assessment",
+          "Focusing exclusively on financial calculations without considering personal value"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Seven of Pentacles intuitively for someone considering whether to continue a long-term project, connecting with both the visible progress so far and the wisdom of honest assessment would offer the most valuable insight. This approach honors the card's message about the importance of both patience and discernment. It recognizes what has already developed while encouraging thoughtful evaluation about whether continued investment aligns with desired outcomes, allowing for informed decisions about proceeding or redirecting energy."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Seven of Pentacles, examining investment, evaluation, and long-term development. We've studied the card's imagery of a figure pausing to assess growing plants, representing the importance of both patient cultivation and periodic review. By developing techniques to read intuitively about gradual manifestation and thoughtful assessment, we can gain deeper insights about the relationship between effort and results, the wisdom of natural timing, and the discernment needed to guide material investments toward meaningful harvest.",
+    additionalResources: [
+      {
+        title: "Cycles of Growth",
+        description: "Understanding natural development patterns and sustainable cultivation."
+      },
+      {
+        title: "Mindful Assessment",
+        description: "Practices for evaluating progress without judgment or impatience."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p8",
+    title: "Dedicated Mastery: Eight of Pentacles",
+    description: "Explore craftsmanship, skill development, and focused work through the Eight of Pentacles.",
+    cardId: "p8",
+    sections: [
+      {
+        title: "The Committed Apprentice",
+        content: `
+          <p>The Eight of Pentacles represents dedicated mastery - the focused development of skill through repetition, attention to detail, and commitment to excellence. As we develop our intuitive reading skills, this card offers rich insights into the process of craftsmanship, the value of diligent practice, and the satisfaction that comes from wholehearted engagement with developing expertise.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Skill development and dedicated practice</strong></li>
+            <li><strong>Craftsmanship and attention to detail</strong></li>
+            <li><strong>The journey from apprentice toward mastery</strong></li>
+            <li><strong>Focused work and absorption in process</strong></li>
+            <li><strong>The discipline of repetition and refinement</strong></li>
+            <li><strong>The satisfaction of creating quality work</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Eight of Pentacles involves connecting with your experience of dedicated learning, the feeling of absorbed focus in skill development, and the satisfaction that comes from committed practice and improvement.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Eight of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The craftsperson at work</strong> - Represents dedicated focus and absorption in skill development</li>
+            <li><strong>The repeated creation of pentacles</strong> - Symbolizes diligent practice, refinement through repetition</li>
+            <li><strong>The workbench or tools</strong> - Indicates methodical approach, appropriate resources for mastery</li>
+            <li><strong>The completed and in-progress pentacles</strong> - Shows progression of skill, visible evidence of improvement</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Eight of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of focused attention</strong> in your body</li>
+            <li><strong>Notice the satisfaction of progressive improvement</strong> through practice</li>
+            <li><strong>Connect with the feeling of absorption</strong> in meaningful work</li>
+            <li><strong>Sense the commitment to excellence</strong> and quality</li>
+            <li><strong>Be aware of the patience and discipline</strong> of skill development</li>
+          </ol>
+          
+          <p>The Eight of Pentacles invites us to approach intuitive reading with appreciation for the mastery process - recognizing the value of dedicated practice, the importance of focused attention to detail, and the fulfillment that comes from wholehearted engagement with developing expertise.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Eight of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of dedication, focus, or skill development immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel concentration, devoted attention, or the satisfaction of improvement in your body?</li>
+            <li><strong>Mastery sensing</strong>: What expertise or capability is being developed through practice?</li>
+            <li><strong>Quality awareness</strong>: What commitment to excellence or attention to detail is present?</li>
+            <li><strong>Process recognition</strong>: What discipline or methodology supports progressive improvement?</li>
+          </ul>
+          
+          <p>Remember that the Eight of Pentacles represents the dedicated phase of skill development - the point where focused practice and attention to detail create measurable improvement toward mastery. When reading intuitively, connect with the value of committed learning, the satisfaction of progressive development, and the fulfillment that comes from wholehearted engagement with meaningful work.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Eight of Pentacles?",
+        options: [
+          "Scattered attention across many projects",
+          "Rushed completion without concern for quality",
+          "Dedicated focus and progressive skill development",
+          "Perfectionism that prevents completion"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Eight of Pentacles is best captured by dedicated focus and progressive skill development. This intuitive quality reflects the card's fundamental energy of committed craftsmanship and the journey toward mastery. Unlike scattered attention, rushed work, or paralyzing perfectionism, the Eight of Pentacles embodies the disciplined yet satisfying process of developing expertise through focused practice, attention to detail, and the progressive refinement that comes from wholehearted engagement."
+      },
+      {
+        question: "When reading the Eight of Pentacles intuitively, which perspective offers the most valuable insight about meaningful work?",
+        options: [
+          "All repetitive tasks are tedious and should be avoided",
+          "Only the final outcome matters, not the process",
+          "Genuine absorption in the process creates both quality results and personal satisfaction",
+          "Expertise should come quickly without requiring practice"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Eight of Pentacles intuitively, understanding that genuine absorption in the process creates both quality results and personal satisfaction offers the most valuable insight about meaningful work. This perspective recognizes that mastery involves not just achieving outcomes but finding fulfillment in the development journey itself. It acknowledges that dedicated engagement with progressive learning brings a special quality to both the work produced and the experience of the craftsperson."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Eight of Pentacles, examining craftsmanship, skill development, and focused work. We've studied the card's imagery of a dedicated artisan creating pentacles with progressive refinement, representing the journey toward mastery through committed practice. By developing techniques to read intuitively about dedicated learning and focused work, we can gain deeper insights about the process of developing expertise, the value of attention to detail, and the satisfaction that comes from wholehearted engagement with meaningful skill development.",
+    additionalResources: [
+      {
+        title: "The Mastery Path",
+        description: "Understanding the stages and practices of developing expertise in any discipline."
+      },
+      {
+        title: "Flow State Cultivation",
+        description: "Techniques for accessing the absorbed concentration that enhances both performance and satisfaction."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p9",
+    title: "Material Fulfillment: Nine of Pentacles",
+    description: "Explore self-sufficiency, refined enjoyment, and cultivated abundance through the Nine of Pentacles.",
+    cardId: "p9",
+    sections: [
+      {
+        title: "The Independent Garden",
+        content: `
+          <p>The Nine of Pentacles represents self-sufficient abundance - the refined enjoyment of well-earned prosperity, the cultivation of both outer and inner resources, and the grace of independence. As we develop our intuitive reading skills, this card offers rich insights into material wellbeing, the relationship between discipline and enjoyment, and the elegant balance of appreciating abundance while maintaining inner refinement.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Self-sufficiency and independent prosperity</strong></li>
+            <li><strong>Refined enjoyment of material comforts</strong></li>
+            <li><strong>The fruits of discipline and self-mastery</strong></li>
+            <li><strong>Cultivated beauty and elegance</strong></li>
+            <li><strong>The balance of material abundance with inner values</strong></li>
+            <li><strong>Security that allows for gracious appreciation</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Nine of Pentacles involves connecting with your experience of well-earned accomplishment, the feeling of both independence and appreciation, and the gracious enjoyment that comes from cultivated abundance.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Nine of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The solitary yet content figure</strong> - Represents self-sufficiency and comfortable independence</li>
+            <li><strong>The cultivated garden or vineyard</strong> - Symbolizes prosperity developed through patient tending</li>
+            <li><strong>The bird of prey</strong> - Indicates self-mastery, discipline, and controlled natural instincts</li>
+            <li><strong>The elegant attire</strong> - Shows refinement, quality, and gracious enjoyment of resources</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Nine of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of secure independence</strong> in your body</li>
+            <li><strong>Notice the balance of discipline and enjoyment</strong> in the situation</li>
+            <li><strong>Connect with the feeling of earned accomplishment</strong> and deserved appreciation</li>
+            <li><strong>Sense the refinement that comes from aligning</strong> outer resources with inner values</li>
+            <li><strong>Be aware of both material comfort</strong> and spiritual/intellectual cultivation</li>
+          </ol>
+          
+          <p>The Nine of Pentacles invites us to approach intuitive reading with appreciation for cultivated abundance - recognizing the value of self-sufficiency, the grace of refined enjoyment, and the elegant balance of material prosperity with inner development.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Nine of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of self-sufficiency, refinement, or cultivated enjoyment immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel independence, gracious appreciation, or the balance of discipline with enjoyment in your body?</li>
+            <li><strong>Abundance sensing</strong>: What well-earned prosperity or resources are present?</li>
+            <li><strong>Cultivation awareness</strong>: What has been developed through patient discipline?</li>
+            <li><strong>Refinement recognition</strong>: What elegant balance of material comfort and inner values is expressed?</li>
+          </ul>
+          
+          <p>Remember that the Nine of Pentacles represents the mature enjoyment of material accomplishment - neither striving for acquisition nor renouncing comfort, but graciously appreciating well-earned abundance. When reading intuitively, connect with the value of self-sufficiency, the refined enjoyment that comes from aligning resources with values, and the elegant independence that allows for both gratitude and continued cultivation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Nine of Pentacles?",
+        options: [
+          "Ostentatious display of wealth to impress others",
+          "Rejection of all material comfort as unspiritual",
+          "Gracious self-sufficiency and refined appreciation of well-earned abundance",
+          "Dependent reliance on others for security"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Nine of Pentacles is best captured by gracious self-sufficiency and refined appreciation of well-earned abundance. This intuitive quality reflects the card's fundamental energy of independent prosperity balanced with cultivated enjoyment. Unlike ostentatious display, rejection of material comfort, or dependent security, the Nine of Pentacles embodies the elegant balance of material accomplishment with inner refinement - appreciating abundance that has been developed through discipline and aligning resources with deeper values."
+      },
+      {
+        question: "When reading the Nine of Pentacles intuitively, which insight offers the most valuable understanding about true prosperity?",
+        options: [
+          "Material wealth is the only measure of success",
+          "Financial independence must come at the cost of relationships",
+          "True abundance includes both material comfort and inner cultivation",
+          "Self-sufficiency means never accepting help from others"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Nine of Pentacles intuitively, understanding that true abundance includes both material comfort and inner cultivation offers the most valuable insight about prosperity. This perspective recognizes that genuine wealth combines tangible resources with refined appreciation and values. It acknowledges that the most satisfying form of independence comes not just from financial security but from the gracious balance of outer accomplishment with inner development - creating a life that is rich in both comfort and meaning."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Nine of Pentacles, examining self-sufficiency, refined enjoyment, and cultivated abundance. We've studied the card's imagery of an elegant figure in a flourishing garden, representing the gracious independence that comes from well-earned prosperity. By developing techniques to read intuitively about material fulfillment, we can gain deeper insights about the balance of discipline with appreciation, the value of self-sufficiency, and the elegant enjoyment that emerges when material resources align with inner values.",
+    additionalResources: [
+      {
+        title: "Elegant Self-Sufficiency",
+        description: "Practices for developing independence without isolation or defensive withdrawal."
+      },
+      {
+        title: "Refined Abundance",
+        description: "Understanding the relationship between material comfort and inner cultivation."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p10",
+    title: "Legacy and Inheritance: Ten of Pentacles",
+    description: "Explore family wealth, lasting security, and generational abundance through the Ten of Pentacles.",
+    cardId: "p10",
+    sections: [
+      {
+        title: "The Established Prosperity",
+        content: `
+          <p>The Ten of Pentacles represents established wealth and enduring legacy - the culmination of material security that extends beyond the individual to family, community, and future generations. As we develop our intuitive reading skills, this card offers rich insights into the nature of lasting prosperity, the value of both material and immaterial inheritance, and the interconnection between wealth, tradition, and social structures.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Established wealth and material security</strong></li>
+            <li><strong>Family legacy and generational resources</strong></li>
+            <li><strong>The interweaving of prosperity with tradition</strong></li>
+            <li><strong>Structures that support enduring abundance</strong></li>
+            <li><strong>The sharing of wealth within community</strong></li>
+            <li><strong>The material foundation for future generations</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Ten of Pentacles involves connecting with your sense of established security, the feeling of belonging within supportive structures, and the awareness of legacy that extends beyond immediate concerns to long-term prosperity.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Ten of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The multi-generational family</strong> - Represents legacy, continuity, and prosperity that extends beyond the individual</li>
+            <li><strong>The ancestral figure</strong> - Symbolizes tradition, accumulated wisdom, and the source of inherited resources</li>
+            <li><strong>The solid building or estate</strong> - Indicates established structures, permanent security, and lasting foundations</li>
+            <li><strong>The pentacles in the family crest or arch</strong> - Shows the integration of wealth with identity, lineage, and social position</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Ten of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of established security</strong> in your body</li>
+            <li><strong>Notice the connection between material resources</strong> and social/familial structures</li>
+            <li><strong>Connect with the feeling of belonging</strong> to something larger than yourself</li>
+            <li><strong>Sense the foundation that supports</strong> not just present needs but future generations</li>
+            <li><strong>Be aware of both the benefits and potential limitations</strong> of established traditions</li>
+          </ol>
+          
+          <p>The Ten of Pentacles invites us to approach intuitive reading with awareness of established prosperity - recognizing both the security and responsibilities of legacy, the value of supportive structures, and the extension of abundance beyond individual concerns to family, community, and future generations.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Ten of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of established security, family connections, or lasting legacy immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel rootedness, belonging, or the solidity of established structures in your body?</li>
+            <li><strong>Legacy sensing</strong>: What inheritance or resources extend beyond individual concerns?</li>
+            <li><strong>Structure awareness</strong>: What traditions or established systems support prosperity?</li>
+            <li><strong>Generational recognition</strong>: How does current abundance affect future possibilities?</li>
+          </ul>
+          
+          <p>Remember that the Ten of Pentacles represents the culmination of material security - the point where prosperity becomes established enough to support not just individual needs but family, community, and future generations. When reading intuitively, connect with the sense of solid foundation, the value of both material and immaterial inheritance, and the integration of wealth with the social structures that give it deeper meaning and purpose.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Ten of Pentacles?",
+        options: [
+          "Temporary financial gain without lasting foundation",
+          "Rejection of family and community connections",
+          "Established prosperity integrated with family, tradition, and legacy",
+          "Individual wealth kept separate from social responsibilities"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Ten of Pentacles is best captured by established prosperity integrated with family, tradition, and legacy. This intuitive quality reflects the card's fundamental energy of wealth that extends beyond individual concerns to support broader connections. Unlike temporary gain, rejection of community, or isolated wealth, the Ten of Pentacles embodies the culmination of material security that becomes woven into social structures, creating resources that benefit not just the present but future generations."
+      },
+      {
+        question: "When reading the Ten of Pentacles intuitively, which perspective offers the most complete understanding?",
+        options: [
+          "Focusing exclusively on financial assets and material possessions",
+          "Seeing tradition only as limiting and restrictive",
+          "Recognizing the integration of material wealth with family values, knowledge, and social structures",
+          "Assuming prosperity must always skip generations"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Ten of Pentacles intuitively, recognizing the integration of material wealth with family values, knowledge, and social structures offers the most complete understanding. This perspective honors the card's message about how true prosperity includes not just financial resources but the supportive social context that gives wealth deeper meaning and purpose. It acknowledges that lasting abundance creates foundations that support both material security and the immaterial inheritance of wisdom, belonging, and identity."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Ten of Pentacles, examining family wealth, lasting security, and generational abundance. We've studied the card's imagery of a multi-generational family in an established estate, representing prosperity that extends beyond individual concerns to create lasting legacy. By developing techniques to read intuitively about established wealth and enduring foundations, we can gain deeper insights about the integration of material resources with social structures, the value of both financial and immaterial inheritance, and the security that supports not just present needs but future generations.",
+    additionalResources: [
+      {
+        title: "Legacy Thinking",
+        description: "Practices for considering the multi-generational impact of current resources and decisions."
+      },
+      {
+        title: "Wealth and Community",
+        description: "Understanding the relationship between prosperity and social structures."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p11",
+    title: "Practical Potential: Page of Pentacles",
+    description: "Explore new learning, tangible opportunities, and grounded curiosity through the Page of Pentacles.",
+    cardId: "pp",
+    sections: [
+      {
+        title: "The Curious Student",
+        content: `
+          <p>The Page of Pentacles represents the youthful explorer of material potential - curious, studious, and eager to develop new skills and opportunities in the physical world. As we develop our intuitive reading skills, this court card offers rich insights into the initial stages of practical learning, the enthusiasm for tangible possibilities, and the grounded approach to discovering how things work.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Studious learning and practical education</strong></li>
+            <li><strong>New skills and abilities being developed</strong></li>
+            <li><strong>Curiosity about how things work in the material world</strong></li>
+            <li><strong>The beginning stages of manifesting opportunities</strong></li>
+            <li><strong>Grounded enthusiasm and reliable follow-through</strong></li>
+            <li><strong>The potential for growth through dedicated practice</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Page of Pentacles involves connecting with your own sense of practical curiosity, the feeling of being at the beginning of skill development, and the grounded enthusiasm that comes with exploring tangible possibilities.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Page of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The youthful figure studying the pentacle</strong> - Represents curiosity, the student mindset, and careful examination of possibilities</li>
+            <li><strong>The pentacle held thoughtfully</strong> - Symbolizes hands-on learning and practical consideration of opportunities</li>
+            <li><strong>The fertile landscape</strong> - Indicates potential for growth and development in the material realm</li>
+            <li><strong>The solid stance</strong> - Shows reliability, patience, and grounded approach to learning</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Page of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of curious examination</strong> in your body</li>
+            <li><strong>Notice the combination of enthusiasm with patience</strong> in learning</li>
+            <li><strong>Connect with the feeling of being a beginner</strong> with potential for mastery</li>
+            <li><strong>Sense the practical orientation</strong> toward tangible results</li>
+            <li><strong>Be aware of the methodical approach</strong> to developing new skills</li>
+          </ol>
+          
+          <p>The Page of Pentacles invites us to approach intuitive reading with the mindset of a dedicated student - being open to learning, examining possibilities carefully, and maintaining a grounded enthusiasm for developing practical skills and opportunities.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Page of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of practical learning, grounded curiosity, or new opportunity immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel patient enthusiasm, studious attention, or reliable dedication in your body?</li>
+            <li><strong>Learning sensing</strong>: What new skill or knowledge is being developed?</li>
+            <li><strong>Opportunity awareness</strong>: What tangible possibility is being carefully examined?</li>
+            <li><strong>Growth recognition</strong>: What potential for practical development is emerging?</li>
+          </ul>
+          
+          <p>Remember that the Page of Pentacles represents the initial stage of practical manifestation - the point of curious exploration and beginning development before expertise is established. When reading intuitively, connect with the qualities of studious attention, grounded enthusiasm, and reliable dedication to learning that create a solid foundation for developing tangible skills and opportunities.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Page of Pentacles?",
+        options: [
+          "Impatient demand for immediate expertise",
+          "Purely theoretical knowledge without practical application",
+          "Grounded curiosity combined with dedicated study",
+          "Scattered attention across too many projects"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Page of Pentacles is best captured by grounded curiosity combined with dedicated study. This intuitive quality reflects the card's fundamental energy of practical learning and careful examination of tangible possibilities. Unlike impatient demands for expertise, purely theoretical knowledge, or scattered attention, the Page of Pentacles embodies the focused yet enthusiastic approach of a student committed to understanding how things work in the material world, creating a solid foundation for future mastery."
+      },
+      {
+        question: "When reading the Page of Pentacles intuitively for someone considering a new practical skill, which guidance would be most aligned with the card's energy?",
+        options: [
+          "Suggesting they should already be an expert without learning",
+          "Encouraging theoretical study without hands-on practice",
+          "Honoring their beginner status while emphasizing patient, methodical development",
+          "Advising them to try many different skills without focused attention"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Page of Pentacles intuitively for someone considering a new practical skill, honoring their beginner status while emphasizing patient, methodical development would be most aligned with the card's energy. This guidance acknowledges the value of the student phase - recognizing that meaningful skill development begins with curious examination and reliable dedication to learning. It encourages the grounded enthusiasm and methodical approach that create a solid foundation for mastery, rather than expecting immediate expertise or recommending scattered attention."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Page of Pentacles, examining new learning, tangible opportunities, and grounded curiosity. We've studied the card's imagery of a youthful figure carefully studying a pentacle, representing the dedicated student approach to practical possibilities. By developing techniques to read intuitively about the beginnings of material manifestation, we can gain deeper insights about the value of patient learning, the importance of careful examination before action, and the potential for growth that emerges through curious exploration combined with reliable follow-through.",
+    additionalResources: [
+      {
+        title: "The Beginner's Advantage",
+        description: "Understanding the unique benefits of approaching learning with fresh perspective."
+      },
+      {
+        title: "Practical Curiosity",
+        description: "Cultivating the art of careful examination and methodical exploration."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p12",
+    title: "Resourceful Management: Knight of Pentacles",
+    description: "Explore reliability, methodical progress, and determined persistence through the Knight of Pentacles.",
+    cardId: "pn",
+    sections: [
+      {
+        title: "The Steadfast Guardian",
+        content: `
+          <p>The Knight of Pentacles represents the dedicated protector of material resources - methodical, reliable, and committed to steady progress through persistent effort. As we develop our intuitive reading skills, this court card offers rich insights into the value of thoroughness, the power of determined follow-through, and the security that comes from methodical management of practical matters.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Reliability and trustworthy responsibility</strong></li>
+            <li><strong>Methodical progress toward tangible goals</strong></li>
+            <li><strong>Patient persistence and determined effort</strong></li>
+            <li><strong>Thorough attention to practical details</strong></li>
+            <li><strong>The balance of caution with forward movement</strong></li>
+            <li><strong>The security of well-managed resources</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Knight of Pentacles involves connecting with your experience of steady dedication, the feeling of methodical progress, and the grounded determination that creates reliable results through consistent effort.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Knight of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The heavily armored knight</strong> - Represents protection, thoroughness, and well-prepared advancement</li>
+            <li><strong>The stationary or slow-moving horse</strong> - Symbolizes deliberate progress, careful pacing, and controlled movement</li>
+            <li><strong>The carefully held pentacle</strong> - Indicates responsible management and focused attention on resources</li>
+            <li><strong>The cultivated field</strong> - Shows productivity through systematic effort and tended development</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Knight of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of steady perseverance</strong> in your body</li>
+            <li><strong>Notice the grounded determination</strong> that creates reliable progress</li>
+            <li><strong>Connect with the feeling of thorough preparation</strong> before advancement</li>
+            <li><strong>Sense the careful management</strong> of energy and resources</li>
+            <li><strong>Be aware of the security that comes</strong> from methodical attention to detail</li>
+          </ol>
+          
+          <p>The Knight of Pentacles invites us to approach intuitive reading with appreciation for steady reliability - recognizing the value of persistent effort, thorough preparation, and the practical results that emerge from dedicated management of resources and responsibilities.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Knight of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of reliability, methodical progress, or careful management immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel steady determination, patient persistence, or grounded responsibility in your body?</li>
+            <li><strong>Progress sensing</strong>: What methodical advancement toward tangible goals is occurring?</li>
+            <li><strong>Management awareness</strong>: What resources or responsibilities are being carefully tended?</li>
+            <li><strong>Security recognition</strong>: What foundations of reliability are creating practical results?</li>
+          </ul>
+          
+          <p>Remember that the Knight of Pentacles represents the energy of determined manifestation - the focused dedication that turns potential into reality through persistent effort and thorough attention to detail. When reading intuitively, connect with the value of steady reliability, the security that comes from methodical management, and the tangible results that emerge from patient persistence and careful follow-through.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Knight of Pentacles?",
+        options: [
+          "Impulsive action without consideration",
+          "Intellectual theory without practical application",
+          "Methodical reliability and steady determination",
+          "Constantly changing direction without follow-through"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Knight of Pentacles is best captured by methodical reliability and steady determination. This intuitive quality reflects the card's fundamental energy of persistent progress through careful attention to practical details. Unlike impulsive action, theoretical approaches without application, or inconsistent direction, the Knight of Pentacles embodies the grounded dedication that creates tangible results through thorough preparation, responsible management, and unwavering follow-through on commitments."
+      },
+      {
+        question: "When reading the Knight of Pentacles intuitively, what balanced perspective offers the most helpful understanding?",
+        options: [
+          "Seeing methodical progress as boring and uninspired",
+          "Recognizing that steady reliability creates tangible security while maintaining awareness of potential inflexibility",
+          "Valuing speed and drama over thoroughness",
+          "Encouraging abandonment of practical concerns for more exciting pursuits"
+        ],
+        correctAnswer: 1,
+        explanation: "When reading the Knight of Pentacles intuitively, recognizing that steady reliability creates tangible security while maintaining awareness of potential inflexibility offers the most helpful balanced perspective. This approach honors the card's primary strength of methodical determination while acknowledging its potential limitation. It values the security and practical results that come from thorough attention to detail and persistent effort, while remaining mindful of the importance of appropriate adaptability when circumstances require."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Knight of Pentacles, examining reliability, methodical progress, and determined persistence. We've studied the card's imagery of a heavily armored knight carefully managing resources while advancing with deliberate pacing, representing the power of thorough preparation and steady follow-through. By developing techniques to read intuitively about responsible manifestation, we can gain deeper insights about the value of patient persistence, the security that comes from methodical management, and the tangible results created through reliable dedication to practical goals.",
+    additionalResources: [
+      {
+        title: "The Power of Persistence",
+        description: "Understanding how steady determination creates lasting results over time."
+      },
+      {
+        title: "Resourceful Responsibility",
+        description: "Practices for thorough management and reliable stewardship."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p13",
+    title: "Nurturing Abundance: Queen of Pentacles",
+    description: "Explore practical nurturing, resourceful care, and grounded prosperity through the Queen of Pentacles.",
+    cardId: "pq",
+    sections: [
+      {
+        title: "The Prosperous Nurturer",
+        content: `
+          <p>The Queen of Pentacles represents the master of practical nurturing and resourceful care - creating abundance that supports others while maintaining a grounded connection to the earth and body. As we develop our intuitive reading skills, this court card offers rich insights into the integration of material prosperity with nurturing generosity, the wisdom of embodied intelligence, and the security that emerges from skillful stewardship of resources.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Practical nurturing and tangible support</strong></li>
+            <li><strong>Abundance that sustains self and others</strong></li>
+            <li><strong>The integration of prosperity with generosity</strong></li>
+            <li><strong>Embodied wisdom and grounded intelligence</strong></li>
+            <li><strong>Resourceful management and skillful care</strong></li>
+            <li><strong>The comfort and security of material well-being</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the Queen of Pentacles involves connecting with your experience of practical nurturing, the feeling of grounded abundance, and the integrated wisdom that comes from honoring both material prosperity and generous care.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The Queen of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The figure holding or contemplating the pentacle</strong> - Represents skillful stewardship and practical appreciation of resources</li>
+            <li><strong>The throne adorned with natural elements</strong> - Symbolizes authority grounded in connection with nature and physical reality</li>
+            <li><strong>The lush garden or abundant landscape</strong> - Indicates fertility, prosperity, and nurtured growth</li>
+            <li><strong>The protective yet open posture</strong> - Shows the balance of security with generous sharing</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the Queen of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of grounded nurturing</strong> in your body</li>
+            <li><strong>Notice the sensual appreciation</strong> of material comforts</li>
+            <li><strong>Connect with the feeling of practical wisdom</strong> and resourceful care</li>
+            <li><strong>Sense the generosity that flows</strong> from secure abundance</li>
+            <li><strong>Be aware of the earth-connected intelligence</strong> that guides stewardship</li>
+          </ol>
+          
+          <p>The Queen of Pentacles invites us to approach intuitive reading with embodied wisdom - recognizing the value of practical support, the generosity that emerges from secure abundance, and the grounded intelligence that skillfully manages resources to nurture both self and others.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the Queen of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of nurturing abundance, practical care, or grounded wisdom immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel secure generosity, earth connection, or sensual appreciation in your body?</li>
+            <li><strong>Nurturing sensing</strong>: What practical support or resourceful care is needed or offered?</li>
+            <li><strong>Abundance awareness</strong>: What prosperity supports both personal security and generosity toward others?</li>
+            <li><strong>Embodiment recognition</strong>: What grounded intelligence guides practical decision-making?</li>
+          </ul>
+          
+          <p>Remember that the Queen of Pentacles represents the mature feminine expression of earth energy - practical, nurturing, and abundantly resourceful. When reading intuitively, connect with the integration of material prosperity with generous care, the sensual appreciation of physical comforts, and the grounded wisdom that emerges from honoring both the body's intelligence and the earth's natural cycles.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Queen of Pentacles?",
+        options: [
+          "Spiritual detachment from physical concerns",
+          "Intellectual analysis without practical application",
+          "Grounded nurturing and resourceful abundance",
+          "Selfish accumulation without sharing"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the Queen of Pentacles is best captured by grounded nurturing and resourceful abundance. This intuitive quality reflects the card's fundamental energy of practical care supported by material prosperity. Unlike spiritual detachment, abstract intellectualism, or selfish accumulation, the Queen of Pentacles embodies the integration of tangible support with generous sharing - creating security that benefits both self and others through embodied wisdom and skillful stewardship of resources."
+      },
+      {
+        question: "When reading the Queen of Pentacles intuitively, which perspective offers the most complete understanding of her nurturing energy?",
+        options: [
+          "Focusing exclusively on financial wealth",
+          "Seeing nurturing as purely emotional without practical support",
+          "Recognizing that true care integrates tangible resources with attentive presence",
+          "Believing that material concerns contradict spiritual values"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the Queen of Pentacles intuitively, recognizing that true care integrates tangible resources with attentive presence offers the most complete understanding of her nurturing energy. This perspective honors the Queen's gift for combining practical support with genuine concern - understanding that effective nurturing addresses both material needs and emotional well-being. It acknowledges that grounded wisdom includes both resourceful provision and compassionate attention, creating abundance that sustains all aspects of those in her care."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the Queen of Pentacles, examining practical nurturing, resourceful care, and grounded prosperity. We've studied the card's imagery of an abundant figure in a flourishing landscape, representing the integration of material well-being with generous support. By developing techniques to read intuitively about nurturing abundance, we can gain deeper insights about the connection between prosperity and practical care, the wisdom of embodied intelligence, and the security that emerges when resources are skillfully managed to benefit both self and others.",
+    additionalResources: [
+      {
+        title: "Embodied Wisdom",
+        description: "Practices for developing intelligence that integrates body awareness with practical knowledge."
+      },
+      {
+        title: "Nurturing Prosperity",
+        description: "Understanding how abundance can be cultivated to provide both security and generous support."
+      }
+    ]
+  },
+  {
+    id: "intuitive-p14",
+    title: "Material Mastery: King of Pentacles",
+    description: "Explore prosperity leadership, stable authority, and wealth management through the King of Pentacles.",
+    cardId: "pk",
+    sections: [
+      {
+        title: "The Prosperity Sovereign",
+        content: `
+          <p>The King of Pentacles represents the mastery of material abundance and prosperity leadership - the established authority that creates stability through sound judgment, reliable governance, and skillful management of resources. As we develop our intuitive reading skills, this court card offers rich insights into the integration of power with practical wisdom, the creation of enduring wealth through disciplined stewardship, and the security that emerges from mature authority in the material realm.</p>
+          
+          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <ul>
+            <li><strong>Prosperity leadership and material authority</strong></li>
+            <li><strong>Sound judgment in practical matters</strong></li>
+            <li><strong>The creation of stability and reliable foundations</strong></li>
+            <li><strong>Wealth management and resource stewardship</strong></li>
+            <li><strong>The balance of enjoyment with responsibility</strong></li>
+            <li><strong>The power of established experience in tangible realms</strong></li>
+          </ul>
+          
+          <p>Developing intuitive reading with the King of Pentacles involves connecting with your experience of mature authority, the feeling of solid reliability, and the grounded wisdom that comes from established mastery in material matters.</p>
+        `
+      },
+      {
+        title: "Key Symbols and Intuitive Approaches",
+        content: `
+          <p>The King of Pentacles contains several evocative symbols that can enhance intuitive reading:</p>
+          
+          <ul>
+            <li><strong>The enthroned figure</strong> - Represents established authority and secure position</li>
+            <li><strong>The pentacle held or displayed</strong> - Symbolizes mastery of material resources and prosperity</li>
+            <li><strong>The rich robes or regalia</strong> - Indicates abundance, quality, and the appropriate enjoyment of success</li>
+            <li><strong>The solid posture and surroundings</strong> - Shows stability, reliability, and grounded power</li>
+          </ul>
+          
+          <p>When developing intuitive approaches to the King of Pentacles, consider:</p>
+          
+          <ol>
+            <li><strong>Feel the quality of solid reliability</strong> in your body</li>
+            <li><strong>Notice the mature confidence</strong> that comes from established expertise</li>
+            <li><strong>Connect with the feeling of practical authority</strong> and sound judgment</li>
+            <li><strong>Sense the responsibility of leadership</strong> in material realms</li>
+            <li><strong>Be aware of the balance between enjoyment</strong> and disciplined management</li>
+          </ol>
+          
+          <p>The King of Pentacles invites us to approach intuitive reading with grounded authority - recognizing the value of established expertise, the security created through sound management, and the prosperity that emerges when material resources are governed with mature responsibility and practical wisdom.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading in Practice",
+        content: `
+          <p>When the King of Pentacles appears in a reading, try these intuitive approaches:</p>
+          
+          <ul>
+            <li><strong>First impressions</strong>: What quality of material mastery, stable authority, or prosperity leadership immediately comes to mind?</li>
+            <li><strong>Body awareness</strong>: Where do you feel grounded confidence, solid reliability, or mature authority in your body?</li>
+            <li><strong>Leadership sensing</strong>: What governance or stewardship of resources is being expressed?</li>
+            <li><strong>Stability awareness</strong>: What foundations of security and enduring prosperity are present?</li>
+            <li><strong>Mastery recognition</strong>: What established expertise guides practical decision-making?</li>
+          </ul>
+          
+          <p>Remember that the King of Pentacles represents the mature masculine expression of earth energy - grounded, reliable, and masterful in the material realm. When reading intuitively, connect with the qualities of sound judgment, established expertise, and the balanced authority that creates prosperity through discipline without rigidity, enjoyment without excess, and leadership that builds enduring foundations of security and abundance.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the King of Pentacles?",
+        options: [
+          "Impulsive decisions without consideration of consequences",
+          "Theoretical knowledge without practical application",
+          "Grounded authority and reliable stewardship of resources",
+          "Rigid control that blocks growth and adaptation"
+        ],
+        correctAnswer: 2,
+        explanation: "The essence of the King of Pentacles is best captured by grounded authority and reliable stewardship of resources. This intuitive quality reflects the card's fundamental energy of mature leadership in the material realm. Unlike impulsive decisions, purely theoretical knowledge, or rigid control, the King of Pentacles embodies the balanced wisdom of established expertise - creating prosperity through sound judgment, practical wisdom gained from experience, and the disciplined management that builds enduring security."
+      },
+      {
+        question: "When reading the King of Pentacles intuitively, which understanding offers the most valuable perspective on prosperity leadership?",
+        options: [
+          "Wealth should be accumulated regardless of impact on others",
+          "Material success requires sacrificing all enjoyment and comfort",
+          "True prosperity leadership integrates disciplined management with appropriate enjoyment and generous stability",
+          "Financial matters should be delegated entirely to others"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading the King of Pentacles intuitively, understanding that true prosperity leadership integrates disciplined management with appropriate enjoyment and generous stability offers the most valuable perspective. This approach honors the King's mature balance - recognizing that effective stewardship includes responsible governance of resources while also appreciating their benefits and creating security that extends beyond the self. It acknowledges that material mastery involves both the discipline to build wealth and the wisdom to enjoy and share it appropriately."
+      }
+    ],
+    summary: "In this lesson, we've explored intuitive reading through the King of Pentacles, examining prosperity leadership, stable authority, and wealth management. We've studied the card's imagery of an established figure on a solid throne, representing mastery in the material realm through sound judgment and reliable governance. By developing techniques to read intuitively about mature authority in practical matters, we can gain deeper insights about creating enduring prosperity, the integration of discipline with appropriate enjoyment, and the security that emerges from experienced leadership and skillful stewardship of resources.",
+    additionalResources: [
+      {
+        title: "Prosperity Governance",
+        description: "Principles for creating abundance through sound management and responsible authority."
+      },
+      {
+        title: "Balanced Stewardship",
+        description: "Practices for integrating disciplined resource management with appropriate enjoyment."
+      }
+    ]
+  }
+];
+
 // ADVANCED SYMBOLISM - 5 lessons
 export const advancedSymbolismLessons: LessonContent[] = [
   {
@@ -11597,6 +13029,6 @@ export const minorArcanaLessons: LessonContent[] = [
 export const trackLessonMap = {
   1: beginnerLessons,         // Beginner's Journey
   2: minorArcanaLessons,      // Minor Arcana Journey
-  10: intuitiveReadingLessons, // Intuitive Reading 
+  10: [...intuitiveReadingLessons, ...intuitivePentaclesLessons], // Intuitive Reading 
   11: advancedSymbolismLessons // Advanced Symbolism
 };
