@@ -13381,8 +13381,8 @@ const orderedLessons = (() => {
   lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-26' }; // Knight of Wands
   lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-12' };  // Knight of Cups
   
-  // Ensure the Knight of Swords is correctly placed with the Swords
-  lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
+  // Knight of Swords is removed for now until we're ready to implement the full Swords suit
+  // lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
   
   // Define proper numeric IDs for our cards - Reorganized to follow the order:
   // Cups, Wands, Pentacles, Swords with each suit going from Ace through King

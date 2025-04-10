@@ -137,11 +137,79 @@ export default function Learning() {
                           const currentCardId = track.requiredCards[progress.currentLesson - 1];
                           
                           if (currentCardId) {
-                            // Use standard approach for all tracks - fallback to index-based ID
-                            const lessonId = trackId === 1 ? `beginner-${progress.currentLesson}` 
-                              : trackId === 2 ? `minor-${progress.currentLesson}`
-                              : trackId === 10 ? `intuitive-${progress.currentLesson}`
-                              : `advanced-${progress.currentLesson}`;
+                            // Use standard approach for most tracks, but special handling for Intuitive Reading
+                            let lessonId;
+                            
+                            if (trackId === 1) {
+                              lessonId = `beginner-${progress.currentLesson}`;
+                            } else if (trackId === 2) {
+                              lessonId = `minor-${progress.currentLesson}`;
+                            } else if (trackId === 10) {
+                              // For Intuitive Reading track, we need special mapping
+                              const suitCode = currentCardId.charAt(0);
+                              const rank = currentCardId.substring(1);
+                              
+                              if (suitCode === 'c') {
+                                // Cups
+                                if (rank === '1') lessonId = 'intuitive-1';
+                                else if (rank === '2') lessonId = 'intuitive-2';
+                                else if (rank === '3') lessonId = 'intuitive-3';
+                                else if (rank === '4') lessonId = 'intuitive-4';
+                                else if (rank === '5') lessonId = 'intuitive-5';
+                                else if (rank === '6') lessonId = 'intuitive-6';
+                                else if (rank === '7') lessonId = 'intuitive-7';
+                                else if (rank === '8') lessonId = 'intuitive-8';
+                                else if (rank === '9') lessonId = 'intuitive-9';
+                                else if (rank === '10') lessonId = 'intuitive-10';
+                                else if (rank === 'p') lessonId = 'intuitive-11';
+                                else if (rank === 'n') lessonId = 'intuitive-12';
+                                else if (rank === 'q') lessonId = 'intuitive-13';
+                                else if (rank === 'k') lessonId = 'intuitive-14';
+                              } else if (suitCode === 'w') {
+                                // Wands
+                                if (rank >= '1' && rank <= '10') {
+                                  lessonId = `intuitive-${parseInt(rank) + 14}`;
+                                } else if (rank === 'p') {
+                                  lessonId = 'intuitive-25';
+                                } else if (rank === 'n') {
+                                  lessonId = 'intuitive-26';
+                                } else if (rank === 'q') {
+                                  lessonId = 'intuitive-27';
+                                } else if (rank === 'k') {
+                                  lessonId = 'intuitive-28';
+                                }
+                              } else if (suitCode === 'p') {
+                                // Pentacles
+                                if (rank >= '1' && rank <= '10') {
+                                  lessonId = `intuitive-${parseInt(rank) + 28}`;
+                                } else if (rank === 'p') {
+                                  lessonId = 'intuitive-39';
+                                } else if (rank === 'n') {
+                                  lessonId = 'intuitive-40';
+                                } else if (rank === 'q') {
+                                  lessonId = 'intuitive-41';
+                                } else if (rank === 'k') {
+                                  lessonId = 'intuitive-42';
+                                }
+                              } else if (suitCode === 's') {
+                                // Swords
+                                if (rank >= '1' && rank <= '10') {
+                                  lessonId = `intuitive-${parseInt(rank) + 42}`;
+                                } else if (rank === 'p') {
+                                  lessonId = 'intuitive-53';
+                                } else if (rank === 'n') {
+                                  lessonId = 'intuitive-54';
+                                } else if (rank === 'q') {
+                                  lessonId = 'intuitive-55';
+                                } else if (rank === 'k') {
+                                  lessonId = 'intuitive-56';
+                                }
+                              } else {
+                                lessonId = `intuitive-${progress.currentLesson}`;
+                              }
+                            } else {
+                              lessonId = `advanced-${progress.currentLesson}`;
+                            }
                             
                             console.log(`Continue: Navigating to /learning/${trackId}/${lessonId} for card ${currentCardId}`);
                             setLocation(`/learning/${trackId}/${lessonId}`);
@@ -229,16 +297,34 @@ export default function Learning() {
                             
                             if (suitCode === 'c') {
                               // Cups are 1-14
-                              if (rank >= '1' && rank <= '10') {
-                                lessonId = `intuitive-${rank}`;
+                              if (rank === '1') {
+                                lessonId = 'intuitive-1'; // Ace of Cups
+                              } else if (rank === '2') {
+                                lessonId = 'intuitive-2'; // Two of Cups
+                              } else if (rank === '3') {
+                                lessonId = 'intuitive-3'; // Three of Cups
+                              } else if (rank === '4') {
+                                lessonId = 'intuitive-4'; // Four of Cups
+                              } else if (rank === '5') {
+                                lessonId = 'intuitive-5'; // Five of Cups
+                              } else if (rank === '6') {
+                                lessonId = 'intuitive-6'; // Six of Cups
+                              } else if (rank === '7') {
+                                lessonId = 'intuitive-7'; // Seven of Cups
+                              } else if (rank === '8') {
+                                lessonId = 'intuitive-8'; // Eight of Cups
+                              } else if (rank === '9') {
+                                lessonId = 'intuitive-9'; // Nine of Cups
+                              } else if (rank === '10') {
+                                lessonId = 'intuitive-10'; // Ten of Cups
                               } else if (rank === 'p') {
-                                lessonId = 'intuitive-11'; // Page
+                                lessonId = 'intuitive-11'; // Page of Cups
                               } else if (rank === 'n') {
-                                lessonId = 'intuitive-12'; // Knight
+                                lessonId = 'intuitive-12'; // Knight of Cups
                               } else if (rank === 'q') {
-                                lessonId = 'intuitive-13'; // Queen
+                                lessonId = 'intuitive-13'; // Queen of Cups
                               } else if (rank === 'k') {
-                                lessonId = 'intuitive-14'; // King
+                                lessonId = 'intuitive-14'; // King of Cups
                               }
                             } else if (suitCode === 'w') {
                               // Wands are 15-28
