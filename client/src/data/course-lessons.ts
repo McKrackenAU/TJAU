@@ -13378,67 +13378,78 @@ const orderedLessons = (() => {
   }
   
   // Override with module-level Knight cards to ensure content exists
-  lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-19' };
-  lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-18' };
+  lessonMap['wn'] = { ...knightOfWands, cardId: 'wn', id: 'intuitive-26' }; // Knight of Wands
+  lessonMap['cn'] = { ...knightOfCups, cardId: 'cn', id: 'intuitive-12' };  // Knight of Cups
   
   // Ensure the Knight of Swords is correctly placed with the Swords
-  // We'll place it after the Swords sequence since we want it shown after Page of Swords
-  // but we don't have the full Swords set yet
-  lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-29' };
+  lessonMap['sn'] = { ...knightOfSwords, cardId: 'sn', id: 'intuitive-54' }; // Knight of Swords
   
-  // Define proper numeric IDs for our cards
-  // These IDs provide consistent, non-overlapping ranges for each suit
+  // Define proper numeric IDs for our cards - Reorganized to follow the order:
+  // Cups, Wands, Pentacles, Swords with each suit going from Ace through King
   const cardIdMappings = {
-    // Cups cards: 1-14
-    'c1': 'intuitive-1',
-    'c2': 'intuitive-2',
-    'c3': 'intuitive-3',
-    'c4': 'intuitive-4',
-    'c5': 'intuitive-5',
-    'c6': 'intuitive-6',
-    'c7': 'intuitive-7',
-    'c8': 'intuitive-8',
-    'c9': 'intuitive-9',
-    'c10': 'intuitive-10',
-    'cp': 'intuitive-11',
-    'cn': 'intuitive-18', // Knight of Cups
-    'ck': 'intuitive-12',
-    'cq': 'intuitive-13',
+    // Cups cards (1-14)
+    'c1': 'intuitive-1',  // Ace of Cups
+    'c2': 'intuitive-2',  // Two of Cups
+    'c3': 'intuitive-3',  // Three of Cups
+    'c4': 'intuitive-4',  // Four of Cups
+    'c5': 'intuitive-5',  // Five of Cups
+    'c6': 'intuitive-6',  // Six of Cups
+    'c7': 'intuitive-7',  // Seven of Cups
+    'c8': 'intuitive-8',  // Eight of Cups
+    'c9': 'intuitive-9',  // Nine of Cups
+    'c10': 'intuitive-10', // Ten of Cups
+    'cp': 'intuitive-11', // Page of Cups
+    'cn': 'intuitive-12', // Knight of Cups
+    'cq': 'intuitive-13', // Queen of Cups
+    'ck': 'intuitive-14', // King of Cups
     
-    // Wands cards: 14-27
-    'w1': 'intuitive-14',
-    'w2': 'intuitive-15',
-    'w3': 'intuitive-16',
-    'w4': 'intuitive-17',
-    'w5': 'intuitive-20',
-    'w6': 'intuitive-21',
-    'w7': 'intuitive-22',
-    'w8': 'intuitive-23',
-    'w9': 'intuitive-24',
-    'w10': 'intuitive-25',
-    'wp': 'intuitive-27',
-    'wn': 'intuitive-19', // Knight of Wands
-    'wk': 'intuitive-26',
-    'wq': 'intuitive-28',
+    // Wands cards (15-28)
+    'w1': 'intuitive-15', // Ace of Wands
+    'w2': 'intuitive-16', // Two of Wands
+    'w3': 'intuitive-17', // Three of Wands
+    'w4': 'intuitive-18', // Four of Wands
+    'w5': 'intuitive-19', // Five of Wands
+    'w6': 'intuitive-20', // Six of Wands
+    'w7': 'intuitive-21', // Seven of Wands
+    'w8': 'intuitive-22', // Eight of Wands
+    'w9': 'intuitive-23', // Nine of Wands
+    'w10': 'intuitive-24', // Ten of Wands
+    'wp': 'intuitive-25', // Page of Wands
+    'wn': 'intuitive-26', // Knight of Wands
+    'wq': 'intuitive-27', // Queen of Wands
+    'wk': 'intuitive-28', // King of Wands
     
-    // Swords cards: 28-41 (only Knight available now)
-    'sn': 'intuitive-29', // Knight of Swords
+    // Pentacles cards (29-42) 
+    'p1': 'intuitive-29', // Ace of Pentacles
+    'p2': 'intuitive-30', // Two of Pentacles
+    'p3': 'intuitive-31', // Three of Pentacles
+    'p4': 'intuitive-32', // Four of Pentacles
+    'p5': 'intuitive-33', // Five of Pentacles
+    'p6': 'intuitive-34', // Six of Pentacles
+    'p7': 'intuitive-35', // Seven of Pentacles
+    'p8': 'intuitive-36', // Eight of Pentacles
+    'p9': 'intuitive-37', // Nine of Pentacles
+    'p10': 'intuitive-38', // Ten of Pentacles
+    'pp': 'intuitive-39', // Page of Pentacles
+    'pn': 'intuitive-40', // Knight of Pentacles
+    'pq': 'intuitive-41', // Queen of Pentacles
+    'pk': 'intuitive-42', // King of Pentacles
     
-    // Pentacles cards: 42-55 (use explicit IDs starting at 30)
-    'p1': 'intuitive-30',
-    'p2': 'intuitive-31',
-    'p3': 'intuitive-32',
-    'p4': 'intuitive-33',
-    'p5': 'intuitive-34',
-    'p6': 'intuitive-35',
-    'p7': 'intuitive-36',
-    'p8': 'intuitive-37',
-    'p9': 'intuitive-38',
-    'p10': 'intuitive-39',
-    'pp': 'intuitive-40',
-    'pn': 'intuitive-41',
-    'pk': 'intuitive-42',
-    'pq': 'intuitive-43'
+    // Swords cards (43-56)
+    's1': 'intuitive-43', // Ace of Swords
+    's2': 'intuitive-44', // Two of Swords
+    's3': 'intuitive-45', // Three of Swords
+    's4': 'intuitive-46', // Four of Swords
+    's5': 'intuitive-47', // Five of Swords
+    's6': 'intuitive-48', // Six of Swords
+    's7': 'intuitive-49', // Seven of Swords
+    's8': 'intuitive-50', // Eight of Swords
+    's9': 'intuitive-51', // Nine of Swords
+    's10': 'intuitive-52', // Ten of Swords
+    'sp': 'intuitive-53', // Page of Swords
+    'sn': 'intuitive-54', // Knight of Swords
+    'sq': 'intuitive-55', // Queen of Swords
+    'sk': 'intuitive-56'  // King of Swords
   };
   
   // Ensure all cards have their proper IDs to avoid navigation issues
@@ -13453,17 +13464,17 @@ const orderedLessons = (() => {
   
   // Define the desired card order for each suit (following the requested order: Cups, Wands, Pentacles, Swords)
   const cardOrder = [
-    // Cups order (c1-c10, cp, cn, ck, cq)
-    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'ck', 'cq',
+    // Cups order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck',
     
-    // Wands order (w1-w10, wp, wn, wk, wq)
-    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wk', 'wq',
+    // Wands order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk',
     
-    // Pentacles order (p1-p10, pp, pn, pk, pq)
-    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pk', 'pq',
+    // Pentacles order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk',
     
-    // Swords order (s1-s10, sp, sn, sk, sq)
-    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sk', 'sq'
+    // Swords order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'
   ];
   
   // Create ordered array based on card order
