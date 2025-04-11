@@ -14207,9 +14207,56 @@ const orderedLessons = (() => {
     .map(cardId => lessonMap[cardId]); // Map to actual lesson objects
 })();
 
+// Create a properly ordered array for the Minor Arcana track
+const orderedMinorArcanaLessons = (() => {
+  // Create a map of lesson ID to lesson for quick lookup
+  const lessonMap: Record<string, LessonContent> = {};
+  
+  // Add all Minor Arcana lessons to the map
+  for (const lesson of minorArcanaLessons) {
+    lessonMap[lesson.id] = lesson;
+  }
+
+  // Introduction lesson should always be first
+  const introLesson = minorArcanaLessons.find(lesson => lesson.id === "minor-1");
+  const resultLessons: LessonContent[] = introLesson ? [introLesson] : [];
+  
+  // Define the desired card order for each suit
+  const cardOrder = [
+    // Cups order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck',
+    
+    // Wands order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk',
+    
+    // Pentacles order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk',
+    
+    // Swords order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'
+  ];
+  
+  // Map card IDs to their respective Minor Arcana lesson IDs (excluding intro lesson)
+  const minorArcanaCardLessons = minorArcanaLessons
+    .filter(lesson => lesson.id !== "minor-1")
+    .reduce((map, lesson) => {
+      map[lesson.cardId] = lesson;
+      return map;
+    }, {} as Record<string, LessonContent>);
+  
+  // Add lessons in the correct card order (if available)
+  cardOrder.forEach(cardId => {
+    if (minorArcanaCardLessons[cardId]) {
+      resultLessons.push(minorArcanaCardLessons[cardId]);
+    }
+  });
+  
+  return resultLessons;
+})();
+
 export const trackLessonMap = {
-  1: beginnerLessons,         // Beginner's Journey
-  2: minorArcanaLessons,      // Minor Arcana Journey
-  10: orderedLessons,         // Intuitive Reading with proper card order
-  11: advancedSymbolismLessons // Advanced Symbolism
+  1: beginnerLessons,              // Beginner's Journey
+  2: orderedMinorArcanaLessons,    // Minor Arcana Journey (ordered)
+  10: orderedLessons,              // Intuitive Reading with proper card order
+  11: advancedSymbolismLessons     // Advanced Symbolism
 };
