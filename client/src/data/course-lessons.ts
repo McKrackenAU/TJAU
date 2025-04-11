@@ -11759,6 +11759,107 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-47",
+    title: "The Knight of Wands: Dynamic Action and Passionate Pursuit",
+    description: "Explore enthusiastic energy, passionate pursuit, and the fiery drive for adventure in the Knight of Wands.",
+    cardId: "wn",
+    sections: [
+      {
+        title: "The Knight of Wands: Overview",
+        content: `
+          <p>Following the enthusiastic beginnings of the Page of Wands, the Knight of Wands represents the active pursuit of passionate goals—bringing energetic movement, adventurous spirit, and the fiery determination needed to transform creative sparks into dynamic action.</p>
+          
+          <p>This card typically depicts a knight in decorated armor, mounted on a rearing or galloping horse, holding a flowering or flaming wand. The knight's posture and the horse's movement suggest forward momentum, energy, and eagerness to pursue new horizons.</p>
+          
+          <p>The Knight of Wands asks us to consider:</p>
+          <ul>
+            <li>What passionate pursuits am I ready to charge toward with enthusiasm?</li>
+            <li>How can I channel my energy into productive and creative action?</li>
+            <li>Where might I need to bring more confidence and daring to my endeavors?</li>
+            <li>What adventures or opportunities for growth are calling to me?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Knight of Wands contains important symbols that enhance our understanding:</p>
+          <ul>
+            <li>The spirited horse represents energy, movement, and the power of passion</li>
+            <li>The decorated armor symbolizes confidence and readiness for adventure</li>
+            <li>The wand (often shown with leaves or flames) represents creative power in action</li>
+            <li>The dynamic posture embodies enthusiasm, courage, and forward movement</li>
+          </ul>
+          
+          <p>In readings, the Knight of Wands suggests:</p>
+          <ul>
+            <li>Taking decisive, enthusiastic action toward your passions</li>
+            <li>A period of adventure, travel, or exciting movement</li>
+            <li>Approaching challenges with confidence and charismatic energy</li>
+            <li>The arrival of exciting opportunities that require quick action</li>
+            <li>Bringing creative inspiration into dynamic, tangible expression</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Knight of Wands",
+        content: `
+          <p>When the Knight of Wands appears in your reading, consider these reflective questions:</p>
+          <ul>
+            <li>Where in my life am I being called to take bold, passionate action?</li>
+            <li>How might I benefit from bringing more enthusiasm and confidence to my pursuits?</li>
+            <li>What creative projects or passions are ready for energetic advancement?</li>
+            <li>Where could I use more adventurous spirit and less hesitation?</li>
+          </ul>
+          
+          <p>Actions to take when working with Knight of Wands energy:</p>
+          <ul>
+            <li>Make decisive moves toward your creative or passionate goals</li>
+            <li>Embrace opportunities for travel, adventure, or new experiences</li>
+            <li>Channel your enthusiasm into focused, productive action</li>
+            <li>Approach challenges with confidence and charismatic leadership</li>
+            <li>Be willing to take calculated risks that align with your passions</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What quality best describes the Knight of Wands' approach to pursuing goals?",
+        options: [
+          "Careful planning and methodical execution",
+          "Emotional sensitivity and intuitive guidance",
+          "Energetic enthusiasm and confident action",
+          "Analytical thinking and strategic assessment"
+        ],
+        correctAnswer: 2,
+        explanation: "The Knight of Wands approaches the pursuit of goals with energetic enthusiasm and confident action. Unlike the careful planning of Earth/Pentacles or the analytical approach of Air/Swords, this fiery knight charges forward with passion, courage, and dynamic energy. The Knight of Wands embodies the active, adventurous application of creative fire, transforming inspiration into movement through confident, charismatic action."
+      },
+      {
+        question: "What shadow aspect should one be mindful of when working with Knight of Wands energy?",
+        options: [
+          "Excessive caution and inability to take risks",
+          "Impulsiveness and difficulty sustaining long-term efforts",
+          "Over-analysis and intellectual detachment",
+          "Emotional dependence and fear of independence"
+        ],
+        correctAnswer: 1,
+        explanation: "When working with Knight of Wands energy, one should be mindful of impulsiveness and difficulty sustaining long-term efforts. While this knight's enthusiasm and confidence are powerful strengths, the shadow aspect can manifest as rushing into situations without sufficient planning, losing interest once the initial excitement fades, or changing direction too frequently. The challenge is to channel the passionate energy in ways that can be maintained beyond the initial charge forward."
+      }
+    ],
+    summary: "The Knight of Wands represents enthusiastic action, passionate pursuit, and adventurous spirit. Moving beyond the initial spark of the Page, this Knight brings the confidence and dynamic energy needed to transform creative inspiration into tangible movement toward goals. The card encourages us to approach our passions with courage and charismatic leadership, to embrace opportunities for adventure and growth, and to channel our fiery enthusiasm into focused action that brings our creative vision to life.",
+    additionalResources: [
+      {
+        title: "Sustainable Enthusiasm",
+        description: "Techniques for maintaining passionate energy through long-term projects"
+      },
+      {
+        title: "Confident Creative Leadership",
+        description: "Developing the charismatic qualities needed to inspire others and lead creative initiatives"
+      }
+    ]
+  },
+  {
     id: "minor-42",
     title: "The Page of Cups: Emotional Awakening and Creative Intuition",
     description: "Explore the flowering of intuition, new emotional beginnings, and creative imagination in the Page of Cups.",
@@ -12215,6 +12316,107 @@ export const minorArcanaLessons: LessonContent[] = [
       {
         title: "Methodical Manifestation",
         description: "Step-by-step approaches to bringing goals into physical reality"
+      }
+    ]
+  },
+  {
+    id: "minor-50",
+    title: "The Knight of Pentacles: Methodical Progress and Practical Dedication",
+    description: "Explore the qualities of reliable progress, methodical dedication, and practical persistence in the Knight of Pentacles.",
+    cardId: "pn",
+    sections: [
+      {
+        title: "The Knight of Pentacles: Overview",
+        content: `
+          <p>Following the student mindset of the Page of Pentacles, the Knight of Pentacles represents committed action toward material goals—bringing methodical persistence, reliable progress, and the steady dedication needed to transform practical knowledge into tangible achievements.</p>
+          
+          <p>This card typically depicts a knight in sturdy armor, sitting on a stationary but strong horse, carefully holding a pentacle or coin. Unlike the other knights, this figure appears less in motion, suggesting careful consideration before action and a commitment to thoroughness over speed.</p>
+          
+          <p>The Knight of Pentacles asks us to consider:</p>
+          <ul>
+            <li>What long-term goals require my dedicated, persistent effort?</li>
+            <li>How can I bring more reliability and thoroughness to my work?</li>
+            <li>Where might I need to slow down to ensure quality and sustainability?</li>
+            <li>What practical matters need my focused attention and commitment?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Knight of Pentacles contains important symbols that enhance our understanding:</p>
+          <ul>
+            <li>The sturdy horse represents reliability and enduring strength</li>
+            <li>The detailed, practical armor symbolizes thoroughness and protection</li>
+            <li>The pentacle held carefully shows attention to material concerns</li>
+            <li>The still, grounded posture embodies patience and methodical progress</li>
+          </ul>
+          
+          <p>In readings, the Knight of Pentacles suggests:</p>
+          <ul>
+            <li>Steady, reliable progress toward material goals</li>
+            <li>A methodical, thorough approach to work and projects</li>
+            <li>Dedication to seeing things through to completion</li>
+            <li>Practical problem-solving and attention to detail</li>
+            <li>The importance of patience and persistence in manifesting results</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Knight of Pentacles",
+        content: `
+          <p>When the Knight of Pentacles appears in your reading, consider these reflective questions:</p>
+          <ul>
+            <li>What area of my life would benefit from more consistency and reliability?</li>
+            <li>How can I break down my long-term goals into manageable, methodical steps?</li>
+            <li>Where might thoroughness and attention to detail be more important than speed?</li>
+            <li>What practical skills am I developing that require dedicated practice?</li>
+          </ul>
+          
+          <p>Actions to take when working with Knight of Pentacles energy:</p>
+          <ul>
+            <li>Create a detailed, step-by-step plan for important projects</li>
+            <li>Establish consistent routines that support your material goals</li>
+            <li>Focus on quality and thoroughness in your work</li>
+            <li>Make and keep practical commitments to yourself and others</li>
+            <li>Approach challenges with methodical problem-solving rather than quick fixes</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What quality best describes the Knight of Pentacles' approach to goals?",
+        options: [
+          "Enthusiastic but inconsistent energy",
+          "Emotional, intuitive guidance",
+          "Methodical persistence and reliable dedication",
+          "Quick, analytical problem-solving"
+        ],
+        correctAnswer: 2,
+        explanation: "The Knight of Pentacles approaches goals with methodical persistence and reliable dedication. Unlike the enthusiastic but sometimes inconsistent energy of the Knight of Wands, or the swift analytical approach of the Knight of Swords, this earth knight moves forward steadily and thoroughly. The Knight of Pentacles embodies the grounded, practical application of earth energy, transforming plans into reality through consistent effort, attention to detail, and unwavering persistence."
+      },
+      {
+        question: "What shadow aspect should one be mindful of when working with Knight of Pentacles energy?",
+        options: [
+          "Excessive caution and resistance to necessary change",
+          "Impulsiveness and lack of follow-through",
+          "Over-intellectualizing emotional matters",
+          "Being too trusting and emotionally vulnerable"
+        ],
+        correctAnswer: 0,
+        explanation: "When working with Knight of Pentacles energy, one should be mindful of excessive caution and resistance to necessary change. While this knight's reliability and thoroughness are valuable strengths, the shadow aspect can manifest as becoming too rigid, overly perfectionist, or resistant to innovation and flexibility. The challenge is to maintain steadiness and quality while still remaining open to improvements, adjustments, and the occasional calculated risk when circumstances change."
+      }
+    ],
+    summary: "The Knight of Pentacles represents methodical progress, reliable dedication, and practical persistence. Moving beyond the student mindset of the Page, this Knight brings the commitment and thoroughness needed to transform knowledge into tangible results through consistent effort. The card encourages us to value quality over speed, to develop reliable routines and practices, and to approach our material goals with steady determination that can withstand challenges and distractions along the way.",
+    additionalResources: [
+      {
+        title: "The Power of Persistence",
+        description: "Understanding how consistent effort creates compound results over time"
+      },
+      {
+        title: "Quality-Focused Workflows",
+        description: "Designing systems and routines that prioritize thoroughness and reliability"
       }
     ]
   },
