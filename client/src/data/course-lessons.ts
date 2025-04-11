@@ -14079,7 +14079,7 @@ const orderedLessons = (() => {
   // Explicitly map Swords cards with their expected IDs
   // This is to ensure all the Swords cards are available with correct IDs
   // The order is crucial for proper navigation
-  const swordsCardMappings = {
+  const swordsCardMappings: Record<string, string> = {
     's1': 'intuitive-43', // Ace of Swords
     's2': 'intuitive-44', // Two of Swords
     's3': 'intuitive-45', // Three of Swords
@@ -14099,11 +14099,11 @@ const orderedLessons = (() => {
   // Find all lessons with Swords cards and map them correctly
   for (const lesson of allLessons) {
     const cardId = lesson.cardId;
-    if (cardId.startsWith('s') && swordsCardMappings[cardId]) {
+    if (cardId.startsWith('s') && Object.prototype.hasOwnProperty.call(swordsCardMappings, cardId)) {
       // Set the correct ID for the Swords card
       lessonMap[cardId] = {
         ...lesson,
-        id: swordsCardMappings[cardId]
+        id: swordsCardMappings[cardId as keyof typeof swordsCardMappings]
       };
     }
   }
