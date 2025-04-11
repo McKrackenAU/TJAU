@@ -7310,6 +7310,120 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-wands-1",
+    title: "The Ace of Wands: Creative Beginnings",
+    description: "Explore the spark of inspiration, new beginnings, and creative potential in the Ace of Wands.",
+    cardId: "w1",
+    sections: [
+      {
+        title: "The Essence of Wands",
+        content: `
+          <p>Before diving into the Ace of Wands, let's understand the Wands suit. The Wands (sometimes called Staves or Batons) represent the element of Fire and symbolize creativity, passion, energy, and spiritual growth.</p>
+          
+          <p>The Wands suit governs these areas of life:</p>
+          <ul>
+            <li>Creative projects and endeavors</li>
+            <li>Career and ambition</li>
+            <li>Passion and motivation</li>
+            <li>Spiritual journeys and personal growth</li>
+            <li>Energy, vitality, and action</li>
+          </ul>
+          
+          <p>When Wands appear in a reading, they often indicate areas where our creative fire and passion are at work or needed.</p>
+        `
+      },
+      {
+        title: "Understanding the Ace of Wands",
+        content: `
+          <p>The Ace of Wands represents the pure essence of fire energy - the initial spark of inspiration, the seed of creative potential, and the beginning of passionate endeavors.</p>
+          
+          <p>In traditional imagery, the Ace of Wands shows a hand emerging from the clouds, grasping a sprouting wand or staff. The wand typically has green leaves budding from it, suggesting growth, vitality, and potential.</p>
+          
+          <p>Key symbols in the Ace of Wands:</p>
+          <ul>
+            <li><strong>The sprouting wand</strong>: New growth, beginnings, creative potential</li>
+            <li><strong>Green leaves</strong>: Vitality, life force, natural development</li>
+            <li><strong>The hand from clouds</strong>: Divine gift, opportunity, inspiration from above</li>
+            <li><strong>The castle or landscape</strong>: The world of possibilities where your idea can manifest</li>
+          </ul>
+          
+          <p>The Ace of Wands is like the seed that contains all the potential of what might grow - the first inspiration that could lead to a completed creative project, a new passion, or a spiritual awakening.</p>
+        `
+      },
+      {
+        title: "Working with the Ace of Wands",
+        content: `
+          <p>When the Ace of Wands appears in your reading, consider these questions:</p>
+          
+          <ul>
+            <li>What new ideas or inspirations have recently entered your life?</li>
+            <li>Where do you feel a spark of enthusiasm or passion?</li>
+            <li>What creative project is waiting to be born?</li>
+            <li>How might you nurture the initial spark of an idea into something more substantial?</li>
+            <li>What new beginning is possible if you embrace your creative fire?</li>
+          </ul>
+          
+          <p>The Ace of Wands invites you to:</p>
+          <ul>
+            <li>Be open to new inspirations and creative sparks</li>
+            <li>Take the first step toward manifesting your passion</li>
+            <li>Trust your enthusiasm and follow where it leads</li>
+            <li>Recognize the potential in new beginnings</li>
+            <li>Embrace the energy of creative fire</li>
+          </ul>
+          
+          <p>Remember that the Ace contains potential, not completion. Your active participation is required to develop this initial spark into a fully realized creation.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What element is associated with the Wands suit?",
+        options: [
+          "Water",
+          "Earth",
+          "Air",
+          "Fire"
+        ],
+        correctAnswer: 3,
+        explanation: "The Wands suit is associated with the element of Fire, which represents energy, passion, creativity, and spiritual growth."
+      },
+      {
+        question: "What does the sprouting leaves on the Ace of Wands symbolize?",
+        options: [
+          "Past achievements and accomplishments",
+          "Growth, vitality, and potential",
+          "Obstacles to overcome",
+          "The end of a creative cycle"
+        ],
+        correctAnswer: 1,
+        explanation: "The sprouting leaves on the Ace of Wands symbolize growth, vitality, and potential - indicating that this new beginning has the life force needed to flourish if properly nurtured."
+      },
+      {
+        question: "Which of these scenarios best represents Ace of Wands energy?",
+        options: [
+          "Completing a long-term project after years of work",
+          "Feeling emotionally fulfilled in a mature relationship",
+          "Getting a brilliant idea for a new creative project",
+          "Analyzing data to solve a complex problem"
+        ],
+        correctAnswer: 2,
+        explanation: "Getting a brilliant idea for a new creative project perfectly embodies the Ace of Wands energy - the initial spark of inspiration and the beginning of a creative journey."
+      }
+    ],
+    summary: "The Ace of Wands represents the pure essence of fire energy - the initial spark of creative inspiration, the beginning of passionate endeavors, and the seed of potential waiting to be developed. Associated with the element of Fire, this card signals new beginnings in the realm of creativity, career, spirituality, or passion. When the Ace of Wands appears, it invites us to recognize and nurture the sparks of inspiration in our lives, taking the first steps toward manifesting our creative vision.",
+    additionalResources: [
+      {
+        title: "Nurturing Creative Inspiration",
+        description: "Practical techniques for developing initial sparks into fully realized creative projects."
+      },
+      {
+        title: "The Fire Element in Spiritual Traditions",
+        description: "Exploring how different cultures understand and work with the transformative power of fire."
+      }
+    ]
+  },
+  {
     id: "minor-2",
     title: "The Suit of Cups: Emotions and Relationships",
     description: "Explore the water element and the emotional world of the Cups suit.",
