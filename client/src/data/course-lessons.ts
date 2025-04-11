@@ -10295,10 +10295,10 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
-    id: "minor-20",
-    title: "The Five of Pentacles: Hardship and Support",
-    description: "Explore the challenging energy of material hardship, spiritual resources, and finding help in difficult times through the Five of Pentacles.",
-    cardId: "p5",
+    id: "minor-29",
+    title: "The Eight of Wands: Movement and Swift Action",
+    description: "Explore the dynamic energy of movement, acceleration, and aligned action in the Eight of Wands.",
+    cardId: "w8",
     sections: [
       {
         title: "The Five of Pentacles: Overview",
