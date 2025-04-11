@@ -164,15 +164,21 @@ export default function LessonPage() {
         } 
         // Swords (43-56)
         else if (lessonNumber >= 43 && lessonNumber <= 56) {
-          const swordsNumber = lessonNumber - 42;
-          if (swordsNumber <= 10) {
-            // Numeric cards: s1-s10
-            cardId = `s${swordsNumber}`;
-          } else {
-            // Court cards: sp, sn, sq, sk
-            const courtRanks = ["p", "n", "q", "k"];
-            cardId = `s${courtRanks[swordsNumber - 11]}`;
-          }
+          // Use explicit mapping for Swords to ensure they work correctly
+          if (lessonNumber === 43) cardId = 's1';      // Ace of Swords
+          else if (lessonNumber === 44) cardId = 's2';  // Two of Swords
+          else if (lessonNumber === 45) cardId = 's3';  // Three of Swords
+          else if (lessonNumber === 46) cardId = 's4';  // Four of Swords
+          else if (lessonNumber === 47) cardId = 's5';  // Five of Swords
+          else if (lessonNumber === 48) cardId = 's6';  // Six of Swords
+          else if (lessonNumber === 49) cardId = 's7';  // Seven of Swords
+          else if (lessonNumber === 50) cardId = 's8';  // Eight of Swords
+          else if (lessonNumber === 51) cardId = 's9';  // Nine of Swords
+          else if (lessonNumber === 52) cardId = 's10'; // Ten of Swords
+          else if (lessonNumber === 53) cardId = 'sp';  // Page of Swords
+          else if (lessonNumber === 54) cardId = 'sn';  // Knight of Swords
+          else if (lessonNumber === 55) cardId = 'sq';  // Queen of Swords
+          else if (lessonNumber === 56) cardId = 'sk';  // King of Swords
         }
         
         if (cardId) {

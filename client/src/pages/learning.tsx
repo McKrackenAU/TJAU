@@ -344,16 +344,35 @@ export default function Learning() {
                               }
                             } else if (suitCode === 's') {
                               // Swords are 43-56
-                              if (rank >= '1' && rank <= '10') {
-                                lessonId = `intuitive-${parseInt(rank) + 42}`; 
+                              // Use explicit cases for Swords to ensure they work correctly
+                              if (rank === '1') {
+                                lessonId = 'intuitive-43'; // Ace of Swords
+                              } else if (rank === '2') {
+                                lessonId = 'intuitive-44'; // Two of Swords
+                              } else if (rank === '3') {
+                                lessonId = 'intuitive-45'; // Three of Swords
+                              } else if (rank === '4') {
+                                lessonId = 'intuitive-46'; // Four of Swords
+                              } else if (rank === '5') {
+                                lessonId = 'intuitive-47'; // Five of Swords
+                              } else if (rank === '6') {
+                                lessonId = 'intuitive-48'; // Six of Swords
+                              } else if (rank === '7') {
+                                lessonId = 'intuitive-49'; // Seven of Swords
+                              } else if (rank === '8') {
+                                lessonId = 'intuitive-50'; // Eight of Swords
+                              } else if (rank === '9') {
+                                lessonId = 'intuitive-51'; // Nine of Swords
+                              } else if (rank === '10') {
+                                lessonId = 'intuitive-52'; // Ten of Swords
                               } else if (rank === 'p') {
-                                lessonId = 'intuitive-53'; // Page
+                                lessonId = 'intuitive-53'; // Page of Swords
                               } else if (rank === 'n') {
-                                lessonId = 'intuitive-54'; // Knight
+                                lessonId = 'intuitive-54'; // Knight of Swords
                               } else if (rank === 'q') {
-                                lessonId = 'intuitive-55'; // Queen
+                                lessonId = 'intuitive-55'; // Queen of Swords
                               } else if (rank === 'k') {
-                                lessonId = 'intuitive-56'; // King
+                                lessonId = 'intuitive-56'; // King of Swords
                               }
                             } else {
                               // Default fallback 
