@@ -7212,7 +7212,7 @@ export const minorArcanaLessons: LessonContent[] = [
     id: "minor-1",
     title: "Introduction to the Minor Arcana",
     description: "Learn about the structure and symbolism of the Minor Arcana suits.",
-    cardId: "w1",
+    cardId: "intro",
     sections: [
       {
         title: "Understanding the Minor Arcana",
