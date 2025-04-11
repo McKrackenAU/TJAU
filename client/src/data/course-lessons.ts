@@ -14323,49 +14323,71 @@ const orderedLessons = (() => {
 
 // Create a properly ordered array for the Minor Arcana track
 const orderedMinorArcanaLessons = (() => {
-  // Create a map of lesson ID to lesson for quick lookup
-  const lessonMap: Record<string, LessonContent> = {};
+  // Create a map for a completely manual lesson order
+  // This gives us maximum control over the progression sequence
+  const manualOrderedLessons: LessonContent[] = [];
   
-  // Add all Minor Arcana lessons to the map
-  for (const lesson of minorArcanaLessons) {
-    lessonMap[lesson.id] = lesson;
-  }
-
-  // Introduction lesson should always be first
+  // First add the introduction
   const introLesson = minorArcanaLessons.find(lesson => lesson.id === "minor-1");
-  const resultLessons: LessonContent[] = introLesson ? [introLesson] : [];
+  if (introLesson) {
+    manualOrderedLessons.push(introLesson);
+  }
   
-  // Define the desired card order for each suit
-  const cardOrder = [
-    // Cups order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
-    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck',
-    
-    // Wands order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
-    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk',
-    
-    // Pentacles order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
-    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk',
-    
-    // Swords order: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
-    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'
-  ];
+  // Create a map of card ID to lesson for quick lookup
+  const cardIdToLessonMap: Record<string, LessonContent> = {};
+  for (const lesson of minorArcanaLessons) {
+    if (lesson.id !== "minor-1") { // Skip intro lesson
+      cardIdToLessonMap[lesson.cardId] = lesson;
+    }
+  }
   
-  // Map card IDs to their respective Minor Arcana lesson IDs (excluding intro lesson)
-  const minorArcanaCardLessons = minorArcanaLessons
-    .filter(lesson => lesson.id !== "minor-1")
-    .reduce((map, lesson) => {
-      map[lesson.cardId] = lesson;
-      return map;
-    }, {} as Record<string, LessonContent>);
+  // Add Knight of Cups lesson based on the Intuitive Reading version
+  const knightOfCupsFromIntuitive = intuitiveReadingLessons.find(lesson => lesson.cardId === "cn");
+  if (knightOfCupsFromIntuitive && !cardIdToLessonMap['cn']) {
+    // Create a Minor Arcana version of the Knight of Cups
+    const minorKnightOfCups: LessonContent = {
+      ...knightOfCupsFromIntuitive,
+      id: "minor-cups-knight", // Custom ID for the minor arcana Knight of Cups
+      cardId: "cn"
+    };
+    cardIdToLessonMap['cn'] = minorKnightOfCups;
+  }
   
-  // Add lessons in the correct card order (if available)
-  cardOrder.forEach(cardId => {
-    if (minorArcanaCardLessons[cardId]) {
-      resultLessons.push(minorArcanaCardLessons[cardId]);
+  // Define the precise order we want lessons to appear
+  const wandsAce = cardIdToLessonMap['w1'] || minorArcanaLessons.find(l => l.id === 'minor-wands-1');
+  if (wandsAce) {
+    manualOrderedLessons.push(wandsAce);
+  }
+  
+  // 1. Cups (Ace through King)
+  ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'].forEach(cardId => {
+    if (cardIdToLessonMap[cardId]) {
+      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
     }
   });
   
-  return resultLessons;
+  // 2. Wands (Two through King - Ace already added at beginning)
+  ['w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'].forEach(cardId => {
+    if (cardIdToLessonMap[cardId]) {
+      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+    }
+  });
+  
+  // 3. Pentacles (Ace through King)
+  ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk'].forEach(cardId => {
+    if (cardIdToLessonMap[cardId]) {
+      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+    }
+  });
+  
+  // 4. Swords (Ace through King)
+  ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'].forEach(cardId => {
+    if (cardIdToLessonMap[cardId]) {
+      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+    }
+  });
+  
+  return manualOrderedLessons;
 })();
 
 export const trackLessonMap = {
