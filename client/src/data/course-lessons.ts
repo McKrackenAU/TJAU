@@ -5127,6 +5127,106 @@ export const intuitiveReadingLessons: LessonContent[] = [
         description: "Techniques for nurturing and expressing your unique creative voice."
       }
     ]
+  },
+  {
+    id: "intuitive-29",
+    title: "Visionary Leadership: King of Wands",
+    description: "Explore visionary leadership, passionate authority, and creative mastery through the King of Wands.",
+    cardId: "wk",
+    sections: [
+      {
+        title: "Intuitive Understanding",
+        content: `
+          <p>The King of Wands represents visionary leadership and creative mastery - the passionate ruler who transforms inspiration into tangible reality through bold action and charismatic influence. As we develop our intuitive reading skills, this court card offers rich insights into creative authority, inspired leadership, and the power of confidence aligned with purpose.</p>
+          
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Visionary leadership and the ability to inspire others</li>
+            <li>Creative mastery and authority from experience</li>
+            <li>Bold action guided by clear vision</li>
+            <li>Charismatic influence and natural command</li>
+          </ul>
+          
+          <p>In intuitive readings, the King of Wands often signals the presence or need for visionary leadership, the ability to take bold action aligned with purpose, and the charismatic authority that comes from fully embodying one's creative power and passion.</p>
+        `
+      },
+      {
+        title: "Key Intuitive Elements",
+        content: `
+          <p>When reading the King of Wands intuitively, pay attention to these elements:</p>
+          
+          <ul>
+            <li><strong>The throne with lions</strong> - Feel into the established authority and noble courage</li>
+            <li><strong>The flowering staff</strong> - Sense the creative power that continues to manifest</li>
+            <li><strong>The confident posture</strong> - Notice the quality of natural command and assurance</li>
+            <li><strong>The expansive landscape</strong> - Be aware of the broad vision and transformative potential</li>
+          </ul>
+          
+          <p>Intuitive insights about the King of Wands often emerge through sensing:</p>
+          <ul>
+            <li>Areas where bold, inspired leadership is needed or available</li>
+            <li>The quality of creative mastery that comes from experience</li>
+            <li>The presence of someone who provides visionary direction</li>
+            <li>The need for confident action aligned with purpose</li>
+          </ul>
+        `
+      },
+      {
+        title: "Intuitive Reading Techniques",
+        content: `
+          <p>Try these approaches when the King of Wands appears in your readings:</p>
+          
+          <ul>
+            <li><strong>Visionary perspective</strong> - Close your eyes and imagine standing at a high vantage point overlooking a vast landscape. What vision or direction becomes clear from this perspective?</li>
+            <li><strong>Creative authority</strong> - Place your hand on your solar plexus and sense the quality of confident creative power. What insights emerge about leadership or bold action?</li>
+            <li><strong>Charismatic presence</strong> - Imagine yourself radiating warm, confident energy that inspires others. What guidance comes through about influencing positive change?</li>
+          </ul>
+          
+          <p>Journal prompts for developing King of Wands intuitive reading:</p>
+          <ul>
+            <li>What vision wants to manifest through bold, inspired action?</li>
+            <li>Where might confident leadership create positive transformation?</li>
+            <li>How can creative authority be used to inspire rather than dominate?</li>
+            <li>What passion needs to be directed with mature purpose?</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most important to access when reading with the King of Wands?",
+        options: [
+          "Cautious analysis and detailed planning",
+          "Emotional sensitivity and receptivity",
+          "Visionary perspective and confident purpose",
+          "Practical focus on immediate limitations"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading with the King of Wands, the most important intuitive quality to access is visionary perspective and confident purpose. This allows you to connect with the card's essential energy of bold leadership, creative mastery, and the ability to transform inspiration into reality through directed action. Unlike approaches that emphasize caution or limitations, this perspective enables you to sense the expansive possibilities and confident direction that the King of Wands represents."
+      },
+      {
+        question: "How does the King of Wands energy typically manifest in an intuitive reading about creative blocks?",
+        options: [
+          "As a warning to be more cautious and analytical",
+          "As advice to wait patiently for inspiration to arrive",
+          "As encouragement to take bold, confident action on your vision",
+          "As a suggestion to focus solely on practical details"
+        ],
+        correctAnswer: 2,
+        explanation: "In intuitive readings about creative blocks, King of Wands energy typically manifests as encouragement to take bold, confident action on your vision. This suggests the importance of stepping into your creative authority, trusting your direction, and moving forward with passionate purpose rather than waiting for perfect conditions. The King represents the ability to transform creative potential into reality through confident leadership of your own creative process."
+      }
+    ],
+    summary: "The King of Wands offers powerful intuitive insights about visionary leadership, creative mastery, and the charismatic authority that comes from aligning passion with purpose. When this card appears in readings, it invites us to access our capacity for bold direction, to inspire through authentic confidence, and to transform creative potential into tangible reality. By developing intuitive reading skills with this card, we deepen our ability to provide meaningful insights about leadership, creative authority, and the power of taking decisive action in alignment with our highest vision.",
+    additionalResources: [
+      {
+        title: "Visionary Leadership",
+        description: "Techniques for accessing and conveying inspired direction in readings."
+      },
+      {
+        title: "Creative Authority",
+        description: "Balancing confident action with inclusive inspiration in intuitive practice."
+      }
+    ]
   }
 ];
 
