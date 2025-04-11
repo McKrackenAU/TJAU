@@ -3518,104 +3518,93 @@ export const intuitiveReadingLessons: LessonContent[] = [
   },
   {
     id: "intuitive-12",
-    title: "Emotional Mastery: The King of Cups",
-    description: "Explore emotional wisdom, balanced leadership, and compassionate understanding through the King of Cups.",
-    cardId: "ck",
+    title: "Emotional Pursuit: Knight of Cups",
+    description: "Explore romantic energy, creative action, and emotional pursuit through the Knight of Cups.",
+    cardId: "cn",
     sections: [
       {
-        title: "The Emotionally Intelligent Leader",
+        title: "Intuitive Understanding",
         content: `
-          <p>The King of Cups represents the mastery of emotional wisdom - the ability to remain deeply connected to feelings while maintaining appropriate boundaries and direction. As we develop our intuitive reading skills, the King of Cups offers rich insights into emotional maturity, compassionate leadership, and the integration of heart and head.</p>
-          
-          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <p>The Knight of Cups represents romantic pursuit and imaginative action - the messenger of emotional opportunity who approaches life with sensitivity and artistic flair. As we develop our intuitive reading skills, this court card offers rich insights into emotional intelligence, the power of creative inspiration, and the beauty of approaching life's journey with heart-centered idealism.</p>
+          <p>This card embodies the qualities of:</p>
           <ul>
-            <li><strong>Emotional wisdom and maturity</strong></li>
-            <li><strong>Compassionate leadership and guidance</strong></li>
-            <li><strong>The balance of feeling and thought</strong></li>
-            <li><strong>Calm centeredness amid emotional currents</strong></li>
-            <li><strong>Diplomatic handling of emotional situations</strong></li>
-            <li><strong>Mature masculinity in relationship to feelings</strong></li>
+            <li>Romance and emotional connection</li>
+            <li>Creative inspiration and artistic expression</li>
+            <li>Idealistic pursuits</li>
+            <li>Charm and emotional intelligence</li>
           </ul>
-          
-          <p>Developing intuitive reading with the King of Cups involves connecting with your own sense of emotional wisdom, compassionate understanding, and the ability to remain steady amid emotional intensity.</p>
         `
       },
       {
-        title: "Key Symbols and Intuitive Approaches",
+        title: "Developing Intuition",
         content: `
-          <p>The King of Cups contains several evocative symbols that can enhance intuitive reading:</p>
+          <p>The Knight of Cups offers unique opportunities for developing intuition:</p>
           
           <ul>
-            <li><strong>The throne on water</strong> - Represents mastery of the emotional realm while remaining connected to it</li>
-            <li><strong>The calm demeanor</strong> - Symbolizes emotional regulation and inner peace</li>
-            <li><strong>The cup</strong> - Indicates emotional depth and receptivity</li>
-            <li><strong>The scepter</strong> - Shows authority and the ability to direct emotional energy</li>
-            <li><strong>The fish amulet</strong> - Often shown to represent the spiritual dimension of emotional life</li>
+            <li><strong>Emotional sensitivity</strong> - Feel the romantic, idealistic quality this card brings to a reading</li>
+            <li><strong>Creative imagination</strong> - Allow artistic impressions and images to arise</li>
+            <li><strong>Heart-centered awareness</strong> - Notice the gentle opening of your heart center</li>
+            <li><strong>Flow state</strong> - Connect with the fluid, graceful movement of emotional energy</li>
           </ul>
           
-          <p>When developing intuitive approaches to the King of Cups, consider:</p>
+          <p>When the Knight of Cups appears in your readings, it often signals:</p>
+          <ul>
+            <li>A romantic opportunity or creative invitation</li>
+            <li>The need to approach a situation with emotional intelligence</li>
+            <li>A messenger bringing news that stirs the heart</li>
+            <li>The importance of maintaining idealism while taking action</li>
+          </ul>
+        `
+      },
+      {
+        title: "Intuitive Practice",
+        content: `
+          <p>To develop your intuitive connection with the Knight of Cups:</p>
           
           <ol>
-            <li><strong>Notice the feeling of calm centeredness</strong> in your body</li>
-            <li><strong>Connect with your capacity for compassion</strong> without being overwhelmed</li>
-            <li><strong>Feel into the balance of heart and head</strong> in your understanding</li>
-            <li><strong>Sense the quality of contained yet accessible emotion</strong></li>
-            <li><strong>Be aware of mature guidance</strong> that emerges from emotional wisdom</li>
+            <li><strong>Feel the movement</strong> - Sense the graceful forward motion this Knight brings</li>
+            <li><strong>Connect with your heart</strong> - What gentle stirring of emotion does this image evoke?</li>
+            <li><strong>Notice the invitation</strong> - What creative or emotional opportunity is presenting itself?</li>
+            <li><strong>Sense the messenger energy</strong> - What heart-centered message wants to be delivered?</li>
           </ol>
           
-          <p>The King of Cups invites us to approach intuitive reading with the same balanced integration of feeling and wisdom that the King embodies - making it an excellent card for developing mature emotional intelligence in readings.</p>
-        `
-      },
-      {
-        title: "Intuitive Reading in Practice",
-        content: `
-          <p>When the King of Cups appears in a reading, try these intuitive approaches:</p>
-          
-          <ul>
-            <li><strong>First impressions</strong>: What quality of emotional maturity does this card immediately evoke?</li>
-            <li><strong>Body awareness</strong>: Where do you feel a sense of calm centeredness in your body?</li>
-            <li><strong>Emotional leadership</strong>: What form of compassionate guidance might be needed in this situation?</li>
-            <li><strong>Balance point</strong>: How does the integration of heart and head inform this reading?</li>
-            <li><strong>Contained depth</strong>: What deep emotional understanding is present but appropriately channeled?</li>
-          </ul>
-          
-          <p>Remember that the King of Cups often represents mature emotional intelligence that comes from experience and integration. When reading intuitively, consider not just emotional content, but the wise, compassionate handling of emotional realities.</p>
+          <p>The Knight of Cups invites you to trust your emotional intelligence and creative intuition. This card often appears when the path forward requires sensitivity, artistic vision, and the courage to follow your heart's wisdom.</p>
         `
       }
     ],
     exercises: [
       {
-        question: "What intuitive approach would be most helpful when the King of Cups appears in a reading about emotional conflict?",
+        question: "What form of intuition does the Knight of Cups most strongly connect with?",
         options: [
-          "Focus on suppressing all emotions to maintain control",
-          "Connect with the energy of diplomatic emotional intelligence",
-          "Emphasize the need to avoid emotional engagement entirely",
-          "Suggest surrendering completely to emotional expression"
+          "Logical analysis and intellectual discernment",
+          "Emotional intelligence and creative imagination",
+          "Practical assessment and material planning",
+          "Strategic vision and assertive direction"
         ],
         correctAnswer: 1,
-        explanation: "When the King of Cups appears in a reading about emotional conflict, connecting intuitively with the energy of diplomatic emotional intelligence can help the querent access mature ways of acknowledging and addressing emotions without being overwhelmed by them, finding balanced solutions that honor feelings while maintaining appropriate boundaries."
+        explanation: "The Knight of Cups most strongly connects with emotional intelligence and creative imagination. This Knight embodies the active pursuit of emotional fulfillment and creative expression, making these forms of intuition most resonant with his energy. When this card appears in readings, it often indicates that trusting your emotional responses and creative inspirations will provide the most valuable intuitive guidance."
       },
       {
-        question: "What potential shadow aspect should one be aware of when working with King of Cups energy?",
+        question: "What physical sensation might indicate the Knight of Cups' energy is relevant in a reading?",
         options: [
-          "Emotional manipulation or passive-aggressive behavior",
-          "Complete emotional detachment and coldness",
-          "Excessive focus on practical matters without empathy",
-          "Impulsive emotional reactions without control"
+          "A sensation of heaviness and grounding in the lower body",
+          "A feeling of sharpness or mental clarity in the head",
+          "A gentle opening or warmth in the heart area",
+          "A surge of dynamic energy in the solar plexus"
         ],
-        correctAnswer: 0,
-        explanation: "When working with King of Cups energy, one should be aware of the potential shadow aspect of emotional manipulation or passive-aggressive behavior. The deep understanding of emotional currents that makes the King of Cups so empathetic can, in its shadow form, become a tool for subtle emotional control or indirect expression of negative feelings. This might manifest as using emotional insight to influence others or appearing calm on the surface while harboring unexpressed resentments."
+        correctAnswer: 2,
+        explanation: "When the Knight of Cups' energy is relevant in a reading, you might notice a gentle opening or warmth in the heart area. This physical sensation aligns with the Knight's connection to emotional intelligence, romantic energy, and heart-centered pursuits. Developing awareness of this subtle heart activation can help readers intuitively recognize when the qualities of idealism, creative pursuit, and emotional sensitivity are particularly significant to the situation at hand."
       }
     ],
-    summary: "The King of Cups represents emotional wisdom, compassionate leadership, and the masterful balance of feeling and thought. This card embodies the culmination of emotional development—where one can remain deeply connected to feelings while maintaining appropriate boundaries and direction. The King invites us to integrate heart and head, to offer compassionate guidance without becoming overwhelmed, and to navigate complex emotional waters with the calm centeredness that comes from true emotional maturity.",
+    summary: "The Knight of Cups represents romantic energy, creative action, and the heartfelt pursuit of emotional fulfillment. This card embodies the qualities of sensitivity, artistic inspiration, and idealistic movement toward meaningful connection. When developing intuitive reading skills, the Knight of Cups invites you to trust your emotional intelligence, creative imagination, and the gentle wisdom of the heart as reliable sources of insight and guidance.",
     additionalResources: [
       {
-        title: "Emotional Leadership",
-        description: "Practices for developing the ability to guide others through emotional challenges with wisdom and compassion."
+        title: "Creative Intuition",
+        description: "Techniques for developing artistic sensitivity as a pathway to intuitive wisdom."
       },
       {
-        title: "Heart-Head Integration",
-        description: "Techniques for balancing emotional intelligence with clear thinking."
+        title: "Heart-Centered Reading",
+        description: "Approaches to tarot that emphasize emotional intelligence and compassionate connection."
       }
     ]
   },
