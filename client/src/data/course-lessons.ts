@@ -12744,6 +12744,187 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "intuitive-54",
+    title: "Intellectual Action: Knight of Swords",
+    description: "Explore mental clarity, direct communication, and decisive action through the Knight of Swords.",
+    cardId: "sn",
+    sections: [
+      {
+        title: "Intuitive Understanding",
+        content: `
+          <p>The Knight of Swords represents intellectual action and direct communication - the focused messenger who brings opportunities for decisive movement and clear thinking. As we develop our intuitive reading skills, this court card offers rich insights into mental clarity, the power of strategic action, and the importance of pursuing truth with determination and courage.</p>
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Mental clarity and intellectual focus</li>
+            <li>Direct, truthful communication</li>
+            <li>Swift action based on clear thought</li>
+            <li>Courageous pursuit of ideas and truths</li>
+            <li>Strategic thinking and problem-solving</li>
+          </ul>
+          <p>The Knight of Swords typically appears as a figure on horseback, often charging forward with sword drawn - representing the movement of ideas, the power of decisive mental action, and the courage to speak truth directly.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading Practice",
+        content: `
+          <p>When practicing intuitive reading with the Knight of Swords, focus on these elements:</p>
+          <ul>
+            <li><strong>Movement and Direction</strong>: Notice which way the Knight is facing or moving. What direction is the energy flowing in the situation?</li>
+            <li><strong>The Sword Position</strong>: Is it raised for action, pointed forward for direction, or in another position? What does this suggest about communication or intellectual focus?</li>
+            <li><strong>The Sky/Background</strong>: Often turbulent in this card, what emotional or mental atmosphere does it evoke in you?</li>
+            <li><strong>Horse's Movement</strong>: The horse represents instinctual energy carrying the rational mind. How controlled or wild is this movement, and what does that suggest?</li>
+          </ul>
+          <p>As you connect with the Knight of Swords intuitively, you might feel a sense of mental clarity, a surge of courage to speak your truth, or an impulse toward decisive action based on your convictions.</p>
+        `
+      },
+      {
+        title: "Integrating Intuitive Insights",
+        content: `
+          <p>Remember that the Knight of Swords represents the energy of intellectual action - the focused messenger who brings opportunities for clear thinking and decisive movement. When reading intuitively, connect with the quality of mental clarity, the feeling of direct communication, and the transformative power of approaching life's challenges with strategic thinking and courageous pursuit of truth.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality best captures the essence of the Knight of Swords?",
+        options: [
+          "Patient reflection",
+          "Emotional depth",
+          "Mental clarity and direct action",
+          "Material stability"
+        ],
+        correctAnswer: 2,
+        explanation: "The Knight of Swords embodies mental clarity and direct action - the focused movement of ideas and truth-seeking."
+      },
+      {
+        question: "When reading the Knight of Swords intuitively, which element is most important to notice?",
+        options: [
+          "The background colors and their emotional resonance",
+          "The direction of movement and the position of the sword",
+          "The clothing and physical appearance of the Knight",
+          "The symbolic meaning of each cloud in the sky"
+        ],
+        correctAnswer: 1,
+        explanation: "The direction of movement and the position of the sword are key intuitive elements that reveal the flow of mental energy and communication in the situation."
+      },
+      {
+        question: "Which situation might the Knight of Swords most intuitively represent?",
+        options: [
+          "A period of quiet reflection and emotional healing",
+          "Building material security through careful planning",
+          "Taking decisive action based on clear thinking and direct communication",
+          "Nurturing relationships through empathetic listening"
+        ],
+        correctAnswer: 2,
+        explanation: "The Knight of Swords most intuitively represents taking decisive action based on clear thinking and direct communication."
+      }
+    ],
+    summary: "The Knight of Swords represents the energy of mental clarity, direct communication, and decisive action. Through intuitive reading of this card, we learn to recognize the power of focused intellectual movement, the courage to pursue and speak truth, and the importance of strategic thinking in our approach to life's challenges.",
+    additionalResources: [
+      {
+        title: "Developing Mental Clarity",
+        description: "Practices for cultivating the clear thinking represented by the Knight of Swords"
+      },
+      {
+        title: "Effective Communication Techniques",
+        description: "Methods for expressing ideas with the directness and clarity of the Knight of Swords"
+      }
+    ]
+  },
+  {
+    id: "intuitive-55",
+    title: "The Queen of Swords: Clear Perception and Independent Thinking",
+    description: "Explore the qualities of mental clarity, perceptive discernment, and independent thinking in the Queen of Swords.",
+    cardId: "sq",
+    sections: [
+      {
+        title: "The Queen of Swords: Overview",
+        content: `
+          <p>After the intellectual curiosity of the Page of Swords and the direct, decisive action of the Knight of Swords, the Queen of Swords represents the refinement of mental clarity into perceptive wisdom—bringing objective discernment, intellectual independence, and the ability to see truth with clear-eyed compassion.</p>
+          
+          <p>This card typically depicts a seated female figure on a throne, often holding her sword upright, pointing toward the sky. Her posture is usually straight and dignified, with her gaze direct and penetrating. The Queen's throne may be adorned with butterflies (representing transformation) and clouds (representing the realm of thought).</p>
+        `
+      },
+      {
+        title: "Key Intuitive Elements",
+        content: `
+          <p>When reading the Queen of Swords intuitively, focus on these key elements:</p>
+          
+          <ul>
+            <li><strong>The upward-pointing sword</strong>: Representing clarity of mind and the pursuit of higher truth</li>
+            <li><strong>The direct gaze</strong>: Symbolizing perceptiveness and the ability to see through illusion</li>
+            <li><strong>The clouds in the background</strong>: The realm of thought and mental activity</li>
+            <li><strong>The butterfly decorations</strong>: Transformation through intellectual growth</li>
+            <li><strong>The extended hand</strong>: Often open, suggesting receptivity to truth</li>
+          </ul>
+          
+          <p>The Queen of Swords embodies the qualities of clear perception, intellectual independence, compassionate truth-telling, and wisdom born of experience—often including past pain that has been transformed into understanding.</p>
+        `
+      },
+      {
+        title: "Intuitive Reading Practice",
+        content: `
+          <p>When this card appears in a reading, intuitively consider:</p>
+          
+          <ul>
+            <li><strong>Where in your life are you being called to see with greater clarity?</strong> The Queen offers the gift of seeing things as they truly are.</li>
+            <li><strong>How can you communicate truth with both directness and compassion?</strong> The Queen cuts through confusion without unnecessary harshness.</li>
+            <li><strong>What boundaries need to be established or maintained?</strong> The Queen is skilled at creating appropriate separation.</li>
+            <li><strong>How can past challenges be transformed into wisdom?</strong> The Queen often represents someone who has grown stronger through difficulty.</li>
+          </ul>
+          
+          <p>As you connect with this card, you might intuitively feel a sense of mental clarity, a compassionate detachment that allows for clear seeing, or the strength that comes from integrating painful experiences into wisdom.</p>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "Which quality best captures the intuitive essence of the Queen of Swords?",
+        options: [
+          "Emotional nurturing and sensitivity",
+          "Clear perception combined with compassionate discernment",
+          "Material abundance and physical comfort",
+          "Creative passion and inspiration"
+        ],
+        correctAnswer: 1,
+        explanation: "The Queen of Swords embodies clear perception combined with compassionate discernment—the ability to see truth clearly while maintaining wisdom and compassion."
+      },
+      {
+        question: "What past experience is often associated with the Queen of Swords energy?",
+        options: [
+          "Uncomplicated happiness and joy",
+          "Material success and abundance",
+          "Pain or loss that has been transformed into wisdom",
+          "Creative achievement and recognition"
+        ],
+        correctAnswer: 2,
+        explanation: "The Queen of Swords often represents someone who has experienced pain or loss and transformed it into wisdom and clarity."
+      },
+      {
+        question: "When the Queen of Swords appears in a reading, it might intuitively suggest the need for:",
+        options: [
+          "Greater emotional expressiveness and vulnerability",
+          "More logical thinking and clear boundaries",
+          "Increased material focus and practical planning",
+          "Enhanced creativity and artistic expression"
+        ],
+        correctAnswer: 1,
+        explanation: "The Queen of Swords suggests the need for more logical thinking and clear boundaries—seeing situations with objectivity and establishing appropriate separation when necessary."
+      }
+    ],
+    summary: "The Queen of Swords embodies clear perception, intellectual independence, and compassionate truth-telling. Through her energy, we learn to see situations objectively, communicate with both directness and compassion, establish appropriate boundaries, and transform difficult experiences into wisdom that can benefit ourselves and others.",
+    additionalResources: [
+      {
+        title: "Developing Clear Perception",
+        description: "Practices for cultivating the Queen of Swords' ability to see truth clearly"
+      },
+      {
+        title: "Compassionate Communication",
+        description: "Techniques for expressing difficult truths with the Queen's balance of directness and compassion"
+      }
+    ]
+  },
+  {
     id: "intuitive-56",
     title: "The King of Swords: Intellectual Authority and Clear Judgment",
     description: "Explore the qualities of intellectual mastery, ethical leadership, and the power of clear judgment in the King of Swords.",
