@@ -4836,103 +4836,93 @@ export const intuitiveReadingLessons: LessonContent[] = [
   },
   {
     id: "intuitive-26",
-    title: "Masterful Authority: King of Wands",
-    description: "Explore charismatic leadership, creative authority, and visionary power through the King of Wands.",
-    cardId: "wk",
+    title: "Dynamic Action: Knight of Wands",
+    description: "Explore passionate energy, enthusiastic pursuit, and bold action through the Knight of Wands.",
+    cardId: "wn",
     sections: [
       {
-        title: "The Creative Leader",
+        title: "Intuitive Understanding",
         content: `
-          <p>The King of Wands represents the mastery of creative authority, passionate leadership, and the power that comes from aligning vision with decisive action. As we develop our intuitive reading skills, this court card offers rich insights into charismatic influence, the embodiment of confident purpose, and the ability to inspire others through visionary leadership and passionate conviction.</p>
-          
-          <p>This card creates rich terrain for intuitive exploration around:</p>
+          <p>The Knight of Wands represents passionate energy and enthusiastic pursuit - the adventurous messenger who brings opportunities for bold action and creative projects. As we develop our intuitive reading skills, this court card offers rich insights into confident self-expression, the power of charismatic leadership, and the transformative nature of pursuing goals with determination and charm.</p>
+          <p>This card embodies the qualities of:</p>
           <ul>
-            <li><strong>Charismatic authority and natural leadership</strong></li>
-            <li><strong>Visionary direction and bold creativity</strong></li>
-            <li><strong>Passionate conviction and decisive action</strong></li>
-            <li><strong>The power of inspired purpose</strong></li>
-            <li><strong>Controlled enthusiasm and directed fire</strong></li>
-            <li><strong>The balance of passion and mature responsibility</strong></li>
+            <li>Energy and enthusiasm</li>
+            <li>Adventure and passionate pursuit</li>
+            <li>Bold action and confident movement</li>
+            <li>Charisma and creative leadership</li>
           </ul>
-          
-          <p>Developing intuitive reading with the King of Wands involves connecting with your experience of creative authority, the feeling of aligned purpose and conviction, and the charismatic presence that emerges when passionate vision combines with confident action.</p>
         `
       },
       {
-        title: "Key Symbols and Intuitive Approaches",
+        title: "Developing Intuition",
         content: `
-          <p>The King of Wands contains several evocative symbols that can enhance intuitive reading:</p>
+          <p>The Knight of Wands offers unique opportunities for developing intuition:</p>
           
           <ul>
-            <li><strong>The throne adorned with lions or salamanders</strong> - Represents mastery of fire energy and natural authority</li>
-            <li><strong>The flowing robe or cloak</strong> - Symbolizes dynamic movement within contained form</li>
-            <li><strong>The firmly held wand or staff</strong> - Indicates directed creative power and decisive vision</li>
-            <li><strong>The outward gaze</strong> - Shows visionary perspective and confident engagement with the world</li>
+            <li><strong>Dynamic energy</strong> - Feel the enthusiastic, forward-moving quality this card brings</li>
+            <li><strong>Confidence signals</strong> - Notice when bold action and self-assurance are highlighted</li>
+            <li><strong>Adventure sensing</strong> - Recognize when passion and exploration are key themes</li>
+            <li><strong>Charismatic presence</strong> - Connect with the engaging, magnetic quality of the Knight</li>
           </ul>
           
-          <p>When developing intuitive approaches to the King of Wands, consider:</p>
+          <p>When the Knight of Wands appears in your readings, it often signals:</p>
+          <ul>
+            <li>A time for confident action and bold moves</li>
+            <li>Opportunities that require enthusiasm and passion</li>
+            <li>The arrival of exciting news or creative projects</li>
+            <li>The need for charismatic leadership in a situation</li>
+          </ul>
+        `
+      },
+      {
+        title: "Intuitive Practice",
+        content: `
+          <p>To develop your intuitive connection with the Knight of Wands:</p>
           
           <ol>
-            <li><strong>Feel the quality of charismatic presence</strong> in your body</li>
-            <li><strong>Notice the energetic balance of passion and control</strong></li>
-            <li><strong>Connect with the feeling of aligned purpose</strong> and conviction</li>
-            <li><strong>Sense the authority that comes from authenticity</strong> and experience</li>
-            <li><strong>Be aware of the inspiring effect</strong> of confident creative vision</li>
+            <li><strong>Feel the energy</strong> - Sense the passionate, dynamic movement this Knight brings</li>
+            <li><strong>Connect with confidence</strong> - What bold, self-assured quality does this image evoke?</li>
+            <li><strong>Notice opportunities</strong> - What exciting possibilities are arriving with this energy?</li>
+            <li><strong>Sense the adventurous spirit</strong> - Where is courage and exploration needed?</li>
           </ol>
           
-          <p>The King of Wands invites us to approach intuitive reading with the confident authority of embodied purpose, the power of aligned creative vision, and the charismatic presence that naturally emerges when passionate conviction combines with mature leadership.</p>
-        `
-      },
-      {
-        title: "Intuitive Reading in Practice",
-        content: `
-          <p>When the King of Wands appears in a reading, try these intuitive approaches:</p>
-          
-          <ul>
-            <li><strong>First impressions</strong>: What quality of charismatic leadership or creative authority immediately comes to mind?</li>
-            <li><strong>Body awareness</strong>: Where do you feel confident power, aligned purpose, or inspiring presence in your body?</li>
-            <li><strong>Leadership sensing</strong>: What form of visionary direction or passionate conviction is needed?</li>
-            <li><strong>Authority recognition</strong>: How might authentic creative mastery express itself?</li>
-            <li><strong>Charismatic awareness</strong>: What quality of inspiring presence would serve the situation?</li>
-          </ul>
-          
-          <p>Remember that the King of Wands represents the mature masculine expression of fire energy - directed, purposeful, and charismatically powerful. When reading intuitively, connect with the qualities of visionary leadership, the authority that comes from authentic creative mastery, and the inspiring influence created when passionate conviction aligns with confident action.</p>
+          <p>The Knight of Wands invites you to trust your enthusiasm and passionate energy. This card often appears when the path forward requires confidence, charismatic leadership, and the courage to take bold action toward what excites you.</p>
         `
       }
     ],
     exercises: [
       {
-        question: "What intuitive quality best captures the essence of the King of Wands' leadership style?",
+        question: "What physical sensation most closely aligns with the Knight of Wands' energy?",
         options: [
-          "Cold calculation and emotionless control",
-          "Charismatic vision and passionate inspiration",
-          "Hesitant caution and risk avoidance",
-          "Arbitrary domination and forceful imposition"
-        ],
-        correctAnswer: 1,
-        explanation: "The essence of the King of Wands' leadership style is best captured by charismatic vision and passionate inspiration. This intuitive quality reflects the card's fundamental energy of creative authority aligned with purpose. Unlike leadership styles based on cold control, hesitant caution, or forceful domination, the King of Wands leads through the natural authority of authentic conviction, inspiring vision, and the charismatic presence that emerges when passionate creativity combines with confident direction."
-      },
-      {
-        question: "When reading the King of Wands intuitively, which approach offers the deepest insight into its mature fire energy?",
-        options: [
-          "Focusing on uncontrolled impulsiveness and scattered enthusiasm",
-          "Emphasizing rigid control and suppression of all passion",
-          "Recognizing the powerful balance of passionate vision with directed action",
-          "Suggesting that all leadership requires aggressive domination"
+          "A sense of heaviness and grounding in the lower body",
+          "A feeling of emotional fluctuation and vulnerability",
+          "A surge of energy, warmth, and excitement in the chest and upper body",
+          "A cool clarity and sharpness in the head"
         ],
         correctAnswer: 2,
-        explanation: "When reading the King of Wands intuitively, recognizing the powerful balance of passionate vision with directed action offers the deepest insight into its mature fire energy. This approach acknowledges the card's fundamental quality of mastered creative power - neither uncontrolled nor suppressed, but channeled with purpose and authority. It understands that the King of Wands represents fire energy in its most effective form: passionate and inspiring while also focused and directed toward meaningful manifestation."
-      }
-    ],
-    summary: "In this lesson, we've explored intuitive reading through the King of Wands, examining charismatic leadership, creative authority, and visionary power. We've studied the card's imagery of a confident ruler on a throne adorned with symbols of fire, representing the mastery of creative energy and the natural authority that comes from aligned purpose. By developing techniques to read intuitively about passionate leadership and confident vision, we can gain deeper insights about the power of charismatic presence, the balance of enthusiasm with mature direction, and the inspiring influence created when authentic creative mastery expresses itself through decisive action.",
-    additionalResources: [
-      {
-        title: "Charismatic Presence",
-        description: "Practices for developing the natural authority that comes from aligned purpose and authenticity."
+        explanation: "A surge of energy, warmth, and excitement in the chest and upper body most closely aligns with the Knight of Wands' energy. This physical sensation reflects the card's fundamental qualities of enthusiasm, passion, and dynamic action. When reading intuitively, this uplifting, activating feeling can help you recognize when the Knight's bold, adventurous energy is relevant to the situation."
       },
       {
-        title: "Visionary Leadership",
-        description: "Understanding how passionate conviction combined with clear direction can inspire and transform."
+        question: "When the Knight of Wands appears in a reading about a creative project, what intuitive insight is most aligned with its energy?",
+        options: [
+          "Careful planning and methodical development are needed",
+          "Bold action, enthusiasm, and confident leadership will move things forward",
+          "Emotional depth and sensitivity should be the primary focus",
+          "Analytical thinking and critical assessment are required"
+        ],
+        correctAnswer: 1,
+        explanation: "When the Knight of Wands appears in a reading about a creative project, the intuitive insight most aligned with its energy is that bold action, enthusiasm, and confident leadership will move things forward. This insight captures the Knight's essential qualities of passionate pursuit and dynamic energy. Rather than suggesting careful planning, emotional depth, or analytical thinking as primary approaches, the Knight of Wands indicates that enthusiastic engagement and charismatic direction will create momentum and inspire progress."
+      }
+    ],
+    summary: "The Knight of Wands represents passionate energy, enthusiastic pursuit, and bold action. This card embodies the qualities of adventure, confident movement, and charismatic leadership. When developing intuitive reading skills, the Knight of Wands invites you to trust your excitement, recognize opportunities for dynamic action, and connect with the transformative power of pursuing goals with determination and charm.",
+    additionalResources: [
+      {
+        title: "Cultivating Confidence",
+        description: "Techniques for developing the bold self-assurance needed to pursue passionate goals."
+      },
+      {
+        title: "Creative Momentum",
+        description: "Understanding how enthusiasm and dynamic energy can overcome obstacles and inspire others."
       }
     ]
   },
