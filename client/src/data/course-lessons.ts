@@ -12205,6 +12205,120 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-53",
+    title: "The Knight of Swords: Intellectual Action and Direct Communication",
+    description: "Explore mental clarity, direct communication, and decisive action through the Knight of Swords.",
+    cardId: "sn",
+    sections: [
+      {
+        title: "The Knight of Swords: Overview",
+        content: `
+          <p>Following the intellectual curiosity of the Page of Swords, the Knight of Swords represents focused mental action—bringing swift movement, direct communication, and the decisive clarity needed to pursue truth with determination and strategic thinking.</p>
+          
+          <p>This card typically depicts a knight in armor, charging forward on a horse at full gallop with a sword held high, often against a turbulent, cloudy sky. The dynamic movement and focused determination of the figure symbolize the power of directed mental energy and the pursuit of clarity through action.</p>
+          
+          <p>The Knight of Swords asks us to consider:</p>
+          <ul>
+            <li>What truth or idea am I ready to pursue with focused determination?</li>
+            <li>Where might direct communication or honest expression be needed?</li>
+            <li>How can I bring more mental clarity and decisive action to a situation?</li>
+            <li>What intellectual challenges am I prepared to confront directly?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Knight of Swords contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The charging horse</strong> - Represents swift mental movement and decisive action</li>
+            <li><strong>The raised sword</strong> - Symbolizes clarity of thought and direct communication</li>
+            <li><strong>The armor</strong> - Indicates intellectual protection and mental preparation</li>
+            <li><strong>The cloudy sky</strong> - Shows the realm of thought and the air element in motion</li>
+          </ul>
+          
+          <p>In readings, the Knight of Swords suggests:</p>
+          <ul>
+            <li>Mental clarity and focused determination</li>
+            <li>Direct communication and honest expression</li>
+            <li>Swift, decisive action based on clear thinking</li>
+            <li>The courage to pursue truth and confront challenges</li>
+            <li>Strategic thinking and problem-solving</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Knight of Swords",
+        content: `
+          <p>When the Knight of Swords appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>Where do I need to communicate more directly and honestly?</li>
+            <li>What truth am I ready to pursue with determination?</li>
+            <li>How can I bring more mental clarity to my current challenges?</li>
+            <li>Where might decisive action create a breakthrough?</li>
+          </ul>
+          
+          <p>Actions to take when working with Knight of Swords energy:</p>
+          <ul>
+            <li>Express your thoughts and ideas clearly and directly</li>
+            <li>Research and gather facts to support your position</li>
+            <li>Make decisions based on clear thinking rather than emotions</li>
+            <li>Approach intellectual challenges with courage and focus</li>
+            <li>Use strategic thinking to solve complex problems</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What element is associated with the Knight of Swords?",
+        options: [
+          "Earth - representing stability and manifestation",
+          "Water - representing emotions and intuition",
+          "Air - representing intellect, communication, and mental clarity",
+          "Fire - representing passion and creativity"
+        ],
+        correctAnswer: 2,
+        explanation: "The element associated with the Knight of Swords is Air. As with all cards in the Swords suit, the Knight of Swords embodies the airy qualities of intellect, communication, and mental clarity. This element reflects the card's themes of direct expression, swift mental movement, and decisive action based on clear thinking."
+      },
+      {
+        question: "What distinguishes the Knight of Swords from the other Knights?",
+        options: [
+          "A focus on emotional connection and intuitive flow",
+          "A focus on practical reliability and methodical progress",
+          "A focus on creative passion and enthusiastic pursuit",
+          "A focus on mental clarity, direct communication, and decisive action"
+        ],
+        correctAnswer: 3,
+        explanation: "What distinguishes the Knight of Swords from the other Knights is a focus on mental clarity, direct communication, and decisive action. While the Knight of Cups focuses on emotional flow and intuitive connection, the Knight of Pentacles on reliable, methodical progress, and the Knight of Wands on passionate, creative pursuit, the Knight of Swords is devoted to direct expression, swift mental movement, and the courageous pursuit of truth through clear thinking and focused determination."
+      },
+      {
+        question: "What potential challenge should one be aware of when working with Knight of Swords energy?",
+        options: [
+          "Excessive passivity and indecision",
+          "Over-caution and resistance to change",
+          "Impulsiveness, harshness, or rushing without consideration",
+          "Materialism and excessive focus on security"
+        ],
+        correctAnswer: 2,
+        explanation: "A potential challenge to be aware of when working with Knight of Swords energy is impulsiveness, harshness, or rushing without full consideration. When the Knight's positive qualities of mental clarity and decisive action become unbalanced, they can manifest as rushing into situations without proper preparation, communicating in ways that are unnecessarily harsh or cutting, or making decisions that prioritize speed over wisdom. The immature expression of this energy might value winning arguments over finding truth."
+      }
+    ],
+    summary: "The Knight of Swords represents mental clarity, direct communication, and decisive action in pursuit of truth. It embodies the courage to express ideas honestly, the swift mental movement needed to address intellectual challenges, and the focused determination that transforms clear thinking into strategic action. This card invites us to pursue truth with courage, to communicate with clarity and directness, and to bring decisive mental energy to situations that require breakthrough thinking and honest expression.",
+    additionalResources: [
+      {
+        title: "Strategic Problem-Solving",
+        description: "Approaches to addressing complex challenges with clarity and decisive action"
+      },
+      {
+        title: "The Art of Direct Communication",
+        description: "How to express ideas clearly while maintaining respect and consideration"
+      }
+    ]
+  },
+  {
     id: "minor-44",
     title: "The Page of Pentacles: Manifestation and Practical Learning",
     description: "Explore the qualities of diligent study, practical learning, and the early stages of manifesting material goals in the Page of Pentacles.",
