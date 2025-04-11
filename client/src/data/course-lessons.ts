@@ -11874,6 +11874,121 @@ export const minorArcanaLessons: LessonContent[] = [
     ]
   },
   {
+    id: "minor-43",
+    title: "The Knight of Cups: Romantic Quests and Creative Pursuits",
+    description: "Explore romantic energy, creative action, and emotional pursuit through the Knight of Cups.",
+    cardId: "cn",
+    sections: [
+      {
+        title: "The Knight of Cups: Overview",
+        content: `
+          <p>Following the intuitive awakening of the Page of Cups, the Knight of Cups represents the active pursuit of emotional fulfillment—bringing romantic energy, creative action, and the heart-centered quest for meaningful connection and artistic expression.</p>
+          
+          <p>This card typically depicts a knight in decorative armor, riding a white horse at a steady pace, holding a cup as an offering. The graceful forward movement combined with the care taken not to spill the cup symbolizes emotional pursuit balanced with sensitivity.</p>
+          
+          <p>The Knight of Cups asks us to consider:</p>
+          <ul>
+            <li>What emotional quest or creative pursuit is calling me forward?</li>
+            <li>How might I approach my goals with both passion and sensitivity?</li>
+            <li>Where am I being invited to follow my heart?</li>
+            <li>What offering of love, creativity, or emotional connection am I bringing to others?</li>
+          </ul>
+        `
+      },
+      {
+        title: "Key Meanings and Symbols",
+        content: `
+          <p>The Knight of Cups contains powerful symbols that help us understand its meaning:</p>
+          
+          <ul>
+            <li><strong>The decorative armor</strong> - Represents emotional protection balanced with sensitivity</li>
+            <li><strong>The white horse</strong> - Symbolizes purity of intention and graceful movement</li>
+            <li><strong>The cup held forward</strong> - Indicates emotional offerings and opportunities being presented</li>
+            <li><strong>The flowing water or river</strong> - Shows the movement of feelings and creative flow</li>
+            <li><strong>The measured pace</strong> - Reflects balance between enthusiasm and care</li>
+          </ul>
+          
+          <p>In readings, the Knight of Cups suggests:</p>
+          <ul>
+            <li>Romantic pursuits and relationship opportunities</li>
+            <li>Creative projects fueled by emotional connection</li>
+            <li>Heart-centered approaches to goals</li>
+            <li>Invitations or proposals with emotional significance</li>
+            <li>Charm, emotional intelligence, and idealistic action</li>
+          </ul>
+        `
+      },
+      {
+        title: "Working with the Knight of Cups",
+        content: `
+          <p>When the Knight of Cups appears in your reading, consider these reflective questions:</p>
+          
+          <ul>
+            <li>What romantic or creative opportunity might be approaching?</li>
+            <li>How can I pursue my goals with more heart-centered idealism?</li>
+            <li>Where might I offer my emotional gifts and artistic sensibilities?</li>
+            <li>How can I balance passionate pursuit with emotional sensitivity?</li>
+          </ul>
+          
+          <p>Actions to take when working with Knight of Cups energy:</p>
+          <ul>
+            <li>Follow creative inspiration when it arrives</li>
+            <li>Make heartfelt gestures toward those you care about</li>
+            <li>Approach goals with both enthusiasm and emotional intelligence</li>
+            <li>Consider how artistic expression can enhance your projects</li>
+            <li>Bring more romance and imagination into your everyday life</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What element is most strongly associated with the Knight of Cups?",
+        options: [
+          "Earth - representing stability and practical manifestation",
+          "Water - representing emotions and flowing intuition",
+          "Air - representing intellect and communication",
+          "Fire within Water - representing passionate emotions in motion"
+        ],
+        correctAnswer: 3,
+        explanation: "The element most strongly associated with the Knight of Cups is Fire within Water - representing passionate emotions in motion. As a Knight (active, mobile energy) of the Cups suit (emotional, intuitive realm), this card combines the fiery energy of movement and pursuit with the watery nature of feelings and creativity. This combination creates the distinctive quality of emotional questing and inspired action that characterizes the Knight of Cups."
+      },
+      {
+        question: "What approach to goals does the Knight of Cups embody?",
+        options: [
+          "Calculating analysis and strategic planning",
+          "Forceful determination and competitive drive",
+          "Romantic idealism and artistic sensitivity",
+          "Practical dedication and methodical effort"
+        ],
+        correctAnswer: 2,
+        explanation: "The Knight of Cups embodies an approach to goals characterized by romantic idealism and artistic sensitivity. Unlike approaches based on analysis, forceful determination, or practical methodology, the Knight of Cups pursues objectives with heart-centered imagination, emotional intelligence, and creative vision. This card represents achievement through charm, inspiration, and the ability to connect goals to deeper meaning and beauty."
+      },
+      {
+        question: "What balance does the Knight of Cups teach us about emotional expression?",
+        options: [
+          "Suppressing emotions in favor of rational thinking",
+          "Moving forward with passion while maintaining sensitivity",
+          "Avoiding emotional risks to prevent potential pain",
+          "Prioritizing material results over emotional fulfillment"
+        ],
+        correctAnswer: 1,
+        explanation: "The Knight of Cups teaches us the balance of moving forward with passion while maintaining sensitivity. This card shows how to actively pursue emotional fulfillment and creative expression without becoming careless or overwhelming. The image of riding forward steadily while carefully holding a cup that doesn't spill perfectly captures this balance - demonstrating how to bring emotional energy into motion while still honoring the delicate nature of feelings, relationships, and artistic inspiration."
+      }
+    ],
+    summary: "The Knight of Cups represents romantic pursuit, creative action, and the active quest for emotional fulfillment. It embodies heart-centered idealism combined with the charming energy needed to bring feelings into graceful motion. This card invites us to follow inspiration, to approach relationships and creative projects with both passion and sensitivity, and to recognize the transformative power of pursuing goals with emotional intelligence and artistic vision.",
+    additionalResources: [
+      {
+        title: "The Creative Process",
+        description: "Understanding the relationship between emotional connection and artistic expression"
+      },
+      {
+        title: "Emotional Intelligence in Action",
+        description: "How to pursue goals with heart-centered awareness and sensitivity"
+      }
+    ]
+  },
+  {
     id: "intuitive-53",
     title: "The Page of Swords: Mental Alertness and Seeking Truth",
     description: "Explore the qualities of intellectual curiosity, mental vigilance, and the pursuit of truth in the Page of Swords.",
