@@ -3713,6 +3713,106 @@ export const intuitiveReadingLessons: LessonContent[] = [
   },
   {
     id: "intuitive-14",
+    title: "Emotional Mastery: King of Cups",
+    description: "Explore emotional wisdom, compassionate authority, and balanced feeling through the King of Cups.",
+    cardId: "ck",
+    sections: [
+      {
+        title: "Intuitive Understanding",
+        content: `
+          <p>The King of Cups represents emotional mastery and compassionate leadership - the wise ruler who navigates emotional waters with grace and stability. As we develop our intuitive reading skills, this court card offers rich insights into emotional wisdom, balanced feeling, and the power of mature emotional intelligence.</p>
+          
+          <p>This card embodies the qualities of:</p>
+          <ul>
+            <li>Emotional wisdom balanced with clear boundaries</li>
+            <li>Compassionate leadership and empathic understanding</li>
+            <li>Integration of heart and head in decision-making</li>
+            <li>Calm guidance during emotional turbulence</li>
+          </ul>
+          
+          <p>In intuitive readings, the King of Cups often signals the presence or need for emotional maturity, the ability to hold space for others' feelings without becoming overwhelmed, and the wisdom that comes from integrating emotional intelligence with clear boundaries.</p>
+        `
+      },
+      {
+        title: "Key Intuitive Elements",
+        content: `
+          <p>When reading the King of Cups intuitively, pay attention to these elements:</p>
+          
+          <ul>
+            <li><strong>The throne on water</strong> - Feel into the stability maintained despite emotional currents</li>
+            <li><strong>The calm demeanor</strong> - Notice the quality of contained strength and inner peace</li>
+            <li><strong>The cup and scepter</strong> - Sense the balanced relationship between receiving feelings and directing them wisely</li>
+            <li><strong>The surrounding sea</strong> - Be aware of the emotional context surrounding the situation</li>
+          </ul>
+          
+          <p>Intuitive insights about the King of Cups often emerge through sensing:</p>
+          <ul>
+            <li>Areas where emotional wisdom is needed or available</li>
+            <li>The quality of leadership that balances heart and head</li>
+            <li>The presence of someone who provides emotional stability</li>
+            <li>The need for compassionate boundaries and mature guidance</li>
+          </ul>
+        `
+      },
+      {
+        title: "Intuitive Reading Techniques",
+        content: `
+          <p>Try these approaches when the King of Cups appears in your readings:</p>
+          
+          <ul>
+            <li><strong>Emotional landscape scan</strong> - With eyes closed, imagine the scene on the card and feel the emotional atmosphere. Notice what insights emerge about balanced feeling and compassionate authority.</li>
+            <li><strong>Guidance position</strong> - Place your hands in a receptive yet containing position (like gently cupped hands) and sense what wisdom comes through about emotional mastery in the situation.</li>
+            <li><strong>Wisdom connection</strong> - Visualize yourself seated on the throne amid water, feeling both the emotional depths and the stability of mature wisdom. What insights emerge from this position?</li>
+          </ul>
+          
+          <p>Journal prompts for developing King of Cups intuitive reading:</p>
+          <ul>
+            <li>How does emotional wisdom present itself in this situation?</li>
+            <li>Where might compassionate boundaries be needed?</li>
+            <li>What form of heart-centered leadership would serve best here?</li>
+            <li>How can emotions be honored while maintaining clear direction?</li>
+          </ul>
+        `
+      }
+    ],
+    exercises: [
+      {
+        question: "What intuitive quality is most important to access when reading with the King of Cups?",
+        options: [
+          "Detached logical analysis of emotions",
+          "Overwhelming emotional identification with others",
+          "Balanced emotional wisdom with clear boundaries",
+          "Complete suppression of personal feelings"
+        ],
+        correctAnswer: 2,
+        explanation: "When reading with the King of Cups, the most important intuitive quality to access is balanced emotional wisdom with clear boundaries. This allows you to be fully present with emotional currents while maintaining the stability and clarity needed to offer compassionate guidance. Unlike detachment or overwhelm, this balanced approach enables true emotional intelligence in your readings."
+      },
+      {
+        question: "How does the King of Cups energy typically appear in an intuitive reading about relationships?",
+        options: [
+          "As a warning against emotional involvement",
+          "As the need for emotional control and suppression",
+          "As a call for impulsive emotional expression",
+          "As guidance toward emotional maturity and compassionate understanding"
+        ],
+        correctAnswer: 3,
+        explanation: "In intuitive readings about relationships, King of Cups energy typically appears as guidance toward emotional maturity and compassionate understanding. This suggests the importance of balancing emotional depth with clear boundaries, offering empathic presence without taking on others' emotional burdens, and bringing wisdom to navigating complex feelings. The King represents the healthy integration of feeling and discernment needed for fulfilling relationships."
+      }
+    ],
+    summary: "The King of Cups offers powerful intuitive insights about emotional wisdom, compassionate leadership, and the mature balance of feeling and thought. When this card appears in readings, it invites us to access our emotional intelligence, to maintain stability amid emotional currents, and to offer guidance that honors both heart and head. By developing intuitive reading skills with this card, we deepen our ability to provide meaningful insights about emotional mastery, balanced feeling, and the compassionate authority that comes from true emotional wisdom.",
+    additionalResources: [
+      {
+        title: "Emotional Wisdom in Readings",
+        description: "Techniques for accessing and conveying mature emotional insights."
+      },
+      {
+        title: "Heart-Centered Intuition",
+        description: "Balancing emotional awareness with clear boundaries in intuitive practice."
+      }
+    ]
+  },
+  {
+    id: "intuitive-15",
     title: "The Spark of Inspiration: Ace of Wands",
     description: "Explore creative beginnings, passion, and intuitive potential through the Ace of Wands.",
     cardId: "w1",
