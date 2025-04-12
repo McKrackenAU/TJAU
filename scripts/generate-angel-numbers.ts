@@ -186,10 +186,26 @@ async function generateAngelNumbers() {
   
   console.log(`Found ${existingNumberValues.length} existing angel numbers`);
   
+  // Parse command-line arguments for range
+  const args = process.argv.slice(2);
+  let startRange = 0;
+  let endRange = 999;
+  
+  if (args.length >= 2) {
+    startRange = parseInt(args[0]);
+    endRange = parseInt(args[1]);
+  } else if (args.length === 1) {
+    // If only one argument, use it as start and process 100 numbers
+    startRange = parseInt(args[0]);
+    endRange = Math.min(startRange + 100, 999);
+  }
+  
+  console.log(`Processing angel numbers from ${startRange} to ${endRange}`);
+  
   const newAngelNumbers: AngelNumberData[] = [];
   
-  // Generate numbers from 000 to 999
-  for (let i = 0; i <= 999; i++) {
+  // Generate numbers from startRange to endRange
+  for (let i = startRange; i <= endRange; i++) {
     const number = i.toString().padStart(3, '0');
     if (existingNumberValues.includes(number)) {
       console.log(`Skipping existing number ${number}`);
@@ -215,10 +231,10 @@ async function generateAngelNumbers() {
     let inserted = 0;
     
     // Process in smaller batches to avoid overwhelming the database
-    const batchSize = 50;
+    const batchSize = 25; // Smaller batch size
     for (let i = 0; i < newAngelNumbers.length; i += batchSize) {
       const batch = newAngelNumbers.slice(i, i + batchSize);
-      console.log(`Processing batch ${i/batchSize + 1} of ${Math.ceil(newAngelNumbers.length/batchSize)}...`);
+      console.log(`Processing batch ${Math.floor(i/batchSize) + 1} of ${Math.ceil(newAngelNumbers.length/batchSize)}...`);
       
       for (const angelNumber of batch) {
         try {
