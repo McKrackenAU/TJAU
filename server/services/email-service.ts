@@ -56,7 +56,7 @@ export async function generateUnsubscribeToken(userId: number): Promise<string> 
 export async function sendEmail(to: string, subject: string, html: string): Promise<boolean> {
   try {
     const info = await transporter.sendMail({
-      from: process.env.EMAIL_FROM || '"Tarot Learning Platform" <noreply@tarotplatform.com>',
+      from: process.env.EMAIL_FROM || '"Tarot Journey" <tarotjourney@jmvirtualbusinessservices.com.au>',
       to,
       subject,
       html,
@@ -112,6 +112,8 @@ export async function sendNewsletterToSubscribers(newsletter: Newsletter): Promi
         You're receiving this email because you subscribed to our weekly astrology newsletter.
         <br>
         <a href="${unsubscribeLink}" style="color: #666; text-decoration: underline;">Unsubscribe</a> from these emails.
+        <br>
+        Contact us: <a href="mailto:tarotjourney@jmvirtualbusinessservices.com.au" style="color: #666; text-decoration: underline;">tarotjourney@jmvirtualbusinessservices.com.au</a>
       </p>
     `;
     
