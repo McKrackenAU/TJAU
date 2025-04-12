@@ -1,4 +1,4 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, importedCards } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, angelNumbers, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, type AngelNumber, type InsertAngelNumber, importedCards } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
@@ -50,6 +50,11 @@ export interface IStorage {
   getSubscribedUsers(): Promise<User[]>;
   updateUserNewsletterPreference(userId: number, subscribed: boolean): Promise<User>;
   getUserByUnsubscribeToken(token: string): Promise<User | undefined>;
+  // Angel Numbers functionality
+  createAngelNumber(angelNumber: InsertAngelNumber): Promise<AngelNumber>;
+  getAngelNumbers(): Promise<AngelNumber[]>;
+  getAngelNumberByNumber(number: string): Promise<AngelNumber | undefined>;
+  getAngelNumberById(id: number): Promise<AngelNumber | undefined>;
   // Session store
   sessionStore: session.Store;
 }

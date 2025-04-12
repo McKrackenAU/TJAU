@@ -109,6 +109,16 @@ export const newsletters = pgTable("newsletters", {
   recipientCount: integer("recipient_count").default(0).notNull(),
 });
 
+export const angelNumbers = pgTable("angel_numbers", {
+  id: serial("id").primaryKey(),
+  number: text("number").notNull().unique(),
+  name: text("name").notNull(),
+  meaning: text("meaning").notNull(),
+  spiritualMeaning: text("spiritual_meaning").notNull(),
+  practicalGuidance: text("practical_guidance").notNull(),
+  dateAdded: timestamp("date_added").defaultNow().notNull(),
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
@@ -151,9 +161,16 @@ export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
   recipientCount: true,
 });
 
+export const insertAngelNumberSchema = createInsertSchema(angelNumbers).omit({
+  id: true,
+  dateAdded: true,
+});
+
 export type ImportedCard = typeof importedCards.$inferSelect;
 export type InsertImportedCard = typeof importedCards.$inferInsert;
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type Newsletter = typeof newsletters.$inferSelect;
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
+export type AngelNumber = typeof angelNumbers.$inferSelect;
+export type InsertAngelNumber = z.infer<typeof insertAngelNumberSchema>;
