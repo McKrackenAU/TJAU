@@ -14422,6 +14422,117 @@ const rebuiltMinorArcanaLessons = (() => {
     }).filter(lesson => lesson !== null) as LessonContent[];
   }
   
+  // Create the missing Five of Pentacles lesson
+  if (!lessonsByCardId['p5']) {
+    const fiveOfPentaclesLesson: LessonContent = {
+      id: "minor-pentacles-five",
+      title: "The Five of Pentacles: Material Challenge and Spiritual Faith",
+      description: "Explore hardship, exclusion, and spiritual comfort in times of material struggle with the Five of Pentacles.",
+      cardId: "p5",
+      sections: [
+        {
+          title: "The Five of Pentacles: Overview",
+          content: `
+            <p>Following the stable but rigid energy of the Four of Pentacles, the Five of Pentacles brings a disruptive challenge—testing our relationship with material security and inviting a shift toward spiritual values when physical resources feel scarce.</p>
+            
+            <p>This card typically depicts two figures struggling through snow outside a church or cathedral. One appears ill or injured, while stained glass windows showing pentacles glow above, suggesting spiritual wealth remains available even in times of material hardship.</p>
+            
+            <p>The Five of Pentacles asks us to consider:</p>
+            <ul>
+              <li>Where am I experiencing feelings of lack or exclusion in my life?</li>
+              <li>What spiritual resources might I be overlooking during this material challenge?</li>
+              <li>How might this difficult period be inviting a revaluation of what truly matters?</li>
+              <li>What support am I failing to seek out because of pride or fear?</li>
+            </ul>
+          `
+        },
+        {
+          title: "Key Meanings and Symbols",
+          content: `
+            <p>The Five of Pentacles contains powerful symbols that help us understand its meaning:</p>
+            
+            <ul>
+              <li><strong>The struggling figures</strong> - Represent material hardship, illness, or exclusion</li>
+              <li><strong>The snow</strong> - Symbolizes the cold hardship of material difficulty</li>
+              <li><strong>The stained glass window</strong> - Shows spiritual light and wealth that remains accessible</li>
+              <li><strong>The church exterior</strong> - Represents feeling outside of prosperity or community</li>
+              <li><strong>The crutch or bandages</strong> - Indicates wounds, vulnerability, and temporary support</li>
+            </ul>
+            
+            <p>In readings, the Five of Pentacles suggests:</p>
+            <ul>
+              <li>Financial difficulty or material insecurity</li>
+              <li>Feeling excluded or left out in the cold</li>
+              <li>Health challenges or physical vulnerability</li>
+              <li>Overlooking spiritual resources during material struggles</li>
+              <li>The need to seek help rather than struggling alone</li>
+            </ul>
+          `
+        },
+        {
+          title: "Working with the Five of Pentacles",
+          content: `
+            <p>When the Five of Pentacles appears in your reading, consider these reflective questions:</p>
+            
+            <ul>
+              <li>What resources am I overlooking because I'm focused on what I lack?</li>
+              <li>How might this period of difficulty be inviting spiritual growth?</li>
+              <li>Where can I find or request support rather than struggling alone?</li>
+              <li>What inner resources can I draw upon during this external challenge?</li>
+            </ul>
+            
+            <p>Actions to take when working with Five of Pentacles energy:</p>
+            <ul>
+              <li>Reach out for support from community resources</li>
+              <li>Practice gratitude for what remains even amid loss</li>
+              <li>Develop spiritual practices that provide inner wealth</li>
+              <li>Redefine your relationship with material security</li>
+              <li>Offer compassion to others who are experiencing hardship</li>
+            </ul>
+          `
+        }
+      ],
+      exercises: [
+        {
+          question: "What primary contrast does the Five of Pentacles highlight?",
+          options: [
+            "The contrast between youth and age",
+            "The contrast between material poverty and spiritual wealth",
+            "The contrast between different social classes",
+            "The contrast between urban and rural living"
+          ],
+          correctAnswer: 1,
+          explanation: "The Five of Pentacles highlights the contrast between material poverty and spiritual wealth. This is symbolized by the struggling figures in the snow (material hardship) juxtaposed with the illuminated stained glass window of the church (spiritual richness). The card reminds us that even in times of physical or financial challenge, spiritual resources remain available if we're willing to recognize and access them."
+        },
+        {
+          question: "What constructive response does the Five of Pentacles invite?",
+          options: [
+            "Becoming more self-sufficient and independent",
+            "Focusing exclusively on rebuilding material wealth",
+            "Seeking community support and recognizing non-material resources",
+            "Accepting hardship as permanent and unchangeable"
+          ],
+          correctAnswer: 2,
+          explanation: "The Five of Pentacles invites seeking community support and recognizing non-material resources as a constructive response. Rather than struggling alone (like the figures in the snow), the card suggests that support is available if we're willing to seek it. This includes both community assistance and accessing spiritual/inner resources that provide wealth beyond the material. The message isn't to accept hardship as permanent nor to focus exclusively on material recovery, but to find balance through connection and broader definitions of wealth."
+        }
+      ],
+      summary: "The Five of Pentacles represents material challenge, feelings of exclusion, and the invitation to find spiritual wealth during times of physical hardship. This card reminds us that while external circumstances may be difficult, inner and spiritual resources remain available, and that seeking support from community is wiser than struggling alone. The card invites us to redefine our relationship with material security, to find gratitude even amid loss, and to recognize that periods of outer poverty can sometimes lead to inner growth and a deeper appreciation of non-material forms of abundance.",
+      additionalResources: [
+        {
+          title: "Building Resilience Through Hardship",
+          description: "Psychological approaches to developing strength during challenging times"
+        },
+        {
+          title: "Spiritual Wealth in Material Poverty",
+          description: "Perspectives on finding meaning and richness beyond physical circumstances"
+        }
+      ]
+    };
+    
+    // Add the newly created lesson to our map
+    lessonsByCardId['p5'] = fiveOfPentaclesLesson;
+  }
+
   // Create suit sequences with standardized IDs
   const wandsLessons = createOrderedSequence('wands', ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk']);
   const cupsLessons = createOrderedSequence('cups', ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck']);
