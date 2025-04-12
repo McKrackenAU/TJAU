@@ -14557,6 +14557,15 @@ const rebuiltMinorArcanaLessons = (() => {
 
 // Create a complete Advanced Symbolism Course with all 78 cards
 const completeAdvancedSymbolismLessons = (() => {
+  // Map the existing lessons to their corresponding card IDs
+  const existingLessonIds: Record<string, number> = {
+    'wheel-of-fortune': 11, // Wheel of Fortune = 10 in our card system, but lesson ID should be 11
+    'hanged-man': 13,       // Hanged Man = 12 in our card system, but lesson ID should be 13
+    'death': 14,            // Death = 13 in our card system, but lesson ID should be 14
+    'tower': 17,            // Tower = 16 in our card system, but lesson ID should be 17
+    'star': 18              // Star = 17 in our card system, but lesson ID should be 18
+  };
+  
   // Define card ID to full name mapping for existing lessons
   const cardIdMap: Record<string, string> = {
     'wheel-of-fortune': '10',
@@ -14566,16 +14575,25 @@ const completeAdvancedSymbolismLessons = (() => {
     'star': '17'
   };
   
-  // Start with the existing Advanced Symbolism lessons but update their cardIds
-  const existingLessons = advancedSymbolismLessons.map(lesson => {
+  // Start with the existing Advanced Symbolism lessons but update their cardIds and IDs
+  const existingLessons = advancedSymbolismLessons.map((lesson, index) => {
     // Create a copy of the lesson
     const updatedLesson = {...lesson};
     
     // Update the cardId to use our standard format
     if (lesson.cardId in cardIdMap) {
       updatedLesson.cardId = cardIdMap[lesson.cardId];
-      // Also update the lesson ID to have a consistent format
-      updatedLesson.id = `advanced-major-${updatedLesson.cardId}`;
+      
+      // Update the lesson ID to use consistent numerical format
+      // Use the mapping to get the proper ID number
+      if (lesson.cardId in existingLessonIds) {
+        updatedLesson.id = `advanced-${existingLessonIds[lesson.cardId]}`;
+      } else {
+        // Fallback in case we missed a mapping
+        updatedLesson.id = `advanced-${index + 1}`;
+      }
+      
+      console.log(`Updating existing lesson ${lesson.id} to ${updatedLesson.id} for card ${updatedLesson.cardId}`);
     }
     
     return updatedLesson;
@@ -14664,17 +14682,12 @@ const completeAdvancedSymbolismLessons = (() => {
   const newLessons = missingCardIds.map((cardId, index) => {
     const cardName = getCardName(cardId);
     
-    // Use a consistent ID pattern based on the card ID
-    // For minor arcana, use advanced-suit-rank format
-    let lessonId: string;
-    if (majorArcanaIds.includes(cardId)) {
-      lessonId = `advanced-major-${cardId}`;
-    } else {
-      // For minor arcana, extract suit and rank
-      const suit = cardId[0];
-      const rank = cardId.substring(1);
-      lessonId = `advanced-${suit}-${rank}`;
-    }
+    // Use a consistent numerical index for lesson IDs to match what the frontend expects
+    const lessonNumber = existingLessons.length + index + 1;
+    const lessonId = `advanced-${lessonNumber}`;
+    
+    // For logging
+    console.log(`Creating lesson ${lessonId} for card ${cardId} (${cardName})`);
     
     return {
       id: lessonId,
@@ -14779,8 +14792,15 @@ const completeAdvancedSymbolismLessons = (() => {
     
     const cardName = getCardName(cardId);
     
+    // Use a simple numerical sequence for lesson IDs
+    const lessonNumber = index + 1;
+    const lessonId = `advanced-${lessonNumber}`;
+    
+    // For logging
+    console.log(`Creating major arcana lesson ${lessonId} for card ${cardId} (${cardName})`);
+    
     return {
-      id: `advanced-major-${cardId}`,
+      id: lessonId,
       title: `Advanced Symbolism: ${cardName}`,
       description: `Explore the esoteric symbolism and deeper meanings of ${cardName}.`,
       cardId: cardId,
