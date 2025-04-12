@@ -14333,15 +14333,29 @@ const orderedMinorArcanaLessons = (() => {
     manualOrderedLessons.push(introLesson);
   }
   
+  // Debug: Log all existing minor arcana lessons to verify structure
+  console.log(`Total Minor Arcana lessons: ${minorArcanaLessons.length}`);
+  
   // Create a map of card ID to lesson for quick lookup
   const cardIdToLessonMap: Record<string, LessonContent> = {};
   for (const lesson of minorArcanaLessons) {
     if (lesson.id !== "minor-1") { // Skip intro lesson
+      // Debug specific Knight of Cups to understand the issue
+      if (lesson.cardId === 'cn') {
+        console.log(`Found Knight of Cups lesson with ID: ${lesson.id}`);
+      }
       cardIdToLessonMap[lesson.cardId] = lesson;
     }
   }
   
-  // Add Knight lessons based on the Intuitive Reading versions if missing
+  // Ensure we have the knight of cups explicitly (it seems to already exist as minor-43)
+  const knightOfCups = minorArcanaLessons.find(lesson => lesson.id === "minor-43");
+  if (knightOfCups && knightOfCups.cardId === 'cn') {
+    console.log("Explicitly including the Knight of Cups (minor-43)");
+    cardIdToLessonMap['cn'] = knightOfCups;
+  }
+  
+  // Fill in any missing knights from intuitive reading lessons
   const knightCards = [
     { cardId: 'wn', intuitiveLessonId: 'intuitive-26', minorId: 'minor-wands-knight' },
     { cardId: 'cn', intuitiveLessonId: 'intuitive-12', minorId: 'minor-cups-knight' },
@@ -14351,6 +14365,7 @@ const orderedMinorArcanaLessons = (() => {
   
   knightCards.forEach(knight => {
     if (!cardIdToLessonMap[knight.cardId]) {
+      console.log(`Knight ${knight.cardId} missing, trying to add from intuitive lessons`);
       const knightFromIntuitive = intuitiveReadingLessons.find(lesson => lesson.cardId === knight.cardId);
       if (knightFromIntuitive) {
         cardIdToLessonMap[knight.cardId] = {
@@ -14365,39 +14380,55 @@ const orderedMinorArcanaLessons = (() => {
   // CORRECT SEQUENCE: Intro → All Wands → All Cups → All Pentacles → All Swords
   // Within each suit: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
   
-  // 1. Wands (Ace through King)
-  const wandsAce = cardIdToLessonMap['w1'] || minorArcanaLessons.find(l => l.id === 'minor-wands-1');
-  if (wandsAce) {
-    manualOrderedLessons.push(wandsAce);
-  }
-  
-  ['w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'].forEach(cardId => {
-    if (cardIdToLessonMap[cardId]) {
-      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+  // 1. Wands (Ace through King) - Start with the wands suit in proper order
+  const wandSequence = ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'];
+  wandSequence.forEach(cardId => {
+    const lesson = cardIdToLessonMap[cardId];
+    if (lesson) {
+      manualOrderedLessons.push(lesson);
+    } else {
+      console.log(`Missing lesson for Wands card: ${cardId}`);
     }
   });
   
-  // 2. Cups (Ace through King)
-  ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'].forEach(cardId => {
-    if (cardIdToLessonMap[cardId]) {
-      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+  // 2. Cups (Ace through King) - Then all cups in proper order
+  const cupsSequence = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'];
+  cupsSequence.forEach(cardId => {
+    const lesson = cardIdToLessonMap[cardId];
+    if (lesson) {
+      // Special debug for Knight of Cups
+      if (cardId === 'cn') {
+        console.log(`Including Knight of Cups lesson ID: ${lesson.id}`);
+      }
+      manualOrderedLessons.push(lesson);
+    } else {
+      console.log(`Missing lesson for Cups card: ${cardId}`);
     }
   });
   
-  // 3. Pentacles (Ace through King)
-  ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk'].forEach(cardId => {
-    if (cardIdToLessonMap[cardId]) {
-      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+  // 3. Pentacles (Ace through King) - Then all pentacles in proper order
+  const pentaclesSequence = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk'];
+  pentaclesSequence.forEach(cardId => {
+    const lesson = cardIdToLessonMap[cardId];
+    if (lesson) {
+      manualOrderedLessons.push(lesson);
+    } else {
+      console.log(`Missing lesson for Pentacles card: ${cardId}`);
     }
   });
   
-  // 4. Swords (Ace through King)
-  ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'].forEach(cardId => {
-    if (cardIdToLessonMap[cardId]) {
-      manualOrderedLessons.push(cardIdToLessonMap[cardId]);
+  // 4. Swords (Ace through King) - Finally all swords in proper order
+  const swordsSequence = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'];
+  swordsSequence.forEach(cardId => {
+    const lesson = cardIdToLessonMap[cardId];
+    if (lesson) {
+      manualOrderedLessons.push(lesson);
+    } else {
+      console.log(`Missing lesson for Swords card: ${cardId}`);
     }
   });
   
+  console.log(`Final ordered lessons length: ${manualOrderedLessons.length}`);
   return manualOrderedLessons;
 })();
 

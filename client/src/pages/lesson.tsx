@@ -113,6 +113,14 @@ export default function LessonPage() {
       return;
     }
     
+    // Debug - log all lesson IDs in Minor Arcana track to help identify issues
+    if (trackIdNum === 2) {
+      console.log("All Minor Arcana lesson IDs in order:");
+      lessons.forEach((lesson, index) => {
+        console.log(`${index + 1}. ${lesson.id} - Card: ${lesson.cardId} - ${lesson.title.split(':')[0].trim()}`);
+      });
+    }
+    
     console.log(`Looking for lesson with ID: ${lessonId} in track: ${trackIdNum}`);
     
     // First try to find the lesson by its exact ID
