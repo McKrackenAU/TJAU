@@ -14341,33 +14341,44 @@ const orderedMinorArcanaLessons = (() => {
     }
   }
   
-  // Add Knight of Cups lesson based on the Intuitive Reading version
-  const knightOfCupsFromIntuitive = intuitiveReadingLessons.find(lesson => lesson.cardId === "cn");
-  if (knightOfCupsFromIntuitive && !cardIdToLessonMap['cn']) {
-    // Create a Minor Arcana version of the Knight of Cups
-    const minorKnightOfCups: LessonContent = {
-      ...knightOfCupsFromIntuitive,
-      id: "minor-cups-knight", // Custom ID for the minor arcana Knight of Cups
-      cardId: "cn"
-    };
-    cardIdToLessonMap['cn'] = minorKnightOfCups;
-  }
+  // Add Knight lessons based on the Intuitive Reading versions if missing
+  const knightCards = [
+    { cardId: 'wn', intuitiveLessonId: 'intuitive-26', minorId: 'minor-wands-knight' },
+    { cardId: 'cn', intuitiveLessonId: 'intuitive-12', minorId: 'minor-cups-knight' },
+    { cardId: 'pn', intuitiveLessonId: 'intuitive-40', minorId: 'minor-pentacles-knight' },
+    { cardId: 'sn', intuitiveLessonId: 'intuitive-54', minorId: 'minor-swords-knight' }
+  ];
   
-  // Define the precise order we want lessons to appear
+  knightCards.forEach(knight => {
+    if (!cardIdToLessonMap[knight.cardId]) {
+      const knightFromIntuitive = intuitiveReadingLessons.find(lesson => lesson.cardId === knight.cardId);
+      if (knightFromIntuitive) {
+        cardIdToLessonMap[knight.cardId] = {
+          ...knightFromIntuitive,
+          id: knight.minorId,
+          cardId: knight.cardId
+        };
+      }
+    }
+  });
+  
+  // CORRECT SEQUENCE: Intro → All Wands → All Cups → All Pentacles → All Swords
+  // Within each suit: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
+  
+  // 1. Wands (Ace through King)
   const wandsAce = cardIdToLessonMap['w1'] || minorArcanaLessons.find(l => l.id === 'minor-wands-1');
   if (wandsAce) {
     manualOrderedLessons.push(wandsAce);
   }
   
-  // 1. Cups (Ace through King)
-  ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'].forEach(cardId => {
+  ['w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'].forEach(cardId => {
     if (cardIdToLessonMap[cardId]) {
       manualOrderedLessons.push(cardIdToLessonMap[cardId]);
     }
   });
   
-  // 2. Wands (Two through King - Ace already added at beginning)
-  ['w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'].forEach(cardId => {
+  // 2. Cups (Ace through King)
+  ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'].forEach(cardId => {
     if (cardIdToLessonMap[cardId]) {
       manualOrderedLessons.push(cardIdToLessonMap[cardId]);
     }
