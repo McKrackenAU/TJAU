@@ -1,4 +1,4 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, importedCards } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, importedCards } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
@@ -43,6 +43,13 @@ export interface IStorage {
   updateUserSubscription(userId: number, subscription: { isSubscribed: boolean, stripeSubscriptionId: string }): Promise<User>;
   // Admin functionality
   setUserAsAdmin(userId: number): Promise<User>;
+  // Newsletter functionality
+  createNewsletter(newsletter: InsertNewsletter): Promise<Newsletter>;
+  getNewsletters(): Promise<Newsletter[]>;
+  getNewsletter(id: number): Promise<Newsletter | undefined>;
+  getSubscribedUsers(): Promise<User[]>;
+  updateUserNewsletterPreference(userId: number, subscribed: boolean): Promise<User>;
+  getUserByUnsubscribeToken(token: string): Promise<User | undefined>;
   // Session store
   sessionStore: session.Store;
 }
@@ -338,6 +345,54 @@ export class DatabaseStorage implements IStorage {
       .where(eq(users.id, userId))
       .returning();
     return updated;
+  }
+
+  // Newsletter functionality
+  async createNewsletter(newsletter: InsertNewsletter): Promise<Newsletter> {
+    const [created] = await db
+      .insert(newsletters)
+      .values(newsletter)
+      .returning();
+    return created;
+  }
+
+  async getNewsletters(): Promise<Newsletter[]> {
+    return db
+      .select()
+      .from(newsletters)
+      .orderBy(desc(newsletters.sentAt));
+  }
+
+  async getNewsletter(id: number): Promise<Newsletter | undefined> {
+    const [newsletter] = await db
+      .select()
+      .from(newsletters)
+      .where(eq(newsletters.id, id));
+    return newsletter;
+  }
+
+  async getSubscribedUsers(): Promise<User[]> {
+    return db
+      .select()
+      .from(users)
+      .where(eq(users.newsletterSubscribed, true));
+  }
+
+  async updateUserNewsletterPreference(userId: number, subscribed: boolean): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set({ newsletterSubscribed: subscribed })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async getUserByUnsubscribeToken(token: string): Promise<User | undefined> {
+    const [user] = await db
+      .select()
+      .from(users)
+      .where(eq(users.unsubscribeToken, token));
+    return user;
   }
 
   // Session store setup

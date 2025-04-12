@@ -146,9 +146,10 @@ export async function unsubscribeUserByToken(token: string): Promise<boolean> {
   
   const result = await db.update(users)
     .set({ newsletterSubscribed: false })
-    .where(eq(users.unsubscribeToken, token));
+    .where(eq(users.unsubscribeToken, token))
+    .returning();
   
-  return result.count > 0;
+  return result.length > 0;
 }
 
 // Subscribe or unsubscribe a user
@@ -156,9 +157,10 @@ export async function updateUserNewsletterPreference(userId: number, subscribed:
   try {
     const result = await db.update(users)
       .set({ newsletterSubscribed: subscribed })
-      .where(eq(users.id, userId));
+      .where(eq(users.id, userId))
+      .returning();
     
-    return result.count > 0;
+    return result.length > 0;
   } catch (error) {
     console.error('Error updating user newsletter preference:', error);
     return false;
