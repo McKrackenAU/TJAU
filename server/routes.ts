@@ -1,9 +1,10 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema, users } from "@shared/schema";
+import { insertReadingSchema, insertStudyProgressSchema, insertJournalEntrySchema, users, insertAngelNumberSchema } from "@shared/schema";
 import { generateCardInterpretation, generateMeditation, generateDailyAffirmation, analyzeCardCombination, generateCardSymbolism, generateCardImage, getCardFrequency } from "./ai-service";
 import { tarotCards } from "@shared/tarot-data";
+import { angelNumbersData } from "@shared/angel-numbers-data";
 import { addDays } from "date-fns";
 import { insertLearningTrackSchema, insertUserProgressSchema, insertQuizResultSchema } from "@shared/schema";
 import multer from 'multer';
@@ -1077,6 +1078,57 @@ export function registerRoutes(app: Express): Server {
       console.error("Error fetching cards:", error);
       res.status(500).json({
         error: "Failed to fetch cards",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+  
+  // Angel Numbers API endpoints
+  app.get("/api/angel-numbers", async (req, res) => {
+    try {
+      // First, check if we have any angel numbers in the database
+      const dbAngelNumbers = await storage.getAngelNumbers();
+      
+      // If no angel numbers in the database, seed from the data file
+      if (dbAngelNumbers.length === 0) {
+        console.log("No angel numbers found in database, seeding from data file...");
+        for (const angelNumber of angelNumbersData) {
+          await storage.createAngelNumber({
+            number: angelNumber.number,
+            name: angelNumber.name,
+            meaning: angelNumber.meaning,
+            spiritualMeaning: angelNumber.spiritualMeaning,
+            practicalGuidance: angelNumber.practicalGuidance
+          });
+        }
+        console.log(`Seeded ${angelNumbersData.length} angel numbers to database`);
+      }
+      
+      // Get the angel numbers from the database
+      const angelNumbers = await storage.getAngelNumbers();
+      res.json(angelNumbers);
+    } catch (error) {
+      console.error("Error fetching angel numbers:", error);
+      res.status(500).json({
+        error: "Failed to fetch angel numbers",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+  
+  app.get("/api/angel-numbers/:number", async (req, res) => {
+    try {
+      const angelNumber = await storage.getAngelNumberByNumber(req.params.number);
+      
+      if (!angelNumber) {
+        return res.status(404).json({ error: "Angel number not found" });
+      }
+      
+      res.json(angelNumber);
+    } catch (error) {
+      console.error("Error fetching angel number:", error);
+      res.status(500).json({
+        error: "Failed to fetch angel number",
         details: error instanceof Error ? error.message : 'Unknown error'
       });
     }

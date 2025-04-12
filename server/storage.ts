@@ -400,6 +400,38 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
 
+  // Angel Numbers functionality
+  async createAngelNumber(angelNumber: InsertAngelNumber): Promise<AngelNumber> {
+    const [created] = await db
+      .insert(angelNumbers)
+      .values(angelNumber)
+      .returning();
+    return created;
+  }
+
+  async getAngelNumbers(): Promise<AngelNumber[]> {
+    return db
+      .select()
+      .from(angelNumbers)
+      .orderBy(angelNumbers.number);
+  }
+
+  async getAngelNumberByNumber(number: string): Promise<AngelNumber | undefined> {
+    const [angelNumber] = await db
+      .select()
+      .from(angelNumbers)
+      .where(eq(angelNumbers.number, number));
+    return angelNumber;
+  }
+
+  async getAngelNumberById(id: number): Promise<AngelNumber | undefined> {
+    const [angelNumber] = await db
+      .select()
+      .from(angelNumbers)
+      .where(eq(angelNumbers.id, id));
+    return angelNumber;
+  }
+
   // Session store setup
   sessionStore = new (connectPg(session))({
     conString: process.env.DATABASE_URL,

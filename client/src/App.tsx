@@ -20,6 +20,8 @@ import CreateAdminPage from "@/pages/create-admin";
 import AdminDashboard from "@/pages/admin-dashboard";
 import AccountPage from "@/pages/account";
 import UnsubscribePage from "@/pages/unsubscribe";
+import AngelNumbersPage from "@/pages/angel-numbers";
+import AngelNumberDetailPage from "@/pages/angel-number-detail";
 import BottomNav from "@/components/bottom-nav";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
