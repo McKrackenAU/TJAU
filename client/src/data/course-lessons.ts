@@ -14557,8 +14557,29 @@ const rebuiltMinorArcanaLessons = (() => {
 
 // Create a complete Advanced Symbolism Course with all 78 cards
 const completeAdvancedSymbolismLessons = (() => {
-  // Start with the existing Advanced Symbolism lessons
-  const existingLessons = [...advancedSymbolismLessons];
+  // Define card ID to full name mapping for existing lessons
+  const cardIdMap: Record<string, string> = {
+    'wheel-of-fortune': '10',
+    'hanged-man': '12',
+    'death': '13',
+    'tower': '16',
+    'star': '17'
+  };
+  
+  // Start with the existing Advanced Symbolism lessons but update their cardIds
+  const existingLessons = advancedSymbolismLessons.map(lesson => {
+    // Create a copy of the lesson
+    const updatedLesson = {...lesson};
+    
+    // Update the cardId to use our standard format
+    if (lesson.cardId in cardIdMap) {
+      updatedLesson.cardId = cardIdMap[lesson.cardId];
+      // Also update the lesson ID to have a consistent format
+      updatedLesson.id = `advanced-major-${updatedLesson.cardId}`;
+    }
+    
+    return updatedLesson;
+  });
   
   // Track which cards are already covered
   const coveredCardIds = existingLessons.map(lesson => lesson.cardId);
@@ -14606,14 +14627,14 @@ const completeAdvancedSymbolismLessons = (() => {
       const suit = cardId[0];
       const rank = cardId.substring(1);
       
-      const suitNames = {
+      const suitNames: Record<string, string> = {
         'w': 'Wands',
         'c': 'Cups',
         'p': 'Pentacles',
         's': 'Swords'
       };
       
-      const rankNames = {
+      const rankNames: Record<string, string> = {
         '1': 'Ace',
         '2': 'Two',
         '3': 'Three',
@@ -14630,6 +14651,11 @@ const completeAdvancedSymbolismLessons = (() => {
         'k': 'King'
       };
       
+      // Check if we have valid entries for this card
+      if (!suitNames[suit] || !rankNames[rank]) {
+        return `Unknown Card (${cardId})`;
+      }
+      
       return `${rankNames[rank]} of ${suitNames[suit]}`;
     }
   };
@@ -14637,10 +14663,21 @@ const completeAdvancedSymbolismLessons = (() => {
   // Create placeholder lessons for missing cards
   const newLessons = missingCardIds.map((cardId, index) => {
     const cardName = getCardName(cardId);
-    const lessonNumber = existingLessons.length + index + 1;
+    
+    // Use a consistent ID pattern based on the card ID
+    // For minor arcana, use advanced-suit-rank format
+    let lessonId: string;
+    if (majorArcanaIds.includes(cardId)) {
+      lessonId = `advanced-major-${cardId}`;
+    } else {
+      // For minor arcana, extract suit and rank
+      const suit = cardId[0];
+      const rank = cardId.substring(1);
+      lessonId = `advanced-${suit}-${rank}`;
+    }
     
     return {
-      id: `advanced-${lessonNumber}`,
+      id: lessonId,
       title: `Advanced Symbolism: ${cardName}`,
       description: `Explore the esoteric symbolism and deeper meanings of ${cardName}.`,
       cardId: cardId,
@@ -14732,14 +14769,117 @@ const completeAdvancedSymbolismLessons = (() => {
     };
   });
   
+  // Now we need to create lessons for the major arcana cards (0-9)
+  // Let's create custom lessons for The Fool through The Hierophant (0-5)
+  const majorArcanaLessons = majorArcanaIds.slice(0, 22).map((cardId, index) => {
+    // Skip if we already have a lesson for this card
+    if (coveredCardIds.includes(cardId)) {
+      return null;
+    }
+    
+    const cardName = getCardName(cardId);
+    
+    return {
+      id: `advanced-major-${cardId}`,
+      title: `Advanced Symbolism: ${cardName}`,
+      description: `Explore the esoteric symbolism and deeper meanings of ${cardName}.`,
+      cardId: cardId,
+      sections: [
+        {
+          title: `${cardName}: Esoteric Symbols`,
+          content: `
+            <p>This lesson explores the deeper symbolic language of ${cardName} and its connections to various esoteric traditions.</p>
+            
+            <p>Symbols to explore:</p>
+            <ul>
+              <li>Color symbolism and its psychological impact</li>
+              <li>Numerological significance</li>
+              <li>Archetypal connections</li>
+              <li>Astrological correspondences</li>
+              <li>Elemental associations</li>
+              <li>Historical evolution of the imagery</li>
+            </ul>
+          `
+        },
+        {
+          title: "Connecting Traditions",
+          content: `
+            <p>The symbols in ${cardName} can be understood through multiple esoteric systems:</p>
+            
+            <ul>
+              <li>Kabbalistic Tree of Life connections</li>
+              <li>Alchemical symbolism</li>
+              <li>Astrological correspondences</li>
+              <li>Relationship to mythological archetypes</li>
+              <li>Psychological interpretation through Jungian analysis</li>
+            </ul>
+            
+            <p>These connections provide deeper layers of meaning beyond the conventional interpretations.</p>
+          `
+        },
+        {
+          title: "Advanced Meditation Practices",
+          content: `
+            <p>Deepening your connection with ${cardName} through advanced visualization:</p>
+            
+            <ol>
+              <li>Enter a meditative state and visualize the card before you</li>
+              <li>Imagine stepping into the card's scene</li>
+              <li>Engage with the central figures or symbols</li>
+              <li>Ask what wisdom they have to share</li>
+              <li>Record insights in your journal</li>
+            </ol>
+            
+            <p>Regular practice with this technique can reveal personalized meanings and insights.</p>
+          `
+        }
+      ],
+      exercises: [
+        {
+          question: `Which esoteric system is most commonly associated with ${cardName}?`,
+          options: [
+            "Egyptian mythology",
+            "The Kabbalistic Tree of Life",
+            "Chinese I Ching",
+            "Norse Runes"
+          ],
+          correctAnswer: 1,
+          explanation: `The Kabbalistic Tree of Life provides one of the most comprehensive frameworks for understanding the symbolism in ${cardName} and its relationship to other cards in the deck.`
+        },
+        {
+          question: "How can symbol amplification deepen tarot practice?",
+          options: [
+            "By simplifying card meanings for easier memorization",
+            "By connecting symbols across cards to reveal deeper patterns",
+            "By replacing traditional meanings with new interpretations",
+            "By focusing only on the aesthetic qualities of the imagery"
+          ],
+          correctAnswer: 1,
+          explanation: "Symbol amplification deepens tarot practice by connecting symbols across cards to reveal deeper patterns and relationships, helping readers discover layers of meaning that might otherwise remain hidden."
+        }
+      ],
+      summary: `${cardName} contains rich symbolic language that connects to various esoteric traditions. By exploring its numerological, elemental, astrological, and mythological dimensions, readers can access deeper layers of meaning beyond conventional interpretations. Advanced visualization techniques further support developing a personal relationship with the card's energy and wisdom.`,
+      additionalResources: [
+        {
+          title: "Symbolic Systems",
+          description: "Further exploration of esoteric systems connected to this card"
+        },
+        {
+          title: "Historical Context",
+          description: "Evolution of this card's imagery across different deck traditions"
+        }
+      ]
+    };
+  }).filter(lesson => lesson !== null) as LessonContent[];
+  
   // Create the complete sequence of lessons
-  const allLessons = [...existingLessons, ...newLessons];
+  const allLessons = [...existingLessons, ...majorArcanaLessons, ...newLessons];
   
   // Sort lessons to ensure they appear in the correct order: Major Arcana first, then Minor Arcana by suit
-  const orderedLessons = [];
+  const orderedLessons: LessonContent[] = [];
   
   // Function to find a lesson by cardId
-  const findLessonByCardId = (cardId: string) => {
+  const findLessonByCardId = (cardId: string): LessonContent | undefined => {
     return allLessons.find(lesson => lesson.cardId === cardId);
   };
   
