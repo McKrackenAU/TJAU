@@ -9,6 +9,102 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Array of all zodiac signs
+const ZODIAC_SIGNS = [
+  'Aries', 'Taurus', 'Gemini', 'Cancer', 
+  'Leo', 'Virgo', 'Libra', 'Scorpio', 
+  'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'
+];
+
+/**
+ * Generate horoscopes for all zodiac signs
+ */
+async function generateZodiacHoroscopes(weekStartDate: Date): Promise<string> {
+  try {
+    const formattedDate = format(weekStartDate, 'MMMM d, yyyy');
+    const weekEndDate = format(addDays(weekStartDate, 6), 'MMMM d, yyyy');
+    
+    const prompt = `Generate concise weekly horoscopes for all 12 zodiac signs for the week of ${formattedDate} to ${weekEndDate}.
+    
+    For each sign, provide:
+    1. A 3-4 sentence prediction covering love, career, and personal growth
+    2. One key day to watch for
+    3. A single piece of practical advice
+    
+    Format each horoscope with the sign name as a heading (e.g., ## Aries) followed by the predictions.
+    Keep each sign's horoscope to about 80-100 words.
+    
+    Include all 12 signs in this order: Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces.`;
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [
+        {
+          role: "system",
+          content: "You are a professional astrologer who specializes in writing engaging and insightful weekly horoscopes."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 2000,
+    });
+
+    // Get the generated content
+    const generatedContent = response.choices[0].message.content || '';
+    
+    // Format the horoscopes for HTML display
+    let formattedHoroscopes = '';
+    
+    // Replace markdown headings with HTML headings and wrap paragraphs
+    const horoscopesBySign = generatedContent.split(/^## /m).filter(section => section.trim().length > 0);
+    
+    formattedHoroscopes += '<div class="horoscopes-container">';
+    
+    // Process each sign's horoscope
+    horoscopesBySign.forEach(section => {
+      const lines = section.split('\n');
+      const signName = lines[0].trim();
+      const horoscopeContent = lines.slice(1).join('\n').trim();
+      
+      formattedHoroscopes += `
+        <div class="horoscope-card">
+          <h3>${signName}</h3>
+          <div class="horoscope-content">
+            <p>${horoscopeContent.replace(/\n\n/g, '</p><p>')}</p>
+          </div>
+        </div>
+      `;
+    });
+    
+    formattedHoroscopes += '</div>';
+    
+    return formattedHoroscopes;
+  } catch (error) {
+    console.error('Error generating zodiac horoscopes:', error);
+    
+    // Create a fallback response if there's an error
+    let fallbackHoroscopes = '<div class="horoscopes-container">';
+    
+    ZODIAC_SIGNS.forEach(sign => {
+      fallbackHoroscopes += `
+        <div class="horoscope-card">
+          <h3>${sign}</h3>
+          <div class="horoscope-content">
+            <p>This week brings opportunities for growth and reflection. Pay attention to your intuition and be open to unexpected connections. Your key day this week is Wednesday.</p>
+          </div>
+        </div>
+      `;
+    });
+    
+    fallbackHoroscopes += '</div>';
+    
+    return fallbackHoroscopes;
+  }
+}
+
 /**
  * Generate the weekly astrological content
  */
@@ -32,9 +128,12 @@ async function generateWeeklyAstrologyContent(weekStartDate: Date): Promise<stri
     
     Make the newsletter content complete, detailed, and ready to send without needing further editing.
     
+    DO NOT include individual zodiac sign horoscopes as these will be added separately.
+    
     Today's date is ${format(new Date(), 'MMMM d, yyyy')}.`;
 
-    const response = await openai.chat.completions.create({
+    // Generate the main content
+    const generalContentResponse = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
         {
@@ -47,19 +146,40 @@ async function generateWeeklyAstrologyContent(weekStartDate: Date): Promise<stri
         }
       ],
       temperature: 0.7,
-      max_tokens: 2500,
+      max_tokens: 2000,
     });
 
     // Get the generated content
-    const generatedContent = response.choices[0].message.content || '';
+    const generalContent = generalContentResponse.choices[0].message.content || '';
     
     // Format as HTML
-    const htmlContent = generatedContent
+    const formattedGeneralContent = generalContent
       .replace(/\n\n/g, '</p><p>')
       .replace(/\n/g, '<br>')
       .replace(/^(.+)$/gm, '$1');
     
-    return `<div class="newsletter-content"><p>${htmlContent}</p></div>`;
+    // Generate horoscopes for all zodiac signs
+    console.log('Generating horoscopes for all zodiac signs...');
+    const horoscopesContent = await generateZodiacHoroscopes(weekStartDate);
+    
+    // Combine the general content with the horoscopes
+    return `
+      <div class="newsletter-content">
+        <p>${formattedGeneralContent}</p>
+        
+        <div class="horoscopes-section">
+          <h2>Your Weekly Horoscopes: ${format(weekStartDate, 'MMM d')} - ${format(addDays(weekStartDate, 6), 'MMM d')}</h2>
+          <p>See what the stars have in store for your sign this week...</p>
+          
+          ${horoscopesContent}
+          
+          <p class="horoscope-footnote">
+            <i>Remember, these horoscopes are based on your sun sign. For a more complete picture, 
+            consider reading for your moon and rising signs as well.</i>
+          </p>
+        </div>
+      </div>
+    `;
   } catch (error) {
     console.error('Error generating astrology content:', error);
     return '<p>We apologize, but we encountered an issue generating this week\'s astrological insights. Please check back later.</p>';
