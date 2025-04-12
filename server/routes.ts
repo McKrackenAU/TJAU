@@ -24,6 +24,11 @@ import { eq } from "drizzle-orm";
 // Define cache directory path
 const CACHE_DIR = path.join(process.cwd(), '.cache');
 
+// Import for newsletter functionality
+import { initializeEmailService, unsubscribeUserByToken } from './services/email-service';
+import { generateAndSendWeeklyNewsletter, checkAndSendWeeklyNewsletter } from './services/newsletter-generator';
+import crypto from 'crypto';
+
 export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
@@ -1532,6 +1537,138 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error fetching quiz results");
     }
   });
+
+  // Newsletter endpoints
+  
+  // Initialize email service when the application starts
+  initializeEmailService().catch(err => {
+    console.error("Failed to initialize email service:", err);
+  });
+
+  // Endpoint to manage newsletter subscription for the current user
+  app.post("/api/newsletter/subscription", async (req, res) => {
+    try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+
+      const { subscribe } = req.body;
+      
+      if (typeof subscribe !== 'boolean') {
+        return res.status(400).json({ 
+          error: "Invalid request format",
+          details: "The 'subscribe' field must be a boolean"
+        });
+      }
+      
+      // Get user from request (set by Passport)
+      const user = req.user;
+      
+      // If they're subscribing and don't have an unsubscribe token, generate one
+      if (subscribe && !user.unsubscribeToken) {
+        const token = crypto.randomBytes(32).toString('hex');
+        await db.update(users)
+          .set({ unsubscribeToken: token })
+          .where(eq(users.id, user.id));
+      }
+      
+      // Update subscription preference
+      const updatedUser = await storage.updateUserNewsletterPreference(user.id, subscribe);
+      
+      res.json({ 
+        success: true, 
+        subscribed: updatedUser.newsletterSubscribed,
+        message: subscribe 
+          ? "You have been successfully subscribed to our weekly astrology newsletter!"
+          : "You have been unsubscribed from our weekly astrology newsletter."
+      });
+    } catch (error) {
+      console.error("Error updating newsletter subscription:", error);
+      res.status(500).json({ 
+        error: "Failed to update newsletter subscription",
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // Endpoint for unsubscribing with a token (no login required)
+  app.get("/api/newsletter/unsubscribe", async (req, res) => {
+    try {
+      const { token } = req.query;
+      
+      if (typeof token !== 'string' || !token) {
+        return res.status(400).json({ error: "Invalid or missing unsubscribe token" });
+      }
+      
+      const success = await unsubscribeUserByToken(token);
+      
+      if (success) {
+        res.json({ 
+          success: true, 
+          message: "You have been successfully unsubscribed from our newsletter."
+        });
+      } else {
+        res.status(404).json({ 
+          error: "Failed to unsubscribe",
+          details: "The provided token is invalid or has expired."
+        });
+      }
+    } catch (error) {
+      console.error("Error unsubscribing from newsletter:", error);
+      res.status(500).json({ 
+        error: "Failed to process unsubscribe request",
+        details: error instanceof Error ? error.message : "An unexpected error occurred"
+      });
+    }
+  });
+
+  // Admin endpoint to manually generate and send a newsletter (for testing)
+  app.post("/api/admin/send-newsletter", requireAdmin, async (req, res) => {
+    try {
+      // Start the newsletter generation and sending process
+      // This is asynchronous and will continue running after response is sent
+      generateAndSendWeeklyNewsletter()
+        .then(() => {
+          console.log("Newsletter generation and sending completed");
+        })
+        .catch(err => {
+          console.error("Newsletter generation failed:", err);
+        });
+      
+      // Send immediate response
+      res.json({ 
+        success: true, 
+        message: "Newsletter generation and sending process has been started. Check logs for details."
+      });
+    } catch (error) {
+      console.error("Error starting newsletter generation:", error);
+      res.status(500).json({ 
+        error: "Failed to start newsletter generation",
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // Setup newsletter scheduler
+  // This should run each time the server starts
+  function setupNewsletterScheduler() {
+    console.log("Setting up weekly newsletter scheduler...");
+    
+    // Schedule the newsletter to be checked daily
+    // In a production environment, you should use a proper scheduler like node-cron
+    const HOUR_IN_MS = 60 * 60 * 1000;
+    setInterval(() => {
+      console.log("Running scheduled newsletter check...");
+      checkAndSendWeeklyNewsletter();
+    }, 24 * HOUR_IN_MS); // Check once per day
+    
+    // Also run once at startup (helpful for development)
+    console.log("Running initial newsletter check...");
+    checkAndSendWeeklyNewsletter();
+  }
+  
+  // Start the scheduler
+  setupNewsletterScheduler();
 
   const httpServer = createServer(app);
   return httpServer;
