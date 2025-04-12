@@ -251,9 +251,68 @@ export default function Learning() {
                       }
                     }
                     
-                    // If still no card found, create a placeholder with the ID as name
+                    // If still no card found but we have a numeric ID (major arcana in advanced track), use proper name
+                    let displayName = cardId;
+                    
+                    // For Advanced Symbolism track, map IDs to proper card names
+                    if (track.id === 11) {
+                      // For major arcana (numerical cards)
+                      if (!isNaN(Number(cardId))) {
+                        const majorArcanaNames = [
+                          "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
+                          "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
+                          "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
+                          "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
+                          "Judgement", "The World"
+                        ];
+                        
+                        const cardNum = parseInt(cardId);
+                        if (cardNum >= 0 && cardNum < majorArcanaNames.length) {
+                          displayName = majorArcanaNames[cardNum];
+                        }
+                      }
+                      // For minor arcana (letter-number combinations)
+                      else if (cardId.length >= 2) {
+                        const suit = cardId[0];
+                        const rank = cardId.substring(1);
+                        
+                        const suitNames: Record<string, string> = {
+                          'w': 'Wands',
+                          'c': 'Cups',
+                          'p': 'Pentacles',
+                          's': 'Swords'
+                        };
+                        
+                        const rankNames: Record<string, string> = {
+                          '1': 'Ace',
+                          '2': 'Two',
+                          '3': 'Three',
+                          '4': 'Four',
+                          '5': 'Five',
+                          '6': 'Six',
+                          '7': 'Seven',
+                          '8': 'Eight',
+                          '9': 'Nine',
+                          '10': 'Ten',
+                          'p': 'Page',
+                          'n': 'Knight',
+                          'q': 'Queen',
+                          'k': 'King'
+                        };
+                        
+                        // If we can parse both suit and rank, create a properly formatted name
+                        if (suitNames[suit] && rankNames[rank]) {
+                          displayName = `${rankNames[rank]} of ${suitNames[suit]}`;
+                        }
+                      }
+                    } else {
+                      // Use existing formatting for other tracks
+                      displayName = cardId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                    }
+                    
+                    // Create the display card with proper name
                     const displayCard = card || { 
-                      name: cardId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') 
+                      name: displayName 
                     };
                     
                     return (
