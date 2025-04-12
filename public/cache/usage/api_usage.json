@@ -88,5 +88,205 @@
     "cardId": "imported_254",
     "cardName": "Celtic Cross",
     "timestamp": "2025-04-08T23:25:34.991Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c9",
+    "cardName": "Nine of Cups",
+    "timestamp": "2025-04-12T02:47:02.271Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c9",
+    "cardName": "Nine of Cups",
+    "timestamp": "2025-04-12T02:47:17.349Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "sq",
+    "cardName": "Queen of Swords",
+    "timestamp": "2025-04-12T02:48:00.652Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c7",
+    "cardName": "Seven of Cups",
+    "timestamp": "2025-04-12T02:48:04.143Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p9",
+    "cardName": "Nine of Pentacles",
+    "timestamp": "2025-04-12T02:48:05.149Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "sq",
+    "cardName": "Queen of Swords",
+    "timestamp": "2025-04-12T02:48:10.668Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c7",
+    "cardName": "Seven of Cups",
+    "timestamp": "2025-04-12T02:48:18.168Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p9",
+    "cardName": "Nine of Pentacles",
+    "timestamp": "2025-04-12T02:48:20.145Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pp",
+    "cardName": "Page of Pentacles",
+    "timestamp": "2025-04-12T02:48:50.900Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_301",
+    "cardName": "Page of Swords",
+    "timestamp": "2025-04-12T02:48:51.132Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_332",
+    "cardName": "Nature's Wisdom",
+    "timestamp": "2025-04-12T02:48:51.616Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_334",
+    "cardName": "Astral Travel",
+    "timestamp": "2025-04-12T02:48:52.405Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_349",
+    "cardName": "Inner Healing",
+    "timestamp": "2025-04-12T02:48:52.760Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_335",
+    "cardName": "Soul Contracts",
+    "timestamp": "2025-04-12T02:48:52.905Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "pp",
+    "cardName": "Page of Pentacles",
+    "timestamp": "2025-04-12T02:48:53.005Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_332",
+    "cardName": "Nature's Wisdom",
+    "timestamp": "2025-04-12T02:48:53.586Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_301",
+    "cardName": "Page of Swords",
+    "timestamp": "2025-04-12T02:48:54.314Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_334",
+    "cardName": "Astral Travel",
+    "timestamp": "2025-04-12T02:48:54.442Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_349",
+    "cardName": "Inner Healing",
+    "timestamp": "2025-04-12T02:48:54.533Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_335",
+    "cardName": "Soul Contracts",
+    "timestamp": "2025-04-12T02:48:54.709Z"
   }
 ]
