@@ -14555,10 +14555,211 @@ const rebuiltMinorArcanaLessons = (() => {
   return orderedLessons;
 })();
 
-// Use the rebuilt lessons for track 2
+// Create a complete Advanced Symbolism Course with all 78 cards
+const completeAdvancedSymbolismLessons = (() => {
+  // Start with the existing Advanced Symbolism lessons
+  const existingLessons = [...advancedSymbolismLessons];
+  
+  // Track which cards are already covered
+  const coveredCardIds = existingLessons.map(lesson => lesson.cardId);
+  
+  // All 78 cards in the correct order
+  // First Major Arcana (0-21)
+  const majorArcanaIds = [
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+    '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', 
+    '20', '21'
+  ];
+  
+  // Then Minor Arcana by suit: Wands, Cups, Pentacles, Swords
+  const minorArcanaIds = [
+    // Wands (Ace through King)
+    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk',
+    // Cups (Ace through King)
+    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck',
+    // Pentacles (Ace through King)
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk',
+    // Swords (Ace through King)
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'
+  ];
+  
+  // Combine all card IDs in the correct order
+  const allCardIds = [...majorArcanaIds, ...minorArcanaIds];
+  
+  // Find cards that need lessons
+  const missingCardIds = allCardIds.filter(cardId => !coveredCardIds.includes(cardId));
+  
+  // Helper function to get card name
+  const getCardName = (cardId: string): string => {
+    if (majorArcanaIds.includes(cardId)) {
+      // Major Arcana
+      const names = [
+        'The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor',
+        'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',
+        'Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death', 'Temperance',
+        'The Devil', 'The Tower', 'The Star', 'The Moon', 'The Sun',
+        'Judgement', 'The World'
+      ];
+      return names[parseInt(cardId)];
+    } else {
+      // Minor Arcana
+      const suit = cardId[0];
+      const rank = cardId.substring(1);
+      
+      const suitNames = {
+        'w': 'Wands',
+        'c': 'Cups',
+        'p': 'Pentacles',
+        's': 'Swords'
+      };
+      
+      const rankNames = {
+        '1': 'Ace',
+        '2': 'Two',
+        '3': 'Three',
+        '4': 'Four',
+        '5': 'Five',
+        '6': 'Six',
+        '7': 'Seven',
+        '8': 'Eight',
+        '9': 'Nine',
+        '10': 'Ten',
+        'p': 'Page',
+        'n': 'Knight',
+        'q': 'Queen',
+        'k': 'King'
+      };
+      
+      return `${rankNames[rank]} of ${suitNames[suit]}`;
+    }
+  };
+  
+  // Create placeholder lessons for missing cards
+  const newLessons = missingCardIds.map((cardId, index) => {
+    const cardName = getCardName(cardId);
+    const lessonNumber = existingLessons.length + index + 1;
+    
+    return {
+      id: `advanced-${lessonNumber}`,
+      title: `Advanced Symbolism: ${cardName}`,
+      description: `Explore the esoteric symbolism and deeper meanings of ${cardName}.`,
+      cardId: cardId,
+      sections: [
+        {
+          title: `${cardName}: Esoteric Symbols`,
+          content: `
+            <p>This lesson explores the deeper symbolic language of ${cardName} and its connections to various esoteric traditions.</p>
+            
+            <p>Symbols to explore:</p>
+            <ul>
+              <li>Color symbolism and its psychological impact</li>
+              <li>Numerological significance</li>
+              <li>Archetypal connections</li>
+              <li>Astrological correspondences</li>
+              <li>Elemental associations</li>
+              <li>Historical evolution of the imagery</li>
+            </ul>
+          `
+        },
+        {
+          title: "Connecting Traditions",
+          content: `
+            <p>The symbols in ${cardName} can be understood through multiple esoteric systems:</p>
+            
+            <ul>
+              <li>Kabbalistic Tree of Life connections</li>
+              <li>Alchemical symbolism</li>
+              <li>Astrological correspondences</li>
+              <li>Relationship to mythological archetypes</li>
+              <li>Psychological interpretation through Jungian analysis</li>
+            </ul>
+            
+            <p>These connections provide deeper layers of meaning beyond the conventional interpretations.</p>
+          `
+        },
+        {
+          title: "Advanced Meditation Practices",
+          content: `
+            <p>Deepening your connection with ${cardName} through advanced visualization:</p>
+            
+            <ol>
+              <li>Enter a meditative state and visualize the card before you</li>
+              <li>Imagine stepping into the card's scene</li>
+              <li>Engage with the central figures or symbols</li>
+              <li>Ask what wisdom they have to share</li>
+              <li>Record insights in your journal</li>
+            </ol>
+            
+            <p>Regular practice with this technique can reveal personalized meanings and insights.</p>
+          `
+        }
+      ],
+      exercises: [
+        {
+          question: `Which esoteric system is most commonly associated with ${cardName}?`,
+          options: [
+            "Egyptian mythology",
+            "The Kabbalistic Tree of Life",
+            "Chinese I Ching",
+            "Norse Runes"
+          ],
+          correctAnswer: 1,
+          explanation: `The Kabbalistic Tree of Life provides one of the most comprehensive frameworks for understanding the symbolism in ${cardName} and its relationship to other cards in the deck.`
+        },
+        {
+          question: "How can symbol amplification deepen tarot practice?",
+          options: [
+            "By simplifying card meanings for easier memorization",
+            "By connecting symbols across cards to reveal deeper patterns",
+            "By replacing traditional meanings with new interpretations",
+            "By focusing only on the aesthetic qualities of the imagery"
+          ],
+          correctAnswer: 1,
+          explanation: "Symbol amplification deepens tarot practice by connecting symbols across cards to reveal deeper patterns and relationships, helping readers discover layers of meaning that might otherwise remain hidden."
+        }
+      ],
+      summary: `${cardName} contains rich symbolic language that connects to various esoteric traditions. By exploring its numerological, elemental, astrological, and mythological dimensions, readers can access deeper layers of meaning beyond conventional interpretations. Advanced visualization techniques further support developing a personal relationship with the card's energy and wisdom.`,
+      additionalResources: [
+        {
+          title: "Symbolic Systems",
+          description: "Further exploration of esoteric systems connected to this card"
+        },
+        {
+          title: "Historical Context",
+          description: "Evolution of this card's imagery across different deck traditions"
+        }
+      ]
+    };
+  });
+  
+  // Create the complete sequence of lessons
+  const allLessons = [...existingLessons, ...newLessons];
+  
+  // Sort lessons to ensure they appear in the correct order: Major Arcana first, then Minor Arcana by suit
+  const orderedLessons = [];
+  
+  // Function to find a lesson by cardId
+  const findLessonByCardId = (cardId: string) => {
+    return allLessons.find(lesson => lesson.cardId === cardId);
+  };
+  
+  // Add lessons in the correct card order
+  allCardIds.forEach(cardId => {
+    const lesson = findLessonByCardId(cardId);
+    if (lesson) {
+      orderedLessons.push(lesson);
+    }
+  });
+  
+  console.log(`Complete Advanced Symbolism course: ${orderedLessons.length} lessons`);
+  
+  return orderedLessons;
+})();
+
+// Use the rebuilt lessons for track 2 and complete Advanced Symbolism course
 export const trackLessonMap = {
-  1: beginnerLessons,              // Beginner's Journey
-  2: rebuiltMinorArcanaLessons,    // Minor Arcana Journey (completely rebuilt)
-  10: orderedLessons,              // Intuitive Reading with proper card order
-  11: advancedSymbolismLessons     // Advanced Symbolism
+  1: beginnerLessons,                     // Beginner's Journey
+  2: rebuiltMinorArcanaLessons,           // Minor Arcana Journey (completely rebuilt)
+  10: orderedLessons,                     // Intuitive Reading with proper card order
+  11: completeAdvancedSymbolismLessons    // Advanced Symbolism (all 78 cards)
 };
