@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams, Link } from "wouter";
+import { useLocation, Link, useRoute } from "wouter";
 import { 
   Card, 
   CardContent, 
@@ -14,8 +14,8 @@ import { ArrowLeft, Sparkles, Heart, Brain, Compass } from "lucide-react";
 import type { AngelNumber } from "@shared/schema";
 
 export default function AngelNumberDetailPage() {
-  const [numberParam] = useParams();
-  const number = numberParam || "";
+  const [match, params] = useRoute<{ number: string }>("/angel-numbers/:number");
+  const number = match ? params.number : "";
 
   const { data: angelNumber, isLoading, error } = useQuery<AngelNumber>({
     queryKey: [`/api/angel-numbers/${number}`],

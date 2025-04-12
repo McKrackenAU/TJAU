@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams, Link } from "wouter";
+import { useLocation, Link } from "wouter";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ import type { AngelNumber } from "@shared/schema";
 export default function AngelNumbersPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const { toast } = useToast();
-  const [_, navigate] = useParams();
+  const [_, navigate] = useLocation();
 
   const { data: angelNumbers, isLoading, error } = useQuery<AngelNumber[]>({
     queryKey: ["/api/angel-numbers"],

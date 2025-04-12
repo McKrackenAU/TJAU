@@ -42,6 +42,8 @@ function Router() {
       <ProtectedRoute path="/subscribe" component={Subscribe} />
       <ProtectedRoute path="/voice-guided" component={VoiceGuidedPage} />
       <ProtectedRoute path="/account" component={AccountPage} />
+      <ProtectedRoute path="/angel-numbers" component={AngelNumbersPage} />
+      <ProtectedRoute path="/angel-numbers/:number" component={AngelNumberDetailPage} />
       <ProtectedRoute path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/admin/create" component={CreateAdminPage} />

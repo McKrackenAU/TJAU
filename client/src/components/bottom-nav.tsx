@@ -1,4 +1,4 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal } from "lucide-react";
+import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal, Hash } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 import { useState, useRef, useEffect } from "react";
@@ -18,6 +18,7 @@ const secondaryNavItems = [
   { icon: GraduationCap, label: "Study", href: "/study" },
   { icon: PenTool, label: "Journal", href: "/journal" },
   { icon: Compass, label: "Learn", href: "/learning" },
+  { icon: Hash, label: "Angel Numbers", href: "/angel-numbers" },
 ];
 
 export default function BottomNav() {
