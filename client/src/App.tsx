@@ -43,6 +43,7 @@ function Router() {
       <ProtectedRoute path="/admin/dashboard" component={AdminDashboard} />
       <Route path="/auth" component={AuthPage} />
       <Route path="/admin/create" component={CreateAdminPage} />
+      <Route path="/unsubscribe" component={UnsubscribePage} />
       <Route component={NotFound} />
     </Switch>
   );

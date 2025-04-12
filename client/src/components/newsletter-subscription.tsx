@@ -36,10 +36,8 @@ export default function NewsletterSubscription() {
           content: data.message || 'Your newsletter preference has been updated.'
         });
 
-        // Also update the user in session
-        if (loginMutation.isSuccess && user) {
-          loginMutation.mutate({ username: user.username });
-        }
+        // We don't need to update the user in session here
+        // The next page load will get the updated user data
       } else {
         setMessage({
           type: 'error',

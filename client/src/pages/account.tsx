@@ -1,4 +1,5 @@
 import AccountSettings from '@/components/account-settings';
+import NewsletterSubscription from '@/components/newsletter-subscription';
 import { PageHeader } from '@/components/ui/page-header';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useAuth } from '@/hooks/use-auth';
@@ -32,11 +33,16 @@ export default function AccountPage() {
       <Tabs defaultValue="subscription" className="mt-6">
         <TabsList className="mb-4">
           <TabsTrigger value="subscription">Subscription</TabsTrigger>
+          <TabsTrigger value="newsletter">Newsletter</TabsTrigger>
           <TabsTrigger value="profile">Profile</TabsTrigger>
         </TabsList>
         
         <TabsContent value="subscription" className="mt-4">
           <AccountSettings />
+        </TabsContent>
+        
+        <TabsContent value="newsletter" className="mt-4">
+          <NewsletterSubscription />
         </TabsContent>
         
         <TabsContent value="profile" className="mt-4">
