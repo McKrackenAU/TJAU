@@ -14321,120 +14321,133 @@ const orderedLessons = (() => {
     .map(cardId => lessonMap[cardId]); // Map to actual lesson objects
 })();
 
-// Create a properly ordered array for the Minor Arcana track
-const orderedMinorArcanaLessons = (() => {
-  // Create a map for a completely manual lesson order
-  // This gives us maximum control over the progression sequence
-  const manualOrderedLessons: LessonContent[] = [];
+// Create a completely new array for the Minor Arcana track
+// This is a complete rebuild to fix issues with missing cards and sequence problems
+const rebuiltMinorArcanaLessons = (() => {
+  // Start with a fresh array for the lessons in proper sequence
+  const orderedLessons: LessonContent[] = [];
   
-  // First add the introduction
+  // Step 1: Get the introduction lesson
   const introLesson = minorArcanaLessons.find(lesson => lesson.id === "minor-1");
   if (introLesson) {
-    manualOrderedLessons.push(introLesson);
+    orderedLessons.push(introLesson);
   }
   
-  // Debug: Log all existing minor arcana lessons to verify structure
-  console.log(`Total Minor Arcana lessons: ${minorArcanaLessons.length}`);
+  // Step 2: Create a mapping to find lessons easily by cardId
+  // This will contain both original Minor Arcana lessons and ones we'll borrow from Intuitive Reading
+  const lessonsByCardId: Record<string, LessonContent> = {};
   
-  // Create a map of card ID to lesson for quick lookup
-  const cardIdToLessonMap: Record<string, LessonContent> = {};
-  for (const lesson of minorArcanaLessons) {
-    if (lesson.id !== "minor-1") { // Skip intro lesson
-      // Debug specific Knight of Cups to understand the issue
-      if (lesson.cardId === 'cn') {
-        console.log(`Found Knight of Cups lesson with ID: ${lesson.id}`);
+  // First map all existing Minor Arcana lessons
+  minorArcanaLessons.forEach(lesson => {
+    if (lesson.id !== "minor-1") { // Skip intro
+      // To avoid duplicates with same cardId, give preference to cards with more appropriate IDs
+      if (!lessonsByCardId[lesson.cardId] || (lesson.id.includes("wands") || lesson.id.includes("cups") || lesson.id.includes("pentacles") || lesson.id.includes("swords"))) {
+        lessonsByCardId[lesson.cardId] = lesson;
       }
-      cardIdToLessonMap[lesson.cardId] = lesson;
     }
-  }
+  });
   
-  // Ensure we have the knight of cups explicitly (it seems to already exist as minor-43)
-  const knightOfCups = minorArcanaLessons.find(lesson => lesson.id === "minor-43");
-  if (knightOfCups && knightOfCups.cardId === 'cn') {
-    console.log("Explicitly including the Knight of Cups (minor-43)");
-    cardIdToLessonMap['cn'] = knightOfCups;
-  }
-  
-  // Fill in any missing knights from intuitive reading lessons
-  const knightCards = [
-    { cardId: 'wn', intuitiveLessonId: 'intuitive-26', minorId: 'minor-wands-knight' },
-    { cardId: 'cn', intuitiveLessonId: 'intuitive-12', minorId: 'minor-cups-knight' },
-    { cardId: 'pn', intuitiveLessonId: 'intuitive-40', minorId: 'minor-pentacles-knight' },
-    { cardId: 'sn', intuitiveLessonId: 'intuitive-54', minorId: 'minor-swords-knight' }
+  // Step 3: Look for missing cards in the Intuitive Reading track and create copies
+  const allCardIds = [
+    // Wands
+    'w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk',
+    // Cups
+    'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck',
+    // Pentacles
+    'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk',
+    // Swords
+    's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'
   ];
   
-  knightCards.forEach(knight => {
-    if (!cardIdToLessonMap[knight.cardId]) {
-      console.log(`Knight ${knight.cardId} missing, trying to add from intuitive lessons`);
-      const knightFromIntuitive = intuitiveReadingLessons.find(lesson => lesson.cardId === knight.cardId);
-      if (knightFromIntuitive) {
-        cardIdToLessonMap[knight.cardId] = {
-          ...knightFromIntuitive,
-          id: knight.minorId,
-          cardId: knight.cardId
+  // Find any missing cards and get substitutes from the Intuitive Reading track
+  const missingCards: string[] = [];
+  allCardIds.forEach(cardId => {
+    if (!lessonsByCardId[cardId]) {
+      missingCards.push(cardId);
+      
+      // Look for this card in the Intuitive Reading track
+      const intuitiveLesson = intuitiveReadingLessons.find(lesson => lesson.cardId === cardId);
+      if (intuitiveLesson) {
+        // Create a copy with a unique ID for the Minor Arcana track
+        const suit = cardId[0];
+        const rank = cardId.substring(1);
+        const suitName = { 'w': 'wands', 'c': 'cups', 'p': 'pentacles', 's': 'swords' }[suit] || 'unknown';
+        const rankName = { 
+          '1': 'ace', '2': 'two', '3': 'three', '4': 'four', '5': 'five', 
+          '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '10': 'ten',
+          'p': 'page', 'n': 'knight', 'q': 'queen', 'k': 'king' 
+        }[rank] || 'unknown';
+        
+        // Create a new unique ID that won't conflict
+        const newId = `minor-${suitName}-${rankName}`;
+        
+        // Create the substitute lesson
+        lessonsByCardId[cardId] = {
+          ...intuitiveLesson,
+          id: newId,
+          cardId: cardId
+        };
+      } else {
+        console.log(`CRITICAL: No lesson found for ${cardId} in either Minor Arcana or Intuitive Reading`);
+      }
+    }
+  });
+  
+  // Step 4: Add cards in the correct suit order
+  // Add introduction first (already done above)
+  
+  // Explicitly define a unique ID for each lesson using consistent naming
+  function createOrderedSequence(suit: string, cardIds: string[]) {
+    return cardIds.map((cardId, index) => {
+      const lesson = lessonsByCardId[cardId];
+      if (lesson) {
+        // Fix the IDs to ensure consistency and prevent duplicates
+        const rankLetter = cardId.substring(1);
+        const rankName = { 
+          '1': 'ace', '2': 'two', '3': 'three', '4': 'four', '5': 'five', 
+          '6': 'six', '7': 'seven', '8': 'eight', '9': 'nine', '10': 'ten',
+          'p': 'page', 'n': 'knight', 'q': 'queen', 'k': 'king' 
+        }[rankLetter] || 'unknown';
+        
+        // Create a completely new lesson copy with a standardized ID
+        const newId = `minor-${suit}-${rankName}`;
+        
+        return {
+          ...lesson,
+          id: newId, // Always override with consistent ID
+          cardId: cardId // Ensure cardId is correct
         };
       }
-    }
+      return null;
+    }).filter(lesson => lesson !== null) as LessonContent[];
+  }
+  
+  // Create suit sequences with standardized IDs
+  const wandsLessons = createOrderedSequence('wands', ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk']);
+  const cupsLessons = createOrderedSequence('cups', ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck']);
+  const pentaclesLessons = createOrderedSequence('pentacles', ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk']);
+  const swordsLessons = createOrderedSequence('swords', ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk']);
+  
+  // Add all lessons in the correct order
+  orderedLessons.push(...wandsLessons);
+  orderedLessons.push(...cupsLessons);
+  orderedLessons.push(...pentaclesLessons);
+  orderedLessons.push(...swordsLessons);
+  
+  // Log the final sequence for verification
+  console.log(`Rebuilt Minor Arcana lessons: ${orderedLessons.length} total`);
+  console.log("Sequence verification:");
+  orderedLessons.forEach((lesson, index) => {
+    console.log(`${index + 1}. ${lesson.id} - Card: ${lesson.cardId}`);
   });
   
-  // CORRECT SEQUENCE: Intro → All Wands → All Cups → All Pentacles → All Swords
-  // Within each suit: Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Page, Knight, Queen, King
-  
-  // 1. Wands (Ace through King) - Start with the wands suit in proper order
-  const wandSequence = ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'w7', 'w8', 'w9', 'w10', 'wp', 'wn', 'wq', 'wk'];
-  wandSequence.forEach(cardId => {
-    const lesson = cardIdToLessonMap[cardId];
-    if (lesson) {
-      manualOrderedLessons.push(lesson);
-    } else {
-      console.log(`Missing lesson for Wands card: ${cardId}`);
-    }
-  });
-  
-  // 2. Cups (Ace through King) - Then all cups in proper order
-  const cupsSequence = ['c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cp', 'cn', 'cq', 'ck'];
-  cupsSequence.forEach(cardId => {
-    const lesson = cardIdToLessonMap[cardId];
-    if (lesson) {
-      // Special debug for Knight of Cups
-      if (cardId === 'cn') {
-        console.log(`Including Knight of Cups lesson ID: ${lesson.id}`);
-      }
-      manualOrderedLessons.push(lesson);
-    } else {
-      console.log(`Missing lesson for Cups card: ${cardId}`);
-    }
-  });
-  
-  // 3. Pentacles (Ace through King) - Then all pentacles in proper order
-  const pentaclesSequence = ['p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'pp', 'pn', 'pq', 'pk'];
-  pentaclesSequence.forEach(cardId => {
-    const lesson = cardIdToLessonMap[cardId];
-    if (lesson) {
-      manualOrderedLessons.push(lesson);
-    } else {
-      console.log(`Missing lesson for Pentacles card: ${cardId}`);
-    }
-  });
-  
-  // 4. Swords (Ace through King) - Finally all swords in proper order
-  const swordsSequence = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sp', 'sn', 'sq', 'sk'];
-  swordsSequence.forEach(cardId => {
-    const lesson = cardIdToLessonMap[cardId];
-    if (lesson) {
-      manualOrderedLessons.push(lesson);
-    } else {
-      console.log(`Missing lesson for Swords card: ${cardId}`);
-    }
-  });
-  
-  console.log(`Final ordered lessons length: ${manualOrderedLessons.length}`);
-  return manualOrderedLessons;
+  return orderedLessons;
 })();
 
+// Use the rebuilt lessons for track 2
 export const trackLessonMap = {
   1: beginnerLessons,              // Beginner's Journey
-  2: orderedMinorArcanaLessons,    // Minor Arcana Journey (ordered)
+  2: rebuiltMinorArcanaLessons,    // Minor Arcana Journey (completely rebuilt)
   10: orderedLessons,              // Intuitive Reading with proper card order
   11: advancedSymbolismLessons     // Advanced Symbolism
 };
