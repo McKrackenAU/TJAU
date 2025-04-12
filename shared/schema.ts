@@ -100,6 +100,15 @@ export const importedCards = pgTable("imported_cards", {
   imageUrl: text("image_url"), // New column for card front images
 });
 
+export const newsletters = pgTable("newsletters", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  weekStartDate: date("week_start_date").notNull(),
+  sentAt: timestamp("sent_at").defaultNow().notNull(),
+  recipientCount: integer("recipient_count").default(0).notNull(),
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
@@ -122,6 +131,8 @@ export const users = pgTable("users", {
   isAdmin: boolean("is_admin").default(false).notNull(),
   stripeCustomerId: text("stripe_customer_id").default(''),
   stripeSubscriptionId: text("stripe_subscription_id").default(''),
+  newsletterSubscribed: boolean("newsletter_subscribed").default(true).notNull(),
+  unsubscribeToken: text("unsubscribe_token"),
 });
 
 export const insertUserSchema = createInsertSchema(users).omit({
@@ -134,7 +145,15 @@ export const insertUserSchema = createInsertSchema(users).omit({
   isSubscribed: z.boolean().optional().default(false)
 });
 
+export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
+  id: true,
+  sentAt: true,
+  recipientCount: true,
+});
+
 export type ImportedCard = typeof importedCards.$inferSelect;
 export type InsertImportedCard = typeof importedCards.$inferInsert;
 export type User = typeof users.$inferSelect;
 export type InsertUser = z.infer<typeof insertUserSchema>;
+export type Newsletter = typeof newsletters.$inferSelect;
+export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
