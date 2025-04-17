@@ -11,6 +11,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Loader2 } from "lucide-react";
+import TermsDialog from "@/components/terms-dialog";
 
 // Login form schema
 const loginSchema = z.object({
@@ -149,6 +150,9 @@ export default function AuthPage() {
                     </form>
                   </Form>
                 </CardContent>
+                <div className="flex justify-center p-4 border-t">
+                  <TermsDialog />
+                </div>
               </Card>
             </TabsContent>
 
@@ -234,6 +238,9 @@ export default function AuthPage() {
                     </form>
                   </Form>
                 </CardContent>
+                <div className="flex justify-center p-4 border-t">
+                  <TermsDialog />
+                </div>
               </Card>
             </TabsContent>
           </Tabs>
