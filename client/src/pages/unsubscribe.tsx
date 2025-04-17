@@ -19,7 +19,7 @@ export default function UnsubscribePage() {
 
         if (!token) {
           setStatus('error');
-          setMessage('Invalid or missing unsubscribe token. Please check your link or contact support.');
+          setMessage('Invalid or missing unsubscribe token. Please check your link or contact us at admin@tarotjourney.au.');
           return;
         }
 
@@ -32,7 +32,7 @@ export default function UnsubscribePage() {
           setMessage(data.message || 'You have been successfully unsubscribed from our newsletter.');
         } else {
           setStatus('error');
-          setMessage(data.error || 'Failed to process your unsubscribe request. Please try again or contact support.');
+          setMessage(data.error || 'Failed to process your unsubscribe request. Please try again or contact us at admin@tarotjourney.au.');
         }
       } catch (error) {
         console.error('Error processing unsubscribe:', error);
