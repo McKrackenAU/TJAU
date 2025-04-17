@@ -180,7 +180,7 @@ export default function TermsAndConditions({ onAccept, disabled = false }: Terms
                   </p>
                   <p className="mt-2">
                     JMRVBS Pty Ltd<br />
-                    Email: tarotjourney@jmvirtualbusinessservices.com.au
+                    Email: admin@tarotjourney.au
                   </p>
                 </div>
               </AccordionContent>

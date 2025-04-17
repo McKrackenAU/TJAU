@@ -120,7 +120,7 @@ export default function NewsletterSubscription() {
             You can unsubscribe at any time by clicking the unsubscribe link in the newsletter or toggling the switch above.
           </p>
           <p className="text-xs text-muted-foreground">
-            Contact us at: <a href="mailto:tarotjourney@jmvirtualbusinessservices.com.au" className="text-primary">tarotjourney@jmvirtualbusinessservices.com.au</a>
+            Contact us at: <a href="mailto:admin@tarotjourney.au" className="text-primary">admin@tarotjourney.au</a>
           </p>
         </div>
       </CardFooter>
