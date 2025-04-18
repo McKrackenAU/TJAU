@@ -1260,6 +1260,68 @@ export function registerRoutes(app: Express): Server {
       }
     });
 
+    // Endpoint to apply a coupon to an existing subscription
+    app.post('/api/apply-coupon', async (req, res) => {
+      try {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+
+        const user = req.user;
+        const { couponCode, subscriptionId } = req.body;
+        
+        console.log("Applying coupon for user:", user.id, user.username);
+        
+        if (!subscriptionId) {
+          return res.status(400).json({ error: "No subscription ID provided" });
+        }
+        
+        if (!couponCode || typeof couponCode !== 'string') {
+          return res.status(400).json({ error: "Valid coupon code is required" });
+        }
+        
+        // Verify the coupon exists and is valid
+        try {
+          const coupon = await stripe.coupons.retrieve(couponCode);
+          
+          if (!coupon.valid) {
+            return res.status(400).json({ error: "This coupon is no longer valid" });
+          }
+          
+          console.log("Valid coupon found:", coupon.id);
+        } catch (error) {
+          console.error("Failed to retrieve coupon:", error);
+          return res.status(400).json({ error: "Invalid coupon code" });
+        }
+        
+        // Retrieve the existing subscription
+        const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+        console.log("Retrieved subscription:", subscription.id, "status:", subscription.status);
+        
+        if (subscription.status === 'canceled') {
+          return res.status(400).json({ error: "Cannot apply coupon to a canceled subscription" });
+        }
+        
+        // Apply the coupon by updating the subscription
+        const updatedSubscription = await stripe.subscriptions.update(subscriptionId, {
+          coupon: couponCode,
+        });
+        
+        console.log("Applied coupon to subscription:", updatedSubscription.id);
+        
+        return res.json({ 
+          success: true, 
+          message: "Coupon applied successfully" 
+        });
+      } catch (error) {
+        console.error("Error applying coupon:", error);
+        return res.status(500).json({ 
+          error: "Failed to apply coupon", 
+          message: error instanceof Error ? error.message : "Unknown error" 
+        });
+      }
+    });
+
     // Endpoint to cancel a subscription
     app.post('/api/cancel-subscription', async (req, res) => {
       try {

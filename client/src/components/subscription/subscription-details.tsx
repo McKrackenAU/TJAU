@@ -81,6 +81,52 @@ export function SubscriptionDetails() {
       });
     },
   });
+  
+  // Mutation for applying coupon code
+  const applyCouponMutation = useMutation({
+    mutationFn: async (couponCode: string) => {
+      const response = await apiRequest('POST', '/api/apply-coupon', { 
+        couponCode,
+        subscriptionId: user?.stripeSubscriptionId
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to apply coupon');
+      }
+      return response.json();
+    },
+    onSuccess: (data) => {
+      queryClient.invalidateQueries({ queryKey: ['/api/subscription-details'] });
+      setAppliedCouponCode(couponCode);
+      setCouponCode("");
+      toast({
+        title: "Coupon Applied",
+        description: "Your coupon code has been applied to your subscription",
+      });
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Failed to Apply Coupon",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+  
+  // Handle coupon code application
+  const handleApplyCoupon = () => {
+    if (!couponCode.trim()) {
+      toast({
+        variant: "destructive",
+        title: "Empty coupon code",
+        description: "Please enter a coupon code first",
+      });
+      return;
+    }
+    
+    applyCouponMutation.mutate(couponCode);
+  };
 
   // Format date for display
   const formatDate = (dateString: string) => {
