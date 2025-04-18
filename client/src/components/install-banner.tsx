@@ -8,7 +8,7 @@ interface BeforeInstallPromptEvent extends Event {
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
 }
 
-export default function InstallBanner() {
+export default function InstallBanner(): JSX.Element | null {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showBanner, setShowBanner] = useState<boolean>(false);
   const [isIOSDevice, setIsIOSDevice] = useState<boolean>(false);

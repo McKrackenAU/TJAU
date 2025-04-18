@@ -24,6 +24,7 @@ import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
 import BottomNav from "@/components/bottom-nav";
 import InstallBanner from "@/components/install-banner";
+import { SafeComponent } from "@/components/safe-component";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 
@@ -63,7 +64,7 @@ function App() {
             <Router />
           </main>
           <BottomNav />
-          <InstallBanner />
+          <SafeComponent component={() => <InstallBanner />} />
         </div>
         <Toaster />
       </AuthProvider>
