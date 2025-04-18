@@ -1,7 +1,8 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal, Hash } from "lucide-react";
+import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal, Hash, LogOut, Loader2 } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import { useAuth } from "@/hooks/use-auth";
 import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 // Main navigation items that will always be visible
 const mainNavItems = [
