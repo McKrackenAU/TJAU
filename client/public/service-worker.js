@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tarot-learn-v1';
+const CACHE_NAME = 'tarot-journey-v1';
 
 // Simplified precache assets
 const PRECACHE_ASSETS = [

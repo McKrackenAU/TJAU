@@ -138,14 +138,14 @@ export default function InstallBanner(): JSX.Element | null {
           <AlertDescription className="flex-1">
             {isIOSDevice ? (
               <div className="space-y-1">
-                <p>Install this app on your iPhone for a better experience!</p>
+                <p>Install Tarot Journey on your iPhone for a better experience!</p>
                 <ol className="text-xs text-muted-foreground">
                   <li>1. Tap the share button</li>
                   <li>2. Select "Add to Home Screen"</li>
                 </ol>
               </div>
             ) : (
-              <p>Install this app for a better experience!</p>
+              <p>Install Tarot Journey for a better experience!</p>
             )}
           </AlertDescription>
           
