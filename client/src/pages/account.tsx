@@ -54,7 +54,7 @@ export default function AccountPage() {
   }
   
   return (
-    <div className="container mx-auto py-6 px-4 md:px-6">
+    <div className="container mx-auto py-6 px-4 md:px-6 pb-40 md:pb-28">
       <PageHeader
         heading="Account Settings"
         text="Manage your account and subscription"

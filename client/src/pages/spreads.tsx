@@ -64,7 +64,7 @@ export default function Spreads() {
   };
 
   return (
-    <div className="container px-4 py-8 pb-24">
+    <div className="container px-4 py-8 pb-40 md:pb-32">
       <h1 className="text-3xl font-bold text-center mb-8">Tarot Spreads</h1>
 
       <div className="max-w-md mx-auto mb-8">
