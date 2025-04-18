@@ -64,7 +64,7 @@ export default function Spreads() {
   };
 
   return (
-    <div className="container px-4 py-8">
+    <div className="container px-4 py-8 pb-24">
       <h1 className="text-3xl font-bold text-center mb-8">Tarot Spreads</h1>
 
       <div className="max-w-md mx-auto mb-8">
@@ -151,15 +151,15 @@ export default function Spreads() {
                     </div>
                     
                     <h3 className="font-medium text-lg mt-8 mb-4">Individual Card Interpretations</h3>
-                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                       {spreadCards.map((card, i) => (
                         <Card key={`interpretation-${card.id}-${i}`} className="overflow-hidden">
-                          <CardHeader className="bg-card/80 p-3">
-                            <CardTitle className="text-sm font-medium">
+                          <CardHeader className="bg-card/80 p-2 sm:p-3">
+                            <CardTitle className="text-xs sm:text-sm font-medium line-clamp-1">
                               {card.name} ({spreads[selectedSpread].positions[i]})
                             </CardTitle>
                           </CardHeader>
-                          <CardContent className="p-4 text-sm">
+                          <CardContent className="p-3 text-xs sm:text-sm max-h-48 overflow-y-auto">
                             <AIInterpretation 
                               card={card}
                               context={`This card represents ${spreads[selectedSpread].positions[i]} in a ${spreads[selectedSpread].name} spread.`}

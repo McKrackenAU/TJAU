@@ -1,17 +1,19 @@
 // Version number - increment this when making important changes
 // that should force all clients to update
-const VERSION = '4';
+const VERSION = '5';
 const CACHE_NAME = `tarot-journey-v${VERSION}`;
+const STATIC_CACHE_NAME = `tarot-journey-static-v${VERSION}`;
 
 // App information
 const APP_NAME = 'Tarot Journey';
 const OLD_APP_NAME = 'Tarot Learn';
 
-// Simplified precache assets
+// Expanded precache assets for better mobile performance
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
-  '/manifest.json'
+  '/manifest.json',
+  '/assets/index.css'
 ];
 
 // Install event - precache basic assets
