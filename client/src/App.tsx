@@ -1,6 +1,7 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient";
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
@@ -33,20 +34,44 @@ import { SafeComponent } from "@/components/safe-component";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 
+// Initial redirect to ensure user starts at auth page if not authenticated
+function InitialAuthRedirect() {
+  const { user, isLoading } = useAuth();
+  const [, navigate] = useLocation();
+  const [redirectedToAuth, setRedirectedToAuth] = useState(false);
+  
+  useEffect(() => {
+    // Only redirect once on initial load
+    if (!isLoading && !user && !redirectedToAuth) {
+      setRedirectedToAuth(true);
+      console.log("No user found, redirecting to auth page");
+      navigate("/auth");
+    }
+  }, [user, isLoading, navigate, redirectedToAuth]);
+
+  // Don't render anything, just handle redirection
+  return null;
+}
+
 // AuthAwareComponents renders components that depend on auth state
 function AuthAwareComponents() {
   const { user } = useAuth();
   
   return (
     <>
+      <InitialAuthRedirect />
       {user && <BottomNav />}
       <main className={user ? "pb-16" : ""}>
         <Switch>
-          {/* Public routes */}
-          <Route path="/" component={Home} />
+          {/* Authentication route */}
           <Route path="/auth" component={AuthPage} />
-          <Route path="/admin/create" component={CreateAdminPage} />
+          
+          {/* Public routes */}
           <Route path="/unsubscribe" component={UnsubscribePage} />
+          <Route path="/admin/create" component={CreateAdminPage} />
+          
+          {/* Home route - protected but conditionally shows landing page if not logged in */}
+          <Route path="/" component={Home} />
           
           {/* Protected routes that require authentication */}
           <ProtectedRoute path="/daily" component={DailyDraw} />

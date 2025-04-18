@@ -308,5 +308,55 @@
     "cardId": "p10",
     "cardName": "Ten of Pentacles",
     "timestamp": "2025-04-18T02:26:26.128Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p4",
+    "cardName": "Four of Pentacles",
+    "timestamp": "2025-04-18T02:28:26.990Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_272",
+    "cardName": "Ten of Wands",
+    "timestamp": "2025-04-18T02:28:33.080Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_325",
+    "cardName": "Spiritual Awakening",
+    "timestamp": "2025-04-18T02:28:37.084Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_299",
+    "cardName": "Nine of Swords",
+    "timestamp": "2025-04-18T02:28:39.062Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_272",
+    "cardName": "Ten of Wands",
+    "timestamp": "2025-04-18T02:28:44.085Z"
   }
 ]
