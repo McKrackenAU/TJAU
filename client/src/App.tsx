@@ -15,6 +15,7 @@ import LessonPage from "@/pages/lesson";
 import TestImages from "@/pages/test-images";
 import AuthPage from "@/pages/auth-page";
 import Subscribe from "@/pages/subscribe";
+import SubscriptionSuccess from "@/pages/subscription-success";
 import VoiceGuidedPage from "@/pages/voice-guided";
 import CreateAdminPage from "@/pages/create-admin";
 import AdminDashboard from "@/pages/admin-dashboard";
