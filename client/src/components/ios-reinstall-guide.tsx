@@ -10,11 +10,11 @@ export default function IosReinstallGuide() {
   const [open, setOpen] = useState(false);
   
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm" className="mt-2">
+        <Button variant="outline" size="sm" className="mt-2 bg-white">
           <Share className="h-4 w-4 mr-2" />
-          See how to reinstall
+          See visual guide
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">

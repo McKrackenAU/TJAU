@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const APP_VERSION = '2.0.0'; // Increment this when app name changes or other major updates
+const APP_VERSION = '3.0.0'; // Increment this when app name changes or other major updates
 const APP_NAME = 'Tarot Journey';
 const OLD_APP_NAME = 'Tarot Learn';
 
@@ -22,9 +22,9 @@ interface AppVersion {
 }
 
 export function useAppVersion(): AppVersion {
-  const [needsReinstall, setNeedsReinstall] = useState(false);
-  const [isIOS, setIsIOS] = useState(false);
-  const [isInstalled, setIsInstalled] = useState(false);
+  const [needsReinstall, setNeedsReinstall] = useState<boolean>(false);
+  const [isIOS, setIsIOS] = useState<boolean>(false);
+  const [isInstalled, setIsInstalled] = useState<boolean>(false);
   
   useEffect(() => {
     // Detect iOS

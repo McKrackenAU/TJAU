@@ -40,6 +40,10 @@ export default function IosReinstallPrompt() {
               <p className="font-semibold">Important:</p>
               <p>This is the <u>only way</u> to update the app name on iOS. Your data and preferences will be preserved.</p>
             </div>
+            
+            <div className="flex justify-center mt-2">
+              <IosReinstallGuide />
+            </div>
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
