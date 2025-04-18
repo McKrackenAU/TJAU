@@ -288,5 +288,25 @@
     "cardId": "imported_335",
     "cardName": "Soul Contracts",
     "timestamp": "2025-04-12T02:48:54.709Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p10",
+    "cardName": "Ten of Pentacles",
+    "timestamp": "2025-04-18T02:26:10.556Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p10",
+    "cardName": "Ten of Pentacles",
+    "timestamp": "2025-04-18T02:26:26.128Z"
   }
 ]
