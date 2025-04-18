@@ -330,7 +330,11 @@ export default function SubscribePage() {
               <CardHeader>
                 <CardTitle>Complete Your Subscription</CardTitle>
                 <CardDescription>
-                  Enjoy a 7-day free trial, cancel anytime
+                  {!user.hasUsedFreeTrial ? (
+                    "Enjoy a 7-day free trial, cancel anytime"
+                  ) : (
+                    "Start your subscription today"
+                  )}
                 </CardDescription>
               </CardHeader>
               <CardContent>

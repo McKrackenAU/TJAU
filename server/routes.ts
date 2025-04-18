@@ -1786,8 +1786,19 @@ export function registerRoutes(app: Express): Server {
           save_default_payment_method: 'on_subscription'
         },
         expand: ['latest_invoice.payment_intent'],
-        trial_period_days: 7, // Ensure 7-day free trial
       };
+      
+      // Only add trial period if user hasn't used one before
+      if (!user.hasUsedFreeTrial) {
+        console.log("User is eligible for 7-day free trial");
+        subscriptionParams.trial_period_days = 7;
+        
+        // Mark that this user has now used their free trial
+        await storage.updateUserTrialStatus(user.id, true);
+        console.log("Updated user trial status: trial has been used");
+      } else {
+        console.log("User has already used their free trial, no trial period added");
+      }
       
       // Apply coupon code if provided
       if (couponCode) {
