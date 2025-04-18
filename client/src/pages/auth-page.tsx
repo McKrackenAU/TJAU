@@ -70,15 +70,15 @@ export default function AuthPage() {
     registerMutation.mutate(data);
   };
   
-  // If user is already logged in, redirect to home
-  // We do this after all hooks are initialized to avoid React hook errors
-  if (user) {
-    // Use useEffect for navigation to avoid React errors
-    useEffect(() => {
+  // Use useEffect for redirection when user is logged in
+  useEffect(() => {
+    if (user) {
       navigate("/");
-    }, [navigate, user]);
-    
-    // Show loading state instead of returning null
+    }
+  }, [navigate, user]);
+  
+  // Show loading state if user is already authenticated
+  if (user || isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
