@@ -4,10 +4,12 @@ import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { CalendarDays, Check, Clock, CreditCard, HelpCircle, Loader2, X } from "lucide-react";
+import { useState } from "react";
+import { CalendarDays, Check, Clock, CreditCard, HelpCircle, Loader2, Ticket, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Input } from "@/components/ui/input";
 import { 
   AlertDialog,
   AlertDialogAction,
@@ -38,6 +40,8 @@ export function SubscriptionDetails() {
   const { user } = useAuth();
   const { toast } = useToast();
   const [_, navigate] = useLocation();
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCouponCode, setAppliedCouponCode] = useState("");
 
   // Fetch subscription details
   const { 
@@ -214,6 +218,50 @@ export function SubscriptionDetails() {
               <p className="text-sm text-muted-foreground">
                 Tarot Journey Premium
               </p>
+            </div>
+          </div>
+          
+          {/* Coupon code application */}
+          <div className="flex items-start">
+            <Ticket className="h-5 w-5 text-muted-foreground mt-0.5 mr-2" />
+            <div className="w-full space-y-2">
+              <h3 className="font-medium">Coupon Code</h3>
+              {appliedCouponCode ? (
+                <div className="flex items-center gap-2">
+                  <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 px-3 py-1">
+                    {appliedCouponCode}
+                  </Badge>
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => setAppliedCouponCode("")}
+                    className="h-7 px-2"
+                  >
+                    <X className="h-4 w-4" />
+                  </Button>
+                </div>
+              ) : (
+                <div className="flex gap-2">
+                  <Input 
+                    placeholder="Enter coupon code" 
+                    value={couponCode}
+                    onChange={(e) => setCouponCode(e.target.value)}
+                    className="max-w-[200px]"
+                  />
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    disabled={!couponCode.trim() || applyCouponMutation.isPending}
+                    onClick={handleApplyCoupon}
+                  >
+                    {applyCouponMutation.isPending ? (
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                    ) : (
+                      "Apply"
+                    )}
+                  </Button>
+                </div>
+              )}
             </div>
           </div>
 

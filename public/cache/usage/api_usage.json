@@ -428,5 +428,105 @@
     "cardId": "ck",
     "cardName": "King of Cups",
     "timestamp": "2025-04-18T03:05:40.569Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "ck",
+    "cardName": "King of Cups",
+    "timestamp": "2025-04-18T03:16:57.309Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pk",
+    "cardName": "King of Pentacles",
+    "timestamp": "2025-04-18T03:16:57.392Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "wq",
+    "cardName": "Queen of Wands",
+    "timestamp": "2025-04-18T03:16:57.407Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "sk",
+    "cardName": "King of Swords",
+    "timestamp": "2025-04-18T03:16:57.414Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "cq",
+    "cardName": "Queen of Cups",
+    "timestamp": "2025-04-18T03:16:57.441Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pq",
+    "cardName": "Queen of Pentacles",
+    "timestamp": "2025-04-18T03:16:57.849Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "wq",
+    "cardName": "Queen of Wands",
+    "timestamp": "2025-04-18T03:16:59.202Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "cq",
+    "cardName": "Queen of Cups",
+    "timestamp": "2025-04-18T03:16:59.234Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "sk",
+    "cardName": "King of Swords",
+    "timestamp": "2025-04-18T03:16:59.263Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "pq",
+    "cardName": "Queen of Pentacles",
+    "timestamp": "2025-04-18T03:16:59.944Z"
   }
 ]
