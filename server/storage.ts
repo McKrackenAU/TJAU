@@ -41,6 +41,7 @@ export interface IStorage {
   updateUserStripeInfo(userId: number, stripeInfo: { customerId: string, subscriptionId: string }): Promise<User>;
   getUserByStripeCustomerId(customerId: string): Promise<User | undefined>;
   updateUserSubscription(userId: number, subscription: { isSubscribed: boolean, stripeSubscriptionId: string }): Promise<User>;
+  updateUserTrialStatus(userId: number, hasUsedTrial: boolean): Promise<User>;
   // Admin functionality
   setUserAsAdmin(userId: number): Promise<User>;
   // Newsletter functionality
@@ -335,6 +336,15 @@ export class DatabaseStorage implements IStorage {
         isSubscribed: subscription.isSubscribed,
         stripeSubscriptionId: subscription.stripeSubscriptionId
       })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+  
+  async updateUserTrialStatus(userId: number, hasUsedTrial: boolean): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set({ hasUsedFreeTrial: hasUsedTrial })
       .where(eq(users.id, userId))
       .returning();
     return updated;

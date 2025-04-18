@@ -95,7 +95,8 @@ export function registerRoutes(app: Express): Server {
         email,
         password: await hashPassword(password),
         isAdmin: true,  // Set as admin
-        isSubscribed: true // Admins get free subscription
+        isSubscribed: true, // Admins get free subscription
+        hasUsedFreeTrial: true // Admins don't need trial
       });
       
       res.status(201).json({ success: true, user });

@@ -143,6 +143,7 @@ export const users = pgTable("users", {
   stripeSubscriptionId: text("stripe_subscription_id").default(''),
   newsletterSubscribed: boolean("newsletter_subscribed").default(true).notNull(),
   unsubscribeToken: text("unsubscribe_token"),
+  hasUsedFreeTrial: boolean("has_used_free_trial").default(false).notNull(),
 });
 
 export const insertUserSchema = createInsertSchema(users).omit({
@@ -152,7 +153,8 @@ export const insertUserSchema = createInsertSchema(users).omit({
   stripeSubscriptionId: true,
 }).extend({
   isAdmin: z.boolean().optional().default(false),
-  isSubscribed: z.boolean().optional().default(false)
+  isSubscribed: z.boolean().optional().default(false),
+  hasUsedFreeTrial: z.boolean().optional().default(false)
 });
 
 export const insertNewsletterSchema = createInsertSchema(newsletters).omit({
