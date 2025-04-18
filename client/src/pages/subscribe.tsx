@@ -320,6 +320,56 @@ export default function SubscribePage() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="order-2 md:order-1">
             <PricingCard />
+            <Card className="mt-4">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg">Have a Coupon Code?</CardTitle>
+                <CardDescription>
+                  Enter your code to apply your discount
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex gap-2">
+                  <Input
+                    id="couponUrl"
+                    placeholder="Enter coupon code"
+                    value={new URLSearchParams(window.location.search).get('coupon') || ''}
+                    onChange={(e) => {
+                      const url = new URL(window.location.href);
+                      if (e.target.value) {
+                        url.searchParams.set('coupon', e.target.value);
+                      } else {
+                        url.searchParams.delete('coupon');
+                      }
+                      window.history.replaceState({}, '', url.toString());
+                    }}
+                    className="max-w-[240px]"
+                  />
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => {
+                      const url = new URL(window.location.href);
+                      const coupon = url.searchParams.get('coupon');
+                      if (coupon) {
+                        queryClient.invalidateQueries({ queryKey: ['/api/create-subscription'] });
+                        toast({
+                          title: "Coupon Applied",
+                          description: "Refreshing subscription details with coupon code",
+                        });
+                      } else {
+                        toast({
+                          title: "No Coupon Code",
+                          description: "Please enter a valid coupon code",
+                          variant: "destructive",
+                        });
+                      }
+                    }}
+                  >
+                    Apply
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
           
           <div className="order-1 md:order-2">
