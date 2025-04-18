@@ -13,7 +13,7 @@ export default function UpdateNotification() {
     const localVersion = localStorage.getItem('appVersion');
     
     // Current app version
-    const currentVersion = "2.0.0"; // Update this when making a major change like renaming
+    const currentVersion = "4.0.0"; // Update this when making a major change like renaming
     
     // Check if the app has been renamed
     if (!localVersion || localVersion !== currentVersion) {

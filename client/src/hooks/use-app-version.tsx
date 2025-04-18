@@ -42,11 +42,11 @@ export function useAppVersion(): AppVersion {
     
     // If on iOS, installed as PWA, and either no version stored or older version
     if (iosDevice && isPWA && (!storedVersion || storedVersion !== APP_VERSION)) {
-      // Check if we've already prompted for reinstall
-      const reinstallPrompted = localStorage.getItem('iosReinstallPrompted') === 'true';
+      // Check if we've already prompted for reinstall for this version
+      const reinstallPromptedVersion = localStorage.getItem('iosReinstallPromptedVersion');
       
-      // Only prompt if not already prompted
-      if (!reinstallPrompted) {
+      // Only prompt if not already prompted for this specific version
+      if (reinstallPromptedVersion !== APP_VERSION) {
         setNeedsReinstall(true);
       }
     }
@@ -56,12 +56,12 @@ export function useAppVersion(): AppVersion {
   }, []);
   
   const markReinstallPromptSeen = () => {
-    localStorage.setItem('iosReinstallPrompted', 'true');
+    localStorage.setItem('iosReinstallPromptedVersion', APP_VERSION);
     setNeedsReinstall(false);
   };
   
   const resetReinstallPrompt = () => {
-    localStorage.removeItem('iosReinstallPrompted');
+    localStorage.removeItem('iosReinstallPromptedVersion');
     localStorage.removeItem('appVersion');
     setNeedsReinstall(true);
   };
