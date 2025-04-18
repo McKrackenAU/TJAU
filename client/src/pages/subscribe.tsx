@@ -242,13 +242,13 @@ export default function SubscribePage() {
     isLoading: isLoadingSession, 
     error
   } = useQuery({
-    queryKey: ['/api/get-or-create-subscription', user?.id, window.location.search],
+    queryKey: ['/api/create-subscription', user?.id, window.location.search],
     queryFn: async () => {
       // Get coupon from URL if present
       const params = new URLSearchParams(window.location.search);
       const couponFromUrl = params.get('coupon');
       
-      const response = await apiRequest('POST', '/api/get-or-create-subscription', {
+      const response = await apiRequest('POST', '/api/create-subscription', {
         couponCode: couponFromUrl
       });
       
@@ -300,7 +300,7 @@ export default function SubscribePage() {
           </CardContent>
           <CardFooter>
             <Button 
-              onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/get-or-create-subscription'] })}
+              onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/create-subscription'] })}
               className="w-full"
             >
               Try Again

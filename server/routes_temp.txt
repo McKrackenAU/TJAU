@@ -1,0 +1,183 @@
+// This contains the corrected API endpoint that combines both duplicates and ensures 7-day free trial
+
+// Create or retrieve subscription with 7-day free trial
+app.post("/api/create-subscription", async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).json({ message: "User must be logged in" });
+  }
+  
+  const user = req.user;
+  const { couponCode } = req.body;
+  
+  try {
+    console.log("Processing subscription for user:", user.id, user.username);
+    
+    // If user already has a subscription, retrieve it
+    if (user.stripeSubscriptionId) {
+      console.log("User already has subscription ID:", user.stripeSubscriptionId);
+      
+      const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+      console.log("Retrieved existing subscription:", subscription.id, "status:", subscription.status);
+      
+      // Check if this is an incomplete subscription
+      if (subscription.status === 'incomplete') {
+        console.log("Found incomplete subscription - cancelling and creating a new one");
+        // Cancel the incomplete subscription
+        await stripe.subscriptions.cancel(subscription.id);
+        console.log("Cancelled incomplete subscription:", subscription.id);
+        
+        // Clear the subscription ID from the user
+        await db
+          .update(users)
+          .set({ stripeSubscriptionId: '' })
+          .where(eq(users.id, user.id));
+        
+        console.log("Cleared subscription ID from user record");
+        // Will continue to create a new subscription
+      } else {
+        // Check if the subscription has a pending payment intent
+        if (subscription.status === 'incomplete' && subscription.latest_invoice) {
+          const invoice = typeof subscription.latest_invoice === 'string'
+            ? await stripe.invoices.retrieve(subscription.latest_invoice, { expand: ['payment_intent'] })
+            : subscription.latest_invoice;
+            
+          if (invoice.payment_intent) {
+            const paymentIntent = typeof invoice.payment_intent === 'string'
+              ? await stripe.paymentIntents.retrieve(invoice.payment_intent)
+              : invoice.payment_intent;
+              
+            // Return the client secret for client-side confirmation
+            return res.json({
+              subscriptionId: subscription.id,
+              clientSecret: paymentIntent.client_secret,
+            });
+          }
+        }
+        
+        // For active subscriptions, check if latest_invoice has a payment_intent
+        const clientSecret = subscription.latest_invoice?.payment_intent?.client_secret;
+        console.log("Client secret from existing subscription:", clientSecret ? "Found" : "Not found");
+        
+        if (clientSecret) {
+          return res.json({
+            subscriptionId: subscription.id,
+            clientSecret,
+          });
+        }
+        
+        // If it's already an active subscription without pending payment, return success
+        if (subscription.status === 'active' || subscription.status === 'trialing') {
+          return res.json({ 
+            subscriptionId: subscription.id,
+            status: subscription.status,
+            message: "Subscription already active"
+          });
+        }
+        
+        console.log("No client secret found or subscription not active, creating a new one");
+        // Will continue to create a new subscription
+      }
+    }
+    
+    if (!user.email) {
+      console.error("User has no email address");
+      return res.status(400).json({ message: "User email is required for subscription" });
+    }
+
+    console.log("Using Stripe price ID:", process.env.STRIPE_PRICE_ID);
+    if (!process.env.STRIPE_PRICE_ID) {
+      return res.status(500).json({ message: "Stripe price ID is not configured" });
+    }
+
+    // Create a new customer or use the existing one
+    let customerId = user.stripeCustomerId;
+    if (!customerId) {
+      console.log("Creating new Stripe customer for user:", user.id);
+      const customer = await stripe.customers.create({
+        email: user.email,
+        name: user.username,
+        metadata: {
+          userId: user.id.toString(),
+        }
+      });
+      customerId = customer.id;
+      console.log("Created customer:", customerId);
+      await storage.updateStripeCustomerId(user.id, customer.id);
+    } else {
+      console.log("Using existing customer ID:", customerId);
+    }
+    
+    // Prepare subscription params
+    const subscriptionParams: Stripe.SubscriptionCreateParams = {
+      customer: customerId,
+      items: [{
+        price: process.env.STRIPE_PRICE_ID,
+      }],
+      payment_behavior: 'default_incomplete',
+      payment_settings: {
+        payment_method_types: ['card'],
+        save_default_payment_method: 'on_subscription'
+      },
+      expand: ['latest_invoice.payment_intent'],
+      trial_period_days: 7, // Ensure 7-day free trial
+    };
+    
+    // Apply coupon code if provided
+    if (couponCode) {
+      try {
+        // Verify that the coupon exists and is valid
+        const coupon = await stripe.coupons.retrieve(couponCode);
+        if (coupon.valid) {
+          // Apply the coupon to the subscription
+          subscriptionParams.coupon = couponCode;
+          console.log(`Applied coupon ${couponCode} to subscription`);
+        }
+      } catch (couponError) {
+        console.error("Invalid coupon code:", couponError);
+      }
+    }
+    
+    // Create the subscription
+    console.log("Creating subscription with customer:", customerId);
+    const subscription = await stripe.subscriptions.create(subscriptionParams);
+    console.log("Created subscription:", subscription.id);
+    console.log("Invoice:", subscription.latest_invoice ? "Present" : "Missing");
+    console.log("Payment intent:", subscription.latest_invoice?.payment_intent ? "Present" : "Missing");
+    
+    // Update user with subscription information
+    await storage.updateUserStripeInfo(user.id, {
+      customerId, 
+      subscriptionId: subscription.id
+    });
+    
+    // Return the client secret for client-side confirmation
+    if (subscription.latest_invoice && typeof subscription.latest_invoice !== 'string') {
+      const invoice = subscription.latest_invoice as any;
+      if (invoice.payment_intent && typeof invoice.payment_intent !== 'string') {
+        console.log("Sending client secret to frontend");
+        return res.json({
+          subscriptionId: subscription.id,
+          clientSecret: invoice.payment_intent.client_secret,
+        });
+      }
+    }
+    
+    // If we couldn't get the client secret, return error
+    return res.status(400).json({ message: "Failed to create payment intent" });
+    
+  } catch (error) {
+    console.error("Subscription creation error:", error);
+    let errorMessage = error instanceof Error ? error.message : "Unknown error";
+    
+    if (error.type === 'StripeCardError') {
+      errorMessage = `Card error: ${error.message}`;
+    } else if (error.type === 'StripeInvalidRequestError') {
+      errorMessage = `Invalid request: ${error.message}`;
+    }
+    
+    return res.status(500).json({ 
+      message: "Failed to process subscription", 
+      details: errorMessage 
+    });
+  }
+});
