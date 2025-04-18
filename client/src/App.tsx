@@ -23,6 +23,7 @@ import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
 import BottomNav from "@/components/bottom-nav";
+import InstallBanner from "@/components/install-banner";
 import { AuthProvider } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 
@@ -62,6 +63,7 @@ function App() {
             <Router />
           </main>
           <BottomNav />
+          <InstallBanner />
         </div>
         <Toaster />
       </AuthProvider>
