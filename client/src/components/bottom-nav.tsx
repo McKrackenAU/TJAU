@@ -23,8 +23,8 @@ const secondaryNavItems = [
 ];
 
 export default function BottomNav() {
-  const [location] = useLocation();
-  const { user } = useAuth();
+  const [location, navigate] = useLocation();
+  const { user, logoutMutation } = useAuth();
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const moreMenuRef = useRef<HTMLDivElement>(null);
   
@@ -98,6 +98,28 @@ export default function BottomNav() {
                   </div>
                 </Link>
               ))}
+              
+              {/* Logout button */}
+              <div className="mt-2 pt-2 border-t border-border px-2">
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="w-full flex items-center gap-2 justify-start text-destructive hover:text-destructive" 
+                  onClick={async () => {
+                    setShowMoreMenu(false);
+                    await logoutMutation.mutateAsync();
+                    navigate('/auth');
+                  }}
+                  disabled={logoutMutation.isPending}
+                >
+                  {logoutMutation.isPending ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <LogOut className="h-4 w-4" />
+                  )}
+                  <span>Sign Out</span>
+                </Button>
+              </div>
             </div>
           )}
         </div>
