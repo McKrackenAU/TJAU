@@ -29,11 +29,24 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
+      // More advanced service worker registration with update handling
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/service-worker.js')
             .then(registration => {
               console.log('Service Worker registered with scope:', registration.scope);
+              
+              // Check if there's already a waiting service worker
+              if (registration.waiting) {
+                console.log('Service Worker update available');
+              }
+              
+              // Check for updates when the page loads
+              try {
+                registration.update();
+              } catch (error) {
+                console.error('Service Worker update check failed:', error);
+              }
             })
             .catch(error => {
               console.error('Service Worker registration failed:', error);

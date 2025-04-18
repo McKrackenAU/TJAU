@@ -1,4 +1,7 @@
-const CACHE_NAME = 'tarot-journey-v1';
+// Version number - increment this when making important changes
+// that should force all clients to update
+const VERSION = '2';
+const CACHE_NAME = `tarot-journey-v${VERSION}`;
 
 // Simplified precache assets
 const PRECACHE_ASSETS = [
