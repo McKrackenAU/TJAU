@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const APP_VERSION = '3.0.0'; // Increment this when app name changes or other major updates
+const APP_VERSION = '4.0.0'; // Increment this when app name changes or other major updates
 const APP_NAME = 'Tarot Journey';
 const OLD_APP_NAME = 'Tarot Learn';
 

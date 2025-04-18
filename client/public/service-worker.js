@@ -1,6 +1,6 @@
 // Version number - increment this when making important changes
 // that should force all clients to update
-const VERSION = '3';
+const VERSION = '4';
 const CACHE_NAME = `tarot-journey-v${VERSION}`;
 
 // App information
