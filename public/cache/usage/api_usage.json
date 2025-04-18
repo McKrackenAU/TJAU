@@ -358,5 +358,75 @@
     "cardId": "imported_272",
     "cardName": "Ten of Wands",
     "timestamp": "2025-04-18T02:28:44.085Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "wp",
+    "cardName": "Page of Wands",
+    "timestamp": "2025-04-18T03:05:37.968Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "0",
+    "cardName": "The Fool",
+    "timestamp": "2025-04-18T03:05:38.052Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "cp",
+    "cardName": "Page of Cups",
+    "timestamp": "2025-04-18T03:05:38.219Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pp",
+    "cardName": "Page of Pentacles",
+    "timestamp": "2025-04-18T03:05:38.237Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "wk",
+    "cardName": "King of Wands",
+    "timestamp": "2025-04-18T03:05:38.506Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "ck",
+    "cardName": "King of Cups",
+    "timestamp": "2025-04-18T03:05:38.808Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "ck",
+    "cardName": "King of Cups",
+    "timestamp": "2025-04-18T03:05:40.569Z"
   }
 ]

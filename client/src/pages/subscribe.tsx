@@ -74,7 +74,7 @@ function SubscriptionForm() {
   const [processing, setProcessing] = useState(false);
   const [couponCode, setCouponCode] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
-  const [_, navigate] = useLocation();
+  const [_, setLocation] = useLocation();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -347,11 +347,26 @@ export default function SubscribePage() {
                   >
                     <SubscriptionForm />
                   </Elements>
+                ) : sessionData?.status === 'active' || sessionData?.status === 'trialing' ? (
+                  <div className="text-center py-8">
+                    <p className="text-green-600 dark:text-green-400 font-medium">
+                      Your subscription is already active
+                    </p>
+                    <Button 
+                      onClick={() => window.location.href = '/account'}
+                      className="mt-4"
+                    >
+                      Go to Account
+                    </Button>
+                  </div>
                 ) : (
                   <div className="text-center py-8">
                     <p className="text-destructive">
                       Unable to initialize payment form
                     </p>
+                    <div className="mt-2 text-sm text-muted-foreground">
+                      {sessionData?.message && <p>{sessionData.message}</p>}
+                    </div>
                     <Button 
                       onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/create-subscription'] })}
                       className="mt-4"
