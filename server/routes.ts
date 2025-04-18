@@ -1269,8 +1269,24 @@ export function registerRoutes(app: Express): Server {
           console.log("Using existing customer ID:", customerId);
         }
 
-        // Create subscription
+        // Create subscription with 7-day free trial and optional coupon
         console.log("Creating subscription with customer:", customerId);
+        
+        // Apply coupon code if provided
+        const { couponCode } = req.body;
+        let coupon;
+        
+        if (couponCode) {
+          try {
+            // Verify the coupon exists and is valid
+            coupon = await stripe.coupons.retrieve(couponCode);
+            console.log(`Applied coupon ${couponCode} to subscription`);
+          } catch (couponError) {
+            console.log(`Invalid coupon code: ${couponCode}`, couponError);
+            // We'll continue without the coupon if it's invalid
+          }
+        }
+        
         const subscription = await stripe.subscriptions.create({
           customer: customerId,
           items: [{
@@ -1282,6 +1298,10 @@ export function registerRoutes(app: Express): Server {
             save_default_payment_method: 'on_subscription'
           },
           expand: ['latest_invoice.payment_intent'],
+          // Add 7-day free trial
+          trial_period_days: 7,
+          // Apply coupon if valid
+          ...(coupon ? { coupon: couponCode } : {})
         });
 
         console.log("Created subscription:", subscription.id);
@@ -1328,6 +1348,65 @@ export function registerRoutes(app: Express): Server {
       }
     });
     
+    // Endpoint to get subscription details
+    app.get('/api/subscription-details', async (req, res) => {
+      try {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+
+        const user = req.user;
+        console.log("Fetching subscription details for user:", user.id, user.username);
+
+        if (!user.stripeSubscriptionId) {
+          return res.json({ 
+            active: false,
+            trialStatus: null,
+            renewalDate: null,
+            canceledAt: null,
+            hasPaymentMethod: false
+          });
+        }
+
+        // Retrieve the subscription with expanded customer
+        const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId, {
+          expand: ['customer', 'default_payment_method']
+        });
+        
+        // Calculate trial end date
+        const trialEnd = subscription.trial_end ? new Date(subscription.trial_end * 1000) : null;
+        const currentPeriodEnd = new Date(subscription.current_period_end * 1000);
+        const canceledAt = subscription.canceled_at ? new Date(subscription.canceled_at * 1000) : null;
+        
+        // Determine if the subscription is in trial period
+        const now = new Date();
+        const inTrialPeriod = trialEnd ? now < trialEnd : false;
+        
+        // Check if the subscription has a valid payment method
+        const hasPaymentMethod = !!subscription.default_payment_method;
+        
+        res.json({
+          active: subscription.status === 'active' || subscription.status === 'trialing',
+          status: subscription.status,
+          trialStatus: inTrialPeriod ? {
+            inTrial: true,
+            trialEnd: trialEnd?.toISOString(),
+            daysRemaining: trialEnd ? Math.ceil((trialEnd.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)) : 0
+          } : null,
+          renewalDate: currentPeriodEnd.toISOString(),
+          canceledAt: canceledAt?.toISOString() || null,
+          cancelAtPeriodEnd: subscription.cancel_at_period_end,
+          hasPaymentMethod
+        });
+      } catch (error: any) {
+        console.error("Error fetching subscription details:", error);
+        res.status(500).json({ 
+          error: "Error retrieving subscription details", 
+          message: error.message 
+        });
+      }
+    });
+
     // Endpoint to cancel a subscription
     app.post('/api/cancel-subscription', async (req, res) => {
       try {
@@ -1361,20 +1440,41 @@ export function registerRoutes(app: Express): Server {
           });
         }
 
-        // Cancel the subscription
-        const canceledSubscription = await stripe.subscriptions.cancel(subscription.id);
-        console.log("Canceled subscription:", canceledSubscription.id);
-
-        // Update user record
-        await storage.updateUserSubscription(user.id, {
-          isSubscribed: false,
-          stripeSubscriptionId: ''
-        });
-
-        res.json({ 
-          success: true, 
-          message: "Subscription successfully canceled" 
-        });
+        // Cancel the subscription at the end of the current period
+        // This way the user can still use the service until the end of what they paid for
+        const cancelAtEnd = req.body.cancelAtEnd !== false; // Default to true if not specified
+        
+        if (cancelAtEnd) {
+          // Schedule cancellation at the end of the billing period
+          const updatedSubscription = await stripe.subscriptions.update(subscription.id, {
+            cancel_at_period_end: true
+          });
+          console.log("Scheduled subscription cancellation at period end:", updatedSubscription.id);
+          
+          // Don't update the user's subscription status yet - they're still subscribed until the period ends
+          res.json({ 
+            success: true, 
+            message: "Subscription will be canceled at the end of the current billing period",
+            currentPeriodEnd: new Date(subscription.current_period_end * 1000).toISOString()
+          });
+        } else {
+          // Cancel immediately if explicitly requested
+          const canceledSubscription = await stripe.subscriptions.cancel(subscription.id);
+          console.log("Canceled subscription immediately:", canceledSubscription.id);
+  
+          // Update user record
+          await storage.updateUserSubscription(user.id, {
+            isSubscribed: false,
+            stripeSubscriptionId: ''
+          });
+          
+          res.json({ 
+            success: true, 
+            message: "Subscription has been canceled immediately" 
+          });
+        }
+        
+        return;
       } catch (error: any) {
         console.error("Subscription cancellation error:", error);
         res.status(500).json({ 
