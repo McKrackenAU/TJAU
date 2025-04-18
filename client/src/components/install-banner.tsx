@@ -33,17 +33,24 @@ export default function InstallBanner(): JSX.Element | null {
         return false;
       };
       
-      // Don't show banner if app is installed
+      // Check if this is iOS device and set state
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      setIsIOSDevice(isIOS);
+      
+      // For iOS, if we've prompted for reinstall, always show the banner again
+      // This helps iOS users reinstall the app to get the name update
+      if (isIOS && localStorage.getItem('iosReinstallPrompted') === 'true') {
+        setShowBanner(true);
+        return;
+      }
+      
+      // Don't show banner if app is installed for non-iOS or iOS that hasn't seen reinstall prompt
       if (checkIfInstalled()) {
         setShowBanner(false);
         return;
       }
       
-      // Check if it's an iOS device
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      setIsIOSDevice(isIOS);
-      
-      // For iOS, check for permanent dismissal
+      // For iOS, check for permanent dismissal (using same isIOS variable from above)
       if (isIOS) {
         const iosBannerDismissed = localStorage.getItem('iosBannerDismissed');
         if (!iosBannerDismissed) {
@@ -138,10 +145,17 @@ export default function InstallBanner(): JSX.Element | null {
           <AlertDescription className="flex-1">
             {isIOSDevice ? (
               <div className="space-y-1">
-                <p>Install Tarot Journey on your iPhone for a better experience!</p>
+                {localStorage.getItem('iosReinstallPrompted') === 'true' ? (
+                  <p>Reinstall Tarot Journey to update the app name on your home screen</p>
+                ) : (
+                  <p>Install Tarot Journey on your iPhone for a better experience!</p>
+                )}
                 <ol className="text-xs text-muted-foreground">
                   <li>1. Tap the share button</li>
                   <li>2. Select "Add to Home Screen"</li>
+                  {localStorage.getItem('iosReinstallPrompted') === 'true' && (
+                    <li>3. Delete the old app icon after installing the new one</li>
+                  )}
                 </ol>
               </div>
             ) : (
