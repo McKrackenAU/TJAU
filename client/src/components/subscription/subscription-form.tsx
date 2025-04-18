@@ -23,13 +23,16 @@ import {
 import { Loader2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { User } from "@shared/schema";
 
 // Make sure to call loadStripe outside of a component's render to avoid
 // recreating the Stripe object on every render
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
+// User type is already imported at the top
+
 // The subscription form that appears inside the Elements provider
-function SubscriptionFormContent() {
+function SubscriptionFormContent({ user }: { user: User | null }) {
   const stripe = useStripe();
   const elements = useElements();
   const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +74,9 @@ function SubscriptionFormContent() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <Alert className="bg-blue-50 border-blue-200">
         <AlertDescription>
-          Your card will not be charged until after your 7-day free trial ends. You can cancel anytime.
+          {!user?.hasUsedFreeTrial 
+            ? "Your card will not be charged until after your 7-day free trial ends. You can cancel anytime."
+            : "Your subscription will begin immediately. You can cancel anytime."}
         </AlertDescription>
       </Alert>
       
@@ -87,7 +92,7 @@ function SubscriptionFormContent() {
             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Processing...
           </>
         ) : (
-          'Start Free Trial'
+          !user?.hasUsedFreeTrial ? 'Start Free Trial' : 'Subscribe Now'
         )}
       </Button>
       
@@ -105,7 +110,9 @@ export default function SubscriptionForm() {
   const [couponCode, setCouponCode] = useState("");
   const [couponApplied, setCouponApplied] = useState(false);
   const [secretError, setSecretError] = useState<string | null>(null);
+  const [sessionData, setSessionData] = useState<{hasTrial: boolean} | null>(null);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const fetchPaymentIntent = async (couponToApply?: string) => {
     setIsLoadingSecret(true);
@@ -204,7 +211,15 @@ export default function SubscriptionForm() {
         <CardDescription>
           Unlock premium features with a subscription
         </CardDescription>
-        <Badge className="mt-2 bg-purple-500 hover:bg-purple-600">7-Day Free Trial</Badge>
+        {!couponApplied && (
+          <div className="mt-2">
+            {clientSecret && (
+              <Badge className="bg-purple-500 hover:bg-purple-600">
+                {!user?.hasUsedFreeTrial ? "7-Day Free Trial" : "Premium Access"}
+              </Badge>
+            )}
+          </div>
+        )}
       </CardHeader>
       
       <CardContent>
@@ -236,7 +251,7 @@ export default function SubscriptionForm() {
         
         {clientSecret && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <SubscriptionFormContent />
+            <SubscriptionFormContent user={user} />
           </Elements>
         )}
       </CardContent>
