@@ -28,11 +28,8 @@ function PricingCard() {
         <CardTitle className="text-2xl">Tarot Journey Premium</CardTitle>
         <CardDescription className="text-lg">
           <div className="flex justify-center items-center mt-2 mb-1">
-            <span className="text-3xl font-bold text-primary">$9.99</span>
+            <span className="text-3xl font-bold text-primary">$11.11</span>
             <span className="text-muted-foreground ml-2">/month</span>
-          </div>
-          <div className="text-sm">
-            <span className="text-green-600 dark:text-green-400 font-medium">7-day free trial</span>
           </div>
         </CardDescription>
       </CardHeader>
@@ -218,7 +215,7 @@ function SubscriptionForm() {
           )}
         </Button>
         <p className="text-sm text-muted-foreground text-center mt-2">
-          You won't be charged until after your 7-day free trial
+          Your subscription will begin immediately
         </p>
       </div>
 
@@ -330,11 +327,7 @@ export default function SubscribePage() {
               <CardHeader>
                 <CardTitle>Complete Your Subscription</CardTitle>
                 <CardDescription>
-                  {!user.hasUsedFreeTrial ? (
-                    "Enjoy a 7-day free trial, cancel anytime"
-                  ) : (
-                    "Start your subscription today"
-                  )}
+                  Start your premium subscription today
                 </CardDescription>
               </CardHeader>
               <CardContent>
