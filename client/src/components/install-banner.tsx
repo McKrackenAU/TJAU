@@ -2,21 +2,48 @@ import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { useAuth } from '@/hooks/use-auth';
 
-// Simplified version to avoid potential runtime errors
 export default function InstallBanner(): JSX.Element | null {
   const [showBanner, setShowBanner] = useState<boolean>(false);
   const [isIOSDevice, setIsIOSDevice] = useState<boolean>(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   
-  // Use a simpler effect to avoid potential issues
   useEffect(() => {
     try {
+      // Check if the app is already installed (works for all platforms)
+      const checkIfInstalled = () => {
+        // Method 1: Check display-mode
+        if (window.matchMedia('(display-mode: standalone)').matches || 
+            window.matchMedia('(display-mode: fullscreen)').matches || 
+            window.matchMedia('(display-mode: minimal-ui)').matches) {
+          return true;
+        }
+        
+        // Method 2: Check navigator.standalone (iOS)
+        if ((window.navigator as any).standalone === true) {
+          return true;
+        }
+        
+        // Method 3: Check localStorage flag (set by us when installed)
+        if (localStorage.getItem('appInstalled') === 'true') {
+          return true;
+        }
+        
+        return false;
+      };
+      
+      // Don't show banner if app is installed
+      if (checkIfInstalled()) {
+        setShowBanner(false);
+        return;
+      }
+      
       // Check if it's an iOS device
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
       setIsIOSDevice(isIOS);
       
-      // Only show the banner for iOS initially
+      // For iOS, check for permanent dismissal
       if (isIOS) {
         const iosBannerDismissed = localStorage.getItem('iosBannerDismissed');
         if (!iosBannerDismissed) {
@@ -24,19 +51,34 @@ export default function InstallBanner(): JSX.Element | null {
         }
       }
       
-      // Handle the beforeinstallprompt event (for Android)
+      // Handle the beforeinstallprompt event (for Android/Chrome)
       const handleBeforeInstallPrompt = (e: any) => {
         // Prevent Chrome from automatically showing the prompt
         e.preventDefault();
         // Save the event for later use
         setDeferredPrompt(e);
-        setShowBanner(true);
+        
+        // Only show if not permanently dismissed
+        const bannerDismissed = localStorage.getItem('bannerDismissed');
+        if (!bannerDismissed) {
+          setShowBanner(true);
+        }
+      };
+
+      // Listen for app install event
+      const handleAppInstalled = () => {
+        // Mark as installed in localStorage
+        localStorage.setItem('appInstalled', 'true');
+        setShowBanner(false);
+        console.log('App was installed');
       };
 
       window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.addEventListener('appinstalled', handleAppInstalled);
       
       return () => {
         window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        window.removeEventListener('appinstalled', handleAppInstalled);
       };
     } catch (error) {
       console.error('Error in install banner:', error);
@@ -54,6 +96,11 @@ export default function InstallBanner(): JSX.Element | null {
         const result = await deferredPrompt.userChoice;
         console.log(`User ${result.outcome} the install prompt`);
         
+        if (result.outcome === 'accepted') {
+          // Mark as installed
+          localStorage.setItem('appInstalled', 'true');
+        }
+        
         // Reset the deferred prompt
         setDeferredPrompt(null);
         setShowBanner(false);
@@ -65,15 +112,27 @@ export default function InstallBanner(): JSX.Element | null {
   
   const dismissBanner = () => {
     setShowBanner(false);
+    
+    // Save permanent dismissal based on device type
     if (isIOSDevice) {
       localStorage.setItem('iosBannerDismissed', 'true');
+    } else {
+      localStorage.setItem('bannerDismissed', 'true');
     }
   };
   
+  // Don't render if the banner shouldn't be shown
   if (!showBanner) return null;
   
+  // Get the user state to adjust positioning
+  const { user } = useAuth();
+  
+  // Position banner at the bottom with different spacing depending on whether 
+  // bottom nav is visible (user is logged in)
+  const bannerPosition = user ? "bottom-20" : "bottom-4";
+  
   return (
-    <div className="fixed bottom-20 left-0 right-0 mx-4 z-50">
+    <div className={`fixed ${bannerPosition} left-0 right-0 mx-4 z-50`}>
       <Alert className="bg-background shadow-lg border-primary/50">
         <div className="flex items-center justify-between">
           <AlertDescription className="flex-1">

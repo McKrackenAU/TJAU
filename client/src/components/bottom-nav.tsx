@@ -27,12 +27,15 @@ export default function BottomNav() {
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const moreMenuRef = useRef<HTMLDivElement>(null);
   
+  // Only render the navigation bar when user is logged in
+  if (!user) return null;
+  
   // Account-related items that will be in the "More" dropdown if user is logged in
-  const accountItems = user ? [
+  const accountItems = [
     { icon: User, label: "Account", href: "/account" },
     { icon: CreditCard, label: "Subscribe", href: "/subscribe" },
     ...(user.isAdmin ? [{ icon: ShieldAlert, label: "Admin", href: "/admin/dashboard" }] : [])
-  ] : [];
+  ];
 
   // Combined secondary and account items for the More dropdown
   const moreItems = [...secondaryNavItems, ...accountItems];
