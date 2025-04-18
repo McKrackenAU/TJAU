@@ -146,17 +146,19 @@ export default function InstallBanner(): JSX.Element | null {
             {isIOSDevice ? (
               <div className="space-y-1">
                 {localStorage.getItem('iosReinstallPrompted') === 'true' ? (
-                  <p>Reinstall Tarot Journey to update the app name on your home screen</p>
+                  <>
+                    <p className="font-semibold">Important: Reinstall to update the app name</p>
+                    <p className="text-xs text-muted-foreground">The app has been renamed to "Tarot Journey"</p>
+                  </>
                 ) : (
                   <p>Install Tarot Journey on your iPhone for a better experience!</p>
                 )}
-                <ol className="text-xs text-muted-foreground">
-                  <li>1. Tap the share button</li>
-                  <li>2. Select "Add to Home Screen"</li>
-                  {localStorage.getItem('iosReinstallPrompted') === 'true' && (
-                    <li>3. Delete the old app icon after installing the new one</li>
-                  )}
-                </ol>
+                {localStorage.getItem('iosReinstallPrompted') !== 'true' && (
+                  <ol className="text-xs text-muted-foreground">
+                    <li>1. Tap the share button</li>
+                    <li>2. Select "Add to Home Screen"</li>
+                  </ol>
+                )}
               </div>
             ) : (
               <p>Install Tarot Journey for a better experience!</p>
@@ -164,7 +166,28 @@ export default function InstallBanner(): JSX.Element | null {
           </AlertDescription>
           
           <div className="flex gap-2 items-center">
-            {!isIOSDevice && deferredPrompt && (
+            {isIOSDevice && localStorage.getItem('iosReinstallPrompted') === 'true' ? (
+              // Special action for iOS reinstall
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => {
+                  // Reset the prompt to show the detailed instructions again
+                  localStorage.removeItem('iosReinstallPrompted');
+                  setShowBanner(false);
+                  
+                  // Small delay to ensure the state updates before showing the prompt
+                  setTimeout(() => {
+                    // This will trigger the iOS reinstall prompt to show again
+                    localStorage.setItem('appVersion', '1.0.0');
+                  }, 500);
+                }}
+                className="whitespace-nowrap"
+              >
+                View Steps
+              </Button>
+            ) : !isIOSDevice && deferredPrompt && (
+              // Default install button for non-iOS
               <Button
                 variant="default"
                 size="sm"

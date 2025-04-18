@@ -1,7 +1,11 @@
 // Version number - increment this when making important changes
 // that should force all clients to update
-const VERSION = '2';
+const VERSION = '3';
 const CACHE_NAME = `tarot-journey-v${VERSION}`;
+
+// App information
+const APP_NAME = 'Tarot Journey';
+const OLD_APP_NAME = 'Tarot Learn';
 
 // Simplified precache assets
 const PRECACHE_ASSETS = [
