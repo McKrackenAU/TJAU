@@ -1,84 +1,74 @@
-import { useEffect, useState } from 'react';
-import { CheckCircle, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { useLocation } from 'wouter';
-import { apiRequest } from '@/lib/queryClient';
-import { useAuth } from '@/hooks/use-auth';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth } from "@/hooks/use-auth";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "wouter";
 
 export default function SubscriptionSuccessPage() {
-  const [_, setLocation] = useLocation();
-  const { user } = useAuth();
-  const [trialEndDate, setTrialEndDate] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const { user, isLoading } = useAuth();
+  const [countdown, setCountdown] = useState(5);
+  const [_, navigate] = useLocation();
 
+  // Start a countdown to redirect to homepage
   useEffect(() => {
-    // Get subscription details to show the trial end date
-    const fetchSubscriptionDetails = async () => {
-      try {
-        const response = await apiRequest("GET", "/api/subscription-details");
-        
-        if (response.ok) {
-          const data = await response.json();
-          
-          if (data.trialStatus?.trialEnd) {
-            // Format the date
-            const date = new Date(data.trialStatus.trialEnd);
-            setTrialEndDate(date.toLocaleDateString('en-US', {
-              year: 'numeric', 
-              month: 'long', 
-              day: 'numeric'
-            }));
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching subscription details:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    if (countdown > 0) {
+      const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+      return () => clearTimeout(timer);
+    } else {
+      navigate("/");
+    }
+  }, [countdown, navigate]);
 
-    fetchSubscriptionDetails();
-  }, []);
+  // Loading state while checking if user is authenticated
+  if (isLoading) {
+    return (
+      <div className="container mx-auto py-12 flex justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      </div>
+    );
+  }
 
   return (
-    <div className="container flex items-center justify-center min-h-screen py-12">
-      <Card className="w-full max-w-md">
+    <div className="container mx-auto py-12 px-4">
+      <Card className="max-w-md mx-auto">
         <CardHeader className="text-center">
-          <div className="mx-auto bg-green-100 w-16 h-16 flex items-center justify-center rounded-full mb-4">
-            <CheckCircle className="h-8 w-8 text-green-600" />
+          <div className="flex justify-center mb-4">
+            <CheckCircle2 className="h-16 w-16 text-green-500" />
           </div>
-          <CardTitle className="text-2xl">Subscription Activated!</CardTitle>
-          <CardDescription>
-            Your free trial has been successfully started
+          <CardTitle className="text-2xl">Subscription Success!</CardTitle>
+          <CardDescription className="text-lg mt-2">
+            Thank you for subscribing to Tarot Journey Premium
           </CardDescription>
         </CardHeader>
-        <CardContent className="text-center space-y-4">
+        <CardContent className="space-y-4 text-center">
           <p>
-            Thank you for subscribing to Tarot Journey Premium. Your 7-day free trial has been activated.
+            Your 7-day free trial has been activated.
+            {user?.isSubscribed ? (
+              " Your account has been updated with premium access."
+            ) : (
+              " Please refresh the page if your subscription status hasn't updated yet."
+            )}
           </p>
-          
-          {trialEndDate && (
-            <p className="text-sm bg-blue-50 p-3 rounded-md">
-              Your free trial will end on <span className="font-medium">{trialEndDate}</span>, 
-              after which your card will be charged automatically. You can cancel anytime before then.
-            </p>
-          )}
-          
-          <p className="font-medium mt-4">
-            You now have full access to all premium features!
-          </p>
+          <div className="p-4 bg-muted rounded-lg mt-4">
+            <h3 className="font-medium mb-2">What's next?</h3>
+            <ul className="text-sm text-muted-foreground space-y-2 text-left list-disc pl-5">
+              <li>Explore all premium features</li>
+              <li>Access advanced learning tracks</li>
+              <li>Create personalized readings</li>
+              <li>Track your progress</li>
+            </ul>
+          </div>
         </CardContent>
-        <CardFooter className="flex justify-center space-x-4">
-          <Button 
-            onClick={() => setLocation('/account')}
-            variant="outline"
-          >
-            Manage Subscription
+        <CardFooter className="flex flex-col space-y-4">
+          <Button asChild className="w-full">
+            <Link to="/">
+              Start Exploring Now
+            </Link>
           </Button>
-          <Button onClick={() => setLocation('/')}>
-            Start Exploring <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <p className="text-sm text-center text-muted-foreground">
+            Redirecting to home page in {countdown} seconds...
+          </p>
         </CardFooter>
       </Card>
     </div>

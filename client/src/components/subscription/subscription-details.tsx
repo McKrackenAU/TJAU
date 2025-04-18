@@ -1,18 +1,13 @@
-import { useState, useEffect } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from '@/lib/queryClient';
-import { useAuth } from '@/hooks/use-auth';
-import { Loader2, CheckCircle, Calendar, AlertCircle, Clock } from "lucide-react";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { CalendarDays, Check, Clock, CreditCard, HelpCircle, Loader2, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import { Badge } from "@/components/ui/badge";
+import { Skeleton } from "@/components/ui/skeleton";
 import { 
   AlertDialog,
   AlertDialogAction,
@@ -21,11 +16,11 @@ import {
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogTitle 
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Separator } from "@/components/ui/separator";
 
-interface SubscriptionStatus {
+interface SubscriptionDetailsData {
   active: boolean;
   status: string;
   trialStatus: {
@@ -39,282 +34,283 @@ interface SubscriptionStatus {
   hasPaymentMethod: boolean;
 }
 
-export default function SubscriptionDetails() {
-  const [subscriptionStatus, setSubscriptionStatus] = useState<SubscriptionStatus | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [isCanceling, setIsCanceling] = useState(false);
-  const [confirmCancelOpen, setConfirmCancelOpen] = useState(false);
-  const { toast } = useToast();
+export function SubscriptionDetails() {
   const { user } = useAuth();
+  const { toast } = useToast();
+  const [_, navigate] = useLocation();
 
-  useEffect(() => {
-    fetchSubscriptionDetails();
-  }, []);
+  // Fetch subscription details
+  const { 
+    data: subscription, 
+    isLoading, 
+    error,
+    isError 
+  } = useQuery<SubscriptionDetailsData>({
+    queryKey: ['/api/subscription-details'],
+    enabled: !!user?.isSubscribed && !!user?.stripeSubscriptionId,
+    retry: false,
+  });
 
-  const fetchSubscriptionDetails = async () => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      const response = await apiRequest("GET", "/api/subscription-details");
-      
+  // Mutation for canceling subscription
+  const cancelSubscriptionMutation = useMutation({
+    mutationFn: async () => {
+      const response = await apiRequest('POST', '/api/cancel-subscription', { cancelAtEnd: true });
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to fetch subscription details');
+        const error = await response.json();
+        throw new Error(error.message || 'Failed to cancel subscription');
       }
-      
-      const data = await response.json();
-      setSubscriptionStatus(data);
-    } catch (error) {
-      console.error('Error fetching subscription details:', error);
-      setError(error instanceof Error ? error.message : 'Error fetching subscription details');
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: error instanceof Error ? error.message : 'Error fetching subscription details',
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const cancelSubscription = async (cancelAtEnd: boolean = true) => {
-    setIsCanceling(true);
-    
-    try {
-      const response = await apiRequest("POST", "/api/cancel-subscription", {
-        cancelAtEnd
-      });
-      
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to cancel subscription');
-      }
-      
-      const data = await response.json();
-      
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['/api/subscription-details'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/user'] });
       toast({
         title: "Subscription Canceled",
-        description: data.message,
+        description: "Your subscription will remain active until the end of the current billing period.",
       });
-      
-      // Refresh subscription details
-      fetchSubscriptionDetails();
-    } catch (error) {
-      console.error('Error canceling subscription:', error);
+    },
+    onError: (error: Error) => {
       toast({
+        title: "Failed to Cancel",
+        description: error.message,
         variant: "destructive",
-        title: "Error",
-        description: error instanceof Error ? error.message : 'Error canceling subscription',
       });
-    } finally {
-      setIsCanceling(false);
-      setConfirmCancelOpen(false);
-    }
-  };
+    },
+  });
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center p-8">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle>Error</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-red-500">{error}</p>
-          <Button
-            onClick={fetchSubscriptionDetails}
-            className="mt-4"
-          >
-            Try Again
-          </Button>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  if (!subscriptionStatus?.active) {
-    return (
-      <Card>
-        <CardHeader>
-          <CardTitle>No Active Subscription</CardTitle>
-          <CardDescription>
-            You don't have an active subscription at the moment.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p>Subscribe to access premium features of Tarot Journey.</p>
-          <Button
-            onClick={() => window.location.href = '/subscribe'}
-            className="mt-4"
-          >
-            Subscribe Now
-          </Button>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  // Format dates
+  // Format date for display
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric'
-    });
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
   };
 
-  const renewalDate = formatDate(subscriptionStatus.renewalDate);
-  const cancelDate = subscriptionStatus.canceledAt ? formatDate(subscriptionStatus.canceledAt) : null;
-  const trialEndDate = subscriptionStatus.trialStatus?.trialEnd ? 
-    formatDate(subscriptionStatus.trialStatus.trialEnd) : null;
+  // No subscription found
+  if (!user?.isSubscribed) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Subscription</CardTitle>
+          <CardDescription>
+            You currently don't have an active subscription
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-10">
+            <HelpCircle className="mx-auto h-12 w-12 text-muted-foreground/50 mb-4" />
+            <h3 className="text-lg font-medium mb-2">No Subscription Found</h3>
+            <p className="text-muted-foreground mb-6">
+              Subscribe to get full access to all features and content
+            </p>
+            <Button onClick={() => navigate("/subscribe")}>
+              Subscribe Now
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <Card>
+        <CardHeader>
+          <Skeleton className="h-7 w-40 mb-2" />
+          <Skeleton className="h-4 w-60" />
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <Skeleton className="h-24 w-full" />
+          <Skeleton className="h-16 w-full" />
+        </CardContent>
+        <CardFooter>
+          <Skeleton className="h-10 w-28" />
+        </CardFooter>
+      </Card>
+    );
+  }
+
+  // Error state
+  if (isError || !subscription) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>Subscription</CardTitle>
+          <CardDescription>
+            There was a problem loading your subscription details
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="text-center py-6">
+            <X className="mx-auto h-12 w-12 text-destructive mb-4" />
+            <h3 className="text-lg font-medium mb-2">Error Loading Subscription</h3>
+            <p className="text-muted-foreground mb-6">
+              {error instanceof Error ? error.message : "Unknown error occurred"}
+            </p>
+            <Button onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/subscription-details'] })}>
+              Try Again
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
-    <>
-      <Card className="w-full max-w-md mx-auto">
-        <CardHeader>
-          <CardTitle>Your Subscription</CardTitle>
-          <CardDescription>
-            Manage your Tarot Journey subscription
-          </CardDescription>
-          {subscriptionStatus.status === 'trialing' && (
-            <Badge className="mt-2 bg-blue-500 hover:bg-blue-600">
-              Free Trial
-            </Badge>
-          )}
-          {subscriptionStatus.cancelAtPeriodEnd && (
-            <Badge variant="outline" className="mt-2 border-orange-300 text-orange-700 bg-orange-50">
-              Canceling Soon
-            </Badge>
-          )}
-        </CardHeader>
-
-        <CardContent className="space-y-4">
-          <div className="space-y-4">
-            {subscriptionStatus.trialStatus?.inTrial && (
-              <div className="flex items-start space-x-2">
-                <Clock className="h-5 w-5 text-blue-500 mt-0.5" />
-                <div>
-                  <p className="font-medium">Free Trial Period</p>
-                  <p className="text-sm text-muted-foreground">
-                    Your free trial ends on {trialEndDate} 
-                    ({subscriptionStatus.trialStatus.daysRemaining} days remaining)
+    <Card>
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <div>
+            <CardTitle>Your Subscription</CardTitle>
+            <CardDescription>
+              Manage your subscription details
+            </CardDescription>
+          </div>
+          <Badge 
+            variant={
+              subscription.status === 'trialing' ? 'outline' :
+              subscription.active ? 'default' : 'destructive'
+            }
+            className="ml-2"
+          >
+            {subscription.status === 'trialing' ? 'Trial' :
+             subscription.active ? 'Active' : 'Inactive'}
+          </Badge>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        {/* Trial status */}
+        {subscription.trialStatus && subscription.trialStatus.inTrial && (
+          <div className="bg-muted p-4 rounded-lg">
+            <div className="flex items-start">
+              <Clock className="h-5 w-5 text-muted-foreground mt-0.5 mr-2" />
+              <div>
+                <h3 className="font-medium mb-1">Free Trial Period</h3>
+                <p className="text-sm text-muted-foreground">
+                  Your free trial ends on {formatDate(subscription.trialStatus.trialEnd)}.
+                  {subscription.trialStatus.daysRemaining > 0 && (
+                    <> You have <span className="font-medium">{subscription.trialStatus.daysRemaining} days</span> remaining.</>
+                  )}
+                </p>
+                {!subscription.cancelAtPeriodEnd && (
+                  <p className="text-sm mt-2">
+                    Your subscription will automatically continue after the trial period.
                   </p>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Subscription details */}
+        <div className="space-y-4">
+          <div className="flex items-start">
+            <CreditCard className="h-5 w-5 text-muted-foreground mt-0.5 mr-2" />
+            <div>
+              <h3 className="font-medium">Subscription Plan</h3>
+              <p className="text-sm text-muted-foreground">
+                Tarot Journey Premium
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start">
+            <CalendarDays className="h-5 w-5 text-muted-foreground mt-0.5 mr-2" />
+            <div>
+              <h3 className="font-medium">
+                {subscription.cancelAtPeriodEnd ? 'Access Until' : 'Next Billing Date'}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                {formatDate(subscription.renewalDate)}
+              </p>
+              {subscription.cancelAtPeriodEnd && (
+                <p className="text-sm mt-0.5 text-muted-foreground">
+                  Your subscription will not renew after this date
+                </p>
+              )}
+            </div>
+          </div>
+
+          {!subscription.hasPaymentMethod && !subscription.trialStatus?.inTrial && (
+            <div className="bg-amber-50 dark:bg-amber-950/20 p-4 rounded-lg">
+              <div className="flex items-start">
+                <HelpCircle className="h-5 w-5 text-amber-600 dark:text-amber-400 mt-0.5 mr-2" />
+                <div>
+                  <h3 className="font-medium text-amber-800 dark:text-amber-300">Payment Method Required</h3>
+                  <p className="text-sm text-amber-700 dark:text-amber-400">
+                    Please add a payment method to continue your subscription after the trial period.
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="mt-2"
+                    onClick={() => navigate("/subscribe")}
+                  >
+                    Add Payment Method
+                  </Button>
                 </div>
               </div>
-            )}
+            </div>
+          )}
+        </div>
+      </CardContent>
 
-            <div className="flex items-start space-x-2">
-              <Calendar className="h-5 w-5 text-primary mt-0.5" />
+      <CardFooter className="flex flex-col sm:flex-row justify-between gap-3">
+        {!subscription.cancelAtPeriodEnd ? (
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="outline">Cancel Subscription</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Your subscription will remain active until {formatDate(subscription.renewalDate)}, 
+                  after which you will lose access to premium features.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Keep Subscription</AlertDialogCancel>
+                <AlertDialogAction
+                  onClick={() => cancelSubscriptionMutation.mutate()}
+                  disabled={cancelSubscriptionMutation.isPending}
+                >
+                  {cancelSubscriptionMutation.isPending ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Canceling...
+                    </>
+                  ) : (
+                    "Yes, Cancel"
+                  )}
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
+        ) : (
+          <div className="bg-muted p-3 rounded-lg w-full">
+            <div className="flex items-start">
+              <Check className="h-5 w-5 text-green-500 dark:text-green-400 mt-0.5 mr-2" />
               <div>
-                <p className="font-medium">
-                  {subscriptionStatus.cancelAtPeriodEnd 
-                    ? 'Access Until' 
-                    : 'Next Billing Date'}
-                </p>
+                <h3 className="font-medium">Cancellation Confirmed</h3>
                 <p className="text-sm text-muted-foreground">
-                  {renewalDate}
+                  Your subscription will end on {formatDate(subscription.renewalDate)}
                 </p>
               </div>
             </div>
-
-            {subscriptionStatus.cancelAtPeriodEnd && (
-              <div className="flex items-start space-x-2">
-                <AlertCircle className="h-5 w-5 text-orange-500 mt-0.5" />
-                <div>
-                  <p className="font-medium">Subscription Ending</p>
-                  <p className="text-sm text-muted-foreground">
-                    Your subscription will end on {renewalDate}
-                  </p>
-                </div>
-              </div>
-            )}
-
-            {!subscriptionStatus.cancelAtPeriodEnd && (
-              <div className="flex items-start space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
-                <div>
-                  <p className="font-medium">Status</p>
-                  <p className="text-sm text-muted-foreground">
-                    Your subscription is active
-                  </p>
-                </div>
-              </div>
-            )}
           </div>
+        )}
 
-          <Separator className="my-4" />
-
-          {!subscriptionStatus.cancelAtPeriodEnd && (
-            <Button 
-              variant="outline" 
-              className="w-full border-red-300 text-red-600 hover:bg-red-50"
-              onClick={() => setConfirmCancelOpen(true)}
-              disabled={isCanceling}
-            >
-              {isCanceling ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Processing...
-                </>
-              ) : (
-                'Cancel Subscription'
-              )}
-            </Button>
-          )}
-
-          {subscriptionStatus.cancelAtPeriodEnd && (
-            <Button
-              variant="outline"
-              className="w-full border-green-300 text-green-600 hover:bg-green-50"
-              onClick={() => window.location.href = '/subscribe'}
-            >
-              Resubscribe
-            </Button>
-          )}
-        </CardContent>
-
-        <CardFooter className="flex flex-col space-y-2">
-          <p className="text-xs text-muted-foreground">
-            For billing questions, please contact support@tarotjourney.com
-          </p>
-        </CardFooter>
-      </Card>
-
-      <AlertDialog open={confirmCancelOpen} onOpenChange={setConfirmCancelOpen}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Cancel your subscription?</AlertDialogTitle>
-            <AlertDialogDescription>
-              Your subscription will remain active until the end of your current billing period on {renewalDate}.
-              You will not be charged again after this date.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Keep Subscription</AlertDialogCancel>
-            <AlertDialogAction 
-              onClick={() => cancelSubscription(true)}
-              className="bg-red-500 hover:bg-red-600"
-            >
-              {isCanceling ? (
-                <>
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Processing...
-                </>
-              ) : (
-                'Cancel Subscription'
-              )}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
-    </>
+        <Button
+          onClick={() => navigate("/subscribe")}
+          disabled={!subscription.cancelAtPeriodEnd}
+        >
+          {subscription.cancelAtPeriodEnd ? "Reactivate Subscription" : "Manage Plan"}
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }

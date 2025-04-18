@@ -24,7 +24,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
   throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
 }
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  apiVersion: "2023-10-16",
+  apiVersion: '2023-10-16' as any, // Cast to any to avoid TS version error
 });
 import { promisify } from "util";
 import { db } from "./db";
@@ -1906,7 +1906,8 @@ export function registerRoutes(app: Express): Server {
         try {
           const coupon = await stripe.coupons.retrieve(couponCode);
           if (coupon.valid) {
-            subscriptionParams.coupon = couponCode;
+            // Cast to any to work around TypeScript limitations with the current version
+            (subscriptionParams as any).coupon = couponCode;
           }
         } catch (couponError) {
           console.error("Invalid coupon code:", couponError);
@@ -1925,11 +1926,12 @@ export function registerRoutes(app: Express): Server {
       
       // Return the client secret for client-side confirmation
       if (subscription.latest_invoice && typeof subscription.latest_invoice !== 'string') {
-        const paymentIntent = subscription.latest_invoice.payment_intent;
-        if (paymentIntent && typeof paymentIntent !== 'string') {
+        // Use any casting to work around type incompatibility issues
+        const invoice = subscription.latest_invoice as any;
+        if (invoice.payment_intent && typeof invoice.payment_intent !== 'string') {
           return res.json({
             subscriptionId: subscription.id,
-            clientSecret: paymentIntent.client_secret,
+            clientSecret: invoice.payment_intent.client_secret,
           });
         }
       }
@@ -1965,8 +1967,10 @@ export function registerRoutes(app: Express): Server {
       
       // Format the subscription data for the frontend
       const now = Math.floor(Date.now() / 1000);
-      const currentPeriodEnd = subscription.current_period_end;
-      const canceledAt = subscription.canceled_at;
+      // Cast to any to work around TypeScript incompatibility
+      const subAny = subscription as any;
+      const currentPeriodEnd = subAny.current_period_end;
+      const canceledAt = subAny.canceled_at;
       
       // Trial information
       let trialStatus = null;
@@ -2047,8 +2051,11 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Special middleware for Stripe webhooks (should be before any json body parser)
+  const webhookMiddleware = express.raw({ type: 'application/json' });
+  
   // Stripe webhook for subscription events
-  app.post("/api/stripe-webhook", express.raw({ type: 'application/json' }), async (req, res) => {
+  app.post("/api/stripe-webhook", webhookMiddleware, async (req, res) => {
     const signature = req.headers['stripe-signature'];
     
     if (!signature || !process.env.STRIPE_WEBHOOK_SECRET) {
