@@ -43,7 +43,10 @@ export default function SubscriptionSuccessPage() {
         </CardHeader>
         <CardContent className="space-y-4 text-center">
           <p>
-            Your 7-day free trial has been activated.
+            {!user?.hasUsedFreeTrial ? 
+              "Your 7-day free trial has been activated. You won't be charged until your trial ends." : 
+              "Your subscription has been activated immediately."
+            }
             {user?.isSubscribed ? (
               " Your account has been updated with premium access."
             ) : (
