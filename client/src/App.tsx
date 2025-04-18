@@ -47,6 +47,7 @@ function Router() {
       <ProtectedRoute path="/learning/:trackId/:lessonId" component={LessonPage} />
       <ProtectedRoute path="/test-images" component={TestImages} />
       <ProtectedRoute path="/subscribe" component={Subscribe} />
+      <ProtectedRoute path="/subscription/success" component={SubscriptionSuccess} />
       <ProtectedRoute path="/voice-guided" component={VoiceGuidedPage} />
       <ProtectedRoute path="/account" component={AccountPage} />
       <ProtectedRoute path="/angel-numbers" component={AngelNumbersPage} />

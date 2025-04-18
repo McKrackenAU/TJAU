@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { SubscriptionForm } from '@/components/subscription';
+import SubscriptionForm from '@/components/subscription/subscription-form';
 import { useAuth } from '@/hooks/use-auth';
 import { useLocation } from 'wouter';
 
