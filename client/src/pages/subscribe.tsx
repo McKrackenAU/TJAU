@@ -356,7 +356,7 @@ export default function SubscribePage() {
                       Unable to initialize payment form
                     </p>
                     <Button 
-                      onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/get-or-create-subscription'] })}
+                      onClick={() => queryClient.invalidateQueries({ queryKey: ['/api/create-subscription'] })}
                       className="mt-4"
                     >
                       Try Again
