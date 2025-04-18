@@ -112,7 +112,7 @@ export default function SubscriptionForm() {
     setSecretError(null);
     
     try {
-      const response = await apiRequest("POST", "/api/get-or-create-subscription", {
+      const response = await apiRequest("POST", "/api/create-subscription", {
         couponCode: couponToApply || couponCode
       });
       
