@@ -57,11 +57,11 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      <div className="flex justify-around items-center h-12 w-full px-1">
+      <div className="flex justify-around items-center h-10 w-full px-1">
         {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
-            <div className={`flex items-center justify-center py-1 ${
+            <div className={`flex items-center justify-center py-0.5 ${
               location === href ? "text-primary" : "text-muted-foreground"
             }`}>
               <div className="flex flex-col items-center">
@@ -75,7 +75,7 @@ export default function BottomNav() {
         {/* More button */}
         <div className="relative" ref={moreMenuRef}>
           <div 
-            className={`flex items-center justify-center py-1 cursor-pointer ${
+            className={`flex items-center justify-center py-0.5 cursor-pointer ${
               showMoreMenu ? "text-primary" : "text-muted-foreground"
             }`}
             onClick={() => setShowMoreMenu(!showMoreMenu)}

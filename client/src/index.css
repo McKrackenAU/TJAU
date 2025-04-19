@@ -16,8 +16,10 @@
   .container,
   .main-content,
   [role="main"] {
-    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0.5rem));
+    padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0.5rem));
     min-height: calc(100vh - 3rem);
+    /* Add padding for the top notch/camera on iOS devices */
+    padding-top: env(safe-area-inset-top, 0.5rem);
   }
   
   /* Add viewport height adjustment for mobile browsers */
@@ -26,9 +28,18 @@
     overflow-x: hidden;
   }
   
-  /* Ensure bottom navigation has enough vertical spacing */
+  /* Apply padding to header elements to avoid camera notch */
+  header, 
+  .header, 
+  .app-header,
+  nav.top-0 {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+  
+  /* Make bottom navigation more compact */
   .fixed.bottom-0 {
     padding-bottom: env(safe-area-inset-bottom, 0);
+    height: auto;
   }
 }
 
