@@ -16,8 +16,8 @@
   .container,
   .main-content,
   [role="main"] {
-    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0.5rem));
-    min-height: calc(100vh - 2.5rem);
+    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0.5rem));
+    min-height: calc(100vh - 3.5rem);
     /* Add padding for the top notch/camera on iOS devices */
     padding-top: env(safe-area-inset-top, 0.5rem);
   }
@@ -38,12 +38,16 @@
   
   /* Make bottom navigation more compact */
   .fixed.bottom-0 {
-    padding-bottom: calc(env(safe-area-inset-bottom, 0) * 0.5); /* Reduce padding by half */
+    padding-bottom: env(safe-area-inset-bottom, 0); /* Padding for iOS safe area */
     height: auto !important;
     min-height: 0 !important;
-    max-height: 40px !important;
+    max-height: 60px !important;
     border-top-width: 1px !important;
-    margin-bottom: -10px; /* Shift it up a bit */
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05); /* Add subtle shadow */
+    position: fixed;
+    bottom: 0;
+    transform: translateY(0); /* Ensure it's fully at the bottom */
+    z-index: 50;
   }
 }
 

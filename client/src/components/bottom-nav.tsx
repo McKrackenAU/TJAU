@@ -57,34 +57,38 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50">
-      <div className="flex justify-around items-center h-10 w-full">
-        {/* Main navigation items - icons only */}
+      <div className="flex justify-around items-center h-12 w-full py-1">
+        {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
-            <div className={`flex items-center justify-center p-2 ${
+            <div className={`flex items-center justify-center ${
               location === href ? "text-primary" : "text-muted-foreground"
             }`}>
-              <Icon className="h-5 w-5" />
-              <span className="sr-only">{label}</span>
+              <div className="flex flex-col items-center">
+                <Icon className="h-5 w-5" />
+                <span className="text-[10px] mt-1 font-medium">{label}</span>
+              </div>
             </div>
           </Link>
         ))}
         
-        {/* More button - icon only */}
+        {/* More button */}
         <div className="relative" ref={moreMenuRef}>
           <div 
-            className={`flex items-center justify-center p-2 cursor-pointer ${
+            className={`flex items-center justify-center cursor-pointer ${
               showMoreMenu ? "text-primary" : "text-muted-foreground"
             }`}
             onClick={() => setShowMoreMenu(!showMoreMenu)}
           >
-            <MoreHorizontal className="h-5 w-5" />
-            <span className="sr-only">More</span>
+            <div className="flex flex-col items-center">
+              <MoreHorizontal className="h-5 w-5" />
+              <span className="text-[10px] mt-1 font-medium">More</span>
+            </div>
           </div>
           
           {/* Dropdown menu */}
           {showMoreMenu && (
-            <div className="absolute bottom-14 right-0 w-48 py-2 bg-background rounded-md shadow-lg border border-border z-10">
+            <div className="absolute bottom-16 right-0 w-48 py-2 bg-background rounded-md shadow-lg border border-border z-10">
               {moreItems.map(({ icon: Icon, label, href }) => (
                 <Link key={href} href={href}>
                   <div 
