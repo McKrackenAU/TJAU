@@ -304,94 +304,94 @@ export default function Library() {
             )}
           </div>
 
-          <ScrollArea className="h-[calc(100vh-350px)]">
-            {isLoading ? (
-              <div className="flex items-center justify-center py-8">
-                <Loader2 className="h-8 w-8 animate-spin" />
-              </div>
-            ) : (
-              <div className="grid gap-4 pb-16">
-                {filteredCards.map(card => (
-                  <Card
-                    key={card.id}
-                    id={card.id}
-                    className="transition-all duration-300"
-                  >
-                    <CardHeader>
-                      <CardTitle className="flex items-center justify-between">
-                        <span>{card.name}</span>
-                        {card.arcana === "minor" && card.suit && (
-                          <span className="text-sm text-muted-foreground">
-                            {card.suit}
-                          </span>
-                        )}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div className="aspect-[2/3] relative">
-                          <CardDisplay card={card} isRevealed={true} />
-                          {isAdmin && (
-                            <div className="absolute top-2 right-2">
-                              <input
-                                type="file"
-                                accept=".jpg,.jpeg,.png,.webp"
-                                onChange={(e) => handleImageUpload(card.id, e)}
-                                className="hidden"
-                                id={`image-upload-${card.id}`}
-                              />
-                              <Button
-                                variant="secondary"
-                                size="sm"
-                                className="flex gap-2 items-center"
-                                onClick={() => document.getElementById(`image-upload-${card.id}`)?.click()}
-                              >
-                                <Upload className="h-4 w-4" />
-                                Upload Image
-                              </Button>
-                            </div>
-                          )}
-                        </div>
-                        <div>
-                          <p className="text-sm text-muted-foreground mb-4">
-                            {card.description}
-                          </p>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div>
-                              <h4 className="font-semibold mb-2">Upright</h4>
-                              <ul className="text-sm list-disc list-inside">
-                                {card.meanings?.upright?.map((meaning, i) => (
-                                  <li key={i}>{meaning}</li>
-                                ))}
-                              </ul>
+              <ScrollArea className="h-[calc(100vh-350px)]">
+                {isLoading ? (
+                  <div className="flex items-center justify-center py-8">
+                    <Loader2 className="h-8 w-8 animate-spin" />
+                  </div>
+                ) : (
+                  <div className="grid gap-4 pb-16">
+                    {filteredCards.map(card => (
+                      <Card
+                        key={card.id}
+                        id={card.id}
+                        className="transition-all duration-300"
+                      >
+                        <CardHeader>
+                          <CardTitle className="flex items-center justify-between">
+                            <span>{card.name}</span>
+                            {card.arcana === "minor" && card.suit && (
+                              <span className="text-sm text-muted-foreground">
+                                {card.suit}
+                              </span>
+                            )}
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div className="aspect-[2/3] relative">
+                              <CardDisplay card={card} isRevealed={true} />
+                              {isAdmin && (
+                                <div className="absolute top-2 right-2">
+                                  <input
+                                    type="file"
+                                    accept=".jpg,.jpeg,.png,.webp"
+                                    onChange={(e) => handleImageUpload(card.id, e)}
+                                    className="hidden"
+                                    id={`image-upload-${card.id}`}
+                                  />
+                                  <Button
+                                    variant="secondary"
+                                    size="sm"
+                                    className="flex gap-2 items-center"
+                                    onClick={() => document.getElementById(`image-upload-${card.id}`)?.click()}
+                                  >
+                                    <Upload className="h-4 w-4" />
+                                    Upload Image
+                                  </Button>
+                                </div>
+                              )}
                             </div>
                             <div>
-                              <h4 className="font-semibold mb-2">Reversed</h4>
-                              <ul className="text-sm list-disc list-inside">
-                                {card.meanings?.reversed?.map((meaning, i) => (
-                                  <li key={i}>{meaning}</li>
-                                ))}
-                              </ul>
+                              <p className="text-sm text-muted-foreground mb-4">
+                                {card.description}
+                              </p>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <h4 className="font-semibold mb-2">Upright</h4>
+                                  <ul className="text-sm list-disc list-inside">
+                                    {card.meanings?.upright?.map((meaning, i) => (
+                                      <li key={i}>{meaning}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                                <div>
+                                  <h4 className="font-semibold mb-2">Reversed</h4>
+                                  <ul className="text-sm list-disc list-inside">
+                                    {card.meanings?.reversed?.map((meaning, i) => (
+                                      <li key={i}>{meaning}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                        </CardContent>
+                      </Card>
                 ))}
               </div>
             )}
           </ScrollArea>
         </TabsContent>
 
-        <TabsContent value="analyze">
-          <div className="max-w-4xl mx-auto">
-            <p className="text-muted-foreground text-center mb-8">
-              Select multiple cards to analyze their combined meanings and interactions
-            </p>
-            <CardCombinationAnalysis />
-          </div>
-        </TabsContent>
+          <TabsContent value="analyze">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-muted-foreground text-center mb-8">
+                Select multiple cards to analyze their combined meanings and interactions
+              </p>
+              <CardCombinationAnalysis />
+            </div>
+          </TabsContent>
       </Tabs>
       </div>
     </AppLayout>
