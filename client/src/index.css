@@ -16,8 +16,8 @@
   .container,
   .main-content,
   [role="main"] {
-    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 1rem));
-    min-height: calc(100vh - 4rem);
+    padding-bottom: calc(3.5rem + env(safe-area-inset-bottom, 0.5rem));
+    min-height: calc(100vh - 3rem);
   }
   
   /* Add viewport height adjustment for mobile browsers */
