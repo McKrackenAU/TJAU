@@ -2094,6 +2094,11 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Endpoint for verifying app store purchases (iOS and Android)
+  app.post("/api/verify-app-store-purchase", async (req, res) => {
+    handleAppStorePurchaseVerification(req, res);
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
