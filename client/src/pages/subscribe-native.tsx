@@ -3,7 +3,8 @@ import { useAuth } from "@/hooks/use-auth";
 import { Redirect } from "wouter";
 import { Container } from "@/components/container";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { StripeSubscriptionForm } from "@/components/subscription/subscription-form";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import SubscriptionForm from "@/components/subscription/subscription-form";
 import { AppStoreSubscription } from "@/components/subscription/app-store-subscription";
 import { isNativeApp, isIOSApp, isAndroidApp } from "@/services/app-store-payments";
 
@@ -80,23 +81,35 @@ export default function SubscribeNativePage() {
           </TabsList>
           
           <TabsContent value="monthly">
-            <StripeSubscriptionForm 
-              planId="price_monthly"
-              planName="Monthly"
-              planPrice="$11.11"
-              planInterval="month"
-              planDescription="Billed monthly"
-            />
+            <Card>
+              <CardHeader>
+                <CardTitle>Monthly Subscription</CardTitle>
+                <CardDescription>Billed monthly</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-center mb-4">
+                  <span className="text-3xl font-bold">$11.11</span>
+                  <span className="text-muted-foreground"> / month</span>
+                </div>
+                <SubscriptionForm />
+              </CardContent>
+            </Card>
           </TabsContent>
           
           <TabsContent value="yearly">
-            <StripeSubscriptionForm 
-              planId="price_yearly"
-              planName="Yearly"
-              planPrice="$113.00"
-              planInterval="year"
-              planDescription="Billed annually (Save 15%)"
-            />
+            <Card>
+              <CardHeader>
+                <CardTitle>Yearly Subscription</CardTitle>
+                <CardDescription>Billed annually (Save 15%)</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-center mb-4">
+                  <span className="text-3xl font-bold">$113.00</span>
+                  <span className="text-muted-foreground"> / year</span>
+                </div>
+                <SubscriptionForm />
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
