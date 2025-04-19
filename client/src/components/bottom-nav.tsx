@@ -57,7 +57,7 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50">
-      <div className="flex justify-around items-center h-12 w-full py-1">
+      <div className="flex justify-around items-center w-full py-1">
         {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>

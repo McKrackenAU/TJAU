@@ -36,18 +36,62 @@
     padding-top: env(safe-area-inset-top, 0);
   }
   
-  /* Make bottom navigation more compact */
+  /* Base styles for bottom navigation */
   .fixed.bottom-0 {
     padding-bottom: env(safe-area-inset-bottom, 0); /* Padding for iOS safe area */
     height: auto !important;
     min-height: 0 !important;
-    max-height: 60px !important;
     border-top-width: 1px !important;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05); /* Add subtle shadow */
     position: fixed;
     bottom: 0;
-    transform: translateY(0); /* Ensure it's fully at the bottom */
     z-index: 50;
+  }
+  
+  /* Desktop-specific styles */
+  @media (min-width: 768px) {
+    .fixed.bottom-0 {
+      max-height: 60px !important;
+    }
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 767px) {
+    .fixed.bottom-0 {
+      max-height: 45px !important;
+      border-top-width: 1px !important;
+      padding-top: 3px !important;
+      padding-bottom: 3px !important;
+    }
+    .fixed.bottom-0 .text-\[10px\] {
+      font-size: 8px !important;
+      margin-top: 0 !important;
+      line-height: 1 !important;
+    }
+    .fixed.bottom-0 svg {
+      height: 16px !important;
+      width: 16px !important;
+      margin-bottom: 1px !important;
+    }
+    
+    /* Make bottom padding of content area smaller on mobile */
+    main, .container, .main-content, [role="main"] {
+      padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0.5rem)) !important;
+    }
+  }
+  
+  /* Extra small mobile devices */
+  @media (max-width: 320px) {
+    .fixed.bottom-0 {
+      max-height: 40px !important;
+    }
+    .fixed.bottom-0 .text-\[10px\] {
+      font-size: 7px !important;
+    }
+    .fixed.bottom-0 svg {
+      height: 14px !important;
+      width: 14px !important;
+    }
   }
 }
 
