@@ -56,16 +56,18 @@ export default function BottomNav() {
   }, []);
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border h-16 z-50">
-      <div className="grid grid-cols-8 h-full max-w-lg mx-auto">
+    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+      <div className="grid grid-cols-8 h-14 w-full max-w-lg mx-auto px-1 py-1">
         {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
-            <div className={`flex flex-col items-center justify-center gap-1 ${
+            <div className={`flex flex-col items-center justify-center h-full ${
               location === href ? "text-primary" : "text-muted-foreground"
             }`}>
-              <Icon className="h-5 w-5" />
-              <span className="text-xs">{label}</span>
+              <div className="flex flex-col items-center gap-0.5">
+                <Icon className="h-5 w-5" />
+                <span className="text-[10px] font-medium">{label}</span>
+              </div>
             </div>
           </Link>
         ))}
@@ -73,13 +75,15 @@ export default function BottomNav() {
         {/* More button */}
         <div className="relative" ref={moreMenuRef}>
           <div 
-            className={`flex flex-col items-center justify-center gap-1 cursor-pointer ${
+            className={`flex flex-col items-center justify-center h-full cursor-pointer ${
               showMoreMenu ? "text-primary" : "text-muted-foreground"
             }`}
             onClick={() => setShowMoreMenu(!showMoreMenu)}
           >
-            <MoreHorizontal className="h-5 w-5" />
-            <span className="text-xs">More</span>
+            <div className="flex flex-col items-center gap-0.5">
+              <MoreHorizontal className="h-5 w-5" />
+              <span className="text-[10px] font-medium">More</span>
+            </div>
           </div>
           
           {/* Dropdown menu */}
