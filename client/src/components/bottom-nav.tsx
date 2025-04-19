@@ -56,34 +56,30 @@ export default function BottomNav() {
   }, []);
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      <div className="flex justify-around items-center h-8 w-full px-1">
-        {/* Main navigation items */}
+    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50">
+      <div className="flex justify-around items-center h-10 w-full">
+        {/* Main navigation items - icons only */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
-            <div className={`flex items-center justify-center py-0 ${
+            <div className={`flex items-center justify-center p-2 ${
               location === href ? "text-primary" : "text-muted-foreground"
             }`}>
-              <div className="flex flex-col items-center">
-                <Icon className="h-3.5 w-3.5 mb-0" />
-                <span className="text-[9px] font-medium">{label}</span>
-              </div>
+              <Icon className="h-5 w-5" />
+              <span className="sr-only">{label}</span>
             </div>
           </Link>
         ))}
         
-        {/* More button */}
+        {/* More button - icon only */}
         <div className="relative" ref={moreMenuRef}>
           <div 
-            className={`flex items-center justify-center py-0 cursor-pointer ${
+            className={`flex items-center justify-center p-2 cursor-pointer ${
               showMoreMenu ? "text-primary" : "text-muted-foreground"
             }`}
             onClick={() => setShowMoreMenu(!showMoreMenu)}
           >
-            <div className="flex flex-col items-center">
-              <MoreHorizontal className="h-3.5 w-3.5 mb-0" />
-              <span className="text-[9px] font-medium">More</span>
-            </div>
+            <MoreHorizontal className="h-5 w-5" />
+            <span className="sr-only">More</span>
           </div>
           
           {/* Dropdown menu */}

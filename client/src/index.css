@@ -38,8 +38,12 @@
   
   /* Make bottom navigation more compact */
   .fixed.bottom-0 {
-    padding-bottom: env(safe-area-inset-bottom, 0);
-    height: auto;
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) * 0.5); /* Reduce padding by half */
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: 40px !important;
+    border-top-width: 1px !important;
+    margin-bottom: -10px; /* Shift it up a bit */
   }
 }
 
