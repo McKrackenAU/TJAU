@@ -18,6 +18,7 @@ import OpenAI from "openai";
 import { setupAuth } from "./auth";
 import Stripe from 'stripe';
 import { scrypt, randomBytes } from "crypto";
+import { handleAppStorePurchaseVerification } from './app-store-verification';
 
 // Initialize Stripe with API key
 if (!process.env.STRIPE_SECRET_KEY) {
