@@ -56,7 +56,7 @@ export default function BottomNav() {
   }, []);
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border h-16">
+    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border h-16 z-50">
       <div className="grid grid-cols-8 h-full max-w-lg mx-auto">
         {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (

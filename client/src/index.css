@@ -10,6 +10,26 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  
+  /* Add padding to main content containers to prevent overlap with bottom navigation */
+  main, 
+  .container,
+  .main-content,
+  [role="main"] {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom, 1rem));
+    min-height: calc(100vh - 5rem);
+  }
+  
+  /* Add viewport height adjustment for mobile browsers */
+  html, body {
+    height: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure bottom navigation has enough vertical spacing */
+  .fixed.bottom-0 {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
 }
 
 @layer utilities {

@@ -247,7 +247,7 @@ export default function Library() {
   };
 
   return (
-    <div className="container px-4 py-8 pb-40 md:pb-28">
+    <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
 
       <Tabs defaultValue="browse" className="max-w-4xl mx-auto">
