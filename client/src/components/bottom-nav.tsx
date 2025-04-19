@@ -66,7 +66,7 @@ export default function BottomNav() {
             }`}>
               <div className="flex flex-col items-center">
                 <Icon className="h-5 w-5" />
-                <span className="text-[10px] mt-1 font-medium">{label}</span>
+                <span className="text-[10px] mt-1 font-medium md:block hidden">{label}</span>
               </div>
             </div>
           </Link>
@@ -82,7 +82,7 @@ export default function BottomNav() {
           >
             <div className="flex flex-col items-center">
               <MoreHorizontal className="h-5 w-5" />
-              <span className="text-[10px] mt-1 font-medium">More</span>
+              <span className="text-[10px] mt-1 font-medium md:block hidden">More</span>
             </div>
           </div>
           
