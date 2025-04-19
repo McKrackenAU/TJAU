@@ -57,16 +57,16 @@ export default function BottomNav() {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
-      <div className="flex justify-around items-center h-10 w-full px-1">
+      <div className="flex justify-around items-center h-8 w-full px-1">
         {/* Main navigation items */}
         {mainNavItems.map(({ icon: Icon, label, href }) => (
           <Link key={href} href={href}>
-            <div className={`flex items-center justify-center py-0.5 ${
+            <div className={`flex items-center justify-center py-0 ${
               location === href ? "text-primary" : "text-muted-foreground"
             }`}>
               <div className="flex flex-col items-center">
-                <Icon className="h-4 w-4 mb-0.5" />
-                <span className="text-[10px] font-medium">{label}</span>
+                <Icon className="h-3.5 w-3.5 mb-0" />
+                <span className="text-[9px] font-medium">{label}</span>
               </div>
             </div>
           </Link>
@@ -75,14 +75,14 @@ export default function BottomNav() {
         {/* More button */}
         <div className="relative" ref={moreMenuRef}>
           <div 
-            className={`flex items-center justify-center py-0.5 cursor-pointer ${
+            className={`flex items-center justify-center py-0 cursor-pointer ${
               showMoreMenu ? "text-primary" : "text-muted-foreground"
             }`}
             onClick={() => setShowMoreMenu(!showMoreMenu)}
           >
             <div className="flex flex-col items-center">
-              <MoreHorizontal className="h-4 w-4 mb-0.5" />
-              <span className="text-[10px] font-medium">More</span>
+              <MoreHorizontal className="h-3.5 w-3.5 mb-0" />
+              <span className="text-[9px] font-medium">More</span>
             </div>
           </div>
           

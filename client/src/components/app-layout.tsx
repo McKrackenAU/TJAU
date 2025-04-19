@@ -15,7 +15,7 @@ export default function AppLayout({ children, header }: AppLayoutProps) {
           className="sticky top-0 w-full bg-background border-b border-border z-40"
           style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}
         >
-          <div className="h-14 flex items-center px-4">
+          <div className="h-10 flex items-center px-4">
             {header}
           </div>
         </header>
