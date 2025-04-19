@@ -11,6 +11,7 @@ import { adminState } from "@/lib/admin";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CardCombinationAnalysis from "@/components/card-combination-analysis";
 import CardDisplay from "@/components/card-display";
+import AppLayout from "@/components/app-layout";
 
 // Define a type for the card structure
 interface TarotCard {
@@ -247,17 +248,16 @@ export default function Library() {
   };
 
   return (
-    <div className="container px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Card Library</h1>
+    <AppLayout header={<span className="text-xl font-bold">Card Library</span>}>
+      <div className="container px-4 py-4">
+        <Tabs defaultValue="browse" className="max-w-4xl mx-auto">
+          <TabsList className="grid w-full grid-cols-2 mb-8">
+            <TabsTrigger value="browse">Browse Cards</TabsTrigger>
+            <TabsTrigger value="analyze">Analyze Combinations</TabsTrigger>
+          </TabsList>
 
-      <Tabs defaultValue="browse" className="max-w-4xl mx-auto">
-        <TabsList className="grid w-full grid-cols-2 mb-8">
-          <TabsTrigger value="browse">Browse Cards</TabsTrigger>
-          <TabsTrigger value="analyze">Analyze Combinations</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="browse">
-          <div className="max-w-md mx-auto mb-8 flex items-center gap-4">
+          <TabsContent value="browse">
+            <div className="max-w-md mx-auto mb-8 flex items-center gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -393,6 +393,7 @@ export default function Library() {
           </div>
         </TabsContent>
       </Tabs>
-    </div>
+      </div>
+    </AppLayout>
   );
 }
