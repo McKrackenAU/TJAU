@@ -62,7 +62,7 @@ function AuthAwareComponents() {
   return (
     <>
       <InitialAuthRedirect />
-      <SimpleNav />
+      <BottomNav />
       <main className="pb-16">
         <Switch>
           {/* Authentication route */}

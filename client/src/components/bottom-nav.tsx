@@ -67,7 +67,15 @@ export function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-gray-800 h-16 sm:hidden">
+    <div 
+      className="fixed bottom-0 left-0 right-0 z-50 sm:hidden"
+      style={{ 
+        backgroundColor: "#000000", 
+        height: "64px",
+        borderTop: "none",
+        borderStyle: "none"
+      }}
+    >
       <nav className="flex h-full max-w-md mx-auto">
         {navItems.map((item) => (
           <Link
@@ -78,10 +86,14 @@ export function BottomNav() {
               item.active && "text-white"
             )}
           >
-            <item.icon className={cn(
-              "h-5 w-5 mb-1",
-              item.active ? "text-white" : "text-gray-400"
-            )} />
+            <item.icon 
+              style={{ 
+                height: "24px", 
+                width: "24px", 
+                marginBottom: "4px",
+                color: item.active ? "#FFFFFF" : "#9CA3AF"
+              }} 
+            />
             <span className="text-xs">{item.label}</span>
           </Link>
         ))}
