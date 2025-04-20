@@ -7,7 +7,11 @@ import {
   CircleDashed, 
   LayoutGrid, 
   BookOpenText,
-  User
+  User,
+  Mic,
+  FileText,
+  BookHeart,
+  Sparkles
 } from "lucide-react";
 
 /**
@@ -46,7 +50,7 @@ export function FixedBottomNav() {
   
   return (
     <div id="bottom-nav" className="fixed bottom-0 left-0 right-0 z-[9999] bg-black h-16 flex items-center justify-center shadow-lg border-t border-gray-800">
-      <nav className="flex w-full max-w-md mx-auto">
+      <nav className="flex w-full max-w-md mx-auto overflow-x-auto scrollbar-hide">
         <Link 
           href="/"
           className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/" ? 'text-primary' : 'text-gray-400'}`}
@@ -69,11 +73,32 @@ export function FixedBottomNav() {
           <span className="text-xs font-medium">Spreads</span>
         </Link>
         <Link 
+          href="/voice-guided"
+          className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/voice-guided" ? 'text-primary' : 'text-gray-400'}`}
+        >
+          <Mic className="w-6 h-6 mb-1" />
+          <span className="text-xs font-medium">Voice</span>
+        </Link>
+        <Link 
+          href="/journal"
+          className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/journal" ? 'text-primary' : 'text-gray-400'}`}
+        >
+          <FileText className="w-6 h-6 mb-1" />
+          <span className="text-xs font-medium">Journal</span>
+        </Link>
+        <Link 
           href="/library"
           className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/library" ? 'text-primary' : 'text-gray-400'}`}
         >
           <BookOpenText className="w-6 h-6 mb-1" />
           <span className="text-xs font-medium">Library</span>
+        </Link>
+        <Link 
+          href="/angel-numbers"
+          className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/angel-numbers" ? 'text-primary' : 'text-gray-400'}`}
+        >
+          <Sparkles className="w-6 h-6 mb-1" />
+          <span className="text-xs font-medium">Angel #</span>
         </Link>
         <Link 
           href="/account"
