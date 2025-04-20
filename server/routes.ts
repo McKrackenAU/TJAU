@@ -1922,6 +1922,16 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Handle app store purchase verification
+  app.post("/api/verify-app-purchase", (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ message: "User must be logged in" });
+    }
+    
+    // Handle the purchase verification through our dedicated handler
+    handleAppStorePurchaseVerification(req, res);
+  });
+
   // Get subscription details
   app.get("/api/subscription-details", async (req, res) => {
     if (!req.isAuthenticated()) {
@@ -2094,10 +2104,7 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Endpoint for verifying app store purchases (iOS and Android)
-  app.post("/api/verify-app-store-purchase", async (req, res) => {
-    handleAppStorePurchaseVerification(req, res);
-  });
+  // Note: App store purchase verification is handled by /api/verify-app-purchase endpoint above
 
   const httpServer = createServer(app);
   return httpServer;

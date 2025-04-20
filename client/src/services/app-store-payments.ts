@@ -4,8 +4,30 @@
  * Handles in-app purchases for iOS and Android when the app is distributed
  * through the Apple App Store or Google Play Store.
  */
+import { Capacitor, PluginListenerHandle } from '@capacitor/core';
+// Safely import the purchase plugin - we'll use dynamic imports throughout the file
+// to avoid issues when running in the web environment
 
-// Types for app store products/purchases
+// Import the types from the plugin
+interface ProductInterface {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  priceAsDecimal: number;
+  currency: string;
+  introductoryPrice?: string;
+}
+
+interface PurchaseInterface {
+  id: string; // The product ID
+  purchaseId: string; // The transaction ID
+  purchaseDate: number; // The transaction date
+  expirationDate?: number; // Expiry date for subscriptions
+  verificationData: string; // Receipt for iOS, purchase token for Android
+}
+
+// Types for app store products/purchases (our internal format)
 export interface AppStoreProduct {
   id: string;
   title: string;
@@ -31,10 +53,8 @@ export interface AppStorePurchase {
 
 // Type guard for detecting platform
 export const isNativeApp = (): boolean => {
-  // Check if app is running in a Capacitor/Cordova container
-  return typeof (window as any).Capacitor !== 'undefined' || 
-         document.URL.startsWith('capacitor://') ||
-         document.URL.startsWith('cordova://');
+  // Check if app is running in a Capacitor container
+  return Capacitor.isNativePlatform();
 };
 
 export const isIOSApp = (): boolean => {
@@ -84,12 +104,13 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
   async initialize(): Promise<void> {
     try {
       // Check if Capacitor plugin is available
-      if (typeof (window as any).Capacitor !== 'undefined') {
-        // Import the purchase plugin dynamically
-        const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      if (Capacitor.isNativePlatform()) {
+        // Import the plugin dynamically
+        const purchaseModule = await import('capacitor-plugin-purchase');
+        const Purchase = purchaseModule.default || purchaseModule;
         
         // Initialize the plugin
-        await PurchasePlugin.initialize({
+        await Purchase.initialize({
           ios: {
             // Set any iOS-specific initialization options here
             validateReceipts: true
@@ -108,17 +129,18 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
   async getProducts(): Promise<AppStoreProduct[]> {
     try {
       // In real implementation, fetch available products using the plugin
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const purchaseModule = await import('capacitor-plugin-purchase');
+      const Purchase = purchaseModule.default || purchaseModule;
       
       // Request available products from App Store
-      const response = await PurchasePlugin.getProducts({
+      const response = await Purchase.getProducts({
         // List of product identifiers registered in App Store Connect
         productIds: ['io.tarotjourney.subscription.monthly']
       });
       
       // Process and return the products
       if (response && response.products && response.products.length > 0) {
-        return response.products.map(product => ({
+        return response.products.map((product: any) => ({
           id: product.productId,
           title: product.title,
           description: product.description,
@@ -266,12 +288,13 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
   async initialize(): Promise<void> {
     try {
       // Check if Capacitor plugin is available
-      if (typeof (window as any).Capacitor !== 'undefined') {
-        // Import the purchase plugin dynamically
-        const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      if (Capacitor.isNativePlatform()) {
+        // Import the plugin dynamically
+        const purchaseModule = await import('capacitor-plugin-purchase');
+        const Purchase = purchaseModule.default || purchaseModule;
         
         // Initialize the plugin
-        await PurchasePlugin.initialize({
+        await Purchase.initialize({
           android: {
             // Set any Android-specific initialization options here
             validatePurchases: true
@@ -290,17 +313,18 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
   async getProducts(): Promise<AppStoreProduct[]> {
     try {
       // In real implementation, fetch available products using the plugin
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const purchaseModule = await import('capacitor-plugin-purchase');
+      const Purchase = purchaseModule.default || purchaseModule;
       
       // Request available products from Google Play
-      const response = await PurchasePlugin.getProducts({
+      const response = await Purchase.getProducts({
         // List of product identifiers registered in Google Play Console
         productIds: ['io.tarotjourney.subscription.monthly']
       });
       
       // Process and return the products
       if (response && response.products && response.products.length > 0) {
-        return response.products.map(product => ({
+        return response.products.map((product: any) => ({
           id: product.productId,
           title: product.title,
           description: product.description,

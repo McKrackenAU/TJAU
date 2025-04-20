@@ -1,133 +1,213 @@
-import { Home, Sun, BookOpen, Layout, History, GraduationCap, PenTool, Compass, CreditCard, Mic, ShieldAlert, User, MoreHorizontal, Hash, LogOut, Loader2 } from "lucide-react";
-import { useLocation, Link } from "wouter";
+import React from "react";
+import { Link, useLocation } from "wouter";
+import { cn } from "@/lib/utils";
 import { useAuth } from "@/hooks/use-auth";
-import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { 
+  Home, 
+  Book, 
+  CircleDashed, 
+  LayoutGrid, 
+  User, 
+  BookOpenText,
+  Search,
+  Settings,
+  BellRing
+} from "lucide-react";
 
-// Main navigation items that will always be visible
-const mainNavItems = [
-  { icon: Home, label: "Home", href: "/" },
-  { icon: Sun, label: "Daily", href: "/daily" },
-  { icon: Layout, label: "Spreads", href: "/spreads" },
-  { icon: Mic, label: "Voice", href: "/voice-guided" },
-  { icon: History, label: "History", href: "/history" },
-  { icon: BookOpen, label: "Library", href: "/library" },
-];
+/**
+ * Bottom navigation component for mobile screens
+ * Only displays after user has logged in
+ */
+export function BottomNav() {
+  const [location] = useLocation();
+  const { user } = useAuth();
 
-// Items that can be moved to the "More" dropdown if needed
-const secondaryNavItems = [
-  { icon: GraduationCap, label: "Study", href: "/study" },
-  { icon: PenTool, label: "Journal", href: "/journal" },
-  { icon: Compass, label: "Learn", href: "/learning" },
-  { icon: Hash, label: "Angel Numbers", href: "/angel-numbers" },
-];
+  // Don't show bottom nav if user is not logged in
+  if (!user) {
+    return null;
+  }
 
-export default function BottomNav() {
-  const [location, navigate] = useLocation();
-  const { user, logoutMutation } = useAuth();
-  const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const moreMenuRef = useRef<HTMLDivElement>(null);
-  
-  // Only render the navigation bar when user is logged in
-  if (!user) return null;
-  
-  // Account-related items that will be in the "More" dropdown if user is logged in
-  const accountItems = [
-    { icon: User, label: "Account", href: "/account" },
-    { icon: CreditCard, label: "Subscribe", href: "/subscribe" },
-    ...(user.isAdmin ? [{ icon: ShieldAlert, label: "Admin", href: "/admin/dashboard" }] : [])
+  // Navigation items configuration
+  const navItems = [
+    {
+      label: "Home",
+      href: "/",
+      icon: Home,
+      active: location === "/"
+    },
+    {
+      label: "Daily",
+      href: "/daily-draw",
+      icon: CircleDashed,
+      active: location === "/daily-draw"
+    },
+    {
+      label: "Spreads",
+      href: "/spreads",
+      icon: LayoutGrid,
+      active: location === "/spreads"
+    },
+    {
+      label: "Library",
+      href: "/library",
+      icon: BookOpenText,
+      active: location === "/library"
+    },
+    {
+      label: "Account",
+      href: "/account",
+      icon: User,
+      active: location === "/account"
+    }
   ];
 
-  // Combined secondary and account items for the More dropdown
-  const moreItems = [...secondaryNavItems, ...accountItems];
-  
-  // Close the dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (moreMenuRef.current && !moreMenuRef.current.contains(event.target as Node)) {
-        setShowMoreMenu(false);
-      }
-    }
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-background border-t border-border z-50">
-      <div className="flex justify-around items-center w-full py-1">
-        {/* Main navigation items */}
-        {mainNavItems.map(({ icon: Icon, label, href }) => (
-          <Link key={href} href={href}>
-            <div className={`flex items-center justify-center ${
-              location === href ? "text-primary" : "text-muted-foreground"
-            }`}>
-              <div className="flex flex-col items-center">
-                <Icon className="h-5 w-5" />
-                <span className="text-[10px] mt-1 font-medium md:block hidden">{label}</span>
-              </div>
-            </div>
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60 border-t border-border h-16 sm:hidden">
+      <nav className="flex h-full max-w-md mx-auto">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className={cn(
+              "flex-1 flex flex-col items-center justify-center text-muted-foreground transition-colors",
+              item.active && "text-primary"
+            )}
+          >
+            <item.icon className={cn(
+              "h-5 w-5 mb-1",
+              item.active ? "text-primary" : "text-muted-foreground"
+            )} />
+            <span className="text-xs">{item.label}</span>
           </Link>
         ))}
-        
-        {/* More button */}
-        <div className="relative" ref={moreMenuRef}>
-          <div 
-            className={`flex items-center justify-center cursor-pointer ${
-              showMoreMenu ? "text-primary" : "text-muted-foreground"
-            }`}
-            onClick={() => setShowMoreMenu(!showMoreMenu)}
-          >
-            <div className="flex flex-col items-center">
-              <MoreHorizontal className="h-5 w-5" />
-              <span className="text-[10px] mt-1 font-medium md:block hidden">More</span>
-            </div>
-          </div>
-          
-          {/* Dropdown menu */}
-          {showMoreMenu && (
-            <div className="absolute bottom-16 right-0 w-48 py-2 bg-background rounded-md shadow-lg border border-border z-10">
-              {moreItems.map(({ icon: Icon, label, href }) => (
-                <Link key={href} href={href}>
-                  <div 
-                    className={`flex items-center gap-3 px-4 py-2 hover:bg-accent ${
-                      location === href ? "text-primary" : "text-foreground"
-                    }`}
-                    onClick={() => setShowMoreMenu(false)}
-                  >
-                    <Icon className="h-4 w-4" />
-                    <span>{label}</span>
-                  </div>
-                </Link>
-              ))}
-              
-              {/* Logout button */}
-              <div className="mt-2 pt-2 border-t border-border px-2">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="w-full flex items-center gap-2 justify-start text-destructive hover:text-destructive" 
-                  onClick={async () => {
-                    setShowMoreMenu(false);
-                    await logoutMutation.mutateAsync();
-                    navigate('/auth');
-                  }}
-                  disabled={logoutMutation.isPending}
-                >
-                  {logoutMutation.isPending ? (
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                  ) : (
-                    <LogOut className="h-4 w-4" />
-                  )}
-                  <span>Sign Out</span>
-                </Button>
+      </nav>
+    </div>
+  );
+}
+
+/**
+ * Side navigation component for larger screens
+ * Only displays after user has logged in
+ */
+export function SideNav() {
+  const [location] = useLocation();
+  const { user } = useAuth();
+
+  // Don't show side nav if user is not logged in
+  if (!user) {
+    return null;
+  }
+
+  // Navigation items configuration (expanded for desktop)
+  const navItems = [
+    {
+      label: "Home",
+      href: "/",
+      icon: Home,
+      active: location === "/"
+    },
+    {
+      label: "Daily Reading",
+      href: "/daily-draw",
+      icon: CircleDashed,
+      active: location === "/daily-draw"
+    },
+    {
+      label: "Tarot Spreads",
+      href: "/spreads",
+      icon: LayoutGrid,
+      active: location === "/spreads"
+    },
+    {
+      label: "Card Library",
+      href: "/library",
+      icon: BookOpenText,
+      active: location === "/library"
+    },
+    {
+      label: "Learning Paths",
+      href: "/learning",
+      icon: Book,
+      active: location === "/learning"
+    },
+    {
+      label: "Angel Numbers",
+      href: "/angel-numbers",
+      icon: Search,
+      active: location === "/angel-numbers"
+    },
+    {
+      label: "Journal",
+      href: "/journal",
+      icon: BookOpenText,
+      active: location === "/journal"
+    },
+    {
+      label: "Account",
+      href: "/account",
+      icon: User,
+      active: location === "/account"
+    }
+  ];
+
+  // Show admin dashboard link if user is admin
+  if (user.isAdmin) {
+    navItems.push({
+      label: "Admin",
+      href: "/admin-dashboard",
+      icon: Settings,
+      active: location === "/admin-dashboard"
+    });
+  }
+
+  return (
+    <div className="hidden sm:block w-64 border-r border-border h-screen sticky top-0 bg-background">
+      <div className="flex flex-col h-full py-6">
+        <div className="px-6 mb-8">
+          <h2 className="text-2xl font-bold">Tarot Journey</h2>
+          <p className="text-muted-foreground text-sm">Spiritual exploration</p>
+        </div>
+        <nav className="flex-1 space-y-1 px-3">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(
+                "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                item.active
+                  ? "bg-accent text-accent-foreground"
+                  : "hover:bg-accent/50 hover:text-accent-foreground"
+              )}
+            >
+              <item.icon className="h-4 w-4" />
+              <span>{item.label}</span>
+              {item.label === "Daily Reading" && (
+                <div className="ml-auto flex h-2 w-2 rounded-full bg-primary"></div>
+              )}
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-auto px-3">
+          {user.isSubscribed ? (
+            <div className="rounded-md bg-primary/10 p-3 mb-4">
+              <div className="flex items-center gap-2">
+                <BellRing className="h-4 w-4 text-primary" />
+                <span className="text-xs font-medium">Premium Active</span>
               </div>
+              <p className="text-xs mt-1 text-muted-foreground">
+                Your subscription is active. Enjoy all premium features!
+              </p>
             </div>
+          ) : (
+            <Link
+              href="/subscribe"
+              className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-medium text-primary-foreground mb-4"
+            >
+              Upgrade to Premium
+            </Link>
           )}
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

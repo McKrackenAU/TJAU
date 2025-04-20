@@ -1,6 +1,5 @@
-import { Request, Response } from 'express';
-import { storage } from './storage';
-import axios from 'axios';
+import { Request, Response } from "express";
+import { storage } from "./storage";
 
 interface AppStorePurchase {
   productId: string;
@@ -19,61 +18,52 @@ interface VerificationRequest {
  * Handles verification of in-app purchases from iOS App Store
  */
 export async function verifyIOSPurchase(req: Request, res: Response) {
-  if (!req.isAuthenticated()) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-
   try {
-    const data = req.body as VerificationRequest;
-    
-    if (data.platform !== 'ios') {
-      return res.status(400).json({ error: 'Invalid platform' });
+    const userId = req.user?.id;
+    if (!userId) {
+      return res.status(401).json({ error: "User not authenticated" });
     }
+
+    const purchase = req.body.purchase as AppStorePurchase;
+    if (!purchase) {
+      return res.status(400).json({ error: "Invalid purchase data" });
+    }
+
+    // In a production app, you would validate the receipt with Apple's servers
+    // using the /verifyReceipt endpoint
     
-    const { purchase } = data;
-    
-    // In a real implementation, you would verify the receipt with Apple
-    // using the App Store Server API
-    // https://developer.apple.com/documentation/appstoreserverapi
-    
-    // For example:
-    // const verificationResponse = await axios.post(
-    //   'https://sandbox.itunes.apple.com/verifyReceipt', // Use production URL in production
-    //   { 
-    //     'receipt-data': purchase.receipt,
-    //     'password': process.env.APP_STORE_SHARED_SECRET
-    //   }
-    // );
-    
-    // Example validation logic
-    const isValidSubscription = purchase.isSubscription && 
-                                purchase.expiryDate && 
-                                purchase.expiryDate > Date.now();
-    
-    if (isValidSubscription) {
-      // Update the user's subscription in database
-      const user = await storage.updateUserSubscription(req.user.id, {
+    // For now, we'll just verify that it's our expected product ID
+    if (purchase.productId !== "io.tarotjourney.subscription.monthly") {
+      return res.status(400).json({ error: "Invalid product ID" });
+    }
+
+    // If this is a subscription, update the user's subscription status
+    if (purchase.isSubscription) {
+      // Calculate expiry date if not provided
+      const expiryDate = purchase.expiryDate 
+        ? new Date(purchase.expiryDate) 
+        : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days from now
+      
+      // Update user subscription in database
+      await storage.updateUserSubscription(userId, {
         isSubscribed: true,
-        stripeSubscriptionId: `app_store_${purchase.transactionId}` // Mark as App Store subscription
+        stripeSubscriptionId: `ios_${purchase.transactionId}`
       });
       
-      // Return the updated user
       return res.status(200).json({
         success: true,
-        user
+        subscription: {
+          active: true,
+          expiryDate: expiryDate.toISOString()
+        }
       });
     } else {
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid subscription'
-      });
+      // One-time purchase (not implemented in this app)
+      return res.status(400).json({ error: "One-time purchases not supported" });
     }
   } catch (error) {
-    console.error('Error verifying iOS purchase:', error);
-    return res.status(500).json({
-      success: false,
-      error: 'Failed to verify purchase'
-    });
+    console.error("iOS Purchase verification error:", error);
+    return res.status(500).json({ error: "Failed to verify purchase" });
   }
 }
 
@@ -81,59 +71,51 @@ export async function verifyIOSPurchase(req: Request, res: Response) {
  * Handles verification of in-app purchases from Google Play Store
  */
 export async function verifyAndroidPurchase(req: Request, res: Response) {
-  if (!req.isAuthenticated()) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-
   try {
-    const data = req.body as VerificationRequest;
-    
-    if (data.platform !== 'android') {
-      return res.status(400).json({ error: 'Invalid platform' });
+    const userId = req.user?.id;
+    if (!userId) {
+      return res.status(401).json({ error: "User not authenticated" });
     }
+
+    const purchase = req.body.purchase as AppStorePurchase;
+    if (!purchase) {
+      return res.status(400).json({ error: "Invalid purchase data" });
+    }
+
+    // In a production app, you would validate the purchase token with Google Play Developer API
     
-    const { purchase } = data;
-    
-    // In a real implementation, you would verify the purchase with Google
-    // using the Google Play Developer API
-    // https://developers.google.com/android-publisher
-    
-    // For example:
-    // const verificationResponse = await googleApiClient.purchases.subscriptions.get({
-    //   packageName: 'io.tarotjourney.app',
-    //   subscriptionId: purchase.productId,
-    //   token: purchase.purchaseToken
-    // });
-    
-    // Example validation logic
-    const isValidSubscription = purchase.isSubscription && 
-                                purchase.expiryDate && 
-                                purchase.expiryDate > Date.now();
-    
-    if (isValidSubscription) {
-      // Update the user's subscription in database
-      const user = await storage.updateUserSubscription(req.user.id, {
+    // For now, we'll just verify that it's our expected product ID
+    if (purchase.productId !== "io.tarotjourney.subscription.monthly") {
+      return res.status(400).json({ error: "Invalid product ID" });
+    }
+
+    // If this is a subscription, update the user's subscription status
+    if (purchase.isSubscription) {
+      // Calculate expiry date if not provided
+      const expiryDate = purchase.expiryDate 
+        ? new Date(purchase.expiryDate) 
+        : new Date(Date.now() + 30 * 24 * 60 * 60 * 1000); // 30 days from now
+      
+      // Update user subscription in database
+      await storage.updateUserSubscription(userId, {
         isSubscribed: true,
-        stripeSubscriptionId: `play_store_${purchase.transactionId}` // Mark as Play Store subscription
+        stripeSubscriptionId: `android_${purchase.transactionId}`
       });
       
-      // Return the updated user
       return res.status(200).json({
         success: true,
-        user
+        subscription: {
+          active: true,
+          expiryDate: expiryDate.toISOString()
+        }
       });
     } else {
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid subscription'
-      });
+      // One-time purchase (not implemented in this app)
+      return res.status(400).json({ error: "One-time purchases not supported" });
     }
   } catch (error) {
-    console.error('Error verifying Android purchase:', error);
-    return res.status(500).json({
-      success: false,
-      error: 'Failed to verify purchase'
-    });
+    console.error("Android Purchase verification error:", error);
+    return res.status(500).json({ error: "Failed to verify purchase" });
   }
 }
 
@@ -141,14 +123,13 @@ export async function verifyAndroidPurchase(req: Request, res: Response) {
  * Main handler for app store purchase verification
  */
 export function handleAppStorePurchaseVerification(req: Request, res: Response) {
-  const data = req.body as VerificationRequest;
+  const { platform } = req.body as VerificationRequest;
   
-  switch (data.platform) {
-    case 'ios':
-      return verifyIOSPurchase(req, res);
-    case 'android':
-      return verifyAndroidPurchase(req, res);
-    default:
-      return res.status(400).json({ error: 'Unsupported platform' });
+  if (platform === 'ios') {
+    return verifyIOSPurchase(req, res);
+  } else if (platform === 'android') {
+    return verifyAndroidPurchase(req, res);
+  } else {
+    return res.status(400).json({ error: "Invalid platform specified" });
   }
 }

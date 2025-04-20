@@ -5,12 +5,11 @@ const config: CapacitorConfig = {
   appName: 'Tarot Journey',
   webDir: 'public',
   bundledWebRuntime: false,
+  // Server configuration
   server: {
     // In production, this should be your actual domain
     // For local development, you can use localhost
     hostname: 'localhost',
-    androidScheme: 'https',
-    iosScheme: 'https',
     // Allow navigation to our domain (replace with your actual domain in production)
     allowNavigation: ['localhost']
   },
@@ -33,6 +32,13 @@ const config: CapacitorConfig = {
     LocalNotifications: {
       smallIcon: 'ic_stat_icon_config_sample',
       iconColor: '#6c43bc' // Primary brand color
+    },
+    // Purchase plugin configuration
+    PurchasePlugin: {
+      // Default product ID for subscription
+      defaultProductIdentifier: 'io.tarotjourney.subscription.monthly',
+      // Enable receipt validation
+      validateReceipts: true
     }
   },
   // iOS specific configuration
@@ -41,16 +47,11 @@ const config: CapacitorConfig = {
     preferredContentMode: 'mobile',
     // Scheme for deep linking
     scheme: 'tarotjourney',
-    // Team ID is required for building iOS apps
-    // Replace with your actual team ID from Apple Developer account
-    teamId: 'PLACEHOLDER',
     // Minimum iOS version supported
     minVersion: '13.0'
   },
   // Android specific configuration
   android: {
-    // Scheme for deep linking
-    androidScheme: 'tarotjourney',
     // Allow cleartext (non-HTTPS) traffic for development
     // Should be false for production
     allowMixedContent: true,
