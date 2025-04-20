@@ -598,5 +598,265 @@
     "cardId": "pq",
     "cardName": "Queen of Pentacles",
     "timestamp": "2025-04-19T10:06:48.283Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p2",
+    "cardName": "Two of Pentacles",
+    "timestamp": "2025-04-20T07:05:25.844Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p2",
+    "cardName": "Two of Pentacles",
+    "timestamp": "2025-04-20T07:05:37.384Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pq",
+    "cardName": "Queen of Pentacles",
+    "timestamp": "2025-04-20T07:06:04.921Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_357",
+    "cardName": "Energy Clearing",
+    "timestamp": "2025-04-20T07:06:10.983Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pq",
+    "cardName": "Queen of Pentacles",
+    "timestamp": "2025-04-20T07:06:15.590Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p6",
+    "cardName": "Six of Pentacles",
+    "timestamp": "2025-04-20T07:07:18.713Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_292",
+    "cardName": "Two of Swords",
+    "timestamp": "2025-04-20T07:07:20.039Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_268",
+    "cardName": "Six of Wands",
+    "timestamp": "2025-04-20T07:07:22.920Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "pn",
+    "cardName": "Knight of Pentacles",
+    "timestamp": "2025-04-20T07:07:34.080Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_301",
+    "cardName": "Page of Swords",
+    "timestamp": "2025-04-20T07:07:34.327Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p3",
+    "cardName": "Three of Pentacles",
+    "timestamp": "2025-04-20T07:07:34.592Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s5",
+    "cardName": "Five of Swords",
+    "timestamp": "2025-04-20T07:07:35.093Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "p3",
+    "cardName": "Three of Pentacles",
+    "timestamp": "2025-04-20T07:07:36.354Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s5",
+    "cardName": "Five of Swords",
+    "timestamp": "2025-04-20T07:07:36.617Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_255",
+    "cardName": "Temperance",
+    "timestamp": "2025-04-20T13:01:58.646Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_270",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-04-20T13:01:58.724Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_285",
+    "cardName": "Nine of Cups",
+    "timestamp": "2025-04-20T13:01:58.732Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_300",
+    "cardName": "Ten of Swords",
+    "timestamp": "2025-04-20T13:01:58.881Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_330",
+    "cardName": "Chakra Activation",
+    "timestamp": "2025-04-20T13:01:58.888Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_315",
+    "cardName": "Page of Pentacles",
+    "timestamp": "2025-04-20T13:01:58.893Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w2",
+    "cardName": "Two of Wands",
+    "timestamp": "2025-04-20T13:02:07.279Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c2",
+    "cardName": "Two of Cups",
+    "timestamp": "2025-04-20T13:02:07.281Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s2",
+    "cardName": "Two of Swords",
+    "timestamp": "2025-04-20T13:02:07.301Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_242",
+    "cardName": "The Magician",
+    "timestamp": "2025-04-20T13:02:07.364Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_257",
+    "cardName": "The Tower",
+    "timestamp": "2025-04-20T13:02:07.555Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_257",
+    "cardName": "The Tower",
+    "timestamp": "2025-04-20T13:02:09.335Z"
   }
 ]

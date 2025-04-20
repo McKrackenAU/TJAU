@@ -25,9 +25,10 @@ import AccountPage from "@/pages/account";
 import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
-import { BottomNav, SideNav } from "@/components/bottom-nav";
-import { SimpleNav } from "@/components/simple-nav";
-import { NavBottom } from "@/components/nav-bottom";
+// Importing only our new FixedBottomNav, disabling old nav components
+// import { BottomNav, SideNav } from "@/components/bottom-nav";
+// import { SimpleNav } from "@/components/simple-nav";
+// import { NavBottom } from "@/components/nav-bottom";
 import { FixedBottomNav } from "@/components/fixed-bottom-nav";
 import InstallBanner from "@/components/install-banner";
 import ServiceWorkerUpdate from "@/components/service-worker-update";
@@ -61,6 +62,17 @@ function InitialAuthRedirect() {
 function AuthAwareComponents() {
   const { user } = useAuth();
   
+  // Force a single consistent navigation instance
+  useEffect(() => {
+    // Remove any existing bottom nav from other components
+    document.querySelectorAll('.bottom-nav, .bottom-navigation, .nav-bottom')
+      .forEach(el => {
+        if (el.id !== 'bottom-nav') {
+          el.remove();
+        }
+      });
+  }, []);
+
   return (
     <>
       <InitialAuthRedirect />
