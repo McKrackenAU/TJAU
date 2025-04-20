@@ -4,9 +4,17 @@
  * Handles in-app purchases for iOS and Android when the app is distributed
  * through the Apple App Store or Google Play Store.
  */
-import { Capacitor, PluginListenerHandle } from '@capacitor/core';
-// Safely import the purchase plugin - we'll use dynamic imports throughout the file
-// to avoid issues when running in the web environment
+import { Capacitor } from '@capacitor/core';
+
+// We use type definitions only from the plugin
+// The actual imports are done dynamically to avoid issues in web environments
+type PurchasePlugin = {
+  initialize: (options?: any) => Promise<void>;
+  getProducts: (options?: any) => Promise<{ products: any[] }>;
+  buyProduct: (options: { productId: string }) => Promise<any>;
+  restorePurchases: () => Promise<{ purchases: any[] }>;
+  getPurchases: () => Promise<{ purchases: any[] }>;
+};
 
 // Import the types from the plugin
 interface ProductInterface {
@@ -229,14 +237,15 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
   async checkSubscriptionStatus(): Promise<boolean> {
     try {
       // Check if user has active subscription through StoreKit
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const purchaseModule = await import('capacitor-plugin-purchase');
+      const Purchase = purchaseModule.default || purchaseModule;
       
       // Get existing purchases
-      const result = await PurchasePlugin.getPurchases();
+      const result = await Purchase.getPurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Find active subscriptions
-        const activeSubscriptions = result.purchases.filter(purchase => 
+        const activeSubscriptions = result.purchases.filter((purchase: any) => 
           purchase.productId.includes('subscription') && 
           purchase.expiryDate && 
           purchase.expiryDate > Date.now()
