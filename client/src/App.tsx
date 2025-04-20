@@ -28,6 +28,7 @@ import AngelNumberDetailPage from "@/pages/angel-number-detail";
 import { BottomNav, SideNav } from "@/components/bottom-nav";
 import { SimpleNav } from "@/components/simple-nav";
 import { NavBottom } from "@/components/nav-bottom";
+import { FixedBottomNav } from "@/components/fixed-bottom-nav";
 import InstallBanner from "@/components/install-banner";
 import ServiceWorkerUpdate from "@/components/service-worker-update";
 import UpdateNotification from "@/components/update-notification";
@@ -63,7 +64,7 @@ function AuthAwareComponents() {
   return (
     <>
       <InitialAuthRedirect />
-      <NavBottom />
+      <FixedBottomNav />
       <main className="pb-16">
         <Switch>
           {/* Authentication route */}
