@@ -42,7 +42,7 @@ export function SimpleNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-gray-800 h-16">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black h-16">
       <nav className="flex h-full max-w-md mx-auto">
         {navItems.map((item) => (
           <Link
@@ -52,9 +52,11 @@ export function SimpleNav() {
               item.active ? "text-white" : "text-gray-400"
             } transition-colors`}
           >
-            <item.icon className={`h-5 w-5 mb-1 ${
-              item.active ? "text-white" : "text-gray-400"
-            }`} />
+            <div className="h-5 w-5 mb-1">
+              <item.icon className={`w-full h-full ${
+                item.active ? "text-white" : "text-gray-400"
+              }`} />
+            </div>
             <span className="text-xs">{item.label}</span>
           </Link>
         ))}
