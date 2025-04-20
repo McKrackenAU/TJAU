@@ -474,9 +474,10 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
  */
 export class PaymentService {
   private processor: PlatformPaymentProcessor | null = null;
+  private initialized = false;
   
   constructor() {
-    this.processor = getPaymentProcessor();
+    // We'll initialize the processor on demand in initialize() method
   }
   
   /**
@@ -491,8 +492,19 @@ export class PaymentService {
    * Initializes the appropriate payment processor
    */
   async initialize(): Promise<void> {
-    if (this.processor) {
-      await this.processor.initialize();
+    if (this.initialized) return;
+    
+    try {
+      this.processor = await getPaymentProcessor();
+      
+      if (this.processor) {
+        await this.processor.initialize();
+      }
+      
+      this.initialized = true;
+    } catch (error) {
+      console.error('Failed to initialize payment processor:', error);
+      this.processor = null;
     }
   }
   

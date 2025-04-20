@@ -2104,7 +2104,15 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Note: App store purchase verification is handled by /api/verify-app-purchase endpoint above
+  // App Store purchase verification endpoint
+  app.post('/api/verify-app-store-purchase', async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "User not authenticated" });
+    }
+    
+    // Handle the verification using our dedicated handler
+    return handleAppStorePurchaseVerification(req, res);
+  });
 
   const httpServer = createServer(app);
   return httpServer;

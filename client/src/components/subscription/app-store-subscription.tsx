@@ -1,230 +1,247 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, Loader2 } from "lucide-react";
-import { PaymentService } from "@/services/app-store-payments";
-import { isIOSApp, isAndroidApp } from "@/services/app-store-payments";
-import { useToast } from "@/hooks/use-toast";
-import { queryClient } from "@/lib/queryClient";
+import { useState, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
+import { PaymentService } from '@/services/app-store-payments';
+import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
+import { queryClient } from '@/lib/queryClient';
 
-export function AppStoreSubscription() {
+// Create a singleton instance of the payment service
+const paymentService = new PaymentService();
+
+interface AppStoreSubscriptionProps {
+  onComplete?: () => void;
+  onCancel?: () => void;
+}
+
+export function AppStoreSubscription({ onComplete, onCancel }: AppStoreSubscriptionProps) {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
+  const [isSupported, setIsSupported] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [expiryDate, setExpiryDate] = useState<Date | null>(null);
-  const [paymentService] = useState(new PaymentService());
-  const [platform, setPlatform] = useState<'ios' | 'android' | null>(null);
   
-  // Initialize payment service and check subscription status
+  // Initialize the payment service
   useEffect(() => {
-    const initPaymentService = async () => {
+    async function initPaymentService() {
       try {
-        if (isIOSApp()) {
-          setPlatform('ios');
-        } else if (isAndroidApp()) {
-          setPlatform('android');
-        }
-        
-        // Initialize payment processor
         await paymentService.initialize();
+        const isNativeSupported = paymentService.isNativePaymentSupported();
+        setIsSupported(isNativeSupported);
         
         // Check if user already has an active subscription
-        const hasSubscription = await paymentService.hasActiveSubscription();
-        setIsSubscribed(hasSubscription);
-        
-        if (hasSubscription) {
-          const expiry = await paymentService.getSubscriptionExpiryDate();
-          setExpiryDate(expiry);
+        if (isNativeSupported) {
+          const hasSubscription = await paymentService.hasActiveSubscription();
+          setIsSubscribed(hasSubscription);
+          
+          if (hasSubscription) {
+            const expiry = await paymentService.getSubscriptionExpiryDate();
+            setExpiryDate(expiry);
+          }
         }
       } catch (error) {
-        console.error("Failed to initialize payment service:", error);
-        toast({
-          title: "Subscription Service Error",
-          description: "Unable to connect to the app store. Please try again later.",
-          variant: "destructive",
-        });
+        console.error('Failed to initialize payment service:', error);
+        setIsSupported(false);
       }
-    };
+    }
     
     initPaymentService();
   }, []);
   
   // Handle subscription purchase
   const handleSubscribe = async () => {
+    if (!isSupported) {
+      toast({
+        title: 'Not Supported',
+        description: 'In-app purchases are not supported on this device.',
+        variant: 'destructive',
+      });
+      return;
+    }
+    
     setIsLoading(true);
     
     try {
       const success = await paymentService.purchaseSubscription();
       
       if (success) {
+        toast({
+          title: 'Success',
+          description: 'Your subscription has been activated!',
+        });
+        
+        // Update subscription status
         setIsSubscribed(true);
         const expiry = await paymentService.getSubscriptionExpiryDate();
         setExpiryDate(expiry);
         
-        // Update user data in the cache
-        queryClient.invalidateQueries(["/api/user"]);
+        // Invalidate queries to refresh user data
+        queryClient.invalidateQueries({
+          queryKey: ['/api/user'],
+        });
         
+        if (onComplete) {
+          onComplete();
+        }
+      } else {
         toast({
-          title: "Subscription Activated",
-          description: "Thank you for subscribing to Tarot Journey Premium!",
+          title: 'Subscription Failed',
+          description: 'Unable to complete the subscription purchase.',
+          variant: 'destructive',
         });
       }
     } catch (error) {
-      console.error("Subscription purchase failed:", error);
+      console.error('Subscription error:', error);
       toast({
-        title: "Subscription Failed",
-        description: "Unable to complete your subscription. Please try again later.",
-        variant: "destructive",
+        title: 'Subscription Error',
+        description: error instanceof Error ? error.message : 'An unknown error occurred',
+        variant: 'destructive',
       });
     } finally {
       setIsLoading(false);
     }
   };
   
-  // Handle restoring purchases
-  const handleRestorePurchases = async () => {
+  // Handle restore purchases
+  const handleRestore = async () => {
     setIsLoading(true);
     
     try {
-      const restored = await paymentService.restorePurchases();
+      const success = await paymentService.restorePurchases();
       
-      if (restored) {
+      if (success) {
+        toast({
+          title: 'Purchases Restored',
+          description: 'Your subscription has been restored!',
+        });
+        
+        // Update subscription status
         setIsSubscribed(true);
         const expiry = await paymentService.getSubscriptionExpiryDate();
         setExpiryDate(expiry);
         
-        // Update user data in the cache
-        queryClient.invalidateQueries(["/api/user"]);
-        
-        toast({
-          title: "Subscription Restored",
-          description: "Your subscription has been successfully restored.",
+        // Invalidate queries to refresh user data
+        queryClient.invalidateQueries({
+          queryKey: ['/api/user'],
         });
+        
+        if (onComplete) {
+          onComplete();
+        }
       } else {
         toast({
-          title: "No Subscriptions Found",
-          description: "We couldn't find any active subscriptions associated with your account.",
+          title: 'Restore Failed',
+          description: 'No previous purchases found or restore failed.',
+          variant: 'destructive',
         });
       }
     } catch (error) {
-      console.error("Restore purchases failed:", error);
+      console.error('Restore error:', error);
       toast({
-        title: "Restore Failed",
-        description: "Unable to restore your purchases. Please try again later.",
-        variant: "destructive",
+        title: 'Restore Error',
+        description: error instanceof Error ? error.message : 'An unknown error occurred',
+        variant: 'destructive',
       });
     } finally {
       setIsLoading(false);
     }
   };
   
-  // Format expiry date for display
-  const formatExpiryDate = (date: Date | null) => {
-    if (!date) return "Unknown";
-    return new Intl.DateTimeFormat('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }).format(date);
-  };
-  
-  // Get platform-specific text
-  const getPlatformText = () => {
-    if (platform === 'ios') return "App Store";
-    if (platform === 'android') return "Google Play";
-    return "app store";
-  };
-  
-  return (
-    <Card className="w-full">
-      <CardHeader>
-        <CardTitle>Premium Subscription</CardTitle>
-        <CardDescription>
-          {isSubscribed
-            ? `Your subscription is active until ${formatExpiryDate(expiryDate)}`
-            : `Subscribe to unlock all premium features in Tarot Journey`}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div className="flex flex-col space-y-3">
-            <div className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>Daily AI-powered tarot interpretations</span>
-            </div>
-            <div className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>Advanced spread interpretations</span>
-            </div>
-            <div className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>Guided meditations for each card</span>
-            </div>
-            <div className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>Unlimited journal entries</span>
-            </div>
-            <div className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>Ad-free experience</span>
-            </div>
-          </div>
-          
-          {isSubscribed && (
-            <div className="mt-4 p-3 bg-primary/10 rounded-md">
-              <p className="text-sm">
-                Your subscription will automatically renew through {getPlatformText()}. 
-                You can manage your subscription in your {getPlatformText()} account settings.
-              </p>
-            </div>
-          )}
-        </div>
-      </CardContent>
-      <CardFooter className="flex flex-col space-y-3">
-        {isSubscribed ? (
-          <div className="w-full p-3 bg-primary/20 rounded-md text-center">
-            <p className="font-medium">Premium Subscription Active</p>
-            <p className="text-sm text-muted-foreground">
-              Next billing date: {formatExpiryDate(expiryDate)}
-            </p>
-          </div>
-        ) : (
-          <Button
-            className="w-full"
-            size="lg"
-            onClick={handleSubscribe}
-            disabled={isLoading}
-          >
-            {isLoading ? (
-              <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Processing...
-              </>
-            ) : (
-              <>Subscribe - $11.11/month</>
-            )}
-          </Button>
-        )}
-        
+  if (!isSupported) {
+    return (
+      <div className="text-center p-4">
+        <p className="text-base mb-4">
+          In-app purchases are not supported on this device.
+        </p>
         <Button
+          onClick={onCancel}
           variant="outline"
           className="w-full"
-          onClick={handleRestorePurchases}
+        >
+          Go Back
+        </Button>
+      </div>
+    );
+  }
+  
+  if (isSubscribed) {
+    return (
+      <div className="text-center p-4">
+        <h3 className="text-lg font-semibold mb-2">Subscription Active</h3>
+        <p className="text-base mb-2">
+          You already have an active subscription.
+        </p>
+        {expiryDate && (
+          <p className="text-sm text-muted-foreground mb-4">
+            Expires: {expiryDate.toLocaleDateString()}
+          </p>
+        )}
+        <Button
+          onClick={onComplete}
+          className="w-full"
+        >
+          Continue
+        </Button>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="p-4">
+      <div className="mb-6">
+        <h3 className="text-lg font-semibold mb-2">
+          Unlock Premium Access
+        </h3>
+        <p className="text-base mb-2">
+          Get unlimited access to all premium features:
+        </p>
+        <ul className="list-disc pl-5 mb-4 space-y-1">
+          <li>Unlimited daily card readings</li>
+          <li>Personalized tarot interpretations</li>
+          <li>Advanced spread analysis</li>
+          <li>AI-powered insights</li>
+          <li>Meditation audio for each card</li>
+        </ul>
+        <p className="text-sm text-muted-foreground mb-2">
+          Subscription includes a 7-day free trial
+        </p>
+      </div>
+      
+      <div className="space-y-3">
+        <Button
+          onClick={handleSubscribe}
+          className="w-full"
           disabled={isLoading}
         >
           {isLoading ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Processing...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Processing...
             </>
           ) : (
-            <>Restore Purchases</>
+            'Subscribe Now'
           )}
         </Button>
         
-        <p className="text-xs text-center text-muted-foreground pt-2">
-          Your subscription includes a 7-day free trial. You won't be charged until the trial period ends.
-          Subscription will auto-renew until canceled.
-        </p>
-      </CardFooter>
-    </Card>
+        <Button
+          onClick={handleRestore}
+          variant="outline"
+          className="w-full"
+          disabled={isLoading}
+        >
+          Restore Purchases
+        </Button>
+        
+        {onCancel && (
+          <Button
+            onClick={onCancel}
+            variant="ghost"
+            className="w-full"
+            disabled={isLoading}
+          >
+            Cancel
+          </Button>
+        )}
+      </div>
+    </div>
   );
 }
