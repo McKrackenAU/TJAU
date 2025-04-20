@@ -25,7 +25,7 @@ import AccountPage from "@/pages/account";
 import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
-import BottomNav from "@/components/bottom-nav";
+import { BottomNav } from "@/components/bottom-nav";
 import InstallBanner from "@/components/install-banner";
 import ServiceWorkerUpdate from "@/components/service-worker-update";
 import UpdateNotification from "@/components/update-notification";
@@ -85,6 +85,7 @@ function AuthAwareComponents() {
           <ProtectedRoute path="/learning/:trackId/:lessonId" component={LessonPage} />
           <ProtectedRoute path="/test-images" component={TestImages} />
           <ProtectedRoute path="/subscribe" component={Subscribe} />
+          <ProtectedRoute path="/subscribe-native" component={SubscribeNative} />
           <ProtectedRoute path="/subscription/success" component={SubscriptionSuccess} />
           <ProtectedRoute path="/voice-guided" component={VoiceGuidedPage} />
           <ProtectedRoute path="/account" component={AccountPage} />

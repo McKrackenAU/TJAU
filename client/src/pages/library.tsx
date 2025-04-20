@@ -11,7 +11,7 @@ import { adminState } from "@/lib/admin";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CardCombinationAnalysis from "@/components/card-combination-analysis";
 import CardDisplay from "@/components/card-display";
-import AppLayout from "@/components/app-layout";
+import { AppLayout } from "@/components/app-layout";
 
 // Define a type for the card structure
 interface TarotCard {

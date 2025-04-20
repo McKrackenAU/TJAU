@@ -172,10 +172,11 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
   async purchaseProduct(productId: string): Promise<AppStorePurchase | null> {
     try {
       // Use the Capacitor purchase plugin to start the purchase flow
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const purchaseModule = await import('capacitor-plugin-purchase');
+      const Purchase = purchaseModule.default || purchaseModule;
       
       // Start the purchase process
-      const result = await PurchasePlugin.buyProduct({
+      const result = await Purchase.buyProduct({
         productId: productId,
         // Additional purchase options go here
       });
