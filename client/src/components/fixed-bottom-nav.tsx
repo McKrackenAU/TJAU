@@ -70,57 +70,22 @@ export function FixedBottomNav() {
     }
   ];
 
-  // Only show bottom navigation when user is logged in and on mobile
-  if (!isMobile || !user) {
-    return null;
-  }
-  
-  console.log("FixedBottomNav: User is authenticated and on mobile device, showing nav");
+  // Debug mode - always show nav bar
+  console.log("FixedBottomNav: Debug mode - Always showing nav bar");
+  console.log("User status:", !!user);
+  console.log("Mobile status:", isMobile);
   
   return (
-    <div id="bottom-nav" style={{
-      position: "fixed",
-      bottom: 0,
-      left: 0,
-      right: 0,
-      zIndex: 50,
-      background: "#000",
-      height: "64px",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      borderTop: "none"
-    }}>
-      <nav style={{
-        display: "flex",
-        width: "100%",
-        maxWidth: "500px",
-        margin: "0 auto"
-      }}>
+    <div id="bottom-nav" className="fixed bottom-0 left-0 right-0 z-[9999] bg-red-500 h-16 flex items-center justify-center">
+      <nav className="flex w-full max-w-md mx-auto">
         {navItems.map((item) => (
           <Link 
             key={item.href} 
             href={item.href}
-            style={{
-              flex: 1,
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              color: item.active ? "#fff" : "#9CA3AF",
-              textDecoration: "none",
-              transition: "color 0.2s"
-            }}
+            className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${item.active ? 'text-white' : 'text-gray-400'}`}
           >
-            <item.icon style={{ 
-              width: "28px", 
-              height: "28px", 
-              marginBottom: "4px"
-            }} />
-            <span style={{ 
-              fontSize: "12px",
-              fontWeight: 500,
-            }}>
+            <item.icon className="w-7 h-7 mb-1" />
+            <span className="text-xs font-medium">
               {item.label}
             </span>
           </Link>
