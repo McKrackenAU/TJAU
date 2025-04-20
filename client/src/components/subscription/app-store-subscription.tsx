@@ -75,9 +75,7 @@ export function AppStoreSubscription({ onComplete, onCancel }: AppStoreSubscript
         setExpiryDate(expiry);
         
         // Invalidate queries to refresh user data
-        queryClient.invalidateQueries({
-          queryKey: ['/api/user'],
-        });
+        queryClient.invalidateQueries('/api/user');
         
         if (onComplete) {
           onComplete();
@@ -120,9 +118,7 @@ export function AppStoreSubscription({ onComplete, onCancel }: AppStoreSubscript
         setExpiryDate(expiry);
         
         // Invalidate queries to refresh user data
-        queryClient.invalidateQueries({
-          queryKey: ['/api/user'],
-        });
+        queryClient.invalidateQueries('/api/user');
         
         if (onComplete) {
           onComplete();

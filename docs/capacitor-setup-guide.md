@@ -1,316 +1,230 @@
 # Capacitor Setup Guide for Tarot Journey
 
-This guide provides detailed instructions for setting up Capacitor in the Tarot Journey project to create native mobile applications for iOS and Android.
+This document outlines the necessary steps to set up Capacitor for both iOS and Android platforms, enabling the Tarot Journey app to be published on the Apple App Store and Google Play Store.
 
 ## Prerequisites
 
-Before starting, ensure you have:
+1. Node.js (v14 or later)
+2. Xcode (for iOS builds)
+3. Android Studio (for Android builds)
+4. CocoaPods (for iOS dependencies)
+5. JDK 11 or later (for Android builds)
 
-1. Node.js 16+ and npm installed
-2. For iOS development:
-   - macOS computer
-   - Xcode 13+
-   - CocoaPods (`sudo gem install cocoapods`)
-   - iOS device or simulator for testing
-3. For Android development:
-   - Android Studio
-   - Java Development Kit (JDK) 11+
-   - Android SDK Platform 33+
-   - Android device or emulator for testing
+## Initial Setup
 
-## 1. Environment Setup
+1. The project already has Capacitor installed with the following packages:
+   - @capacitor/core
+   - @capacitor/cli
+   - @capacitor/ios
+   - @capacitor/android
+   - @capacitor/app
+   - @capacitor/splash-screen
+   - @capacitor/status-bar
+   - @capacitor/local-notifications
+   - capacitor-plugin-purchase (for in-app purchases)
 
-### Install Capacitor CLI
+2. The `capacitor.config.ts` file in the root directory contains all necessary configuration:
+   - App name, ID, and version information
+   - iOS and Android specific settings
+   - Permissions and capabilities
 
-The Capacitor CLI is already installed in the project, but if you're setting up a new environment, run:
+## iOS Setup
 
-```bash
-npm install -g @capacitor/cli
+### Configure App Settings
+
+1. Open the `capacitor.config.ts` file and ensure the iOS section is properly configured:
+
+```typescript
+ios: {
+  contentInset: 'always',
+  backgroundColor: '#ffffff',
+  scheme: 'tarotjourney',
+  preferredContentMode: 'mobile',
+  minVersion: '13.0', // Minimum iOS version supported
+  permissions: [
+    'CAMERA',
+    'MICROPHONE'
+  ]
+}
 ```
 
-### Project Dependencies
+2. Verify the app ID in `capacitor.config.ts` matches your Apple Developer account's bundle identifier.
 
-The following Capacitor packages are already installed in the project:
+### Building for iOS
 
-```bash
-npm install @capacitor/core @capacitor/cli @capacitor/ios @capacitor/android
-npm install @capacitor/app @capacitor/splash-screen @capacitor/status-bar @capacitor/local-notifications
-npm install capacitor-plugin-purchase
-```
-
-## 2. Project Configuration
-
-### Capacitor Configuration
-
-The `capacitor.config.ts` file controls how Capacitor builds and configures your native apps. Important settings include:
-
-- `appId`: The unique app identifier (bundle ID in iOS, package name in Android)
-- `appName`: The display name of your app
-- `webDir`: The directory containing your built web assets (should be 'public')
-- `server`: Configuration for development server
-
-### Build Web Application
-
-Before adding platforms or syncing, build the web application:
-
+1. Build the web assets:
 ```bash
 npm run build
 ```
 
-### Initialize Capacitor
-
-To initialize Capacitor in the project and add platforms:
-
+2. Add the iOS platform if not already added:
 ```bash
-# Initialize capacitor (if not already done)
-npx cap init
-
-# Add iOS platform
 npx cap add ios
-
-# Add Android platform
-npx cap add android
 ```
 
-## 3. iOS-Specific Setup
+3. Copy the web assets to the iOS project:
+```bash
+npx cap copy ios
+```
 
-### Configure iOS Project
+4. Update native dependencies:
+```bash
+npx cap sync ios
+```
 
-1. Open the iOS project in Xcode:
-
+5. Open the project in Xcode:
 ```bash
 npx cap open ios
 ```
 
-2. Configure project settings in Xcode:
-   - Select the project in the Navigator panel
-   - Go to "Signing & Capabilities" tab
-   - Set a Team (requires Apple Developer account)
-   - Configure any required capabilities (e.g., Push Notifications)
+6. In Xcode:
+   - Set your team signing certificate
+   - Configure app capabilities (push notifications, in-app purchases)
+   - Update app icon and splash screen assets
+   - Configure App Store Connect information
 
-3. App Icons and Splash Screen:
-   - Replace the placeholder icons in `App/App/Assets.xcassets/AppIcon.appiconset`
-   - Configure splash screen images in the Assets catalog
+7. Create Archive for App Store submission:
+   - In Xcode, select "Product" > "Archive"
+   - Upload to App Store using the organizer window
 
-4. Info.plist Configuration:
-   - Update the application's privacy descriptions for any required permissions
+## Android Setup
 
-### Setup In-App Purchases for iOS
+### Configure App Settings
 
-1. Register in-app products in App Store Connect:
-   - Create subscription product with ID `io.tarotjourney.subscription.monthly`
-   - Configure subscription pricing and duration
-   - Set up a 7-day free trial
+1. Open the `capacitor.config.ts` file and ensure the Android section is properly configured:
 
-2. Configure StoreKit for testing:
-   - In Xcode, go to Product > Scheme > Edit Scheme
-   - Select the Run action
-   - Check "StoreKit Configuration" and select your configuration file
+```typescript
+android: {
+  allowMixedContent: true,
+  captureInput: true,
+  backgroundColor: '#ffffff',
+  webViewUserAgentAppend: 'TarotJourney',
+  permissions: [
+    'android.permission.CAMERA',
+    'android.permission.RECORD_AUDIO',
+    'android.permission.READ_EXTERNAL_STORAGE',
+    'android.permission.WRITE_EXTERNAL_STORAGE'
+  ]
+}
+```
 
-## 4. Android-Specific Setup
+2. Verify the app ID in `capacitor.config.ts` matches your Google Play Console's application ID.
 
-### Configure Android Project
+### Building for Android
 
-1. Open the Android project in Android Studio:
+1. Build the web assets:
+```bash
+npm run build
+```
 
+2. Add the Android platform if not already added:
+```bash
+npx cap add android
+```
+
+3. Copy the web assets to the Android project:
+```bash
+npx cap copy android
+```
+
+4. Update native dependencies:
+```bash
+npx cap sync android
+```
+
+5. Open the project in Android Studio:
 ```bash
 npx cap open android
 ```
 
-2. Configure application settings:
-   - Update `android/app/src/main/res/values/strings.xml` for app name
-   - Configure app icons in `android/app/src/main/res/mipmap-*` directories
-   - Review and update themes in `android/app/src/main/res/values/styles.xml`
+6. In Android Studio:
+   - Update app icon and splash screen assets
+   - Configure signing configuration for release
+   - Verify manifest permissions
 
-3. AndroidManifest.xml Configuration:
-   - Add any required permissions
-   - Set up deep linking (if needed)
-   - Configure activity launch mode and orientation
+7. Build AAB for Google Play submission:
+   - In Android Studio, select "Build" > "Generate Signed Bundle / APK"
+   - Choose "Android App Bundle" 
+   - Create or select your keystore file
+   - Generate the signed AAB
+   - Upload to Google Play Console
 
-4. Gradle Configuration:
-   - Review and update build.gradle files as needed
-   - Configure Play Billing dependencies
+## Setting Up In-App Purchases
 
-### Setup In-App Purchases for Android
+### iOS (App Store)
 
-1. Register products in Google Play Console:
-   - Create subscription product with ID `io.tarotjourney.subscription.monthly`
-   - Configure subscription pricing and free trial period
-   - Set up tax and compliance information
+1. Configure in-app purchase products in App Store Connect:
+   - Log in to App Store Connect
+   - Select your app and go to the "Features" tab
+   - In the "In-App Purchases" section, create your subscription products
+   - For Tarot Journey, set up the following product:
+     - Product ID: `io.tarotjourney.subscription.monthly` 
+     - Type: Auto-Renewable Subscription
+     - Include 7-day free trial
+     - Configure subscription tiers and localized pricing
 
-2. Configure billing permissions:
-   - Ensure `BILLING` permission is added to AndroidManifest.xml
-   - Apply the correct version of Play Billing Library in build.gradle
+2. The in-app purchase functionality is already implemented in:
+   - `client/src/services/app-store-payments.ts`
+   - `client/src/components/subscription/app-store-subscription.tsx`
+   - `client/src/pages/subscribe-native.tsx`
 
-## 5. Working with Capacitor Plugins
+### Android (Google Play)
 
-### Core Plugins
+1. Configure in-app purchase products in Google Play Console:
+   - Log in to Google Play Console
+   - Select your app and go to "Monetization setup"
+   - Create subscription products
+   - For Tarot Journey, set up the following product:
+     - Product ID: `io.tarotjourney.subscription.monthly`
+     - Type: Subscription
+     - Include 7-day free trial
+     - Configure subscription tiers and pricing
 
-The project uses these core Capacitor plugins:
+2. The in-app purchase functionality is already implemented in the same files as iOS.
 
-1. **App**: For app lifecycle events
-   ```typescript
-   import { App } from '@capacitor/app';
-   
-   App.addListener('appStateChange', ({ isActive }) => {
-     console.log('App is now ' + (isActive ? 'active' : 'inactive'));
-   });
-   ```
+## Testing In-App Purchases
 
-2. **SplashScreen**: For controlling the native splash screen
-   ```typescript
-   import { SplashScreen } from '@capacitor/splash-screen';
-   
-   // Show the splash screen until the app is ready
-   SplashScreen.show();
-   
-   // Hide the splash screen when ready
-   SplashScreen.hide();
-   ```
+### iOS TestFlight
 
-3. **StatusBar**: For controlling the status bar appearance
-   ```typescript
-   import { StatusBar } from '@capacitor/status-bar';
-   
-   // Set status bar style
-   StatusBar.setStyle({ style: 'dark' });
-   ```
+1. Make sure your app is uploaded to TestFlight in App Store Connect
+2. Add internal or external testers
+3. Configure Sandbox tester accounts for testing in-app purchases
+4. Use these accounts for testing without actual charges
 
-4. **LocalNotifications**: For scheduling notifications
-   ```typescript
-   import { LocalNotifications } from '@capacitor/local-notifications';
-   
-   // Request permission
-   await LocalNotifications.requestPermissions();
-   
-   // Schedule notification
-   await LocalNotifications.schedule({
-     notifications: [
-       {
-         title: "Tarot Journey",
-         body: "Time for your daily reading!",
-         id: 1,
-         schedule: { at: new Date(Date.now() + 1000 * 60 * 60 * 24) }
-       }
-     ]
-   });
-   ```
+### Android Testing
 
-### Purchases Plugin
+1. Create a closed testing track in Google Play Console
+2. Upload your app bundle
+3. Add testers via email addresses or Google Groups
+4. Configure test accounts for in-app purchase testing
 
-For in-app purchases, we use the capacitor-plugin-purchase plugin:
+## Backend Verification
 
-```typescript
-import { PurchasePlugin } from 'capacitor-plugin-purchase';
+The server-side verification for app store purchases is implemented in:
+- `server/app-store-verification.ts`
+- `server/routes.ts` (endpoint: `/api/verify-app-store-purchase`)
 
-// Initialize the plugin
-await PurchasePlugin.initialize();
+For production, enhance these with:
+1. Real receipt validation with Apple and Google servers
+2. Secure storage of purchase records
+3. Proper error handling and logging
+4. Webhook handling for subscription status changes
 
-// Fetch products
-const products = await PurchasePlugin.getProducts({
-  productIds: ['io.tarotjourney.subscription.monthly']
-});
+## Troubleshooting
 
-// Make a purchase
-const purchase = await PurchasePlugin.buyProduct({
-  productId: 'io.tarotjourney.subscription.monthly'
-});
+### Common iOS Issues:
+- Signing certificate problems: Verify team and provisioning profiles
+- Missing entitlements: Check app capabilities in Xcode
+- Rejected submissions: Review App Store Guidelines
 
-// Restore purchases
-const restored = await PurchasePlugin.restorePurchases();
-```
+### Common Android Issues:
+- Missing permissions: Check Android Manifest
+- Version code conflicts: Ensure each submission has an incremented version code
+- Package name issues: Verify consistent package naming
 
-## 6. Development Workflow
-
-### Syncing Web Code to Native Projects
-
-After making changes to your web code:
-
-1. Build the web app:
-   ```bash
-   npm run build
-   ```
-
-2. Sync changes to native projects:
-   ```bash
-   npx cap sync
-   ```
-
-### Live Reload for Development
-
-For faster development with live reload:
-
-1. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-2. Update capacitor.config.ts to use the dev server:
-   ```typescript
-   server: {
-     url: 'http://YOUR_LOCAL_IP:5000',
-     cleartext: true
-   }
-   ```
-
-3. Run with live reload:
-   ```bash
-   npx cap run ios --livereload --external
-   # or
-   npx cap run android --livereload --external
-   ```
-
-## 7. Building for Production
-
-### iOS Production Build
-
-1. Open the iOS project in Xcode:
-   ```bash
-   npx cap open ios
-   ```
-
-2. Select "Generic iOS Device" as the build target
-
-3. Go to Product > Archive
-
-4. When archiving is complete, the organizer window will appear where you can upload to App Store Connect
-
-### Android Production Build
-
-1. Open the Android project in Android Studio:
-   ```bash
-   npx cap open android
-   ```
-
-2. Go to Build > Generate Signed Bundle / APK
-
-3. Select Android App Bundle for Play Store distribution
-
-4. Enter your keystore information
-
-5. Select the release build variant
-
-6. Complete the build process
-
-## 8. Troubleshooting
-
-### Common Issues
-
-- **Plugin not found**: Make sure the plugin is installed and you've run `npx cap sync`
-- **iOS build errors**: Check for proper code signing, provisioning profiles, and Xcode version
-- **Android build errors**: Verify Gradle version compatibility and SDK versions
-- **In-app purchase errors**: Ensure product IDs match exactly with store console configurations
-
-### Debugging Tips
-
-- iOS: Use Xcode's debugger and console log
-- Android: Use logcat in Android Studio
-- In-app purchases: Test with StoreKit Testing on iOS and Google Play Billing test accounts
-
-## 9. Resources
+## Additional Resources
 
 - [Capacitor Documentation](https://capacitorjs.com/docs)
-- [iOS App Development Guide](https://developer.apple.com/app-store/submitting/)
-- [Android App Development Guide](https://developer.android.com/studio/publish)
-- [StoreKit Testing](https://developer.apple.com/documentation/xcode/setting-up-storekit-testing-in-xcode)
-- [Google Play Billing Library](https://developer.android.com/google/play/billing)
+- [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
+- [Google Play Console Help](https://support.google.com/googleplay/android-developer)
+- [Capacitor In-App Purchase Plugin Documentation](https://github.com/capacitor-community/in-app-purchases)

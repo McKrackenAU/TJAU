@@ -1,159 +1,159 @@
-# App Store Submission Checklist
+# App Store Submission Checklist for Tarot Journey
 
-This document provides a comprehensive checklist to ensure that the Tarot Journey app is fully prepared for submission to both the Apple App Store and Google Play Store.
+Use this checklist to ensure your Tarot Journey app is ready for submission to both the Apple App Store and Google Play Store.
 
-## App Metadata
+## Required Assets
 
-- [ ] App name: "Tarot Journey"
-- [ ] App description (short and long versions)
-- [ ] App icon in required sizes
-- [ ] Screenshots for all required device sizes
-- [ ] Promotional video (optional but recommended)
-- [ ] Keywords for App Store optimization
-- [ ] Privacy policy URL
-- [ ] Support website URL
-- [ ] Contact email address
-- [ ] Copyright information
+### App Icon
+- [ ] High-resolution app icon (1024x1024px PNG without transparency for App Store)
+- [ ] Adaptive icon assets for Android (foreground and background layers)
+- [ ] All required icon sizes generated (can be automated with capacitor resources)
 
-## Apple App Store Requirements
+### Screenshots
+- [ ] iPhone screenshots (6.5" and 5.5" displays at minimum)
+- [ ] iPad screenshots (if supporting iPad)
+- [ ] Android phone screenshots (multiple sizes)
+- [ ] Android tablet screenshots (if supporting tablets)
+- [ ] Ensure screenshots highlight key features of the app
+- [ ] Localized screenshots for each supported language
 
-### App Information
-- [ ] App Store category: Lifestyle or Education
-- [ ] Secondary category: Reference
-- [ ] Age rating: 12+ 
-- [ ] Pricing: Free with in-app purchases
-- [ ] Available territories: All territories
-- [ ] Release type: Manual or Automatic
+### Preview Video (Optional but Recommended)
+- [ ] 15-30 second app preview video
+- [ ] Follows platform-specific guidelines for dimensions and format
+- [ ] Showcases key user flows and features
 
-### Technical Requirements
-- [ ] iOS target version: iOS 13.0 or later
-- [ ] App size under 4GB
-- [ ] Supports all required device families (iPhone, iPad)
-- [ ] App Store icon (1024x1024px)
-- [ ] Launch screen configured
-- [ ] App uses Apple frameworks appropriately
-- [ ] No deprecated APIs used
+## Metadata
 
-### In-App Purchases
-- [ ] Subscription product configured in App Store Connect
-- [ ] Product ID matches app code: "io.tarotjourney.subscription.monthly"
-- [ ] Subscription pricing set
-- [ ] Subscription duration: Monthly
-- [ ] Free trial period: 7 days
-- [ ] Subscription group created
-- [ ] Subscription levels defined (if offering multiple tiers)
-- [ ] Subscription terms displayed in app
-- [ ] Receipt validation implemented on server
-- [ ] Restore purchases functionality included
+### App Store Information
+- [ ] App name (matches what's in your app)
+- [ ] Subtitle (30 characters)
+- [ ] App Store categories (Primary: Lifestyle, Secondary: Education)
+- [ ] Keywords (optimize for search)
+- [ ] Description (engaging, clear, accurate)
+- [ ] What's New (for updates)
+- [ ] Support URL
+- [ ] Marketing URL (optional)
+- [ ] Privacy Policy URL (required)
 
-### Review Guidelines
-- [ ] App complies with Apple [App Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
-- [ ] Test account provided for review
-- [ ] Notes for reviewer explaining app functionality
-- [ ] Demonstration account with sample data
-- [ ] Special instructions for testing subscription features
+### Google Play Information
+- [ ] App title (matches what's in your app)
+- [ ] Short description (80 characters)
+- [ ] Full description (engaging, clear, accurate)
+- [ ] App categories (Primary: Lifestyle, Secondary: Education)
+- [ ] Tags/keywords
+- [ ] Contact details
+- [ ] Privacy Policy URL (required)
+- [ ] Website URL
 
-## Google Play Store Requirements
+## Technical Requirements
 
-### Store Listing
-- [ ] App category: Lifestyle or Education
-- [ ] Store listing created for each supported language
-- [ ] Feature graphic (1024x500px)
-- [ ] Screenshots for phone, 7" tablet, 10" tablet
-- [ ] Content rating questionnaire completed
-- [ ] Target audience and content settings defined
-- [ ] Store listing preview for each device type
+### iOS/App Store
+- [ ] App built with latest Xcode version
+- [ ] Supports iOS 14 or later
+- [ ] Includes necessary privacy usage descriptions in Info.plist
+- [ ] App works in airplane mode or displays appropriate error messages
+- [ ] All App Store guidelines followed
+- [ ] IAP products configured in App Store Connect
+- [ ] Sandbox testing completed for all IAPs
+- [ ] App permissions are minimal and justified
+- [ ] IPv6 compatibility
 
-### Technical Requirements
-- [ ] API level target: API level 33+ (Android 13)
-- [ ] Minimum API level: API level 24 (Android 7.0)
-- [ ] App bundle size optimized (under 150MB if possible)
-- [ ] App signing configured
-- [ ] App permissions justified and minimized
-- [ ] Native libraries included
-- [ ] Adaptive icon implemented
+### Android/Google Play
+- [ ] Targets Android API level 31 (Android 12) or higher
+- [ ] Minimum SDK version set appropriately (Android 7.0+)
+- [ ] All required app permissions declared and explained
+- [ ] App works in airplane mode or displays appropriate error messages
+- [ ] Google Play policies followed
+- [ ] IAP products configured in Google Play Console
+- [ ] Testing completed for all IAPs
+- [ ] App bundle (.aab) prepared instead of APK
 
-### In-App Products
-- [ ] Subscription product added to Google Play Console
-- [ ] Product ID matches app code: "io.tarotjourney.subscription.monthly"
-- [ ] Subscription pricing set for all countries
-- [ ] Free trial period: 7 days
-- [ ] Subscription grace period set
-- [ ] Billing permission added to AndroidManifest.xml
-- [ ] Server-side validation implemented
+## Functionality Testing
 
-### Policy Compliance
-- [ ] App complies with [Google Play policies](https://play.google.com/about/developer-content-policy/)
-- [ ] Data safety form completed
-- [ ] Personal information handling disclosure
-- [ ] Target audience and content configured
-- [ ] App permissions explanation provided
+- [ ] Sign in/registration works properly
+- [ ] Subscription enrollment functions correctly
+  - [ ] 7-day free trial works as expected
+  - [ ] Payment processes correctly
+  - [ ] Receipt verification works
+- [ ] Subscription management accessible
+- [ ] Restoring purchases works correctly
+- [ ] Subscription status displayed correctly in app
+- [ ] No crashes or freezes during normal use
+- [ ] App handles poor network conditions gracefully
+- [ ] All features accessible and working
+- [ ] Push notifications work if implemented
 
-## App Functionality Testing
+## Content
 
-### User Experience
-- [ ] Onboarding flow works properly
-- [ ] Registration/login functions on native platforms
-- [ ] All app features accessible and functional
-- [ ] UI displays correctly on all supported device sizes
-- [ ] Appropriate loading states shown during network operations
-- [ ] Error handling provides clear user feedback
-- [ ] Back button behavior works as expected (Android)
+- [ ] All tarot card imagery included and loading properly
+- [ ] No placeholder or test content in production build
+- [ ] Spelling and grammar checked
+- [ ] Links functioning properly
+- [ ] No broken images or media
+- [ ] Audio content plays properly
+- [ ] No copyright violations
+- [ ] Content meets platform standards (no adult content, etc.)
 
-### In-App Purchases
-- [ ] Subscription purchase flow works on both platforms
-- [ ] Free trial activation works correctly
-- [ ] Receipt/purchase token validation functions properly
-- [ ] Users can restore previous purchases
-- [ ] Subscription management screen shows correct status
-- [ ] Expiration handling works correctly
-- [ ] Users can cancel subscription within the app
-- [ ] Payment failures handled gracefully
+## Compliance
 
-### Performance
-- [ ] App startup time is optimized (under 5 seconds)
-- [ ] Network operations use appropriate caching
-- [ ] App performs well on lower-end devices
-- [ ] Memory usage is optimized
-- [ ] Battery consumption is reasonable
-- [ ] App functions in low-connectivity scenarios
-- [ ] Crash reporting implemented
+### Privacy Requirements
+- [ ] Privacy policy URL active and complete
+- [ ] App Tracking Transparency implementation (iOS)
+- [ ] Data collection disclosure complete (Google Play Data Safety)
+- [ ] GDPR compliance implemented if serving EU users
+- [ ] CCPA compliance implemented if serving California users
+- [ ] User data handling follows best practices
 
-## Legal Requirements
+### Subscription Compliance
+- [ ] Clear terms of subscription displayed before purchase
+- [ ] Free trial terms clearly explained
+- [ ] Renewal terms made clear to users
+- [ ] Cancellation process explained
+- [ ] No misleading subscription marketing
+- [ ] Restoration of purchases implemented
 
-- [ ] Terms of Service document available
-- [ ] Privacy Policy covers all data collection
-- [ ] GDPR compliance (for European users)
-- [ ] CCPA compliance (for California users)
-- [ ] Age restrictions properly implemented
-- [ ] In-app purchase disclosures comply with platform rules
-- [ ] Usage of copyrighted tarot card images is properly licensed
-- [ ] Subscription terms clearly communicated to users
+### Platform-Specific Guidelines
+- [ ] App Store Review Guidelines reviewed and followed
+- [ ] Google Play Developer Program Policies reviewed and followed
+- [ ] Age rating appropriate
 
-## Submission Assets
+## Final Checks
 
-### Apple App Store
-- [ ] App binary built for App Store with release configuration
-- [ ] TestFlight version tested with external testers
-- [ ] App Store Connect listing complete
-- [ ] App Review Information completed
-- [ ] App privacy details provided
-- [ ] In-app purchase details configured
+- [ ] App tested on multiple physical devices
+- [ ] App tested on both platforms (iOS and Android)
+- [ ] All analytics and crash reporting functioning
+- [ ] Versioning correct (version number and build number)
+- [ ] Backend services functioning properly
+- [ ] Verify deep links and universal links work (if applicable)
+- [ ] Tested with VoiceOver/TalkBack for accessibility
+- [ ] Final production build created with proper signing
 
-### Google Play Store
-- [ ] Android App Bundle (AAB) created with release configuration
-- [ ] Internal testing track used for pre-release validation
-- [ ] Play Store listing complete for all languages
-- [ ] Content rating questionnaire completed
-- [ ] Data safety form completed
-- [ ] In-app products configured
+## Submission Process
 
-## Post-Submission Plan
+### App Store
+- [ ] App Store Connect account has required agreements signed
+- [ ] Banking and tax information current
+- [ ] App Review Information prepared (test account credentials, demo instructions)
+- [ ] Build uploaded via Xcode or App Store Connect
+- [ ] All required metadata entered
+- [ ] Pricing and availability set
+- [ ] In-app purchases configured and ready for review
+- [ ] Content rights documentation ready if needed
 
-- [ ] Monitor review status in both app stores
-- [ ] Prepare for potential review rejection issues
-- [ ] Plan post-approval marketing
-- [ ] Set up monitoring for crash reports and reviews
-- [ ] Establish process for handling user feedback
-- [ ] Schedule regular update cycles
-- [ ] Monitor subscription conversion and retention rates
+### Google Play
+- [ ] Google Play Console account setup complete
+- [ ] Merchant account setup for IAPs
+- [ ] Developer content policy agreement signed
+- [ ] App content rating questionnaire completed
+- [ ] Target countries and pricing set
+- [ ] In-app products configured 
+- [ ] Test track created and tested
+- [ ] Roll-out approach decided (staged or full release)
+
+## Post-Submission
+
+- [ ] Monitor review status
+- [ ] Be prepared to respond to reviewer questions quickly
+- [ ] Prepare marketing materials for launch
+- [ ] Set up app store optimization monitoring
+- [ ] Plan for regular updates and improvements
