@@ -107,11 +107,9 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
     try {
       // Check if Capacitor plugin is available
       if (Capacitor.isNativePlatform()) {
-        // Import the plugin dynamically
-        const purchaseModule = await import('capacitor-plugin-purchase');
-        const Purchase = purchaseModule.default || purchaseModule;
+        const Purchase = await getPurchasePlugin();
         
-        // Initialize the plugin
+        // Initialize the plugin with type safety
         await Purchase.initialize({
           ios: {
             // Set any iOS-specific initialization options here
@@ -130,9 +128,7 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
 
   async getProducts(): Promise<AppStoreProduct[]> {
     try {
-      // In real implementation, fetch available products using the plugin
-      const purchaseModule = await import('capacitor-plugin-purchase');
-      const Purchase = purchaseModule.default || purchaseModule;
+      const Purchase = await getPurchasePlugin();
       
       // Request available products from App Store
       const response = await Purchase.getProducts({
@@ -147,7 +143,7 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
           title: product.title,
           description: product.description,
           price: product.price,
-          priceAmountMicros: parseInt(product.priceAmountMicros, 10),
+          priceAmountMicros: parseInt(product.priceAmountMicros, 10) || 0,
           priceCurrencyCode: product.currencyCode,
           type: product.type === 'subs' ? 'subscription' : 'non-subscription'
         }));
@@ -173,9 +169,7 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
 
   async purchaseProduct(productId: string): Promise<AppStorePurchase | null> {
     try {
-      // Use the Capacitor purchase plugin to start the purchase flow
-      const purchaseModule = await import('capacitor-plugin-purchase');
-      const Purchase = purchaseModule.default || purchaseModule;
+      const Purchase = await getPurchasePlugin();
       
       // Start the purchase process
       const result = await Purchase.buyProduct({
@@ -191,7 +185,7 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
           transactionId: result.transactionId,
           transactionDate: result.transactionDate || Date.now(),
           isSubscription: productId.includes('subscription'),
-          expiryDate: result.expiryDate || Date.now() + (30 * 24 * 60 * 60 * 1000) // 30 days from now if not provided
+          expiryDate: result.expiryDate || undefined
         };
       }
       
@@ -204,15 +198,14 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
 
   async restorePurchases(): Promise<AppStorePurchase[]> {
     try {
-      // Use the Capacitor purchase plugin to restore purchases
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Restore previous purchases
-      const result = await PurchasePlugin.restorePurchases();
+      const result = await Purchase.restorePurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Map the restored purchases to our format
-        return result.purchases.map(purchase => ({
+        return result.purchases.map((purchase: any) => ({
           productId: purchase.productId,
           transactionId: purchase.transactionId,
           transactionDate: purchase.transactionDate || Date.now(),
@@ -230,9 +223,7 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
 
   async checkSubscriptionStatus(): Promise<boolean> {
     try {
-      // Check if user has active subscription through StoreKit
-      const purchaseModule = await import('capacitor-plugin-purchase');
-      const Purchase = purchaseModule.default || purchaseModule;
+      const Purchase = await getPurchasePlugin();
       
       // Get existing purchases
       const result = await Purchase.getPurchases();
@@ -257,22 +248,21 @@ class IOSPaymentProcessor implements PlatformPaymentProcessor {
 
   async getSubscriptionExpiryDate(): Promise<Date | null> {
     try {
-      // Get expiry date of current subscription using the plugin
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Get existing purchases
-      const result = await PurchasePlugin.getPurchases();
+      const result = await Purchase.getPurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Find subscription purchases
-        const subscriptions = result.purchases.filter(purchase => 
+        const subscriptions = result.purchases.filter((purchase: any) => 
           purchase.productId.includes('subscription') && 
           purchase.expiryDate
         );
         
         if (subscriptions.length > 0) {
           // Get the furthest expiry date if there are multiple
-          const latestExpiryDate = Math.max(...subscriptions.map(s => s.expiryDate));
+          const latestExpiryDate = Math.max(...subscriptions.map((s: any) => s.expiryDate));
           return new Date(latestExpiryDate);
         }
       }
@@ -293,9 +283,7 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
     try {
       // Check if Capacitor plugin is available
       if (Capacitor.isNativePlatform()) {
-        // Import the plugin dynamically
-        const purchaseModule = await import('capacitor-plugin-purchase');
-        const Purchase = purchaseModule.default || purchaseModule;
+        const Purchase = await getPurchasePlugin();
         
         // Initialize the plugin
         await Purchase.initialize({
@@ -316,9 +304,7 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
 
   async getProducts(): Promise<AppStoreProduct[]> {
     try {
-      // In real implementation, fetch available products using the plugin
-      const purchaseModule = await import('capacitor-plugin-purchase');
-      const Purchase = purchaseModule.default || purchaseModule;
+      const Purchase = await getPurchasePlugin();
       
       // Request available products from Google Play
       const response = await Purchase.getProducts({
@@ -333,7 +319,7 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
           title: product.title,
           description: product.description,
           price: product.price,
-          priceAmountMicros: parseInt(product.priceAmountMicros, 10),
+          priceAmountMicros: parseInt(product.priceAmountMicros, 10) || 0,
           priceCurrencyCode: product.currencyCode,
           type: product.type === 'subs' ? 'subscription' : 'non-subscription'
         }));
@@ -359,11 +345,10 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
 
   async purchaseProduct(productId: string): Promise<AppStorePurchase | null> {
     try {
-      // Use the Capacitor purchase plugin to start the purchase flow
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Start the purchase process
-      const result = await PurchasePlugin.buyProduct({
+      const result = await Purchase.buyProduct({
         productId: productId,
         // Android-specific purchase options go here
       });
@@ -376,7 +361,7 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
           transactionId: result.transactionId,
           transactionDate: result.transactionDate || Date.now(),
           isSubscription: productId.includes('subscription'),
-          expiryDate: result.expiryDate || Date.now() + (30 * 24 * 60 * 60 * 1000) // 30 days from now if not provided
+          expiryDate: result.expiryDate
         };
       }
       
@@ -389,15 +374,14 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
 
   async restorePurchases(): Promise<AppStorePurchase[]> {
     try {
-      // Use the Capacitor purchase plugin to restore purchases
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Restore previous purchases
-      const result = await PurchasePlugin.restorePurchases();
+      const result = await Purchase.restorePurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Map the restored purchases to our format
-        return result.purchases.map(purchase => ({
+        return result.purchases.map((purchase: any) => ({
           productId: purchase.productId,
           transactionId: purchase.transactionId,
           transactionDate: purchase.transactionDate || Date.now(),
@@ -415,15 +399,14 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
 
   async checkSubscriptionStatus(): Promise<boolean> {
     try {
-      // Check if user has active subscription through Google Play Billing
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Get existing purchases
-      const result = await PurchasePlugin.getPurchases();
+      const result = await Purchase.getPurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Find active subscriptions
-        const activeSubscriptions = result.purchases.filter(purchase => 
+        const activeSubscriptions = result.purchases.filter((purchase: any) => 
           purchase.productId.includes('subscription') && 
           purchase.expiryDate && 
           purchase.expiryDate > Date.now()
@@ -441,22 +424,21 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
 
   async getSubscriptionExpiryDate(): Promise<Date | null> {
     try {
-      // Get expiry date of current subscription using the plugin
-      const { PurchasePlugin } = await import('capacitor-plugin-purchase');
+      const Purchase = await getPurchasePlugin();
       
       // Get existing purchases
-      const result = await PurchasePlugin.getPurchases();
+      const result = await Purchase.getPurchases();
       
       if (result && result.purchases && result.purchases.length > 0) {
         // Find subscription purchases
-        const subscriptions = result.purchases.filter(purchase => 
+        const subscriptions = result.purchases.filter((purchase: any) => 
           purchase.productId.includes('subscription') && 
           purchase.expiryDate
         );
         
         if (subscriptions.length > 0) {
           // Get the furthest expiry date if there are multiple
-          const latestExpiryDate = Math.max(...subscriptions.map(s => s.expiryDate));
+          const latestExpiryDate = Math.max(...subscriptions.map((s: any) => s.expiryDate));
           return new Date(latestExpiryDate);
         }
       }
@@ -474,9 +456,10 @@ class AndroidPaymentProcessor implements PlatformPaymentProcessor {
  */
 export class PaymentService {
   private processor: PlatformPaymentProcessor | null = null;
+  private initialized = false;
   
   constructor() {
-    this.processor = getPaymentProcessor();
+    // We'll initialize the processor on demand in initialize() method
   }
   
   /**
@@ -484,15 +467,24 @@ export class PaymentService {
    * or redirect to web-based Stripe payment
    */
   isNativePaymentSupported(): boolean {
-    return this.processor !== null;
+    return isNativeApp();
   }
   
   /**
    * Initializes the appropriate payment processor
    */
   async initialize(): Promise<void> {
-    if (this.processor) {
-      await this.processor.initialize();
+    if (this.initialized) return;
+    
+    try {
+      this.processor = await getPaymentProcessor();
+      if (this.processor) {
+        await this.processor.initialize();
+        this.initialized = true;
+      }
+    } catch (error) {
+      console.error('Failed to initialize payment service:', error);
+      this.processor = null;
     }
   }
   
@@ -500,6 +492,10 @@ export class PaymentService {
    * Purchases a subscription using the appropriate platform API
    */
   async purchaseSubscription(): Promise<boolean> {
+    if (!this.initialized) {
+      await this.initialize();
+    }
+    
     if (!this.processor) {
       console.log('Native payments not supported, using web payment flow');
       return false;
@@ -539,6 +535,10 @@ export class PaymentService {
    * Restores previous purchases
    */
   async restorePurchases(): Promise<boolean> {
+    if (!this.initialized) {
+      await this.initialize();
+    }
+    
     if (!this.processor) return false;
     
     try {
@@ -557,6 +557,32 @@ export class PaymentService {
       console.error('Error restoring purchases:', error);
       return false;
     }
+  }
+  
+  /**
+   * Check if user has active subscription
+   */
+  async hasActiveSubscription(): Promise<boolean> {
+    if (!this.initialized) {
+      await this.initialize();
+    }
+    
+    if (!this.processor) return false;
+    
+    return await this.processor.checkSubscriptionStatus();
+  }
+  
+  /**
+   * Get subscription expiry date
+   */
+  async getExpiryDate(): Promise<Date | null> {
+    if (!this.initialized) {
+      await this.initialize();
+    }
+    
+    if (!this.processor) return null;
+    
+    return await this.processor.getSubscriptionExpiryDate();
   }
   
   /**
@@ -580,26 +606,10 @@ export class PaymentService {
       }
       
       const result = await response.json();
-      console.log('Purchase verification result:', result);
+      console.log('Purchase verified with server:', result);
     } catch (error) {
       console.error('Error verifying purchase with server:', error);
       throw error;
     }
-  }
-  
-  /**
-   * Checks if the user has an active subscription
-   */
-  async hasActiveSubscription(): Promise<boolean> {
-    if (!this.processor) return false;
-    return this.processor.checkSubscriptionStatus();
-  }
-  
-  /**
-   * Gets the subscription expiry date
-   */
-  async getSubscriptionExpiryDate(): Promise<Date | null> {
-    if (!this.processor) return null;
-    return this.processor.getSubscriptionExpiryDate();
   }
 }
