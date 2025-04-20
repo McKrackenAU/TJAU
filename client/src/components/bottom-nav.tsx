@@ -42,9 +42,9 @@ export function BottomNav() {
     },
     {
       label: "Daily",
-      href: "/daily-draw",
+      href: "/daily",
       icon: CircleDashed,
-      active: location === "/daily-draw"
+      active: location === "/daily"
     },
     {
       label: "Spreads",
@@ -67,20 +67,20 @@ export function BottomNav() {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur supports-backdrop-blur:bg-background/60 border-t border-border h-16 sm:hidden">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-gray-800 h-16 sm:hidden">
       <nav className="flex h-full max-w-md mx-auto">
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             className={cn(
-              "flex-1 flex flex-col items-center justify-center text-muted-foreground transition-colors",
-              item.active && "text-primary"
+              "flex-1 flex flex-col items-center justify-center text-gray-400 transition-colors",
+              item.active && "text-white"
             )}
           >
             <item.icon className={cn(
               "h-5 w-5 mb-1",
-              item.active ? "text-primary" : "text-muted-foreground"
+              item.active ? "text-white" : "text-gray-400"
             )} />
             <span className="text-xs">{item.label}</span>
           </Link>
@@ -113,9 +113,9 @@ export function SideNav() {
     },
     {
       label: "Daily Reading",
-      href: "/daily-draw",
+      href: "/daily",
       icon: CircleDashed,
-      active: location === "/daily-draw"
+      active: location === "/daily"
     },
     {
       label: "Tarot Spreads",
@@ -159,9 +159,9 @@ export function SideNav() {
   if (user.isAdmin) {
     navItems.push({
       label: "Admin",
-      href: "/admin-dashboard",
+      href: "/admin/dashboard",
       icon: Settings,
-      active: location === "/admin-dashboard"
+      active: location === "/admin/dashboard"
     });
   }
 
