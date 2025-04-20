@@ -1,0 +1,21 @@
+#tarot-navigation {
+  border-top: none !important;
+  border-top-width: 0px !important;
+  border-style: none !important;
+  box-shadow: none !important;
+  height: 64px !important;
+  max-height: 64px !important;
+  min-height: 64px !important;
+  padding-bottom: 0 !important;
+}
+
+#tarot-navigation svg {
+  height: 24px !important;
+  width: 24px !important;
+  margin: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+#tarot-navigation span {
+  font-size: 0.75rem !important;
+}
