@@ -41,8 +41,10 @@
     padding-bottom: env(safe-area-inset-bottom, 0); /* Padding for iOS safe area */
     height: auto !important;
     min-height: 0 !important;
-    border-top-width: 1px !important;
-    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.05); /* Add subtle shadow */
+    border-top-width: 0 !important; /* Remove border */
+    border-top-style: none !important; /* Remove border style */
+    border-top-color: transparent !important; /* Make border transparent */
+    box-shadow: none !important; /* Remove shadow */
     position: fixed;
     bottom: 0;
     z-index: 50;
@@ -58,14 +60,14 @@
   /* Mobile-specific styles */
   @media (max-width: 767px) {
     .fixed.bottom-0 {
-      max-height: 40px !important;
-      border-top-width: 1px !important;
+      max-height: 64px !important; /* Taller for better visibility */
+      border-top-width: 0 !important; /* No border */
       padding: 0 !important;
     }
     .fixed.bottom-0 svg {
-      height: 22px !important; 
-      width: 22px !important;
-      margin: 8px auto !important;
+      height: 28px !important; 
+      width: 28px !important;
+      margin: 4px auto !important;
     }
     
     /* Make bottom padding of content area smaller on mobile */
