@@ -21,11 +21,16 @@ import {
 export function BottomNav() {
   const [location] = useLocation();
   const { user } = useAuth();
-
-  // Don't show bottom nav if user is not logged in
+  
+  console.log("BottomNav: User status:", !!user);
+  console.log("BottomNav: Current location:", location);
+  
+  // Always show bottom nav for now (for testing)
+  /* 
   if (!user) {
     return null;
   }
+  */
 
   // Navigation items configuration
   const navItems = [
