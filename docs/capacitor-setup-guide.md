@@ -138,14 +138,36 @@ This will open the project in Android Studio. From there:
 ### For iOS (App Store):
 
 1. Set up in-app purchases in App Store Connect
-2. Install the Capacitor IAP plugin: `npm install @capacitor/in-app-purchases`
-3. Update the AppStoreSubscription component to use the native IAP plugin
+   - Create a subscription product with ID `io.tarotjourney.subscription.monthly`
+   - Configure the subscription tier, price point ($11.11 AUD), and renewal terms
+   - Set up the subscription groups and configure a 7-day free trial
+
+2. Install the purchase plugin: `npm install capacitor-plugin-purchase`
+
+3. Configure subscription verification
+   - Set up App Store Server Notifications in App Store Connect
+   - Configure the notification URL to point to your server endpoint
+   - Update server verification logic in `/server/app-store-verification.ts`
+
+4. Implement the client-side integration
+   - Update `IOSPaymentProcessor` in `app-store-payments.ts` to use the plugin
+   - Test the purchase flow with StoreKit testing in development
 
 ### For Android (Google Play):
 
 1. Set up in-app products in Google Play Console
+   - Create a subscription product with ID `io.tarotjourney.subscription.monthly`
+   - Configure the price point ($11.11 AUD) and subscription terms
+   - Set up the free trial period (7 days)
+   - Configure the grace period and account hold settings
+
 2. Configure the app for Google Play Billing
-3. Update the AppStoreSubscription component to use the native IAP plugin
+   - Add the required billing permissions to AndroidManifest.xml
+   - Set up real-time developer notifications for subscription events
+
+3. Implement the client-side integration
+   - Update `AndroidPaymentProcessor` in `app-store-payments.ts` to use the plugin
+   - Test the purchase flow with Google Play's testing tracks
 
 ## Step 10: Publishing
 
