@@ -25,7 +25,7 @@ import AccountPage from "@/pages/account";
 import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
-import { BottomNav } from "@/components/bottom-nav";
+import { BottomNav, SideNav } from "@/components/bottom-nav";
 import InstallBanner from "@/components/install-banner";
 import ServiceWorkerUpdate from "@/components/service-worker-update";
 import UpdateNotification from "@/components/update-notification";
@@ -62,7 +62,8 @@ function AuthAwareComponents() {
     <>
       <InitialAuthRedirect />
       {user && <BottomNav />}
-      <main className={user ? "pb-16" : ""}>
+      {user && <SideNav />}
+      <main className={user ? "pb-16 sm:pl-64" : ""}>
         <Switch>
           {/* Authentication route */}
           <Route path="/auth" component={AuthPage} />
