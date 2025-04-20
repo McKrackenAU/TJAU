@@ -62,8 +62,7 @@ function AuthAwareComponents() {
     <>
       <InitialAuthRedirect />
       {user && <BottomNav />}
-      {user && <SideNav />}
-      <main className={user ? "pb-16 sm:pl-64" : ""}>
+      <main className={user ? "pb-16" : ""}>
         <Switch>
           {/* Authentication route */}
           <Route path="/auth" component={AuthPage} />
