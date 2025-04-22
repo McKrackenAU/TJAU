@@ -7,11 +7,15 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   // Server configuration
   server: {
-    // In production, this should be your actual domain
-    // For local development, you can use localhost
-    hostname: 'localhost',
-    // Allow navigation to our domain (replace with your actual domain in production)
-    allowNavigation: ['localhost']
+    // Production server settings
+    hostname: 'tarotjourney.replit.app',
+    // Allow navigation to our domains
+    allowNavigation: [
+      'tarotjourney.replit.app',
+      'localhost',
+      '*.stripe.com',
+      '*.apple.com' 
+    ]
   },
   // Splash screen configuration
   plugins: {
@@ -47,8 +51,9 @@ const config: CapacitorConfig = {
     preferredContentMode: 'mobile',
     // Scheme for deep linking
     scheme: 'tarotjourney',
-    // Minimum iOS version supported
-    minVersion: '13.0'
+    // iOS build configuration
+    backgroundColor: '#6c43bc',
+    limitsNavigationsToAppBoundDomains: true
   },
   // Android specific configuration
   android: {
@@ -58,12 +63,9 @@ const config: CapacitorConfig = {
     // Backup rules - tells Android what to backup
     // This is important for preserving user data
     captureInput: true,
-    // Permissions requested by the app
-    permissions: [
-      'android.permission.INTERNET',
-      'android.permission.VIBRATE',
-      'android.permission.RECEIVE_BOOT_COMPLETED'
-    ]
+    backgroundColor: '#6c43bc',
+    scheme: 'https',
+    overrideUserAgent: 'Tarot Journey App'
   }
 };
 
