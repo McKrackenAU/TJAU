@@ -105,7 +105,12 @@ export default function AccountPage() {
                   </p>
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex flex-col space-y-2">
+                <Button variant="outline" asChild className="w-full">
+                  <a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                    Privacy Policy
+                  </a>
+                </Button>
                 <LogoutButton />
               </CardFooter>
             </Card>

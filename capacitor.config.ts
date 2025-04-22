@@ -64,7 +64,6 @@ const config: CapacitorConfig = {
     // This is important for preserving user data
     captureInput: true,
     backgroundColor: '#6c43bc',
-    scheme: 'https',
     overrideUserAgent: 'Tarot Journey App'
   }
 };
