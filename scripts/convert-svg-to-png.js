@@ -1,4 +1,5 @@
-import { createConverter } from 'convert-svg-to-png';
+import pkg from 'convert-svg-to-png';
+const { createConverter } = pkg;
 import path from 'path';
 import fs from 'fs';
 
