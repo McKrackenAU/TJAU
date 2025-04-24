@@ -988,5 +988,185 @@
     "cardId": "w10",
     "cardName": "Ten of Wands",
     "timestamp": "2025-04-24T06:06:26.754Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w1",
+    "cardName": "Ace of Wands",
+    "timestamp": "2025-04-24T06:24:26.485Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c1",
+    "cardName": "Ace of Cups",
+    "timestamp": "2025-04-24T06:24:26.566Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s1",
+    "cardName": "Ace of Swords",
+    "timestamp": "2025-04-24T06:24:26.725Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p1",
+    "cardName": "Ace of Pentacles",
+    "timestamp": "2025-04-24T06:24:26.747Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_345",
+    "cardName": "Karmic Lessons",
+    "timestamp": "2025-04-24T06:24:33.038Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_360",
+    "cardName": "Infinite Possibilities",
+    "timestamp": "2025-04-24T06:24:33.118Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w3",
+    "cardName": "Three of Wands",
+    "timestamp": "2025-04-24T06:24:33.146Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c3",
+    "cardName": "Three of Cups",
+    "timestamp": "2025-04-24T06:24:33.168Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s3",
+    "cardName": "Three of Swords",
+    "timestamp": "2025-04-24T06:24:33.231Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_257",
+    "cardName": "The Tower",
+    "timestamp": "2025-04-24T06:24:34.294Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_287",
+    "cardName": "Page of Cups",
+    "timestamp": "2025-04-24T06:24:34.533Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "w3",
+    "cardName": "Three of Wands",
+    "timestamp": "2025-04-24T06:24:34.802Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_360",
+    "cardName": "Infinite Possibilities",
+    "timestamp": "2025-04-24T06:24:34.890Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s3",
+    "cardName": "Three of Swords",
+    "timestamp": "2025-04-24T06:24:34.922Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "c3",
+    "cardName": "Three of Cups",
+    "timestamp": "2025-04-24T06:24:34.991Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_257",
+    "cardName": "The Tower",
+    "timestamp": "2025-04-24T06:24:36.121Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_287",
+    "cardName": "Page of Cups",
+    "timestamp": "2025-04-24T06:24:36.404Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_349",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-04-24T07:42:45.787Z"
   }
 ]

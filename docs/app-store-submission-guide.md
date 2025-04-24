@@ -1,181 +1,185 @@
-# App Store Submission Guide for Tarot Journey
+# App Store Submission Guide
 
-This guide provides detailed steps for submitting Tarot Journey to both the Apple App Store and Google Play Store.
+This guide provides detailed instructions for submitting the Tarot Journey app to the Apple App Store and Google Play Store.
 
-## Prerequisites
+## Preparing for Submission
 
-Before starting the submission process, make sure you have:
+### 1. App Assets and Metadata
 
-1. **Apple Developer Account** ($99/year) - Required for App Store
-2. **Google Play Developer Account** ($25 one-time fee) - Required for Play Store
-3. **App Store Connect** access set up (for iOS)
-4. **Google Play Console** access set up (for Android)
-5. **All app assets generated** using our build scripts
+#### Required for Both Platforms:
+- App name: "Tarot Journey"
+- App description (short and long versions)
+- Keywords/tags
+- Privacy policy URL
+- Support website URL
+- Developer contact information
 
-## Building the Native App Packages
+#### Apple App Store Specific:
+- App Store icon (1024x1024px)
+- Screenshots for iPhone and iPad (in required dimensions)
+- App preview videos (optional but recommended)
+- Age rating information
+- App Store category: "Lifestyle" or "Education"
 
-Run our build script to generate the app packages:
+#### Google Play Store Specific:
+- High-resolution icon (512x512px)
+- Feature graphic (1024x500px)
+- Screenshots in various sizes
+- Promo video (optional but recommended)
+- Content rating questionnaire answers
+- App category: "Lifestyle" or "Education"
 
-```bash
-# Make the script executable
-chmod +x scripts/build-native-apps.sh
+### 2. In-App Purchase Configuration
 
-# Run the build script
-./scripts/build-native-apps.sh
-```
+#### Apple App Store:
+1. Log in to [App Store Connect](https://appstoreconnect.apple.com)
+2. Navigate to your app > Features > In-App Purchases
+3. Create a new in-app purchase:
+   - Type: Auto-Renewable Subscription
+   - Reference Name: "Tarot Journey Monthly Subscription"
+   - Product ID: "io.tarotjourney.subscription.monthly"
+   - Configure pricing and subscription duration (monthly)
+   - Add localized information and review screenshot
 
-This will:
-- Build the web application
-- Generate all required app icons and splash screens
-- Sync the web assets to the native platforms
-- Build the Android APK and AAB (App Bundle)
-- Build the iOS app (if on macOS)
+#### Google Play Store:
+1. Log in to [Google Play Console](https://play.google.com/console)
+2. Navigate to your app > Monetize > Products > In-app products
+3. Create a new subscription:
+   - Product ID: "io.tarotjourney.subscription.monthly"
+   - Name: "Tarot Journey Monthly Subscription"
+   - Description: Explain subscription benefits
+   - Configure pricing and subscription period (monthly)
 
-## Apple App Store Submission Process
+## Submission Process
 
-### 1. Prepare App Information
+### Apple App Store Submission
 
-In App Store Connect (https://appstoreconnect.apple.com):
+#### 1. Prepare App Binary
+- Run `npm run build` to build web assets
+- Run Capacitor sync and copy commands:
+  ```bash
+  npx cap sync ios
+  npx cap copy ios
+  ```
+- Open Xcode: `npx cap open ios`
+- Verify signing and capabilities
+- Create Archive: Product > Archive
 
-1. Create a new app entry
-   - Select iOS platform
-   - Enter app name: "Tarot Journey"
-   - Choose primary language
-   - Bundle ID: io.tarotjourney.app
-   - SKU: tarotjourney
+#### 2. Submit to App Store Connect
+- In Xcode's Archive organizer, click "Distribute App"
+- Select "App Store Connect"
+- Select automatic signing or manual signing
+- Upload the binary
+- Wait for processing (can take 10-30 minutes)
 
-2. Prepare app metadata:
-   - App description (up to 4000 characters)
-   - Keywords (separated by commas)
-   - Support URL: Your support website URL
-   - Marketing URL (optional): Your marketing website URL
-   - Privacy Policy URL: Link to your privacy policy
+#### 3. Complete App Store Connect Listing
+- Log in to [App Store Connect](https://appstoreconnect.apple.com)
+- Navigate to your app
+- Complete all required metadata:
+  - App information
+  - Pricing and availability
+  - App privacy information
+  - Version information
+  - Upload screenshots and app preview videos
+- Submit for review
 
-### 2. Configure App Store Listing
+#### 4. Respond to Review Questions
+- Apple review team may ask questions about your app
+- Be prepared to respond promptly
+- Average review time: 1-3 days
 
-1. Upload screenshots (required for all device sizes):
-   - iPhone 6.5" Display (1284 x 2778 px)
-   - iPhone 5.5" Display (1242 x 2208 px)
-   - iPad Pro 12.9" Display (2732 x 2048 px)
-   - iPad Pro 11" Display (2388 x 1668 px)
+### Google Play Store Submission
 
-2. Upload app preview videos (optional)
+#### 1. Prepare App Bundle
+- Run `npm run build` to build web assets
+- Run Capacitor sync and copy commands:
+  ```bash
+  npx cap sync android
+  npx cap copy android
+  ```
+- Open Android Studio: `npx cap open android`
+- Verify signing configuration
+- Build Bundle: Build > Generate Signed Bundle/APK > Android App Bundle
 
-3. Upload your app icon (1024 x 1024 px)
+#### 2. Create Google Play Listing
+- Log in to [Google Play Console](https://play.google.com/console)
+- Navigate to your app
+- Complete all required sections:
+  - Store listing
+  - Content rating
+  - Pricing & distribution
+  - App content
+  - Upload app bundle (.aab file)
+- Submit app to production or a test track
 
-### 3. Configure App Features and Capabilities
-
-1. Configure in-app purchases:
-   - Add your subscription with details and pricing tiers
-   - Create promotional text and descriptions
-
-2. Configure app ratings:
-   - Answer questions about app content
-   - Set appropriate age rating
-
-### 4. Submit for Review
-
-1. Upload your built app:
-   - Upload the IPA file generated by Xcode
-   - Provide test account credentials for Apple review team
-   - Answer export compliance questions
-   - Submit for review
-
-2. Wait for review:
-   - Review typically takes 1-3 days
-   - Respond promptly to any questions from the review team
-
-## Google Play Store Submission Process
-
-### 1. Create App in Google Play Console
-
-1. Go to Google Play Console and create a new app
-   - App name: "Tarot Journey"
-   - Default language
-   - Free or paid app (choose Free, with in-app purchases)
-
-### 2. Set Up Store Listing
-
-1. Add store listing information:
-   - App name
-   - Short description (80 characters)
-   - Full description (4000 characters)
-   - App icon (512 x 512 px)
-   - Feature graphic (1024 x 500 px)
-   - Screenshots (minimum 2 per device type):
-     - Phone (min 320px, max 3840px)
-     - 7-inch tablet (min 320px, max 3840px)
-     - 10-inch tablet (min 320px, max 3840px)
-
-2. Add promo video (optional)
-
-3. Categorization:
-   - Application type: Application
-   - Category: Lifestyle
-   - Tags: Spiritual, Tarot, Learning
-
-### 3. Configure Content Rating
-
-1. Complete the content rating questionnaire
-2. Email address for rating certification
-
-### 4. Configure In-App Purchases
-
-1. Set up subscription products in Play Console
-2. Configure pricing and trial period
-
-### 5. Create Release
-
-1. Create a new release in Production track:
-   - Upload your signed AAB (Android App Bundle)
-   - Add release notes
-   - Save and review release
-
-2. Launch the release:
-   - Review all information
-   - Start rollout to production
-
-## Testing Before Submission
-
-Before submitting:
-
-1. Test the app thoroughly on real devices
-2. Verify in-app purchases work correctly
-3. Ensure push notifications function properly
-4. Test login/logout flows
-5. Check that deep links are working
-6. Verify app performance and responsiveness
-
-## Troubleshooting
-
-### Common App Store Rejection Reasons:
-
-1. **Missing Privacy Policy**: Ensure your privacy policy covers all required areas
-2. **Inaccurate App Description**: Make sure your app description matches functionality
-3. **In-app Purchase Issues**: Verify all subscriptions work as described
-4. **Poor Performance**: Fix crashes and performance issues
-5. **Design Issues**: Address any significant UI/UX problems
-
-### Common Play Store Rejection Reasons:
-
-1. **Policy Violations**: Review Play Store Developer Policy
-2. **Inappropriate Content**: Ensure content meets guidelines
-3. **Functionality Issues**: Fix crashes and bugs
-4. **Deceptive Behavior**: Transparent about app functionality
-5. **Security Issues**: Address any security vulnerabilities
-
-## App Store Review Guidelines to Review
-
-1. [Apple App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
-2. [Google Play Developer Program Policies](https://play.google.com/about/developer-content-policy/)
+#### 3. Release Management
+- Consider using a closed testing track first
+- Invite testers to validate the app before production release
+- Gradual rollout is recommended for production
 
 ## Post-Submission
 
-After submission:
-1. Monitor review status
-2. Be prepared to make necessary changes if requested
-3. Plan for future updates
+### Monitoring and Updates
 
----
+#### App Analytics:
+- Monitor app performance using App Store Connect or Google Play Console
+- Track downloads, revenue, and user engagement
 
-If you encounter any issues or have questions specific to Tarot Journey app submission, please contact your development team for assistance.
+#### Updates Process:
+1. Make changes to your app
+2. Increment version number in Capacitor config
+3. Rebuild and resubmit following the same process
+4. For critical updates, request expedited review (Apple)
+
+### In-App Purchase Verification
+
+Ensure server-side verification is properly implemented:
+
+#### For iOS:
+```javascript
+// Production verification endpoint
+const verifyEndpoint = 'https://buy.itunes.apple.com/verifyReceipt';
+// Sandbox verification endpoint
+const sandboxVerifyEndpoint = 'https://sandbox.itunes.apple.com/verifyReceipt';
+```
+
+#### For Android:
+Use Google Play Developer API for verification with your service account credentials.
+
+## Compliance Checklist
+
+Before submitting, ensure your app meets these requirements:
+
+### Apple App Store Guidelines:
+- [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/)
+- Clear subscription terms and user-initiated cancellation process
+- Privacy policy that complies with Apple's requirements
+- No mention of external payment methods
+
+### Google Play Policies:
+- [Google Play Developer Policy Center](https://play.google.com/about/developer-content-policy/)
+- Handling of user data complies with Play policies
+- Subscription disclosure requirements
+- Content appropriate for the selected target audience
+
+## Resources
+
+- [Apple App Store Resources](https://developer.apple.com/app-store/)
+- [Google Play Console Help](https://support.google.com/googleplay/android-developer)
+- [Capacitor Documentation](https://capacitorjs.com/docs)
+
+## Troubleshooting Common Issues
+
+### App Rejected by Apple:
+- Metadata issues: Ensure all descriptions accurately represent your app
+- Design issues: Follow iOS Human Interface Guidelines
+- Functionality problems: Fix any crashes or bugs
+- Missing information: Complete all required metadata fields
+
+### App Rejected by Google:
+- Policy violations: Review the exact policy cited
+- Crashes and bugs: Test thoroughly on multiple Android devices
+- Metadata issues: Ensure store listing is complete and accurate
+- Permission issues: Only request necessary permissions
+
+If your app is rejected, don't get discouraged. Review the feedback, make the necessary changes, and resubmit.
