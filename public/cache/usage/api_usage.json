@@ -968,5 +968,25 @@
     "cardId": "imported_310",
     "cardName": "Six of Pentacles",
     "timestamp": "2025-04-23T04:45:30.476Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w10",
+    "cardName": "Ten of Wands",
+    "timestamp": "2025-04-24T06:06:09.329Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w10",
+    "cardName": "Ten of Wands",
+    "timestamp": "2025-04-24T06:06:26.754Z"
   }
 ]
