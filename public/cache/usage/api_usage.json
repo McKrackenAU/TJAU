@@ -858,5 +858,115 @@
     "cardId": "imported_257",
     "cardName": "The Tower",
     "timestamp": "2025-04-20T13:02:09.335Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_324",
+    "cardName": "Cosmic Connections",
+    "timestamp": "2025-04-23T04:44:48.598Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_254",
+    "cardName": "Death",
+    "timestamp": "2025-04-23T04:44:51.066Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_324",
+    "cardName": "Cosmic Connections",
+    "timestamp": "2025-04-23T04:45:03.657Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_254",
+    "cardName": "Death",
+    "timestamp": "2025-04-23T04:45:08.070Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_347",
+    "cardName": "Sacred Symbols",
+    "timestamp": "2025-04-23T04:45:24.580Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_321",
+    "cardName": "The Element of Fire",
+    "timestamp": "2025-04-23T04:45:26.568Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_309",
+    "cardName": "Five of Pentacles",
+    "timestamp": "2025-04-23T04:45:28.072Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_310",
+    "cardName": "Six of Pentacles",
+    "timestamp": "2025-04-23T04:45:28.569Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_280",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-04-23T04:45:28.578Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_280",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-04-23T04:45:30.394Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_310",
+    "cardName": "Six of Pentacles",
+    "timestamp": "2025-04-23T04:45:30.476Z"
   }
 ]
