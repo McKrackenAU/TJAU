@@ -94,6 +94,13 @@ export function FixedBottomNav() {
           <span className="text-xs font-medium">Library</span>
         </Link>
         <Link 
+          href="/learning"
+          className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/learning" ? 'text-primary' : 'text-gray-400'}`}
+        >
+          <BookHeart className="w-6 h-6 mb-1" />
+          <span className="text-xs font-medium">Learning</span>
+        </Link>
+        <Link 
           href="/angel-numbers"
           className={`flex-1 flex flex-col items-center justify-center no-underline transition-colors ${location === "/angel-numbers" ? 'text-primary' : 'text-gray-400'}`}
         >

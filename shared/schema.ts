@@ -4,6 +4,7 @@ import { z } from "zod";
 
 export const readings = pgTable("readings", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   type: text("type").notNull(), // 'daily' or 'spread'
   cards: text("cards").array().notNull(),
   notes: text("notes").notNull().default(''),
@@ -13,6 +14,7 @@ export const readings = pgTable("readings", {
 
 export const studyProgress = pgTable("study_progress", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   cardId: text("card_id").notNull(),
   lastReviewed: timestamp("last_reviewed").defaultNow().notNull(),
   confidenceLevel: integer("confidence_level").notNull().default(0), // 0-5
@@ -22,6 +24,7 @@ export const studyProgress = pgTable("study_progress", {
 
 export const journalEntries = pgTable("journal_entries", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   title: text("title").notNull(),
   content: text("content").notNull(),
   date: timestamp("date").defaultNow().notNull(),
