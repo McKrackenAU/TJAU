@@ -255,54 +255,70 @@ export class DatabaseStorage implements IStorage {
     return track;
   }
 
-  async createUserProgress(progress: InsertUserProgress): Promise<UserProgress> {
+  async createUserProgress(userId: number, progress: InsertUserProgress): Promise<UserProgress> {
     const [result] = await db
       .insert(userProgress)
-      .values(progress)
+      .values({
+        ...progress,
+        userId
+      })
       .returning();
     return result;
   }
 
-  async updateUserProgress(id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress> {
+  async updateUserProgress(userId: number, id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress> {
     const [updated] = await db
       .update(userProgress)
       .set({
         ...progress,
         lastActive: new Date()
       })
-      .where(eq(userProgress.id, id))
+      .where(and(
+        eq(userProgress.id, id),
+        eq(userProgress.userId, userId)
+      ))
       .returning();
     return updated;
   }
 
-  async getUserProgress(trackId: number): Promise<UserProgress | undefined> {
+  async getUserProgress(userId: number, trackId: number): Promise<UserProgress | undefined> {
     const [progress] = await db
       .select()
       .from(userProgress)
-      .where(eq(userProgress.trackId, trackId));
+      .where(and(
+        eq(userProgress.trackId, trackId),
+        eq(userProgress.userId, userId)
+      ));
     return progress;
   }
 
-  async createQuizResult(result: InsertQuizResult): Promise<QuizResult> {
+  async createQuizResult(userId: number, result: InsertQuizResult): Promise<QuizResult> {
     const [created] = await db
       .insert(quizResults)
-      .values(result)
+      .values({
+        ...result,
+        userId
+      })
       .returning();
     return created;
   }
 
-  async getQuizResults(trackId: number): Promise<QuizResult[]> {
+  async getQuizResults(userId: number, trackId: number): Promise<QuizResult[]> {
     return db
       .select()
       .from(quizResults)
-      .where(eq(quizResults.trackId, trackId))
+      .where(and(
+        eq(quizResults.trackId, trackId),
+        eq(quizResults.userId, userId)
+      ))
       .orderBy(desc(quizResults.date));
   }
 
-  async getRecentQuizResults(limit: number = 10): Promise<QuizResult[]> {
+  async getRecentQuizResults(userId: number, limit: number = 10): Promise<QuizResult[]> {
     return db
       .select()
       .from(quizResults)
+      .where(eq(quizResults.userId, userId))
       .orderBy(desc(quizResults.date))
       .limit(limit);
   }
