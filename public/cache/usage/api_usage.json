@@ -1168,5 +1168,75 @@
     "cardId": "imported_349",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-04-24T07:42:45.787Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w3",
+    "cardName": "Three of Wands",
+    "timestamp": "2025-04-24T13:26:31.941Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c3",
+    "cardName": "Three of Cups",
+    "timestamp": "2025-04-24T13:26:32.052Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s3",
+    "cardName": "Three of Swords",
+    "timestamp": "2025-04-24T13:26:32.084Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p3",
+    "cardName": "Three of Pentacles",
+    "timestamp": "2025-04-24T13:26:32.194Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w4",
+    "cardName": "Four of Wands",
+    "timestamp": "2025-04-24T13:26:32.306Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c4",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-04-24T13:26:32.313Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "c4",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-04-24T13:26:34.041Z"
   }
 ]
