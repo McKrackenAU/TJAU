@@ -128,81 +128,107 @@ export class DatabaseStorage implements IStorage {
     return updated;
   }
 
-  async getDueCards(): Promise<StudyProgress[]> {
+  async getDueCards(userId: number): Promise<StudyProgress[]> {
     return db
       .select()
       .from(studyProgress)
-      .where(lte(studyProgress.nextReviewDue, new Date()))
+      .where(and(
+        lte(studyProgress.nextReviewDue, new Date()),
+        eq(studyProgress.userId, userId)
+      ))
       .orderBy(studyProgress.nextReviewDue);
   }
 
-  async createJournalEntry(entry: InsertJournalEntry): Promise<JournalEntry> {
+  async createJournalEntry(userId: number, entry: InsertJournalEntry): Promise<JournalEntry> {
     const [result] = await db
       .insert(journalEntries)
-      .values(entry)
+      .values({
+        ...entry,
+        userId
+      })
       .returning();
     return result;
   }
 
-  async getJournalEntries(): Promise<JournalEntry[]> {
+  async getJournalEntries(userId: number): Promise<JournalEntry[]> {
     return db
       .select()
       .from(journalEntries)
+      .where(eq(journalEntries.userId, userId))
       .orderBy(desc(journalEntries.date));
   }
 
-  async getJournalEntry(id: number): Promise<JournalEntry | undefined> {
+  async getJournalEntry(userId: number, id: number): Promise<JournalEntry | undefined> {
     const [entry] = await db
       .select()
       .from(journalEntries)
-      .where(eq(journalEntries.id, id));
+      .where(and(
+        eq(journalEntries.id, id),
+        eq(journalEntries.userId, userId)
+      ));
     return entry;
   }
 
-  async getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]> {
+  async getJournalEntriesByCard(userId: number, cardId: string): Promise<JournalEntry[]> {
     return db
       .select()
       .from(journalEntries)
-      .where(sql`${cardId} = ANY(${journalEntries.cards})`)
+      .where(and(
+        sql`${cardId} = ANY(${journalEntries.cards})`,
+        eq(journalEntries.userId, userId)
+      ))
       .orderBy(desc(journalEntries.date));
   }
 
-  async getJournalEntriesByTag(tag: string): Promise<JournalEntry[]> {
+  async getJournalEntriesByTag(userId: number, tag: string): Promise<JournalEntry[]> {
     return db
       .select()
       .from(journalEntries)
-      .where(sql`${tag} = ANY(${journalEntries.tags})`)
+      .where(and(
+        sql`${tag} = ANY(${journalEntries.tags})`,
+        eq(journalEntries.userId, userId)
+      ))
       .orderBy(desc(journalEntries.date));
   }
 
-  async createImportedCard(card: InsertImportedCard): Promise<ImportedCard> {
+  async createImportedCard(userId: number, card: InsertImportedCard): Promise<ImportedCard> {
     const [created] = await db
       .insert(importedCards)
-      .values(card)
+      .values({
+        ...card,
+        userId
+      })
       .returning();
     return created;
   }
 
-  async getImportedCards(): Promise<ImportedCard[]> {
+  async getImportedCards(userId: number): Promise<ImportedCard[]> {
     return db
       .select()
       .from(importedCards)
+      .where(eq(importedCards.userId, userId))
       .orderBy(desc(importedCards.dateImported));
   }
 
-  async getImportedCard(cardId: number): Promise<ImportedCard | undefined> {
+  async getImportedCard(userId: number, cardId: number): Promise<ImportedCard | undefined> {
     const [card] = await db
       .select()
       .from(importedCards)
-      .where(eq(importedCards.id, cardId));
+      .where(and(
+        eq(importedCards.id, cardId),
+        eq(importedCards.userId, userId)
+      ));
     return card;
   }
   
-  async updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard> {
+  async updateCardImage(userId: number, cardId: number, imageUrl: string): Promise<ImportedCard> {
     const [updated] = await db
       .update(importedCards)
       .set({ imageUrl })
-      .where(eq(importedCards.id, cardId))
+      .where(and(
+        eq(importedCards.id, cardId),
+        eq(importedCards.userId, userId)
+      ))
       .returning();
     return updated;
   }
