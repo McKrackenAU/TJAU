@@ -1238,5 +1238,75 @@
     "cardId": "c4",
     "cardName": "Four of Cups",
     "timestamp": "2025-04-24T13:26:34.041Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c4",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-04-25T11:40:55.981Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s4",
+    "cardName": "Four of Swords",
+    "timestamp": "2025-04-25T11:40:55.997Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w5",
+    "cardName": "Five of Wands",
+    "timestamp": "2025-04-25T11:40:56.180Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c5",
+    "cardName": "Five of Cups",
+    "timestamp": "2025-04-25T11:40:56.183Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p5",
+    "cardName": "Five of Pentacles",
+    "timestamp": "2025-04-25T11:40:56.389Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s5",
+    "cardName": "Five of Swords",
+    "timestamp": "2025-04-25T11:40:56.392Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "p5",
+    "cardName": "Five of Pentacles",
+    "timestamp": "2025-04-25T11:40:58.595Z"
   }
 ]
