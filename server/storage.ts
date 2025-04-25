@@ -6,31 +6,31 @@ import session from "express-session";
 import connectPg from "connect-pg-simple";
 
 export interface IStorage {
-  createReading(reading: InsertReading): Promise<Reading>;
-  getReadings(): Promise<Reading[]>;
-  getDailyReadings(): Promise<Reading[]>;
-  getSpreadReadings(): Promise<Reading[]>;
-  getStudyProgress(cardId: string): Promise<StudyProgress | undefined>;
-  updateStudyProgress(progress: InsertStudyProgress): Promise<StudyProgress>;
-  getDueCards(): Promise<StudyProgress[]>;
-  createJournalEntry(entry: InsertJournalEntry): Promise<JournalEntry>;
-  getJournalEntries(): Promise<JournalEntry[]>;
-  getJournalEntry(id: number): Promise<JournalEntry | undefined>;
-  getJournalEntriesByCard(cardId: string): Promise<JournalEntry[]>;
-  getJournalEntriesByTag(tag: string): Promise<JournalEntry[]>;
-  createImportedCard(card: InsertImportedCard): Promise<ImportedCard>;
-  getImportedCards(): Promise<ImportedCard[]>;
-  getImportedCard(cardId: number): Promise<ImportedCard | undefined>;
-  updateCardImage(cardId: number, imageUrl: string): Promise<ImportedCard>;
+  createReading(userId: number, reading: InsertReading): Promise<Reading>;
+  getReadings(userId: number): Promise<Reading[]>;
+  getDailyReadings(userId: number): Promise<Reading[]>;
+  getSpreadReadings(userId: number): Promise<Reading[]>;
+  getStudyProgress(userId: number, cardId: string): Promise<StudyProgress | undefined>;
+  updateStudyProgress(userId: number, progress: InsertStudyProgress): Promise<StudyProgress>;
+  getDueCards(userId: number): Promise<StudyProgress[]>;
+  createJournalEntry(userId: number, entry: InsertJournalEntry): Promise<JournalEntry>;
+  getJournalEntries(userId: number): Promise<JournalEntry[]>;
+  getJournalEntry(userId: number, id: number): Promise<JournalEntry | undefined>;
+  getJournalEntriesByCard(userId: number, cardId: string): Promise<JournalEntry[]>;
+  getJournalEntriesByTag(userId: number, tag: string): Promise<JournalEntry[]>;
+  createImportedCard(userId: number, card: InsertImportedCard): Promise<ImportedCard>;
+  getImportedCards(userId: number): Promise<ImportedCard[]>;
+  getImportedCard(userId: number, cardId: number): Promise<ImportedCard | undefined>;
+  updateCardImage(userId: number, cardId: number, imageUrl: string): Promise<ImportedCard>;
   createLearningTrack(track: InsertLearningTrack): Promise<LearningTrack>;
   getLearningTracks(): Promise<LearningTrack[]>;
   getLearningTrack(id: number): Promise<LearningTrack | undefined>;
-  createUserProgress(progress: InsertUserProgress): Promise<UserProgress>;
-  updateUserProgress(id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress>;
-  getUserProgress(trackId: number): Promise<UserProgress | undefined>;
-  createQuizResult(result: InsertQuizResult): Promise<QuizResult>;
-  getQuizResults(trackId: number): Promise<QuizResult[]>;
-  getRecentQuizResults(limit?: number): Promise<QuizResult[]>;
+  createUserProgress(userId: number, progress: InsertUserProgress): Promise<UserProgress>;
+  updateUserProgress(userId: number, id: number, progress: Partial<InsertUserProgress>): Promise<UserProgress>;
+  getUserProgress(userId: number, trackId: number): Promise<UserProgress | undefined>;
+  createQuizResult(userId: number, result: InsertQuizResult): Promise<QuizResult>;
+  getQuizResults(userId: number, trackId: number): Promise<QuizResult[]>;
+  getRecentQuizResults(userId: number, limit?: number): Promise<QuizResult[]>;
   // User authentication
   createUser(user: InsertUser): Promise<User>;
   getUser(id: number): Promise<User | undefined>;
@@ -61,10 +61,13 @@ export interface IStorage {
 }
 
 export class DatabaseStorage implements IStorage {
-  async createReading(insertReading: InsertReading): Promise<Reading> {
+  async createReading(userId: number, insertReading: InsertReading): Promise<Reading> {
     const [reading] = await db
       .insert(readings)
-      .values(insertReading)
+      .values({
+        ...insertReading,
+        userId
+      })
       .returning();
     return reading;
   }

@@ -60,6 +60,7 @@ export const learningTracks = pgTable("learning_tracks", {
 
 export const userProgress = pgTable("user_progress", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   trackId: integer("track_id").notNull(),
   completedLessons: text("completed_lessons").array().default([]).notNull(),
   achievements: text("achievements").array().default([]).notNull(),
@@ -70,6 +71,7 @@ export const userProgress = pgTable("user_progress", {
 
 export const quizResults = pgTable("quiz_results", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   trackId: integer("track_id").notNull(),
   score: integer("score").notNull(),
   totalQuestions: integer("total_questions").notNull(),
@@ -96,6 +98,7 @@ export const insertQuizResultSchema = createInsertSchema(quizResults).omit({
 
 export const importedCards = pgTable("imported_cards", {
   id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(), // Associate with user
   name: text("name").notNull(),
   description: text("description").notNull(),
   meanings: jsonb("meanings").notNull(),
