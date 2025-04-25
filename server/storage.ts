@@ -72,43 +72,56 @@ export class DatabaseStorage implements IStorage {
     return reading;
   }
 
-  async getReadings(): Promise<Reading[]> {
+  async getReadings(userId: number): Promise<Reading[]> {
     return db
       .select()
       .from(readings)
+      .where(eq(readings.userId, userId))
       .orderBy(desc(readings.date));
   }
 
-  async getDailyReadings(): Promise<Reading[]> {
+  async getDailyReadings(userId: number): Promise<Reading[]> {
     return db
       .select()
       .from(readings)
-      .where(eq(readings.type, 'daily'))
+      .where(and(
+        eq(readings.type, 'daily'), 
+        eq(readings.userId, userId)
+      ))
       .orderBy(desc(readings.date));
   }
 
-  async getSpreadReadings(): Promise<Reading[]> {
+  async getSpreadReadings(userId: number): Promise<Reading[]> {
     return db
       .select()
       .from(readings)
-      .where(eq(readings.type, 'spread'))
+      .where(and(
+        eq(readings.type, 'spread'),
+        eq(readings.userId, userId)
+      ))
       .orderBy(desc(readings.date));
   }
 
-  async getStudyProgress(cardId: string): Promise<StudyProgress | undefined> {
+  async getStudyProgress(userId: number, cardId: string): Promise<StudyProgress | undefined> {
     const [progress] = await db
       .select()
       .from(studyProgress)
-      .where(eq(studyProgress.cardId, cardId));
+      .where(and(
+        eq(studyProgress.cardId, cardId),
+        eq(studyProgress.userId, userId)
+      ));
     return progress;
   }
 
-  async updateStudyProgress(progress: InsertStudyProgress): Promise<StudyProgress> {
+  async updateStudyProgress(userId: number, progress: InsertStudyProgress): Promise<StudyProgress> {
     const [updated] = await db
       .insert(studyProgress)
-      .values(progress)
+      .values({
+        ...progress,
+        userId
+      })
       .onConflictDoUpdate({
-        target: [studyProgress.cardId],
+        target: [studyProgress.cardId, studyProgress.userId],
         set: progress,
       })
       .returning();
