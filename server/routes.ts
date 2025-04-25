@@ -657,7 +657,11 @@ export function registerRoutes(app: Express): Server {
   // New study progress endpoints
   app.get("/api/study/progress/:cardId", async (req, res) => {
     try {
-      const progress = await storage.getStudyProgress(req.params.cardId);
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const progress = await storage.getStudyProgress(userId, req.params.cardId);
       res.json(progress || null);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch study progress" });
@@ -666,6 +670,10 @@ export function registerRoutes(app: Express): Server {
 
   app.post("/api/study/progress", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const { cardId, confidenceLevel } = req.body;
 
       // Calculate next review date based on confidence level
@@ -678,7 +686,7 @@ export function registerRoutes(app: Express): Server {
         nextReviewDue,
       });
 
-      const result = await storage.updateStudyProgress(progress);
+      const result = await storage.updateStudyProgress(userId, progress);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: "Invalid study progress data" });
@@ -687,7 +695,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/study/due-cards", async (req, res) => {
     try {
-      const dueCards = await storage.getDueCards();
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const dueCards = await storage.getDueCards(userId);
       res.json(dueCards);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch due cards" });
@@ -697,8 +709,12 @@ export function registerRoutes(app: Express): Server {
   // Journal routes
   app.post("/api/journal", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const entry = insertJournalEntrySchema.parse(req.body);
-      const result = await storage.createJournalEntry(entry);
+      const result = await storage.createJournalEntry(userId, entry);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: "Invalid journal entry data" });
@@ -707,7 +723,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/journal", async (req, res) => {
     try {
-      const entries = await storage.getJournalEntries();
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const entries = await storage.getJournalEntries(userId);
       res.json(entries);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
@@ -716,7 +736,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/journal/:id", async (req, res) => {
     try {
-      const entry = await storage.getJournalEntry(Number(req.params.id));
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const entry = await storage.getJournalEntry(userId, Number(req.params.id));
       if (!entry) {
         return res.status(404).json({ error: "Journal entry not found" });
       }
@@ -728,7 +752,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/journal/card/:cardId", async (req, res) => {
     try {
-      const entries = await storage.getJournalEntriesByCard(req.params.cardId);
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const entries = await storage.getJournalEntriesByCard(userId, req.params.cardId);
       res.json(entries);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
@@ -737,7 +765,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/journal/tag/:tag", async (req, res) => {
     try {
-      const entries = await storage.getJournalEntriesByTag(req.params.tag);
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const entries = await storage.getJournalEntriesByTag(userId, req.params.tag);
       res.json(entries);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
@@ -779,8 +811,12 @@ export function registerRoutes(app: Express): Server {
   // User Progress routes
   app.post("/api/learning/progress", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const progress = insertUserProgressSchema.parse(req.body);
-      const result = await storage.createUserProgress(progress);
+      const result = await storage.createUserProgress(userId, progress);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: "Invalid progress data" });
@@ -789,8 +825,12 @@ export function registerRoutes(app: Express): Server {
 
   app.patch("/api/learning/progress/:id", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const progress = insertUserProgressSchema.partial().parse(req.body);
-      const result = await storage.updateUserProgress(Number(req.params.id), progress);
+      const result = await storage.updateUserProgress(userId, Number(req.params.id), progress);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: "Invalid progress update data" });
@@ -799,7 +839,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/learning/progress/:trackId", async (req, res) => {
     try {
-      const progress = await storage.getUserProgress(Number(req.params.trackId));
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const progress = await storage.getUserProgress(userId, Number(req.params.trackId));
       res.json(progress || null);
     } catch (error) {
       console.error("Error fetching user progress:", error);
@@ -811,8 +855,12 @@ export function registerRoutes(app: Express): Server {
   // Quiz Results routes
   app.post("/api/learning/quiz-results", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const result = insertQuizResultSchema.parse(req.body);
-      const created = await storage.createQuizResult(result);
+      const created = await storage.createQuizResult(userId, result);
       res.json(created);
     } catch (error) {
       res.status(400).json({ error: "Invalid quiz result data" });
@@ -821,7 +869,11 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/learning/quiz-results/:trackId", async (req, res) => {
     try {
-      const results = await storage.getQuizResults(Number(req.params.trackId));
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+      const results = await storage.getQuizResults(userId, Number(req.params.trackId));
       res.json(results);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch quiz results" });
@@ -830,8 +882,12 @@ export function registerRoutes(app: Express): Server {
 
   app.get("/api/learning/recent-quiz-results", async (req, res) => {
     try {
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const limit = req.query.limit ? Number(req.query.limit) : undefined;
-      const results = await storage.getRecentQuizResults(limit);
+      const results = await storage.getRecentQuizResults(userId, limit);
       res.json(results);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch recent quiz results" });
@@ -923,8 +979,12 @@ export function registerRoutes(app: Express): Server {
       
       if (id.startsWith("imported_")) {
         // Custom card from database
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+        const userId = req.user!.id;
         const cardId = parseInt(id.replace("imported_", ""));
-        const importedCard = await storage.getImportedCard(cardId);
+        const importedCard = await storage.getImportedCard(userId, cardId);
         
         if (importedCard) {
           card = {
@@ -990,8 +1050,12 @@ export function registerRoutes(app: Express): Server {
       
       // Check if this is an imported card
       if (id.startsWith("imported_")) {
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+        const userId = req.user!.id;
         const cardId = parseInt(id.replace("imported_", ""));
-        const importedCard = await storage.getImportedCard(cardId);
+        const importedCard = await storage.getImportedCard(userId, cardId);
         
         if (importedCard) {
           // Format meanings
@@ -1151,11 +1215,15 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ error: "No image file uploaded" });
       }
 
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
       const cardId = req.params.cardId;
       const imageUrl = `/uploads/${req.file.filename}`;
 
       // Update the card with the new image URL
-      await storage.updateCardImage(parseInt(cardId.replace('imported_', '')), imageUrl);
+      await storage.updateCardImage(userId, parseInt(cardId.replace('imported_', '')), imageUrl);
 
       res.json({
         message: "Image uploaded successfully",
