@@ -53,18 +53,36 @@ const config: CapacitorConfig = {
     scheme: 'tarotjourney',
     // iOS build configuration
     backgroundColor: '#6c43bc',
-    limitsNavigationsToAppBoundDomains: true
+    limitsNavigationsToAppBoundDomains: true,
+    // App Store deployment settings
+    appStoreDeployment: {
+      version: '1.0.0',
+      buildNumber: '1',
+      automaticSensitiveDataProtection: true,
+      appStoreConnectApiKeyId: '',  // Fill this when deploying
+      appStoreConnectApiKeyIssuer: '', // Fill this when deploying
+      appStoreConnectApiKeyContent: '' // Fill this when deploying
+    }
   },
   // Android specific configuration
   android: {
-    // Allow cleartext (non-HTTPS) traffic for development
-    // Should be false for production
-    allowMixedContent: true,
+    // Set to false for production builds
+    allowMixedContent: false,
     // Backup rules - tells Android what to backup
     // This is important for preserving user data
     captureInput: true,
     backgroundColor: '#6c43bc',
-    overrideUserAgent: 'Tarot Journey App'
+    overrideUserAgent: 'Tarot Journey App',
+    // Play Store deployment settings
+    buildOptions: {
+      keystorePath: '',  // Path to your keystore file (fill when deploying)
+      keystorePassword: '',  // Fill this when deploying
+      keystoreAlias: '',  // Fill this when deploying
+      keystoreAliasPassword: '',  // Fill this when deploying
+      signingType: 'apksigner'
+    },
+    versionCode: 1,
+    versionName: '1.0.0'
   }
 };
 

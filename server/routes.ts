@@ -1125,8 +1125,16 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/cards", async (req, res) => {
     try {
       console.log("Fetching imported cards from database...");
-      const importedCardsData = await storage.getImportedCards();
-      console.log(`Found ${importedCardsData.length} imported cards:`, importedCardsData);
+      
+      // Get user-specific imported cards if authenticated
+      let importedCardsData: ImportedCard[] = [];
+      if (req.isAuthenticated()) {
+        const userId = req.user!.id;
+        importedCardsData = await storage.getImportedCards(userId);
+        console.log(`Found ${importedCardsData.length} imported cards for user ${userId}:`, importedCardsData);
+      } else {
+        console.log("User not authenticated, returning only standard cards");
+      }
 
       // Transform imported cards to match tarot card format
       const transformedImportedCards = importedCardsData.map(card => ({
