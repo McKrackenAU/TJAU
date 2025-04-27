@@ -45,7 +45,7 @@ Before beginning the deployment process, ensure you have the following:
 1. **Update app metadata in `capacitor.config.ts`**
 
    - Review and update the app ID, name, and other configuration details
-   - Make sure the `server.hostname` is set to your production server
+   - Make sure the `server.hostname` is set to your production server (www.tarotjourney.au)
    - Ensure `allowMixedContent` is set to `false` for production
 
 2. **Prepare app assets**
@@ -164,7 +164,7 @@ Before beginning the deployment process, ensure you have the following:
 
    a. Go to "Monetize > Products > In-app products"
    b. Add your subscription products
-      - Product ID: `io.tarotjourney.subscription.monthly`
+      - Product ID: `au.tarotjourney.subscription.monthly`
       - Display name: "Tarot Journey Monthly Subscription"
       - Description and pricing details
 
@@ -207,7 +207,7 @@ Before beginning the deployment process, ensure you have the following:
    b. Select "Auto-Renewable Subscription"
    c. Configure the subscription:
       - Reference Name: "Tarot Journey Monthly Subscription"
-      - Product ID: `io.tarotjourney.subscription.monthly`
+      - Product ID: `au.tarotjourney.subscription.monthly`
       - Pricing and subscription duration
       - Add localization information
 

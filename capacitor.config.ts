@@ -1,17 +1,18 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.tarotjourney.app',
+  appId: 'au.tarotjourney.app',
   appName: 'Tarot Journey',
   webDir: 'public',
   bundledWebRuntime: false,
   // Server configuration
   server: {
     // Production server settings
-    hostname: 'tarotjourney.replit.app',
+    hostname: 'www.tarotjourney.au',
     // Allow navigation to our domains
     allowNavigation: [
-      'tarotjourney.replit.app',
+      'www.tarotjourney.au',
+      'tarotjourney.au',
       'localhost',
       '*.stripe.com',
       '*.apple.com' 
@@ -40,7 +41,7 @@ const config: CapacitorConfig = {
     // Purchase plugin configuration
     PurchasePlugin: {
       // Default product ID for subscription
-      defaultProductIdentifier: 'io.tarotjourney.subscription.monthly',
+      defaultProductIdentifier: 'au.tarotjourney.subscription.monthly',
       // Enable receipt validation
       validateReceipts: true
     }
@@ -53,16 +54,8 @@ const config: CapacitorConfig = {
     scheme: 'tarotjourney',
     // iOS build configuration
     backgroundColor: '#6c43bc',
-    limitsNavigationsToAppBoundDomains: true,
-    // App Store deployment settings
-    appStoreDeployment: {
-      version: '1.0.0',
-      buildNumber: '1',
-      automaticSensitiveDataProtection: true,
-      appStoreConnectApiKeyId: '',  // Fill this when deploying
-      appStoreConnectApiKeyIssuer: '', // Fill this when deploying
-      appStoreConnectApiKeyContent: '' // Fill this when deploying
-    }
+    limitsNavigationsToAppBoundDomains: true
+    // Version and build info should be added in Xcode
   },
   // Android specific configuration
   android: {
@@ -80,9 +73,8 @@ const config: CapacitorConfig = {
       keystoreAlias: '',  // Fill this when deploying
       keystoreAliasPassword: '',  // Fill this when deploying
       signingType: 'apksigner'
-    },
-    versionCode: 1,
-    versionName: '1.0.0'
+    }
+    // Version info should be set in build.gradle
   }
 };
 
