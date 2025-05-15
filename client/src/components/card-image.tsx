@@ -92,7 +92,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   };
 
   // Load the card image
-  // Add a deterministic delay to stagger image loading and avoid overwhelming the OpenAI API
+  // Reduced delay to speed up loading while still avoiding overwhelming the API
   useEffect(() => {
     if (!isRevealed) return; // Don't load image if card is not revealed
     if (imageUrl) return; // Don't refetch if we already have the image
@@ -106,17 +106,18 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
     
     // Calculate delay based on card ID for more predictable staggering
-    // Add even more delay between requests to avoid rate limits
+    // Reduced delay to improve loading speed
     const idNum = parseInt(card.id.replace(/\D/g, '') || '0');
-    const delay = (idNum % 15) * 500; // Up to 7.5 seconds delay based on ID
+    const delay = (idNum % 8) * 250; // Up to 1.75 seconds delay (reduced from 7.5s)
     
     const fetchCardImage = async () => {
       try {
         setIsLoading(true);
+        setLoadFailed(false); // Reset load failed state when we start loading
         
         // Try to get the image with a timeout for better error handling
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 10000); // 10-second timeout
+        const timeoutId = setTimeout(() => controller.abort(), 8000); // Reduced timeout (from 10s)
         
         try {
           // Use fetch directly with a timeout since apiRequest doesn't support signal yet
@@ -125,7 +126,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
             {
               method: 'GET',
               credentials: 'include',
-              signal: controller.signal
+              signal: controller.signal,
+              cache: 'force-cache' // Enable browser caching
             }
           );
           
@@ -167,6 +169,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           const data = await response.json();
           if (data.imageUrl) {
             setImageUrl(data.imageUrl);
+            setLoadFailed(false); // Ensure loadFailed is false when we have an image
           } else {
             setLoadFailed(true);
           }
@@ -233,6 +236,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           src={imageUrl} 
           alt={card.name}
           className="absolute inset-0 w-full h-full object-cover"
+          onLoad={() => setLoadFailed(false)} // Ensure loadFailed is false when image loads
         />
       )}
       
@@ -243,8 +247,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         </div>
       )}
       
-      {/* Enhanced fallback placeholder with mystical symbols when load failed */}
-      {loadFailed && !isLoading && (
+      {/* Enhanced fallback placeholder with mystical symbols when load failed AND we have no image */}
+      {loadFailed && !isLoading && !imageUrl && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="text-white bg-purple-800/40 p-4 rounded-lg backdrop-blur-sm flex flex-col items-center">
             <div className="text-5xl mb-2">{getCardSymbol()}</div>
