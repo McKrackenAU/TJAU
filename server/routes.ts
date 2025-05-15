@@ -1025,6 +1025,10 @@ export function registerRoutes(app: Express): Server {
   
   app.get("/api/cards/:id/image", async (req, res) => {
     try {
+      // Set cache headers to improve performance for repeated requests
+      // Cache for 7 days (604800 seconds)
+      res.setHeader('Cache-Control', 'public, max-age=604800');
+      
       // If we know we're rate limited, don't even try to generate
       if (imageGenerationRateLimited) {
         const now = Date.now();
@@ -1090,6 +1094,10 @@ export function registerRoutes(app: Express): Server {
       try {
         // Generate image for the card
         const imageUrl = await generateCardImage(card);
+        
+        // Set additional header for caching
+        res.setHeader('ETag', `"card-${card.id}"`);
+        
         res.json({ imageUrl });
       } catch (error: any) {
         // Specifically handle rate limit errors
