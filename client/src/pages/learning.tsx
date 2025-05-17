@@ -377,62 +377,119 @@ export default function Learning() {
                       finalDisplayName = beginnerNameMap[cardId] || displayName;
                     }
                     
-                    // Get the card name from the tarotCards array if it exists
-                    let displayCardName = card ? card.name : finalDisplayName;
+                    // Direct mapping for card names - guaranteed approach
+                    let displayCardName = "";
                     
-                    // Ensure card name isn't undefined or empty
-                    if (!displayCardName || displayCardName === "undefined") {
-                      // Special handling for Beginner's Journey
-                      if (track.id === 1) {
-                        const beginnerCards = {
-                          "fool": "The Fool",
-                          "magician": "The Magician",
-                          "high-priestess": "The High Priestess",
-                          "empress": "The Empress",
-                          "emperor": "The Emperor",
-                          "hierophant": "The Hierophant",
-                          "lovers": "The Lovers",
-                          "chariot": "The Chariot",
-                          "strength": "Strength",
-                          "hermit": "The Hermit",
-                          "wheel-of-fortune": "Wheel of Fortune",
-                          "justice": "Justice",
-                          "hanged-man": "The Hanged Man",
-                          "death": "Death",
-                          "temperance": "Temperance",
-                          "devil": "The Devil",
-                          "tower": "The Tower",
-                          "star": "The Star",
-                          "moon": "The Moon",
-                          "sun": "The Sun",
-                          "judgement": "Judgement",
-                          "world": "The World"
+                    // Direct handling per track type
+                    if (track.id === 1) {
+                      // Beginner's Journey - Major Arcana by name
+                      const beginnerCards = {
+                        "fool": "The Fool",
+                        "magician": "The Magician",
+                        "high-priestess": "The High Priestess",
+                        "empress": "The Empress",
+                        "emperor": "The Emperor",
+                        "hierophant": "The Hierophant",
+                        "lovers": "The Lovers",
+                        "chariot": "The Chariot",
+                        "strength": "Strength",
+                        "hermit": "The Hermit",
+                        "wheel-of-fortune": "Wheel of Fortune",
+                        "justice": "Justice",
+                        "hanged-man": "The Hanged Man",
+                        "death": "Death",
+                        "temperance": "Temperance",
+                        "devil": "The Devil",
+                        "tower": "The Tower",
+                        "star": "The Star",
+                        "moon": "The Moon",
+                        "sun": "The Sun",
+                        "judgement": "Judgement",
+                        "world": "The World"
+                      };
+                      displayCardName = beginnerCards[cardId] || "Card " + (index + 1);
+                    } 
+                    else if (track.id === 11) {
+                      // Advanced Symbolism - Major Arcana by number + Minor Arcana
+                      // First handle Major Arcana numerical IDs (0-21)
+                      const majorArcanaNames = {
+                        "0": "The Fool", 
+                        "1": "The Magician", 
+                        "2": "The High Priestess", 
+                        "3": "The Empress",
+                        "4": "The Emperor", 
+                        "5": "The Hierophant", 
+                        "6": "The Lovers", 
+                        "7": "The Chariot",
+                        "8": "Strength", 
+                        "9": "The Hermit", 
+                        "10": "Wheel of Fortune", 
+                        "11": "Justice",
+                        "12": "The Hanged Man", 
+                        "13": "Death", 
+                        "14": "Temperance", 
+                        "15": "The Devil",
+                        "16": "The Tower", 
+                        "17": "The Star", 
+                        "18": "The Moon", 
+                        "19": "The Sun",
+                        "20": "Judgement", 
+                        "21": "The World"
+                      };
+                      
+                      if (majorArcanaNames[cardId]) {
+                        displayCardName = majorArcanaNames[cardId];
+                      }
+                      // Then handle Minor Arcana (letter+number format like c1, w2, etc)
+                      else if (cardId.length >= 2) {
+                        const suit = cardId[0];
+                        const rank = cardId.substring(1);
+                        
+                        const suitNames = {
+                          'w': 'Wands',
+                          'c': 'Cups',
+                          'p': 'Pentacles',
+                          's': 'Swords'
                         };
-                        displayCardName = beginnerCards[cardId] || finalDisplayName;
-                      } 
-                      // Special handling for Advanced Symbolism track
-                      else if (track.id === 11) {
-                        const majorArcanaNames = [
-                          "The Fool", "The Magician", "The High Priestess", "The Empress",
-                          "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
-                          "Strength", "The Hermit", "Wheel of Fortune", "Justice",
-                          "The Hanged Man", "Death", "Temperance", "The Devil",
-                          "The Tower", "The Star", "The Moon", "The Sun",
-                          "Judgement", "The World"
-                        ];
-                        const cardNum = parseInt(cardId);
-                        if (!isNaN(cardNum) && cardNum >= 0 && cardNum < majorArcanaNames.length) {
-                          displayCardName = majorArcanaNames[cardNum];
-                        } else {
-                          // If still no name, use either card ID or fallback message
-                          displayCardName = finalDisplayName || cardId;
+                        
+                        const rankNames = {
+                          '1': 'Ace',
+                          '2': 'Two',
+                          '3': 'Three',
+                          '4': 'Four',
+                          '5': 'Five',
+                          '6': 'Six',
+                          '7': 'Seven',
+                          '8': 'Eight',
+                          '9': 'Nine',
+                          '10': 'Ten',
+                          'p': 'Page',
+                          'n': 'Knight',
+                          'q': 'Queen',
+                          'k': 'King'
+                        };
+                        
+                        if (suitNames[suit] && rankNames[rank]) {
+                          displayCardName = `${rankNames[rank]} of ${suitNames[suit]}`;
                         }
                       }
+                      
+                      // Fallback if we still don't have a name
+                      if (!displayCardName) {
+                        displayCardName = "Card " + (index + 1);
+                      }
+                    }
+                    else {
+                      // For other tracks, use card name from tarotCards if available
+                      // Or format cardId nicely
+                      displayCardName = card?.name || cardId.split('-')
+                        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                        .join(' ');
                     }
 
-                    // Create the display card with proper name that's guaranteed not to be undefined
+                    // Create the display card with proper name
                     const displayCard = { 
-                      name: displayCardName || cardId
+                      name: displayCardName || "Card " + (index + 1)
                     };
                     
                     return (
