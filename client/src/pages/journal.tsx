@@ -117,6 +117,16 @@ export default function Journal() {
                     <SelectItem value="confused">Confused</SelectItem>
                     <SelectItem value="anxious">Anxious</SelectItem>
                     <SelectItem value="grateful">Grateful</SelectItem>
+                    <SelectItem value="joyful">Joyful</SelectItem>
+                    <SelectItem value="melancholic">Melancholic</SelectItem>
+                    <SelectItem value="energetic">Energetic</SelectItem>
+                    <SelectItem value="contemplative">Contemplative</SelectItem>
+                    <SelectItem value="hopeful">Hopeful</SelectItem>
+                    <SelectItem value="frustrated">Frustrated</SelectItem>
+                    <SelectItem value="balanced">Balanced</SelectItem>
+                    <SelectItem value="creative">Creative</SelectItem>
+                    <SelectItem value="determined">Determined</SelectItem>
+                    <SelectItem value="reflective">Reflective</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
