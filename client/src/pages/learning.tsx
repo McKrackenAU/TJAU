@@ -378,8 +378,54 @@ export default function Learning() {
                     }
                     
                     // Create the display card with proper name
+                    let displayCardName = finalDisplayName;
+                    
+                    // Special handling for Beginner's Journey and Advanced Symbolism tracks
+                    if (track.id === 1) {
+                      // For Beginner's Journey, convert card IDs to proper names
+                      const beginnerCards = {
+                        "fool": "The Fool",
+                        "magician": "The Magician",
+                        "high-priestess": "The High Priestess",
+                        "empress": "The Empress",
+                        "emperor": "The Emperor",
+                        "hierophant": "The Hierophant",
+                        "lovers": "The Lovers",
+                        "chariot": "The Chariot",
+                        "strength": "Strength",
+                        "hermit": "The Hermit",
+                        "wheel-of-fortune": "Wheel of Fortune",
+                        "justice": "Justice",
+                        "hanged-man": "The Hanged Man",
+                        "death": "Death",
+                        "temperance": "Temperance",
+                        "devil": "The Devil",
+                        "tower": "The Tower",
+                        "star": "The Star",
+                        "moon": "The Moon",
+                        "sun": "The Sun",
+                        "judgement": "Judgement",
+                        "world": "The World"
+                      };
+                      displayCardName = beginnerCards[cardId] || displayCardName;
+                    } else if (track.id === 11) {
+                      // For Advanced Symbolism track, use numeric IDs
+                      const majorArcanaNames = [
+                        "The Fool", "The Magician", "The High Priestess", "The Empress",
+                        "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
+                        "Strength", "The Hermit", "Wheel of Fortune", "Justice",
+                        "The Hanged Man", "Death", "Temperance", "The Devil",
+                        "The Tower", "The Star", "The Moon", "The Sun",
+                        "Judgement", "The World"
+                      ];
+                      const cardNum = parseInt(cardId);
+                      if (!isNaN(cardNum) && cardNum >= 0 && cardNum < majorArcanaNames.length) {
+                        displayCardName = majorArcanaNames[cardNum];
+                      }
+                    }
+
                     const displayCard = card || { 
-                      name: finalDisplayName 
+                      name: displayCardName 
                     };
                     
                     return (
