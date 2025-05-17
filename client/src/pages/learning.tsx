@@ -347,9 +347,39 @@ export default function Learning() {
                       displayName = cardId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
                     }
                     
+                    // For Beginner's Journey track, map the IDs to proper names
+                    let finalDisplayName = displayName;
+                    if (track.id === 1) {
+                      const beginnerNameMap: Record<string, string> = {
+                        "fool": "The Fool",
+                        "magician": "The Magician",
+                        "high-priestess": "The High Priestess",
+                        "empress": "The Empress",
+                        "emperor": "The Emperor",
+                        "hierophant": "The Hierophant",
+                        "lovers": "The Lovers",
+                        "chariot": "The Chariot",
+                        "strength": "Strength",
+                        "hermit": "The Hermit",
+                        "wheel-of-fortune": "Wheel of Fortune",
+                        "justice": "Justice",
+                        "hanged-man": "The Hanged Man",
+                        "death": "Death",
+                        "temperance": "Temperance",
+                        "devil": "The Devil",
+                        "tower": "The Tower",
+                        "star": "The Star",
+                        "moon": "The Moon",
+                        "sun": "The Sun",
+                        "judgement": "Judgement",
+                        "world": "The World"
+                      };
+                      finalDisplayName = beginnerNameMap[cardId] || displayName;
+                    }
+                    
                     // Create the display card with proper name
                     const displayCard = card || { 
-                      name: displayName 
+                      name: finalDisplayName 
                     };
                     
                     return (
