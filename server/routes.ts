@@ -851,12 +851,30 @@ export function registerRoutes(app: Express): Server {
       if (!req.isAuthenticated()) {
         return res.status(401).json({ error: "Authentication required" });
       }
+      
       const userId = req.user!.id;
+      console.log("Creating progress for user:", userId, "body:", req.body);
+      
+      // Validate that the track exists in the database
+      const trackId = req.body.trackId;
+      if (trackId) {
+        const track = await db.query.learningTracks.findFirst({
+          where: eq(learningTracks.id, trackId)
+        });
+        
+        if (!track) {
+          return res.status(404).json({ error: "Learning track not found" });
+        }
+        
+        console.log(`Track ${trackId} found:`, track.name);
+      }
+      
       const progress = insertUserProgressSchema.parse(req.body);
       const result = await storage.createUserProgress(userId, progress);
       res.json(result);
     } catch (error) {
-      res.status(400).json({ error: "Invalid progress data" });
+      console.error("Error creating user progress:", error);
+      res.status(400).json({ error: "Invalid progress data", details: error instanceof Error ? error.message : "Unknown error" });
     }
   });
 

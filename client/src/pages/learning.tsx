@@ -27,12 +27,25 @@ export default function Learning() {
 
   const startTrackMutation = useMutation({
     mutationFn: async (trackId: number) => {
-      return apiRequest("POST", "/api/learning/progress", {
-        trackId,
-        completedLessons: [],
-        achievements: [],
-        currentLesson: 1
-      });
+      console.log("Starting track:", trackId);
+      try {
+        // For pendulum course, add specific handling (track ID 5)
+        if (trackId === 5) {
+          console.log("Initializing Pendulum Dowsing course");
+        }
+        
+        const response = await apiRequest("POST", "/api/learning/progress", {
+          trackId,
+          completedLessons: [],
+          achievements: [],
+          currentLesson: 1
+        });
+        console.log("Track start response:", response);
+        return response;
+      } catch (error) {
+        console.error("Error starting track:", error);
+        throw error;
+      }
     },
     onSuccess: (_, trackId) => {
       // Invalidate both queries to ensure fresh data
@@ -41,6 +54,14 @@ export default function Learning() {
       toast({
         title: "Track started",
         description: "Your learning journey has begun!"
+      });
+    },
+    onError: (error) => {
+      console.error("Track start error:", error);
+      toast({
+        title: "Error Starting Track",
+        description: "There was a problem starting this learning track. Please try again.",
+        variant: "destructive"
       });
     }
   });
