@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import type { LearningTrack, UserProgress, QuizResult } from "@shared/schema";
 import { GraduationCap, Trophy, Book, Brain, ArrowRight } from "lucide-react";
 import { tarotCards } from "@shared/tarot-data";
+import { TrackCardLabel } from "@/components/track-card-label";
 
 export default function Learning() {
   const queryClient = useQueryClient();
@@ -504,96 +505,7 @@ export default function Learning() {
                               <span className="text-xs font-medium">{index + 1}</span>
                             </div>
                             <span className="text-xs text-muted-foreground truncate w-full text-center mt-1">
-                              {(() => {
-                                // Force the right card name based on track and card ID
-                                if (track.id === 1) {
-                                  // Beginner's Journey
-                                  switch(cardId) {
-                                    case "fool": return "The Fool";
-                                    case "magician": return "The Magician";
-                                    case "high-priestess": return "The High Priestess";
-                                    case "empress": return "The Empress";
-                                    case "emperor": return "The Emperor";
-                                    case "hierophant": return "The Hierophant";
-                                    case "lovers": return "The Lovers";
-                                    case "chariot": return "The Chariot";
-                                    case "strength": return "Strength";
-                                    case "hermit": return "The Hermit";
-                                    case "wheel-of-fortune": return "Wheel of Fortune";
-                                    case "justice": return "Justice";
-                                    case "hanged-man": return "The Hanged Man";
-                                    case "death": return "Death";
-                                    case "temperance": return "Temperance";
-                                    case "devil": return "The Devil";
-                                    case "tower": return "The Tower";
-                                    case "star": return "The Star";
-                                    case "moon": return "The Moon";
-                                    case "sun": return "The Sun";
-                                    case "judgement": return "Judgement";
-                                    case "world": return "The World";
-                                    default: return `Card ${index + 1}`;
-                                  }
-                                } 
-                                else if (track.id === 11) {
-                                  // Advanced Symbolism
-                                  if (/^\d+$/.test(cardId)) {
-                                    // Major Arcana by number
-                                    const majorArcanaNames = [
-                                      "The Fool", "The Magician", "The High Priestess", "The Empress",
-                                      "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
-                                      "Strength", "The Hermit", "Wheel of Fortune", "Justice",
-                                      "The Hanged Man", "Death", "Temperance", "The Devil",
-                                      "The Tower", "The Star", "The Moon", "The Sun",
-                                      "Judgement", "The World"
-                                    ];
-                                    const num = parseInt(cardId, 10);
-                                    if (num >= 0 && num < majorArcanaNames.length) {
-                                      return majorArcanaNames[num];
-                                    }
-                                  }
-                                  else if (cardId.length >= 2) {
-                                    // Minor Arcana
-                                    const suit = cardId[0];
-                                    const rank = cardId.substring(1);
-                                    
-                                    let suitName = "";
-                                    let rankName = "";
-                                    
-                                    switch(suit) {
-                                      case "w": suitName = "Wands"; break;
-                                      case "c": suitName = "Cups"; break;
-                                      case "p": suitName = "Pentacles"; break;
-                                      case "s": suitName = "Swords"; break;
-                                    }
-                                    
-                                    switch(rank) {
-                                      case "1": rankName = "Ace"; break;
-                                      case "2": rankName = "Two"; break;
-                                      case "3": rankName = "Three"; break;
-                                      case "4": rankName = "Four"; break;
-                                      case "5": rankName = "Five"; break;
-                                      case "6": rankName = "Six"; break;
-                                      case "7": rankName = "Seven"; break;
-                                      case "8": rankName = "Eight"; break;
-                                      case "9": rankName = "Nine"; break;
-                                      case "10": rankName = "Ten"; break;
-                                      case "p": rankName = "Page"; break;
-                                      case "n": rankName = "Knight"; break;
-                                      case "q": rankName = "Queen"; break;
-                                      case "k": rankName = "King"; break;
-                                    }
-                                    
-                                    if (suitName && rankName) {
-                                      return `${rankName} of ${suitName}`;
-                                    }
-                                  }
-                                  
-                                  return `Card ${index + 1}`;
-                                }
-                                
-                                // Fallback to the display card name for other tracks
-                                return displayCard.name || `Card ${index + 1}`;
-                              })()}
+                              <TrackCardLabel trackId={track.id} cardId={cardId} index={index} />
                             </span>
                           </div>
                         </div>
