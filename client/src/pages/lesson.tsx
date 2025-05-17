@@ -59,10 +59,60 @@ export default function LessonPage() {
     return card ? card.name : null;
   };
   
-  // Helper function to get the card name by suit and number
+  // Helper function to get the card name by suit and number or by Major Arcana name
   const getCardNameBySuitNumber = (cardId: string): string => {
     if (!cardId) return "Unknown Card";
     
+    // STEP 1: Handle Major Arcana numerical IDs (for Advanced Symbolism track)
+    if (/^\d+$/.test(cardId)) {
+      const majorArcanaNames = [
+        "The Fool", "The Magician", "The High Priestess", "The Empress",
+        "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
+        "Strength", "The Hermit", "Wheel of Fortune", "Justice",
+        "The Hanged Man", "Death", "Temperance", "The Devil",
+        "The Tower", "The Star", "The Moon", "The Sun",
+        "Judgement", "The World"
+      ];
+      
+      const num = parseInt(cardId, 10);
+      if (num >= 0 && num < majorArcanaNames.length) {
+        console.log(`Found Major Arcana by number: ${cardId} = ${majorArcanaNames[num]}`);
+        return majorArcanaNames[num];
+      }
+    }
+    
+    // STEP 2: Handle Major Arcana by name (for Beginner's Journey track)
+    const majorArcanaByName: Record<string, string> = {
+      "fool": "The Fool",
+      "magician": "The Magician",
+      "high-priestess": "The High Priestess",
+      "empress": "The Empress",
+      "emperor": "The Emperor",
+      "hierophant": "The Hierophant",
+      "lovers": "The Lovers",
+      "chariot": "The Chariot",
+      "strength": "Strength",
+      "hermit": "The Hermit",
+      "wheel-of-fortune": "Wheel of Fortune",
+      "justice": "Justice",
+      "hanged-man": "The Hanged Man",
+      "death": "Death",
+      "temperance": "Temperance",
+      "devil": "The Devil",
+      "tower": "The Tower",
+      "star": "The Star",
+      "moon": "The Moon",
+      "sun": "The Sun",
+      "judgement": "Judgement",
+      "world": "The World"
+    };
+    
+    if (majorArcanaByName[cardId]) {
+      console.log(`Found Major Arcana by name: ${cardId} = ${majorArcanaByName[cardId]}`);
+      return majorArcanaByName[cardId];
+    }
+    
+    // STEP 3: Handle Minor Arcana by suit and rank
     const suitMap: Record<string, string> = {
       'c': 'Cups',
       'w': 'Wands',
@@ -88,15 +138,26 @@ export default function LessonPage() {
     };
     
     // Parse the card ID to get suit and rank
-    if (cardId.length === 2 || cardId.length === 3) {
+    if (cardId.length >= 2) {
       const suit = cardId[0];
       const rank = cardId.substring(1);
       
       if (suitMap[suit] && rankMap[rank]) {
+        console.log(`Found Minor Arcana: ${cardId} = ${rankMap[rank]} of ${suitMap[suit]}`);
         return `${rankMap[rank]} of ${suitMap[suit]}`;
       }
     }
     
+    // STEP 4: Last resort - try to format cardId as readable text
+    if (cardId.includes('-')) {
+      const formattedName = cardId.split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      console.log(`Formatted card ID: ${cardId} = ${formattedName}`);
+      return formattedName;
+    }
+    
+    console.log(`No match found for card ID: ${cardId}`);
     return "Unknown Card";
   };
 
