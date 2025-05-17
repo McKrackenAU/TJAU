@@ -149,8 +149,13 @@ export function registerRoutes(app: Express): Server {
       const { cardId, context } = req.body;
       console.log("Interpreting card:", cardId, "with context:", context);
 
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+
       // Get all available cards including imported ones
-      const allCards = await storage.getImportedCards();
+      const allCards = await storage.getImportedCards(userId);
       const availableCards = [...tarotCards, ...allCards.map(card => ({
         ...card,
         id: `imported_${card.id}`,
@@ -187,6 +192,11 @@ export function registerRoutes(app: Express): Server {
       const { cardIds, context } = req.body;
       console.log("Received request for card combination analysis:", { cardIds, context });
 
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
         return res.status(400).json({
           error: "Please provide at least two cards to analyze"
@@ -194,7 +204,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Get all available cards including imported ones
-      const allCards = await storage.getImportedCards();
+      const allCards = await storage.getImportedCards(userId);
       const availableCards = [...tarotCards, ...allCards.map(card => ({
         ...card,
         id: `imported_${card.id}`,
@@ -240,6 +250,11 @@ export function registerRoutes(app: Express): Server {
       const { cardIds, spreadType, positions } = req.body;
       console.log("Received request for spread interpretation:", { cardIds, spreadType, positions });
 
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
         return res.status(400).json({
           error: "Please provide at least two cards to interpret"
@@ -253,7 +268,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Get all available cards including imported ones
-      const allCards = await storage.getImportedCards();
+      const allCards = await storage.getImportedCards(userId);
       const availableCards = [...tarotCards, ...allCards.map(card => ({
         ...card,
         id: `imported_${card.id}`,
@@ -384,6 +399,11 @@ export function registerRoutes(app: Express): Server {
       const { cardIds, spreadType, positions } = req.body;
       console.log("Received request for spread meditation:", { cardIds, spreadType, positions });
 
+      if (!req.isAuthenticated()) {
+        return res.status(401).json({ error: "Authentication required" });
+      }
+      const userId = req.user!.id;
+
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
         return res.status(400).json({
           error: "Please provide at least two cards for spread meditation"
@@ -397,7 +417,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Get all available cards including imported ones
-      const allCards = await storage.getImportedCards();
+      const allCards = await storage.getImportedCards(userId);
       const availableCards = [...tarotCards, ...allCards.map(card => ({
         ...card,
         id: `imported_${card.id}`,
@@ -631,7 +651,12 @@ export function registerRoutes(app: Express): Server {
         const numericId = parseInt(cardId.replace('imported_', ''));
         console.log(`Looking for imported card with numeric ID: ${numericId}`);
         
-        const importedCards = await storage.getImportedCards();
+        if (!req.isAuthenticated()) {
+          return res.status(401).json({ error: "Authentication required" });
+        }
+        const userId = req.user!.id;
+        
+        const importedCards = await storage.getImportedCards(userId);
         const customCard = importedCards.find(c => c.id === numericId);
         
         if (customCard) {
