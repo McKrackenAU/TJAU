@@ -2,7 +2,7 @@ import type { LessonContent } from "@/components/lesson-content";
 
 // This file contains all the lesson content for the Pendulum Dowsing Mastery Course
 
-export const pendulumLessons: LessonContent[] = [
+const pendulumLessons: LessonContent[] = [
   // Module 1: Introduction to Pendulum Dowsing
   {
     id: "pendulum-1-1",
