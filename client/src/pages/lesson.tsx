@@ -22,7 +22,11 @@ export default function LessonPage() {
   
   // Function to force navigation back to learning
   const goToLearningHome = () => {
-    window.location.href = '/learning';
+    // Force a complete browser reload and navigation to learning
+    window.location.replace('/learning');
+    
+    // Prevent any further code execution after navigation
+    return false;
   };
   
   // Define types for API responses
