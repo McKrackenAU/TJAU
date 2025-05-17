@@ -1,4 +1,5 @@
 import React from 'react';
+import { tarotCards } from "@shared/tarot-data";
 
 interface TrackCardLabelProps {
   trackId: number;
@@ -11,11 +12,19 @@ interface TrackCardLabelProps {
  * This ensures consistent naming across the application
  */
 export function TrackCardLabel({ trackId, cardId, index }: TrackCardLabelProps) {
-  let displayName = "Card " + (index + 1);
-
-  // Beginner's Journey track
+  // Try to find the card in the tarot deck first
+  const tarotCard = tarotCards.find(c => c.id === cardId);
+  
+  // If we have a card from the tarot deck, use its name
+  if (tarotCard?.name) {
+    return <>{tarotCard.name}</>;
+  }
+  
+  // Otherwise handle by track type
+  // ========== BEGINNER'S JOURNEY (Major Arcana by name) ==========
   if (trackId === 1) {
-    const beginnerNames: Record<string, string> = {
+    const majorArcanaNames: Record<string, string> = {
+      // Direct mapping for Beginner's Journey track
       "fool": "The Fool",
       "magician": "The Magician",
       "high-priestess": "The High Priestess",
@@ -39,62 +48,156 @@ export function TrackCardLabel({ trackId, cardId, index }: TrackCardLabelProps) 
       "judgement": "Judgement",
       "world": "The World"
     };
-    
-    if (beginnerNames[cardId]) {
-      displayName = beginnerNames[cardId];
+
+    // Direct lookup for Beginner's Journey
+    if (majorArcanaNames[cardId]) {
+      return <>{majorArcanaNames[cardId]}</>;
     }
   }
-  // Advanced Symbolism track
+  
+  // ========== MINOR ARCANA JOURNEY (Intro + Cards by Suit/Rank) ==========
+  else if (trackId === 2) {
+    // Special case for intro card
+    if (cardId === "intro") {
+      return <>Introduction</>;
+    }
+    
+    // Handle Minor Arcana card codes (e.g., w1, c2, etc.)
+    if (cardId.length >= 2) {
+      const suit = cardId[0];
+      const rank = cardId.substring(1);
+      
+      // Maps for suits and ranks
+      const suitNames: Record<string, string> = {
+        'w': 'Wands',
+        'c': 'Cups',
+        'p': 'Pentacles',
+        's': 'Swords'
+      };
+      
+      const rankNames: Record<string, string> = {
+        '1': 'Ace',
+        '2': 'Two',
+        '3': 'Three',
+        '4': 'Four',
+        '5': 'Five',
+        '6': 'Six',
+        '7': 'Seven',
+        '8': 'Eight',
+        '9': 'Nine',
+        '10': 'Ten',
+        'p': 'Page',
+        'n': 'Knight',
+        'q': 'Queen',
+        'k': 'King'
+      };
+      
+      if (suitNames[suit] && rankNames[rank]) {
+        return <>{rankNames[rank]} of {suitNames[suit]}</>;
+      }
+    }
+  }
+  
+  // ========== ADVANCED SYMBOLISM (Major Arcana by number + Minor Arcana) ==========
   else if (trackId === 11) {
-    // First handle Major Arcana numerical IDs
+    // Major Arcana - Handle by number (0-21)
     if (/^\d+$/.test(cardId)) {
-      const majorArcana = [
+      // Explicit array for major arcana names
+      const majorArcanaNames = [
         "The Fool", "The Magician", "The High Priestess", "The Empress",
-        "The Emperor", "The Hierophant", "The Lovers", "The Chariot", 
+        "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
         "Strength", "The Hermit", "Wheel of Fortune", "Justice",
         "The Hanged Man", "Death", "Temperance", "The Devil",
         "The Tower", "The Star", "The Moon", "The Sun",
         "Judgement", "The World"
       ];
       
-      const num = parseInt(cardId, 10);
-      if (num >= 0 && num < majorArcana.length) {
-        displayName = majorArcana[num];
+      const cardNumber = parseInt(cardId);
+      if (cardNumber >= 0 && cardNumber < majorArcanaNames.length) {
+        return <>{majorArcanaNames[cardNumber]}</>;
       }
     }
-    // Then handle Minor Arcana cards
-    else if (cardId.length >= 2) {
+    
+    // Handle Minor Arcana cards (e.g., w1, c2, etc.)
+    if (cardId.length >= 2) {
       const suit = cardId[0];
       const rank = cardId.substring(1);
       
-      let suitName = "";
-      if (suit === "w") suitName = "Wands";
-      else if (suit === "c") suitName = "Cups";
-      else if (suit === "p") suitName = "Pentacles";
-      else if (suit === "s") suitName = "Swords";
+      const suitNames: Record<string, string> = {
+        'w': 'Wands',
+        'c': 'Cups',
+        'p': 'Pentacles',
+        's': 'Swords'
+      };
       
-      let rankName = "";
-      if (rank === "1") rankName = "Ace";
-      else if (rank === "2") rankName = "Two";
-      else if (rank === "3") rankName = "Three";
-      else if (rank === "4") rankName = "Four";
-      else if (rank === "5") rankName = "Five";
-      else if (rank === "6") rankName = "Six";
-      else if (rank === "7") rankName = "Seven";
-      else if (rank === "8") rankName = "Eight";
-      else if (rank === "9") rankName = "Nine";
-      else if (rank === "10") rankName = "Ten";
-      else if (rank === "p") rankName = "Page";
-      else if (rank === "n") rankName = "Knight";
-      else if (rank === "q") rankName = "Queen";
-      else if (rank === "k") rankName = "King";
+      const rankNames: Record<string, string> = {
+        '1': 'Ace',
+        '2': 'Two',
+        '3': 'Three',
+        '4': 'Four',
+        '5': 'Five',
+        '6': 'Six',
+        '7': 'Seven',
+        '8': 'Eight',
+        '9': 'Nine',
+        '10': 'Ten',
+        'p': 'Page',
+        'n': 'Knight',
+        'q': 'Queen',
+        'k': 'King'
+      };
       
-      if (suitName && rankName) {
-        displayName = `${rankName} of ${suitName}`;
+      if (suitNames[suit] && rankNames[rank]) {
+        return <>{rankNames[rank]} of {suitNames[suit]}</>;
       }
     }
   }
-  // Other tracks would be handled here
   
-  return <>{displayName}</>;
+  // ========== INTUITIVE READING (Minor Arcana) ==========
+  else if (trackId === 10) {
+    // Handle Minor Arcana cards
+    if (cardId.length >= 2) {
+      const suit = cardId[0];
+      const rank = cardId.substring(1);
+      
+      const suitNames: Record<string, string> = {
+        'w': 'Wands',
+        'c': 'Cups',
+        'p': 'Pentacles',
+        's': 'Swords'
+      };
+      
+      const rankNames: Record<string, string> = {
+        '1': 'Ace',
+        '2': 'Two',
+        '3': 'Three',
+        '4': 'Four',
+        '5': 'Five',
+        '6': 'Six',
+        '7': 'Seven',
+        '8': 'Eight',
+        '9': 'Nine',
+        '10': 'Ten',
+        'p': 'Page',
+        'n': 'Knight',
+        'q': 'Queen',
+        'k': 'King'
+      };
+      
+      if (suitNames[suit] && rankNames[rank]) {
+        return <>{rankNames[rank]} of {suitNames[suit]}</>;
+      }
+    }
+  }
+  
+  // For any other tracks or if no match was found, format the card ID nicely or use a fallback
+  if (cardId) {
+    // Try to format card ID as a readable name
+    return <>{cardId.split('-').map(word => 
+      word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ')}</>;
+  }
+  
+  // Last resort fallback - card number
+  return <>Card {index + 1}</>;
 }
