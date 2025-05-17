@@ -234,103 +234,115 @@ export default function Learning() {
                     // Hard-coded direct mapping for card names - simplest and most reliable approach
                     let displayCardName = "";
                     
-                    // Handle card names based on track ID
+                    // Super explicit handling of card names based on hardcoded track ID
                     if (track.id === 1) {
-                      // Map for Beginner's Journey
-                      const beginnerCardNames = {
-                        "fool": "The Fool",
-                        "magician": "The Magician",
-                        "high-priestess": "The High Priestess",
-                        "empress": "The Empress",
-                        "emperor": "The Emperor",
-                        "hierophant": "The Hierophant",
-                        "lovers": "The Lovers",
-                        "chariot": "The Chariot",
-                        "strength": "Strength",
-                        "hermit": "The Hermit",
-                        "wheel-of-fortune": "Wheel of Fortune",
-                        "justice": "Justice",
-                        "hanged-man": "The Hanged Man",
-                        "death": "Death",
-                        "temperance": "Temperance",
-                        "devil": "The Devil",
-                        "tower": "The Tower",
-                        "star": "The Star",
-                        "moon": "The Moon", 
-                        "sun": "The Sun",
-                        "judgement": "Judgement",
-                        "world": "The World"
-                      };
-                      
-                      // Use the map or fallback to a default name
-                      if (beginnerCardNames[cardId]) {
-                        displayCardName = beginnerCardNames[cardId];
-                      } else {
-                        // Fallback if the card ID isn't in our map
-                        displayCardName = "Major Card " + (index + 1);
+                      // Direct string mapping for Beginner's Journey - explicit names for each card
+                      switch(cardId) {
+                        case "fool": displayCardName = "The Fool"; break;
+                        case "magician": displayCardName = "The Magician"; break;
+                        case "high-priestess": displayCardName = "The High Priestess"; break;
+                        case "empress": displayCardName = "The Empress"; break;
+                        case "emperor": displayCardName = "The Emperor"; break;
+                        case "hierophant": displayCardName = "The Hierophant"; break;
+                        case "lovers": displayCardName = "The Lovers"; break;
+                        case "chariot": displayCardName = "The Chariot"; break;
+                        case "strength": displayCardName = "Strength"; break;
+                        case "hermit": displayCardName = "The Hermit"; break;
+                        case "wheel-of-fortune": displayCardName = "Wheel of Fortune"; break;
+                        case "justice": displayCardName = "Justice"; break;
+                        case "hanged-man": displayCardName = "The Hanged Man"; break;
+                        case "death": displayCardName = "Death"; break;
+                        case "temperance": displayCardName = "Temperance"; break;
+                        case "devil": displayCardName = "The Devil"; break;
+                        case "tower": displayCardName = "The Tower"; break;
+                        case "star": displayCardName = "The Star"; break;
+                        case "moon": displayCardName = "The Moon"; break;
+                        case "sun": displayCardName = "The Sun"; break;
+                        case "judgement": displayCardName = "Judgement"; break;
+                        case "world": displayCardName = "The World"; break;
+                        default: displayCardName = "Card " + (index + 1);
                       }
+                      
+                      // Log what's happening with the Beginner cards
+                      console.log(`Beginner Track - Card ${index + 1}: ID=${cardId}, Name=${displayCardName}`);
                     } 
                     else if (track.id === 11) {
-                      // For Advanced Symbolism track
-                      // First check if it's a major arcana card (0-21)
-                      if (/^\d+$/.test(cardId)) {
-                        // Major Arcana cards - numerical IDs
-                        const majorArcanaCards = [
-                          "The Fool", "The Magician", "The High Priestess", "The Empress",
-                          "The Emperor", "The Hierophant", "The Lovers", "The Chariot",
-                          "Strength", "The Hermit", "Wheel of Fortune", "Justice",
-                          "The Hanged Man", "Death", "Temperance", "The Devil",
-                          "The Tower", "The Star", "The Moon", "The Sun",
-                          "Judgement", "The World"
-                        ];
-                        
-                        const cardNumber = parseInt(cardId, 10);
-                        if (cardNumber >= 0 && cardNumber < majorArcanaCards.length) {
-                          displayCardName = majorArcanaCards[cardNumber];
-                        } else {
-                          displayCardName = "Card " + (index + 1);
-                        }
+                      // For Advanced Symbolism track - major arcana by number, minor arcana by code
+                      
+                      // First explicitly handle major arcana numerical cards
+                      switch(cardId) {
+                        case "0": displayCardName = "The Fool"; break;
+                        case "1": displayCardName = "The Magician"; break;
+                        case "2": displayCardName = "The High Priestess"; break;
+                        case "3": displayCardName = "The Empress"; break;
+                        case "4": displayCardName = "The Emperor"; break;
+                        case "5": displayCardName = "The Hierophant"; break;
+                        case "6": displayCardName = "The Lovers"; break;
+                        case "7": displayCardName = "The Chariot"; break;
+                        case "8": displayCardName = "Strength"; break;
+                        case "9": displayCardName = "The Hermit"; break;
+                        case "10": displayCardName = "Wheel of Fortune"; break;
+                        case "11": displayCardName = "Justice"; break;
+                        case "12": displayCardName = "The Hanged Man"; break;
+                        case "13": displayCardName = "Death"; break;
+                        case "14": displayCardName = "Temperance"; break;
+                        case "15": displayCardName = "The Devil"; break;
+                        case "16": displayCardName = "The Tower"; break;
+                        case "17": displayCardName = "The Star"; break;
+                        case "18": displayCardName = "The Moon"; break;
+                        case "19": displayCardName = "The Sun"; break;
+                        case "20": displayCardName = "Judgement"; break;
+                        case "21": displayCardName = "The World"; break;
                       }
-                      // Check if it's a minor arcana card (like w1, c2, etc.)
-                      else if (cardId.length >= 2 && /^[wcps][1-9pk10nq]$/.test(cardId)) {
+                      
+                      // If we haven't set a name yet and it looks like a minor arcana card
+                      if (!displayCardName && cardId.length >= 2) {
+                        // Parse the suit and rank
                         const suit = cardId[0];
                         const rank = cardId.substring(1);
                         
-                        // Maps for suits and ranks
-                        const suits = {
-                          "w": "Wands",
-                          "c": "Cups",
-                          "p": "Pentacles",
-                          "s": "Swords"
-                        };
-                        
-                        const ranks = {
-                          "1": "Ace",
-                          "2": "Two",
-                          "3": "Three",
-                          "4": "Four",
-                          "5": "Five",
-                          "6": "Six",
-                          "7": "Seven",
-                          "8": "Eight",
-                          "9": "Nine",
-                          "10": "Ten",
-                          "p": "Page",
-                          "n": "Knight",
-                          "q": "Queen",
-                          "k": "King"
-                        };
-                        
-                        if (suits[suit] && ranks[rank]) {
-                          displayCardName = `${ranks[rank]} of ${suits[suit]}`;
-                        } else {
-                          displayCardName = "Minor Card " + (index + 1);
+                        // Determine the suit name
+                        let suitName = "";
+                        switch(suit) {
+                          case "w": suitName = "Wands"; break;
+                          case "c": suitName = "Cups"; break;
+                          case "p": suitName = "Pentacles"; break;
+                          case "s": suitName = "Swords"; break;
                         }
-                      } else {
-                        // Fallback for any other card ID format
+                        
+                        // Determine the rank name
+                        let rankName = "";
+                        switch(rank) {
+                          case "1": rankName = "Ace"; break;
+                          case "2": rankName = "Two"; break;
+                          case "3": rankName = "Three"; break;
+                          case "4": rankName = "Four"; break;
+                          case "5": rankName = "Five"; break;
+                          case "6": rankName = "Six"; break; 
+                          case "7": rankName = "Seven"; break;
+                          case "8": rankName = "Eight"; break;
+                          case "9": rankName = "Nine"; break;
+                          case "10": rankName = "Ten"; break;
+                          case "p": rankName = "Page"; break;
+                          case "n": rankName = "Knight"; break;
+                          case "q": rankName = "Queen"; break;
+                          case "k": rankName = "King"; break;
+                        }
+                        
+                        // If we have both a suit and rank name, combine them
+                        if (suitName && rankName) {
+                          displayCardName = `${rankName} of ${suitName}`;
+                        }
+                      }
+                      
+                      // If we still don't have a name, use a default
+                      if (!displayCardName) {
                         displayCardName = "Card " + (index + 1);
                       }
-                    } 
+                      
+                      // Log what's happening with the Advanced Symbolism cards
+                      console.log(`Advanced Track - Card ${index + 1}: ID=${cardId}, Name=${displayCardName}`);
+                    }
                     else {
                       // For all other tracks, try to find the card in tarotCards
                       const card = tarotCards.find(c => c.id === cardId);
