@@ -1458,5 +1458,235 @@
     "cardId": "s10",
     "cardName": "Ten of Swords",
     "timestamp": "2025-05-16T03:21:44.828Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p7",
+    "cardName": "Seven of Pentacles",
+    "timestamp": "2025-05-17T06:44:37.425Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p7",
+    "cardName": "Seven of Pentacles",
+    "timestamp": "2025-05-17T06:44:48.270Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p7",
+    "cardName": "Seven of Pentacles",
+    "timestamp": "2025-05-17T06:44:55.750Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "p7",
+    "cardName": "Seven of Pentacles",
+    "timestamp": "2025-05-17T06:44:57.434Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c8",
+    "cardName": "Eight of Cups",
+    "timestamp": "2025-05-17T06:46:28.097Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w8",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-05-17T06:46:28.195Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s8",
+    "cardName": "Eight of Swords",
+    "timestamp": "2025-05-17T06:46:28.282Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w9",
+    "cardName": "Nine of Wands",
+    "timestamp": "2025-05-17T06:46:30.832Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s9",
+    "cardName": "Nine of Swords",
+    "timestamp": "2025-05-17T06:46:30.843Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-05-17T06:46:36.520Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w8",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-05-17T06:46:36.804Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "c8",
+    "cardName": "Eight of Cups",
+    "timestamp": "2025-05-17T06:46:36.983Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "w9",
+    "cardName": "Nine of Wands",
+    "timestamp": "2025-05-17T06:46:37.165Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s8",
+    "cardName": "Eight of Swords",
+    "timestamp": "2025-05-17T06:46:37.171Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s9",
+    "cardName": "Nine of Swords",
+    "timestamp": "2025-05-17T06:46:37.393Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-05-17T06:46:37.891Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-05-17T06:46:38.216Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "w8",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-05-17T06:46:38.440Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "c8",
+    "cardName": "Eight of Cups",
+    "timestamp": "2025-05-17T06:46:38.710Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s8",
+    "cardName": "Eight of Swords",
+    "timestamp": "2025-05-17T06:46:39.034Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s9",
+    "cardName": "Nine of Swords",
+    "timestamp": "2025-05-17T06:46:39.146Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-05-17T06:46:39.540Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "w9",
+    "cardName": "Nine of Wands",
+    "timestamp": "2025-05-17T06:46:39.973Z"
   }
 ]
