@@ -1418,5 +1418,45 @@
     "cardId": "c10",
     "cardName": "Ten of Cups",
     "timestamp": "2025-05-15T00:45:01.030Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s10",
+    "cardName": "Ten of Swords",
+    "timestamp": "2025-05-16T03:21:27.998Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s10",
+    "cardName": "Ten of Swords",
+    "timestamp": "2025-05-16T03:21:36.336Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s10",
+    "cardName": "Ten of Swords",
+    "timestamp": "2025-05-16T03:21:44.331Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s10",
+    "cardName": "Ten of Swords",
+    "timestamp": "2025-05-16T03:21:44.828Z"
   }
 ]

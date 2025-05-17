@@ -118,17 +118,29 @@ export function registerRoutes(app: Express): Server {
   });
 
   app.get("/api/readings", async (req, res) => {
-    const readings = await storage.getReadings();
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    const userId = req.user!.id;
+    const readings = await storage.getReadings(userId);
     res.json(readings);
   });
 
   app.get("/api/readings/daily", async (req, res) => {
-    const readings = await storage.getDailyReadings();
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    const userId = req.user!.id;
+    const readings = await storage.getDailyReadings(userId);
     res.json(readings);
   });
 
   app.get("/api/readings/spreads", async (req, res) => {
-    const readings = await storage.getSpreadReadings();
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    const userId = req.user!.id;
+    const readings = await storage.getSpreadReadings(userId);
     res.json(readings);
   });
 
