@@ -14,19 +14,17 @@ const typedTrackLessonMap: Record<string, LessonContent[]> = trackLessonMap as R
 export default function LessonPage() {
   const { trackId, lessonId } = useParams<{ trackId: string; lessonId: string }>();
   const [_, navigate] = useLocation();
+
   const [lesson, setLesson] = useState<LessonContent | null>(null);
   const [nextLesson, setNextLesson] = useState<string | null>(null);
   const [prevLesson, setPrevLesson] = useState<string | null>(null);
   const [nextCardName, setNextCardName] = useState<string | null>(null);
   const [prevCardName, setPrevCardName] = useState<string | null>(null);
   
-  // Function to force navigation back to learning
+  // Function to navigate to learning home
   const goToLearningHome = () => {
-    // Force a complete browser reload and navigation to learning
-    window.location.replace('/learning');
-    
-    // Prevent any further code execution after navigation
-    return false;
+    // Use location.assign for a direct browser navigation
+    window.location.assign('/learning');
   };
   
   // Define types for API responses
@@ -391,12 +389,15 @@ export default function LessonPage() {
   return (
     <div className="container py-8">
       <div className="flex items-center mb-8">
-        <a href="/learning" style={{ textDecoration: 'none' }}>
-          <Button variant="secondary">
+        <form action="/learning" method="get">
+          <Button 
+            variant="secondary"
+            type="submit"
+          >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Back to Learning
           </Button>
-        </a>
+        </form>
         <div className="ml-4">
           <h1 className="text-xl font-bold">{track ? track.name : 'Loading...'}</h1>
           <p className="text-sm text-muted-foreground">{track ? track.description : ''}</p>
@@ -418,16 +419,17 @@ export default function LessonPage() {
       
       {/* Add an additional back button at the bottom for better accessibility */}
       <div className="mt-8 flex justify-center">
-        <a href="/learning" style={{ textDecoration: 'none' }}>
+        <form action="/learning" method="get">
           <Button 
             variant="secondary" 
             size="lg" 
             className="px-8"
+            type="submit"
           >
             <ChevronLeft className="h-4 w-4 mr-2" />
             Return to Learning Home
           </Button>
-        </a>
+        </form>
       </div>
     </div>
   );
