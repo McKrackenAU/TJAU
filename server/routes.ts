@@ -30,6 +30,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 import { promisify } from "util";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
+import { learningTracks } from "../shared/schema";
 
 // Define cache directory path
 const CACHE_DIR = path.join(process.cwd(), '.cache');
@@ -858,9 +859,12 @@ export function registerRoutes(app: Express): Server {
       // Validate that the track exists in the database
       const trackId = req.body.trackId;
       if (trackId) {
-        const track = await db.query.learningTracks.findFirst({
-          where: eq(learningTracks.id, trackId)
-        });
+        // Simple direct database query for track existence
+        const [track] = await db
+          .select()
+          .from(learningTracks)
+          .where(eq(learningTracks.id, trackId))
+          .limit(1);
         
         if (!track) {
           return res.status(404).json({ error: "Learning track not found" });
