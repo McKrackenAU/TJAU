@@ -11,11 +11,28 @@ import type { LearningTrack, UserProgress, QuizResult } from "@shared/schema";
 import { GraduationCap, Trophy, Book, Brain, ArrowRight } from "lucide-react";
 import { tarotCards } from "@shared/tarot-data";
 import { TrackCardLabel } from "@/components/track-card-label";
+import { useEffect } from "react";
 
 export default function Learning() {
   const queryClient = useQueryClient();
   const { toast } = useToast();
   const [_, setLocation] = useLocation();
+  
+  // Special handler for Pendulum course navigation
+  useEffect(() => {
+    // Check URL parameters for pendulum navigation flag
+    const urlParams = new URLSearchParams(window.location.search);
+    const fromPendulum = urlParams.get('from-pendulum');
+    
+    if (fromPendulum === 'true') {
+      // Clear the URL parameter without page reload
+      window.history.replaceState({}, document.title, '/learning');
+      
+      // Force a refetch of track data to ensure everything is up-to-date
+      queryClient.invalidateQueries({ queryKey: ['/api/learning/tracks'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/learning/progress/5'] });
+    }
+  }, [queryClient]);
 
   const { data: tracks, isLoading: tracksLoading } = useQuery<LearningTrack[]>({
     queryKey: ["/api/learning/tracks"],

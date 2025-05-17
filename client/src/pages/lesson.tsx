@@ -390,8 +390,8 @@ export default function LessonPage() {
   return (
     <div className="container py-8">
       <div className="flex items-center mb-8">
-        {/* Simple HTML anchor tag for all courses - direct browser navigation */}
-        <a href="/learning" className="no-underline">
+        {/* Add query parameter for Pendulum course to prevent navigation issues */}
+        <a href={trackIdStr === "5" ? "/learning?from-pendulum=true" : "/learning"} className="no-underline">
           <Button 
             variant="secondary"
           >
@@ -420,7 +420,7 @@ export default function LessonPage() {
       
       {/* Add an additional back button at the bottom for better accessibility */}
       <div className="mt-8 flex justify-center">
-        <a href="/learning" className="no-underline">
+        <a href={trackIdStr === "5" ? "/learning?from-pendulum=true" : "/learning"} className="no-underline">
           <Button 
             variant="secondary" 
             size="lg" 
