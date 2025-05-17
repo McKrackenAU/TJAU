@@ -18,8 +18,8 @@ export function PendulumBackButton({ size = "default", className = "", children 
       size={size}
       className={className}
       onClick={() => {
-        // Navigate to our special redirect page
-        window.location.href = '/back-to-learning';
+        // Navigate to our special raw HTML redirect page
+        window.location.href = '/redirect';
       }}
     >
       <ChevronLeft className="h-4 w-4 mr-2" />
