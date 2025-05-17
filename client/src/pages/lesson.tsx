@@ -112,7 +112,24 @@ export default function LessonPage() {
       return majorArcanaByName[cardId];
     }
     
-    // STEP 3: Handle Minor Arcana by suit and rank
+    // STEP 3: Handle Pendulum course cards
+    const pendulumCardMap: Record<string, string> = {
+      'pendulum-intro': 'Introduction to Pendulum Dowsing',
+      'pendulum-types': 'Types of Pendulums',
+      'pendulum-cleansing': 'Cleansing & Activation',
+      'pendulum-alignment': 'Energy Alignment',
+      'pendulum-communication': 'Establishing Communication',
+      'pendulum-questions': 'Asking Effective Questions',
+      'pendulum-decisions': 'Decision Making with Pendulums',
+      'pendulum-spiritual': 'Spiritual Development'
+    };
+    
+    if (pendulumCardMap[cardId]) {
+      console.log(`Found Pendulum card: ${cardId} = ${pendulumCardMap[cardId]}`);
+      return pendulumCardMap[cardId];
+    }
+    
+    // STEP 4: Handle Minor Arcana by suit and rank
     const suitMap: Record<string, string> = {
       'c': 'Cups',
       'w': 'Wands',
