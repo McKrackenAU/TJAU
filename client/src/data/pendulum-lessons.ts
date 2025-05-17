@@ -1,4 +1,4 @@
-import { LessonContent } from "@/components/lesson-content";
+import type { LessonContent } from "@/components/lesson-content";
 
 // This file contains all the lesson content for the Pendulum Dowsing Mastery Course
 
