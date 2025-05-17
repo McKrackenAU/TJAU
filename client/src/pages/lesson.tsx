@@ -382,7 +382,7 @@ export default function LessonPage() {
   return (
     <div className="container py-8">
       <div className="flex items-center mb-8">
-        <Button variant="ghost" size="sm" onClick={() => navigate("/learning")}>
+        <Button variant="secondary" onClick={() => navigate("/learning")}>
           <ChevronLeft className="h-4 w-4 mr-2" />
           Back to Learning
         </Button>
@@ -404,6 +404,19 @@ export default function LessonPage() {
         prevCardName={prevCardName}
         nextCardName={nextCardName}
       />
+      
+      {/* Add an additional back button at the bottom for better accessibility */}
+      <div className="mt-8 flex justify-center">
+        <Button 
+          variant="secondary" 
+          size="lg" 
+          onClick={() => navigate("/learning")} 
+          className="px-8"
+        >
+          <ChevronLeft className="h-4 w-4 mr-2" />
+          Return to Learning Home
+        </Button>
+      </div>
     </div>
   );
 }
