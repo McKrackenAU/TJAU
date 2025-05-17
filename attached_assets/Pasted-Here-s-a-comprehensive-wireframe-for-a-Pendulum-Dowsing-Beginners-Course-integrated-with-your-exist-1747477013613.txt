@@ -1,0 +1,79 @@
+Here's a comprehensive wireframe for a Pendulum Dowsing Beginners Course, integrated with your existing Tarot app structure and informed by the search results:
+
+# Pendulum Dowsing Mastery Course  
+*(Under "Learn" Tab)*
+
+## Module 1: Introduction to Pendulum Dowsing  
+### 1.1 What is Pendulum Dowsing?  
+- Definition and historical context [8][10]  
+- How pendulums work (Ideomotor Reflex explanation) [3][7]  
+- Modern applications in spiritual practice [1][8]  
+
+### 1.2 Types of Pendulums  
+- Material guide (crystal, metal, wood) [2][6]  
+- Choosing your first pendulum (size/weight considerations) [6][10]  
+- Digital vs physical pendulums [6]  
+
+## Module 2: Preparing Your Pendulum  
+### 2.1 Cleansing & Activation  
+- Step-by-step cleansing methods:  
+  - Salt bath technique [3]  
+  - Moonlight charging [7][9]  
+  - Smudging with sage [10]  
+- Frequency of cleansing [3][7]  
+
+### 2.2 Energy Alignment  
+- Creating personal connection rituals [7][9]  
+- Programming your pendulum's responses [4][10]  
+- Grounding techniques before use [7][9]  
+
+## Module 3: Basic Dowsing Techniques  
+### 3.1 Establishing Communication  
+- Calibration exercise:  
+  - Yes/No response training [5][7][9]  
+  - Neutral reset position [10]  
+- Troubleshooting unresponsive pendulums [3][7]  
+
+### 3.2 Question Framing  
+- Effective yes/no question formulas [4][9]  
+- 20 essential beginner questions [7][10]  
+- Common pitfalls to avoid [5][9]  
+
+## Module 4: Practical Applications  
+### 4.1 Decision-Making Framework  
+- Using pendulum charts [4][6]  
+- Chakra testing methods [2][10]  
+- Object finding techniques [4][5]  
+
+### 4.2 Spiritual Development  
+- Meditation integration [8][9]  
+- Energy field cleansing [1][3]  
+- Dream interpretation aid [8]  
+
+## Interactive Features  
+- Virtual pendulum simulator with different materials [6]  
+- Daily calibration reminder with progress tracking  
+- Question journal with AI analysis [4]  
+- Community challenge: 30-day dowsing practice [7][9]  
+
+## Certification Path  
+- Beginner → Apprentice → Master tiers [4]  
+- Skill validation through practical tests  
+- Badge system shareable to social media  
+
+This structure incorporates key elements from search results including cleansing methods [3], question techniques [7][9], material selection [6], and certification pathways [4]. The course blends theoretical knowledge with interactive app features for optimal learning retention.
+
+Citations:
+[1] https://www.holisticshop.co.uk/articles/guide-pendulum-dowsing
+[2] https://plusvalueindia.com/dowsing-pendulum/
+[3] https://www.spiritshack.co.uk/blog/spirituality/how-to-cleanse-a-pendulum/
+[4] https://www.udemy.com/course/pendulum-dowsing-from-scratch/
+[5] https://www.youtube.com/watch?v=aDuk5fT6O4M
+[6] https://www.etsy.com/au/market/dowsing_pendulum
+[7] https://www.unearthedcrystals.com.au/blogs/how-to-guides/pendulums-for-beginners-how-to-use-a-pendulum
+[8] https://www.spiritanddestiny.co.uk/wellbeing-and-mindfulness/spirituality/what-is-a-pendulum/
+[9] https://www.bestvibesever.com/blog/2018/2/9/how-to-use-a-pendulum-for-beginners
+[10] https://loveandlightschool.com/pendulum-dowsing-for-beginners-some-helpful-tips-for-successful-dowsing-by-kelly-small/
+
+---
+Answer from Perplexity: pplx.ai/share

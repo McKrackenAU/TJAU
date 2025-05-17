@@ -14916,10 +14916,14 @@ const completeAdvancedSymbolismLessons = (() => {
   return orderedLessons;
 })();
 
+// Import pendulum lessons
+import pendulumLessons from './pendulum-lessons';
+
 // Use the rebuilt lessons for track 2 and complete Advanced Symbolism course
 export const trackLessonMap = {
   1: beginnerLessons,                     // Beginner's Journey
   2: rebuiltMinorArcanaLessons,           // Minor Arcana Journey (completely rebuilt)
+  5: pendulumLessons,                     // Pendulum Dowsing Mastery
   10: orderedLessons,                     // Intuitive Reading with proper card order
   11: completeAdvancedSymbolismLessons    // Advanced Symbolism (all 78 cards)
 };
