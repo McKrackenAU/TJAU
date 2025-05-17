@@ -289,30 +289,53 @@ export default function Learning() {
                       console.log(`Beginner Track - Card ${index + 1}: ID=${cardId}, Name=${displayCardName}`);
                     }
                     else if (track.id === 5) {
-                      // For Pendulum Dowsing course
-                      const pendulumCardMap: Record<string, string> = {
-                        'pendulum-intro': 'Introduction to Pendulum Dowsing',
-                        'pendulum-types': 'Types of Pendulums',
-                        'pendulum-cleansing': 'Cleansing & Activation',
-                        'pendulum-alignment': 'Energy Alignment',
-                        'pendulum-communication': 'Establishing Communication',
-                        'pendulum-questions': 'Asking Effective Questions',
-                        'pendulum-decisions': 'Decision Making with Pendulums',
-                        'pendulum-spiritual': 'Spiritual Development'
-                      };
+                      // For Pendulum Dowsing course - direct navigation approach
+                      console.log(`Pendulum Course - Processing lesson ${index + 1} with card ID: ${cardId}`);
                       
-                      displayCardName = pendulumCardMap[cardId] || cardId;
+                      // Map card IDs to lesson IDs and names
+                      let newLessonId = '';
                       
-                      // Set proper lesson IDs for pendulum course
-                      if (cardId === 'pendulum-intro') lessonId = 'pendulum-1-1';
-                      else if (cardId === 'pendulum-types') lessonId = 'pendulum-1-2';
-                      else if (cardId === 'pendulum-cleansing') lessonId = 'pendulum-2-1';
-                      else if (cardId === 'pendulum-alignment') lessonId = 'pendulum-2-2';
-                      else if (cardId === 'pendulum-communication') lessonId = 'pendulum-3-1';
-                      else if (cardId === 'pendulum-questions') lessonId = 'pendulum-3-2';
-                      else if (cardId === 'pendulum-decisions') lessonId = 'pendulum-4-1';
-                      else if (cardId === 'pendulum-spiritual') lessonId = 'pendulum-4-2';
-                      else lessonId = `pendulum-${index + 1}`;
+                      switch(cardId) {
+                        case 'pendulum-intro':
+                          displayCardName = 'Introduction to Pendulum Dowsing';
+                          newLessonId = 'pendulum-1-1';
+                          break;
+                        case 'pendulum-types':
+                          displayCardName = 'Types of Pendulums';
+                          newLessonId = 'pendulum-1-2';
+                          break;
+                        case 'pendulum-cleansing':
+                          displayCardName = 'Cleansing & Activation';
+                          newLessonId = 'pendulum-2-1';
+                          break;
+                        case 'pendulum-alignment':
+                          displayCardName = 'Energy Alignment';
+                          newLessonId = 'pendulum-2-2';
+                          break;
+                        case 'pendulum-communication':
+                          displayCardName = 'Establishing Communication';
+                          newLessonId = 'pendulum-3-1';
+                          break;
+                        case 'pendulum-questions':
+                          displayCardName = 'Asking Effective Questions';
+                          newLessonId = 'pendulum-3-2';
+                          break;
+                        case 'pendulum-decisions':
+                          displayCardName = 'Decision Making with Pendulums';
+                          newLessonId = 'pendulum-4-1';
+                          break;
+                        case 'pendulum-spiritual':
+                          displayCardName = 'Spiritual Development';
+                          newLessonId = 'pendulum-4-2';
+                          break;
+                        default:
+                          displayCardName = `Pendulum Lesson ${index + 1}`;
+                          newLessonId = `pendulum-${index + 1}`;
+                      }
+                      
+                      console.log(`Pendulum Course Navigation: ${displayCardName} -> /learning/5/${newLessonId}`);
+                      setLocation(`/learning/5/${newLessonId}`);
+                      return; // Exit early - direct navigation
                     } 
                     else if (track.id === 11) {
                       // For Advanced Symbolism track - major arcana by number, minor arcana by code
