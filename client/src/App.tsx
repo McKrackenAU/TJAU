@@ -13,6 +13,7 @@ import Study from "@/pages/study";
 import Journal from "@/pages/journal";
 import Learning from "@/pages/learning";
 import LessonPage from "@/pages/lesson";
+import BackToLearningPage from "@/pages/back-to-learning";
 import TestImages from "@/pages/test-images";
 import AuthPage from "@/pages/auth-page";
 import Subscribe from "@/pages/subscribe";
@@ -98,6 +99,7 @@ function AuthAwareComponents() {
           <ProtectedRoute path="/journal" component={Journal} />
           <ProtectedRoute path="/learning" component={Learning} />
           <ProtectedRoute path="/learning/:trackId/:lessonId" component={LessonPage} />
+          <ProtectedRoute path="/back-to-learning" component={BackToLearningPage} />
           <ProtectedRoute path="/test-images" component={TestImages} />
           <ProtectedRoute path="/subscribe" component={Subscribe} />
           <ProtectedRoute path="/subscribe-native" component={SubscribeNative} />

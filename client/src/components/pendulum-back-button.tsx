@@ -18,13 +18,8 @@ export function PendulumBackButton({ size = "default", className = "", children 
       size={size}
       className={className}
       onClick={() => {
-        // Force a full page navigation to the learning page
-        const currentUrl = window.location.href;
-        
-        // Only redirect if we're in the pendulum course
-        if (currentUrl.includes('/learning/5/')) {
-          window.location.href = '/learning';
-        }
+        // Navigate to our special redirect page
+        window.location.href = '/back-to-learning';
       }}
     >
       <ChevronLeft className="h-4 w-4 mr-2" />
