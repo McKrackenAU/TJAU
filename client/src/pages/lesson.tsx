@@ -7,6 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { ChevronLeft } from "lucide-react";
 import { trackLessonMap } from "@/data/course-lessons";
 import { tarotCards } from "@shared/tarot-data";
+import { PendulumBackButton } from "@/components/pendulum-back-button";
 
 // Type assertion to help TypeScript with indexing
 const typedTrackLessonMap: Record<string, LessonContent[]> = trackLessonMap as Record<string, LessonContent[]>;
@@ -389,15 +390,23 @@ export default function LessonPage() {
   return (
     <div className="container py-8">
       <div className="flex items-center mb-8">
-        <form action="/learning" method="get">
-          <Button 
-            variant="secondary"
-            type="submit"
-          >
-            <ChevronLeft className="h-4 w-4 mr-2" />
-            Back to Learning
-          </Button>
-        </form>
+        {trackIdStr === "5" ? (
+          // Special button for Pendulum course
+          <div>
+            <PendulumBackButton />
+          </div>
+        ) : (
+          // Regular button for other courses
+          <form action="/learning" method="get">
+            <Button 
+              variant="secondary"
+              type="submit"
+            >
+              <ChevronLeft className="h-4 w-4 mr-2" />
+              Back to Learning
+            </Button>
+          </form>
+        )}
         <div className="ml-4">
           <h1 className="text-xl font-bold">{track ? track.name : 'Loading...'}</h1>
           <p className="text-sm text-muted-foreground">{track ? track.description : ''}</p>
@@ -419,17 +428,28 @@ export default function LessonPage() {
       
       {/* Add an additional back button at the bottom for better accessibility */}
       <div className="mt-8 flex justify-center">
-        <form action="/learning" method="get">
-          <Button 
-            variant="secondary" 
+        {trackIdStr === "5" ? (
+          // Special button for Pendulum course
+          <PendulumBackButton 
             size="lg" 
             className="px-8"
-            type="submit"
           >
-            <ChevronLeft className="h-4 w-4 mr-2" />
             Return to Learning Home
-          </Button>
-        </form>
+          </PendulumBackButton>
+        ) : (
+          // Regular button for other courses
+          <form action="/learning" method="get">
+            <Button 
+              variant="secondary" 
+              size="lg" 
+              className="px-8"
+              type="submit"
+            >
+              <ChevronLeft className="h-4 w-4 mr-2" />
+              Return to Learning Home
+            </Button>
+          </form>
+        )}
       </div>
     </div>
   );
