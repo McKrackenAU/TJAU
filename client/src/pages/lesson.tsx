@@ -20,6 +20,11 @@ export default function LessonPage() {
   const [nextCardName, setNextCardName] = useState<string | null>(null);
   const [prevCardName, setPrevCardName] = useState<string | null>(null);
   
+  // Function to force navigation back to learning
+  const goToLearningHome = () => {
+    window.location.href = '/learning';
+  };
+  
   // Define types for API responses
   interface TrackData {
     id: number;
@@ -384,7 +389,7 @@ export default function LessonPage() {
       <div className="flex items-center mb-8">
         <Button 
           variant="secondary"
-          onClick={() => window.location.href = '/learning'}
+          onClick={goToLearningHome}
         >
           <ChevronLeft className="h-4 w-4 mr-2" />
           Back to Learning
@@ -414,7 +419,7 @@ export default function LessonPage() {
           variant="secondary" 
           size="lg" 
           className="px-8"
-          onClick={() => window.location.href = '/learning'}
+          onClick={goToLearningHome}
         >
           <ChevronLeft className="h-4 w-4 mr-2" />
           Return to Learning Home
