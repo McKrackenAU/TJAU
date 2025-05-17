@@ -254,22 +254,59 @@ export default function Learning() {
                     // If still no card found but we have a numeric ID (major arcana in advanced track), use proper name
                     let displayName = cardId;
                     
-                    // For Advanced Symbolism track, map IDs to proper card names
-                    if (track.id === 11) {
-                      // For major arcana (numerical cards)
-                      if (!isNaN(Number(cardId))) {
-                        const majorArcanaNames = [
-                          "The Fool", "The Magician", "The High Priestess", "The Empress", "The Emperor",
-                          "The Hierophant", "The Lovers", "The Chariot", "Strength", "The Hermit",
-                          "Wheel of Fortune", "Justice", "The Hanged Man", "Death", "Temperance",
-                          "The Devil", "The Tower", "The Star", "The Moon", "The Sun",
-                          "Judgement", "The World"
-                        ];
-                        
-                        const cardNum = parseInt(cardId);
-                        if (cardNum >= 0 && cardNum < majorArcanaNames.length) {
-                          displayName = majorArcanaNames[cardNum];
-                        }
+                    // For Beginner's Journey and Advanced Symbolism tracks, map IDs to proper card names
+                    if (track.id === 1 || track.id === 11) {
+                      // For major arcana (numerical cards or named cards)
+                      const majorArcanaMap = {
+                        "0": "The Fool",
+                        "1": "The Magician",
+                        "2": "The High Priestess",
+                        "3": "The Empress",
+                        "4": "The Emperor",
+                        "5": "The Hierophant",
+                        "6": "The Lovers",
+                        "7": "The Chariot",
+                        "8": "Strength",
+                        "9": "The Hermit",
+                        "10": "Wheel of Fortune",
+                        "11": "Justice",
+                        "12": "The Hanged Man",
+                        "13": "Death",
+                        "14": "Temperance",
+                        "15": "The Devil",
+                        "16": "The Tower",
+                        "17": "The Star",
+                        "18": "The Moon",
+                        "19": "The Sun",
+                        "20": "Judgement",
+                        "21": "The World",
+                        // Add name-based mappings for Beginner's Journey
+                        "fool": "The Fool",
+                        "magician": "The Magician",
+                        "high-priestess": "The High Priestess",
+                        "empress": "The Empress",
+                        "emperor": "The Emperor",
+                        "hierophant": "The Hierophant",
+                        "lovers": "The Lovers",
+                        "chariot": "The Chariot",
+                        "strength": "Strength",
+                        "hermit": "The Hermit",
+                        "wheel-of-fortune": "Wheel of Fortune",
+                        "justice": "Justice",
+                        "hanged-man": "The Hanged Man",
+                        "death": "Death",
+                        "temperance": "Temperance",
+                        "devil": "The Devil",
+                        "tower": "The Tower",
+                        "star": "The Star",
+                        "moon": "The Moon",
+                        "sun": "The Sun",
+                        "judgement": "Judgement",
+                        "world": "The World"
+                      };
+
+                      if (majorArcanaMap[cardId]) {
+                        displayName = majorArcanaMap[cardId];
                       }
                       // For minor arcana (letter-number combinations)
                       else if (cardId.length >= 2) {
