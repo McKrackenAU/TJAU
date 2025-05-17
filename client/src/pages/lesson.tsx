@@ -391,13 +391,12 @@ export default function LessonPage() {
   return (
     <div className="container py-8">
       <div className="flex items-center mb-8">
-        <Button 
-          variant="secondary"
-          onClick={goToLearningHome}
-        >
-          <ChevronLeft className="h-4 w-4 mr-2" />
-          Back to Learning
-        </Button>
+        <a href="/learning" style={{ textDecoration: 'none' }}>
+          <Button variant="secondary">
+            <ChevronLeft className="h-4 w-4 mr-2" />
+            Back to Learning
+          </Button>
+        </a>
         <div className="ml-4">
           <h1 className="text-xl font-bold">{track ? track.name : 'Loading...'}</h1>
           <p className="text-sm text-muted-foreground">{track ? track.description : ''}</p>
@@ -419,15 +418,16 @@ export default function LessonPage() {
       
       {/* Add an additional back button at the bottom for better accessibility */}
       <div className="mt-8 flex justify-center">
-        <Button 
-          variant="secondary" 
-          size="lg" 
-          className="px-8"
-          onClick={goToLearningHome}
-        >
-          <ChevronLeft className="h-4 w-4 mr-2" />
-          Return to Learning Home
-        </Button>
+        <a href="/learning" style={{ textDecoration: 'none' }}>
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            className="px-8"
+          >
+            <ChevronLeft className="h-4 w-4 mr-2" />
+            Return to Learning Home
+          </Button>
+        </a>
       </div>
     </div>
   );
