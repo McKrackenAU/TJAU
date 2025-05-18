@@ -641,37 +641,50 @@ Calibration should be performed at the beginning of each session, especially whe
         title: "Troubleshooting Unresponsive Pendulums",
         content: `If your pendulum isn't responding clearly, there are several potential causes and solutions:
 
-**Physical Factors**
-• **Problem**: Chain/cord length incorrect
-  **Solution**: Adjust to 2-3 inches of visible chain between fingers and weight
+## Physical Factors
 
-• **Problem**: Unstable hand position
-  **Solution**: Rest elbow on table or against body, or try switching to non-dominant hand
+### Chain/cord length incorrect
+- **Problem**: The chain is too long or too short
+- **Solution**: Adjust to 2-3 inches of visible chain between fingers and weight
 
-• **Problem**: Environmental interference (drafts, moving surfaces, etc.)
-  **Solution**: Move to a more stable location with still air
+### Unstable hand position
+- **Problem**: Hand movement interferes with readings
+- **Solution**: Rest elbow on table or against body, or try switching to non-dominant hand
 
-**Energetic Factors**
-• **Problem**: Pendulum needs cleansing
-  **Solution**: Use any cleansing method (moonlight, sound, smudging)
+### Environmental interference
+- **Problem**: Drafts, moving surfaces, or vibrations
+- **Solution**: Move to a more stable location with still air
 
-• **Problem**: Your energy is blocked or scattered
-  **Solution**: Perform grounding exercise, take deep breaths, or try again later
+## Energetic Factors
 
-• **Problem**: Insufficient connection with the pendulum
-  **Solution**: Spend time holding it, sleeping with it nearby, or performing a dedication
+### Pendulum needs cleansing
+- **Problem**: Built-up residual energies affecting response
+- **Solution**: Use any cleansing method (moonlight, sound, smudging)
 
-**Mental/Emotional Factors**
-• **Problem**: Overthinking or analyzing
-  **Solution**: Empty your mind, meditate briefly, focus only on the question
+### Blocked or scattered energy
+- **Problem**: Your personal energy is unfocused
+- **Solution**: Perform grounding exercise, take deep breaths, or try again later
 
-• **Problem**: Attachment to specific outcomes
-  **Solution**: Approach with genuine curiosity rather than desired answers
+### Insufficient connection
+- **Problem**: Weak energetic bond with your pendulum
+- **Solution**: Spend time holding it, sleeping with it nearby, or performing a dedication
 
-• **Problem**: Lack of focus/concentration
-  **Solution**: Simplify your question, eliminate distractions, or try written questions
+## Mental/Emotional Factors
 
-**Reset Protocol**
+### Overthinking or analyzing
+- **Problem**: Logical mind interfering with intuitive responses
+- **Solution**: Empty your mind, meditate briefly, focus only on the question
+
+### Attachment to outcomes
+- **Problem**: Wanting specific answers biases results
+- **Solution**: Approach with genuine curiosity rather than desired answers
+
+### Lack of focus/concentration
+- **Problem**: Distracted mind creates weak signals
+- **Solution**: Simplify your question, eliminate distractions, or try written questions
+
+## Reset Protocol
+
 If your pendulum remains unresponsive, try this complete reset:
 1. Thank your pendulum for its service
 2. Cleanse it thoroughly using multiple methods
@@ -746,30 +759,32 @@ Use these proven formulas for reliable responses:
 - "Is it appropriate for me to ask about [topic]?"
 - "Do I have permission to receive information about [situation]?"
 
-2. **Timing Formula**
-   "Is now the right time to [action]?"
-   "Will [event] occur within [timeframe]?"
+### 2. Timing Formula
+- "Is now the right time to [action]?"
+- "Will [event] occur within [timeframe]?"
 
-3. **Direction Formula**
-   "Is [option A] the best choice for my highest good?"
-   "Should I proceed with [specific action]?"
+### 3. Direction Formula
+- "Is [option A] the best choice for my highest good?"
+- "Should I proceed with [specific action]?"
 
-4. **Information Formula**
-   "Is [specific detail] accurate?"
-   "Does [person/situation] align with my stated intentions?"
+### 4. Information Formula
+- "Is [specific detail] accurate?"
+- "Does [person/situation] align with my stated intentions?"
 
-5. **Health Formula**
-   "Would [specific food/supplement] benefit my body right now?"
-   "Is this [symptom] related to [potential cause]?"
+### 5. Health Formula
+- "Would [specific food/supplement] benefit my body right now?"
+- "Is this [symptom] related to [potential cause]?"
 
-**Rephrasing Strategies**
+## Rephrasing Strategies
+
 If you receive unclear responses:
-• Break complex questions into smaller parts
-• Use the "fishing" technique (narrow down from general to specific)
-• Add timeframes for clarity ("...within the next month?")
-• Add qualifiers ("...for my highest good?")
+- Break complex questions into smaller parts
+- Use the "fishing" technique (narrow down from general to specific)
+- Add timeframes for clarity ("...within the next month?")
+- Add qualifiers ("...for my highest good?")
 
-**Question Sequences**
+## Question Sequences
+
 For deeper insights, use sequences like:
 1. "Is it appropriate to ask about [topic]?"
 2. "Would [option A] benefit me?"
