@@ -762,11 +762,27 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
-      const entry = insertJournalEntrySchema.parse(req.body);
-      const result = await storage.createJournalEntry(userId, entry);
-      res.json(result);
+      console.log("Creating journal entry for user:", userId, "body:", req.body);
+      
+      try {
+        const entry = insertJournalEntrySchema.parse(req.body);
+        console.log("Parsed journal entry:", entry);
+        const result = await storage.createJournalEntry(userId, entry);
+        console.log("Journal entry created:", result);
+        res.json(result);
+      } catch (parseError) {
+        console.error("Error parsing journal entry data:", parseError);
+        return res.status(400).json({ 
+          error: "Invalid journal entry data", 
+          details: parseError instanceof Error ? parseError.message : "Unknown error" 
+        });
+      }
     } catch (error) {
-      res.status(400).json({ error: "Invalid journal entry data" });
+      console.error("Error creating journal entry:", error);
+      res.status(500).json({ 
+        error: "Failed to create journal entry", 
+        details: error instanceof Error ? error.message : "Unknown error" 
+      });
     }
   });
 
