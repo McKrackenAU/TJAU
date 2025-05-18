@@ -749,43 +749,66 @@ const pendulumLessons: LessonContent[] = [
     sections: [
       {
         title: "Calibration Exercise",
-        content: `Calibrating your pendulum establishes the foundation for accurate readings. Follow this complete calibration process:
+        content: `<p>Calibrating your pendulum establishes the foundation for accurate readings. Follow this complete calibration process:</p>
 
-**Yes/No Response Training**
-1. Sit comfortably with your back straight and both feet on the floor
-2. Hold your pendulum between your thumb and forefinger, with 2-3 inches of chain showing
-3. Stabilize your elbow (either on a table or by tucking it against your body)
-4. Allow the pendulum to hang completely still
-5. Ask aloud or mentally: "Show me YES"
-6. Observe the movement that develops naturally
-   • Most commonly, YES appears as:
-     - Forward and backward movement (north-south)
-     - Clockwise circles
-     - Movement toward you
-7. Once the movement stops, ask: "Show me NO"
-8. Observe this different movement pattern
-   • Most commonly, NO appears as:
-     - Side to side movement (east-west)
-     - Counterclockwise circles
-     - Movement away from you
+<h3>Yes/No Response Training</h3>
+<ol>
+  <li>Sit comfortably with your back straight and both feet on the floor</li>
+  <li>Hold your pendulum between your thumb and forefinger, with 2-3 inches of chain showing</li>
+  <li>Stabilize your elbow (either on a table or by tucking it against your body)</li>
+  <li>Allow the pendulum to hang completely still</li>
+  <li>Ask aloud or mentally: "Show me YES"</li>
+  <li>Observe the movement that develops naturally
+    <ul>
+      <li>Most commonly, YES appears as:
+        <ul>
+          <li>Forward and backward movement (north-south)</li>
+          <li>Clockwise circles</li>
+          <li>Movement toward you</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Once the movement stops, ask: "Show me NO"</li>
+  <li>Observe this different movement pattern
+    <ul>
+      <li>Most commonly, NO appears as:
+        <ul>
+          <li>Side to side movement (east-west)</li>
+          <li>Counterclockwise circles</li>
+          <li>Movement away from you</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
 
-**Neutral Reset Position**
-1. After observing YES and NO, ask: "Show me NEUTRAL"
-2. This neutral or "ready" position is often:
-   - A slight diagonal movement
-   - A gentle swaying
-   - Complete stillness
-3. Return to neutral between questions by:
-   - Gently stopping the pendulum with your free hand
-   - Stating "reset" or "neutral" 
-   - Taking a deep breath to clear previous energy
+<h3>Neutral Reset Position</h3>
+<ol>
+  <li>After observing YES and NO, ask: "Show me NEUTRAL"</li>
+  <li>This neutral or "ready" position is often:
+    <ul>
+      <li>A slight diagonal movement</li>
+      <li>A gentle swaying</li>
+      <li>Complete stillness</li>
+    </ul>
+  </li>
+  <li>Return to neutral between questions by:
+    <ul>
+      <li>Gently stopping the pendulum with your free hand</li>
+      <li>Stating "reset" or "neutral"</li>
+    </ul>
+  </li>
+</ol>
 
-**Verification Process**
-To confirm your calibration is accurate:
-1. Ask a simple question you know is true: "Is my name [your name]?"
-2. Verify you get the YES response
-3. Ask a simple question you know is false: "Is today [wrong day]?"
-4. Verify you get the NO response
+<h3>Verification Process</h3>
+<p>To confirm your calibration is accurate:</p>
+<ol>
+  <li>Ask a simple question you know is true: "Is my name [your name]?"</li>
+  <li>Verify you get the YES response</li>
+  <li>Ask a simple question you know is false: "Is today [wrong day]?"</li>
+  <li>Verify you get the NO response</li>
+</ol>
 5. If responses are incorrect or unclear, cleanse your pendulum and recalibrate
 
 **Direction Chart Method**
@@ -1334,21 +1357,25 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
   <li>Use the pendulum's response to guide your physical search</li>
 </ol>
 
-## Troubleshooting Tips
+<h2>Troubleshooting Tips</h2>
 
-- If getting inconsistent answers, cleanse your pendulum and recalibrate
-- Specify exact descriptions ("my red leather wallet" not just "my wallet")
-- Ask if the object is still in your possession before extensive searching
-- Include a timeframe ("where is the object I lost yesterday?")
-- For valuable items, first ask: "Can I find this object through dowsing?"
+<ul>
+  <li>If getting inconsistent answers, cleanse your pendulum and recalibrate</li>
+  <li>Specify exact descriptions ("my red leather wallet" not just "my wallet")</li>
+  <li>Ask if the object is still in your possession before extensive searching</li>
+  <li>Include a timeframe ("where is the object I lost yesterday?")</li>
+  <li>For valuable items, first ask: "Can I find this object through dowsing?"</li>
+</ul>
 
-## Ethical Considerations
+<h2>Ethical Considerations</h2>
 
-- Use these techniques primarily for your own belongings
-- If searching for someone else's items, get permission first
-- Focus on finding rather than blame if someone else misplaced the item
+<ul>
+  <li>Use these techniques primarily for your own belongings</li>
+  <li>If searching for someone else's items, get permission first</li>
+  <li>Focus on finding rather than blame if someone else misplaced the item</li>
+</ul>
 
-With practice, object finding can become one of the most reliably verifiable applications of your pendulum skills.`
+<p>With practice, object finding can become one of the most reliably verifiable applications of your pendulum skills.</p>`
       }
     ],
     exercises: [
