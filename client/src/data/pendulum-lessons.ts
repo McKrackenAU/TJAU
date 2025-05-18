@@ -942,51 +942,56 @@ Awareness of these pitfalls will help you develop precision in your questioning 
         title: "Using Pendulum Charts",
         content: `Pendulum charts expand your dowsing beyond simple yes/no answers to access specific information. Here's how to use them effectively:
 
-**Types of Pendulum Charts**
+## Types of Pendulum Charts
+
 1. **Alphabet Charts**
-   • Letters arranged in a circle or arc
-   • Used for spelling out names, words, or messages
-   • Can be combined with numbers for more complex information
+   - Letters arranged in a circle or arc
+   - Used for spelling out names, words, or messages
+   - Can be combined with numbers for more complex information
 
 2. **Percentage Charts**
-   • Numerical scale from 0-100%
-   • Used for measuring probability, effectiveness, or compatibility
-   • Often arranged in a semi-circle format
+   - Numerical scale from 0-100%
+   - Used for measuring probability, effectiveness, or compatibility
+   - Often arranged in a semi-circle format
 
 3. **Body Charts**
-   • Diagram of the human body
-   • Used for identifying areas of energy blockage or concern
-   • Can be general or system-specific (digestive, chakra, etc.)
+   - Diagram of the human body
+   - Used for identifying areas of energy blockage or concern
+   - Can be general or system-specific (digestive, chakra, etc.)
 
 4. **Multiple Choice Charts**
-   • List of possible answers around a central point
-   • Used when exploring options or possibilities
-   • Can include timing, directions, or custom categories
+   - List of possible answers around a central point
+   - Used when exploring options or possibilities
+   - Can include timing, directions, or custom categories
 
-**How to Use Pendulum Charts**
+## How to Use Pendulum Charts
+
 1. Place your chart on a flat surface
 2. Hold your pendulum over the center point
 3. Ask a clear, specific question related to the chart type
 4. Allow your pendulum to swing toward the answer
 5. For complex answers, move from one element to the next (like spelling a word)
 
-**Creating Custom Charts**
+## Creating Custom Charts
+
 For personalized readings, create custom charts for:
-• Career options
-• Relationship dynamics
-• Health supplements or treatments
-• Project priorities
-• Location selection
+- Career options
+- Relationship dynamics
+- Health supplements or treatments
+- Project priorities
+- Location selection
 
-**Digital vs. Physical Charts**
-• Physical charts provide tactile connection
-• Digital charts offer variety and convenience
-• Both types work effectively when used with focused intention
+## Digital vs. Physical Charts
 
-**Advanced Chart Techniques**
-• Layering: Use transparent overlays for multi-dimensional readings
-• Quadrant Method: Divide chart into quadrants for systematic exploration
-• Map Dowsing: Use maps as charts to locate places or objects
+- Physical charts provide tactile connection
+- Digital charts offer variety and convenience
+- Both types work effectively when used with focused intention
+
+## Advanced Chart Techniques
+
+- Layering: Use transparent overlays for multi-dimensional readings
+- Quadrant Method: Divide chart into quadrants for systematic exploration
+- Map Dowsing: Use maps as charts to locate places or objects
 
 Charts significantly expand your pendulum practice beyond basic yes/no responses, allowing for nuanced insights across various aspects of life.`
       },
