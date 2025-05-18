@@ -728,20 +728,23 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
         title: "Effective Yes/No Question Formulas",
         content: `The way you phrase your questions significantly impacts the accuracy of your pendulum readings. Follow these guidelines for effective question framing:
 
-**Basic Question Structure**
-For clear responses, questions should be:
-• Specific rather than vague
-• Focused on one issue at a time
-• Framed for yes/no answers
-• Asked in present tense when possible
-• Free from negatives (avoid "not" or "don't")
+## Basic Question Structure
 
-**Question Formula Templates**
+For clear responses, questions should be:
+
+- Specific rather than vague
+- Focused on one issue at a time 
+- Framed for yes/no answers
+- Asked in present tense when possible
+- Free from negatives (avoid "not" or "don't")
+
+## Question Formula Templates
+
 Use these proven formulas for reliable responses:
 
-1. **Permission Formula**
-   "Is it appropriate for me to ask about [topic]?"
-   "Do I have permission to receive information about [situation]?"
+### 1. Permission Formula
+- "Is it appropriate for me to ask about [topic]?"
+- "Do I have permission to receive information about [situation]?"
 
 2. **Timing Formula**
    "Is now the right time to [action]?"
@@ -965,14 +968,28 @@ Charts significantly expand your pendulum practice beyond basic yes/no responses
    • Erratic or counterclockwise movement often suggests blocked or overactive energy
    • No movement might indicate significant blockage
 
-**Chakra Locations for Testing**
-• Root (1st): Base of spine
-• Sacral (2nd): Lower abdomen, 2 inches below navel
-• Solar Plexus (3rd): Upper abdomen, just below ribcage
-• Heart (4th): Center of chest
-• Throat (5th): Base of throat
-• Third Eye (6th): Center of forehead
-• Crown (7th): Top of head
+## Chakra Locations for Testing
+
+1. Root (1st)
+   - Location: Base of spine
+
+2. Sacral (2nd)
+   - Location: Lower abdomen, 2 inches below navel
+
+3. Solar Plexus (3rd)
+   - Location: Upper abdomen, just below ribcage
+
+4. Heart (4th)
+   - Location: Center of chest
+
+5. Throat (5th)
+   - Location: Base of throat
+
+6. Third Eye (6th)
+   - Location: Center of forehead
+
+7. Crown (7th)
+   - Location: Top of head
 
 **Quantitative Testing**
 For more precise readings:
@@ -1089,11 +1106,12 @@ With practice, object finding can become one of the most reliably verifiable app
         title: "Meditation Integration",
         content: `Integrating pendulum work with meditation creates a powerful combination for spiritual development. Here are effective methods to combine these practices:
 
-**Pre-Meditation Guidance**
+## Pre-Meditation Guidance
+
 1. Before meditating, use your pendulum to:
-   • Identify which chakra needs attention today
-   • Determine optimal meditation duration
-   • Select the most beneficial meditation focus (healing, insight, connection, etc.)
+   - Identify which chakra needs attention today
+   - Determine optimal meditation duration
+   - Select the most beneficial meditation focus (healing, insight, connection, etc.)
 2. Let the pendulum guide your intention setting
 
 **Meditative Pendulum Gazing**
