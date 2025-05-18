@@ -35,7 +35,12 @@ export default function Journal() {
       tags: string[];
       mood?: string;
     }) => {
-      return apiRequest("POST", "/api/journal", entry);
+      const response = await apiRequest("POST", "/api/journal", entry);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.details || errorData.error || "Failed to save journal entry");
+      }
+      return response;
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["/api/journal"] });
@@ -49,18 +54,30 @@ export default function Journal() {
       setSelectedCards([]);
       setTags([]);
       setMood("");
+    },
+    onError: (error: Error) => {
+      console.error("Error saving journal entry:", error);
+      toast({
+        title: "Error saving entry",
+        description: error.message || "Failed to save journal entry. Please try again.",
+        variant: "destructive"
+      });
     }
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    mutation.mutate({
+    // Ensure tags is always an array, not undefined
+    const entryData = {
       title,
       content,
       cards: selectedCards.length > 0 ? selectedCards : undefined,
-      tags,
+      tags: tags || [], // Make sure tags is always an array
       mood: mood || undefined
-    });
+    };
+    
+    console.log("Submitting journal entry:", entryData);
+    mutation.mutate(entryData);
   };
 
   const handleAddTag = (e: React.KeyboardEvent) => {
