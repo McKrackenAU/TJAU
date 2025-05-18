@@ -1252,68 +1252,87 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
     </ul>
   </li>
 
-7. Crown (7th)
-   - Location: Top of head
+  <li><strong>Crown (7th)</strong>
+    <ul>
+      <li>Location: Top of head</li>
+    </ul>
+  </li>
+</ol>
 
-## Quantitative Testing
+<h2>Quantitative Testing</h2>
 
-For more precise readings:
-1. Create a chakra chart with scale from 1-10 for each chakra
-2. Hold pendulum over chart while focusing on each chakra
-3. Ask: "What is the current energy level of my [specific] chakra?"
-4. Note the numerical reading for each
-5. Create a complete profile of your chakra system
+<p>For more precise readings:</p>
+<ol>
+  <li>Create a chakra chart with scale from 1-10 for each chakra</li>
+  <li>Hold pendulum over chart while focusing on each chakra</li>
+  <li>Ask: "What is the current energy level of my [specific] chakra?"</li>
+  <li>Note the numerical reading for each</li>
+  <li>Create a complete profile of your chakra system</li>
+</ol>
 
-## Chakra Balancing with Pendulum
+<h2>Chakra Balancing with Pendulum</h2>
 
-After identifying imbalances:
-1. Hold pendulum over underactive chakra
-2. Visualize energy flowing in as pendulum begins to move clockwise
-3. Continue until movement becomes stronger and more consistent
-4. For overactive chakras, visualize excess energy releasing as pendulum movement normalizes
+<p>After identifying imbalances:</p>
+<ol>
+  <li>Hold pendulum over underactive chakra</li>
+  <li>Visualize energy flowing in as pendulum begins to move clockwise</li>
+  <li>Continue until movement becomes stronger and more consistent</li>
+  <li>For overactive chakras, visualize excess energy releasing as pendulum movement normalizes</li>
+</ol>
 
-## Chakra Diagnosis Applications
+<h2>Chakra Diagnosis Applications</h2>
 
-- Identify energy centers connected to physical discomfort
-- Discover emotional blockages related to specific chakras
-- Track progress in spiritual development
-- Guide meditation and energy work focus
+<ul>
+  <li>Identify energy centers connected to physical discomfort</li>
+  <li>Discover emotional blockages related to specific chakras</li>
+  <li>Track progress in spiritual development</li>
+  <li>Guide meditation and energy work focus</li>
+</ul>
 
-Regular chakra testing can become part of your wellness routine, helping maintain balanced energy and identifying potential issues before they manifest physically.`
+<p>Regular chakra testing can become part of your wellness routine, helping maintain balanced energy and identifying potential issues before they manifest physically.</p>`
       },
       {
         title: "Object Finding Techniques",
-        content: `One of the most practical applications of pendulum dowsing is locating lost objects. Follow these proven techniques:
+        content: `<p>One of the most practical applications of pendulum dowsing is locating lost objects. Follow these proven techniques:</p>
 
-## Direct Dowsing Method
+<h2>Direct Dowsing Method</h2>
 
-1. Calibrate your pendulum with yes/no responses
-2. Hold a similar object to program the pendulum (if possible)
-3. Ask clearly: "Am I able to locate [specific object]?"
-4. If yes, ask: "Is [object] in this building/house?"
-5. Systematically narrow down:
-   - "Is it on this floor?"
-   - "Is it in the [specific room]?"
-   - "Is it [direction] of where I'm standing?"
-6. Move in the indicated direction, continuing to ask yes/no questions
-7. When close, watch for stronger pendulum movements
+<ol>
+  <li>Calibrate your pendulum with yes/no responses</li>
+  <li>Hold a similar object to program the pendulum (if possible)</li>
+  <li>Ask clearly: "Am I able to locate [specific object]?"</li>
+  <li>If yes, ask: "Is [object] in this building/house?"</li>
+  <li>Systematically narrow down:
+    <ul>
+      <li>"Is it on this floor?"</li>
+      <li>"Is it in the [specific room]?"</li>
+      <li>"Is it [direction] of where I'm standing?"</li>
+    </ul>
+  </li>
+  <li>Move in the indicated direction, continuing to ask yes/no questions</li>
+  <li>When close, watch for stronger pendulum movements</li>
+</ol>
 
-## Map Dowsing for Lost Objects
+<h2>Map Dowsing for Lost Objects</h2>
 
-For items lost in larger areas:
-1. Obtain a map/floor plan of the relevant area
-2. Divide the map into quadrants
-3. Hold pendulum over each quadrant asking: "Is [object] located in this section?"
-4. Once a quadrant is identified, subdivide it and repeat
-5. Continue narrowing until location is precise enough to search physically
+<p>For items lost in larger areas:</p>
+<ol>
+  <li>Obtain a map/floor plan of the relevant area</li>
+  <li>Divide the map into quadrants</li>
+  <li>Hold pendulum over each quadrant asking: "Is [object] located in this section?"</li>
+  <li>Once a quadrant is identified, subdivide it and repeat</li>
+  <li>Continue narrowing until location is precise enough to search physically</li>
+</ol>
 
-## Photograph Method
+<h2>Photograph Method</h2>
 
-If searching in multiple possible locations:
-1. Take photos of different areas where the object might be
-2. Hold pendulum over each photo
-3. Ask: "Is my [object] located in this area?"
-4. Use the pendulum's response to guide your physical search
+<p>If searching in multiple possible locations:</p>
+<ol>
+  <li>Take photos of different areas where the object might be</li>
+  <li>Hold pendulum over each photo</li>
+  <li>Ask: "Is my [object] located in this area?"</li>
+  <li>Use the pendulum's response to guide your physical search</li>
+</ol>
 
 ## Troubleshooting Tips
 
