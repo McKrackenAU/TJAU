@@ -573,110 +573,136 @@ const pendulumLessons: LessonContent[] = [
     sections: [
       {
         title: "Creating Personal Connection Rituals",
-        content: `Establishing a strong energetic connection with your pendulum enhances its accuracy and responsiveness. These personal connection rituals help build that relationship:
+        content: `<p>Establishing a strong energetic connection with your pendulum enhances its accuracy and responsiveness. These personal connection rituals help build that relationship:</p>
 
-**Dedication Ceremony**
-1. Find a quiet space where you won't be disturbed
-2. Hold your pendulum in your dominant hand
-3. Close your eyes and take several deep breaths
-4. State aloud: "I dedicate this pendulum as a tool for my highest good and truth"
-5. Visualize your energy flowing into the pendulum, programming it to work specifically with you
-6. Express gratitude for the guidance you'll receive together
+<h2>Dedication Ceremony</h2>
+<ol>
+  <li>Find a quiet space where you won't be disturbed</li>
+  <li>Hold your pendulum in your dominant hand</li>
+  <li>Close your eyes and take several deep breaths</li>
+  <li>State aloud: "I dedicate this pendulum as a tool for my highest good and truth"</li>
+  <li>Visualize your energy flowing into the pendulum, programming it to work specifically with you</li>
+  <li>Express gratitude for the guidance you'll receive together</li>
+</ol>
 
-**Sleeping With Your Pendulum**
-1. Place your pendulum under your pillow or on your nightstand for 3-7 nights
-2. This allows your energetic signature to infuse the pendulum
-3. You may experience more intuitive dreams during this process
+<h2>Sleeping With Your Pendulum</h2>
+<ol>
+  <li>Place your pendulum under your pillow or on your nightstand for 3-7 nights</li>
+  <li>This allows your energetic signature to infuse the pendulum</li>
+  <li>You may experience more intuitive dreams during this process</li>
+</ol>
 
-**Personalized Carrying Pouch**
-1. Create or select a special pouch for your pendulum
-2. Add personal items like a small crystal, dried herb, or written intention
-3. Keep your pendulum in this protected space when not in use
+<h2>Personalized Carrying Pouch</h2>
+<ol>
+  <li>Create or select a special pouch for your pendulum</li>
+  <li>Add personal items like a small crystal, dried herb, or written intention</li>
+  <li>Keep your pendulum in this protected space when not in use</li>
+</ol>
 
-**Daily Greeting Practice**
-1. Begin each session by holding your pendulum and stating a simple greeting
-2. Examples: "Hello, my trusted guide" or "We work together for truth and clarity"
-3. This establishes a working relationship and signals the beginning of your practice
+<h2>Daily Greeting Practice</h2>
+<ol>
+  <li>Begin each session by holding your pendulum and stating a simple greeting</li>
+  <li>Examples: "Hello, my trusted guide" or "We work together for truth and clarity"</li>
+  <li>This establishes a working relationship and signals the beginning of your practice</li>
+</ol>
 
-**Naming Your Pendulum**
-Some practitioners find that naming their pendulum creates a stronger bond. Choose a name that resonates with the pendulum's energy or purpose.
+<h2>Naming Your Pendulum</h2>
+<p>Some practitioners find that naming their pendulum creates a stronger bond. Choose a name that resonates with the pendulum's energy or purpose.</p>
 
-These connection rituals can be performed singularly or combined based on what feels most meaningful to you. The key is consistency and sincere intention.`
+<p>These connection rituals can be performed singularly or combined based on what feels most meaningful to you. The key is consistency and sincere intention.</p>`
       },
       {
         title: "Programming Your Pendulum's Responses",
-        content: `Before working with your pendulum, you must establish consistent response patterns by programming how it will communicate:
+        content: `<p>Before working with your pendulum, you must establish consistent response patterns by programming how it will communicate:</p>
 
-## Basic Programming Process
+<h2>Basic Programming Process</h2>
 
-1. Hold your pendulum by the chain/cord about 2-3 inches from the weight
-2. Allow it to become completely still
-3. State clearly: "Show me YES"
-4. Observe the movement that naturally develops (typically forward-backward or clockwise)
-5. Once it stops, repeat with "Show me NO"
-6. The movement should be different (typically side-to-side or counterclockwise)
-7. Finally, ask "Show me MAYBE/NEUTRAL"
-8. This is often a diagonal movement or gentle swaying
+<ol>
+  <li>Hold your pendulum by the chain/cord about 2-3 inches from the weight</li>
+  <li>Allow it to become completely still</li>
+  <li>State clearly: "Show me YES"</li>
+  <li>Observe the movement that naturally develops (typically forward-backward or clockwise)</li>
+  <li>Once it stops, repeat with "Show me NO"</li>
+  <li>The movement should be different (typically side-to-side or counterclockwise)</li>
+  <li>Finally, ask "Show me MAYBE/NEUTRAL"</li>
+  <li>This is often a diagonal movement or gentle swaying</li>
+</ol>
 
-## Advanced Programming Options
+<h2>Advanced Programming Options</h2>
 
-Beyond yes/no responses, you can establish more complex communication:
-- "Show me STRONGER YES" (for emphatic positive responses)
-- "Show me STRONGER NO" (for emphatic negative responses)
-- "Show me NOT READY TO ANSWER" (for timing issues)
-- "Show me NOT PERMITTED TO ANSWER" (for questions beyond scope)
+<p>Beyond yes/no responses, you can establish more complex communication:</p>
+<ul>
+  <li>"Show me STRONGER YES" (for emphatic positive responses)</li>
+  <li>"Show me STRONGER NO" (for emphatic negative responses)</li>
+  <li>"Show me NOT READY TO ANSWER" (for timing issues)</li>
+  <li>"Show me NOT PERMITTED TO ANSWER" (for questions beyond scope)</li>
+</ul>
 
-## Recording Your Patterns
+<h2>Recording Your Patterns</h2>
 
-1. Document your pendulum's specific movements in a dedicated notebook
-2. Include drawings or descriptions of the direction and intensity
-3. This record becomes valuable if your pendulum's responses seem to change
+<ol>
+  <li>Document your pendulum's specific movements in a dedicated notebook</li>
+  <li>Include drawings or descriptions of the direction and intensity</li>
+  <li>This record becomes valuable if your pendulum's responses seem to change</li>
+</ol>
 
-## Regular Recalibration
+<h2>Regular Recalibration</h2>
 
-- Begin each dowsing session with a quick recalibration
-- If your pendulum seems "confused," perform a complete reprogramming
-- Some pendulums may develop different patterns over time as your relationship deepens
+<ul>
+  <li>Begin each dowsing session with a quick recalibration</li>
+  <li>If your pendulum seems "confused," perform a complete reprogramming</li>
+  <li>Some pendulums may develop different patterns over time as your relationship deepens</li>
+</ul>
 
-Remember, programming is establishing a clear language between you and your pendulum. Be patient with this process—clear communication is the foundation for accurate readings.`
+<p>Remember, programming is establishing a clear language between you and your pendulum. Be patient with this process—clear communication is the foundation for accurate readings.</p>`
       },
       {
         title: "Grounding Techniques Before Use",
-        content: `Grounding yourself before using your pendulum ensures clearer results by reducing mental noise and establishing energetic stability. Try these effective grounding techniques:
+        content: `<p>Grounding yourself before using your pendulum ensures clearer results by reducing mental noise and establishing energetic stability. Try these effective grounding techniques:</p>
 
-**Tree Root Visualization**
-1. Stand or sit comfortably with feet flat on the floor
-2. Close your eyes and breathe deeply
-3. Imagine roots growing from your feet deep into the earth
-4. Feel yourself anchored and stable
-5. Continue for 1-2 minutes until you feel centered
+<h2>Tree Root Visualization</h2>
+<ol>
+  <li>Stand or sit comfortably with feet flat on the floor</li>
+  <li>Close your eyes and breathe deeply</li>
+  <li>Imagine roots growing from your feet deep into the earth</li>
+  <li>Feel yourself anchored and stable</li>
+  <li>Continue for 1-2 minutes until you feel centered</li>
+</ol>
 
-**3-3-3 Sensory Grounding**
-1. Name 3 things you can see
-2. Name 3 things you can hear
-3. Name 3 things you can feel
-4. This brings you into the present moment quickly
+<h2>3-3-3 Sensory Grounding</h2>
+<ol>
+  <li>Name 3 things you can see</li>
+  <li>Name 3 things you can hear</li>
+  <li>Name 3 things you can feel</li>
+  <li>This brings you into the present moment quickly</li>
+</ol>
 
-**Palm Earthing**
-1. Place your non-dominant palm flat on the earth/floor
-2. Imagine excess energy draining away
-3. Draw up stable earth energy through your palm
-4. Continue for 30-60 seconds
+<h2>Palm Earthing</h2>
+<ol>
+  <li>Place your non-dominant palm flat on the earth/floor</li>
+  <li>Imagine excess energy draining away</li>
+  <li>Draw up stable earth energy through your palm</li>
+  <li>Continue for 30-60 seconds</li>
+</ol>
 
-**Breathing Square**
-1. Breathe in for a count of 4
-2. Hold for a count of 4
-3. Exhale for a count of 4
-4. Hold empty for a count of 4
-5. Repeat 4 times
+<h2>Breathing Square</h2>
+<ol>
+  <li>Breathe in for a count of 4</li>
+  <li>Hold for a count of 4</li>
+  <li>Exhale for a count of 4</li>
+  <li>Hold empty for a count of 4</li>
+  <li>Repeat 4 times</li>
+</ol>
 
-**Quick Physical Grounding**
-1. Rub your hands together vigorously
-2. Feel the warmth and energy
-3. Place your warmed hands on your thighs
-4. Take 3 deep breaths
+<h2>Quick Physical Grounding</h2>
+<ol>
+  <li>Rub your hands together vigorously</li>
+  <li>Feel the warmth and energy</li>
+  <li>Place your warmed hands on your thighs</li>
+  <li>Take 3 deep breaths</li>
+</ol>
 
-Perform one of these grounding techniques before every pendulum session. Consistent grounding leads to more accurate readings, prevents energy depletion, and keeps you centered throughout the process.`
+<p>Perform one of these grounding techniques before every pendulum session. Consistent grounding leads to more accurate readings, prevents energy depletion, and keeps you centered throughout the process.</p>`
       }
     ],
     exercises: [
@@ -873,55 +899,71 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
     sections: [
       {
         title: "Effective Yes/No Question Formulas",
-        content: `The way you phrase your questions significantly impacts the accuracy of your pendulum readings. Follow these guidelines for effective question framing:
+        content: `<p>The way you phrase your questions significantly impacts the accuracy of your pendulum readings. Follow these guidelines for effective question framing:</p>
 
-## Basic Question Structure
+<h2>Basic Question Structure</h2>
 
-For clear responses, questions should be:
+<p>For clear responses, questions should be:</p>
 
-- Specific rather than vague
-- Focused on one issue at a time 
-- Framed for yes/no answers
-- Asked in present tense when possible
-- Free from negatives (avoid "not" or "don't")
+<ul>
+  <li>Specific rather than vague</li>
+  <li>Focused on one issue at a time</li>
+  <li>Framed for yes/no answers</li>
+  <li>Asked in present tense when possible</li>
+  <li>Free from negatives (avoid "not" or "don't")</li>
+</ul>
 
-## Question Formula Templates
+<h2>Question Formula Templates</h2>
 
-Use these proven formulas for reliable responses:
+<p>Use these proven formulas for reliable responses:</p>
 
-### 1. Permission Formula
-- "Is it appropriate for me to ask about [topic]?"
-- "Do I have permission to receive information about [situation]?"
+<h3>1. Permission Formula</h3>
+<ul>
+  <li>"Is it appropriate for me to ask about [topic]?"</li>
+  <li>"Do I have permission to receive information about [situation]?"</li>
+</ul>
 
-### 2. Timing Formula
-- "Is now the right time to [action]?"
-- "Will [event] occur within [timeframe]?"
+<h3>2. Timing Formula</h3>
+<ul>
+  <li>"Is now the right time to [action]?"</li>
+  <li>"Will [event] occur within [timeframe]?"</li>
+</ul>
 
-### 3. Direction Formula
-- "Is [option A] the best choice for my highest good?"
-- "Should I proceed with [specific action]?"
+<h3>3. Direction Formula</h3>
+<ul>
+  <li>"Is [option A] the best choice for my highest good?"</li>
+  <li>"Should I proceed with [specific action]?"</li>
+</ul>
 
-### 4. Information Formula
-- "Is [specific detail] accurate?"
-- "Does [person/situation] align with my stated intentions?"
+<h3>4. Information Formula</h3>
+<ul>
+  <li>"Is [specific detail] accurate?"</li>
+  <li>"Does [person/situation] align with my stated intentions?"</li>
+</ul>
 
-### 5. Health Formula
-- "Would [specific food/supplement] benefit my body right now?"
-- "Is this [symptom] related to [potential cause]?"
+<h3>5. Health Formula</h3>
+<ul>
+  <li>"Would [specific food/supplement] benefit my body right now?"</li>
+  <li>"Is this [symptom] related to [potential cause]?"</li>
+</ul>
 
-## Rephrasing Strategies
+<h2>Rephrasing Strategies</h2>
 
-If you receive unclear responses:
-- Break complex questions into smaller parts
-- Use the "fishing" technique (narrow down from general to specific)
-- Add timeframes for clarity ("...within the next month?")
-- Add qualifiers ("...for my highest good?")
+<p>If you receive unclear responses:</p>
+<ul>
+  <li>Break complex questions into smaller parts</li>
+  <li>Use the "fishing" technique (narrow down from general to specific)</li>
+  <li>Add timeframes for clarity ("...within the next month?")</li>
+  <li>Add qualifiers ("...for my highest good?")</li>
+</ul>
 
-## Question Sequences
+<h2>Question Sequences</h2>
 
-For deeper insights, use sequences like:
-1. "Is it appropriate to ask about [topic]?"
-2. "Would [option A] benefit me?"
+<p>For deeper insights, use sequences like:</p>
+<ol>
+  <li>"Is it appropriate to ask about [topic]?"</li>
+  <li>"Would [option A] benefit me?"</li>
+</ol>
 3. "Would [option B] benefit me?"
 4. "Are there better options I haven't considered?"
 5. "Should I take action now?"
