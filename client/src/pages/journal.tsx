@@ -71,7 +71,7 @@ export default function Journal() {
     const entryData = {
       title,
       content,
-      cards: selectedCards.length > 0 ? selectedCards : undefined,
+      cards: selectedCards.length > 0 ? selectedCards : [],  // Always pass an array, never undefined
       tags: tags || [], // Make sure tags is always an array
       mood: mood || undefined
     };
