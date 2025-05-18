@@ -1442,54 +1442,68 @@ Calibration should be performed at the beginning of each session, especially whe
     sections: [
       {
         title: "Meditation Integration",
-        content: `Integrating pendulum work with meditation creates a powerful combination for spiritual development. Here are effective methods to combine these practices:
+        content: `<p>Integrating pendulum work with meditation creates a powerful combination for spiritual development. Here are effective methods to combine these practices:</p>
 
-## Pre-Meditation Guidance
+<h2>Pre-Meditation Guidance</h2>
 
-1. Before meditating, use your pendulum to:
-   - Identify which chakra needs attention today
-   - Determine optimal meditation duration
-   - Select the most beneficial meditation focus (healing, insight, connection, etc.)
-2. Let the pendulum guide your intention setting
+<ol>
+  <li>Before meditating, use your pendulum to:
+    <ul>
+      <li>Identify which chakra needs attention today</li>
+      <li>Determine optimal meditation duration</li>
+      <li>Select the most beneficial meditation focus</li>
+    </ul>
+  </li>
+</ol>
 
-**Meditative Pendulum Gazing**
-1. Sit in a comfortable meditation posture
-2. Hold your pendulum at eye level, slightly away from your face
-3. Set it in motion with a gentle swing
-4. Focus your gaze softly on the pendulum's movement
-5. Allow your consciousness to synchronize with the rhythmic pattern
-6. Continue for 5-15 minutes
-7. This induces a light trance state beneficial for insight work
+<h3>Meditative Pendulum Gazing</h3>
+<ol>
+  <li>Sit in a comfortable meditation posture</li>
+  <li>Hold your pendulum at eye level, slightly away from your face</li>
+  <li>Set it in motion with a gentle swing</li>
+  <li>Focus your gaze softly on the pendulum's movement</li>
+  <li>Allow your consciousness to synchronize with the rhythmic pattern</li>
+  <li>Continue for 5-15 minutes</li>
+  <li>This induces a light trance state beneficial for insight work</li>
+</ol>
 
-**Pendulum Meditation for Chakra Balancing**
-1. Move your pendulum clockwise above each chakra
-2. Begin at root and move upward
-3. Maintain focus on each chakra for 1-3 minutes
-4. Visualize the pendulum drawing energy blockages away
-5. Complete by holding pendulum above crown chakra
+<h3>Pendulum Meditation for Chakra Balancing</h3>
+<ol>
+  <li>Move your pendulum clockwise above each chakra</li>
+  <li>Begin at root and move upward</li>
+  <li>Maintain focus on each chakra for 1-3 minutes</li>
+  <li>Visualize the pendulum drawing energy blockages away</li>
+  <li>Complete by holding pendulum above crown chakra</li>
+</ol>
 
-**Higher Self Communication**
-1. Enter a meditative state through deep breathing
-2. When calm and centered, hold your pendulum
-3. Ask questions directed to your higher self/spiritual guidance
-4. The meditative state helps bypass analytical mind interference
-5. Journal insights received afterward
+<h3>Higher Self Communication</h3>
+<ol>
+  <li>Enter a meditative state through deep breathing</li>
+  <li>When calm and centered, hold your pendulum</li>
+  <li>Ask questions directed to your higher self/spiritual guidance</li>
+  <li>The meditative state helps bypass analytical mind interference</li>
+  <li>Journal insights received afterward</li>
+</ol>
 
-**Pendulum Dowsing After Meditation**
-1. Complete your regular meditation practice
-2. While still in the expanded awareness state, conduct pendulum work
-3. Questions asked in this state often receive clearer responses
-4. This timing leverages the heightened intuition from meditation
+<h3>Pendulum Dowsing After Meditation</h3>
+<ol>
+  <li>Complete your regular meditation practice</li>
+  <li>While still in the expanded awareness state, conduct pendulum work</li>
+  <li>Questions asked in this state often receive clearer responses</li>
+  <li>This timing leverages the heightened intuition from meditation</li>
+</ol>
 
-## Progressive Practice
+<h2>Progressive Practice</h2>
 
-Start with simple integration:
-- Week 1-2: Pre-meditation guidance only
-- Week 3-4: Add post-meditation questions
-- Week 5-6: Introduce pendulum gazing
-- Week 7-8: Implement chakra balancing techniques
+<p>Start with simple integration:</p>
+<ul>
+  <li>Week 1-2: Pre-meditation guidance only</li>
+  <li>Week 3-4: Add post-meditation questions</li>
+  <li>Week 5-6: Introduce pendulum gazing</li>
+  <li>Week 7-8: Implement chakra balancing techniques</li>
+</ul>
 
-The combination of meditation and pendulum work accelerates spiritual development by providing both intuitive insights and verifiable feedback in a complementary system.`
+<p>The combination of meditation and pendulum work accelerates spiritual development by providing both intuitive insights and verifiable feedback in a complementary system.</p>`
       },
       {
         title: "Energy Field Cleansing",
