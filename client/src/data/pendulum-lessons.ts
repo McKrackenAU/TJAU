@@ -12,34 +12,70 @@ const pendulumLessons: LessonContent[] = [
     sections: [
       {
         title: "Definition and Historical Context",
-        content: `Pendulum dowsing is a form of divination that uses a weighted object suspended from a chain or string to answer questions or locate objects through subtle movements. The practice can be traced back thousands of years, with evidence of pendulum-like tools being used in ancient Egypt, China, and Rome.
+        content: `# What is Pendulum Dowsing?
+Pendulum dowsing is a form of divination that uses a weighted object suspended from a chain or string to answer questions or locate objects through subtle movements.
 
-Throughout history, dowsing was primarily used to locate water, precious metals, and lost objects. By the Middle Ages, European miners were using dowsing rods to locate mineral deposits. The pendulum as we know it today became especially popular during the spiritual movement of the 19th century.
+## Historical Origins
+- **Ancient History**: Evidence of pendulum-like tools in:
+  - Ancient Egypt
+  - China
+  - Rome
 
-Today, pendulum dowsing has evolved into a spiritual practice used for gaining insight, making decisions, energy healing, and connecting with one's higher self or intuition.`
+## Historical Development
+- **Middle Ages**: European miners used dowsing rods for mineral deposits
+- **19th Century**: Pendulums gained popularity during the spiritual movement
+- **Modern Era**: Evolution into a spiritual practice for:
+  - Gaining insight
+  - Making decisions
+  - Energy healing
+  - Connecting with intuition`
       },
       {
         title: "How Pendulums Work",
-        content: `The scientific explanation for pendulum movement is typically attributed to the ideomotor effect—tiny, unconscious muscle movements that occur in response to thoughts or suggestions. These subtle movements are amplified by the pendulum, making them visible.
+        content: `## Scientific Explanation
+The ideomotor effect explains pendulum movement:
+- Tiny, unconscious muscle movements
+- Response to thoughts or suggestions
+- Amplification through the pendulum
 
-From a spiritual perspective, many practitioners believe the pendulum acts as a receiver and transmitter of energy. It's seen as an extension of your own intuition or subconscious knowledge, or even as a tool to connect with higher guidance.
+## Spiritual Perspective
+Many practitioners view the pendulum as:
+- A receiver and transmitter of energy
+- An extension of intuition
+- A tool for connecting with higher guidance
 
-Regardless of which explanation resonates with you, the pendulum serves as a tool to bypass the conscious, analytical mind and access information that might otherwise remain hidden from your awareness.`
+## Role of the Pendulum
+- Bypasses conscious, analytical mind
+- Accesses hidden information
+- Amplifies subtle energy movements`
       },
       {
         title: "Modern Applications",
-        content: `In contemporary spiritual practice, pendulums are used for:
+        content: `## Contemporary Uses
+- **Decision Making**
+  - When logical analysis reaches limits
+  - For complex choices
+  - During uncertainty
 
-• Making decisions when logical analysis reaches a standstill
-• Retrieving information from the subconscious mind
-• Energy healing and chakra balancing
-• Finding lost objects or hidden water sources
-• Selecting appropriate crystals, herbs, or other healing tools
-• Connecting with spiritual guides or higher consciousness
-• Testing food compatibility or sensitivity
-• Choosing between options when feeling uncertain
+- **Intuitive Development**
+  - Retrieving subconscious information
+  - Developing psychic abilities
+  - Strengthening inner guidance
 
-The pendulum has maintained its relevance by adapting to modern needs while preserving the ancient wisdom behind the practice.`
+- **Healing Work**
+  - Energy healing
+  - Chakra balancing
+  - Testing food compatibility
+
+- **Practical Applications**
+  - Finding lost objects
+  - Selecting healing tools
+  - Water source location
+
+- **Spiritual Connection**
+  - Connecting with guides
+  - Accessing higher consciousness
+  - Meditation enhancement`
       }
     ],
     exercises: [
@@ -86,90 +122,175 @@ The pendulum has maintained its relevance by adapting to modern needs while pres
     sections: [
       {
         title: "Material Guide",
-        content: `Pendulums come in a variety of materials, each with their own properties and strengths:
+        content: `# Pendulum Materials and Properties
 
-**Crystal Pendulums**
-Crystals are the most common materials for pendulums due to their energetic properties. Different crystals serve different purposes:
-• Clear Quartz: Versatile, amplifies energy, good for beginners
-• Amethyst: Enhances spiritual connection and intuition
-• Rose Quartz: Best for questions about love and relationships
-• Black Obsidian: Protection and revealing hidden truths
-• Citrine: Abundance and manifestation questions
+## Crystal Pendulums
+Most common materials due to energetic properties:
 
-**Metal Pendulums**
-Metal pendulums provide clear, direct answers and are less influenced by surrounding energies:
-• Brass: Balances energy and enhances mental clarity
-• Copper: Amplifies energy transfer and conductivity
-• Silver: Psychic enhancement and emotional questions
-• Gold: Connects to higher spiritual wisdom
+### Common Crystal Types
+- **Clear Quartz**
+  - Versatile
+  - Amplifies energy
+  - Ideal for beginners
 
-**Wooden Pendulums**
-Wood provides a gentle, natural energy and strong earth connection:
-• Oak: Strength and stability in readings
-• Rosewood: Heart-centered questions
-• Cedar: Spiritual protection during divination
+- **Amethyst**
+  - Enhances spiritual connection
+  - Strengthens intuition
+  - Protection during readings
 
-The material you're most drawn to is often the best choice for your personal practice.`
+- **Rose Quartz**
+  - Love and relationships
+  - Emotional healing
+  - Heart-centered work
+
+- **Black Obsidian**
+  - Protection
+  - Truth revealing
+  - Grounding energy
+
+- **Citrine**
+  - Abundance
+  - Manifestation
+  - Positive energy
+
+## Metal Pendulums
+Provide clear, direct answers and resist environmental energies:
+
+### Metal Types
+- **Brass**
+  - Balances energy
+  - Enhances mental clarity
+  - Traditional choice
+
+- **Copper**
+  - Amplifies energy transfer
+  - High conductivity
+  - Physical healing
+
+- **Silver**
+  - Psychic enhancement
+  - Emotional questions
+  - Moon connection
+
+- **Gold**
+  - Higher spiritual wisdom
+  - Solar energy
+  - Clarity in readings
+
+## Wooden Pendulums
+Natural energy and earth connection:
+
+### Wood Types
+- **Oak**
+  - Strength
+  - Stability
+  - Grounding
+
+- **Rosewood**
+  - Heart-centered work
+  - Emotional balance
+  - Love readings
+
+- **Cedar**
+  - Spiritual protection
+  - Purification
+  - Sacred space work`
       },
       {
         title: "Choosing Your First Pendulum",
-        content: `When selecting your first pendulum, consider these factors:
+        content: `# Selection Criteria for Your First Pendulum
 
-**Size and Weight**
-• Weight affects responsiveness—heavier pendulums move more deliberately but may be less sensitive
-• Lighter pendulums are more responsive but can be influenced by subtle air movements
-• For beginners, a medium weight provides both stability and sensitivity
-• The chain/cord length should allow 3-5 inches of swing space
+## Physical Characteristics
 
-**Shape**
-• Teardrop/conical shapes provide directional precision
-• Spherical shapes move more freely in all directions
-• Points direct energy more specifically
+### Size and Weight
+- **Weight Effects**
+  - Heavier: More deliberate movement
+  - Lighter: Higher sensitivity
+  - Medium: Balanced response
 
-**Connection**
-• The most important factor is your personal connection to the pendulum
-• Hold different pendulums and notice which one feels right in your hand
-• Some practitioners report feeling warmth, tingling, or a subtle pull toward their ideal pendulum
+### Chain Length
+- Optimal length: 3-5 inches
+- Allows proper swing space
+- Maintains control
 
-**Budget**
-• Effective pendulums exist at all price points
-• A simple crystal pendulum under $20 works perfectly for beginners
-• Specialty pendulums with intricate designs can cost $50-200+
+### Shape Considerations
+- **Teardrop/Conical**
+  - Directional precision
+  - Focused energy
+  - Traditional choice
 
-Remember, the pendulum is a tool for accessing your own intuition—the perfect pendulum is the one that feels right to you.`
+- **Spherical**
+  - Free movement
+  - Universal energy
+  - Less directional
+
+## Energetic Connection
+
+### Personal Resonance
+- Trust your intuition
+- Notice physical sensations:
+  - Warmth
+  - Tingling
+  - Subtle pull
+
+### Testing Methods
+- Hold different options
+- Notice energy differences
+- Observe natural attraction
+
+## Practical Considerations
+
+### Budget Guidelines
+- Beginner pendulums: Under $20
+- Mid-range options: $20-50
+- Specialty pieces: $50-200+
+
+### Quality Factors
+- Craftsmanship
+- Material authenticity
+- Energy clarity`
       },
       {
         title: "Digital vs Physical Pendulums",
-        content: `As technology advances, digital pendulum apps have become available. Here's how they compare to physical pendulums:
+        content: `# Comparing Digital and Physical Pendulums
 
-**Physical Pendulums**
-Advantages:
-• Direct energy connection through physical touch
-• No battery/power requirements
-• Can be cleansed and charged energetically
-• Unique energetic properties based on materials
-• Traditional tactile experience
+## Physical Pendulums
 
-Limitations:
-• Must be physically present to use
-• Can be lost or damaged
-• May be influenced by physical factors like drafts or uneven surfaces
+### Advantages
+- Direct energy connection
+- No power requirements
+- Energetic cleansing possible
+- Unique material properties
+- Traditional experience
 
-**Digital Pendulums**
-Advantages:
-• Always available on your device
-• Consistent movement patterns
-• Not affected by physical environment
-• Often include additional features like tracking or guided sessions
-• Some apps claim to use device sensors to detect subtle movements
+### Limitations
+- Requires physical presence
+- Subject to damage
+- Environmental influences
+- Storage needs
 
-Limitations:
-• No physical/energetic connection
-• Depends on battery power and functioning device
-• Screen interface creates energetic distance
-• Limited by app design and functionality
+## Digital Pendulums
 
-While many traditionalists prefer physical pendulums for their energetic connection, digital alternatives can be useful for practice or when a physical pendulum isn't available. Most serious practitioners eventually develop a preference for physical pendulums for their full practice.`
+### Advantages
+- Always available
+- Consistent movement
+- Environment-independent
+- Additional features
+- Progress tracking
+
+### Limitations
+- No physical connection
+- Battery dependent
+- Screen interface barrier
+- Limited energy work
+- App constraints
+
+## Usage Recommendations
+- Begin with physical pendulum
+- Use digital for practice
+- Combine both methods
+- Trust traditional approach
+- Keep digital as backup`
       }
     ],
     exercises: [
@@ -208,7 +329,6 @@ While many traditionalists prefer physical pendulums for their energetic connect
       }
     ]
   },
-  // Module 2: Preparing Your Pendulum
   {
     id: "pendulum-2-1",
     title: "Cleansing & Activation",
@@ -461,7 +581,6 @@ Perform one of these grounding techniques before every pendulum session. Consist
       }
     ]
   },
-  // Module 3: Basic Dowsing Techniques
   {
     id: "pendulum-3-1",
     title: "Establishing Communication",
@@ -774,7 +893,6 @@ Awareness of these pitfalls will help you develop precision in your questioning 
       }
     ]
   },
-  // Module 4: Practical Applications
   {
     id: "pendulum-4-1",
     title: "Decision-Making Framework",
