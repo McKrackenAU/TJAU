@@ -373,28 +373,31 @@ Each cleansing method has its strengths, and you might find you prefer one over 
         title: "Frequency of Cleansing",
         content: `Knowing when to cleanse your pendulum is as important as knowing how to cleanse it. Here's a general guide for cleansing frequency:
 
-**Regular Cleansing Schedule**
-• For frequent use (daily): Cleanse weekly
-• For occasional use: Cleanse monthly
-• For professional practitioners: Cleanse after each client or daily
+## Regular Cleansing Schedule
 
-**Situation-Based Cleansing**
+- For frequent use (daily): Cleanse weekly
+- For occasional use: Cleanse monthly
+- For professional practitioners: Cleanse after each client or daily
+
+## Situation-Based Cleansing
+
 Always cleanse your pendulum:
-• When you first acquire it
-• After someone else handles it
-• After asking particularly charged or negative questions
-• When answers become inconsistent or unclear
-• When your pendulum feels "heavier" energetically
-• After using it in spaces with dense or negative energy
-• If you experience a strong emotional release during use
-• When you intuitively feel it needs cleansing
+- When you first acquire it
+- After someone else handles it
+- After asking particularly charged or negative questions
+- When answers become inconsistent or unclear
+- When your pendulum feels "heavier" energetically
+- After using it in spaces with dense or negative energy
+- If you experience a strong emotional release during use
+- When you intuitively feel it needs cleansing
 
-**Signs Your Pendulum Needs Cleansing**
-• Sluggish movement or delayed responses
-• Inconsistent answers to calibration questions
-• Difficulty establishing a clear yes/no response
-• Feeling disconnected from your pendulum
-• The pendulum feels physically heavier than usual
+## Signs Your Pendulum Needs Cleansing
+
+- Sluggish movement or delayed responses
+- Inconsistent answers to calibration questions
+- Difficulty establishing a clear yes/no response
+- Feeling disconnected from your pendulum
+- The pendulum feels physically heavier than usual
 
 Trust your intuition—if you feel your pendulum needs cleansing, it probably does. Over time, you'll develop a personal rhythm and relationship with your pendulum that guides this process.`
       }
