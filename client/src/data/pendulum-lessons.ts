@@ -805,28 +805,32 @@ Remember to remain neutral while asking—emotional attachment to outcomes can i
         title: "20 Essential Beginner Questions",
         content: `Practice your pendulum skills with these 20 essential questions for beginners, organized by category:
 
-**Self-Discovery**
+## Self-Discovery
+
 1. "Is developing my intuition a priority for my growth right now?"
 2. "Would journaling help me process my emotions effectively?"
 3. "Would meditation practice benefit my spiritual development now?"
 4. "Is creative expression an important outlet for me at this time?"
 5. "Am I currently aligned with my authentic self?"
 
-**Decision Making**
+## Decision Making
+
 6. "Is this decision aligned with my highest good?"
 7. "Should I proceed with [specific project/plan]?"
 8. "Would waiting for more information serve me better than deciding now?"
 9. "Is fear influencing my perspective on this decision?"
 10. "Will this choice lead to growth experiences?"
 
-**Relationships**
+## Relationships
+
 11. "Is this relationship currently supporting my well-being?"
 12. "Would having a conversation about [topic] with [person] be beneficial now?"
 13. "Should I expand my social connections at this time?"
 14. "Am I maintaining healthy boundaries in this relationship?"
 15. "Is there unresolved communication I need to address?"
 
-**Practical Matters**
+## Practical Matters
+
 16. "Is this the right time to make changes to my living space?"
 17. "Would focusing on [specific area] improve my work situation?"
 18. "Should I prioritize self-care more in my daily routine?"
@@ -839,43 +843,53 @@ Start with questions that have lower emotional stakes as you develop your practi
         title: "Common Pitfalls to Avoid",
         content: `Even experienced dowsers can fall into these common question-framing traps. Learn to recognize and avoid them:
 
-**Double Questions**
+## Double Questions
+
 ❌ "Should I take this job and move to the new city?"
 ✓ Split into: "Is this job opportunity aligned with my goals?" and "Would moving to this city benefit me?"
 
-**Leading Questions**
+## Leading Questions
+
 ❌ "This is the right choice for me, isn't it?"
 ✓ Rephrase as: "Is this choice aligned with my highest good?"
 
-**Vague Questions**
+## Vague Questions
+
 ❌ "Will I be happy?"
 ✓ Specify: "Would pursuing [specific path] bring me fulfillment in the next six months?"
 
-**Future-Focused Without Context**
+## Future-Focused Without Context
+
 ❌ "Will I get the job?"
 ✓ Rephrase as: "Based on my current qualifications and actions, am I on path to secure this position?"
 
-**Asking the Same Question Repeatedly**
+## Asking the Same Question Repeatedly
+
 ❌ Asking "Should I take this job?" five times hoping for your preferred answer
 ✓ Instead: Accept the initial answer, or rephrase to understand why: "Are there aspects of this job I'm overlooking?"
 
-**Questions Beyond Your Scope**
+## Questions Beyond Your Scope
+
 ❌ "What will the stock market do next week?"
 ✓ Personalize: "Based on my research, would investing in [specific stock] align with my financial goals?"
 
-**Emotionally Charged Questions**
+## Emotionally Charged Questions
+
 ❌ Asking while angry: "Is my partner lying to me?"
 ✓ Wait for neutral state, then: "Would having an honest conversation about trust benefit our relationship?"
 
-**Questions About Others Without Permission**
+## Questions About Others Without Permission
+
 ❌ "What is my friend thinking about me?"
 ✓ Refocus: "Is there something I should address in my communication with this friend?"
 
-**Yes/No When Options Are Needed**
+## Yes/No When Options Are Needed
+
 ❌ "Should I change my career?"
 ✓ Better approach: Use a chart with multiple career options and ask which deserves exploration
 
-**Absolutes and Extremes**
+## Absolutes and Extremes
+
 ❌ "Will this always be the best approach?"
 ✓ Timeframe it: "Is this approach serving my needs in the current situation?"
 
