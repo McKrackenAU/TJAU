@@ -376,7 +376,7 @@ export function registerRoutes(app: Express): Server {
               }
             ],
             temperature: 0.7,
-            max_tokens: 1000
+            max_tokens: 2000
           });
           
           if (!response.choices || response.choices.length === 0 || !response.choices[0].message.content) {
@@ -398,10 +398,19 @@ export function registerRoutes(app: Express): Server {
       res.json({ interpretation });
     } catch (error) {
       console.error("Spread interpretation error:", error);
-      res.status(500).json({
-        error: "Failed to generate spread interpretation",
-        details: error instanceof Error ? error.message : "Unknown error"
-      });
+      
+      // Check for OpenAI-specific errors
+      if (error instanceof Error && error.message.includes("OpenAI API")) {
+        res.status(500).json({
+          error: "OpenAI service temporarily unavailable",
+          details: "The AI service is currently experiencing issues. Please try again in a few moments."
+        });
+      } else {
+        res.status(500).json({
+          error: "Failed to generate spread interpretation",
+          details: error instanceof Error ? error.message : "Unknown error"
+        });
+      }
     }
   });
   
