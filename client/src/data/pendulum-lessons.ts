@@ -1597,35 +1597,43 @@ Calibration should be performed at the beginning of each session, especially whe
   <li>Ask follow-up questions about how to apply this information</li>
 </ol>
 
-**Dream Pattern Recognition**
-For recurring dreams:
-1. List themes that appear multiple times
-2. Ask: "Is this pattern trying to bring awareness to an unresolved issue?"
-3. Use pendulum with a chart of life areas (relationships, career, health, etc.)
-4. Identify which area the dream pattern relates to
-5. Ask about potential actions to address the underlying issue
+<h3>Dream Pattern Recognition</h3>
+<p>For recurring dreams:</p>
+<ol>
+  <li>List themes that appear multiple times</li>
+  <li>Ask: "Is this pattern trying to bring awareness to an unresolved issue?"</li>
+  <li>Use pendulum with a chart of life areas (relationships, career, health, etc.)</li>
+  <li>Identify which area the dream pattern relates to</li>
+  <li>Ask about potential actions to address the underlying issue</li>
+</ol>
 
-**Dream Guidance for Decision Making**
-When dreams seem to offer guidance:
-1. Identify the apparent advice within the dream
-2. Ask: "Would following this dream guidance benefit my highest good?"
-3. Explore potential outcomes with additional yes/no questions
-4. Determine if literal or symbolic interpretation is more appropriate
+<h3>Dream Guidance for Decision Making</h3>
+<p>When dreams seem to offer guidance:</p>
+<ol>
+  <li>Identify the apparent advice within the dream</li>
+  <li>Ask: "Would following this dream guidance benefit my highest good?"</li>
+  <li>Explore potential outcomes with additional yes/no questions</li>
+  <li>Determine if literal or symbolic interpretation is more appropriate</li>
+</ol>
 
-**Incubating Specific Dreams**
-To receive dream guidance on a specific issue:
-1. Before sleep, hold your pendulum
-2. State your desire to receive helpful dream guidance about your question
-3. Place pendulum under pillow or nearby
-4. Upon waking, use pendulum to help interpret the resulting dream
+<h3>Incubating Specific Dreams</h3>
+<p>To receive dream guidance on a specific issue:</p>
+<ol>
+  <li>Before sleep, hold your pendulum</li>
+  <li>State your desire to receive helpful dream guidance about your question</li>
+  <li>Place pendulum under pillow or nearby</li>
+  <li>Upon waking, use pendulum to help interpret the resulting dream</li>
+</ol>
 
-**Integration Techniques**
-After interpretation:
-1. Ask: "What is one action I can take based on this dream insight?"
-2. Use pendulum to verify if your understanding is accurate
-3. Check if additional dream exploration would be beneficial
+<h3>Integration Techniques</h3>
+<p>After interpretation:</p>
+<ol>
+  <li>Ask: "What is one action I can take based on this dream insight?"</li>
+  <li>Use pendulum to verify if your understanding is accurate</li>
+  <li>Check if additional dream exploration would be beneficial</li>
+</ol>
 
-The pendulum brings objectivity to dream interpretation, helping to bypass conscious mind biases and access deeper subconscious wisdom contained within dream messages.`
+<p>The pendulum brings objectivity to dream interpretation, helping to bypass conscious mind biases and access deeper subconscious wisdom contained within dream messages.</p>`
       }
     ],
     exercises: [
