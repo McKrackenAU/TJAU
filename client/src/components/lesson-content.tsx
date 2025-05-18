@@ -12,7 +12,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import { CheckCircle, BookOpen, ArrowLeft, ArrowRight, Brain } from "lucide-react";
-import { marked } from "marked";
 
 // Define the lesson content type
 export interface LessonContent {
@@ -208,7 +207,7 @@ export function LessonContent({
                 <h3 className="text-lg font-semibold mb-2">{section.title}</h3>
                 <div 
                   className="prose prose-sm dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:my-4 prose-h2:text-lg prose-h3:text-base prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1" 
-                  dangerouslySetInnerHTML={{ __html: typeof section.content === 'string' ? marked(section.content) : section.content }} 
+                  dangerouslySetInnerHTML={{ __html: section.content }}
                 />
               </div>
             ))}

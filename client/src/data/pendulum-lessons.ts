@@ -371,35 +371,41 @@ Each cleansing method has its strengths, and you might find you prefer one over 
       },
       {
         title: "Frequency of Cleansing",
-        content: `Knowing when to cleanse your pendulum is as important as knowing how to cleanse it. Here's a general guide for cleansing frequency:
+        content: `<p>Knowing when to cleanse your pendulum is as important as knowing how to cleanse it. Here's a general guide for cleansing frequency:</p>
 
-## Regular Cleansing Schedule
+<h2>Regular Cleansing Schedule</h2>
 
-- For frequent use (daily): Cleanse weekly
-- For occasional use: Cleanse monthly
-- For professional practitioners: Cleanse after each client or daily
+<ul>
+<li>For frequent use (daily): Cleanse weekly</li>
+<li>For occasional use: Cleanse monthly</li>
+<li>For professional practitioners: Cleanse after each client or daily</li>
+</ul>
 
-## Situation-Based Cleansing
+<h2>Situation-Based Cleansing</h2>
 
-Always cleanse your pendulum:
-- When you first acquire it
-- After someone else handles it
-- After asking particularly charged or negative questions
-- When answers become inconsistent or unclear
-- When your pendulum feels "heavier" energetically
-- After using it in spaces with dense or negative energy
-- If you experience a strong emotional release during use
-- When you intuitively feel it needs cleansing
+<p>Always cleanse your pendulum:</p>
+<ul>
+<li>When you first acquire it</li>
+<li>After someone else handles it</li>
+<li>After asking particularly charged or negative questions</li>
+<li>When answers become inconsistent or unclear</li>
+<li>When your pendulum feels "heavier" energetically</li>
+<li>After using it in spaces with dense or negative energy</li>
+<li>If you experience a strong emotional release during use</li>
+<li>When you intuitively feel it needs cleansing</li>
+</ul>
 
-## Signs Your Pendulum Needs Cleansing
+<h2>Signs Your Pendulum Needs Cleansing</h2>
 
-- Sluggish movement or delayed responses
-- Inconsistent answers to calibration questions
-- Difficulty establishing a clear yes/no response
-- Feeling disconnected from your pendulum
-- The pendulum feels physically heavier than usual
+<ul>
+<li>Sluggish movement or delayed responses</li>
+<li>Inconsistent answers to calibration questions</li>
+<li>Difficulty establishing a clear yes/no response</li>
+<li>Feeling disconnected from your pendulum</li>
+<li>The pendulum feels physically heavier than usual</li>
+</ul>
 
-Trust your intuition—if you feel your pendulum needs cleansing, it probably does. Over time, you'll develop a personal rhythm and relationship with your pendulum that guides this process.`
+<p>Trust your intuition—if you feel your pendulum needs cleansing, it probably does. Over time, you'll develop a personal rhythm and relationship with your pendulum that guides this process.</p>`
       }
     ],
     exercises: [
