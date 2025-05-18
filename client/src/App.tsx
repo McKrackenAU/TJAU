@@ -13,6 +13,7 @@ import Study from "@/pages/study";
 import Journal from "@/pages/journal";
 import Learning from "@/pages/learning";
 import LessonPage from "@/pages/lesson";
+import PendulumPage from "@/pages/pendulum";
 import BackToLearningPage from "@/pages/back-to-learning";
 import DynamicRedirectPage from "@/pages/dynamic-redirect";
 import TestImages from "@/pages/test-images";
@@ -99,6 +100,7 @@ function AuthAwareComponents() {
           <ProtectedRoute path="/study" component={Study} />
           <ProtectedRoute path="/journal" component={Journal} />
           <ProtectedRoute path="/learning" component={Learning} />
+          <ProtectedRoute path="/pendulum" component={PendulumPage} />
           <ProtectedRoute path="/learning/:trackId/:lessonId" component={LessonPage} />
           <ProtectedRoute path="/back-to-learning" component={BackToLearningPage} />
           <ProtectedRoute path="/redirect" component={DynamicRedirectPage} />

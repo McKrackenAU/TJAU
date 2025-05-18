@@ -90,6 +90,30 @@ export default function Learning() {
       retry: false,
     });
 
+    // For Pendulum course (track ID 5), use a separate dedicated page
+    if (track.id === 5) {
+      return (
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>{track.name}</CardTitle>
+              <Badge variant="secondary">Divination</Badge>
+            </div>
+            <CardDescription>{track.description}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button 
+              className="w-full"
+              onClick={() => setLocation('/pendulum')}
+            >
+              <ArrowRight className="h-4 w-4 mr-2" />
+              Open Pendulum Course
+            </Button>
+          </CardContent>
+        </Card>
+      );
+    }
+
     const progressPercentage = progress
       ? (progress.completedLessons.length / track.requiredCards.length) * 100
       : 0;
