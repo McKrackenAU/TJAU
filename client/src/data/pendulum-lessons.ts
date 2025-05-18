@@ -448,37 +448,47 @@ const pendulumLessons: LessonContent[] = [
     sections: [
       {
         title: "Step-by-Step Cleansing Methods",
-        content: `Before using your pendulum, especially a new one or after lending it to others, cleansing is essential to remove any residual energies. Here are effective cleansing methods:
+        content: `<p>Before using your pendulum, especially a new one or after lending it to others, cleansing is essential to remove any residual energies. Here are effective cleansing methods:</p>
 
-**Salt Bath Technique**
-1. Fill a bowl with sea salt or Himalayan salt (never use salt with crystal pendulums as it can damage them)
-2. Place your metal or wooden pendulum in the salt for 24 hours
-3. For crystal pendulums, place them near but not touching the salt
-4. Discard the salt after use (preferably in running water or soil)
+<h3>Salt Bath Technique</h3>
+<ol>
+  <li>Fill a bowl with sea salt or Himalayan salt (never use salt with crystal pendulums as it can damage them)</li>
+  <li>Place your metal or wooden pendulum in the salt for 24 hours</li>
+  <li>For crystal pendulums, place them near but not touching the salt</li>
+  <li>Discard the salt after use (preferably in running water or soil)</li>
+</ol>
 
-**Moonlight Charging**
-1. Place your pendulum on a windowsill or outdoor space where it will receive direct moonlight
-2. Full moon energy is ideal but any moonlight works
-3. Leave overnight (approximately 6-8 hours)
-4. This method both cleanses and charges your pendulum
+<h3>Moonlight Charging</h3>
+<ol>
+  <li>Place your pendulum on a windowsill or outdoor space where it will receive direct moonlight</li>
+  <li>Full moon energy is ideal but any moonlight works</li>
+  <li>Leave overnight (approximately 6-8 hours)</li>
+  <li>This method both cleanses and charges your pendulum</li>
+</ol>
 
-**Smudging with Sage**
-1. Light a sage bundle or sage stick and allow it to smolder
-2. Hold your pendulum in the smoke for 30-60 seconds
-3. Set an intention for cleansing as you do this
-4. Be sure to extinguish the sage completely afterward
+<h3>Smudging with Sage</h3>
+<ol>
+  <li>Light a sage bundle or sage stick and allow it to smolder</li>
+  <li>Hold your pendulum in the smoke for 30-60 seconds</li>
+  <li>Set an intention for cleansing as you do this</li>
+  <li>Be sure to extinguish the sage completely afterward</li>
+</ol>
 
-**Sound Cleansing**
-1. Use a singing bowl, bell, or tuning fork near your pendulum
-2. The sound vibrations will clear stagnant energies
-3. Continue for 1-2 minutes
+<h3>Sound Cleansing</h3>
+<ol>
+  <li>Use a singing bowl, bell, or tuning fork near your pendulum</li>
+  <li>The sound vibrations will clear stagnant energies</li>
+  <li>Continue for 1-2 minutes</li>
+</ol>
 
-**Running Water**
-1. Hold your pendulum under cool running water briefly (not suitable for water-soluble crystals)
-2. Visualize the water washing away all unwanted energies
-3. Dry thoroughly afterward
+<h3>Running Water</h3>
+<ol>
+  <li>Hold your pendulum under cool running water briefly (not suitable for water-soluble crystals)</li>
+  <li>Visualize the water washing away all unwanted energies</li>
+  <li>Dry thoroughly afterward</li>
+</ol>
 
-Each cleansing method has its strengths, and you might find you prefer one over the others based on convenience and your personal connection to the process.`
+<p>Each cleansing method has its strengths, and you might find you prefer one over the others based on convenience and your personal connection to the process.</p>`
       },
       {
         title: "Frequency of Cleansing",
