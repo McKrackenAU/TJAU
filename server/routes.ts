@@ -1198,11 +1198,12 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Generate image for the card
-        const imageUrl = await generateCardImage(card);
+        // Get or generate image for the card using mapping
+        const imageUrl = await getCardImagePath(card);
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
+        res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
         
         res.json({ imageUrl });
       } catch (error: any) {
