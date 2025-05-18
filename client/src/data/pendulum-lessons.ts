@@ -963,106 +963,114 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
 <ol>
   <li>"Is it appropriate to ask about [topic]?"</li>
   <li>"Would [option A] benefit me?"</li>
+  <li>"Would [option B] benefit me?"</li>
+  <li>"Are there better options I haven't considered?"</li>
+  <li>"Should I take action now?"</li>
 </ol>
-3. "Would [option B] benefit me?"
-4. "Are there better options I haven't considered?"
-5. "Should I take action now?"
 
-Remember to remain neutral while asking—emotional attachment to outcomes can influence results.`
+<p>Remember to remain neutral while asking—emotional attachment to outcomes can influence results.</p>`
       },
       {
         title: "20 Essential Beginner Questions",
-        content: `Practice your pendulum skills with these 20 essential questions for beginners, organized by category:
+        content: `<p>Practice your pendulum skills with these 20 essential questions for beginners, organized by category:</p>
 
-## Self-Discovery
+<h2>Self-Discovery</h2>
 
-1. "Is developing my intuition a priority for my growth right now?"
-2. "Would journaling help me process my emotions effectively?"
-3. "Would meditation practice benefit my spiritual development now?"
-4. "Is creative expression an important outlet for me at this time?"
-5. "Am I currently aligned with my authentic self?"
+<ol>
+  <li>"Is developing my intuition a priority for my growth right now?"</li>
+  <li>"Would journaling help me process my emotions effectively?"</li>
+  <li>"Would meditation practice benefit my spiritual development now?"</li>
+  <li>"Is creative expression an important outlet for me at this time?"</li>
+  <li>"Am I currently aligned with my authentic self?"</li>
+</ol>
 
-## Decision Making
+<h2>Decision Making</h2>
 
-6. "Is this decision aligned with my highest good?"
-7. "Should I proceed with [specific project/plan]?"
-8. "Would waiting for more information serve me better than deciding now?"
-9. "Is fear influencing my perspective on this decision?"
-10. "Will this choice lead to growth experiences?"
+<ol start="6">
+  <li>"Is this decision aligned with my highest good?"</li>
+  <li>"Should I proceed with [specific project/plan]?"</li>
+  <li>"Would waiting for more information serve me better than deciding now?"</li>
+  <li>"Is fear influencing my perspective on this decision?"</li>
+  <li>"Will this choice lead to growth experiences?"</li>
+</ol>
 
-## Relationships
+<h2>Relationships</h2>
 
-11. "Is this relationship currently supporting my well-being?"
-12. "Would having a conversation about [topic] with [person] be beneficial now?"
-13. "Should I expand my social connections at this time?"
-14. "Am I maintaining healthy boundaries in this relationship?"
-15. "Is there unresolved communication I need to address?"
+<ol start="11">
+  <li>"Is this relationship currently supporting my well-being?"</li>
+  <li>"Would having a conversation about [topic] with [person] be beneficial now?"</li>
+  <li>"Should I expand my social connections at this time?"</li>
+  <li>"Am I maintaining healthy boundaries in this relationship?"</li>
+  <li>"Is there unresolved communication I need to address?"</li>
+</ol>
 
-## Practical Matters
+<h2>Practical Matters</h2>
 
-16. "Is this the right time to make changes to my living space?"
-17. "Would focusing on [specific area] improve my work situation?"
-18. "Should I prioritize self-care more in my daily routine?"
-19. "Would this purchase serve my needs effectively?"
-20. "Is this a favorable time to start a new learning endeavor?"
+<ol start="16">
+  <li>"Is this the right time to make changes to my living space?"</li>
+  <li>"Would focusing on [specific area] improve my work situation?"</li>
+  <li>"Should I prioritize self-care more in my daily routine?"</li>
+  <li>"Would this purchase serve my needs effectively?"</li>
+  <li>"Is this a favorable time to start a new learning endeavor?"</li>
+</ol>
 
-Start with questions that have lower emotional stakes as you develop your practice. You can return to important questions multiple times to verify consistency in the responses.`
+<p>Start with questions that have lower emotional stakes as you develop your practice. You can return to important questions multiple times to verify consistency in the responses.</p>`
       },
       {
         title: "Common Pitfalls to Avoid",
-        content: `Even experienced dowsers can fall into these common question-framing traps. Learn to recognize and avoid them:
+        content: `<p>Even experienced dowsers can fall into these common question-framing traps. Learn to recognize and avoid them:</p>
 
-## Double Questions
+<h2>Double Questions</h2>
 
-❌ "Should I take this job and move to the new city?"
-✓ Split into: "Is this job opportunity aligned with my goals?" and "Would moving to this city benefit me?"
+<p>❌ "Should I take this job and move to the new city?"</p>
+<p>✓ Split into: "Is this job opportunity aligned with my goals?" and "Would moving to this city benefit me?"</p>
 
-## Leading Questions
+<h2>Leading Questions</h2>
 
-❌ "This is the right choice for me, isn't it?"
-✓ Rephrase as: "Is this choice aligned with my highest good?"
+<p>❌ "This is the right choice for me, isn't it?"</p>
+<p>✓ Rephrase as: "Is this choice aligned with my highest good?"</p>
 
-## Vague Questions
+<h2>Vague Questions</h2>
 
-❌ "Will I be happy?"
-✓ Specify: "Would pursuing [specific path] bring me fulfillment in the next six months?"
+<p>❌ "Will I be happy?"</p>
+<p>✓ Specify: "Would pursuing [specific path] bring me fulfillment in the next six months?"</p>
 
-## Future-Focused Without Context
+<h2>Future-Focused Without Context</h2>
 
-❌ "Will I get the job?"
-✓ Rephrase as: "Based on my current qualifications and actions, am I on path to secure this position?"
+<p>❌ "Will I get the job?"</p>
+<p>✓ Rephrase as: "Based on my current qualifications and actions, am I on path to secure this position?"</p>
 
-## Asking the Same Question Repeatedly
+<h2>Asking the Same Question Repeatedly</h2>
 
-❌ Asking "Should I take this job?" five times hoping for your preferred answer
-✓ Instead: Accept the initial answer, or rephrase to understand why: "Are there aspects of this job I'm overlooking?"
+<p>❌ Asking "Should I take this job?" five times hoping for your preferred answer</p>
+<p>✓ Instead: Accept the initial answer, or rephrase to understand why: "Are there aspects of this job I'm overlooking?"</p>
 
-## Questions Beyond Your Scope
+<h2>Questions Beyond Your Scope</h2>
 
-❌ "What will the stock market do next week?"
-✓ Personalize: "Based on my research, would investing in [specific stock] align with my financial goals?"
+<p>❌ "What will the stock market do next week?"</p>
+<p>✓ Personalize: "Based on my research, would investing in [specific stock] align with my financial goals?"</p>
 
-## Emotionally Charged Questions
+<h2>Emotionally Charged Questions</h2>
 
-❌ Asking while angry: "Is my partner lying to me?"
-✓ Wait for neutral state, then: "Would having an honest conversation about trust benefit our relationship?"
+<p>❌ Asking while angry: "Is my partner lying to me?"</p>
+<p>✓ Wait for neutral state, then: "Would having an honest conversation about trust benefit our relationship?"</p>
 
-## Questions About Others Without Permission
+<h2>Questions About Others Without Permission</h2>
 
-❌ "What is my friend thinking about me?"
-✓ Refocus: "Is there something I should address in my communication with this friend?"
+<p>❌ "What is my friend thinking about me?"</p>
+<p>✓ Refocus: "Is there something I should address in my communication with this friend?"</p>
 
-## Yes/No When Options Are Needed
+<h2>Yes/No When Options Are Needed</h2>
 
-❌ "Should I change my career?"
-✓ Better approach: Use a chart with multiple career options and ask which deserves exploration
+<p>❌ "Should I change my career?"</p>
+<p>✓ Better approach: Use a chart with multiple career options and ask which deserves exploration</p>
 
-## Absolutes and Extremes
+<h2>Absolutes and Extremes</h2>
 
-❌ "Will this always be the best approach?"
-✓ Timeframe it: "Is this approach serving my needs in the current situation?"
+<p>❌ "Will this always be the best approach?"</p>
+<p>✓ Timeframe it: "Is this approach serving my needs in the current situation?"</p>
 
-Awareness of these pitfalls will help you develop precision in your questioning technique and improve the accuracy of your pendulum readings.`
+<p>Awareness of these pitfalls will help you develop precision in your questioning technique and improve the accuracy of your pendulum readings.</p>`
       }
     ],
     exercises: [
