@@ -27,6 +27,11 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
           positions
         });
         const data = await res.json();
+        
+        if (data.error) {
+          throw new Error(data.error);
+        }
+        
         if (!data.interpretation) {
           throw new Error("No interpretation received");
         }

@@ -362,26 +362,37 @@ export function registerRoutes(app: Express): Server {
         Keep the language accessible and conversational while providing genuine spiritual insights.
         `;
         
-        const response = await openai.chat.completions.create({
-          model: "gpt-3.5-turbo-16k",
-          messages: [
-            {
-              role: "system",
-              content: "You are a wise and experienced Tarot reader with deep knowledge of card meanings and spread interpretations. You explain readings in a clear, meaningful way that connects with the querent's life situation."
-            },
-            {
-              role: "user",
-              content: prompt
-            }
-          ],
-          temperature: 0.7,
-          max_tokens: 1000
-        });
-        
-        interpretation = response.choices[0].message.content || "";
-        
-        // Cache the result
-        fs.writeFileSync(cacheFilePath, JSON.stringify({ interpretation }));
+        try {
+          const response = await openai.chat.completions.create({
+            model: "gpt-3.5-turbo-16k",
+            messages: [
+              {
+                role: "system",
+                content: "You are a wise and experienced Tarot reader with deep knowledge of card meanings and spread interpretations. You explain readings in a clear, meaningful way that connects with the querent's life situation."
+              },
+              {
+                role: "user",
+                content: prompt
+              }
+            ],
+            temperature: 0.7,
+            max_tokens: 1000
+          });
+          
+          if (!response.choices || response.choices.length === 0 || !response.choices[0].message.content) {
+            throw new Error("OpenAI API returned an empty response");
+          }
+          
+          interpretation = response.choices[0].message.content;
+          
+          // Cache the result
+          fs.writeFileSync(cacheFilePath, JSON.stringify({ interpretation }));
+        } catch (apiError) {
+          console.error("OpenAI API error:", apiError);
+          throw new Error(apiError instanceof Error ? 
+            `OpenAI API error: ${apiError.message}` : 
+            "Failed to get response from OpenAI API");
+        }
       }
       
       res.json({ interpretation });
