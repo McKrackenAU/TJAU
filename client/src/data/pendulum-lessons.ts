@@ -1027,7 +1027,8 @@ Charts significantly expand your pendulum practice beyond basic yes/no responses
 7. Crown (7th)
    - Location: Top of head
 
-**Quantitative Testing**
+## Quantitative Testing
+
 For more precise readings:
 1. Create a chakra chart with scale from 1-10 for each chakra
 2. Hold pendulum over chart while focusing on each chakra
@@ -1035,18 +1036,20 @@ For more precise readings:
 4. Note the numerical reading for each
 5. Create a complete profile of your chakra system
 
-**Chakra Balancing with Pendulum**
+## Chakra Balancing with Pendulum
+
 After identifying imbalances:
 1. Hold pendulum over underactive chakra
 2. Visualize energy flowing in as pendulum begins to move clockwise
 3. Continue until movement becomes stronger and more consistent
 4. For overactive chakras, visualize excess energy releasing as pendulum movement normalizes
 
-**Chakra Diagnosis Applications**
-• Identify energy centers connected to physical discomfort
-• Discover emotional blockages related to specific chakras
-• Track progress in spiritual development
-• Guide meditation and energy work focus
+## Chakra Diagnosis Applications
+
+- Identify energy centers connected to physical discomfort
+- Discover emotional blockages related to specific chakras
+- Track progress in spiritual development
+- Guide meditation and energy work focus
 
 Regular chakra testing can become part of your wellness routine, helping maintain balanced energy and identifying potential issues before they manifest physically.`
       },
@@ -1054,19 +1057,21 @@ Regular chakra testing can become part of your wellness routine, helping maintai
         title: "Object Finding Techniques",
         content: `One of the most practical applications of pendulum dowsing is locating lost objects. Follow these proven techniques:
 
-**Direct Dowsing Method**
+## Direct Dowsing Method
+
 1. Calibrate your pendulum with yes/no responses
 2. Hold a similar object to program the pendulum (if possible)
 3. Ask clearly: "Am I able to locate [specific object]?"
 4. If yes, ask: "Is [object] in this building/house?"
 5. Systematically narrow down:
-   • "Is it on this floor?"
-   • "Is it in the [specific room]?"
-   • "Is it [direction] of where I'm standing?"
+   - "Is it on this floor?"
+   - "Is it in the [specific room]?"
+   - "Is it [direction] of where I'm standing?"
 6. Move in the indicated direction, continuing to ask yes/no questions
 7. When close, watch for stronger pendulum movements
 
-**Map Dowsing for Lost Objects**
+## Map Dowsing for Lost Objects
+
 For items lost in larger areas:
 1. Obtain a map/floor plan of the relevant area
 2. Divide the map into quadrants
@@ -1074,24 +1079,27 @@ For items lost in larger areas:
 4. Once a quadrant is identified, subdivide it and repeat
 5. Continue narrowing until location is precise enough to search physically
 
-**Photograph Method**
+## Photograph Method
+
 If searching in multiple possible locations:
 1. Take photos of different areas where the object might be
 2. Hold pendulum over each photo
 3. Ask: "Is my [object] located in this area?"
 4. Use the pendulum's response to guide your physical search
 
-**Troubleshooting Tips**
-• If getting inconsistent answers, cleanse your pendulum and recalibrate
-• Specify exact descriptions ("my red leather wallet" not just "my wallet")
-• Ask if the object is still in your possession before extensive searching
-• Include a timeframe ("where is the object I lost yesterday?")
-• For valuable items, first ask: "Can I find this object through dowsing?"
+## Troubleshooting Tips
 
-**Ethical Considerations**
-• Use these techniques primarily for your own belongings
-• If searching for someone else's items, get permission first
-• Focus on finding rather than blame if someone else misplaced the item
+- If getting inconsistent answers, cleanse your pendulum and recalibrate
+- Specify exact descriptions ("my red leather wallet" not just "my wallet")
+- Ask if the object is still in your possession before extensive searching
+- Include a timeframe ("where is the object I lost yesterday?")
+- For valuable items, first ask: "Can I find this object through dowsing?"
+
+## Ethical Considerations
+
+- Use these techniques primarily for your own belongings
+- If searching for someone else's items, get permission first
+- Focus on finding rather than blame if someone else misplaced the item
 
 With practice, object finding can become one of the most reliably verifiable applications of your pendulum skills.`
       }
