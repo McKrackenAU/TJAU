@@ -1507,73 +1507,95 @@ Calibration should be performed at the beginning of each session, especially whe
       },
       {
         title: "Energy Field Cleansing",
-        content: `Your pendulum can be a powerful tool for detecting and cleansing energy fields, including your aura and living spaces. Here's how to perform energy cleansing:
+        content: `<p>Your pendulum can be a powerful tool for detecting and cleansing energy fields, including your aura and living spaces. Here's how to perform energy cleansing:</p>
 
-**Personal Aura Scanning**
-1. Stand with feet shoulder-width apart
-2. Hold pendulum approximately 4-6 inches from your body
-3. Start at the crown and slowly move downward
-4. Watch for changes in pendulum movement:
-   • Smooth, consistent movement indicates clear energy
-   • Erratic, stuttering, or sudden directional changes suggest energy blocks
-   • Weak movement may indicate energy depletion
-5. Mark or note areas of irregularity
+<h3>Personal Aura Scanning</h3>
+<ol>
+  <li>Stand with feet shoulder-width apart</li>
+  <li>Hold pendulum approximately 4-6 inches from your body</li>
+  <li>Start at the crown and slowly move downward</li>
+  <li>Watch for changes in pendulum movement:
+    <ul>
+      <li>Smooth, consistent movement indicates clear energy</li>
+      <li>Erratic, stuttering, or sudden directional changes suggest energy blocks</li>
+      <li>Weak movement may indicate energy depletion</li>
+    </ul>
+  </li>
+  <li>Mark or note areas of irregularity</li>
 
-**Aura Cleansing Technique**
-For areas with detected energy disturbances:
-1. Hold pendulum over the affected area
-2. Set intention for cleansing and balancing
-3. Allow pendulum to move in its natural pattern
-4. Visualize negative energy dissolving and dispersing
-5. Continue until pendulum movement normalizes
-6. Recheck area after cleansing
+<h3>Aura Cleansing Technique</h3>
+<p>For areas with detected energy disturbances:</p>
+<ol>
+  <li>Hold pendulum over the affected area</li>
+  <li>Set intention for cleansing and balancing</li>
+  <li>Allow pendulum to move in its natural pattern</li>
+  <li>Visualize negative energy dissolving and dispersing</li>
+  <li>Continue until pendulum movement normalizes</li>
+  <li>Recheck area after cleansing</li>
+</ol>
 
-**Space Clearing Assessment**
-For rooms or environments:
-1. Stand in the center of the space
-2. Ask: "Is there negative or stagnant energy in this space?"
-3. If yes, divide room into sections
-4. Systematically check each section with your pendulum
-5. Identify focal points of energy disruption (often corners, under furniture, or near electronics)
+<h3>Space Clearing Assessment</h3>
+<p>For rooms or environments:</p>
+<ol>
+  <li>Stand in the center of the space</li>
+  <li>Ask: "Is there negative or stagnant energy in this space?"</li>
+  <li>If yes, divide room into sections</li>
+  <li>Systematically check each section with your pendulum</li>
+  <li>Identify focal points of energy disruption (often corners, under furniture, or near electronics)</li>
+</ol>
 
-**Space Clearing Procedure**
-After identifying problem areas:
-1. Hold pendulum over the affected space
-2. Ask: "What is the source of this energy disruption?"
-   (Use a chart with options: stagnation, argument residue, electronic pollution, etc.)
-3. Set intention for clearing
-4. Allow pendulum to move clockwise to transmute the energy
-5. For stubborn areas, combine with sound (bells, singing bowls) or sage smudging
+<h3>Space Clearing Procedure</h3>
+<p>After identifying problem areas:</p>
+<ol>
+  <li>Hold pendulum over the affected space</li>
+  <li>Ask: "What is the source of this energy disruption?"
+    <ul>
+      <li>(Use a chart with options: stagnation, argument residue, electronic pollution, etc.)</li>
+    </ul>
+  </li>
+  <li>Set intention for clearing</li>
+  <li>Allow pendulum to move clockwise to transmute the energy</li>
+  <li>For stubborn areas, combine with sound (bells, singing bowls) or sage smudging</li>
+</ol>
 
-## Maintenance Schedule
+<h2>Maintenance Schedule</h2>
 
-- Personal aura: Weekly scanning, or after stressful events
-- Home spaces: Monthly full assessment, weekly quick check
-- Work environment: Before important meetings or weekly if high-stress
-- Healing or meditation spaces: Before and after each use
+<ul>
+  <li>Personal aura: Weekly scanning, or after stressful events</li>
+  <li>Home spaces: Monthly full assessment, weekly quick check</li>
+  <li>Work environment: Before important meetings or weekly if high-stress</li>
+  <li>Healing or meditation spaces: Before and after each use</li>
+</ul>
 
-Energy field cleansing with your pendulum helps maintain optimal vibration for spiritual work and general wellbeing, creating environments conducive to growth and healing.`
+<p>Energy field cleansing with your pendulum helps maintain optimal vibration for spiritual work and general wellbeing, creating environments conducive to growth and healing.</p>`
       },
       {
         title: "Dream Interpretation Aid",
-        content: `Your pendulum can provide valuable insights into dream symbolism and meaning. Here's how to use it as a dream interpretation tool:
+        content: `<p>Your pendulum can provide valuable insights into dream symbolism and meaning. Here's how to use it as a dream interpretation tool:</p>
 
-**Dream Symbol Analysis**
-1. Record your dream in a journal upon waking
-2. Identify key symbols, characters, emotions, and events
-3. Create a list of these elements
-4. Ask your pendulum about each element:
-   • "Is this symbol significant for my current life situation?"
-   • "Does this symbol represent a part of myself?"
-   • "Is this dream related to my past/present/future?"
-5. Note which elements register as significant
+<h3>Dream Symbol Analysis</h3>
+<ol>
+  <li>Record your dream in a journal upon waking</li>
+  <li>Identify key symbols, characters, emotions, and events</li>
+  <li>Create a list of these elements</li>
+  <li>Ask your pendulum about each element:
+    <ul>
+      <li>"Is this symbol significant for my current life situation?"</li>
+      <li>"Does this symbol represent a part of myself?"</li>
+      <li>"Is this dream related to my past/present/future?"</li>
+    </ul>
+  </li>
+  <li>Note which elements register as significant</li>
+</ol>
 
-**Meaning Exploration**
-For significant symbols:
-1. Create a chart with potential meanings
-2. Hold pendulum over chart asking: "Does this symbol represent [meaning]?"
-3. Narrow down to the most relevant interpretation
-4. Ask follow-up questions about how to apply this information
+<h3>Meaning Exploration</h3>
+<p>For significant symbols:</p>
+<ol>
+  <li>Create a chart with potential meanings</li>
+  <li>Hold pendulum over chart asking: "Does this symbol represent [meaning]?"</li>
+  <li>Narrow down to the most relevant interpretation</li>
+  <li>Ask follow-up questions about how to apply this information</li>
+</ol>
 
 **Dream Pattern Recognition**
 For recurring dreams:
