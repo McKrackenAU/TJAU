@@ -1192,12 +1192,13 @@ With practice, object finding can become one of the most reliably verifiable app
 3. Questions asked in this state often receive clearer responses
 4. This timing leverages the heightened intuition from meditation
 
-**Progressive Practice**
+## Progressive Practice
+
 Start with simple integration:
-• Week 1-2: Pre-meditation guidance only
-• Week 3-4: Add post-meditation questions
-• Week 5-6: Introduce pendulum gazing
-• Week 7-8: Implement chakra balancing techniques
+- Week 1-2: Pre-meditation guidance only
+- Week 3-4: Add post-meditation questions
+- Week 5-6: Introduce pendulum gazing
+- Week 7-8: Implement chakra balancing techniques
 
 The combination of meditation and pendulum work accelerates spiritual development by providing both intuitive insights and verifiable feedback in a complementary system.`
       },
@@ -1241,11 +1242,12 @@ After identifying problem areas:
 4. Allow pendulum to move clockwise to transmute the energy
 5. For stubborn areas, combine with sound (bells, singing bowls) or sage smudging
 
-**Maintenance Schedule**
-• Personal aura: Weekly scanning, or after stressful events
-• Home spaces: Monthly full assessment, weekly quick check
-• Work environment: Before important meetings or weekly if high-stress
-• Healing or meditation spaces: Before and after each use
+## Maintenance Schedule
+
+- Personal aura: Weekly scanning, or after stressful events
+- Home spaces: Monthly full assessment, weekly quick check
+- Work environment: Before important meetings or weekly if high-stress
+- Healing or meditation spaces: Before and after each use
 
 Energy field cleansing with your pendulum helps maintain optimal vibration for spiritual work and general wellbeing, creating environments conducive to growth and healing.`
       },
