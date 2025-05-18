@@ -1117,94 +1117,140 @@ Remember that some days your energy may not be compatible with dowsing. It's acc
     sections: [
       {
         title: "Using Pendulum Charts",
-        content: `Pendulum charts expand your dowsing beyond simple yes/no answers to access specific information. Here's how to use them effectively:
+        content: `<p>Pendulum charts expand your dowsing beyond simple yes/no answers to access specific information. Here's how to use them effectively:</p>
 
-## Types of Pendulum Charts
+<h2>Types of Pendulum Charts</h2>
 
-1. **Alphabet Charts**
-   - Letters arranged in a circle or arc
-   - Used for spelling out names, words, or messages
-   - Can be combined with numbers for more complex information
+<ol>
+  <li><strong>Alphabet Charts</strong>
+    <ul>
+      <li>Letters arranged in a circle or arc</li>
+      <li>Used for spelling out names, words, or messages</li>
+      <li>Can be combined with numbers for more complex information</li>
+    </ul>
+  </li>
 
-2. **Percentage Charts**
-   - Numerical scale from 0-100%
-   - Used for measuring probability, effectiveness, or compatibility
-   - Often arranged in a semi-circle format
+  <li><strong>Percentage Charts</strong>
+    <ul>
+      <li>Numerical scale from 0-100%</li>
+      <li>Used for measuring probability, effectiveness, or compatibility</li>
+      <li>Often arranged in a semi-circle format</li>
+    </ul>
+  </li>
 
-3. **Body Charts**
-   - Diagram of the human body
-   - Used for identifying areas of energy blockage or concern
-   - Can be general or system-specific (digestive, chakra, etc.)
+  <li><strong>Body Charts</strong>
+    <ul>
+      <li>Diagram of the human body</li>
+      <li>Used for identifying areas of energy blockage or concern</li>
+      <li>Can be general or system-specific (digestive, chakra, etc.)</li>
+    </ul>
+  </li>
 
-4. **Multiple Choice Charts**
-   - List of possible answers around a central point
-   - Used when exploring options or possibilities
-   - Can include timing, directions, or custom categories
+  <li><strong>Multiple Choice Charts</strong>
+    <ul>
+      <li>List of possible answers around a central point</li>
+      <li>Used when exploring options or possibilities</li>
+      <li>Can include timing, directions, or custom categories</li>
+    </ul>
+  </li>
+</ol>
 
-## How to Use Pendulum Charts
+<h2>How to Use Pendulum Charts</h2>
 
-1. Place your chart on a flat surface
-2. Hold your pendulum over the center point
-3. Ask a clear, specific question related to the chart type
-4. Allow your pendulum to swing toward the answer
-5. For complex answers, move from one element to the next (like spelling a word)
+<ol>
+  <li>Place your chart on a flat surface</li>
+  <li>Hold your pendulum over the center point</li>
+  <li>Ask a clear, specific question related to the chart type</li>
+  <li>Allow your pendulum to swing toward the answer</li>
+  <li>For complex answers, move from one element to the next (like spelling a word)</li>
+</ol>
 
-## Creating Custom Charts
+<h2>Creating Custom Charts</h2>
 
-For personalized readings, create custom charts for:
-- Career options
-- Relationship dynamics
-- Health supplements or treatments
-- Project priorities
-- Location selection
+<p>For personalized readings, create custom charts for:</p>
+<ul>
+  <li>Career options</li>
+  <li>Relationship dynamics</li>
+  <li>Health supplements or treatments</li>
+  <li>Project priorities</li>
+  <li>Location selection</li>
+</ul>
 
-## Digital vs. Physical Charts
+<h2>Digital vs. Physical Charts</h2>
 
-- Physical charts provide tactile connection
-- Digital charts offer variety and convenience
-- Both types work effectively when used with focused intention
+<ul>
+  <li>Physical charts provide tactile connection</li>
+  <li>Digital charts offer variety and convenience</li>
+  <li>Both types work effectively when used with focused intention</li>
+</ul>
 
-## Advanced Chart Techniques
+<h2>Advanced Chart Techniques</h2>
 
-- Layering: Use transparent overlays for multi-dimensional readings
-- Quadrant Method: Divide chart into quadrants for systematic exploration
-- Map Dowsing: Use maps as charts to locate places or objects
+<ul>
+  <li>Layering: Use transparent overlays for multi-dimensional readings</li>
+  <li>Quadrant Method: Divide chart into quadrants for systematic exploration</li>
+  <li>Map Dowsing: Use maps as charts to locate places or objects</li>
+</ul>
 
-Charts significantly expand your pendulum practice beyond basic yes/no responses, allowing for nuanced insights across various aspects of life.`
+<p>Charts significantly expand your pendulum practice beyond basic yes/no responses, allowing for nuanced insights across various aspects of life.</p>`
       },
       {
         title: "Chakra Testing Methods",
-        content: `Pendulums are excellent tools for assessing and balancing the chakra energy system. Follow these methods for chakra testing:
+        content: `<p>Pendulums are excellent tools for assessing and balancing the chakra energy system. Follow these methods for chakra testing:</p>
 
-**Basic Chakra Assessment**
-1. Lie down or sit comfortably with your spine straight
-2. Hold your pendulum 3-5 inches above each chakra point, starting from the root
-3. Ask: "Is this chakra balanced and functioning optimally?"
-4. Observe both the answer (yes/no) and the quality of movement:
-   • Strong, clockwise movement typically indicates open, balanced energy
-   • Weak movement may indicate underactive energy
-   • Erratic or counterclockwise movement often suggests blocked or overactive energy
-   • No movement might indicate significant blockage
+<h3>Basic Chakra Assessment</h3>
+<ol>
+  <li>Lie down or sit comfortably with your spine straight</li>
+  <li>Hold your pendulum 3-5 inches above each chakra point, starting from the root</li>
+  <li>Ask: "Is this chakra balanced and functioning optimally?"</li>
+  <li>Observe both the answer (yes/no) and the quality of movement:
+    <ul>
+      <li>Strong, clockwise movement typically indicates open, balanced energy</li>
+      <li>Weak movement may indicate underactive energy</li>
+      <li>Erratic or counterclockwise movement often suggests blocked or overactive energy</li>
+      <li>No movement might indicate significant blockage</li>
+    </ul>
+  </li>
+</ol>
 
-## Chakra Locations for Testing
+<h2>Chakra Locations for Testing</h2>
 
-1. Root (1st)
-   - Location: Base of spine
+<ol>
+  <li><strong>Root (1st)</strong>
+    <ul>
+      <li>Location: Base of spine</li>
+    </ul>
+  </li>
 
-2. Sacral (2nd)
-   - Location: Lower abdomen, 2 inches below navel
+  <li><strong>Sacral (2nd)</strong>
+    <ul>
+      <li>Location: Lower abdomen, 2 inches below navel</li>
+    </ul>
+  </li>
 
-3. Solar Plexus (3rd)
-   - Location: Upper abdomen, just below ribcage
+  <li><strong>Solar Plexus (3rd)</strong>
+    <ul>
+      <li>Location: Upper abdomen, just below ribcage</li>
+    </ul>
+  </li>
 
-4. Heart (4th)
-   - Location: Center of chest
+  <li><strong>Heart (4th)</strong>
+    <ul>
+      <li>Location: Center of chest</li>
+    </ul>
+  </li>
 
-5. Throat (5th)
-   - Location: Base of throat
+  <li><strong>Throat (5th)</strong>
+    <ul>
+      <li>Location: Base of throat</li>
+    </ul>
+  </li>
 
-6. Third Eye (6th)
-   - Location: Center of forehead
+  <li><strong>Third Eye (6th)</strong>
+    <ul>
+      <li>Location: Center of forehead</li>
+    </ul>
+  </li>
 
 7. Crown (7th)
    - Location: Top of head
