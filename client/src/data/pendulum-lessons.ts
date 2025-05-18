@@ -477,7 +477,8 @@ These connection rituals can be performed singularly or combined based on what f
         title: "Programming Your Pendulum's Responses",
         content: `Before working with your pendulum, you must establish consistent response patterns by programming how it will communicate:
 
-**Basic Programming Process**
+## Basic Programming Process
+
 1. Hold your pendulum by the chain/cord about 2-3 inches from the weight
 2. Allow it to become completely still
 3. State clearly: "Show me YES"
@@ -487,22 +488,25 @@ These connection rituals can be performed singularly or combined based on what f
 7. Finally, ask "Show me MAYBE/NEUTRAL"
 8. This is often a diagonal movement or gentle swaying
 
-**Advanced Programming Options**
-Beyond yes/no responses, you can establish more complex communication:
-• "Show me STRONGER YES" (for emphatic positive responses)
-• "Show me STRONGER NO" (for emphatic negative responses)
-• "Show me NOT READY TO ANSWER" (for timing issues)
-• "Show me NOT PERMITTED TO ANSWER" (for questions beyond scope)
+## Advanced Programming Options
 
-**Recording Your Patterns**
+Beyond yes/no responses, you can establish more complex communication:
+- "Show me STRONGER YES" (for emphatic positive responses)
+- "Show me STRONGER NO" (for emphatic negative responses)
+- "Show me NOT READY TO ANSWER" (for timing issues)
+- "Show me NOT PERMITTED TO ANSWER" (for questions beyond scope)
+
+## Recording Your Patterns
+
 1. Document your pendulum's specific movements in a dedicated notebook
 2. Include drawings or descriptions of the direction and intensity
 3. This record becomes valuable if your pendulum's responses seem to change
 
-**Regular Recalibration**
-• Begin each dowsing session with a quick recalibration
-• If your pendulum seems "confused," perform a complete reprogramming
-• Some pendulums may develop different patterns over time as your relationship deepens
+## Regular Recalibration
+
+- Begin each dowsing session with a quick recalibration
+- If your pendulum seems "confused," perform a complete reprogramming
+- Some pendulums may develop different patterns over time as your relationship deepens
 
 Remember, programming is establishing a clear language between you and your pendulum. Be patient with this process—clear communication is the foundation for accurate readings.`
       },
