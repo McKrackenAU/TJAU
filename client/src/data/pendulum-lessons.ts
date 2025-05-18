@@ -822,60 +822,80 @@ Calibration should be performed at the beginning of each session, especially whe
       },
       {
         title: "Troubleshooting Unresponsive Pendulums",
-        content: `If your pendulum isn't responding clearly, there are several potential causes and solutions:
+        content: `<p>If your pendulum isn't responding clearly, there are several potential causes and solutions:</p>
 
-## Physical Factors
+<h2>Physical Factors</h2>
 
-### Chain/cord length incorrect
-- **Problem**: The chain is too long or too short
-- **Solution**: Adjust to 2-3 inches of visible chain between fingers and weight
+<h3>Chain/cord length incorrect</h3>
+<ul>
+  <li><strong>Problem</strong>: The chain is too long or too short</li>
+  <li><strong>Solution</strong>: Adjust to 2-3 inches of visible chain between fingers and weight</li>
+</ul>
 
-### Unstable hand position
-- **Problem**: Hand movement interferes with readings
-- **Solution**: Rest elbow on table or against body, or try switching to non-dominant hand
+<h3>Unstable hand position</h3>
+<ul>
+  <li><strong>Problem</strong>: Hand movement interferes with readings</li>
+  <li><strong>Solution</strong>: Rest elbow on table or against body, or try switching to non-dominant hand</li>
+</ul>
 
-### Environmental interference
-- **Problem**: Drafts, moving surfaces, or vibrations
-- **Solution**: Move to a more stable location with still air
+<h3>Environmental interference</h3>
+<ul>
+  <li><strong>Problem</strong>: Drafts, moving surfaces, or vibrations</li>
+  <li><strong>Solution</strong>: Move to a more stable location with still air</li>
+</ul>
 
-## Energetic Factors
+<h2>Energetic Factors</h2>
 
-### Pendulum needs cleansing
-- **Problem**: Built-up residual energies affecting response
-- **Solution**: Use any cleansing method (moonlight, sound, smudging)
+<h3>Pendulum needs cleansing</h3>
+<ul>
+  <li><strong>Problem</strong>: Built-up residual energies affecting response</li>
+  <li><strong>Solution</strong>: Use any cleansing method (moonlight, sound, smudging)</li>
+</ul>
 
-### Blocked or scattered energy
-- **Problem**: Your personal energy is unfocused
-- **Solution**: Perform grounding exercise, take deep breaths, or try again later
+<h3>Blocked or scattered energy</h3>
+<ul>
+  <li><strong>Problem</strong>: Your personal energy is unfocused</li>
+  <li><strong>Solution</strong>: Perform grounding exercise, take deep breaths, or try again later</li>
+</ul>
 
-### Insufficient connection
-- **Problem**: Weak energetic bond with your pendulum
-- **Solution**: Spend time holding it, sleeping with it nearby, or performing a dedication
+<h3>Insufficient connection</h3>
+<ul>
+  <li><strong>Problem</strong>: Weak energetic bond with your pendulum</li>
+  <li><strong>Solution</strong>: Spend time holding it, sleeping with it nearby, or performing a dedication</li>
+</ul>
 
-## Mental/Emotional Factors
+<h2>Mental/Emotional Factors</h2>
 
-### Overthinking or analyzing
-- **Problem**: Logical mind interfering with intuitive responses
-- **Solution**: Empty your mind, meditate briefly, focus only on the question
+<h3>Overthinking or analyzing</h3>
+<ul>
+  <li><strong>Problem</strong>: Logical mind interfering with intuitive responses</li>
+  <li><strong>Solution</strong>: Empty your mind, meditate briefly, focus only on the question</li>
+</ul>
 
-### Attachment to outcomes
-- **Problem**: Wanting specific answers biases results
-- **Solution**: Approach with genuine curiosity rather than desired answers
+<h3>Attachment to outcomes</h3>
+<ul>
+  <li><strong>Problem</strong>: Wanting specific answers biases results</li>
+  <li><strong>Solution</strong>: Approach with genuine curiosity rather than desired answers</li>
+</ul>
 
-### Lack of focus/concentration
-- **Problem**: Distracted mind creates weak signals
-- **Solution**: Simplify your question, eliminate distractions, or try written questions
+<h3>Lack of focus/concentration</h3>
+<ul>
+  <li><strong>Problem</strong>: Distracted mind creates weak signals</li>
+  <li><strong>Solution</strong>: Simplify your question, eliminate distractions, or try written questions</li>
+</ul>
 
-## Reset Protocol
+<h2>Reset Protocol</h2>
 
-If your pendulum remains unresponsive, try this complete reset:
-1. Thank your pendulum for its service
-2. Cleanse it thoroughly using multiple methods
-3. Let it rest for 24-48 hours away from other tools
-4. Perform a new dedication ceremony
-5. Recalibrate from scratch
+<p>If your pendulum remains unresponsive, try this complete reset:</p>
+<ol>
+  <li>Thank your pendulum for its service</li>
+  <li>Cleanse it thoroughly using multiple methods</li>
+  <li>Let it rest for 24-48 hours away from other tools</li>
+  <li>Perform a new dedication ceremony</li>
+  <li>Recalibrate from scratch</li>
+</ol>
 
-Remember that some days your energy may not be compatible with dowsing. It's acceptable to postpone your session if responses remain unclear after troubleshooting.`
+<p>Remember that some days your energy may not be compatible with dowsing. It's acceptable to postpone your session if responses remain unclear after troubleshooting.</p>`
       }
     ],
     exercises: [
