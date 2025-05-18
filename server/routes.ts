@@ -762,14 +762,42 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
-      console.log("Creating journal entry for user:", userId, "body:", req.body);
+      console.log("Creating journal entry for user:", userId, "body:", JSON.stringify(req.body, null, 2));
       
       try {
-        const entry = insertJournalEntrySchema.parse(req.body);
-        console.log("Parsed journal entry:", entry);
-        const result = await storage.createJournalEntry(userId, entry);
-        console.log("Journal entry created:", result);
-        res.json(result);
+        // Check if cards is undefined and convert to empty array if needed
+        if (req.body.cards === undefined) {
+          req.body.cards = [];
+        }
+        
+        // Check if tags is undefined and convert to empty array if needed
+        if (req.body.tags === undefined) {
+          req.body.tags = [];
+        }
+        
+        console.log("Modified request body:", JSON.stringify(req.body, null, 2));
+        
+        try {
+          const entry = insertJournalEntrySchema.parse(req.body);
+          console.log("Parsed journal entry:", JSON.stringify(entry, null, 2));
+          const result = await storage.createJournalEntry(userId, entry);
+          console.log("Journal entry created:", result);
+          res.json(result);
+        } catch (zodError: any) {
+          console.error("Zod validation error:", zodError.errors || zodError);
+          if (zodError.errors) {
+            return res.status(400).json({ 
+              error: "Invalid journal entry data", 
+              validationErrors: zodError.errors,
+              details: "Validation failed. Check the data format."
+            });
+          } else {
+            return res.status(400).json({ 
+              error: "Invalid journal entry data", 
+              details: zodError.message || "Unknown validation error"
+            });
+          }
+        }
       } catch (parseError) {
         console.error("Error parsing journal entry data:", parseError);
         return res.status(400).json({ 
