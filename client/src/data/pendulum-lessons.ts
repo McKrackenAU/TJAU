@@ -12,70 +12,103 @@ const pendulumLessons: LessonContent[] = [
     sections: [
       {
         title: "Definition and Historical Context",
-        content: `# What is Pendulum Dowsing?
-Pendulum dowsing is a form of divination that uses a weighted object suspended from a chain or string to answer questions or locate objects through subtle movements.
+        content: `<h1>What is Pendulum Dowsing?</h1>
+<p>Pendulum dowsing is a form of divination that uses a weighted object suspended from a chain or string to answer questions or locate objects through subtle movements.</p>
 
-## Historical Origins
-- **Ancient History**: Evidence of pendulum-like tools in:
-  - Ancient Egypt
-  - China
-  - Rome
+<h2>Historical Origins</h2>
+<ul>
+  <li><strong>Ancient History</strong>: Evidence of pendulum-like tools in:
+    <ul>
+      <li>Ancient Egypt</li>
+      <li>China</li>
+      <li>Rome</li>
+    </ul>
+  </li>
+</ul>
 
-## Historical Development
-- **Middle Ages**: European miners used dowsing rods for mineral deposits
-- **19th Century**: Pendulums gained popularity during the spiritual movement
-- **Modern Era**: Evolution into a spiritual practice for:
-  - Gaining insight
-  - Making decisions
-  - Energy healing
-  - Connecting with intuition`
+<h2>Historical Development</h2>
+<ul>
+  <li><strong>Middle Ages</strong>: European miners used dowsing rods for mineral deposits</li>
+  <li><strong>19th Century</strong>: Pendulums gained popularity during the spiritual movement</li>
+  <li><strong>Modern Era</strong>: Evolution into a spiritual practice for:
+    <ul>
+      <li>Gaining insight</li>
+      <li>Making decisions</li>
+      <li>Energy healing</li>
+      <li>Connecting with intuition</li>
+    </ul>
+  </li>
+</ul>`
       },
       {
         title: "How Pendulums Work",
-        content: `## Scientific Explanation
-The ideomotor effect explains pendulum movement:
-- Tiny, unconscious muscle movements
-- Response to thoughts or suggestions
-- Amplification through the pendulum
+        content: `<h2>Scientific Explanation</h2>
+<p>The ideomotor effect explains pendulum movement:</p>
+<ul>
+  <li>Tiny, unconscious muscle movements</li>
+  <li>Response to thoughts or suggestions</li>
+  <li>Amplification through the pendulum</li>
+</ul>
 
-## Spiritual Perspective
-Many practitioners view the pendulum as:
-- A receiver and transmitter of energy
-- An extension of intuition
-- A tool for connecting with higher guidance
+<h2>Spiritual Perspective</h2>
+<p>Many practitioners view the pendulum as:</p>
+<ul>
+  <li>A receiver and transmitter of energy</li>
+  <li>An extension of intuition</li>
+  <li>A tool for connecting with higher guidance</li>
+</ul>
 
-## Role of the Pendulum
-- Bypasses conscious, analytical mind
-- Accesses hidden information
-- Amplifies subtle energy movements`
+<h2>Role of the Pendulum</h2>
+<ul>
+  <li>Bypasses conscious, analytical mind</li>
+  <li>Accesses hidden information</li>
+  <li>Amplifies subtle energy movements</li>
+</ul>`
       },
       {
         title: "Modern Applications",
-        content: `## Contemporary Uses
-- **Decision Making**
-  - When logical analysis reaches limits
-  - For complex choices
-  - During uncertainty
+        content: `<h2>Contemporary Uses</h2>
+<ul>
+  <li><strong>Decision Making</strong>
+    <ul>
+      <li>When logical analysis reaches limits</li>
+      <li>For complex choices</li>
+      <li>During uncertainty</li>
+    </ul>
+  </li>
 
-- **Intuitive Development**
-  - Retrieving subconscious information
-  - Developing psychic abilities
-  - Strengthening inner guidance
+  <li><strong>Intuitive Development</strong>
+    <ul>
+      <li>Retrieving subconscious information</li>
+      <li>Developing psychic abilities</li>
+      <li>Strengthening inner guidance</li>
+    </ul>
+  </li>
 
-- **Healing Work**
-  - Energy healing
-  - Chakra balancing
-  - Testing food compatibility
+  <li><strong>Healing Work</strong>
+    <ul>
+      <li>Energy healing</li>
+      <li>Chakra balancing</li>
+      <li>Testing food compatibility</li>
+    </ul>
+  </li>
 
-- **Practical Applications**
-  - Finding lost objects
-  - Selecting healing tools
-  - Water source location
+  <li><strong>Practical Applications</strong>
+    <ul>
+      <li>Finding lost objects</li>
+      <li>Selecting healing tools</li>
+      <li>Water source location</li>
+    </ul>
+  </li>
 
-- **Spiritual Connection**
-  - Connecting with guides
-  - Accessing higher consciousness
-  - Meditation enhancement`
+  <li><strong>Spiritual Connection</strong>
+    <ul>
+      <li>Connecting with guides</li>
+      <li>Accessing higher consciousness</li>
+      <li>Meditation enhancement</li>
+    </ul>
+  </li>
+</ul>`
       }
     ],
     exercises: [
@@ -122,175 +155,253 @@ Many practitioners view the pendulum as:
     sections: [
       {
         title: "Material Guide",
-        content: `# Pendulum Materials and Properties
+        content: `<h1>Pendulum Materials and Properties</h1>
 
-## Crystal Pendulums
-Most common materials due to energetic properties:
+<h2>Crystal Pendulums</h2>
+<p>Most common materials due to energetic properties:</p>
 
-### Common Crystal Types
-- **Clear Quartz**
-  - Versatile
-  - Amplifies energy
-  - Ideal for beginners
+<h3>Common Crystal Types</h3>
+<ul>
+  <li><strong>Clear Quartz</strong>
+    <ul>
+      <li>Versatile</li>
+      <li>Amplifies energy</li>
+      <li>Ideal for beginners</li>
+    </ul>
+  </li>
 
-- **Amethyst**
-  - Enhances spiritual connection
-  - Strengthens intuition
-  - Protection during readings
+  <li><strong>Amethyst</strong>
+    <ul>
+      <li>Enhances spiritual connection</li>
+      <li>Strengthens intuition</li>
+      <li>Protection during readings</li>
+    </ul>
+  </li>
 
-- **Rose Quartz**
-  - Love and relationships
-  - Emotional healing
-  - Heart-centered work
+  <li><strong>Rose Quartz</strong>
+    <ul>
+      <li>Love and relationships</li>
+      <li>Emotional healing</li>
+      <li>Heart-centered work</li>
+    </ul>
+  </li>
 
-- **Black Obsidian**
-  - Protection
-  - Truth revealing
-  - Grounding energy
+  <li><strong>Black Obsidian</strong>
+    <ul>
+      <li>Protection</li>
+      <li>Truth revealing</li>
+      <li>Grounding energy</li>
+    </ul>
+  </li>
 
-- **Citrine**
-  - Abundance
-  - Manifestation
-  - Positive energy
+  <li><strong>Citrine</strong>
+    <ul>
+      <li>Abundance</li>
+      <li>Manifestation</li>
+      <li>Positive energy</li>
+    </ul>
+  </li>
+</ul>
 
-## Metal Pendulums
-Provide clear, direct answers and resist environmental energies:
+<h2>Metal Pendulums</h2>
+<p>Provide clear, direct answers and resist environmental energies:</p>
 
-### Metal Types
-- **Brass**
-  - Balances energy
-  - Enhances mental clarity
-  - Traditional choice
+<h3>Metal Types</h3>
+<ul>
+  <li><strong>Brass</strong>
+    <ul>
+      <li>Balances energy</li>
+      <li>Enhances mental clarity</li>
+      <li>Traditional choice</li>
+    </ul>
+  </li>
 
-- **Copper**
-  - Amplifies energy transfer
-  - High conductivity
-  - Physical healing
+  <li><strong>Copper</strong>
+    <ul>
+      <li>Amplifies energy transfer</li>
+      <li>High conductivity</li>
+      <li>Physical healing</li>
+    </ul>
+  </li>
 
-- **Silver**
-  - Psychic enhancement
-  - Emotional questions
-  - Moon connection
+  <li><strong>Silver</strong>
+    <ul>
+      <li>Psychic enhancement</li>
+      <li>Emotional questions</li>
+      <li>Moon connection</li>
+    </ul>
+  </li>
 
-- **Gold**
-  - Higher spiritual wisdom
-  - Solar energy
-  - Clarity in readings
+  <li><strong>Gold</strong>
+    <ul>
+      <li>Higher spiritual wisdom</li>
+      <li>Solar energy</li>
+      <li>Clarity in readings</li>
+    </ul>
+  </li>
+</ul>
 
-## Wooden Pendulums
-Natural energy and earth connection:
+<h2>Wooden Pendulums</h2>
+<p>Natural energy and earth connection:</p>
 
-### Wood Types
-- **Oak**
-  - Strength
-  - Stability
-  - Grounding
+<h3>Wood Types</h3>
+<ul>
+  <li><strong>Oak</strong>
+    <ul>
+      <li>Strength</li>
+      <li>Stability</li>
+      <li>Grounding</li>
+    </ul>
+  </li>
 
-- **Rosewood**
-  - Heart-centered work
-  - Emotional balance
-  - Love readings
+  <li><strong>Rosewood</strong>
+    <ul>
+      <li>Heart-centered work</li>
+      <li>Emotional balance</li>
+      <li>Love readings</li>
+    </ul>
+  </li>
 
-- **Cedar**
-  - Spiritual protection
-  - Purification
-  - Sacred space work`
+  <li><strong>Cedar</strong>
+    <ul>
+      <li>Spiritual protection</li>
+      <li>Purification</li>
+      <li>Sacred space work</li>
+    </ul>
+  </li>
+</ul>`
       },
       {
         title: "Choosing Your First Pendulum",
-        content: `# Selection Criteria for Your First Pendulum
+        content: `<h1>Selection Criteria for Your First Pendulum</h1>
 
-## Physical Characteristics
+<h2>Physical Characteristics</h2>
 
-### Size and Weight
-- **Weight Effects**
-  - Heavier: More deliberate movement
-  - Lighter: Higher sensitivity
-  - Medium: Balanced response
+<h3>Size and Weight</h3>
+<ul>
+  <li><strong>Weight Effects</strong>
+    <ul>
+      <li>Heavier: More deliberate movement</li>
+      <li>Lighter: Higher sensitivity</li>
+      <li>Medium: Balanced response</li>
+    </ul>
+  </li>
+</ul>
 
-### Chain Length
-- Optimal length: 3-5 inches
-- Allows proper swing space
-- Maintains control
+<h3>Chain Length</h3>
+<ul>
+  <li>Optimal length: 3-5 inches</li>
+  <li>Allows proper swing space</li>
+  <li>Maintains control</li>
+</ul>
 
-### Shape Considerations
-- **Teardrop/Conical**
-  - Directional precision
-  - Focused energy
-  - Traditional choice
+<h3>Shape Considerations</h3>
+<ul>
+  <li><strong>Teardrop/Conical</strong>
+    <ul>
+      <li>Directional precision</li>
+      <li>Focused energy</li>
+      <li>Traditional choice</li>
+    </ul>
+  </li>
 
-- **Spherical**
-  - Free movement
-  - Universal energy
-  - Less directional
+  <li><strong>Spherical</strong>
+    <ul>
+      <li>Free movement</li>
+      <li>Universal energy</li>
+      <li>Less directional</li>
+    </ul>
+  </li>
+</ul>
 
-## Energetic Connection
+<h2>Energetic Connection</h2>
 
-### Personal Resonance
-- Trust your intuition
-- Notice physical sensations:
-  - Warmth
-  - Tingling
-  - Subtle pull
+<h3>Personal Resonance</h3>
+<ul>
+  <li>Trust your intuition</li>
+  <li>Notice physical sensations:
+    <ul>
+      <li>Warmth</li>
+      <li>Tingling</li>
+      <li>Subtle pull</li>
+    </ul>
+  </li>
+</ul>
 
-### Testing Methods
-- Hold different options
-- Notice energy differences
-- Observe natural attraction
+<h3>Testing Methods</h3>
+<ul>
+  <li>Hold different options</li>
+  <li>Notice energy differences</li>
+  <li>Observe natural attraction</li>
+</ul>
 
-## Practical Considerations
+<h2>Practical Considerations</h2>
 
-### Budget Guidelines
-- Beginner pendulums: Under $20
-- Mid-range options: $20-50
-- Specialty pieces: $50-200+
+<h3>Budget Guidelines</h3>
+<ul>
+  <li>Beginner pendulums: Under $20</li>
+  <li>Mid-range options: $20-50</li>
+  <li>Specialty pieces: $50-200+</li>
+</ul>
 
-### Quality Factors
-- Craftsmanship
-- Material authenticity
-- Energy clarity`
+<h3>Quality Factors</h3>
+<ul>
+  <li>Craftsmanship</li>
+  <li>Material authenticity</li>
+  <li>Energy clarity</li>
+</ul>`
       },
       {
         title: "Digital vs Physical Pendulums",
-        content: `# Comparing Digital and Physical Pendulums
+        content: `<h1>Comparing Digital and Physical Pendulums</h1>
 
-## Physical Pendulums
+<h2>Physical Pendulums</h2>
 
-### Advantages
-- Direct energy connection
-- No power requirements
-- Energetic cleansing possible
-- Unique material properties
-- Traditional experience
+<h3>Advantages</h3>
+<ul>
+  <li>Direct energy connection</li>
+  <li>No power requirements</li>
+  <li>Energetic cleansing possible</li>
+  <li>Unique material properties</li>
+  <li>Traditional experience</li>
+</ul>
 
-### Limitations
-- Requires physical presence
-- Subject to damage
-- Environmental influences
-- Storage needs
+<h3>Limitations</h3>
+<ul>
+  <li>Requires physical presence</li>
+  <li>Subject to damage</li>
+  <li>Environmental influences</li>
+  <li>Storage needs</li>
+</ul>
 
-## Digital Pendulums
+<h2>Digital Pendulums</h2>
 
-### Advantages
-- Always available
-- Consistent movement
-- Environment-independent
-- Additional features
-- Progress tracking
+<h3>Advantages</h3>
+<ul>
+  <li>Always available</li>
+  <li>Consistent movement</li>
+  <li>Environment-independent</li>
+  <li>Additional features</li>
+  <li>Progress tracking</li>
+</ul>
 
-### Limitations
-- No physical connection
-- Battery dependent
-- Screen interface barrier
-- Limited energy work
-- App constraints
+<h3>Limitations</h3>
+<ul>
+  <li>No physical connection</li>
+  <li>Battery dependent</li>
+  <li>Screen interface barrier</li>
+  <li>Limited energy work</li>
+  <li>App constraints</li>
+</ul>
 
-## Usage Recommendations
-- Begin with physical pendulum
-- Use digital for practice
-- Combine both methods
-- Trust traditional approach
-- Keep digital as backup`
+<h2>Usage Recommendations</h2>
+<ul>
+  <li>Begin with physical pendulum</li>
+  <li>Use digital for practice</li>
+  <li>Combine both methods</li>
+  <li>Trust traditional approach</li>
+  <li>Keep digital as backup</li>
+</ul>`
       }
     ],
     exercises: [
