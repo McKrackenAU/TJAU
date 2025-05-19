@@ -6,7 +6,7 @@ import { TarotCard } from '@shared/tarot-data';
  */
 
 // Images that we know exist in the public directory
-const ORACLE_IMAGE = "/oracle-of-illusion.png";
+const ORACLE_IMAGE = "/Oracle of Illusion.png";
 const CARD_BACK = "/card-back.png";
 
 /**
