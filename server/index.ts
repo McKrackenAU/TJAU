@@ -10,6 +10,9 @@ app.use(express.urlencoded({ extended: false }));
 // Serve static files from the public directory
 app.use(express.static(path.join(process.cwd(), 'public')));
 
+// Log that we're serving the cache directory
+console.log('Serving cache directory at /cache');
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
