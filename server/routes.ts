@@ -1198,11 +1198,8 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Import the card frontend images utility
-        const { getCardFrontImagePath } = require('./utils/card-frontend-images');
-        
-        // Get the image path for this card
-        const imageUrl = getCardFrontImagePath(card);
+        // Use the Oracle of Illusion image for all cards - simple solution to ensure consistency
+        const imageUrl = "/Oracle of Illusion.png";
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
