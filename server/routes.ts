@@ -1198,11 +1198,11 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Import the static card mapping module
-        const { getStaticCardImagePath } = require('./utils/static-card-images');
+        // Import the card frontend images utility
+        const { getCardFrontImagePath } = require('./utils/card-frontend-images');
         
-        // Get the static image path for this card
-        const imageUrl = getStaticCardImagePath(card);
+        // Get the image path for this card
+        const imageUrl = getCardFrontImagePath(card);
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
