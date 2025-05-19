@@ -127,7 +127,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
               method: 'GET',
               credentials: 'include',
               signal: controller.signal,
-              cache: 'force-cache' // Enable browser caching
+              cache: 'no-cache' // Disable cache to ensure we get fresh content
             }
           );
           

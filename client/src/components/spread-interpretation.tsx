@@ -38,7 +38,18 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
         return data.interpretation;
       } catch (err) {
         console.error("Error fetching spread interpretation:", err);
-        throw new Error(err instanceof Error ? err.message : "Failed to generate interpretation");
+        const errorMessage = err instanceof Error ? err.message : "Failed to generate interpretation";
+        
+        // Provide more user-friendly error message
+        if (errorMessage.includes("OpenAI API") || errorMessage.includes("rate limit")) {
+          toast({
+            title: "AI Service Temporarily Unavailable",
+            description: "The AI interpretation service is experiencing high demand. Please try again in a few moments.",
+            variant: "destructive"
+          });
+        }
+        
+        throw new Error(errorMessage);
       }
     },
     enabled: isRequested,
