@@ -1198,8 +1198,8 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Get or generate image for the card using mapping
-        const imageUrl = await getCardImagePath(card);
+        // Use the existing card-back.png image that's already in the public directory
+        const imageUrl = "/card-back.png";
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);

@@ -1858,5 +1858,35 @@
     "cardId": "imported_263",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-19T00:04:10.581Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/symbolism",
+    "model": "gpt-4o",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.01,
+    "cardId": "c5",
+    "cardName": "Five of Cups",
+    "timestamp": "2025-05-19T00:09:56.764Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_311",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-19T00:10:13.752Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_274",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-19T00:14:00.241Z"
   }
 ]
