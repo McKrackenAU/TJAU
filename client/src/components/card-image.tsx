@@ -168,9 +168,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           
           const data = await response.json();
           if (data.imageUrl) {
+            console.log(`Card ${card.id} image URL:`, data.imageUrl);
             setImageUrl(data.imageUrl);
             setLoadFailed(false); // Ensure loadFailed is false when we have an image
           } else {
+            console.error(`No image URL provided for card ${card.id}`);
             setLoadFailed(true);
           }
         } catch (error: unknown) {
