@@ -238,7 +238,14 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           src={imageUrl} 
           alt={card.name}
           className="absolute inset-0 w-full h-full object-cover"
-          onLoad={() => setLoadFailed(false)} // Ensure loadFailed is false when image loads
+          onLoad={() => {
+            console.log(`Image loaded successfully: ${imageUrl}`);
+            setLoadFailed(false);
+          }}
+          onError={(e) => {
+            console.error(`Image failed to load: ${imageUrl}`, e);
+            setLoadFailed(true);
+          }}
         />
       )}
       
