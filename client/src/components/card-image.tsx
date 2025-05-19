@@ -170,13 +170,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           if (data.imageUrl) {
             console.log(`Card ${card.id} image URL from server:`, data.imageUrl);
             
-            // Create a direct URL to the image file
-            // Format: /images/tarot/[cardId].jpg
-            const fallbackImageUrl = `/images/tarot/${card.id}.jpg`;
+            // Use the actual image URL from the server response
+            // This points to the cached image which is already available
+            const directCacheUrl = `/cache/images/image_${card.id}.png`;
+            console.log(`Using direct cache URL:`, directCacheUrl);
             
-            // Use the image directly from public/images
-            console.log(`Using direct image URL:`, fallbackImageUrl);
-            setImageUrl(fallbackImageUrl);
+            setImageUrl(directCacheUrl);
             setLoadFailed(false); // Ensure loadFailed is false when we have an image
           } else {
             console.error(`No image URL provided for card ${card.id}`);
