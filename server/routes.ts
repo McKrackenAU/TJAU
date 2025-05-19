@@ -1198,8 +1198,8 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Use the Oracle of Illusion image for all cards - simple solution to ensure consistency
-        const imageUrl = "/Oracle of Illusion.png";
+        // Use a simpler approach with the card-back.png image that's definitely accessible
+        const imageUrl = "/card-back.png";
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
