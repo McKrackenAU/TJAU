@@ -1124,6 +1124,18 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Direct access to cached card images
+  app.get("/cache/images/:filename", (req, res) => {
+    const filename = req.params.filename;
+    const imagePath = path.join(process.cwd(), 'public', 'cache', 'images', filename);
+    
+    if (fs.existsSync(imagePath)) {
+      res.sendFile(imagePath);
+    } else {
+      res.status(404).json({ error: "Image not found" });
+    }
+  });
+
   // Get card image
   // Track rate limiting status
   let imageGenerationRateLimited = false;

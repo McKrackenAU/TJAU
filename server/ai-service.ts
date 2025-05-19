@@ -407,6 +407,7 @@ The artwork should have a magical, feminine energy with a modern, polished finis
       fs.writeFileSync(imageFilePath, imageBuffer);
 
       // Cache the result metadata
+      // Ensure path consistency for client access
       const publicImageUrl = `/cache/images/${path.basename(imageFilePath)}`;
       try {
         fs.writeFileSync(
@@ -418,7 +419,7 @@ The artwork should have a magical, feminine energy with a modern, polished finis
             generatedAt: new Date().toISOString(),
           })
         );
-        console.log(`Cached image for ${card.name} at ${imageFilePath}`);
+        console.log(`Cached image for ${card.name} at ${imageFilePath} with URL ${publicImageUrl}`);
       } catch (cacheError) {
         console.error("Error writing image metadata to cache:", cacheError);
         // Continue even if caching fails
