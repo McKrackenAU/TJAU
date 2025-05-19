@@ -168,14 +168,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           
           const data = await response.json();
           if (data.imageUrl) {
-            // Make sure the URL is properly formed
-            // If it's a relative path, convert it to an absolute URL
-            let fullImageUrl = data.imageUrl;
-            if (fullImageUrl && !fullImageUrl.startsWith('http') && !fullImageUrl.startsWith('/')) {
-              fullImageUrl = `/${fullImageUrl}`;
-            }
-            
-            setImageUrl(fullImageUrl);
+            setImageUrl(data.imageUrl);
             setLoadFailed(false); // Ensure loadFailed is false when we have an image
           } else {
             setLoadFailed(true);

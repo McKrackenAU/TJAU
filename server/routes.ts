@@ -1198,12 +1198,11 @@ export function registerRoutes(app: Express): Server {
       }
 
       try {
-        // Use a simpler approach with the card-back.png image that's definitely accessible
-        const imageUrl = "/card-back.png";
+        // Generate image for the card
+        const imageUrl = await generateCardImage(card);
         
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
-        res.setHeader('Cache-Control', 'public, max-age=31536000'); // Cache for 1 year
         
         res.json({ imageUrl });
       } catch (error: any) {
