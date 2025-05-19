@@ -43,36 +43,36 @@ import crypto from 'crypto';
 export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
-  
+
   // Create OpenAI instance
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-  
+
   // Serve the cache files
   const cacheDir = path.join(process.cwd(), '.cache');
   if (fs.existsSync(cacheDir)) {
     app.use('/cache', express.static(cacheDir));
     console.log('Serving cache directory at /cache');
   }
-  
+
   // Special admin creation endpoint for trusted email only
   app.post("/api/create-admin", async (req, res) => {
     try {
       const { email, username, password, adminToken } = req.body;
-      
+
       // Verify admin token for security
       const expectedToken = "g6vDAE^YiQT8Uoi!c@XmvoYdhsqGn*xw";
       if (adminToken !== expectedToken) {
         return res.status(403).json({ error: "Invalid admin token" });
       }
-      
+
       // Only allow specific email to be admin
       if (email !== "jo@jmvirtualbusinessservices.com.au") {
         return res.status(403).json({ error: "Unauthorized email for admin" });
       }
-      
+
       // Check if user already exists
       const existingUser = await storage.getUserByEmail(email);
-      
+
       if (existingUser) {
         // If user exists but is not admin, make them admin
         if (!existingUser.isAdmin) {
@@ -82,16 +82,16 @@ export function registerRoutes(app: Express): Server {
         // User already exists and is admin
         return res.status(200).json({ success: true, user: existingUser });
       }
-      
+
       // Create new admin user with hashed password
       const scryptAsync = promisify(scrypt);
-      
+
       const hashPassword = async (password: string) => {
         const salt = randomBytes(16).toString("hex");
         const buf = (await scryptAsync(password, salt, 64)) as Buffer;
         return `${buf.toString("hex")}.${salt}`;
       };
-      
+
       const user = await storage.createUser({
         username,
         email,
@@ -100,14 +100,14 @@ export function registerRoutes(app: Express): Server {
         isSubscribed: true, // Admins get free subscription
         hasUsedFreeTrial: true // Admins don't need trial
       });
-      
+
       res.status(201).json({ success: true, user });
     } catch (error) {
       console.error("Admin creation error:", error);
       res.status(500).json({ error: "Failed to create admin user" });
     }
   });
-  
+
   app.post("/api/readings", async (req, res) => {
     try {
       const reading = insertReadingSchema.parse(req.body);
@@ -326,7 +326,7 @@ export function registerRoutes(app: Express): Server {
       // Generate new interpretation if not in cache
       if (!interpretation) {
         console.log("Generating new spread interpretation");
-        
+
         // Track API usage
         apiUsageTracker.trackUsage({
           endpoint: '/api/interpret-spread',
@@ -340,7 +340,7 @@ export function registerRoutes(app: Express): Server {
 
         const prompt = `
         As an experienced Tarot reader, please provide a complete interpretation of this ${spreadType} spread.
-        
+
         CARDS IN SPREAD:
         ${formattedCards.map((card, i) => 
           `Card ${i+1}: ${card.name} in the ${card.position} position
@@ -348,20 +348,20 @@ export function registerRoutes(app: Express): Server {
           Upright meanings: ${card.meanings.upright}
           Reversed meanings: ${card.meanings.reversed}`
         ).join('\n\n')}
-        
+
         Please provide:
-        
+
         1. Overview of the entire spread (what overall story or energy is being conveyed)
-        
+
         2. For each individual card:
           - Brief interpretation of what this specific card means in its position
           - How it relates to other cards in the spread
-        
+
         3. Final summary with guidance and advice based on the complete spread
-        
+
         Keep the language accessible and conversational while providing genuine spiritual insights.
         `;
-        
+
         try {
           const response = await openai.chat.completions.create({
             model: "gpt-3.5-turbo-16k",
@@ -378,13 +378,13 @@ export function registerRoutes(app: Express): Server {
             temperature: 0.7,
             max_tokens: 2000
           });
-          
+
           if (!response.choices || response.choices.length === 0 || !response.choices[0].message.content) {
             throw new Error("OpenAI API returned an empty response");
           }
-          
+
           interpretation = response.choices[0].message.content;
-          
+
           // Cache the result
           fs.writeFileSync(cacheFilePath, JSON.stringify({ interpretation }));
         } catch (apiError) {
@@ -394,11 +394,11 @@ export function registerRoutes(app: Express): Server {
             "Failed to get response from OpenAI API");
         }
       }
-      
+
       res.json({ interpretation });
     } catch (error) {
       console.error("Spread interpretation error:", error);
-      
+
       // Check for OpenAI-specific errors
       if (error instanceof Error && error.message.includes("OpenAI API")) {
         res.status(500).json({
@@ -413,7 +413,7 @@ export function registerRoutes(app: Express): Server {
       }
     }
   });
-  
+
   // New endpoint for spread meditation
   app.post("/api/meditate-spread", async (req, res) => {
     try {
@@ -478,7 +478,7 @@ export function registerRoutes(app: Express): Server {
       const cacheIdString = cards.map(c => c.id).join('-');
       const cacheKey = `spread_meditation_${spreadType}_${cacheIdString}`;
       const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
-      
+
       // Try to get from cache first
       if (fs.existsSync(cacheFilePath)) {
         try {
@@ -492,7 +492,7 @@ export function registerRoutes(app: Express): Server {
       } else {
         console.log(`No cache found at: ${cacheFilePath}, generating new spread meditation`);
       }
-      
+
       console.log(`Generating meditation for ${spreadType} spread`);
 
       // Generate meditation script referencing all cards but providing a unified narrative
@@ -523,7 +523,7 @@ export function registerRoutes(app: Express): Server {
         cardId: cards[0].id,
         cardName: spreadType
       });
-      
+
       const scriptResponse = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
@@ -545,7 +545,7 @@ export function registerRoutes(app: Express): Server {
 
       // Generate voice audio
       console.log("Generating audio from spread meditation script");
-      
+
       // Track API usage for TTS
       apiUsageTracker.trackUsage({
         endpoint: '/api/meditate-spread',
@@ -556,7 +556,7 @@ export function registerRoutes(app: Express): Server {
         cardId: cards[0].id,
         cardName: spreadType
       });
-      
+
       const audioResponse = await openai.audio.speech.create({
         model: "tts-1",
         voice: "nova", // Using a calming voice
@@ -567,12 +567,12 @@ export function registerRoutes(app: Express): Server {
 
       console.log("Voice audio generated successfully");
       const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-      
+
       // Save the audio file to cache
       const audioFileName = `${cacheKey}.mp3`;
       const audioFilePath = path.join(CACHE_DIR, audioFileName);
       fs.writeFileSync(audioFilePath, audioBuffer);
-      
+
       // Use a file path URL instead of base64 to reduce payload size
       const audioUrl = `/cache/${audioFileName}`;
 
@@ -585,21 +585,21 @@ export function registerRoutes(app: Express): Server {
         audioUrl: audioUrl,
         thetaFrequency: averageThetaFrequency
       };
-      
+
       // Cache the result
       fs.writeFileSync(cacheFilePath, JSON.stringify(result));
-      
+
       res.json(result);
     } catch (error) {
       console.error("Error generating spread meditation:", error);
-      
+
       // Check for rate limit errors
       if (error?.status === 429 || 
           (error?.error?.code === 'rate_limit_exceeded') || 
           (error?.message && error.message.toLowerCase().includes('rate limit'))) {
-        
+
         console.log(`OpenAI rate limit hit while generating spread meditation`);
-        
+
         // Track the rate limit in our usage stats
         apiUsageTracker.trackUsage({
           endpoint: '/api/meditate-spread',
@@ -622,7 +622,7 @@ export function registerRoutes(app: Express): Server {
           cardName: "spread"
         });
       }
-      
+
       res.status(500).json({
         error: "Failed to generate spread meditation",
         details: error instanceof Error ? error.message : "Unknown error"
@@ -663,23 +663,23 @@ export function registerRoutes(app: Express): Server {
     try {
       const { cardId } = req.body;
       let card;
-      
+
       // Handle both prefixed and non-prefixed card IDs
       const isImportedCard = cardId.toString().startsWith('imported_');
-      
+
       if (isImportedCard) {
         // Extract the numeric ID from the prefixed ID
         const numericId = parseInt(cardId.replace('imported_', ''));
         console.log(`Looking for imported card with numeric ID: ${numericId}`);
-        
+
         if (!req.isAuthenticated()) {
           return res.status(401).json({ error: "Authentication required" });
         }
         const userId = req.user!.id;
-        
+
         const importedCards = await storage.getImportedCards(userId);
         const customCard = importedCards.find(c => c.id === numericId);
-        
+
         if (customCard) {
           // Convert imported card to tarot card format
           card = {
@@ -772,7 +772,7 @@ export function registerRoutes(app: Express): Server {
       }
       const userId = req.user!.id;
       console.log("Creating journal entry for user:", userId, "body:", JSON.stringify(req.body, null, 2));
-      
+
       // Create a clean entry object with all required fields properly formatted
       const cleanEntry = {
         title: req.body.title || "",
@@ -782,9 +782,9 @@ export function registerRoutes(app: Express): Server {
         tags: Array.isArray(req.body.tags) ? req.body.tags : [],
         mood: req.body.mood || null
       };
-      
+
       console.log("Prepared entry data:", JSON.stringify(cleanEntry, null, 2));
-      
+
       try {
         // Directly use the cleaned data
         const result = await storage.createJournalEntry(userId, cleanEntry);
@@ -899,10 +899,10 @@ export function registerRoutes(app: Express): Server {
       if (!req.isAuthenticated()) {
         return res.status(401).json({ error: "Authentication required" });
       }
-      
+
       const userId = req.user!.id;
       console.log("Creating progress for user:", userId, "body:", req.body);
-      
+
       // Validate that the track exists in the database
       const trackId = req.body.trackId;
       if (trackId) {
@@ -912,14 +912,14 @@ export function registerRoutes(app: Express): Server {
           .from(learningTracks)
           .where(eq(learningTracks.id, trackId))
           .limit(1);
-        
+
         if (!track) {
           return res.status(404).json({ error: "Learning track not found" });
         }
-        
+
         console.log(`Track ${trackId} found:`, track.name);
       }
-      
+
       const progress = insertUserProgressSchema.parse(req.body);
       const result = await storage.createUserProgress(userId, progress);
       res.json(result);
@@ -1082,7 +1082,7 @@ export function registerRoutes(app: Express): Server {
     try {
       const { id } = req.params;
       let card: TarotCard | undefined;
-      
+
       if (id.startsWith("imported_")) {
         // Custom card from database
         if (!req.isAuthenticated()) {
@@ -1091,7 +1091,7 @@ export function registerRoutes(app: Express): Server {
         const userId = req.user!.id;
         const cardId = parseInt(id.replace("imported_", ""));
         const importedCard = await storage.getImportedCard(userId, cardId);
-        
+
         if (importedCard) {
           card = {
             id: `imported_${importedCard.id}`,
@@ -1128,13 +1128,13 @@ export function registerRoutes(app: Express): Server {
   // Track rate limiting status
   let imageGenerationRateLimited = false;
   let rateLimitResetTime: number | null = null;
-  
+
   app.get("/api/cards/:id/image", async (req, res) => {
     try {
       // Set cache headers to improve performance for repeated requests
       // Cache for 7 days (604800 seconds)
       res.setHeader('Cache-Control', 'public, max-age=604800');
-      
+
       // If we know we're rate limited, don't even try to generate
       if (imageGenerationRateLimited) {
         const now = Date.now();
@@ -1151,13 +1151,13 @@ export function registerRoutes(app: Express): Server {
           rateLimitResetTime = null;
         }
       }
-    
+
       const { id } = req.params;
       console.log(`Fetching image for card ${id}`);
-      
+
       // Initialize card
       let card: TarotCard | null = null;
-      
+
       // Check if this is an imported card
       if (id.startsWith("imported_")) {
         if (!req.isAuthenticated()) {
@@ -1166,17 +1166,17 @@ export function registerRoutes(app: Express): Server {
         const userId = req.user!.id;
         const cardId = parseInt(id.replace("imported_", ""));
         const importedCard = await storage.getImportedCard(userId, cardId);
-        
+
         if (importedCard) {
           // Format meanings
           const upright = Array.isArray(importedCard.meanings?.upright) 
             ? importedCard.meanings.upright 
             : importedCard.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [];
-            
+
           const reversed = Array.isArray(importedCard.meanings?.reversed) 
             ? importedCard.meanings.reversed 
             : importedCard.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || [];
-          
+
           card = {
             id: `imported_${importedCard.id}`,
             name: importedCard.name,
@@ -1200,32 +1200,32 @@ export function registerRoutes(app: Express): Server {
       try {
         // Generate image for the card
         const imageUrl = await generateCardImage(card);
-        
+
         // Set additional header for caching
         res.setHeader('ETag', `"card-${card.id}"`);
-        
+
         res.json({ imageUrl });
       } catch (error: any) {
         // Specifically handle rate limit errors
         if (error?.status === 429 || 
             (error?.message && error.message.toLowerCase().includes('rate limit'))) {
-          
+
           console.log("OpenAI rate limit hit, setting global rate limit flag");
-          
+
           // Set the rate limit flag and calculate reset time
           imageGenerationRateLimited = true;
-          
+
           // Get retry-after header if available, otherwise use 1 hour default
           const retryAfter = error?.headers?.['retry-after'];
           const retrySeconds = retryAfter ? parseInt(retryAfter) : 3600;
           rateLimitResetTime = Date.now() + (retrySeconds * 1000);
-          
+
           return res.status(429).json({ 
             error: "Rate limit exceeded", 
             message: `API rate limit in effect. Try again in ${Math.ceil(retrySeconds / 60)} minutes.`
           });
         }
-        
+
         // Rethrow for general error handling
         throw error;
       }
@@ -1239,7 +1239,7 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/cards", async (req, res) => {
     try {
       console.log("Fetching imported cards from database...");
-      
+
       // Get user-specific imported cards if authenticated
       let importedCardsData: ImportedCard[] = [];
       if (req.isAuthenticated()) {
@@ -1278,13 +1278,13 @@ export function registerRoutes(app: Express): Server {
       });
     }
   });
-  
+
   // Angel Numbers API endpoints
   app.get("/api/angel-numbers", async (req, res) => {
     try {
       // First, check if we have any angel numbers in the database
       const dbAngelNumbers = await storage.getAngelNumbers();
-      
+
       // If no angel numbers in the database, seed from the data file
       if (dbAngelNumbers.length === 0) {
         console.log("No angel numbers found in database, seeding from data file...");
@@ -1299,7 +1299,7 @@ export function registerRoutes(app: Express): Server {
         }
         console.log(`Seeded ${angelNumbersData.length} angel numbers to database`);
       }
-      
+
       // Get the angel numbers from the database
       const angelNumbers = await storage.getAngelNumbers();
       res.json(angelNumbers);
@@ -1311,15 +1311,15 @@ export function registerRoutes(app: Express): Server {
       });
     }
   });
-  
+
   app.get("/api/angel-numbers/:number", async (req, res) => {
     try {
       const angelNumber = await storage.getAngelNumberByNumber(req.params.number);
-      
+
       if (!angelNumber) {
         return res.status(404).json({ error: "Angel number not found" });
       }
-      
+
       res.json(angelNumber);
     } catch (error) {
       console.error("Error fetching angel number:", error);
@@ -1391,7 +1391,7 @@ export function registerRoutes(app: Express): Server {
     });
 
     // Removed duplicate subscription endpoint in favor of /api/create-subscription
-    
+
     // Endpoint to get subscription details
     app.get('/api/subscription-details', async (req, res) => {
       try {
@@ -1416,19 +1416,19 @@ export function registerRoutes(app: Express): Server {
         const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId, {
           expand: ['customer', 'default_payment_method']
         });
-        
+
         // Calculate trial end date
         const trialEnd = subscription.trial_end ? new Date(subscription.trial_end * 1000) : null;
         const currentPeriodEnd = new Date(subscription.current_period_end * 1000);
         const canceledAt = subscription.canceled_at ? new Date(subscription.canceled_at * 1000) : null;
-        
+
         // Determine if the subscription is in trial period
         const now = new Date();
         const inTrialPeriod = trialEnd ? now < trialEnd : false;
-        
+
         // Check if the subscription has a valid payment method
         const hasPaymentMethod = !!subscription.default_payment_method;
-        
+
         res.json({
           active: subscription.status === 'active' || subscription.status === 'trialing',
           status: subscription.status,
@@ -1460,46 +1460,46 @@ export function registerRoutes(app: Express): Server {
 
         const user = req.user;
         const { couponCode, subscriptionId } = req.body;
-        
+
         console.log("Applying coupon for user:", user.id, user.username);
-        
+
         if (!subscriptionId) {
           return res.status(400).json({ error: "No subscription ID provided" });
         }
-        
+
         if (!couponCode || typeof couponCode !== 'string') {
           return res.status(400).json({ error: "Valid coupon code is required" });
         }
-        
+
         // Verify the coupon exists and is valid
         try {
           const coupon = await stripe.coupons.retrieve(couponCode);
-          
+
           if (!coupon.valid) {
             return res.status(400).json({ error: "This coupon is no longer valid" });
           }
-          
+
           console.log("Valid coupon found:", coupon.id);
         } catch (error) {
           console.error("Failed to retrieve coupon:", error);
           return res.status(400).json({ error: "Invalid coupon code" });
         }
-        
+
         // Retrieve the existing subscription
         const subscription = await stripe.subscriptions.retrieve(subscriptionId);
         console.log("Retrieved subscription:", subscription.id, "status:", subscription.status);
-        
+
         if (subscription.status === 'canceled') {
           return res.status(400).json({ error: "Cannot apply coupon to a canceled subscription" });
         }
-        
+
         // Apply the coupon by updating the subscription
         const updatedSubscription = await stripe.subscriptions.update(subscriptionId, {
           coupon: couponCode,
         });
-        
+
         console.log("Applied coupon to subscription:", updatedSubscription.id);
-        
+
         return res.json({ 
           success: true, 
           message: "Coupon applied successfully" 
@@ -1533,13 +1533,13 @@ export function registerRoutes(app: Express): Server {
 
         if (subscription.status === 'canceled') {
           console.log("Subscription already canceled");
-          
+
           // Update user record
           await storage.updateUserSubscription(user.id, {
             isSubscribed: false,
             stripeSubscriptionId: ''
           });
-          
+
           return res.json({ 
             success: true, 
             message: "Subscription was already canceled" 
@@ -1549,14 +1549,14 @@ export function registerRoutes(app: Express): Server {
         // Cancel the subscription at the end of the current period
         // This way the user can still use the service until the end of what they paid for
         const cancelAtEnd = req.body.cancelAtEnd !== false; // Default to true if not specified
-        
+
         if (cancelAtEnd) {
           // Schedule cancellation at the end of the billing period
           const updatedSubscription = await stripe.subscriptions.update(subscription.id, {
             cancel_at_period_end: true
           });
           console.log("Scheduled subscription cancellation at period end:", updatedSubscription.id);
-          
+
           // Don't update the user's subscription status yet - they're still subscribed until the period ends
           res.json({ 
             success: true, 
@@ -1567,19 +1567,19 @@ export function registerRoutes(app: Express): Server {
           // Cancel immediately if explicitly requested
           const canceledSubscription = await stripe.subscriptions.cancel(subscription.id);
           console.log("Canceled subscription immediately:", canceledSubscription.id);
-  
+
           // Update user record
           await storage.updateUserSubscription(user.id, {
             isSubscribed: false,
             stripeSubscriptionId: ''
           });
-          
+
           res.json({ 
             success: true, 
             message: "Subscription has been canceled immediately" 
           });
         }
-        
+
         return;
       } catch (error: any) {
         console.error("Subscription cancellation error:", error);
@@ -1594,14 +1594,14 @@ export function registerRoutes(app: Express): Server {
     app.post('/api/webhook/stripe', async (req, res) => {
       const sig = req.headers['stripe-signature'];
       const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
-      
+
       if (!sig || !endpointSecret) {
         return res.status(400).json({ error: 'Missing signature or webhook secret' });
       }
-      
+
       try {
         let event;
-        
+
         // Verify the event came from Stripe
         try {
           const rawBody = Buffer.from(JSON.stringify(req.body));
@@ -1610,31 +1610,31 @@ export function registerRoutes(app: Express): Server {
           console.error('Webhook signature verification failed:', err.message);
           return res.status(400).json({ error: `Webhook Error: ${err.message}` });
         }
-        
+
         // Handle the event
         if (event.type === 'customer.subscription.updated' || 
             event.type === 'customer.subscription.created') {
           const subscription = event.data.object;
           const customerId = subscription.customer as string;
-          
+
           // Get user by Stripe customer ID
           const user = await storage.getUserByStripeCustomerId(customerId);
-          
+
           if (user) {
             // Update user subscription status based on Stripe status
             const isActive = 
               subscription.status === 'active' || 
               subscription.status === 'trialing';
-            
+
             await storage.updateUserSubscription(user.id, {
               isSubscribed: isActive,
               stripeSubscriptionId: subscription.id
             });
-            
+
             console.log(`Updated subscription status for user ${user.id} to ${isActive}`);
           }
         }
-        
+
         res.json({ received: true });
       } catch (error: any) {
         console.error('Error handling webhook:', error);
@@ -1673,13 +1673,13 @@ export function registerRoutes(app: Express): Server {
       res.status(500).json({ error: "Failed to clear API usage logs" });
     }
   });
-  
+
   // Learning tracks API endpoints
   app.get("/api/learning/tracks", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const tracks = await storage.getLearningTracks();
       res.json(tracks);
@@ -1688,12 +1688,12 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error fetching learning tracks");
     }
   });
-  
+
   app.get("/api/learning/tracks/:id", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const track = await storage.getLearningTrack(parseInt(req.params.id, 10));
       if (!track) {
@@ -1705,7 +1705,7 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error fetching learning track");
     }
   });
-  
+
   app.post("/api/learning/tracks", requireAdmin, async (req, res) => {
     try {
       const track = await storage.createLearningTrack(req.body);
@@ -1715,21 +1715,21 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error creating learning track");
     }
   });
-  
+
   app.post("/api/learning/progress/start/:trackId", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const trackId = parseInt(req.params.trackId, 10);
-      
+
       // Check if user already has progress for this track
       const existingProgress = await storage.getUserProgress(trackId);
       if (existingProgress) {
         return res.json(existingProgress);
       }
-      
+
       // Create new progress
       const newProgress = {
         trackId,
@@ -1738,7 +1738,7 @@ export function registerRoutes(app: Express): Server {
         completedLessons: [],
         lastAccessed: new Date()
       };
-      
+
       const progress = await storage.createUserProgress(newProgress);
       res.status(201).json(progress);
     } catch (error) {
@@ -1746,32 +1746,32 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error starting track progress");
     }
   });
-  
+
   app.get("/api/learning/progress/:trackId", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const trackId = parseInt(req.params.trackId, 10);
       const progress = await storage.getUserProgress(trackId);
-      
+
       if (!progress) {
         return res.status(404).send("No progress found for this track");
       }
-      
+
       res.json(progress);
     } catch (error) {
       console.error("Error fetching track progress:", error);
       res.status(500).send("Error fetching track progress");
     }
   });
-  
+
   app.patch("/api/learning/progress/:progressId", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const progressId = parseInt(req.params.progressId, 10);
       const updatedProgress = await storage.updateUserProgress(progressId, req.body);
@@ -1781,12 +1781,12 @@ export function registerRoutes(app: Express): Server {
       res.status(500).send("Error updating track progress");
     }
   });
-  
+
   app.get("/api/learning/recent-quiz-results", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).send("Not authenticated");
     }
-    
+
     try {
       const results = await storage.getRecentQuizResults(5);
       res.json(results);
@@ -1797,7 +1797,7 @@ export function registerRoutes(app: Express): Server {
   });
 
   // Newsletter endpoints
-  
+
   // Initialize email service when the application starts
   initializeEmailService().catch(err => {
     console.error("Failed to initialize email service:", err);
@@ -1811,17 +1811,17 @@ export function registerRoutes(app: Express): Server {
       }
 
       const { subscribe } = req.body;
-      
+
       if (typeof subscribe !== 'boolean') {
         return res.status(400).json({ 
           error: "Invalid request format",
           details: "The 'subscribe' field must be a boolean"
         });
       }
-      
+
       // Get user from request (set by Passport)
       const user = req.user;
-      
+
       // If they're subscribing and don't have an unsubscribe token, generate one
       if (subscribe && !user.unsubscribeToken) {
         const token = crypto.randomBytes(32).toString('hex');
@@ -1829,10 +1829,10 @@ export function registerRoutes(app: Express): Server {
           .set({ unsubscribeToken: token })
           .where(eq(users.id, user.id));
       }
-      
+
       // Update subscription preference
       const updatedUser = await storage.updateUserNewsletterPreference(user.id, subscribe);
-      
+
       res.json({ 
         success: true, 
         subscribed: updatedUser.newsletterSubscribed,
@@ -1853,13 +1853,13 @@ export function registerRoutes(app: Express): Server {
   app.get("/api/newsletter/unsubscribe", async (req, res) => {
     try {
       const { token } = req.query;
-      
+
       if (typeof token !== 'string' || !token) {
         return res.status(400).json({ error: "Invalid or missing unsubscribe token" });
       }
-      
+
       const success = await unsubscribeUserByToken(token);
-      
+
       if (success) {
         res.json({ 
           success: true, 
@@ -1892,7 +1892,7 @@ export function registerRoutes(app: Express): Server {
         .catch(err => {
           console.error("Newsletter generation failed:", err);
         });
-      
+
       // Send immediate response
       res.json({ 
         success: true, 
@@ -1911,7 +1911,7 @@ export function registerRoutes(app: Express): Server {
   // This should run each time the server starts
   function setupNewsletterScheduler() {
     console.log("Setting up weekly newsletter scheduler...");
-    
+
     // Schedule the newsletter to be checked daily
     // In a production environment, you should use a proper scheduler like node-cron
     const HOUR_IN_MS = 60 * 60 * 1000;
@@ -1919,49 +1919,49 @@ export function registerRoutes(app: Express): Server {
       console.log("Running scheduled newsletter check...");
       checkAndSendWeeklyNewsletter();
     }, 24 * HOUR_IN_MS); // Check once per day
-    
+
     // Also run once at startup (helpful for development)
     console.log("Running initial newsletter check...");
     checkAndSendWeeklyNewsletter();
   }
-  
+
   // Start the scheduler
   setupNewsletterScheduler();
 
   // Stripe Subscription Endpoints
-  
+
   // Create or retrieve subscription
   app.post("/api/create-subscription", async (req, res) => {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ message: "User must be logged in" });
     }
-    
+
     const user = req.user;
     const { couponCode } = req.body;
-    
+
     try {
       console.log("Processing subscription for user:", user.id, user.username);
-      
+
       // If user already has a subscription, retrieve it
       if (user.stripeSubscriptionId) {
         console.log("User already has subscription ID:", user.stripeSubscriptionId);
-        
+
         const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
         console.log("Retrieved existing subscription:", subscription.id, "status:", subscription.status);
-        
+
         // Check if this is an incomplete subscription
         if (subscription.status === 'incomplete') {
           console.log("Found incomplete subscription - cancelling and creating a new one");
           // Cancel the incomplete subscription
           await stripe.subscriptions.cancel(subscription.id);
           console.log("Cancelled incomplete subscription:", subscription.id);
-          
+
           // Clear the subscription ID from the user
           await db
             .update(users)
             .set({ stripeSubscriptionId: '' })
             .where(eq(users.id, user.id));
-          
+
           console.log("Cleared subscription ID from user record");
           // Will continue to create a new subscription
         } else {
@@ -1970,12 +1970,12 @@ export function registerRoutes(app: Express): Server {
             const invoice = typeof subscription.latest_invoice === 'string'
               ? await stripe.invoices.retrieve(subscription.latest_invoice, { expand: ['payment_intent'] })
               : subscription.latest_invoice;
-              
+
             if (invoice.payment_intent) {
               const paymentIntent = typeof invoice.payment_intent === 'string'
                 ? await stripe.paymentIntents.retrieve(invoice.payment_intent)
                 : invoice.payment_intent;
-                
+
               if (paymentIntent.client_secret) {
                 // Return the client secret for client-side confirmation
                 console.log("Returning existing client secret");
@@ -1986,7 +1986,7 @@ export function registerRoutes(app: Express): Server {
               }
             }
           }
-          
+
           // For active subscriptions, just return success
           if (subscription.status === 'active' || subscription.status === 'trialing') {
             console.log("Returning active subscription");
@@ -1998,7 +1998,7 @@ export function registerRoutes(app: Express): Server {
           }
         }
       }
-      
+
       if (!user.email) {
         console.error("User has no email address");
         return res.status(400).json({ message: "User email is required for subscription" });
@@ -2026,7 +2026,7 @@ export function registerRoutes(app: Express): Server {
       } else {
         console.log("Using existing customer ID:", customerId);
       }
-      
+
       // Prepare subscription params
       const subscriptionParams: Stripe.SubscriptionCreateParams = {
         customer: customerId,
@@ -2040,19 +2040,19 @@ export function registerRoutes(app: Express): Server {
         },
         expand: ['latest_invoice.payment_intent'],
       };
-      
+
       // Only add trial period if user hasn't used one before
       if (!user.hasUsedFreeTrial) {
         console.log("User is eligible for 7-day free trial");
         subscriptionParams.trial_period_days = 7;
-        
+
         // Mark that this user has now used their free trial
         await storage.updateUserTrialStatus(user.id, true);
         console.log("Updated user trial status: trial has been used");
       } else {
         console.log("User has already used their free trial, no trial period added");
       }
-      
+
       // Apply coupon code if provided
       if (couponCode) {
         try {
@@ -2067,18 +2067,18 @@ export function registerRoutes(app: Express): Server {
           console.error("Invalid coupon code:", couponError);
         }
       }
-      
+
       // Create the subscription
       console.log("Creating subscription with customer:", customerId);
       const subscription = await stripe.subscriptions.create(subscriptionParams);
       console.log("Created subscription:", subscription.id);
-      
+
       // Update user with subscription information
       await storage.updateUserStripeInfo(user.id, {
         customerId, 
         subscriptionId: subscription.id
       });
-      
+
       // Return the client secret for client-side confirmation
       if (subscription.latest_invoice && typeof subscription.latest_invoice !== 'string') {
         const invoice = subscription.latest_invoice as any;
@@ -2090,21 +2090,21 @@ export function registerRoutes(app: Express): Server {
           });
         }
       }
-      
+
       // If we couldn't get the client secret, return error
       console.error("No client secret found in subscription response");
       return res.status(400).json({ message: "Failed to create payment intent" });
-      
+
     } catch (error) {
       console.error("Subscription creation error:", error);
       let errorMessage = error instanceof Error ? error.message : "Unknown error";
-      
+
       if (error.type === 'StripeCardError') {
         errorMessage = `Card error: ${error.message}`;
       } else if (error.type === 'StripeInvalidRequestError') {
         errorMessage = `Invalid request: ${error.message}`;
       }
-      
+
       return res.status(500).json({ 
         message: "Failed to process subscription", 
         details: errorMessage 
@@ -2117,7 +2117,7 @@ export function registerRoutes(app: Express): Server {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ message: "User must be logged in" });
     }
-    
+
     // Handle the purchase verification through our dedicated handler
     handleAppStorePurchaseVerification(req, res);
   });
@@ -2127,38 +2127,38 @@ export function registerRoutes(app: Express): Server {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ message: "User must be logged in" });
     }
-    
+
     const user = req.user;
-    
+
     if (!user.stripeSubscriptionId) {
       return res.status(404).json({ message: "No subscription found" });
     }
-    
+
     try {
       const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId, {
         expand: ['default_payment_method']
       });
-      
+
       // Format the subscription data for the frontend
       const now = Math.floor(Date.now() / 1000);
       // Cast to any to work around TypeScript incompatibility
       const subAny = subscription as any;
       const currentPeriodEnd = subAny.current_period_end;
       const canceledAt = subAny.canceled_at;
-      
+
       // Trial information
       let trialStatus = null;
       if (subscription.trial_end) {
         const trialEnd = new Date(subscription.trial_end * 1000);
         const daysRemaining = Math.ceil((subscription.trial_end - now) / (24 * 60 * 60));
-        
+
         trialStatus = {
           inTrial: now < subscription.trial_end,
           trialEnd: trialEnd.toISOString(),
           daysRemaining: Math.max(0, daysRemaining),
         };
       }
-      
+
       // Return formatted subscription info
       return res.json({
         active: subscription.status === 'active' || subscription.status === 'trialing',
@@ -2169,7 +2169,7 @@ export function registerRoutes(app: Express): Server {
         cancelAtPeriodEnd: subscription.cancel_at_period_end,
         hasPaymentMethod: !!subscription.default_payment_method,
       });
-      
+
     } catch (error) {
       console.error("Subscription details error:", error);
       return res.status(500).json({ 
@@ -2184,38 +2184,38 @@ export function registerRoutes(app: Express): Server {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ message: "User must be logged in" });
     }
-    
+
     const user = req.user;
-    
+
     if (!user.stripeSubscriptionId) {
       return res.status(404).json({ message: "No subscription found" });
     }
-    
+
     try {
       const { cancelAtEnd = true } = req.body;
-      
+
       if (cancelAtEnd) {
         // Cancel at end of billing period (recommended)
         await stripe.subscriptions.update(user.stripeSubscriptionId, {
           cancel_at_period_end: true,
         });
-        
+
         return res.json({ 
           message: "Your subscription will be canceled at the end of the current billing period"
         });
       } else {
         // Immediate cancellation
         await stripe.subscriptions.cancel(user.stripeSubscriptionId);
-        
+
         // Update user's subscription status
         await storage.updateUserSubscription(user.id, {
           isSubscribed: false,
           stripeSubscriptionId: ''
         });
-        
+
         return res.json({ message: "Your subscription has been canceled" });
       }
-      
+
     } catch (error) {
       console.error("Subscription cancellation error:", error);
       return res.status(500).json({ 
@@ -2227,17 +2227,17 @@ export function registerRoutes(app: Express): Server {
 
   // Special middleware for Stripe webhooks (should be before any json body parser)
   const webhookMiddleware = express.raw({ type: 'application/json' });
-  
+
   // Stripe webhook for subscription events
   app.post("/api/stripe-webhook", webhookMiddleware, async (req, res) => {
     const signature = req.headers['stripe-signature'];
-    
+
     if (!signature || !process.env.STRIPE_WEBHOOK_SECRET) {
       return res.status(400).json({ message: "Missing Stripe signature or webhook secret" });
     }
-    
+
     let event;
-    
+
     try {
       event = stripe.webhooks.constructEvent(
         req.body,
@@ -2248,7 +2248,7 @@ export function registerRoutes(app: Express): Server {
       console.error("Webhook signature verification failed:", error);
       return res.status(400).json({ message: "Webhook signature verification failed" });
     }
-    
+
     try {
       // Handle specific event types
       switch (event.type) {
@@ -2256,10 +2256,10 @@ export function registerRoutes(app: Express): Server {
         case 'customer.subscription.updated':
           const subscription = event.data.object as Stripe.Subscription;
           const customerId = subscription.customer as string;
-          
+
           // Find user by Stripe customer ID
           const user = await storage.getUserByStripeCustomerId(customerId);
-          
+
           if (user) {
             // Update user's subscription status
             await storage.updateUserSubscription(user.id, {
@@ -2268,14 +2268,14 @@ export function registerRoutes(app: Express): Server {
             });
           }
           break;
-          
+
         case 'customer.subscription.deleted':
           const canceledSubscription = event.data.object as Stripe.Subscription;
           const canceledCustomerId = canceledSubscription.customer as string;
-          
+
           // Find user by Stripe customer ID
           const canceledUser = await storage.getUserByStripeCustomerId(canceledCustomerId);
-          
+
           if (canceledUser) {
             // Update user's subscription status
             await storage.updateUserSubscription(canceledUser.id, {
@@ -2285,9 +2285,9 @@ export function registerRoutes(app: Express): Server {
           }
           break;
       }
-      
+
       return res.json({ received: true });
-      
+
     } catch (error) {
       console.error("Webhook processing error:", error);
       return res.status(500).json({ message: "Webhook processing failed" });
@@ -2299,7 +2299,7 @@ export function registerRoutes(app: Express): Server {
     if (!req.isAuthenticated()) {
       return res.status(401).json({ error: "User not authenticated" });
     }
-    
+
     // Handle the verification using our dedicated handler
     return handleAppStorePurchaseVerification(req, res);
   });
