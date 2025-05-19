@@ -170,12 +170,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           if (data.imageUrl) {
             console.log(`Card ${card.id} image URL from server:`, data.imageUrl);
             
-            // Use the actual image URL from the server response
-            // This points to the cached image which is already available
-            const directCacheUrl = `/cache/images/image_${card.id}.png`;
-            console.log(`Using direct cache URL:`, directCacheUrl);
+            // The server returns a path like "/cache/images/image_0.png"
+            // This is the correct URL to access the cached image files
+            const imageUrlFromServer = data.imageUrl;
+            console.log(`Using image URL from server:`, imageUrlFromServer);
             
-            setImageUrl(directCacheUrl);
+            setImageUrl(imageUrlFromServer);
             setLoadFailed(false); // Ensure loadFailed is false when we have an image
           } else {
             console.error(`No image URL provided for card ${card.id}`);
