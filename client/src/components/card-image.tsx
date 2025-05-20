@@ -83,9 +83,16 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   useEffect(() => {
     if (!isRevealed) return;
     
-    // Try both possible cache paths
-    const primaryCachePath = `/cache/images/image_${card.id}.png`;
-    const backupCachePath = `/images/tarot/image_${card.id}.png`;
+    const cardId = card.id;
+    const cardName = card.name;
+    
+    // Try different possible cache paths
+    const cachePaths = [
+      `/cache/images/image_${cardId}.png`,  // Primary cache path
+      `/images/tarot/image_${cardId}.png`,  // Backup cache path
+      `/cache/images/image_${cardId.toLowerCase()}.png`, // Lowercase variation
+      `/images/tarot/image_${cardId.toLowerCase()}.png`  // Lowercase backup
+    ];
     
     setIsLoading(true);
     
@@ -99,72 +106,94 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       });
     };
     
-    // First check primary cache path
-    checkImageExists(primaryCachePath)
-      .then(exists => {
-        if (exists) {
-          console.log(`Found image at primary path: ${primaryCachePath}`);
-          setImageUrl(primaryCachePath);
-          setLoadFailed(false);
-          return false; // Don't continue checking
-        }
-        return true; // Continue to next check
-      })
-      .then(continueChecking => {
-        if (!continueChecking) return false;
-        
-        // Next try the backup path
-        return checkImageExists(backupCachePath).then(exists => {
-          if (exists) {
-            console.log(`Found image at backup path: ${backupCachePath}`);
-            setImageUrl(backupCachePath);
-            setLoadFailed(false);
-            return false; // Don't continue to API
+    // Function to try generate image via API
+    const generateImageViaApi = async () => {
+      console.log(`Attempting to generate image via API for ${cardName} (${cardId})`);
+      
+      try {
+        const response = await fetch(`/api/cards/${cardId}/image`, {
+          credentials: 'include', // Include cookies for authentication
+          headers: {
+            'Accept': 'application/json'
           }
-          return true; // Continue to API
         });
-      })
-      .then(continueToApi => {
-        if (!continueToApi) return;
         
-        // Only try API if we have custom/imported cards that might not have been generated yet
-        if (card.id.startsWith('imported_')) {
-          console.log(`Attempting to generate image via API for: ${card.id}`);
-          
-          // Fall back to API request if both cache paths fail
-          fetch(`/api/cards/${card.id}/image`)
-            .then(response => {
-              if (!response.ok) {
-                // If rate limited, don't treat as a complete failure
-                if (response.status === 429) {
-                  console.log(`Rate limited for: ${card.id}`);
-                  setLoadFailed(true);
-                  return null;
-                }
-                throw new Error('Failed to fetch image from API');
-              }
-              return response.json();
-            })
-            .then(data => {
-              if (data && data.imageUrl) {
-                console.log(`Successfully generated image for: ${card.id}`);
-                setImageUrl(data.imageUrl);
-                setLoadFailed(false);
-              } else if (data !== null) {
-                setLoadFailed(true);
-              }
-            })
-            .catch(error => {
-              console.error(`Error generating image for ${card.id}:`, error);
-              setLoadFailed(true);
+        if (!response.ok) {
+          // Handle rate limiting
+          if (response.status === 429) {
+            console.log(`Rate limited for ${cardId}`);
+            // Try again in 5 seconds (once) for rate limited requests
+            await new Promise(resolve => setTimeout(resolve, 5000));
+            
+            // One retry attempt for rate limited requests
+            const retryResponse = await fetch(`/api/cards/${cardId}/image`, {
+              credentials: 'include'
             });
-        } else {
-          setLoadFailed(true);
+            
+            if (!retryResponse.ok) {
+              throw new Error(`Failed on retry: ${retryResponse.status}`);
+            }
+            
+            const data = await retryResponse.json();
+            if (data && data.imageUrl) {
+              console.log(`Successfully generated image on retry for ${cardId}: ${data.imageUrl}`);
+              setImageUrl(data.imageUrl);
+              setLoadFailed(false);
+              return true;
+            }
+          }
+          
+          // Auth-related failures or other errors
+          console.error(`Error generating image. Status: ${response.status}`);
+          throw new Error(`API error: ${response.status}`);
         }
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+        
+        const data = await response.json();
+        if (data && data.imageUrl) {
+          console.log(`Successfully generated image for ${cardName} (${cardId}): ${data.imageUrl}`);
+          setImageUrl(data.imageUrl);
+          setLoadFailed(false);
+          return true;
+        } else {
+          throw new Error('No image URL in response');
+        }
+      } catch (error) {
+        console.error(`Error generating image for ${cardId}:`, error);
+        setLoadFailed(true);
+        return false;
+      }
+    };
+    
+    // Try each cache path in sequence
+    async function tryAllPaths() {
+      // First try all cache paths
+      for (const path of cachePaths) {
+        const exists = await checkImageExists(path);
+        if (exists) {
+          console.log(`Found image at path: ${path}`);
+          setImageUrl(path);
+          setLoadFailed(false);
+          return true;
+        }
+      }
+      
+      // If no cache paths work, try API generation for imported cards
+      if (cardId.startsWith('imported_')) {
+        return await generateImageViaApi();
+      } else if (!cardId.startsWith('imported_') && cardId !== '0' && cardId !== '1') {
+        // For standard tarot cards (except Fool and Magician which already work),
+        // also try API generation as a fallback
+        return await generateImageViaApi();
+      }
+      
+      // If all attempts fail
+      setLoadFailed(true);
+      return false;
+    }
+    
+    tryAllPaths().finally(() => {
+      setIsLoading(false);
+    });
   }, [card.id, isRevealed]);
 
   return (
