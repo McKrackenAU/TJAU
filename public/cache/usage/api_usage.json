@@ -1858,5 +1858,115 @@
     "cardId": "wn",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-19T01:46:14.403Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_358",
+    "cardName": "Divine Purpose",
+    "timestamp": "2025-05-19T06:24:38.200Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_358",
+    "cardName": "Divine Purpose",
+    "timestamp": "2025-05-19T06:24:47.723Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_358",
+    "cardName": "Divine Purpose",
+    "timestamp": "2025-05-19T06:24:55.810Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_248",
+    "cardName": "The Chariot",
+    "timestamp": "2025-05-19T06:25:01.449Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_256",
+    "cardName": "The Devil",
+    "timestamp": "2025-05-19T06:25:01.487Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_264",
+    "cardName": "Two of Wands",
+    "timestamp": "2025-05-19T06:25:01.640Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_280",
+    "cardName": "Four of Cups",
+    "timestamp": "2025-05-19T06:25:01.713Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_296",
+    "cardName": "Six of Swords",
+    "timestamp": "2025-05-19T06:25:02.116Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_304",
+    "cardName": "King of Swords",
+    "timestamp": "2025-05-19T06:25:02.319Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_304",
+    "cardName": "King of Swords",
+    "timestamp": "2025-05-19T06:25:03.976Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_336",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-19T09:01:59.872Z"
   }
 ]
