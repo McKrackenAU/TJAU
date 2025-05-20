@@ -103,60 +103,83 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     
     setIsLoading(true);
     
-    // Try direct cache access
-    const cachePath = `/cache/images/image_${card.id}.png`;
+    // Try the dedicated path first (where we copied the images)
+    const directPath = `/images/tarot/image_${card.id}.png`;
     
     // Create a test image
     const testImage = new Image();
     testImage.onload = () => {
-      setImageUrl(cachePath);
+      console.log(`Successfully loaded image from: ${directPath}`);
+      setImageUrl(directPath);
       setLoadFailed(false);
       setIsLoading(false);
     };
     
     testImage.onerror = () => {
-      // If direct access fails, try API
-      fetch(`/api/cards/${card.id}/image`)
-        .then(response => {
-          if (!response.ok) {
-            if (response.status === 429) {
-              setIsRateLimited(true);
-              globalRateLimitDetected = true;
-              
-              if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
-                sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
-                toast({
-                  title: "Image Generation Limit Reached",
-                  description: "Using themed backgrounds instead.",
-                  variant: "default",
-                  duration: 10000
-                });
+      console.log(`Failed to load from direct path for ${card.id}, trying cache path`);
+      
+      // Try cache path next
+      const cachePath = `/cache/images/image_${card.id}.png`;
+      const cacheImage = new Image();
+      
+      cacheImage.onload = () => {
+        console.log(`Successfully loaded image from cache: ${cachePath}`);
+        setImageUrl(cachePath);
+        setLoadFailed(false);
+        setIsLoading(false);
+      };
+      
+      cacheImage.onerror = () => {
+        console.log(`Failed to load from cache for ${card.id}, trying API`);
+        
+        // If both direct approaches fail, try the API
+        fetch(`/api/cards/${card.id}/image`)
+          .then(response => {
+            if (!response.ok) {
+              if (response.status === 429) {
+                setIsRateLimited(true);
+                globalRateLimitDetected = true;
+                
+                if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
+                  sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
+                  toast({
+                    title: "Image Generation Limit Reached",
+                    description: "Using themed backgrounds instead.",
+                    variant: "default",
+                    duration: 10000
+                  });
+                }
+                
+                throw new Error('Rate limit reached');
               }
-              
-              throw new Error('Rate limit reached');
+              throw new Error('Failed to fetch image');
             }
-            throw new Error('Failed to fetch image');
-          }
-          return response.json();
-        })
-        .then(data => {
-          if (data && data.imageUrl) {
-            setImageUrl(data.imageUrl);
-            setLoadFailed(false);
-          } else {
+            return response.json();
+          })
+          .then(data => {
+            if (data && data.imageUrl) {
+              console.log(`Got image URL from API: ${data.imageUrl}`);
+              setImageUrl(data.imageUrl);
+              setLoadFailed(false);
+            } else {
+              setLoadFailed(true);
+            }
+          })
+          .catch(error => {
+            console.error("Error fetching from API:", error);
             setLoadFailed(true);
-          }
-        })
-        .catch(() => {
-          setLoadFailed(true);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
+          })
+          .finally(() => {
+            setIsLoading(false);
+          });
+      };
+      
+      // Start loading from cache path
+      cacheImage.src = cachePath;
     };
     
-    // Start loading the image
-    testImage.src = cachePath;
+    // Start by trying the direct path
+    testImage.src = directPath;
   }, [card.id, isRevealed, imageUrl, loadFailed, isRateLimited, toast]);
 
   return (
