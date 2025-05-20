@@ -92,7 +92,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   };
 
   // Load the card image
-  // Reduced delay to speed up loading while still avoiding overwhelming the API
+  // Try a direct approach to access cached images first before making API calls
   useEffect(() => {
     if (!isRevealed) return; // Don't load image if card is not revealed
     if (imageUrl) return; // Don't refetch if we already have the image
@@ -105,102 +105,101 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return;
     }
     
-    // Try a direct approach first - check if we can access the image directly 
-    // This avoids API calls if the image is already in cache
+    setIsLoading(true);
+    
+    // Direct attempt - try to use the image directly from the cache
     const directImagePath = `/cache/images/image_${card.id}.png`;
+    console.log(`Attempting to load image directly from: ${directImagePath}`);
     
-    // Create a test image to see if the direct path works
-    const testImg = new Image();
-    testImg.onload = () => {
-      console.log(`Direct image load successful: ${directImagePath}`);
+    // Calculate delay for API fallback
+    const idNum = parseInt(card.id.replace(/\D/g, '') || '0');
+    const delay = (idNum % 8) * 250; // Up to 1.75 seconds delay
+    
+    // Function to fetch from the API as fallback
+    const fetchFromApi = async () => {
+      try {
+        console.log(`Fetching image for ${card.id} via API`);
+        
+        // Try to get the image with a timeout for better error handling
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        
+        const response = await fetch(
+          `/api/cards/${card.id}/image`, 
+          {
+            method: 'GET',
+            credentials: 'include',
+            signal: controller.signal,
+            cache: 'no-cache'
+          }
+        );
+        
+        clearTimeout(timeoutId);
+        
+        if (!response.ok) {
+          if (response.status === 429) {
+            console.log(`Rate limit hit for card ${card.id}`);
+            
+            setIsRateLimited(true);
+            globalRateLimitDetected = true;
+            
+            const errorData = await response.json().catch(() => ({}));
+            const limitMessage = errorData.message || "Please try again later";
+            
+            if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
+              sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
+              
+              toast({
+                title: "Image Generation Limit Reached",
+                description: `Using Oracle of Illusion themed backgrounds instead. ${limitMessage}`,
+                variant: "default",
+                duration: 10000,
+              });
+            }
+            
+            setLoadFailed(true);
+            setIsLoading(false);
+            return;
+          }
+          
+          throw new Error('Failed to fetch card image');
+        }
+        
+        const data = await response.json();
+        if (data.imageUrl) {
+          console.log(`Card ${card.id} image URL from server:`, data.imageUrl);
+          setImageUrl(data.imageUrl);
+          setLoadFailed(false);
+        } else {
+          console.error(`No image URL provided for card ${card.id}`);
+          setLoadFailed(true);
+        }
+      } catch (error) {
+        console.error('Error fetching image via API:', error);
+        setLoadFailed(true);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    // First try to load the image directly
+    const img = new Image();
+    
+    img.onload = () => {
+      console.log(`Direct image load succeeded for ${card.id}`);
       setImageUrl(directImagePath);
-      setIsLoading(false);
       setLoadFailed(false);
-    };
-    testImg.onerror = () => {
-      // If direct access fails, fall back to API request
-      console.log(`Direct image access failed for ${card.id}, falling back to API`);
-      
-      // Calculate delay based on card ID for more predictable staggering
-      const idNum = parseInt(card.id.replace(/\D/g, '') || '0');
-      const delay = (idNum % 8) * 250; // Up to 1.75 seconds delay
-      
-      // Execute the API call after the delay
-      setTimeout(() => {
-        fetchCardImage();
-      }, delay);
+      setIsLoading(false);
     };
     
-    // Set the src to start loading
-    testImg.src = directImagePath;
+    img.onerror = () => {
+      console.log(`Direct image load failed for ${card.id}, trying API...`);
+      // Fall back to the API after a delay
+      setTimeout(fetchFromApi, delay);
+    };
     
-    const fetchCardImage = async () => {
-        try {
-          setIsLoading(true);
-          setLoadFailed(false); // Reset load failed state when we start loading
-          
-          // Try to get the image with a timeout for better error handling
-          const controller = new AbortController();
-          const timeoutId = setTimeout(() => controller.abort(), 8000);
-          
-          try {
-            // Use fetch directly with a timeout since apiRequest doesn't support signal yet
-            const response = await fetch(
-              `/api/cards/${card.id}/image`, 
-              {
-                method: 'GET',
-                credentials: 'include',
-                signal: controller.signal,
-                cache: 'no-cache' // Disable cache to ensure we get fresh content
-              }
-            );
-            
-            clearTimeout(timeoutId);
-            
-            if (!response.ok) {
-              if (response.status === 429) {
-                console.log(`Rate limit hit for card ${card.id}`);
-                
-                // Set both local and global rate limit flags
-                setIsRateLimited(true);
-                globalRateLimitDetected = true;
-                
-                // Try to get detailed error message
-                const errorData = await response.json().catch(() => ({}));
-                const limitMessage = errorData.message || "Please try again later";
-                
-                if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
-                  sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
-                  
-                  // Use server-provided message if available
-                  toast({
-                    title: "Image Generation Limit Reached",
-                    description: `Using Oracle of Illusion themed backgrounds instead. ${limitMessage}`,
-                    variant: "default",
-                    duration: 10000, // Show for longer
-                  });
-                }
-                
-                setLoadFailed(true);
-                return;
-              }
-              
-              const errorData = await response.json().catch(() => ({}));
-              console.log("Image fetch error:", errorData);
-              throw new Error(errorData.message || 'Failed to fetch card image');
-            }
-            
-            const data = await response.json();
-            if (data.imageUrl) {
-              console.log(`Card ${card.id} image URL from server:`, data.imageUrl);
-              
-              // Use the URL returned by the server
-              setImageUrl(data.imageUrl);
-              setLoadFailed(false);
-            } else {
-              console.error(`No image URL provided for card ${card.id}`);
-              setLoadFailed(true);
-            }
+    // Start loading the image
+    img.src = directImagePath;
         } catch (error: unknown) {
           // Silently fail if it was an abort error
           if (error instanceof Error && error.name === 'AbortError') {
