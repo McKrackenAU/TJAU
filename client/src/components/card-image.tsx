@@ -8,20 +8,10 @@ interface CardImageProps {
   isRevealed: boolean;
 }
 
-// Rate limit notification key
-const RATE_LIMIT_TOAST_KEY = 'oracle_illusion_rate_limit_notified';
-
-// Global rate limit flag
-let globalRateLimitDetected = false;
-if (typeof window !== 'undefined') {
-  globalRateLimitDetected = sessionStorage.getItem(RATE_LIMIT_TOAST_KEY) === 'true';
-}
-
 export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [loadFailed, setLoadFailed] = useState(false);
-  const [isRateLimited, setIsRateLimited] = useState(globalRateLimitDetected);
   const { toast } = useToast();
   
   // Card background gradient
@@ -46,9 +36,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
   };
 
-  // Card symbol
+  // Card symbol with proper type handling
   const getCardSymbol = () => {
-    const majorSymbols = {
+    const majorSymbols: Record<string, string> = {
       "The Fool": "✧",
       "The Magician": "∞",
       "The High Priestess": "☽",
@@ -73,119 +63,72 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       "The World": "◯"
     };
 
-    const suitSymbols = {
+    const suitSymbols: Record<string, string> = {
       "wands": "🔥",
       "cups": "💧",
       "swords": "💨",
       "pentacles": "⭐"
     };
 
-    if (card.arcana === "major" && majorSymbols[card.name]) {
+    if (card.arcana === "major" && card.name in majorSymbols) {
       return majorSymbols[card.name];
-    } else if (card.suit && suitSymbols[card.suit.toLowerCase()]) {
+    } else if (card.suit && card.suit.toLowerCase() in suitSymbols) {
       return suitSymbols[card.suit.toLowerCase()];
     }
     
     return "✧"; // Default fallback
   };
 
-  // Load card image
+  // Load card image from cache directory
   useEffect(() => {
     if (!isRevealed) return;
-    if (imageUrl) return;
-    if (loadFailed && isRateLimited) return;
     
-    if (globalRateLimitDetected) {
-      setIsRateLimited(true);
-      setLoadFailed(true);
-      return;
-    }
+    // Use the cache path directly
+    const cachePath = `/cache/images/image_${card.id}.png`;
     
     setIsLoading(true);
     
-    // Try the dedicated path first (where we copied the images)
-    const directPath = `/images/tarot/image_${card.id}.png`;
-    
-    // Create a test image
-    const testImage = new Image();
-    testImage.onload = () => {
-      console.log(`Successfully loaded image from: ${directPath}`);
-      setImageUrl(directPath);
-      setLoadFailed(false);
-      setIsLoading(false);
-    };
-    
-    testImage.onerror = () => {
-      console.log(`Failed to load from direct path for ${card.id}, trying cache path`);
-      
-      // Try cache path next
-      const cachePath = `/cache/images/image_${card.id}.png`;
-      const cacheImage = new Image();
-      
-      cacheImage.onload = () => {
-        console.log(`Successfully loaded image from cache: ${cachePath}`);
-        setImageUrl(cachePath);
-        setLoadFailed(false);
-        setIsLoading(false);
-      };
-      
-      cacheImage.onerror = () => {
-        console.log(`Failed to load from cache for ${card.id}, trying API`);
-        
-        // If both direct approaches fail, try the API
+    // Test if the image is available in the cache
+    fetch(cachePath, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          setImageUrl(cachePath);
+          setLoadFailed(false);
+        } else {
+          throw new Error('Image not available in cache');
+        }
+      })
+      .catch(() => {
+        // Fall back to API request if cache fails
         fetch(`/api/cards/${card.id}/image`)
           .then(response => {
             if (!response.ok) {
-              if (response.status === 429) {
-                setIsRateLimited(true);
-                globalRateLimitDetected = true;
-                
-                if (typeof window !== 'undefined' && !sessionStorage.getItem(RATE_LIMIT_TOAST_KEY)) {
-                  sessionStorage.setItem(RATE_LIMIT_TOAST_KEY, 'true');
-                  toast({
-                    title: "Image Generation Limit Reached",
-                    description: "Using themed backgrounds instead.",
-                    variant: "default",
-                    duration: 10000
-                  });
-                }
-                
-                throw new Error('Rate limit reached');
-              }
-              throw new Error('Failed to fetch image');
+              throw new Error('Failed to fetch image from API');
             }
             return response.json();
           })
           .then(data => {
             if (data && data.imageUrl) {
-              console.log(`Got image URL from API: ${data.imageUrl}`);
               setImageUrl(data.imageUrl);
               setLoadFailed(false);
             } else {
               setLoadFailed(true);
             }
           })
-          .catch(error => {
-            console.error("Error fetching from API:", error);
+          .catch(() => {
+            console.log(`Failed to load image for card: ${card.id}`);
             setLoadFailed(true);
-          })
-          .finally(() => {
-            setIsLoading(false);
           });
-      };
-      
-      // Start loading from cache path
-      cacheImage.src = cachePath;
-    };
-    
-    // Start by trying the direct path
-    testImage.src = directPath;
-  }, [card.id, isRevealed, imageUrl, loadFailed, isRateLimited, toast]);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [card.id, isRevealed]);
 
   return (
     <div className={getCardBackground()}>
       {/* Card image */}
-      {imageUrl && (
+      {imageUrl && isRevealed && (
         <img 
           src={imageUrl} 
           alt={card.name}
@@ -202,17 +145,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       )}
       
       {/* Fallback display */}
-      {(loadFailed || !imageUrl) && !isLoading && (
+      {(loadFailed || !imageUrl || !isRevealed) && !isLoading && (
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="text-white bg-purple-800/40 p-4 rounded-lg backdrop-blur-sm flex flex-col items-center">
             <div className="text-5xl mb-2">{getCardSymbol()}</div>
             <span className="text-sm font-medium">{card.name}</span>
-            {isRateLimited && (
-              <div className="mt-2 flex items-center text-xs">
-                <SparklesIcon className="w-3 h-3 mr-1 text-pink-300" />
-                <span>Oracle of Illusion theme</span>
-              </div>
-            )}
           </div>
         </div>
       )}
