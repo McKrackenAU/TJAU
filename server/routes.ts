@@ -1147,6 +1147,24 @@ export function registerRoutes(app: Express): Server {
       // Cache for 7 days (604800 seconds)
       res.setHeader('Cache-Control', 'public, max-age=604800');
 
+      const { id } = req.params;
+      
+      // First check if the image already exists in cache
+      const imageCachePath = path.join(process.cwd(), 'public', 'cache', 'images', `image_${id}.png`);
+      const jsonMetadataPath = path.join(process.cwd(), 'public', 'cache', 'images', `image_${id}.json`);
+      
+      if (fs.existsSync(imageCachePath) && fs.existsSync(jsonMetadataPath)) {
+        // Image exists, return the cached info
+        try {
+          const jsonData = fs.readFileSync(jsonMetadataPath, 'utf-8');
+          const metadata = JSON.parse(jsonData);
+          return res.json(metadata);
+        } catch (err) {
+          console.error(`Error reading cache metadata for ${id}:`, err);
+          // If reading the metadata fails, continue to generation
+        }
+      }
+
       // If we know we're rate limited, don't even try to generate
       if (imageGenerationRateLimited) {
         const now = Date.now();
@@ -1164,7 +1182,6 @@ export function registerRoutes(app: Express): Server {
         }
       }
 
-      const { id } = req.params;
       console.log(`Fetching image for card ${id}`);
 
       // Initialize card

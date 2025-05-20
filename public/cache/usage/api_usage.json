@@ -1978,5 +1978,75 @@
     "cardId": "imported_306",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-20T00:36:05.368Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_293",
+    "cardName": "Three of Swords",
+    "timestamp": "2025-05-20T01:38:37.437Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_331",
+    "cardName": "Crystals and Gemstones",
+    "timestamp": "2025-05-20T01:38:37.975Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-05-20T01:38:54.841Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_241",
+    "cardName": "The Fool",
+    "timestamp": "2025-05-20T01:38:55.036Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_243",
+    "cardName": "The High Priestess",
+    "timestamp": "2025-05-20T01:38:55.146Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_244",
+    "cardName": "The Empress",
+    "timestamp": "2025-05-20T01:38:55.349Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_244",
+    "cardName": "The Empress",
+    "timestamp": "2025-05-20T01:38:57.101Z"
   }
 ]

@@ -83,42 +83,84 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   useEffect(() => {
     if (!isRevealed) return;
     
-    // Use the cache path directly
-    const cachePath = `/cache/images/image_${card.id}.png`;
+    // Try both possible cache paths
+    const primaryCachePath = `/cache/images/image_${card.id}.png`;
+    const backupCachePath = `/images/tarot/image_${card.id}.png`;
     
     setIsLoading(true);
     
-    // Test if the image is available in the cache
-    fetch(cachePath, { method: 'HEAD' })
-      .then(response => {
-        if (response.ok) {
-          setImageUrl(cachePath);
+    // Function to check if an image exists
+    const checkImageExists = (url: string): Promise<boolean> => {
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload = () => resolve(true);
+        img.onerror = () => resolve(false);
+        img.src = url;
+      });
+    };
+    
+    // First check primary cache path
+    checkImageExists(primaryCachePath)
+      .then(exists => {
+        if (exists) {
+          console.log(`Found image at primary path: ${primaryCachePath}`);
+          setImageUrl(primaryCachePath);
           setLoadFailed(false);
-        } else {
-          throw new Error('Image not available in cache');
+          return false; // Don't continue checking
         }
+        return true; // Continue to next check
       })
-      .catch(() => {
-        // Fall back to API request if cache fails
-        fetch(`/api/cards/${card.id}/image`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Failed to fetch image from API');
-            }
-            return response.json();
-          })
-          .then(data => {
-            if (data && data.imageUrl) {
-              setImageUrl(data.imageUrl);
-              setLoadFailed(false);
-            } else {
+      .then(continueChecking => {
+        if (!continueChecking) return false;
+        
+        // Next try the backup path
+        return checkImageExists(backupCachePath).then(exists => {
+          if (exists) {
+            console.log(`Found image at backup path: ${backupCachePath}`);
+            setImageUrl(backupCachePath);
+            setLoadFailed(false);
+            return false; // Don't continue to API
+          }
+          return true; // Continue to API
+        });
+      })
+      .then(continueToApi => {
+        if (!continueToApi) return;
+        
+        // Only try API if we have custom/imported cards that might not have been generated yet
+        if (card.id.startsWith('imported_')) {
+          console.log(`Attempting to generate image via API for: ${card.id}`);
+          
+          // Fall back to API request if both cache paths fail
+          fetch(`/api/cards/${card.id}/image`)
+            .then(response => {
+              if (!response.ok) {
+                // If rate limited, don't treat as a complete failure
+                if (response.status === 429) {
+                  console.log(`Rate limited for: ${card.id}`);
+                  setLoadFailed(true);
+                  return null;
+                }
+                throw new Error('Failed to fetch image from API');
+              }
+              return response.json();
+            })
+            .then(data => {
+              if (data && data.imageUrl) {
+                console.log(`Successfully generated image for: ${card.id}`);
+                setImageUrl(data.imageUrl);
+                setLoadFailed(false);
+              } else if (data !== null) {
+                setLoadFailed(true);
+              }
+            })
+            .catch(error => {
+              console.error(`Error generating image for ${card.id}:`, error);
               setLoadFailed(true);
-            }
-          })
-          .catch(() => {
-            console.log(`Failed to load image for card: ${card.id}`);
-            setLoadFailed(true);
-          });
+            });
+        } else {
+          setLoadFailed(true);
+        }
       })
       .finally(() => {
         setIsLoading(false);
