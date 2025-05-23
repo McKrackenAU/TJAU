@@ -15,6 +15,66 @@ export interface TarotCard {
 
 export const tarotCards: TarotCard[] = [
   {
+    id: "1",
+    name: "The Magician",
+    arcana: "major",
+    number: 1,
+    meanings: {
+      upright: ["Manifestation", "Resourcefulness", "Power", "Inspired action"],
+      reversed: ["Manipulation", "Poor planning", "Untapped talents"]
+    },
+    description: "The Magician represents manifestation, resourcefulness, power, and inspired action. As above, so below.",
+    element: "Air"
+  },
+  {
+    id: "2",
+    name: "The High Priestess",
+    arcana: "major",
+    number: 2,
+    meanings: {
+      upright: ["Intuition", "Sacred knowledge", "Divine feminine", "Subconscious mind"],
+      reversed: ["Secrets", "Disconnected from intuition", "Withdrawal"]
+    },
+    description: "The High Priestess represents intuition, sacred knowledge, divine feminine, and the subconscious mind.",
+    element: "Water"
+  },
+  {
+    id: "3",
+    name: "The Empress",
+    arcana: "major",
+    number: 3,
+    meanings: {
+      upright: ["Femininity", "Beauty", "Nature", "Nurturing", "Abundance"],
+      reversed: ["Creative block", "Dependence on others"]
+    },
+    description: "The Empress represents femininity, beauty, nature, nurturing, and abundance.",
+    element: "Earth"
+  },
+  {
+    id: "4",
+    name: "The Emperor",
+    arcana: "major",
+    number: 4,
+    meanings: {
+      upright: ["Authority", "Structure", "Control", "Father figure"],
+      reversed: ["Tyranny", "Rigidity", "Coldness"]
+    },
+    description: "The Emperor represents authority, structure, control, and father figure.",
+    element: "Fire"
+  },
+  {
+    id: "19",
+    name: "The Sun",
+    arcana: "major",
+    number: 19,
+    meanings: {
+      upright: ["Joy", "Success", "Celebration", "Positivity"],
+      reversed: ["Inner child", "Feeling down", "Overly optimistic"]
+    },
+    description: "The Sun represents joy, success, celebration, and positivity.",
+    element: "Fire"
+  },
+  {
     id: "0",
     name: "The Fool",
     arcana: "major",
