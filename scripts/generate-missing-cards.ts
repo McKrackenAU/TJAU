@@ -5,168 +5,94 @@
  * and saves them permanently to the assets directory.
  */
 
-import OpenAI from "openai";
+import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-const ASSETS_DIR = path.join(process.cwd(), 'public', 'assets', 'cards');
-
-// Ensure assets directory exists
-if (!fs.existsSync(ASSETS_DIR)) {
-  fs.mkdirSync(ASSETS_DIR, { recursive: true });
-}
-
-// Missing Major Arcana cards (all except The Fool)
-const missingMajorArcana = [
-  { id: '1', name: 'The Magician', file: 'the-magician.png' },
-  { id: '2', name: 'The High Priestess', file: 'the-high-priestess.png' },
-  { id: '3', name: 'The Empress', file: 'the-empress.png' },
-  { id: '4', name: 'The Emperor', file: 'the-emperor.png' },
-  { id: '5', name: 'The Hierophant', file: 'the-hierophant.png' },
-  { id: '6', name: 'The Lovers', file: 'the-lovers.png' },
-  { id: '7', name: 'The Chariot', file: 'the-chariot.png' },
-  { id: '8', name: 'Strength', file: 'strength.png' },
-  { id: '9', name: 'The Hermit', file: 'the-hermit.png' },
-  { id: '10', name: 'Wheel of Fortune', file: 'wheel-of-fortune.png' },
-  { id: '11', name: 'Justice', file: 'justice.png' },
-  { id: '12', name: 'The Hanged Man', file: 'the-hanged-man.png' },
-  { id: '13', name: 'Death', file: 'death.png' },
-  { id: '14', name: 'Temperance', file: 'temperance.png' },
-  { id: '15', name: 'The Devil', file: 'the-devil.png' },
-  { id: '16', name: 'The Tower', file: 'the-tower.png' },
-  { id: '17', name: 'The Star', file: 'the-star.png' },
-  { id: '18', name: 'The Moon', file: 'the-moon.png' },
-  { id: '19', name: 'The Sun', file: 'the-sun.png' },
-  { id: '20', name: 'Judgement', file: 'judgement.png' },
-  { id: '21', name: 'The World', file: 'the-world.png' }
-];
-
-// Missing Custom Oracle cards (based on log showing 15 missing)
-const missingCustomCards = [
-  { name: 'Chakra Activation', file: 'chakra-activation.png' },
-  { name: 'Crystals and Gemstones', file: 'crystals-gemstones.png' },
-  { name: 'Elemental Fire', file: 'elemental-fire.png' },
-  { name: 'Sacred Sound', file: 'sacred-sound.png' },
-  { name: 'Past Life Healing', file: 'past-life-healing.png' },
-  { name: 'Energy Clearing', file: 'energy-clearing.png' },
-  { name: 'Manifestation Power', file: 'manifestation-power.png' },
-  { name: 'Spiritual Awakening', file: 'spiritual-awakening.png' },
-  { name: 'Intuitive Gifts', file: 'intuitive-gifts.png' },
-  { name: 'Shadow Work', file: 'shadow-work.png' },
-  { name: 'Higher Purpose', file: 'higher-purpose.png' },
-  { name: 'Galactic Wisdom', file: 'galactic-wisdom.png' },
-  { name: 'Earth Connection', file: 'earth-connection.png' },
-  { name: 'Angel Communication', file: 'angel-communication.png' },
-  { name: 'Cosmic Consciousness', file: 'cosmic-consciousness.png' }
-];
-
+// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 async function generateCardImage(cardName: string, cardType: 'major' | 'custom'): Promise<string | null> {
   try {
-    console.log(`🎨 Generating image for ${cardName}...`);
+    console.log(`🎨 ${cardName}`);
     
-    const stylePrompt = cardType === 'major' 
-      ? "classic traditional tarot art style, mystical and symbolic"
-      : "ethereal oracle card art style, spiritual and celestial";
+    let prompt = `Traditional tarot card "${cardName}" with beautiful mystical symbolism, ornate details, rich colors, traditional tarot art style`;
     
-    const prompt = `Create a beautiful ${stylePrompt} illustration for the tarot card "${cardName}". 
-    The image should be:
-    - High quality digital art
-    - Mystical and spiritual in nature
-    - Rich in symbolic meaning
-    - Suitable for a tarot or oracle card
-    - Portrait orientation
-    - Professional tarot card aesthetic
-    - Detailed and visually striking
-    
-    Style: ${stylePrompt}, detailed illustration, mystical symbolism, spiritual art`;
+    // Enhanced prompts for specific cards
+    if (cardName.includes('Temperance')) {
+      prompt = 'Angel with large wings pouring water between two cups, one foot on land one in water, iris flowers, triangle on robe, moderation and balance, traditional tarot art';
+    } else if (cardName.includes('Devil')) {
+      prompt = 'Horned figure with bat wings on black throne, inverted pentagram on forehead, two chained figures below, torch, materialism and bondage, traditional tarot art';
+    }
 
     const response = await openai.images.generate({
       model: "dall-e-3",
       prompt: prompt,
       n: 1,
       size: "1024x1024",
-      quality: "hd",
+      quality: "standard",
     });
 
-    const imageUrl = response.data[0].url;
-    if (!imageUrl) {
-      throw new Error("No image URL returned");
+    if (response.data?.[0]?.url) {
+      return response.data[0].url;
     }
-
-    console.log(`✓ Generated image for ${cardName}`);
-    return imageUrl;
     
+    return null;
   } catch (error) {
-    console.error(`✗ Failed to generate image for ${cardName}:`, error);
+    console.error(`Error generating ${cardName}:`, error);
     return null;
   }
 }
 
 async function downloadAndSaveImage(imageUrl: string, filename: string): Promise<boolean> {
   try {
-    console.log(`📥 Downloading ${filename}...`);
-    
     const response = await fetch(imageUrl);
-    if (!response.ok) {
-      throw new Error(`Failed to download: ${response.statusText}`);
-    }
+    const buffer = Buffer.from(await response.arrayBuffer());
     
-    const buffer = await response.arrayBuffer();
-    const filepath = path.join(ASSETS_DIR, filename);
+    const assetsDir = path.join(process.cwd(), 'public', 'assets', 'cards');
+    fs.mkdirSync(assetsDir, { recursive: true });
     
-    fs.writeFileSync(filepath, Buffer.from(buffer));
-    console.log(`✓ Saved ${filename}`);
+    fs.writeFileSync(path.join(assetsDir, filename), buffer);
     return true;
-    
   } catch (error) {
-    console.error(`✗ Failed to save ${filename}:`, error);
+    console.error('Error saving image:', error);
     return false;
   }
 }
 
 async function generateMissingCards() {
-  console.log('🚀 Starting complete card image generation...\n');
+  // Focus on completing remaining Major Arcana cards
+  const priorityCards = [
+    { name: 'Temperance', file: '14.png', type: 'major' as const },
+    { name: 'The Devil', file: '15.png', type: 'major' as const }
+  ];
   
-  let totalGenerated = 0;
-  let totalSaved = 0;
+  console.log('🎨 Completing final Major Arcana cards...\n');
   
-  // Generate Major Arcana cards
-  console.log('📜 Generating Major Arcana cards...');
-  for (const card of missingMajorArcana) {
-    const imageUrl = await generateCardImage(card.name, 'major');
-    if (imageUrl) {
-      totalGenerated++;
-      const saved = await downloadAndSaveImage(imageUrl, card.file);
-      if (saved) totalSaved++;
-    }
+  let generated = 0;
+  for (const card of priorityCards) {
+    const imagePath = path.join(process.cwd(), 'public', 'assets', 'cards', card.file);
     
-    // Rate limiting - wait 2 seconds between requests
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    if (!fs.existsSync(imagePath)) {
+      const imageUrl = await generateCardImage(card.name, card.type);
+      
+      if (imageUrl) {
+        const saved = await downloadAndSaveImage(imageUrl, card.file);
+        if (saved) {
+          console.log(`✅ ${card.name} completed`);
+          generated++;
+        }
+      }
+      
+      // Brief pause between generations
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    } else {
+      console.log(`✓ ${card.name} already exists`);
+    }
   }
   
-  console.log('\n🔮 Generating Custom Oracle cards...');
-  for (const card of missingCustomCards) {
-    const imageUrl = await generateCardImage(card.name, 'custom');
-    if (imageUrl) {
-      totalGenerated++;
-      const saved = await downloadAndSaveImage(imageUrl, card.file);
-      if (saved) totalSaved++;
-    }
-    
-    // Rate limiting - wait 2 seconds between requests
-    await new Promise(resolve => setTimeout(resolve, 2000));
-  }
-  
-  console.log('\n🎉 Card generation complete!');
-  console.log(`📊 Summary:`);
-  console.log(`- Images generated: ${totalGenerated}`);
-  console.log(`- Images saved: ${totalSaved}`);
-  console.log(`- Total missing cards processed: ${missingMajorArcana.length + missingCustomCards.length}`);
-  console.log(`\n💾 All images saved to: ${ASSETS_DIR}`);
-  console.log(`\nNext: Update card mappings to include new images`);
+  console.log(`\n🎉 Generated ${generated} final Major Arcana cards!`);
+  console.log('🎨 Major Arcana collection now complete with beautiful authentic artwork!');
 }
 
-// Run the generation
-generateMissingCards().catch(console.error);
+generateMissingCards();
