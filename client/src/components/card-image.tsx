@@ -138,15 +138,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Force Major Arcana to show authentic numbered images
-    if (card.arcana === 'major') {
-      // Use card number if available, otherwise use ID
-      const imageNumber = card.number !== undefined ? card.number : card.id;
-      return `/assets/cards/${imageNumber}.png`;
+    const path = cardImagePaths[card.id];
+    // Add cache busting for authentic Major Arcana images
+    if (path && card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
+      return `${path}?t=${Date.now()}`;
     }
-    
-    // For Minor Arcana and Custom cards, use the mapping
-    return cardImagePaths[card.id] || null;
+    return path || null;
   };
 
   // Card background gradient
