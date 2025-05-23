@@ -1,0 +1,673 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-05-23T06:02:50.033Z",
+  "totalCards": 111,
+  "cards": [
+    {
+      "id": "0",
+      "name": "The Fool",
+      "imagePath": "/assets/cards/the-fool.png",
+      "hasImage": true
+    },
+    {
+      "id": "1",
+      "name": "The Magician",
+      "imagePath": "/assets/cards/the-magician.png",
+      "hasImage": false
+    },
+    {
+      "id": "2",
+      "name": "The High Priestess",
+      "imagePath": "/assets/cards/the-high-priestess.png",
+      "hasImage": false
+    },
+    {
+      "id": "3",
+      "name": "The Empress",
+      "imagePath": "/assets/cards/the-empress.png",
+      "hasImage": false
+    },
+    {
+      "id": "4",
+      "name": "The Emperor",
+      "imagePath": "/assets/cards/the-emperor.png",
+      "hasImage": false
+    },
+    {
+      "id": "5",
+      "name": "The Hierophant",
+      "imagePath": "/assets/cards/the-hierophant.png",
+      "hasImage": false
+    },
+    {
+      "id": "6",
+      "name": "The Lovers",
+      "imagePath": "/assets/cards/the-lovers.png",
+      "hasImage": false
+    },
+    {
+      "id": "7",
+      "name": "The Chariot",
+      "imagePath": "/assets/cards/the-chariot.png",
+      "hasImage": false
+    },
+    {
+      "id": "8",
+      "name": "Strength",
+      "imagePath": "/assets/cards/strength.png",
+      "hasImage": false
+    },
+    {
+      "id": "9",
+      "name": "The Hermit",
+      "imagePath": "/assets/cards/the-hermit.png",
+      "hasImage": false
+    },
+    {
+      "id": "10",
+      "name": "Wheel of Fortune",
+      "imagePath": "/assets/cards/wheel-of-fortune.png",
+      "hasImage": false
+    },
+    {
+      "id": "11",
+      "name": "Justice",
+      "imagePath": "/assets/cards/justice.png",
+      "hasImage": false
+    },
+    {
+      "id": "12",
+      "name": "The Hanged Man",
+      "imagePath": "/assets/cards/the-hanged-man.png",
+      "hasImage": false
+    },
+    {
+      "id": "13",
+      "name": "Death",
+      "imagePath": "/assets/cards/death.png",
+      "hasImage": false
+    },
+    {
+      "id": "14",
+      "name": "Temperance",
+      "imagePath": "/assets/cards/temperance.png",
+      "hasImage": false
+    },
+    {
+      "id": "15",
+      "name": "The Devil",
+      "imagePath": "/assets/cards/the-devil.png",
+      "hasImage": false
+    },
+    {
+      "id": "16",
+      "name": "The Tower",
+      "imagePath": "/assets/cards/the-tower.png",
+      "hasImage": false
+    },
+    {
+      "id": "17",
+      "name": "The Star",
+      "imagePath": "/assets/cards/the-star.png",
+      "hasImage": false
+    },
+    {
+      "id": "18",
+      "name": "The Moon",
+      "imagePath": "/assets/cards/the-moon.png",
+      "hasImage": false
+    },
+    {
+      "id": "19",
+      "name": "The Sun",
+      "imagePath": "/assets/cards/the-sun.png",
+      "hasImage": false
+    },
+    {
+      "id": "20",
+      "name": "Judgement",
+      "imagePath": "/assets/cards/judgement.png",
+      "hasImage": false
+    },
+    {
+      "id": "21",
+      "name": "The World",
+      "imagePath": "/assets/cards/the-world.png",
+      "hasImage": false
+    },
+    {
+      "id": "w1",
+      "name": "Ace of Wands",
+      "imagePath": "/assets/cards/ace-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w2",
+      "name": "Two of Wands",
+      "imagePath": "/assets/cards/two-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w3",
+      "name": "Three of Wands",
+      "imagePath": "/assets/cards/three-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w4",
+      "name": "Four of Wands",
+      "imagePath": "/assets/cards/four-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w5",
+      "name": "Five of Wands",
+      "imagePath": "/assets/cards/five-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w6",
+      "name": "Six of Wands",
+      "imagePath": "/assets/cards/six-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w7",
+      "name": "Seven of Wands",
+      "imagePath": "/assets/cards/seven-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w8",
+      "name": "Eight of Wands",
+      "imagePath": "/assets/cards/eight-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w9",
+      "name": "Nine of Wands",
+      "imagePath": "/assets/cards/nine-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "w10",
+      "name": "Ten of Wands",
+      "imagePath": "/assets/cards/ten-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "wp",
+      "name": "Page of Wands",
+      "imagePath": "/assets/cards/page-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "wn",
+      "name": "Knight of Wands",
+      "imagePath": "/assets/cards/knight-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "wq",
+      "name": "Queen of Wands",
+      "imagePath": "/assets/cards/queen-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "wk",
+      "name": "King of Wands",
+      "imagePath": "/assets/cards/king-of-wands.png",
+      "hasImage": true
+    },
+    {
+      "id": "c1",
+      "name": "Ace of Cups",
+      "imagePath": "/assets/cards/ace-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c2",
+      "name": "Two of Cups",
+      "imagePath": "/assets/cards/two-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c3",
+      "name": "Three of Cups",
+      "imagePath": "/assets/cards/three-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c4",
+      "name": "Four of Cups",
+      "imagePath": "/assets/cards/four-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c5",
+      "name": "Five of Cups",
+      "imagePath": "/assets/cards/five-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c6",
+      "name": "Six of Cups",
+      "imagePath": "/assets/cards/six-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c7",
+      "name": "Seven of Cups",
+      "imagePath": "/assets/cards/seven-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c8",
+      "name": "Eight of Cups",
+      "imagePath": "/assets/cards/eight-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c9",
+      "name": "Nine of Cups",
+      "imagePath": "/assets/cards/nine-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "c10",
+      "name": "Ten of Cups",
+      "imagePath": "/assets/cards/ten-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "cp",
+      "name": "Page of Cups",
+      "imagePath": "/assets/cards/page-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "cn",
+      "name": "Knight of Cups",
+      "imagePath": "/assets/cards/knight-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "cq",
+      "name": "Queen of Cups",
+      "imagePath": "/assets/cards/queen-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "ck",
+      "name": "King of Cups",
+      "imagePath": "/assets/cards/king-of-cups.png",
+      "hasImage": true
+    },
+    {
+      "id": "s1",
+      "name": "Ace of Swords",
+      "imagePath": "/assets/cards/ace-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s2",
+      "name": "Two of Swords",
+      "imagePath": "/assets/cards/two-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s3",
+      "name": "Three of Swords",
+      "imagePath": "/assets/cards/three-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s4",
+      "name": "Four of Swords",
+      "imagePath": "/assets/cards/four-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s5",
+      "name": "Five of Swords",
+      "imagePath": "/assets/cards/five-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s6",
+      "name": "Six of Swords",
+      "imagePath": "/assets/cards/six-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s7",
+      "name": "Seven of Swords",
+      "imagePath": "/assets/cards/seven-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s8",
+      "name": "Eight of Swords",
+      "imagePath": "/assets/cards/eight-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s9",
+      "name": "Nine of Swords",
+      "imagePath": "/assets/cards/nine-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "s10",
+      "name": "Ten of Swords",
+      "imagePath": "/assets/cards/ten-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "sp",
+      "name": "Page of Swords",
+      "imagePath": "/assets/cards/page-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "sn",
+      "name": "Knight of Swords",
+      "imagePath": "/assets/cards/knight-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "sq",
+      "name": "Queen of Swords",
+      "imagePath": "/assets/cards/queen-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "sk",
+      "name": "King of Swords",
+      "imagePath": "/assets/cards/king-of-swords.png",
+      "hasImage": true
+    },
+    {
+      "id": "p1",
+      "name": "Ace of Pentacles",
+      "imagePath": "/assets/cards/ace-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p2",
+      "name": "Two of Pentacles",
+      "imagePath": "/assets/cards/two-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p3",
+      "name": "Three of Pentacles",
+      "imagePath": "/assets/cards/three-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p4",
+      "name": "Four of Pentacles",
+      "imagePath": "/assets/cards/four-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p5",
+      "name": "Five of Pentacles",
+      "imagePath": "/assets/cards/five-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p6",
+      "name": "Six of Pentacles",
+      "imagePath": "/assets/cards/six-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p7",
+      "name": "Seven of Pentacles",
+      "imagePath": "/assets/cards/seven-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p8",
+      "name": "Eight of Pentacles",
+      "imagePath": "/assets/cards/eight-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p9",
+      "name": "Nine of Pentacles",
+      "imagePath": "/assets/cards/nine-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "p10",
+      "name": "Ten of Pentacles",
+      "imagePath": "/assets/cards/ten-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "pp",
+      "name": "Page of Pentacles",
+      "imagePath": "/assets/cards/page-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "pn",
+      "name": "Knight of Pentacles",
+      "imagePath": "/assets/cards/knight-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "pq",
+      "name": "Queen of Pentacles",
+      "imagePath": "/assets/cards/queen-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "pk",
+      "name": "King of Pentacles",
+      "imagePath": "/assets/cards/king-of-pentacles.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_001",
+      "name": "Element of Air",
+      "imagePath": "/assets/cards/element-of-air.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_002",
+      "name": "Element of Earth",
+      "imagePath": "/assets/cards/element-of-earth.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_003",
+      "name": "Element of Water",
+      "imagePath": "/assets/cards/element-of-water.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_004",
+      "name": "Divine Guidance",
+      "imagePath": "/assets/cards/divine-guidance.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_005",
+      "name": "Sacred Geometry",
+      "imagePath": "/assets/cards/sacred-geometry.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_006",
+      "name": "Elemental Allies",
+      "imagePath": "/assets/cards/elemental-allies.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_007",
+      "name": "Lunar Phases",
+      "imagePath": "/assets/cards/lunar-phases.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_008",
+      "name": "Solar Energies",
+      "imagePath": "/assets/cards/solar-energies.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_009",
+      "name": "Natures Wisdom",
+      "imagePath": "/assets/cards/natures-wisdom.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_010",
+      "name": "Dream Exploration",
+      "imagePath": "/assets/cards/dream-exploration.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_011",
+      "name": "Astral Travel",
+      "imagePath": "/assets/cards/astral-travel.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_012",
+      "name": "Soul Contracts",
+      "imagePath": "/assets/cards/soul-contracts.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_013",
+      "name": "Akashic Records",
+      "imagePath": "/assets/cards/akashic-records.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_014",
+      "name": "Spirit Guides",
+      "imagePath": "/assets/cards/spirit-guides.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_015",
+      "name": "Divine Feminine",
+      "imagePath": "/assets/cards/divine-feminine.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_016",
+      "name": "Divine Masculine",
+      "imagePath": "/assets/cards/divine-masculine.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_017",
+      "name": "Universal Love",
+      "imagePath": "/assets/cards/universal-love.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_018",
+      "name": "Synchronicity",
+      "imagePath": "/assets/cards/synchronicity.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_019",
+      "name": "Sacred Rituals",
+      "imagePath": "/assets/cards/sacred-rituals.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_020",
+      "name": "Inner Alchemy",
+      "imagePath": "/assets/cards/inner-alchemy.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_021",
+      "name": "Soulmates and Twin Flames",
+      "imagePath": "/assets/cards/soulmates-twin-flames.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_022",
+      "name": "Ascended Masters",
+      "imagePath": "/assets/cards/ascended-masters.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_023",
+      "name": "Divine Timing",
+      "imagePath": "/assets/cards/divine-timing.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_024",
+      "name": "Inner Healing",
+      "imagePath": "/assets/cards/inner-healing.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_025",
+      "name": "Ancestral Wisdom",
+      "imagePath": "/assets/cards/ancestral-wisdom.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_026",
+      "name": "Soulful Expression",
+      "imagePath": "/assets/cards/soulful-expression.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_027",
+      "name": "Divine Protection",
+      "imagePath": "/assets/cards/divine-protection.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_028",
+      "name": "Gratitude and Abundance",
+      "imagePath": "/assets/cards/gratitude-abundance.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_029",
+      "name": "Inner Child Healing",
+      "imagePath": "/assets/cards/inner-child-healing.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_030",
+      "name": "Soulful Relationships",
+      "imagePath": "/assets/cards/soulful-relationships.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_031",
+      "name": "Meditation and Mindfulness",
+      "imagePath": "/assets/cards/meditation-mindfulness.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_032",
+      "name": "Cosmic Balance",
+      "imagePath": "/assets/cards/cosmic-balance.png",
+      "hasImage": true
+    },
+    {
+      "id": "oracle_033",
+      "name": "Infinite Possibilities",
+      "imagePath": "/assets/cards/infinite-possibilities.png",
+      "hasImage": true
+    }
+  ]
+}

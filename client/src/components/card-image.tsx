@@ -1,19 +1,125 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { TarotCard } from "@shared/tarot-data";
-import { Loader2, SparklesIcon } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { SparklesIcon } from "lucide-react";
 
 interface CardImageProps {
   card: TarotCard;
   isRevealed: boolean;
 }
 
-export default function CardImage({ card, isRevealed }: CardImageProps) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [loadFailed, setLoadFailed] = useState(false);
-  const { toast } = useToast();
+// Master card image mappings - no more API calls needed!
+const cardImagePaths: Record<string, string> = {
+  // Major Arcana
+  '0': '/assets/cards/the-fool.png',
   
+  // Wands
+  'w1': '/assets/cards/ace-of-wands.png',
+  'w2': '/assets/cards/two-of-wands.png',
+  'w3': '/assets/cards/three-of-wands.png',
+  'w4': '/assets/cards/four-of-wands.png',
+  'w5': '/assets/cards/five-of-wands.png',
+  'w6': '/assets/cards/six-of-wands.png',
+  'w7': '/assets/cards/seven-of-wands.png',
+  'w8': '/assets/cards/eight-of-wands.png',
+  'w9': '/assets/cards/nine-of-wands.png',
+  'w10': '/assets/cards/ten-of-wands.png',
+  'wp': '/assets/cards/page-of-wands.png',
+  'wn': '/assets/cards/knight-of-wands.png',
+  'wq': '/assets/cards/queen-of-wands.png',
+  'wk': '/assets/cards/king-of-wands.png',
+  
+  // Cups
+  'c1': '/assets/cards/ace-of-cups.png',
+  'c2': '/assets/cards/two-of-cups.png',
+  'c3': '/assets/cards/three-of-cups.png',
+  'c4': '/assets/cards/four-of-cups.png',
+  'c5': '/assets/cards/five-of-cups.png',
+  'c6': '/assets/cards/six-of-cups.png',
+  'c7': '/assets/cards/seven-of-cups.png',
+  'c8': '/assets/cards/eight-of-cups.png',
+  'c9': '/assets/cards/nine-of-cups.png',
+  'c10': '/assets/cards/ten-of-cups.png',
+  'cp': '/assets/cards/page-of-cups.png',
+  'cn': '/assets/cards/knight-of-cups.png',
+  'cq': '/assets/cards/queen-of-cups.png',
+  'ck': '/assets/cards/king-of-cups.png',
+  
+  // Swords
+  's1': '/assets/cards/ace-of-swords.png',
+  's2': '/assets/cards/two-of-swords.png',
+  's3': '/assets/cards/three-of-swords.png',
+  's4': '/assets/cards/four-of-swords.png',
+  's5': '/assets/cards/five-of-swords.png',
+  's6': '/assets/cards/six-of-swords.png',
+  's7': '/assets/cards/seven-of-swords.png',
+  's8': '/assets/cards/eight-of-swords.png',
+  's9': '/assets/cards/nine-of-swords.png',
+  's10': '/assets/cards/ten-of-swords.png',
+  'sp': '/assets/cards/page-of-swords.png',
+  'sn': '/assets/cards/knight-of-swords.png',
+  'sq': '/assets/cards/queen-of-swords.png',
+  'sk': '/assets/cards/king-of-swords.png',
+  
+  // Pentacles
+  'p1': '/assets/cards/ace-of-pentacles.png',
+  'p2': '/assets/cards/two-of-pentacles.png',
+  'p3': '/assets/cards/three-of-pentacles.png',
+  'p4': '/assets/cards/four-of-pentacles.png',
+  'p5': '/assets/cards/five-of-pentacles.png',
+  'p6': '/assets/cards/six-of-pentacles.png',
+  'p7': '/assets/cards/seven-of-pentacles.png',
+  'p8': '/assets/cards/eight-of-pentacles.png',
+  'p9': '/assets/cards/nine-of-pentacles.png',
+  'p10': '/assets/cards/ten-of-pentacles.png',
+  'pp': '/assets/cards/page-of-pentacles.png',
+  'pn': '/assets/cards/knight-of-pentacles.png',
+  'pq': '/assets/cards/queen-of-pentacles.png',
+  'pk': '/assets/cards/king-of-pentacles.png',
+  
+  // Oracle Cards - using our consolidated images
+  'imported_300': '/assets/cards/element-of-air.png',
+  'imported_301': '/assets/cards/element-of-earth.png',
+  'imported_302': '/assets/cards/element-of-water.png',
+  'imported_303': '/assets/cards/divine-guidance.png',
+  'imported_304': '/assets/cards/sacred-geometry.png',
+  'imported_305': '/assets/cards/elemental-allies.png',
+  'imported_328': '/assets/cards/lunar-phases.png',
+  'imported_329': '/assets/cards/solar-energies.png',
+  'imported_332': '/assets/cards/natures-wisdom.png',
+  'imported_333': '/assets/cards/dream-exploration.png',
+  'imported_334': '/assets/cards/astral-travel.png',
+  'imported_335': '/assets/cards/soul-contracts.png',
+  'imported_336': '/assets/cards/akashic-records.png',
+  'imported_337': '/assets/cards/spirit-guides.png',
+  'imported_338': '/assets/cards/divine-feminine.png',
+  'imported_339': '/assets/cards/divine-masculine.png',
+  'imported_340': '/assets/cards/universal-love.png',
+  'imported_341': '/assets/cards/synchronicity.png',
+  'imported_342': '/assets/cards/sacred-rituals.png',
+  'imported_343': '/assets/cards/inner-alchemy.png',
+  'imported_344': '/assets/cards/soulmates-twin-flames.png',
+  'imported_345': '/assets/cards/ascended-masters.png',
+  'imported_346': '/assets/cards/divine-timing.png',
+  'imported_347': '/assets/cards/inner-healing.png',
+  'imported_348': '/assets/cards/ancestral-wisdom.png',
+  'imported_349': '/assets/cards/soulful-expression.png',
+  'imported_350': '/assets/cards/divine-protection.png',
+  'imported_351': '/assets/cards/gratitude-abundance.png',
+  'imported_352': '/assets/cards/inner-child-healing.png',
+  'imported_353': '/assets/cards/soulful-relationships.png',
+  'imported_354': '/assets/cards/meditation-mindfulness.png',
+  'imported_355': '/assets/cards/cosmic-balance.png',
+  'imported_356': '/assets/cards/infinite-possibilities.png'
+};
+
+export default function CardImage({ card, isRevealed }: CardImageProps) {
+  const [imageError, setImageError] = useState(false);
+  
+  // Get the static image path for this card
+  const getImagePath = () => {
+    return cardImagePaths[card.id] || null;
+  };
+
   // Card background gradient
   const getCardBackground = () => {
     const baseClasses = "w-full h-full rounded-xl relative overflow-hidden border-2";
@@ -21,53 +127,61 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     if (card.arcana === "major") {
       return `${baseClasses} bg-gradient-to-br from-pink-400 via-purple-600 to-indigo-800 border-pink-300/50`;
     }
-
-    switch (card.suit?.toLowerCase()) {
-      case "wands":
-        return `${baseClasses} bg-gradient-to-br from-pink-500 via-rose-600 to-purple-700 border-pink-300/50`;
-      case "cups":
-        return `${baseClasses} bg-gradient-to-br from-indigo-400 via-purple-600 to-fuchsia-800 border-indigo-300/50`;
-      case "swords":
-        return `${baseClasses} bg-gradient-to-br from-purple-400 via-indigo-600 to-violet-800 border-purple-300/50`;
-      case "pentacles":
-        return `${baseClasses} bg-gradient-to-br from-fuchsia-500 via-purple-600 to-pink-800 border-fuchsia-300/50`;
-      default:
-        return `${baseClasses} bg-gradient-to-br from-pink-400 via-purple-600 to-fuchsia-800 border-pink-300/50`;
+    
+    // Minor arcana suit colors
+    if (card.suit) {
+      switch (card.suit.toLowerCase()) {
+        case "wands":
+          return `${baseClasses} bg-gradient-to-br from-red-400 via-orange-500 to-yellow-600 border-orange-300/50`;
+        case "cups":
+          return `${baseClasses} bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-600 border-blue-300/50`;
+        case "swords":
+          return `${baseClasses} bg-gradient-to-br from-gray-400 via-slate-500 to-zinc-600 border-gray-300/50`;
+        case "pentacles":
+          return `${baseClasses} bg-gradient-to-br from-green-400 via-emerald-500 to-forest-600 border-green-300/50`;
+        default:
+          return `${baseClasses} bg-gradient-to-br from-purple-400 via-violet-500 to-indigo-600 border-purple-300/50`;
+      }
     }
+    
+    // Custom/Oracle cards
+    return `${baseClasses} bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-600 border-amber-300/50`;
   };
 
-  // Card symbol with proper type handling
+  // Get symbolic representation based on card type
   const getCardSymbol = () => {
-    const majorSymbols: Record<string, string> = {
-      "The Fool": "✧",
-      "The Magician": "∞",
-      "The High Priestess": "☽",
-      "The Empress": "♀",
-      "The Emperor": "♂",
-      "The Hierophant": "⋆",
-      "The Lovers": "♡",
-      "The Chariot": "⚜",
-      "Strength": "∞",
-      "The Hermit": "✦",
-      "Wheel of Fortune": "⊛",
-      "Justice": "⚖",
-      "The Hanged Man": "⋈",
-      "Death": "♱",
-      "Temperance": "⟳",
-      "The Devil": "⛧",
-      "The Tower": "⚡",
-      "The Star": "★",
-      "The Moon": "☾",
-      "The Sun": "☀",
-      "Judgement": "⚶",
-      "The World": "◯"
+    // Major arcana symbols
+    const majorSymbols: { [key: string]: string } = {
+      "The Fool": "🃏",
+      "The Magician": "🎩",
+      "The High Priestess": "🌙",
+      "The Empress": "👑",
+      "The Emperor": "⚡",
+      "The Hierophant": "🔑",
+      "The Lovers": "💕",
+      "The Chariot": "🏇",
+      "Strength": "🦁",
+      "The Hermit": "🕯️",
+      "Wheel of Fortune": "🎡",
+      "Justice": "⚖️",
+      "The Hanged Man": "🙃",
+      "Death": "🦴",
+      "Temperance": "⚗️",
+      "The Devil": "😈",
+      "The Tower": "🗼",
+      "The Star": "⭐",
+      "The Moon": "🌙",
+      "The Sun": "☀️",
+      "Judgement": "📯",
+      "The World": "🌍"
     };
 
-    const suitSymbols: Record<string, string> = {
+    // Suit symbols
+    const suitSymbols: { [key: string]: string } = {
       "wands": "🔥",
-      "cups": "💧",
-      "swords": "💨",
-      "pentacles": "⭐"
+      "cups": "🏆",
+      "swords": "⚔️",
+      "pentacles": "💰"
     };
 
     if (card.arcana === "major" && card.name in majorSymbols) {
@@ -79,159 +193,52 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     return "✧"; // Default fallback
   };
 
-  // Load card image from cache directory
-  useEffect(() => {
-    if (!isRevealed) return;
-    
-    const cardId = card.id;
-    const cardName = card.name;
-    
-    // Try different possible cache paths
-    const cachePaths = [
-      `/cache/images/image_${cardId}.png`,  // Primary cache path
-      `/images/tarot/image_${cardId}.png`,  // Backup cache path
-      `/cache/images/image_${cardId.toLowerCase()}.png`, // Lowercase variation
-      `/images/tarot/image_${cardId.toLowerCase()}.png`  // Lowercase backup
-    ];
-    
-    setIsLoading(true);
-    
-    // Function to check if an image exists
-    const checkImageExists = (url: string): Promise<boolean> => {
-      return new Promise(resolve => {
-        const img = new Image();
-        img.onload = () => resolve(true);
-        img.onerror = () => resolve(false);
-        img.src = url;
-      });
-    };
-    
-    // Function to try generate image via API
-    const generateImageViaApi = async () => {
-      console.log(`Attempting to generate image via API for ${cardName} (${cardId})`);
-      
-      try {
-        const response = await fetch(`/api/cards/${cardId}/image`, {
-          credentials: 'include', // Include cookies for authentication
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        
-        if (!response.ok) {
-          // Handle rate limiting
-          if (response.status === 429) {
-            console.log(`Rate limited for ${cardId}`);
-            // Try again in 5 seconds (once) for rate limited requests
-            await new Promise(resolve => setTimeout(resolve, 5000));
-            
-            // One retry attempt for rate limited requests
-            const retryResponse = await fetch(`/api/cards/${cardId}/image`, {
-              credentials: 'include'
-            });
-            
-            if (!retryResponse.ok) {
-              throw new Error(`Failed on retry: ${retryResponse.status}`);
-            }
-            
-            const data = await retryResponse.json();
-            if (data && data.imageUrl) {
-              console.log(`Successfully generated image on retry for ${cardId}: ${data.imageUrl}`);
-              setImageUrl(data.imageUrl);
-              setLoadFailed(false);
-              return true;
-            }
-          }
-          
-          // Auth-related failures or other errors
-          console.error(`Error generating image. Status: ${response.status}`);
-          throw new Error(`API error: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        if (data && data.imageUrl) {
-          console.log(`Successfully generated image for ${cardName} (${cardId}): ${data.imageUrl}`);
-          setImageUrl(data.imageUrl);
-          setLoadFailed(false);
-          return true;
-        } else {
-          throw new Error('No image URL in response');
-        }
-      } catch (error) {
-        console.error(`Error generating image for ${cardId}:`, error);
-        setLoadFailed(true);
-        return false;
-      }
-    };
-    
-    // Try each cache path in sequence
-    async function tryAllPaths() {
-      // First try all cache paths
-      for (const path of cachePaths) {
-        const exists = await checkImageExists(path);
-        if (exists) {
-          console.log(`Found image at path: ${path}`);
-          setImageUrl(path);
-          setLoadFailed(false);
-          return true;
-        }
-      }
-      
-      // If no cache paths work, try API generation for imported cards
-      if (cardId.startsWith('imported_')) {
-        return await generateImageViaApi();
-      } else if (!cardId.startsWith('imported_') && cardId !== '0' && cardId !== '1') {
-        // For standard tarot cards (except Fool and Magician which already work),
-        // also try API generation as a fallback
-        return await generateImageViaApi();
-      }
-      
-      // If all attempts fail
-      setLoadFailed(true);
-      return false;
-    }
-    
-    tryAllPaths().finally(() => {
-      setIsLoading(false);
-    });
-  }, [card.id, isRevealed]);
+  const imagePath = getImagePath();
+  const hasStaticImage = imagePath !== null;
+
+  if (!isRevealed) {
+    // Card back
+    return (
+      <div className="w-full h-full rounded-xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 border-2 border-purple-300/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/card-back.png')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-indigo-900/20" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center backdrop-blur-sm">
+            <SparklesIcon className="w-8 h-8 text-white/70" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={getCardBackground()}>
-      {/* Card image */}
-      {imageUrl && isRevealed && (
-        <img 
-          src={imageUrl} 
-          alt={card.name}
-          className="absolute inset-0 w-full h-full object-cover"
-          onError={() => setLoadFailed(true)}
-        />
-      )}
-      
-      {/* Loading indicator */}
-      {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-          <Loader2 className="w-8 h-8 animate-spin text-white" />
-        </div>
-      )}
-      
-      {/* Fallback display */}
-      {(loadFailed || !imageUrl || !isRevealed) && !isLoading && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <div className="text-white bg-purple-800/40 p-4 rounded-lg backdrop-blur-sm flex flex-col items-center">
-            <div className="text-5xl mb-2">{getCardSymbol()}</div>
-            <span className="text-sm font-medium">{card.name}</span>
+      {hasStaticImage && !imageError ? (
+        <>
+          <img
+            src={imagePath}
+            alt={card.name}
+            className="w-full h-full object-cover rounded-xl"
+            onError={() => setImageError(true)}
+          />
+          <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
+            {card.name}
+          </div>
+        </>
+      ) : (
+        // Symbolic representation for cards without images or on error
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <div className="text-4xl mb-2 opacity-90">
+            {getCardSymbol()}
+          </div>
+          <div className="text-center text-sm font-medium px-2 leading-tight">
+            {card.name}
+          </div>
+          <div className="text-xs opacity-70 mt-1 capitalize">
+            {card.arcana} {card.suit && `of ${card.suit}`}
           </div>
         </div>
       )}
-      
-      {/* Card info */}
-      <div className="absolute inset-x-0 bottom-0 p-4 text-center bg-gradient-to-t from-black/80 to-transparent">
-        <h3 className="text-lg font-bold text-white mb-1">{card.name}</h3>
-        <p className="text-sm text-white/90">
-          {card.arcana === "major" ? "Major Arcana" : card.suit}
-        </p>
-      </div>
     </div>
   );
 }
