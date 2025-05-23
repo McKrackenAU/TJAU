@@ -2058,5 +2058,115 @@
     "cardId": "imported_324",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-20T04:05:21.926Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_261",
+    "cardName": "Judgment",
+    "timestamp": "2025-05-23T04:51:48.735Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_266",
+    "cardName": "Four of Wands",
+    "timestamp": "2025-05-23T04:51:48.842Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_341",
+    "cardName": "Synchronicity",
+    "timestamp": "2025-05-23T04:51:48.984Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_261",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-23T04:52:16.407Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_249",
+    "cardName": "Strength",
+    "timestamp": "2025-05-23T04:55:56.813Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_244",
+    "cardName": "The Empress",
+    "timestamp": "2025-05-23T04:55:57.590Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_251",
+    "cardName": "Wheel of Fortune",
+    "timestamp": "2025-05-23T04:55:57.841Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_245",
+    "cardName": "The Emperor",
+    "timestamp": "2025-05-23T04:55:58.256Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_246",
+    "cardName": "The Hierophant",
+    "timestamp": "2025-05-23T04:55:58.626Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "success",
+    "estimatedCost": 0.04,
+    "cardId": "imported_247",
+    "cardName": "The Lovers",
+    "timestamp": "2025-05-23T04:55:59.051Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/image",
+    "model": "dall-e-3",
+    "operation": "image.generate",
+    "status": "rate_limited",
+    "estimatedCost": 0,
+    "cardId": "imported_247",
+    "cardName": "The Lovers",
+    "timestamp": "2025-05-23T04:56:00.857Z"
   }
 ]

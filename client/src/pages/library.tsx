@@ -36,8 +36,6 @@ export default function Library() {
   // Fetch all cards
   const { data: cards, isLoading } = useQuery<TarotCard[]>({
     queryKey: ["/api/cards"],
-    // Initialize with built-in cards
-    initialData: tarotCards,
     staleTime: 0, // Always refetch to get latest imported cards
   });
 
