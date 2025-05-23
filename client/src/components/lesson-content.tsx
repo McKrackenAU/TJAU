@@ -206,7 +206,7 @@ export function LessonContent({
               <div key={index} className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">{section.title}</h3>
                 <div 
-                  className="prose prose-sm dark:prose-invert max-w-none prose-headings:font-semibold prose-headings:my-4 prose-h2:text-lg prose-h3:text-base prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1" 
+                  className="prose prose-sm prose-invert max-w-none prose-headings:font-semibold prose-headings:my-4 prose-h2:text-lg prose-h3:text-base prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1 text-white" 
                   dangerouslySetInnerHTML={{ __html: section.content }}
                 />
               </div>
@@ -224,7 +224,7 @@ export function LessonContent({
                   {lesson.additionalResources.map((resource, index) => (
                     <li key={index} className="p-3 border rounded-lg">
                       <h4 className="font-medium">{resource.title}</h4>
-                      <p className="text-sm text-muted-foreground">{resource.description}</p>
+                      <p className="text-sm text-white">{resource.description}</p>
                       <a 
                         href="#" 
                         onClick={(e) => {
