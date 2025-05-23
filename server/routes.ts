@@ -1294,9 +1294,8 @@ export function registerRoutes(app: Express): Server {
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Organize cards properly - Major Arcana grouped together (except The Fool at start)
-      const majorArcana = tarotCards.filter(card => card.arcana === "major" && card.id !== "0").sort((a, b) => (a.number || 0) - (b.number || 0));
-      const theFool = tarotCards.find(card => card.id === "0");
+      // Organize cards properly - Major Arcana sorted by number, then Minor, then Custom
+      const majorArcana = tarotCards.filter(card => card.arcana === "major").sort((a, b) => (a.number || 0) - (b.number || 0));
       const minorArcana = tarotCards.filter(card => card.arcana === "minor");
       const customCards = transformedImportedCards.filter(card => 
         // Only include custom cards that don't duplicate standard tarot
@@ -1305,15 +1304,14 @@ export function registerRoutes(app: Express): Server {
         )
       );
       
-      // Combine: Major Arcana (with Fool properly positioned), Minor Arcana, Custom Cards
+      // Combine: Major Arcana (properly sorted), Minor Arcana, Custom Cards
       const allCards = [
-        ...(theFool ? [theFool] : []),
         ...majorArcana,
         ...minorArcana,
         ...customCards
       ];
       
-      console.log(`Returning organized cards: ${majorArcana.length + (theFool ? 1 : 0)} major, ${minorArcana.length} minor, ${customCards.length} custom`);
+      console.log(`Returning organized cards: ${majorArcana.length} major, ${minorArcana.length} minor, ${customCards.length} custom`);
       console.log(`Total unique cards: ${allCards.length}`);
 
       res.json(allCards);

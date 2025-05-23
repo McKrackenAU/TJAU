@@ -18,7 +18,7 @@ export const tarotCards: TarotCard[] = [
     id: "0",
     name: "The Fool",
     arcana: "major",
-    number: 0,
+    number: 22,
     meanings: {
       upright: ["New beginnings", "Innocence", "Adventure"],
       reversed: ["Recklessness", "Risk-taking", "Foolishness"]
