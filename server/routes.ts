@@ -1296,7 +1296,7 @@ export function registerRoutes(app: Express): Server {
 
       // Create organized card collections with no duplicates
       const cardCollections = {
-        major: tarotCards.filter(card => card.arcana === "major"),
+        major: tarotCards.filter(card => card.arcana === "major").sort((a, b) => (a.number || 0) - (b.number || 0)),
         minor: tarotCards.filter(card => card.arcana === "minor"),
         custom: transformedImportedCards.filter(card => 
           // Only include custom cards that don't duplicate standard tarot
@@ -1306,7 +1306,7 @@ export function registerRoutes(app: Express): Server {
         )
       };
       
-      // Combine all unique cards
+      // Combine all unique cards with proper Major Arcana ordering
       const allCards = [
         ...cardCollections.major,
         ...cardCollections.minor,
