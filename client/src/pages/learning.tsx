@@ -676,15 +676,17 @@ export default function Learning() {
         </section>
 
         {/* Celestial Rewards System */}
-        <section>
-          <CelestialRewards 
-            userProgress={tracks?.map(track => {
-              const progress = progressData?.find(p => p.trackId === track.id);
-              return progress || { completedLessons: [], currentLesson: 1, trackId: track.id };
-            }) || []}
-            tracks={tracks || []}
-          />
-        </section>
+        {tracks && (
+          <section>
+            <CelestialRewards 
+              userProgress={tracks.map(track => {
+                // Create a simple progress structure for each track
+                return { completedLessons: [], currentLesson: 1, trackId: track.id };
+              })}
+              tracks={tracks}
+            />
+          </section>
+        )}
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Book className="h-5 w-5" />
