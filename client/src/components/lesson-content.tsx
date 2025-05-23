@@ -310,7 +310,7 @@ export function LessonContent({
             </div>
           ) : (
             <div className="text-center p-8">
-              <p className="text-muted-foreground">Card not found.</p>
+              <p className="text-white">Card not found.</p>
             </div>
           )}
         </TabsContent>

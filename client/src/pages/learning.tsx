@@ -165,7 +165,7 @@ export default function Learning() {
               {progress.achievements.length > 0 && (
                 <div className="flex gap-2 items-center">
                   <Trophy className="h-4 w-4 text-yellow-500" />
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm text-white">
                     {progress.achievements.length} Achievement{progress.achievements.length !== 1 && 's'}
                   </span>
                 </div>
@@ -176,7 +176,7 @@ export default function Learning() {
                 {progress.currentLesson <= track.requiredCards.length && (
                   <div className="bg-card border rounded-lg p-4">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-sm text-muted-foreground">
+                      <span className="text-sm text-white">
                         Lesson {progress.currentLesson} of {track.requiredCards.length}
                       </span>
                       {progress.completedLessons.includes(track.requiredCards[progress.currentLesson - 1]) && (
