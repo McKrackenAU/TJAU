@@ -2208,5 +2208,15 @@
     "cardId": "imported_283",
     "cardName": "Celtic Cross",
     "timestamp": "2025-05-23T06:08:57.726Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_329",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-23T09:36:51.711Z"
   }
 ]

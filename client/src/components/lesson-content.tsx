@@ -173,7 +173,7 @@ export function LessonContent({
             Lesson {lessonNumber} of {totalLessons}
           </Badge>
           <h2 className="text-2xl font-bold">{lesson.title}</h2>
-          <p className="text-muted-foreground">{lesson.description}</p>
+          <p className="text-white">{lesson.description}</p>
         </div>
         
         {isCompleted && (
@@ -268,7 +268,7 @@ export function LessonContent({
                 <Card>
                   <CardHeader>
                     <CardTitle>{card.name}</CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-white">
                       {card.arcana === "major" ? "Major Arcana" : `${card.suit} - Minor Arcana`}
                     </CardDescription>
                   </CardHeader>
@@ -298,7 +298,7 @@ export function LessonContent({
                 <Card>
                   <CardHeader>
                     <CardTitle>AI Interpretation</CardTitle>
-                    <CardDescription>
+                    <CardDescription className="text-white">
                       Deeper insights into the {card.name}
                     </CardDescription>
                   </CardHeader>
@@ -319,7 +319,7 @@ export function LessonContent({
           <Card>
             <CardHeader>
               <CardTitle>Knowledge Check</CardTitle>
-              <CardDescription>
+              <CardDescription className="text-white">
                 Test your understanding of the {lesson.title} lesson.
               </CardDescription>
             </CardHeader>
@@ -330,7 +330,7 @@ export function LessonContent({
                     <h3 className="text-xl font-bold mb-2">
                       Your Score: {Math.round(score * 100)}%
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-white mb-4">
                       {score >= 0.7 
                         ? "Congratulations! You've passed this lesson's exercises."
                         : "Review the lesson content and try again."}
