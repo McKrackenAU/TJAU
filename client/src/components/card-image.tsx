@@ -138,13 +138,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // For Major Arcana, check if we have the new authentic numbered image first
+    // For Major Arcana, always use the new authentic numbered images with cache busting
     if (card.arcana === 'major' && card.number !== undefined) {
-      const numberedPath = `/assets/cards/${card.number}.png`;
-      return numberedPath;
+      return `/assets/cards/${card.number}.png?v=${Date.now()}`;
     }
     
-    // Fall back to the mapped paths
+    // For numbered card IDs, check if we have the authentic numbered image
+    if (card.id && card.id.match(/^\d+$/)) {
+      return `/assets/cards/${card.id}.png?v=${Date.now()}`;
+    }
+    
+    // Fall back to the mapped paths for other cards
     return cardImagePaths[card.id] || null;
   };
 
@@ -223,8 +227,6 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
 
   const imagePath = getImagePath();
   const hasStaticImage = imagePath !== null;
-  
-  console.log(`Card ${card.name} (${card.id}): imagePath=${imagePath}, hasStaticImage=${hasStaticImage}`);
 
   if (!isRevealed) {
     // Card back
