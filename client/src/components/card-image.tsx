@@ -138,18 +138,27 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // For Major Arcana, always use the new authentic numbered images with cache busting
-    if (card.arcana === 'major' && card.number !== undefined) {
-      return `/assets/cards/${card.number}.png?v=${Date.now()}`;
+    // Debug logging to see what's happening
+    console.log(`DEBUG: Card ${card.name}, ID: ${card.id}, arcana: ${card.arcana}, number: ${card.number}`);
+    
+    // For Major Arcana with numbered IDs (0-21), use the authentic numbered images
+    if (card.arcana === 'major' && (card.id === '0' || card.id === '1' || card.id === '2' || card.id === '3' || card.id === '4')) {
+      const imagePath = `/assets/cards/${card.id}.png`;
+      console.log(`DEBUG: Using authentic image path: ${imagePath}`);
+      return imagePath;
     }
     
-    // For numbered card IDs, check if we have the authentic numbered image
-    if (card.id && card.id.match(/^\d+$/)) {
-      return `/assets/cards/${card.id}.png?v=${Date.now()}`;
+    // For other Major Arcana, try using the number
+    if (card.arcana === 'major' && card.number !== undefined) {
+      const imagePath = `/assets/cards/${card.number}.png`;
+      console.log(`DEBUG: Using numbered image path: ${imagePath}`);
+      return imagePath;
     }
     
     // Fall back to the mapped paths for other cards
-    return cardImagePaths[card.id] || null;
+    const fallbackPath = cardImagePaths[card.id] || null;
+    console.log(`DEBUG: Using fallback path: ${fallbackPath}`);
+    return fallbackPath;
   };
 
   // Card background gradient
