@@ -9,8 +9,12 @@ interface CardImageProps {
 
 // Master card image mappings - only cards that actually have images
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - only authentic cards that match their meanings
-  '0': '/assets/cards/the-fool.png',  // The Fool - authentic image
+  // Major Arcana - authentic traditional imagery
+  '0': '/assets/cards/0.png',  // The Fool
+  '1': '/assets/cards/1.png',  // The Magician  
+  '2': '/assets/cards/2.png',  // The High Priestess
+  '3': '/assets/cards/3.png',  // The Empress
+  '4': '/assets/cards/4.png',  // The Emperor
   
   // Wands
   'w1': '/assets/cards/ace-of-wands.png',
