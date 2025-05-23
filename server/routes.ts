@@ -1294,24 +1294,33 @@ export function registerRoutes(app: Express): Server {
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Organize cards properly - Major Arcana sorted by number, then Minor, then Custom
-      const majorArcana = tarotCards.filter(card => card.arcana === "major").sort((a, b) => (a.number || 0) - (b.number || 0));
-      const minorArcana = tarotCards.filter(card => card.arcana === "minor");
+      // Get ALL Major Arcana from both sources and combine them
+      const allMajorArcana = [
+        ...tarotCards.filter(card => card.arcana === "major"),
+        ...transformedImportedCards.filter(card => card.arcana === "major")
+      ].sort((a, b) => (a.number || 0) - (b.number || 0));
+      
+      // Get ALL Minor Arcana from both sources
+      const allMinorArcana = [
+        ...tarotCards.filter(card => card.arcana === "minor"),
+        ...transformedImportedCards.filter(card => card.arcana === "minor")
+      ];
+      
+      // Get only custom cards that don't duplicate standard tarot
       const customCards = transformedImportedCards.filter(card => 
-        // Only include custom cards that don't duplicate standard tarot
-        !tarotCards.some(standardCard => 
+        card.arcana === "custom" && !tarotCards.some(standardCard => 
           standardCard.name.toLowerCase() === card.name.toLowerCase()
         )
       );
       
-      // Combine: Major Arcana (properly sorted), Minor Arcana, Custom Cards
+      // Combine: ALL Major Arcana first, then ALL Minor Arcana, then Custom Cards
       const allCards = [
-        ...majorArcana,
-        ...minorArcana,
+        ...allMajorArcana,
+        ...allMinorArcana,
         ...customCards
       ];
       
-      console.log(`Returning organized cards: ${majorArcana.length} major, ${minorArcana.length} minor, ${customCards.length} custom`);
+      console.log(`Returning organized cards: ${allMajorArcana.length} major, ${allMinorArcana.length} minor, ${customCards.length} custom`);
       console.log(`Total unique cards: ${allCards.length}`);
 
       res.json(allCards);
