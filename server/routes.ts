@@ -1309,24 +1309,32 @@ export function registerRoutes(app: Express): Server {
       // Order suits: Wands, Cups, Swords, Pentacles
       const suitOrder = ['wands', 'cups', 'swords', 'pentacles'];
       
-      // Sort by suit order first, then by number within each suit
-      const allMinorArcana = minorArcanaCards.sort((a, b) => {
-        // First sort by suit order
-        const suitA = suitOrder.indexOf(a.suit || '');
-        const suitB = suitOrder.indexOf(b.suit || '');
+      // Group Minor Arcana cards by suit in the correct order
+      const allMinorArcana = [];
+      
+      // Process each suit in traditional order: Wands, Cups, Swords, Pentacles
+      for (const targetSuit of suitOrder) {
+        // Get all cards for this specific suit
+        const suitCards = minorArcanaCards.filter(card => card.suit === targetSuit);
+        console.log(`Processing ${targetSuit}: found ${suitCards.length} cards`);
         
-        if (suitA !== suitB) {
-          return suitA - suitB;
-        }
+        // Sort cards within this suit: Ace (1) through 10, then Page, Knight, Queen, King
+        const sortedSuitCards = suitCards.sort((a, b) => {
+          const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
+          
+          // Get the first word of the card name for court card detection
+          const aFirstWord = a.name?.toLowerCase().split(' ')[0] || '';
+          const bFirstWord = b.name?.toLowerCase().split(' ')[0] || '';
+          
+          const aValue = courtOrder[aFirstWord] || a.number || 0;
+          const bValue = courtOrder[bFirstWord] || b.number || 0;
+          
+          return aValue - bValue;
+        });
         
-        // Within the same suit, sort by number/court card order
-        const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
-        
-        const aValue = courtOrder[a.name?.toLowerCase().split(' ')[0]] || a.number || 0;
-        const bValue = courtOrder[b.name?.toLowerCase().split(' ')[0]] || b.number || 0;
-        
-        return aValue - bValue;
-      });
+        // Add all cards from this complete suit to our result
+        allMinorArcana.push(...sortedSuitCards);
+      }
       
       // Get only custom cards that don't duplicate standard tarot
       const customCards = transformedImportedCards.filter(card => 
