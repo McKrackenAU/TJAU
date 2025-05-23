@@ -1309,19 +1309,23 @@ export function registerRoutes(app: Express): Server {
       // Order suits: Wands, Cups, Swords, Pentacles
       const suitOrder = ['wands', 'cups', 'swords', 'pentacles'];
       
-      const allMinorArcana = suitOrder.flatMap(suit => {
-        const suitCards = minorArcanaCards.filter(card => card.suit === suit);
+      // Sort by suit order first, then by number within each suit
+      const allMinorArcana = minorArcanaCards.sort((a, b) => {
+        // First sort by suit order
+        const suitA = suitOrder.indexOf(a.suit || '');
+        const suitB = suitOrder.indexOf(b.suit || '');
         
-        // Sort each suit: Ace (1) through 10, then Page, Knight, Queen, King
-        return suitCards.sort((a, b) => {
-          // Handle court cards specially
-          const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
-          
-          const aValue = courtOrder[a.name?.toLowerCase().split(' ')[0]] || a.number || 0;
-          const bValue = courtOrder[b.name?.toLowerCase().split(' ')[0]] || b.number || 0;
-          
-          return aValue - bValue;
-        });
+        if (suitA !== suitB) {
+          return suitA - suitB;
+        }
+        
+        // Within the same suit, sort by number/court card order
+        const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
+        
+        const aValue = courtOrder[a.name?.toLowerCase().split(' ')[0]] || a.number || 0;
+        const bValue = courtOrder[b.name?.toLowerCase().split(' ')[0]] || b.number || 0;
+        
+        return aValue - bValue;
       });
       
       // Get only custom cards that don't duplicate standard tarot
