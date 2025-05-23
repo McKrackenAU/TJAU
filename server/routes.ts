@@ -1294,9 +1294,27 @@ export function registerRoutes(app: Express): Server {
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Combine built-in and imported cards
-      const allCards = [...tarotCards, ...transformedImportedCards];
-      console.log(`Returning total of ${allCards.length} cards`);
+      // Create a Map to handle potential duplicates by card name
+      const cardMap = new Map();
+      
+      // Add built-in tarot cards first
+      tarotCards.forEach(card => {
+        cardMap.set(card.name.toLowerCase(), card);
+      });
+      
+      // Add imported cards, but don't overwrite existing tarot cards
+      transformedImportedCards.forEach(card => {
+        const key = card.name.toLowerCase();
+        if (!cardMap.has(key)) {
+          cardMap.set(key, card);
+        } else {
+          // If there's a duplicate name, use a unique key for imported cards
+          cardMap.set(`${key}_imported_${card.id}`, card);
+        }
+      });
+      
+      const allCards = Array.from(cardMap.values());
+      console.log(`Returning total of ${allCards.length} cards (deduplicated)`);
 
       res.json(allCards);
     } catch (error) {
