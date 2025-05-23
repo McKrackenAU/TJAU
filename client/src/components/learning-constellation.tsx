@@ -122,7 +122,7 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
         // Star properties based on completion status
         let size = isCompleted ? 8 : 4;
         let brightness = isCompleted ? 1 : 0.3;
-        let color = isCompleted ? '#FFD700' : '#87CEEB'; // Gold for completed, sky blue for pending
+        let color = isCompleted ? '#FFDF00' : '#87CEEB'; // Bright golden yellow for completed, sky blue for pending
 
         if (isCurrent) {
           size = 10;
@@ -130,16 +130,9 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
           color = '#FF6B6B'; // Coral for current lesson
         }
 
-        // Special colors for different tracks
+        // Beautiful golden yellow for all completed lessons
         if (isCompleted) {
-          switch (track.id) {
-            case 1: color = '#FFD700'; break; // Gold for Beginner
-            case 2: color = '#FF69B4'; break; // Hot pink for Minor Arcana
-            case 5: color = '#00CED1'; break; // Dark turquoise for Pendulum
-            case 10: color = '#9370DB'; break; // Medium purple for Intuitive
-            case 11: color = '#FF4500'; break; // Orange red for Advanced
-            default: color = '#FFD700';
-          }
+          color = '#FFDF00'; // Bright golden yellow for all completed achievements
         }
 
         newStars.push({

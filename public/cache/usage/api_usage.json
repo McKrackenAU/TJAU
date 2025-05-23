@@ -2218,5 +2218,35 @@
     "cardId": "imported_329",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-23T09:36:51.711Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "sn",
+    "cardName": "Knight of Swords",
+    "timestamp": "2025-05-23T09:53:21.667Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "tts-1",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.015,
+    "cardId": "sn",
+    "cardName": "Knight of Swords",
+    "timestamp": "2025-05-23T09:53:25.824Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_350",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-23T09:54:45.948Z"
   }
 ]
