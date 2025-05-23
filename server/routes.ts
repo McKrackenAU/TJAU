@@ -1316,7 +1316,7 @@ export function registerRoutes(app: Express): Server {
       for (const targetSuit of suitOrder) {
         // Get all cards for this specific suit
         const suitCards = minorArcanaCards.filter(card => card.suit === targetSuit);
-        console.log(`Processing ${targetSuit}: found ${suitCards.length} cards`);
+
         
         // Sort cards within this suit: Ace (1) through 10, then Page, Knight, Queen, King
         const sortedSuitCards = suitCards.sort((a, b) => {
