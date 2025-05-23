@@ -138,6 +138,13 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
+    // For Major Arcana, check if we have the new authentic numbered image first
+    if (card.arcana === 'major' && card.number !== undefined) {
+      const numberedPath = `/assets/cards/${card.number}.png`;
+      return numberedPath;
+    }
+    
+    // Fall back to the mapped paths
     return cardImagePaths[card.id] || null;
   };
 
