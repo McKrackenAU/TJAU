@@ -7,10 +7,31 @@ interface CardImageProps {
   isRevealed: boolean;
 }
 
-// Master card image mappings - only authentic cards that match their meanings
+// Master card image mappings - authentic artwork
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - removed mismatched images until authentic ones are ready
-  // Using symbolic representations instead of wrong imagery
+  // Major Arcana - Beautiful authentic images with numbered filenames
+  '0': '/assets/cards/0.png',
+  '1': '/assets/cards/1.png', 
+  '2': '/assets/cards/2.png',
+  '3': '/assets/cards/3.png',
+  '4': '/assets/cards/4.png',
+  '5': '/assets/cards/5.png',
+  '6': '/assets/cards/6.png',
+  '7': '/assets/cards/7.png',
+  '8': '/assets/cards/8.png',
+  '9': '/assets/cards/9.png',
+  '10': '/assets/cards/10.png',
+  '11': '/assets/cards/11.png',
+  '12': '/assets/cards/12.png',
+  '13': '/assets/cards/13.png',
+  '14': '/assets/cards/14.png',
+  '15': '/assets/cards/15.png',
+  '16': '/assets/cards/16.png',
+  '17': '/assets/cards/17.png',
+  '18': '/assets/cards/18.png',
+  '19': '/assets/cards/19.png',
+  '20': '/assets/cards/20.png',
+  '21': '/assets/cards/21.png',
   
   // Wands
   'w1': '/assets/cards/ace-of-wands.png',
