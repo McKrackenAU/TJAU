@@ -601,7 +601,7 @@ export default function Learning() {
                               )}
                               <span className="text-xs font-medium">{index + 1}</span>
                             </div>
-                            <span className="text-xs text-muted-foreground truncate w-full text-center mt-1">
+                            <span className="text-xs text-white truncate w-full text-center mt-1">
                               <TrackCardLabel trackId={track.id} cardId={cardId} index={index} />
                             </span>
                           </div>
@@ -616,7 +616,7 @@ export default function Learning() {
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <GraduationCap className="h-5 w-5" />
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white">
                   {track.requiredCards.length} lessons to complete
                 </p>
               </div>
@@ -682,7 +682,7 @@ export default function Learning() {
                           <p className="font-medium">
                             Score: {quiz.score}/{quiz.totalQuestions}
                           </p>
-                          <p className="text-sm text-muted-foreground">
+                          <p className="text-sm text-white">
                             Difficulty: {quiz.difficulty}
                           </p>
                         </div>
