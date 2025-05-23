@@ -9,8 +9,12 @@ interface CardImageProps {
 
 // Master card image mappings - only cards that actually have images
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - The Fool has a beautiful image
-  '0': '/assets/cards/the-fool.png',
+  // Major Arcana - numbered card fronts with beautiful artwork
+  '0': '/assets/cards/0.png',
+  '1': '/assets/cards/1.png',
+  '2': '/assets/cards/2.png',
+  '3': '/assets/cards/3.png',
+  '4': '/assets/cards/4.png',
   
   // Wands
   'w1': '/assets/cards/ace-of-wands.png',
