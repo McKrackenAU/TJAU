@@ -12,6 +12,7 @@ import { GraduationCap, Trophy, Book, Brain, ArrowRight, Sparkles } from "lucide
 import { tarotCards } from "@shared/tarot-data";
 import { TrackCardLabel } from "@/components/track-card-label";
 import { LearningConstellation } from "@/components/learning-constellation";
+import { CelestialRewards } from "@/components/celestial-rewards";
 import { useEffect } from "react";
 
 export default function Learning() {
@@ -672,6 +673,17 @@ export default function Learning() {
             <h2 className="text-xl font-semibold">Your Spiritual Journey Constellation</h2>
           </div>
           <LearningConstellation onStarClick={handleStarClick} />
+        </section>
+
+        {/* Celestial Rewards System */}
+        <section>
+          <CelestialRewards 
+            userProgress={tracks?.map(track => {
+              const progress = progressData?.find(p => p.trackId === track.id);
+              return progress || { completedLessons: [], currentLesson: 1, trackId: track.id };
+            }) || []}
+            tracks={tracks || []}
+          />
         </section>
         <section>
           <div className="flex items-center gap-2 mb-4">
