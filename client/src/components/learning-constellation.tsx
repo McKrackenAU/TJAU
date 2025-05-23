@@ -132,7 +132,8 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
 
         // Beautiful golden yellow for all completed lessons
         if (isCompleted) {
-          color = '#FFDF00'; // Bright golden yellow for all completed achievements
+          color = '#FFD700'; // Pure gold color for all completed achievements
+          brightness = 1.2; // Make completed stars extra bright
         }
 
         newStars.push({
