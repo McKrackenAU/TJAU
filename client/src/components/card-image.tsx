@@ -223,6 +223,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
 
   const imagePath = getImagePath();
   const hasStaticImage = imagePath !== null;
+  
+  console.log(`Card ${card.name} (${card.id}): imagePath=${imagePath}, hasStaticImage=${hasStaticImage}`);
 
   if (!isRevealed) {
     // Card back
