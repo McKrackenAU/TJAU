@@ -2,63 +2,71 @@
  * Quick Card Generator - Generate essential Major Arcana cards
  */
 
-import OpenAI from "openai";
+import OpenAI from 'openai';
 import fs from 'fs';
 import path from 'path';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-const ASSETS_DIR = path.join(process.cwd(), 'public', 'assets', 'cards');
 
-// Essential Major Arcana cards to generate first
-const essentialCards = [
-  { name: 'The Magician', file: 'the-magician.png' },
-  { name: 'The High Priestess', file: 'the-high-priestess.png' },
-  { name: 'The Empress', file: 'the-empress.png' },
-  { name: 'The Emperor', file: 'the-emperor.png' },
-  { name: 'The Sun', file: 'the-sun.png' },
-];
-
+// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 async function generateCard(cardName: string, fileName: string): Promise<boolean> {
   try {
-    console.log(`🎨 Creating ${cardName}...`);
+    console.log(`🎨 ${cardName}`);
     
-    const prompt = `Create a beautiful traditional tarot card illustration that clearly depicts "${cardName}". The image should show the specific character, symbols, and imagery associated with ${cardName} in classic tarot tradition. Style: mystical tarot art, rich symbolism, professional card design.`;
-
     const response = await openai.images.generate({
       model: "dall-e-3",
-      prompt: prompt,
+      prompt: `Beautiful traditional tarot card "${cardName}" with authentic symbolic imagery, mystical elements, rich colors, traditional tarot art style`,
       n: 1,
       size: "1024x1024",
       quality: "standard",
     });
 
-    const imageUrl = response.data[0]?.url;
-    if (!imageUrl) throw new Error("No image URL returned");
-
-    const imageResponse = await fetch(imageUrl);
-    if (!imageResponse.ok) throw new Error(`Download failed`);
-    
-    const buffer = await imageResponse.arrayBuffer();
-    fs.writeFileSync(path.join(ASSETS_DIR, fileName), Buffer.from(buffer));
-    console.log(`✅ Saved ${fileName}`);
-    return true;
-    
+    if (response.data?.[0]?.url) {
+      const imageUrl = response.data[0].url;
+      const imageResponse = await fetch(imageUrl);
+      const buffer = Buffer.from(await imageResponse.arrayBuffer());
+      
+      const assetsDir = path.join(process.cwd(), 'public', 'assets', 'cards');
+      fs.mkdirSync(assetsDir, { recursive: true });
+      
+      fs.writeFileSync(path.join(assetsDir, fileName), buffer);
+      
+      console.log(`✅ ${cardName} complete`);
+      return true;
+    }
+    return false;
   } catch (error) {
-    console.error(`❌ Failed ${cardName}:`, error);
+    console.error(`Error: ${cardName}`, error);
     return false;
   }
 }
 
 async function generateEssentialCards() {
-  console.log('🚀 Generating essential Major Arcana cards...\n');
+  const cards = [
+    { name: 'The Hierophant', file: '5.png' },
+    { name: 'The Lovers', file: '6.png' },
+    { name: 'The Chariot', file: '7.png' },
+    { name: 'Strength', file: '8.png' },
+    { name: 'The Hermit', file: '9.png' }
+  ];
   
-  for (const card of essentialCards) {
-    await generateCard(card.name, card.file);
-    // Small delay between cards
-    await new Promise(resolve => setTimeout(resolve, 500));
+  console.log('🎨 Creating Major Arcana artwork...\n');
+  
+  let generated = 0;
+  for (const card of cards) {
+    const imagePath = path.join(process.cwd(), 'public', 'assets', 'cards', card.file);
+    
+    if (!fs.existsSync(imagePath)) {
+      const success = await generateCard(card.name, card.file);
+      if (success) generated++;
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    } else {
+      console.log(`✓ ${card.name} exists`);
+    }
   }
   
-  console.log('\n🎉 Essential cards generated!');
+  console.log(`\n🎉 Generated ${generated} new cards!`);
 }
 
 generateEssentialCards();

@@ -13,20 +13,31 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 async function generateCardImage(cardId: string, cardName: string): Promise<boolean> {
   try {
-    console.log(`Generating: ${cardName}`);
+    console.log(`🎨 Creating: ${cardName}`);
     
-    // Create detailed prompts for Major Arcana cards
-    const cardPrompts = {
-      'The Fool': 'A young person stepping off a cliff with a small bag, white dog, bright yellow sky, mountains, symbolizing new beginnings, tarot card art style',
-      'The Magician': 'A robed figure with wand raised high, infinity symbol above head, roses and lilies, red robe, symbolizing manifestation, tarot card art style',
-      'The High Priestess': 'A seated woman between pillars marked B and J, crescent moon crown, blue robes, pomegranate curtain, symbolizing intuition, tarot card art style',
-      'The Empress': 'A pregnant woman on throne in nature, wheat field, flowing river, venus symbol, crown of stars, symbolizing fertility, tarot card art style',
-      'The Emperor': 'A bearded king on stone throne, ram heads, red robes, golden crown, mountains, symbolizing authority, tarot card art style'
-    };
+    // Create authentic prompts based on card names
+    let prompt = '';
     
-    const prompt = cardPrompts[cardName as keyof typeof cardPrompts] || 
-      `Beautiful tarot card artwork depicting ${cardName}, rich symbolic imagery, mystical, traditional tarot art style`;
-    
+    if (cardName.includes('Fool')) {
+      prompt = 'Young person stepping off cliff, white dog, colorful clothes, mountains, sun, new beginnings, traditional tarot art';
+    } else if (cardName.includes('Magician')) {
+      prompt = 'Robed figure with wand raised high, infinity symbol, altar with tools, roses and lilies, manifestation, traditional tarot art';
+    } else if (cardName.includes('High Priestess')) {
+      prompt = 'Seated woman between pillars, crescent moon crown, blue robes, pomegranate curtain, sacred scroll, intuition, traditional tarot art';
+    } else if (cardName.includes('Empress')) {
+      prompt = 'Pregnant woman on throne, wheat field, flowing river, venus symbol, crown of stars, fertility, traditional tarot art';
+    } else if (cardName.includes('Emperor')) {
+      prompt = 'Bearded king on stone throne, ram heads, red robes, golden crown, barren mountains, authority, traditional tarot art';
+    } else if (cardName.includes('Ace')) {
+      const suit = cardName.toLowerCase().includes('wands') ? 'wands' : 
+                  cardName.toLowerCase().includes('cups') ? 'cups' :
+                  cardName.toLowerCase().includes('swords') ? 'swords' : 'pentacles';
+      prompt = `Single ${suit.slice(0,-1)} emerging from cloud, hand of god, ${suit === 'cups' ? 'dove and host' : ''} ${suit === 'wands' ? 'castle and mountains' : ''} ${suit === 'swords' ? 'crown and olive branch' : ''} ${suit === 'pentacles' ? 'garden path' : ''}, traditional tarot art`;
+    } else {
+      // Generic beautiful tarot card
+      prompt = `Beautiful mystical tarot card depicting "${cardName}" with rich symbolic imagery, traditional tarot art style, meaningful spiritual symbolism`;
+    }
+
     const response = await openai.images.generate({
       model: "dall-e-3",
       prompt: prompt,
@@ -38,24 +49,19 @@ async function generateCardImage(cardId: string, cardName: string): Promise<bool
     if (response.data?.[0]?.url) {
       const imageUrl = response.data[0].url;
       const imageResponse = await fetch(imageUrl);
-      const arrayBuffer = await imageResponse.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
+      const buffer = Buffer.from(await imageResponse.arrayBuffer());
       
       const assetsDir = path.join(process.cwd(), 'public', 'assets', 'cards');
-      if (!fs.existsSync(assetsDir)) {
-        fs.mkdirSync(assetsDir, { recursive: true });
-      }
+      fs.mkdirSync(assetsDir, { recursive: true });
       
-      const filename = path.join(assetsDir, `${cardId}.png`);
-      fs.writeFileSync(filename, buffer);
+      fs.writeFileSync(path.join(assetsDir, `${cardId}.png`), buffer);
       
-      console.log(`✓ Generated: ${cardName}`);
+      console.log(`✅ ${cardName} complete`);
       return true;
     }
-    
     return false;
   } catch (error) {
-    console.error(`Error generating ${cardName}:`, error);
+    console.error(`Error: ${cardName}`, error);
     return false;
   }
 }
@@ -67,28 +73,31 @@ async function generateEssentialCards() {
     { id: '1', name: 'The Magician' },
     { id: '2', name: 'The High Priestess' },
     { id: '3', name: 'The Empress' },
-    { id: '4', name: 'The Emperor' }
+    { id: '4', name: 'The Emperor' },
+    { id: 'ace-of-wands', name: 'Ace of Wands' },
+    { id: 'ace-of-cups', name: 'Ace of Cups' },
+    { id: 'ace-of-swords', name: 'Ace of Swords' },
+    { id: 'ace-of-pentacles', name: 'Ace of Pentacles' }
   ];
   
-  console.log('Generating essential Major Arcana cards...');
+  console.log('🎨 Generating essential card artwork...\n');
   
+  let generated = 0;
   for (const card of essentialCards) {
     const imagePath = path.join(process.cwd(), 'public', 'assets', 'cards', `${card.id}.png`);
     
     if (!fs.existsSync(imagePath)) {
       const success = await generateCardImage(card.id, card.name);
-      if (success) {
-        console.log(`Successfully created ${card.name}`);
-      }
+      if (success) generated++;
       
-      // Wait between generations to respect rate limits
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      // Brief pause between generations
+      await new Promise(resolve => setTimeout(resolve, 2000));
     } else {
-      console.log(`${card.name} already exists`);
+      console.log(`✓ ${card.name} exists`);
     }
   }
   
-  console.log('✅ Essential cards generation complete!');
+  console.log(`\n🎉 Generated ${generated} essential cards!`);
 }
 
 generateEssentialCards();
