@@ -1294,27 +1294,27 @@ export function registerRoutes(app: Express): Server {
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Create a Map to handle potential duplicates by card name
-      const cardMap = new Map();
+      // Create organized card collections with no duplicates
+      const cardCollections = {
+        major: tarotCards.filter(card => card.arcana === "major"),
+        minor: tarotCards.filter(card => card.arcana === "minor"),
+        custom: transformedImportedCards.filter(card => 
+          // Only include custom cards that don't duplicate standard tarot
+          !tarotCards.some(standardCard => 
+            standardCard.name.toLowerCase() === card.name.toLowerCase()
+          )
+        )
+      };
       
-      // Add built-in tarot cards first
-      tarotCards.forEach(card => {
-        cardMap.set(card.name.toLowerCase(), card);
-      });
+      // Combine all unique cards
+      const allCards = [
+        ...cardCollections.major,
+        ...cardCollections.minor,
+        ...cardCollections.custom
+      ];
       
-      // Add imported cards, but don't overwrite existing tarot cards
-      transformedImportedCards.forEach(card => {
-        const key = card.name.toLowerCase();
-        if (!cardMap.has(key)) {
-          cardMap.set(key, card);
-        } else {
-          // If there's a duplicate name, use a unique key for imported cards
-          cardMap.set(`${key}_imported_${card.id}`, card);
-        }
-      });
-      
-      const allCards = Array.from(cardMap.values());
-      console.log(`Returning total of ${allCards.length} cards (deduplicated)`);
+      console.log(`Returning organized cards: ${cardCollections.major.length} major, ${cardCollections.minor.length} minor, ${cardCollections.custom.length} custom`);
+      console.log(`Total unique cards: ${allCards.length}`);
 
       res.json(allCards);
     } catch (error) {

@@ -7,9 +7,9 @@ interface CardImageProps {
   isRevealed: boolean;
 }
 
-// Master card image mappings - no more API calls needed!
+// Master card image mappings - only cards that actually have images
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana
+  // Major Arcana - only The Fool has an image currently
   '0': '/assets/cards/the-fool.png',
   
   // Wands
