@@ -650,11 +650,29 @@ export default function Learning() {
     );
   }
 
+  const handleStarClick = (starId: string) => {
+    // Parse star ID to get track and lesson info
+    const [trackId, lessonIndex] = starId.split('-');
+    const track = tracks?.find(t => t.id === parseInt(trackId));
+    if (track) {
+      // Navigate to the specific lesson
+      window.location.href = `/learning/tracks/${trackId}`;
+    }
+  };
+
   return (
     <div className="container px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Learning Paths</h1>
 
       <div className="grid gap-8">
+        {/* Beautiful Constellation View - New Feature */}
+        <section>
+          <div className="flex items-center gap-2 mb-4">
+            <Sparkles className="h-5 w-5 text-yellow-400" />
+            <h2 className="text-xl font-semibold">Your Spiritual Journey Constellation</h2>
+          </div>
+          <LearningConstellation onStarClick={handleStarClick} />
+        </section>
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Book className="h-5 w-5" />
