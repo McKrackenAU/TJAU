@@ -14,6 +14,19 @@ export interface TarotCard {
 }
 
 export const tarotCards: TarotCard[] = [
+  // MAJOR ARCANA - Complete traditional ordering
+  {
+    id: "0",
+    name: "The Fool",
+    arcana: "major",
+    number: 0,
+    meanings: {
+      upright: ["New beginnings", "Innocence", "Adventure", "Spontaneity"],
+      reversed: ["Recklessness", "Risk-taking", "Foolishness"]
+    },
+    description: "The Fool represents new beginnings, having faith in the future, being inexperienced, not knowing what to expect, having beginner's luck, improvisation and believing in the universe.",
+    element: "Air"
+  },
   {
     id: "1",
     name: "The Magician",
@@ -63,6 +76,174 @@ export const tarotCards: TarotCard[] = [
     element: "Fire"
   },
   {
+    id: "5",
+    name: "The Hierophant",
+    arcana: "major",
+    number: 5,
+    meanings: {
+      upright: ["Spiritual wisdom", "Religious beliefs", "Conformity", "Tradition"],
+      reversed: ["Personal beliefs", "Freedom", "Challenging the status quo"]
+    },
+    description: "The Hierophant represents spiritual wisdom, religious beliefs, conformity, tradition, and conventional institutions.",
+    element: "Earth"
+  },
+  {
+    id: "6",
+    name: "The Lovers",
+    arcana: "major",
+    number: 6,
+    meanings: {
+      upright: ["Love", "Harmony", "Relationships", "Values alignment"],
+      reversed: ["Disharmony", "Imbalance", "Misalignment of values"]
+    },
+    description: "The Lovers represents love, harmony, relationships, and values alignment.",
+    element: "Air"
+  },
+  {
+    id: "7",
+    name: "The Chariot",
+    arcana: "major",
+    number: 7,
+    meanings: {
+      upright: ["Control", "Willpower", "Success", "Determination"],
+      reversed: ["Self-discipline", "Opposition", "Lack of direction"]
+    },
+    description: "The Chariot represents control, willpower, success, and determination.",
+    element: "Water"
+  },
+  {
+    id: "8",
+    name: "Strength",
+    arcana: "major",
+    number: 8,
+    meanings: {
+      upright: ["Strength", "Courage", "Persuasion", "Influence", "Compassion"],
+      reversed: ["Self doubt", "Low energy", "Raw emotion"]
+    },
+    description: "Strength represents strength, courage, persuasion, influence, and compassion.",
+    element: "Fire"
+  },
+  {
+    id: "9",
+    name: "The Hermit",
+    arcana: "major",
+    number: 9,
+    meanings: {
+      upright: ["Soul searching", "Seeking inner guidance", "Looking inward"],
+      reversed: ["Isolation", "Loneliness", "Withdrawal"]
+    },
+    description: "The Hermit represents soul searching, seeking inner guidance, and looking inward.",
+    element: "Earth"
+  },
+  {
+    id: "10",
+    name: "Wheel of Fortune",
+    arcana: "major",
+    number: 10,
+    meanings: {
+      upright: ["Good luck", "Karma", "Life cycles", "Destiny", "A turning point"],
+      reversed: ["Bad luck", "Lack of control", "Clinging to control"]
+    },
+    description: "Wheel of Fortune represents good luck, karma, life cycles, destiny, and turning points.",
+    element: "Fire"
+  },
+  {
+    id: "11",
+    name: "Justice",
+    arcana: "major",
+    number: 11,
+    meanings: {
+      upright: ["Justice", "Fairness", "Truth", "Cause and effect", "Law"],
+      reversed: ["Unfairness", "Lack of accountability", "Dishonesty"]
+    },
+    description: "Justice represents justice, fairness, truth, cause and effect, and law.",
+    element: "Air"
+  },
+  {
+    id: "12",
+    name: "The Hanged Man",
+    arcana: "major",
+    number: 12,
+    meanings: {
+      upright: ["Suspension", "Restriction", "Letting go", "Sacrifice"],
+      reversed: ["Martyrdom", "Indecision", "Delay"]
+    },
+    description: "The Hanged Man represents suspension, restriction, letting go, and sacrifice.",
+    element: "Water"
+  },
+  {
+    id: "13",
+    name: "Death",
+    arcana: "major",
+    number: 13,
+    meanings: {
+      upright: ["Endings", "Beginnings", "Change", "Transformation", "Transition"],
+      reversed: ["Resistance to change", "Personal transformation", "Inner purging"]
+    },
+    description: "Death represents endings, beginnings, change, transformation, and transition.",
+    element: "Water"
+  },
+  {
+    id: "14",
+    name: "Temperance",
+    arcana: "major",
+    number: 14,
+    meanings: {
+      upright: ["Balance", "Moderation", "Patience", "Purpose"],
+      reversed: ["Imbalance", "Excess", "Self-healing", "Re-alignment"]
+    },
+    description: "Temperance represents balance, moderation, patience, and purpose.",
+    element: "Fire"
+  },
+  {
+    id: "15",
+    name: "The Devil",
+    arcana: "major",
+    number: 15,
+    meanings: {
+      upright: ["Bondage", "Addiction", "Sexuality", "Materialism"],
+      reversed: ["Freedom", "Release", "Restoring control"]
+    },
+    description: "The Devil represents bondage, addiction, sexuality, and materialism.",
+    element: "Earth"
+  },
+  {
+    id: "16",
+    name: "The Tower",
+    arcana: "major",
+    number: 16,
+    meanings: {
+      upright: ["Sudden change", "Upheaval", "Chaos", "Revelation", "Awakening"],
+      reversed: ["Personal transformation", "Fear of change", "Averting disaster"]
+    },
+    description: "The Tower represents sudden change, upheaval, chaos, revelation, and awakening.",
+    element: "Fire"
+  },
+  {
+    id: "17",
+    name: "The Star",
+    arcana: "major",
+    number: 17,
+    meanings: {
+      upright: ["Hope", "Faith", "Purpose", "Renewal", "Spirituality"],
+      reversed: ["Lack of faith", "Despair", "Self-trust", "Disconnection"]
+    },
+    description: "The Star represents hope, faith, purpose, renewal, and spirituality.",
+    element: "Air"
+  },
+  {
+    id: "18",
+    name: "The Moon",
+    arcana: "major",
+    number: 18,
+    meanings: {
+      upright: ["Illusion", "Fear", "Anxiety", "Subconscious", "Intuition"],
+      reversed: ["Release of fear", "Repressed emotion", "Inner confusion"]
+    },
+    description: "The Moon represents illusion, fear, anxiety, subconscious, and intuition.",
+    element: "Water"
+  },
+  {
     id: "19",
     name: "The Sun",
     arcana: "major",
@@ -75,16 +256,28 @@ export const tarotCards: TarotCard[] = [
     element: "Fire"
   },
   {
-    id: "0",
-    name: "The Fool",
+    id: "20",
+    name: "Judgement",
     arcana: "major",
-    number: 22,
+    number: 20,
     meanings: {
-      upright: ["New beginnings", "Innocence", "Adventure"],
-      reversed: ["Recklessness", "Risk-taking", "Foolishness"]
+      upright: ["Judgement", "Rebirth", "Inner calling", "Forgiveness"],
+      reversed: ["Self-doubt", "Inner critic", "Ignoring the call"]
     },
-    description: "The Fool represents new beginnings, having faith in the future, being inexperienced, not knowing what to expect, having beginner's luck, improvisation and believing in the universe.",
-    element: "Air"
+    description: "Judgement represents judgement, rebirth, inner calling, and forgiveness.",
+    element: "Fire"
+  },
+  {
+    id: "21",
+    name: "The World",
+    arcana: "major",
+    number: 21,
+    meanings: {
+      upright: ["Completion", "Integration", "Accomplishment", "Travel"],
+      reversed: ["Seeking personal closure", "Stagnation", "Lack of progress"]
+    },
+    description: "The World represents completion, integration, accomplishment, and travel.",
+    element: "Earth"
   },
   {
     id: "w1",
