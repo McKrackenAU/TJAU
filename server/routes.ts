@@ -1300,11 +1300,29 @@ export function registerRoutes(app: Express): Server {
         ...transformedImportedCards.filter(card => card.arcana === "major")
       ].sort((a, b) => (a.number || 0) - (b.number || 0));
       
-      // Get ALL Minor Arcana from both sources
-      const allMinorArcana = [
+      // Get ALL Minor Arcana from both sources and organize by suit order
+      const minorArcanaCards = [
         ...tarotCards.filter(card => card.arcana === "minor"),
         ...transformedImportedCards.filter(card => card.arcana === "minor")
       ];
+      
+      // Order suits: Wands, Cups, Swords, Pentacles
+      const suitOrder = ['wands', 'cups', 'swords', 'pentacles'];
+      
+      const allMinorArcana = suitOrder.flatMap(suit => {
+        const suitCards = minorArcanaCards.filter(card => card.suit === suit);
+        
+        // Sort each suit: Ace (1) through 10, then Page, Knight, Queen, King
+        return suitCards.sort((a, b) => {
+          // Handle court cards specially
+          const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
+          
+          const aValue = courtOrder[a.name?.toLowerCase().split(' ')[0]] || a.number || 0;
+          const bValue = courtOrder[b.name?.toLowerCase().split(' ')[0]] || b.number || 0;
+          
+          return aValue - bValue;
+        });
+      });
       
       // Get only custom cards that don't duplicate standard tarot
       const customCards = transformedImportedCards.filter(card => 
