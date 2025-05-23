@@ -8,9 +8,10 @@ import { Progress } from "@/components/ui/progress";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import type { LearningTrack, UserProgress, QuizResult } from "@shared/schema";
-import { GraduationCap, Trophy, Book, Brain, ArrowRight } from "lucide-react";
+import { GraduationCap, Trophy, Book, Brain, ArrowRight, Sparkles } from "lucide-react";
 import { tarotCards } from "@shared/tarot-data";
 import { TrackCardLabel } from "@/components/track-card-label";
+import { LearningConstellation } from "@/components/learning-constellation";
 import { useEffect } from "react";
 
 export default function Learning() {
