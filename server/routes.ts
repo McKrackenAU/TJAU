@@ -1294,26 +1294,26 @@ export function registerRoutes(app: Express): Server {
       }));
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Create organized card collections with no duplicates
-      const cardCollections = {
-        major: tarotCards.filter(card => card.arcana === "major").sort((a, b) => (a.number || 0) - (b.number || 0)),
-        minor: tarotCards.filter(card => card.arcana === "minor"),
-        custom: transformedImportedCards.filter(card => 
-          // Only include custom cards that don't duplicate standard tarot
-          !tarotCards.some(standardCard => 
-            standardCard.name.toLowerCase() === card.name.toLowerCase()
-          )
+      // Organize cards properly - Major Arcana grouped together (except The Fool at start)
+      const majorArcana = tarotCards.filter(card => card.arcana === "major" && card.id !== "0").sort((a, b) => (a.number || 0) - (b.number || 0));
+      const theFool = tarotCards.find(card => card.id === "0");
+      const minorArcana = tarotCards.filter(card => card.arcana === "minor");
+      const customCards = transformedImportedCards.filter(card => 
+        // Only include custom cards that don't duplicate standard tarot
+        !tarotCards.some(standardCard => 
+          standardCard.name.toLowerCase() === card.name.toLowerCase()
         )
-      };
+      );
       
-      // Combine all unique cards with proper Major Arcana ordering
+      // Combine: Major Arcana (with Fool properly positioned), Minor Arcana, Custom Cards
       const allCards = [
-        ...cardCollections.major,
-        ...cardCollections.minor,
-        ...cardCollections.custom
+        ...(theFool ? [theFool] : []),
+        ...majorArcana,
+        ...minorArcana,
+        ...customCards
       ];
       
-      console.log(`Returning organized cards: ${cardCollections.major.length} major, ${cardCollections.minor.length} minor, ${cardCollections.custom.length} custom`);
+      console.log(`Returning organized cards: ${majorArcana.length + (theFool ? 1 : 0)} major, ${minorArcana.length} minor, ${customCards.length} custom`);
       console.log(`Total unique cards: ${allCards.length}`);
 
       res.json(allCards);
