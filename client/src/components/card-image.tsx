@@ -152,7 +152,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
     
     // Fall back to old system for other cards temporarily
-    const basePath = cardImagePaths[card.id];
+    const basePath = authenticCardPaths[card.id];
     if (!basePath) {
       console.log(`📄 NO PATH for ${card.name}: null`);
       return null;
