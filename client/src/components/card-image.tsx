@@ -138,10 +138,15 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Force cache bust for authentic Major Arcana images - EXTREME cache bust
+    // Debug logging for cards 0-4
+    if (['0', '1', '2', '3', '4'].includes(card.id)) {
+      console.log(`DEBUG: Card ${card.id} (${card.name}) - arcana: ${card.arcana}, type: ${typeof card.arcana}`);
+    }
+    
+    // Force authentic numbered images for ALL Major Arcana cards 0-4
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      // Multiple cache busters to force complete reload
       const cacheBuster = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      console.log(`FORCING authentic image for ${card.name}: /assets/cards/${card.id}.png`);
       return `/assets/cards/${card.id}.png?bust=${cacheBuster}&reload=true&force=1`;
     }
     
