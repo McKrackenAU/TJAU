@@ -148,12 +148,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
-    // Add aggressive cache busting for Major Arcana cards 0-4 to force refresh
+    // Use authentic artwork for Major Arcana cards 0-4
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const cacheBuster = `?v=${Date.now()}&t=${Math.random()}&authentic=true&reload=1`;
-      const path = `${basePath}${cacheBuster}`;
-      console.log(`📄 AGGRESSIVE-CACHE-BUST for ${card.name}: ${path}`);
-      return path;
+      const authenticPath = `/assets/cards/${card.id}-authentic.png?v=${Date.now()}&fresh=true`;
+      console.log(`🎨 AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
+      return authenticPath;
     }
     
     console.log(`📄 UNIFIED PATH for ${card.name}: ${basePath}`);
