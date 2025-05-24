@@ -1,0 +1,29 @@
+📄 REGULAR PATH for The Hierophant: /assets/cards/5.png
+card-image.tsx:153 📄 REGULAR PATH for The Lovers: /assets/cards/6.png
+card-image.tsx:153 📄 REGULAR PATH for The Chariot: /assets/cards/7.png
+card-image.tsx:153 📄 REGULAR PATH for Strength: /assets/cards/8.png
+card-image.tsx:153 📄 REGULAR PATH for The Hermit: /assets/cards/9.png
+card-image.tsx:153 📄 REGULAR PATH for Wheel of Fortune: /assets/cards/10.png
+card-image.tsx:153 📄 REGULAR PATH for Justice: /assets/cards/11.png
+card-image.tsx:153 📄 REGULAR PATH for The Hanged Man: /assets/cards/12.png
+card-image.tsx:153 📄 REGULAR PATH for Death: /assets/cards/13.png
+card-image.tsx:153 📄 REGULAR PATH for Temperance: /assets/cards/14.png
+card-image.tsx:153 📄 REGULAR PATH for The Devil: /assets/cards/15.png
+card-image.tsx:153 📄 REGULAR PATH for The Tower: /assets/cards/16.png
+card-image.tsx:153 📄 REGULAR PATH for The Star: /assets/cards/17.png
+card-image.tsx:153 📄 REGULAR PATH for The Moon: /assets/cards/18.png
+card-image.tsx:153 📄 REGULAR PATH for The Sun: /assets/cards/19.png
+card-image.tsx:153 📄 REGULAR PATH for Judgement: /assets/cards/20.png
+card-image.tsx:153 📄 REGULAR PATH for The World: /assets/cards/21.png
+card-image.tsx:265 Image loaded successfully: /assets/cards/3.png?cb=1748053590628&authentic=true&v=3 for card The Empress
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+card-image.tsx:265 Image loaded successfully: /assets/cards/0.png?cb=1748053590612&authentic=true&v=3 for card The Fool
+card-image.tsx:265 Image loaded successfully: /assets/cards/2.png?cb=1748053590624&authentic=true&v=3 for card The High Priestess
+card-image.tsx:265 Image loaded successfully: /assets/cards/1.png?cb=1748053590617&authentic=true&v=3 for card The Magician
+card-image.tsx:265 Image loaded successfully: /assets/cards/4.png?cb=1748053590631&authentic=true&v=3 for card The Emperor
+library:116 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
