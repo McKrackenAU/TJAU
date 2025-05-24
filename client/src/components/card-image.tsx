@@ -139,10 +139,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Force authentic numbered images for Major Arcana cards 0-4 with server timestamp
+    // Force authentic numbered images for Major Arcana cards 0-4 with aggressive cache busting
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      // Use server file modification time to force fresh load
-      return `/assets/cards/${card.id}.png?t=1716448020000&authentic=true`;
+      // Use current timestamp to force completely fresh load every time
+      const cacheBuster = Date.now();
+      return `/assets/cards/${card.id}.png?cb=${cacheBuster}&authentic=true&v=2`;
     }
     
     // For other cards, use the mapping
