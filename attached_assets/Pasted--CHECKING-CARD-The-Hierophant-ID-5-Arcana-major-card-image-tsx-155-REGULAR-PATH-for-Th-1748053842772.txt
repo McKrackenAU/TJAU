@@ -1,0 +1,47 @@
+🔍 CHECKING CARD: The Hierophant, ID: "5", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Hierophant: /assets/cards/5.png
+card-image.tsx:142 🔍 CHECKING CARD: The Lovers, ID: "6", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Lovers: /assets/cards/6.png
+card-image.tsx:142 🔍 CHECKING CARD: The Chariot, ID: "7", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Chariot: /assets/cards/7.png
+card-image.tsx:142 🔍 CHECKING CARD: Strength, ID: "8", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Strength: /assets/cards/8.png
+card-image.tsx:142 🔍 CHECKING CARD: The Hermit, ID: "9", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Hermit: /assets/cards/9.png
+card-image.tsx:142 🔍 CHECKING CARD: Wheel of Fortune, ID: "10", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Wheel of Fortune: /assets/cards/10.png
+card-image.tsx:142 🔍 CHECKING CARD: Justice, ID: "11", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Justice: /assets/cards/11.png
+card-image.tsx:142 🔍 CHECKING CARD: The Hanged Man, ID: "12", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Hanged Man: /assets/cards/12.png
+card-image.tsx:142 🔍 CHECKING CARD: Death, ID: "13", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Death: /assets/cards/13.png
+card-image.tsx:142 🔍 CHECKING CARD: Temperance, ID: "14", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Temperance: /assets/cards/14.png
+card-image.tsx:142 🔍 CHECKING CARD: The Devil, ID: "15", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Devil: /assets/cards/15.png
+card-image.tsx:142 🔍 CHECKING CARD: The Tower, ID: "16", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Tower: /assets/cards/16.png
+card-image.tsx:142 🔍 CHECKING CARD: The Star, ID: "17", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Star: /assets/cards/17.png
+card-image.tsx:142 🔍 CHECKING CARD: The Moon, ID: "18", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Moon: /assets/cards/18.png
+card-image.tsx:142 🔍 CHECKING CARD: The Sun, ID: "19", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The Sun: /assets/cards/19.png
+card-image.tsx:142 🔍 CHECKING CARD: Judgement, ID: "20", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for Judgement: /assets/cards/20.png
+card-image.tsx:142 🔍 CHECKING CARD: The World, ID: "21", Arcana: "major"
+card-image.tsx:155 📄 REGULAR PATH for The World: /assets/cards/21.png
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+card-image.tsx:267 Image loaded successfully: /assets/cards/2.png?cb=1748053745767&authentic=true&v=3 for card The High Priestess
+card-image.tsx:267 Image loaded successfully: /assets/cards/0.png?cb=1748053745760&authentic=true&v=3 for card The Fool
+card-image.tsx:267 Image loaded successfully: /assets/cards/1.png?cb=1748053745764&authentic=true&v=3 for card The Magician
+card-image.tsx:267 Image loaded successfully: /assets/cards/4.png?cb=1748053745770&authentic=true&v=3 for card The Emperor
+card-image.tsx:267 Image loaded successfully: /assets/cards/3.png?cb=1748053745768&authentic=true&v=3 for card The Empress
+library:116 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+6TarotJourney:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was receivedUnderstand this error

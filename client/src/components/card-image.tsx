@@ -9,12 +9,12 @@ interface CardImageProps {
 
 // Master card image mappings - authentic artwork
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - Beautiful authentic images with numbered filenames
-  '0': '/assets/cards/0.png',
-  '1': '/assets/cards/1.png', 
-  '2': '/assets/cards/2.png',
-  '3': '/assets/cards/3.png',
-  '4': '/assets/cards/4.png',
+  // Major Arcana - Beautiful authentic images with numbered filenames and cache busting
+  '0': `/assets/cards/0.png?authentic=true&v=${Date.now()}`,
+  '1': `/assets/cards/1.png?authentic=true&v=${Date.now()}`, 
+  '2': `/assets/cards/2.png?authentic=true&v=${Date.now()}`,
+  '3': `/assets/cards/3.png?authentic=true&v=${Date.now()}`,
+  '4': `/assets/cards/4.png?authentic=true&v=${Date.now()}`,
   '5': '/assets/cards/5.png',
   '6': '/assets/cards/6.png',
   '7': '/assets/cards/7.png',
