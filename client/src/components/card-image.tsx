@@ -135,19 +135,14 @@ const cardImagePaths: Record<string, string> = {
 
 export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
+  const [imageKey, setImageKey] = useState(0); // Force re-render key
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Debug logging for cards 0-4
-    if (['0', '1', '2', '3', '4'].includes(card.id)) {
-      console.log(`DEBUG: Card ${card.id} (${card.name}) - arcana: ${card.arcana}, type: ${typeof card.arcana}`);
-    }
-    
-    // Force authentic numbered images for ALL Major Arcana cards 0-4
+    // Force authentic numbered images for Major Arcana cards 0-4 with server timestamp
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const cacheBuster = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      console.log(`FORCING authentic image for ${card.name}: /assets/cards/${card.id}.png`);
-      return `/assets/cards/${card.id}.png?bust=${cacheBuster}&reload=true&force=1`;
+      // Use server file modification time (May 23 08:07) to force fresh load
+      return `/assets/cards/${card.id}.png?t=1716448020000&authentic=true&v=${imageKey}`;
     }
     
     // For other cards, use the mapping
