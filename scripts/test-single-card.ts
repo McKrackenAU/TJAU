@@ -1,53 +1,47 @@
 /**
- * Test Single Card Generation - The Fool
+ * Test Single Card Generation - The Hierophant
  */
 
-import OpenAI from 'openai';
-import fs from 'fs';
-import path from 'path';
+import OpenAI from "openai";
+import fs from "fs";
+import path from "path";
 
+// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-async function testSingleCard() {
+async function testCardGeneration() {
   try {
-    console.log('🎨 Testing card generation with The Fool...');
+    console.log("🎨 Testing image generation for The Hierophant...");
     
     const response = await openai.images.generate({
       model: "dall-e-3",
-      prompt: 'Young traveler at cliff edge with small bundle, loyal white dog companion, bright mountain landscape, new beginning adventure, traditional tarot card art style, vertical composition',
+      prompt: "Beautiful traditional tarot card The Hierophant: religious figure in robes seated on throne, blessing pose, spiritual wisdom, sacred knowledge, traditional Rider-Waite style, vertical format",
       n: 1,
       size: "1024x1024",
-      quality: "standard",
+      quality: "standard", // Using standard quality for faster generation
     });
 
-    console.log('📡 AI response received');
-
-    if (response.data?.[0]?.url) {
-      console.log('🔗 Image URL obtained');
-      const imageUrl = response.data[0].url;
-      
-      const imageResponse = await fetch(imageUrl);
-      console.log('📥 Image downloaded');
-      
-      const buffer = Buffer.from(await imageResponse.arrayBuffer());
-      
-      const assetsDir = path.join(process.cwd(), 'public', 'assets', 'cards');
-      fs.mkdirSync(assetsDir, { recursive: true });
-      
-      fs.writeFileSync(path.join(assetsDir, '0.png'), buffer);
-      
-      console.log('✅ The Fool (0.png) saved successfully!');
-      console.log('🎉 Card generation test complete!');
-      return true;
-    } else {
-      console.log('❌ No image URL in response');
-      return false;
+    const imageUrl = response.data[0]?.url;
+    if (!imageUrl) {
+      throw new Error("No image URL in response");
     }
+
+    console.log("✅ Image generated successfully! URL:", imageUrl.substring(0, 50) + "...");
+
+    // Download and save
+    const imageResponse = await fetch(imageUrl);
+    const buffer = Buffer.from(await imageResponse.arrayBuffer());
+    
+    const filepath = path.join("public", "assets", "cards", "5.png");
+    fs.writeFileSync(filepath, buffer);
+    
+    console.log("✅ The Hierophant saved as 5.png");
+    return true;
     
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error("❌ Error:", error);
     return false;
   }
 }
 
-testSingleCard();
+testCardGeneration();
