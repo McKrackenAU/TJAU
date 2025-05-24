@@ -240,13 +240,19 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
 
   return (
     <div className={getCardBackground()}>
-      {hasStaticImage && !imageError ? (
+      {imagePath ? (
         <>
           <img
             src={imagePath}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
-            onError={() => setImageError(true)}
+            onError={(e) => {
+              console.log(`Image failed to load: ${imagePath} for card ${card.name}`);
+              setImageError(true);
+            }}
+            onLoad={() => {
+              console.log(`Image loaded successfully: ${imagePath} for card ${card.name}`);
+            }}
           />
           <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
             {card.name}
