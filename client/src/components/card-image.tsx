@@ -150,7 +150,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     
     // Add aggressive cache busting for Major Arcana cards 0-4 to force refresh
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const cacheBuster = `?v=${Date.now()}&t=${Math.random()}&authentic=true`;
+      const cacheBuster = `?v=${Date.now()}&t=${Math.random()}&authentic=true&reload=1`;
       const path = `${basePath}${cacheBuster}`;
       console.log(`📄 AGGRESSIVE-CACHE-BUST for ${card.name}: ${path}`);
       return path;
@@ -256,19 +256,20 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {imagePath ? (
         <>
           <img
-            key={card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id) ? `authentic-${card.id}` : `card-${card.id}`}
+            key={card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id) ? `authentic-${card.id}-${Date.now()}` : `card-${card.id}`}
             src={imagePath}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
+            crossOrigin="anonymous"
             onError={(e) => {
-              console.log(`Image failed to load: ${imagePath} for card ${card.name}`);
+              console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name}`);
               // Don't set error state for authentic Major Arcana cards (0-4) - keep trying to load
               if (!(card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id))) {
                 setImageError(true);
               }
             }}
             onLoad={() => {
-              console.log(`Image loaded successfully: ${imagePath} for card ${card.name}`);
+              console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
               setImageError(false); // Clear any error state when image loads
             }}
           />
