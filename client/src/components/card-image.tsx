@@ -138,12 +138,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Force cache bust for authentic Major Arcana images
+    // Force cache bust for authentic Major Arcana images - EXTREME cache bust
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      // Use timestamp to force browser to reload the authentic images
-      const cacheBuster = new Date().getTime();
-      console.log(`Force loading authentic image for ${card.name}: /assets/cards/${card.id}.png?v=${cacheBuster}`);
-      return `/assets/cards/${card.id}.png?v=${cacheBuster}`;
+      // Multiple cache busters to force complete reload
+      const cacheBuster = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      return `/assets/cards/${card.id}.png?bust=${cacheBuster}&reload=true&force=1`;
     }
     
     // For other cards, use the mapping

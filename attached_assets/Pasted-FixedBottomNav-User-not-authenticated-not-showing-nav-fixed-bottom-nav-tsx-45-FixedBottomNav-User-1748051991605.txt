@@ -1,0 +1,37 @@
+FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:49 FixedBottomNav: User authenticated, showing nav bar
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: undefined
+library.tsx:74 Filtered cards: 0
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: 121
+library.tsx:74 Filtered cards: 121
+card-image.tsx:145 Force loading authentic image for The Fool: /assets/cards/0.png?v=1748051824117
+card-image.tsx:145 Force loading authentic image for The Magician: /assets/cards/1.png?v=1748051824126
+card-image.tsx:145 Force loading authentic image for The High Priestess: /assets/cards/2.png?v=1748051824129
+card-image.tsx:145 Force loading authentic image for The Empress: /assets/cards/3.png?v=1748051824132
+card-image.tsx:145 Force loading authentic image for The Emperor: /assets/cards/4.png?v=1748051824135
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+card-image.tsx:254 Image failed to load: /assets/cards/6.png for card The Lovers
+card-image.tsx:254 Image failed to load: /assets/cards/5.png for card The Hierophant
+card-image.tsx:254 Image failed to load: /assets/cards/7.png for card The Chariot
+card-image.tsx:254 Image failed to load: /assets/cards/8.png for card Strength
+card-image.tsx:254 Image failed to load: /assets/cards/9.png for card The Hermit
+card-image.tsx:254 Image failed to load: /assets/cards/10.png for card Wheel of Fortune
+card-image.tsx:254 Image failed to load: /assets/cards/11.png for card Justice
+card-image.tsx:254 Image failed to load: /assets/cards/12.png for card The Hanged Man
+card-image.tsx:254 Image failed to load: /assets/cards/13.png for card Death
+card-image.tsx:254 Image failed to load: /assets/cards/14.png for card Temperance
+card-image.tsx:254 Image failed to load: /assets/cards/15.png for card The Devil
+card-image.tsx:254 Image failed to load: /assets/cards/16.png for card The Tower
+card-image.tsx:254 Image failed to load: /assets/cards/17.png for card The Star
+card-image.tsx:254 Image failed to load: /assets/cards/18.png for card The Moon
+card-image.tsx:254 Image failed to load: /assets/cards/19.png for card The Sun
+card-image.tsx:254 Image failed to load: /assets/cards/20.png for card Judgement
+card-image.tsx:254 Image failed to load: /assets/cards/21.png for card The World
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
