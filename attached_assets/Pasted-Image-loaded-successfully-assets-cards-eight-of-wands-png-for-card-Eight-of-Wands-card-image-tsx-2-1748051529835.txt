@@ -1,0 +1,110 @@
+Image loaded successfully: /assets/cards/eight-of-wands.png for card Eight of Wands
+card-image.tsx:255 Image failed to load: /assets/cards/5.png?bust=1748051424749 for card The Hierophant
+card-image.tsx:141 DEBUG: Getting path for card The Hierophant (ID: 5, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/5.png?bust=1748051425770
+card-image.tsx:255 Image failed to load: /assets/cards/6.png?bust=1748051424751 for card The Lovers
+card-image.tsx:141 DEBUG: Getting path for card The Lovers (ID: 6, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/6.png?bust=1748051426113
+card-image.tsx:255 Image failed to load: /assets/cards/7.png?bust=1748051424753 for card The Chariot
+card-image.tsx:141 DEBUG: Getting path for card The Chariot (ID: 7, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/7.png?bust=1748051426457
+card-image.tsx:259 Image loaded successfully: /assets/cards/2.png?bust=1748051424747 for card The High Priestess
+card-image.tsx:255 Image failed to load: /assets/cards/8.png?bust=1748051424755 for card Strength
+card-image.tsx:141 DEBUG: Getting path for card Strength (ID: 8, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/8.png?bust=1748051426812
+card-image.tsx:255 Image failed to load: /assets/cards/9.png?bust=1748051424757 for card The Hermit
+card-image.tsx:141 DEBUG: Getting path for card The Hermit (ID: 9, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/9.png?bust=1748051426850
+card-image.tsx:255 Image failed to load: /assets/cards/10.png?bust=1748051424758 for card Wheel of Fortune
+card-image.tsx:141 DEBUG: Getting path for card Wheel of Fortune (ID: 10, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/10.png?bust=1748051427168
+card-image.tsx:255 Image failed to load: /assets/cards/11.png?bust=1748051424759 for card Justice
+card-image.tsx:141 DEBUG: Getting path for card Justice (ID: 11, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/11.png?bust=1748051427206
+card-image.tsx:255 Image failed to load: /assets/cards/12.png?bust=1748051424759 for card The Hanged Man
+card-image.tsx:141 DEBUG: Getting path for card The Hanged Man (ID: 12, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/12.png?bust=1748051427520
+card-image.tsx:255 Image failed to load: /assets/cards/13.png?bust=1748051424760 for card Death
+card-image.tsx:141 DEBUG: Getting path for card Death (ID: 13, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/13.png?bust=1748051427554
+card-image.tsx:255 Image failed to load: /assets/cards/14.png?bust=1748051424760 for card Temperance
+card-image.tsx:141 DEBUG: Getting path for card Temperance (ID: 14, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/14.png?bust=1748051427871
+card-image.tsx:255 Image failed to load: /assets/cards/15.png?bust=1748051424760 for card The Devil
+card-image.tsx:141 DEBUG: Getting path for card The Devil (ID: 15, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/15.png?bust=1748051427900
+card-image.tsx:259 Image loaded successfully: /assets/cards/4.png?bust=1748051424748 for card The Emperor
+card-image.tsx:255 Image failed to load: /assets/cards/16.png?bust=1748051424761 for card The Tower
+card-image.tsx:141 DEBUG: Getting path for card The Tower (ID: 16, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/16.png?bust=1748051428229
+card-image.tsx:255 Image failed to load: /assets/cards/17.png?bust=1748051424761 for card The Star
+card-image.tsx:141 DEBUG: Getting path for card The Star (ID: 17, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/17.png?bust=1748051428288
+card-image.tsx:255 Image failed to load: /assets/cards/18.png?bust=1748051424762 for card The Moon
+card-image.tsx:141 DEBUG: Getting path for card The Moon (ID: 18, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/18.png?bust=1748051428335
+card-image.tsx:259 Image loaded successfully: /assets/cards/0.png?bust=1748051424745 for card The Fool
+card-image.tsx:255 Image failed to load: /assets/cards/19.png?bust=1748051424762 for card The Sun
+card-image.tsx:141 DEBUG: Getting path for card The Sun (ID: 19, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/19.png?bust=1748051428587
+card-image.tsx:255 Image failed to load: /assets/cards/20.png?bust=1748051424763 for card Judgement
+card-image.tsx:141 DEBUG: Getting path for card Judgement (ID: 20, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/20.png?bust=1748051428609
+card-image.tsx:255 Image failed to load: /assets/cards/21.png?bust=1748051424763 for card The World
+card-image.tsx:141 DEBUG: Getting path for card The World (ID: 21, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/21.png?bust=1748051428660
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)Understand this error
+card-image.tsx:259 Image loaded successfully: /assets/cards/3.png?bust=1748051424748 for card The Empress
+card-image.tsx:259 Image loaded successfully: /assets/cards/1.png?bust=1748051424746 for card The Magician
+card-image.tsx:255 Image failed to load: /assets/cards/5.png?bust=1748051425770 for card The Hierophant
+card-image.tsx:141 DEBUG: Getting path for card The Hierophant (ID: 5, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/5.png?bust=1748051432346
+card-image.tsx:255 Image failed to load: /assets/cards/6.png?bust=1748051426113 for card The Lovers
+card-image.tsx:141 DEBUG: Getting path for card The Lovers (ID: 6, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/6.png?bust=1748051432352
+card-image.tsx:255 Image failed to load: /assets/cards/7.png?bust=1748051426457 for card The Chariot
+card-image.tsx:141 DEBUG: Getting path for card The Chariot (ID: 7, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/7.png?bust=1748051432371
+card-image.tsx:255 Image failed to load: /assets/cards/9.png?bust=1748051426850 for card The Hermit
+card-image.tsx:141 DEBUG: Getting path for card The Hermit (ID: 9, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/9.png?bust=1748051432389
+card-image.tsx:255 Image failed to load: /assets/cards/10.png?bust=1748051427168 for card Wheel of Fortune
+card-image.tsx:141 DEBUG: Getting path for card Wheel of Fortune (ID: 10, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/10.png?bust=1748051432523
+card-image.tsx:255 Image failed to load: /assets/cards/8.png?bust=1748051426812 for card Strength
+card-image.tsx:141 DEBUG: Getting path for card Strength (ID: 8, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/8.png?bust=1748051432614
+card-image.tsx:255 Image failed to load: /assets/cards/12.png?bust=1748051427520 for card The Hanged Man
+card-image.tsx:255 Image failed to load: /assets/cards/11.png?bust=1748051427206 for card Justice
+card-image.tsx:141 DEBUG: Getting path for card Justice (ID: 11, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/11.png?bust=1748051432715
+card-image.tsx:141 DEBUG: Getting path for card The Hanged Man (ID: 12, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/12.png?bust=1748051432715
+card-image.tsx:255 Image failed to load: /assets/cards/13.png?bust=1748051427554 for card Death
+card-image.tsx:141 DEBUG: Getting path for card Death (ID: 13, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/13.png?bust=1748051432739
+card-image.tsx:255 Image failed to load: /assets/cards/14.png?bust=1748051427871 for card Temperance
+card-image.tsx:141 DEBUG: Getting path for card Temperance (ID: 14, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/14.png?bust=1748051432756
+card-image.tsx:255 Image failed to load: /assets/cards/15.png?bust=1748051427900 for card The Devil
+card-image.tsx:141 DEBUG: Getting path for card The Devil (ID: 15, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/15.png?bust=1748051432898
+card-image.tsx:255 Image failed to load: /assets/cards/16.png?bust=1748051428229 for card The Tower
+card-image.tsx:141 DEBUG: Getting path for card The Tower (ID: 16, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/16.png?bust=1748051432976
+card-image.tsx:255 Image failed to load: /assets/cards/17.png?bust=1748051428288 for card The Star
+card-image.tsx:141 DEBUG: Getting path for card The Star (ID: 17, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/17.png?bust=1748051433071
+card-image.tsx:255 Image failed to load: /assets/cards/18.png?bust=1748051428335 for card The Moon
+card-image.tsx:141 DEBUG: Getting path for card The Moon (ID: 18, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/18.png?bust=1748051433082
+card-image.tsx:255 Image failed to load: /assets/cards/19.png?bust=1748051428587 for card The Sun
+card-image.tsx:141 DEBUG: Getting path for card The Sun (ID: 19, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/19.png?bust=1748051433092
+card-image.tsx:255 Image failed to load: /assets/cards/20.png?bust=1748051428609 for card Judgement
+card-image.tsx:141 DEBUG: Getting path for card Judgement (ID: 20, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/20.png?bust=1748051433119
+card-image.tsx:255 Image failed to load: /assets/cards/21.png?bust=1748051428660 for card The World
+card-image.tsx:141 DEBUG: Getting path for card The World (ID: 21, arcana: major)
+card-image.tsx:146 DEBUG: Major Arcana - using path: /assets/cards/21.png?bust=1748051433255
