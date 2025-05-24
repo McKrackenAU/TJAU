@@ -138,12 +138,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    // Force authentic numbered images for Major Arcana cards
-    if (card.arcana === 'major' && card.id && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      return `/assets/cards/${card.id}.png?bust=${Date.now()}`;
+    console.log(`DEBUG: Getting path for card ${card.name} (ID: ${card.id}, arcana: ${card.arcana})`);
+    
+    // Force authentic numbered images for ALL Major Arcana cards
+    if (card.arcana === 'major') {
+      const imagePath = `/assets/cards/${card.id}.png?bust=${Date.now()}`;
+      console.log(`DEBUG: Major Arcana - using path: ${imagePath}`);
+      return imagePath;
     }
     
     const path = cardImagePaths[card.id];
+    console.log(`DEBUG: Non-Major Arcana - using mapped path: ${path}`);
     return path || null;
   };
 
