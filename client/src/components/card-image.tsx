@@ -150,7 +150,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     
     // Use timestamped files for Major Arcana cards 0-4 to force browser refresh
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const timestampedPath = `/assets/cards/${card.id}-new-1748061261.png`;
+      const timestamp = card.id === '0' ? '1748061260' : '1748061261';
+      const timestampedPath = `/assets/cards/${card.id}-new-${timestamp}.png`;
       console.log(`🎨 TIMESTAMPED AUTHENTIC ARTWORK for ${card.name}: ${timestampedPath}`);
       return timestampedPath;
     }
