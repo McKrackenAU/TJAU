@@ -148,11 +148,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
-    // Use authentic artwork for Major Arcana cards 0-4
+    // Use timestamped files for Major Arcana cards 0-4 to force browser refresh
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const authenticPath = `/assets/cards/${card.id}-authentic.png?v=${Date.now()}&fresh=true`;
-      console.log(`🎨 AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
-      return authenticPath;
+      const timestampedPath = `/assets/cards/${card.id}-new-1748061261.png`;
+      console.log(`🎨 TIMESTAMPED AUTHENTIC ARTWORK for ${card.name}: ${timestampedPath}`);
+      return timestampedPath;
     }
     
     console.log(`📄 UNIFIED PATH for ${card.name}: ${basePath}`);
