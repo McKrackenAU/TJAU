@@ -1,0 +1,367 @@
+FixedBottomNav: User authenticated, showing nav bar
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: undefined
+library.tsx:74 Filtered cards: 0
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: 121
+library.tsx:74 Filtered cards: 121
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Fool, ID: "0", Arcana: "major"
+card-image.tsx:149 ✨ FRESH AUTHENTIC ARTWORK for The Fool: /authentic-cards/major-arcana/00-fool.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Magician, ID: "1", Arcana: "major"
+card-image.tsx:149 ✨ FRESH AUTHENTIC ARTWORK for The Magician: /authentic-cards/major-arcana/01-magician.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The High Priestess, ID: "2", Arcana: "major"
+card-image.tsx:149 ✨ FRESH AUTHENTIC ARTWORK for The High Priestess: /authentic-cards/major-arcana/02-high-priestess.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Empress, ID: "3", Arcana: "major"
+card-image.tsx:149 ✨ FRESH AUTHENTIC ARTWORK for The Empress: /authentic-cards/major-arcana/03-empress.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Emperor, ID: "4", Arcana: "major"
+card-image.tsx:149 ✨ FRESH AUTHENTIC ARTWORK for The Emperor: /authentic-cards/major-arcana/04-emperor.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hierophant, ID: "5", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hierophant: /authentic-cards/major-arcana/05-hierophant.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Lovers, ID: "6", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Lovers: /authentic-cards/major-arcana/06-lovers.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Chariot, ID: "7", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Chariot: /authentic-cards/major-arcana/07-chariot.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Strength, ID: "8", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Strength: /authentic-cards/major-arcana/08-strength.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hermit, ID: "9", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hermit: /authentic-cards/major-arcana/09-hermit.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Wheel of Fortune, ID: "10", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Wheel of Fortune: /authentic-cards/major-arcana/10-wheel-of-fortune.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Justice, ID: "11", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Justice: /authentic-cards/major-arcana/11-justice.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hanged Man, ID: "12", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hanged Man: /authentic-cards/major-arcana/12-hanged-man.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Death, ID: "13", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Death: /authentic-cards/major-arcana/13-death.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Temperance, ID: "14", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Temperance: /authentic-cards/major-arcana/14-temperance.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Devil, ID: "15", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Devil: /authentic-cards/major-arcana/15-devil.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Tower, ID: "16", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Tower: /authentic-cards/major-arcana/16-tower.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Star, ID: "17", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Star: /authentic-cards/major-arcana/17-star.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Moon, ID: "18", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Moon: /authentic-cards/major-arcana/18-moon.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Sun, ID: "19", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Sun: /authentic-cards/major-arcana/19-sun.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Judgement, ID: "20", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Judgement: /authentic-cards/major-arcana/20-judgement.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The World, ID: "21", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The World: /authentic-cards/major-arcana/21-world.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ace of Wands, ID: "w1", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ace of Wands: /assets/cards/ace-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Two of Wands, ID: "w2", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Two of Wands: /assets/cards/two-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Three of Wands, ID: "w3", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Three of Wands: /assets/cards/three-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Four of Wands, ID: "w4", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Four of Wands: /assets/cards/four-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Five of Wands, ID: "w5", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Five of Wands: /assets/cards/five-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Six of Wands, ID: "w6", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Six of Wands: /assets/cards/six-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Seven of Wands, ID: "w7", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Seven of Wands: /assets/cards/seven-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Eight of Wands, ID: "w8", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Eight of Wands: /assets/cards/eight-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Nine of Wands, ID: "w9", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Nine of Wands: /assets/cards/nine-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ten of Wands, ID: "w10", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ten of Wands: /assets/cards/ten-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Page of Wands, ID: "wp", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Page of Wands: /assets/cards/page-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Knight of Wands, ID: "wn", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Knight of Wands: /assets/cards/knight-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Queen of Wands, ID: "wq", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Queen of Wands: /assets/cards/queen-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: King of Wands, ID: "wk", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for King of Wands: /assets/cards/king-of-wands.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ace of Cups, ID: "c1", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ace of Cups: /assets/cards/ace-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Two of Cups, ID: "c2", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Two of Cups: /assets/cards/two-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Three of Cups, ID: "c3", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Three of Cups: /assets/cards/three-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Four of Cups, ID: "c4", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Four of Cups: /assets/cards/four-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Five of Cups, ID: "c5", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Five of Cups: /assets/cards/five-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Six of Cups, ID: "c6", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Six of Cups: /assets/cards/six-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Seven of Cups, ID: "c7", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Seven of Cups: /assets/cards/seven-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Eight of Cups, ID: "c8", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Eight of Cups: /assets/cards/eight-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Nine of Cups, ID: "c9", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Nine of Cups: /assets/cards/nine-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ten of Cups, ID: "c10", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ten of Cups: /assets/cards/ten-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Page of Cups, ID: "cp", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Page of Cups: /assets/cards/page-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Knight of Cups, ID: "cn", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Knight of Cups: /assets/cards/knight-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Queen of Cups, ID: "cq", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Queen of Cups: /assets/cards/queen-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: King of Cups, ID: "ck", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for King of Cups: /assets/cards/king-of-cups.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ace of Swords, ID: "s1", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ace of Swords: /assets/cards/ace-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Two of Swords, ID: "s2", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Two of Swords: /assets/cards/two-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Three of Swords, ID: "s3", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Three of Swords: /assets/cards/three-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Four of Swords, ID: "s4", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Four of Swords: /assets/cards/four-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Five of Swords, ID: "s5", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Five of Swords: /assets/cards/five-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Six of Swords, ID: "s6", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Six of Swords: /assets/cards/six-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Seven of Swords, ID: "s7", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Seven of Swords: /assets/cards/seven-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Eight of Swords, ID: "s8", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Eight of Swords: /assets/cards/eight-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Nine of Swords, ID: "s9", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Nine of Swords: /assets/cards/nine-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ten of Swords, ID: "s10", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ten of Swords: /assets/cards/ten-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Page of Swords, ID: "sp", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Page of Swords: /assets/cards/page-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Knight of Swords, ID: "sn", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Knight of Swords: /assets/cards/knight-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Queen of Swords, ID: "sq", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Queen of Swords: /assets/cards/queen-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: King of Swords, ID: "sk", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for King of Swords: /assets/cards/king-of-swords.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ace of Pentacles, ID: "p1", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ace of Pentacles: /assets/cards/ace-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Two of Pentacles, ID: "p2", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Two of Pentacles: /assets/cards/two-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Three of Pentacles, ID: "p3", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Three of Pentacles: /assets/cards/three-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Four of Pentacles, ID: "p4", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Four of Pentacles: /assets/cards/four-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Five of Pentacles, ID: "p5", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Five of Pentacles: /assets/cards/five-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Six of Pentacles, ID: "p6", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Six of Pentacles: /assets/cards/six-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Seven of Pentacles, ID: "p7", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Seven of Pentacles: /assets/cards/seven-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Eight of Pentacles, ID: "p8", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Eight of Pentacles: /assets/cards/eight-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Nine of Pentacles, ID: "p9", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Nine of Pentacles: /assets/cards/nine-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ten of Pentacles, ID: "p10", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Ten of Pentacles: /assets/cards/ten-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Page of Pentacles, ID: "pp", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Page of Pentacles: /assets/cards/page-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Knight of Pentacles, ID: "pn", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Knight of Pentacles: /assets/cards/knight-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Queen of Pentacles, ID: "pq", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for Queen of Pentacles: /assets/cards/queen-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: King of Pentacles, ID: "pk", Arcana: "minor"
+card-image.tsx:161 📄 STANDARD PATH for King of Pentacles: /assets/cards/king-of-pentacles.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Judgment, ID: "imported_261", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Judgment: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Element of Air, ID: "imported_319", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for The Element of Air: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Element of Earth, ID: "imported_320", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for The Element of Earth: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Element of Fire, ID: "imported_321", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for The Element of Fire: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Element of Water, ID: "imported_322", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for The Element of Water: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Guidance, ID: "imported_323", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Guidance: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Cosmic Connections, ID: "imported_324", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Cosmic Connections: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Spiritual Awakening, ID: "imported_325", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Spiritual Awakening: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Sacred Geometry, ID: "imported_326", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Sacred Geometry: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Elemental Allies, ID: "imported_327", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Elemental Allies: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Lunar Phases, ID: "imported_328", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Lunar Phases: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Solar Energies, ID: "imported_329", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Solar Energies: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Chakra Activation, ID: "imported_330", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Chakra Activation: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Crystals and Gemstones, ID: "imported_331", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Crystals and Gemstones: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Nature's Wisdom, ID: "imported_332", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Nature's Wisdom: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Dream Exploration, ID: "imported_333", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Dream Exploration: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Astral Travel, ID: "imported_334", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Astral Travel: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Soul Contracts, ID: "imported_335", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Soul Contracts: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Akashic Records, ID: "imported_336", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Akashic Records: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Spirit Guides, ID: "imported_337", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Spirit Guides: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Feminine, ID: "imported_338", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Feminine: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Masculine, ID: "imported_339", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Masculine: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Universal Love, ID: "imported_340", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Universal Love: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Synchronicity, ID: "imported_341", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Synchronicity: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Sacred Rituals, ID: "imported_342", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Sacred Rituals: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Inner Alchemy, ID: "imported_343", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Inner Alchemy: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Soulmates and Twin Flames, ID: "imported_344", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Soulmates and Twin Flames: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Karmic Lessons, ID: "imported_345", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Karmic Lessons: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ascended Masters, ID: "imported_346", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Ascended Masters: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Sacred Symbols, ID: "imported_347", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Sacred Symbols: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Timing, ID: "imported_348", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Timing: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Inner Healing, ID: "imported_349", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Inner Healing: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Ancestral Wisdom, ID: "imported_350", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Ancestral Wisdom: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Soulful Expression, ID: "imported_351", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Soulful Expression: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Protection, ID: "imported_352", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Protection: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Gratitude and Abundance, ID: "imported_353", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Gratitude and Abundance: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Inner Child Healing, ID: "imported_354", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Inner Child Healing: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Soulful Relationships, ID: "imported_355", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Soulful Relationships: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Meditation and Mindfulness, ID: "imported_356", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Meditation and Mindfulness: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Energy Clearing, ID: "imported_357", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Energy Clearing: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Divine Purpose, ID: "imported_358", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Divine Purpose: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Cosmic Balance, ID: "imported_359", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Cosmic Balance: null
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Infinite Possibilities, ID: "imported_360", Arcana: "custom"
+card-image.tsx:157 📄 NO PATH for Infinite Possibilities: null
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/05-hierophant.png for card The Hierophant
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/06-lovers.png for card The Lovers
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/07-chariot.png for card The Chariot
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/08-strength.png for card Strength
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/09-hermit.png for card The Hermit
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/10-wheel-of-fortune.png for card Wheel of Fortune
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/11-justice.png for card Justice
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/12-hanged-man.png for card The Hanged Man
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/13-death.png for card Death
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/14-temperance.png for card Temperance
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/15-devil.png for card The Devil
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/16-tower.png for card The Tower
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/17-star.png for card The Star
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/18-moon.png for card The Moon
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/19-sun.png for card The Sun
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/20-judgement.png for card Judgement
+card-image.tsx:267 🚨 Image failed to load: /authentic-cards/major-arcana/21-world.png for card The World
+card-image.tsx:274 ✅ Image loaded successfully: /authentic-cards/major-arcana/00-fool.png for card The Fool
+card-image.tsx:274 ✅ Image loaded successfully: /authentic-cards/major-arcana/01-magician.png for card The Magician
+card-image.tsx:274 ✅ Image loaded successfully: /authentic-cards/major-arcana/02-high-priestess.png for card The High Priestess
+card-image.tsx:274 ✅ Image loaded successfully: /authentic-cards/major-arcana/03-empress.png for card The Empress
+card-image.tsx:274 ✅ Image loaded successfully: /authentic-cards/major-arcana/04-emperor.png for card The Emperor
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ace-of-wands.png for card Ace of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/two-of-wands.png for card Two of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/three-of-wands.png for card Three of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/four-of-wands.png for card Four of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/five-of-wands.png for card Five of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/six-of-wands.png for card Six of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/seven-of-wands.png for card Seven of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/nine-of-wands.png for card Nine of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ten-of-wands.png for card Ten of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/page-of-wands.png for card Page of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/knight-of-wands.png for card Knight of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/queen-of-wands.png for card Queen of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/king-of-wands.png for card King of Wands
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ace-of-cups.png for card Ace of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/two-of-cups.png for card Two of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/three-of-cups.png for card Three of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/four-of-cups.png for card Four of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/five-of-cups.png for card Five of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/six-of-cups.png for card Six of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/seven-of-cups.png for card Seven of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/eight-of-cups.png for card Eight of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/nine-of-cups.png for card Nine of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ten-of-cups.png for card Ten of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/page-of-cups.png for card Page of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/knight-of-cups.png for card Knight of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/queen-of-cups.png for card Queen of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/king-of-cups.png for card King of Cups
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ace-of-swords.png for card Ace of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/two-of-swords.png for card Two of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/three-of-swords.png for card Three of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/four-of-swords.png for card Four of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/five-of-swords.png for card Five of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/six-of-swords.png for card Six of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/seven-of-swords.png for card Seven of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/eight-of-swords.png for card Eight of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/nine-of-swords.png for card Nine of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ten-of-swords.png for card Ten of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/page-of-swords.png for card Page of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/knight-of-swords.png for card Knight of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/queen-of-swords.png for card Queen of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/king-of-swords.png for card King of Swords
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ace-of-pentacles.png for card Ace of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/two-of-pentacles.png for card Two of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/three-of-pentacles.png for card Three of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/four-of-pentacles.png for card Four of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/five-of-pentacles.png for card Five of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/six-of-pentacles.png for card Six of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/seven-of-pentacles.png for card Seven of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/eight-of-pentacles.png for card Eight of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/nine-of-pentacles.png for card Nine of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/ten-of-pentacles.png for card Ten of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/page-of-pentacles.png for card Page of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/knight-of-pentacles.png for card Knight of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/queen-of-pentacles.png for card Queen of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/king-of-pentacles.png for card King of Pentacles
+card-image.tsx:274 ✅ Image loaded successfully: /assets/cards/eight-of-wands.png for card Eight of Wands
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hierophant, ID: "5", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hierophant: /authentic-cards/major-arcana/05-hierophant.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Lovers, ID: "6", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Lovers: /authentic-cards/major-arcana/06-lovers.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Chariot, ID: "7", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Chariot: /authentic-cards/major-arcana/07-chariot.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Strength, ID: "8", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Strength: /authentic-cards/major-arcana/08-strength.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hermit, ID: "9", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hermit: /authentic-cards/major-arcana/09-hermit.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Wheel of Fortune, ID: "10", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Wheel of Fortune: /authentic-cards/major-arcana/10-wheel-of-fortune.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Justice, ID: "11", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Justice: /authentic-cards/major-arcana/11-justice.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Hanged Man, ID: "12", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Hanged Man: /authentic-cards/major-arcana/12-hanged-man.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Death, ID: "13", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Death: /authentic-cards/major-arcana/13-death.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Temperance, ID: "14", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Temperance: /authentic-cards/major-arcana/14-temperance.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Devil, ID: "15", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Devil: /authentic-cards/major-arcana/15-devil.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Tower, ID: "16", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Tower: /authentic-cards/major-arcana/16-tower.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Star, ID: "17", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Star: /authentic-cards/major-arcana/17-star.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Moon, ID: "18", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Moon: /authentic-cards/major-arcana/18-moon.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The Sun, ID: "19", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The Sun: /authentic-cards/major-arcana/19-sun.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: Judgement, ID: "20", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for Judgement: /authentic-cards/major-arcana/20-judgement.png
+card-image.tsx:143 🌟 FRESH CARD SYSTEM: The World, ID: "21", Arcana: "major"
+card-image.tsx:161 📄 STANDARD PATH for The World: /authentic-cards/major-arcana/21-world.png
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
