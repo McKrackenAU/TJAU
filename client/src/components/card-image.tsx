@@ -143,11 +143,14 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
       // Use current timestamp to force completely fresh load every time
       const cacheBuster = Date.now();
-      return `/assets/cards/${card.id}.png?cb=${cacheBuster}&authentic=true&v=2`;
+      const path = `/assets/cards/${card.id}.png?cb=${cacheBuster}&authentic=true&v=3`;
+      console.log(`🎯 AUTHENTIC PATH for ${card.name}: ${path}`);
+      return path;
     }
     
     // For other cards, use the mapping
     const path = cardImagePaths[card.id];
+    console.log(`📄 REGULAR PATH for ${card.name}: ${path}`);
     return path || null;
   };
 
