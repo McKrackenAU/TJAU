@@ -1,0 +1,531 @@
+5TarotJourney:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was receivedUnderstand this error
+ Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=0 for card The Fool
+ Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=0 for card The Magician
+ Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=0 for card The High Priestess
+ Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=0 for card The Empress
+ Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=0 for card The Emperor
+ Image loaded successfully: /assets/cards/ace-of-wands.png for card Ace of Wands
+ Image loaded successfully: /assets/cards/two-of-wands.png for card Two of Wands
+ Image loaded successfully: /assets/cards/three-of-wands.png for card Three of Wands
+ Image loaded successfully: /assets/cards/four-of-wands.png for card Four of Wands
+ Image loaded successfully: /assets/cards/five-of-wands.png for card Five of Wands
+ Image loaded successfully: /assets/cards/six-of-wands.png for card Six of Wands
+ Image loaded successfully: /assets/cards/seven-of-wands.png for card Seven of Wands
+ Image loaded successfully: /assets/cards/eight-of-wands.png for card Eight of Wands
+ Image loaded successfully: /assets/cards/nine-of-wands.png for card Nine of Wands
+ Image loaded successfully: /assets/cards/ten-of-wands.png for card Ten of Wands
+ Image loaded successfully: /assets/cards/page-of-wands.png for card Page of Wands
+ Image loaded successfully: /assets/cards/knight-of-wands.png for card Knight of Wands
+ Image loaded successfully: /assets/cards/queen-of-wands.png for card Queen of Wands
+ Image loaded successfully: /assets/cards/king-of-wands.png for card King of Wands
+ Image loaded successfully: /assets/cards/ace-of-cups.png for card Ace of Cups
+ Image loaded successfully: /assets/cards/two-of-cups.png for card Two of Cups
+ Image loaded successfully: /assets/cards/three-of-cups.png for card Three of Cups
+ Image loaded successfully: /assets/cards/four-of-cups.png for card Four of Cups
+ Image loaded successfully: /assets/cards/five-of-cups.png for card Five of Cups
+ Image loaded successfully: /assets/cards/six-of-cups.png for card Six of Cups
+ Image loaded successfully: /assets/cards/seven-of-cups.png for card Seven of Cups
+ Image loaded successfully: /assets/cards/eight-of-cups.png for card Eight of Cups
+ Image loaded successfully: /assets/cards/nine-of-cups.png for card Nine of Cups
+ Image loaded successfully: /assets/cards/ten-of-cups.png for card Ten of Cups
+ Image loaded successfully: /assets/cards/page-of-cups.png for card Page of Cups
+ Image loaded successfully: /assets/cards/knight-of-cups.png for card Knight of Cups
+ Image loaded successfully: /assets/cards/queen-of-cups.png for card Queen of Cups
+ Image loaded successfully: /assets/cards/king-of-cups.png for card King of Cups
+ Image loaded successfully: /assets/cards/ace-of-swords.png for card Ace of Swords
+ Image loaded successfully: /assets/cards/two-of-swords.png for card Two of Swords
+ Image loaded successfully: /assets/cards/three-of-swords.png for card Three of Swords
+ Image loaded successfully: /assets/cards/four-of-swords.png for card Four of Swords
+ Image loaded successfully: /assets/cards/five-of-swords.png for card Five of Swords
+ Image loaded successfully: /assets/cards/six-of-swords.png for card Six of Swords
+ Image loaded successfully: /assets/cards/seven-of-swords.png for card Seven of Swords
+ Image loaded successfully: /assets/cards/eight-of-swords.png for card Eight of Swords
+ Image loaded successfully: /assets/cards/nine-of-swords.png for card Nine of Swords
+ Image loaded successfully: /assets/cards/ten-of-swords.png for card Ten of Swords
+ Image loaded successfully: /assets/cards/page-of-swords.png for card Page of Swords
+ Image loaded successfully: /assets/cards/knight-of-swords.png for card Knight of Swords
+ Image loaded successfully: /assets/cards/queen-of-swords.png for card Queen of Swords
+ Image loaded successfully: /assets/cards/king-of-swords.png for card King of Swords
+ Image loaded successfully: /assets/cards/ace-of-pentacles.png for card Ace of Pentacles
+ Image loaded successfully: /assets/cards/two-of-pentacles.png for card Two of Pentacles
+ Image loaded successfully: /assets/cards/three-of-pentacles.png for card Three of Pentacles
+ Image loaded successfully: /assets/cards/four-of-pentacles.png for card Four of Pentacles
+ Image loaded successfully: /assets/cards/five-of-pentacles.png for card Five of Pentacles
+ Image loaded successfully: /assets/cards/six-of-pentacles.png for card Six of Pentacles
+ Image loaded successfully: /assets/cards/seven-of-pentacles.png for card Seven of Pentacles
+ Image loaded successfully: /assets/cards/eight-of-pentacles.png for card Eight of Pentacles
+ Image loaded successfully: /assets/cards/nine-of-pentacles.png for card Nine of Pentacles
+ Image loaded successfully: /assets/cards/ten-of-pentacles.png for card Ten of Pentacles
+ Image loaded successfully: /assets/cards/page-of-pentacles.png for card Page of Pentacles
+ Image loaded successfully: /assets/cards/knight-of-pentacles.png for card Knight of Pentacles
+ Image loaded successfully: /assets/cards/queen-of-pentacles.png for card Queen of Pentacles
+ Image loaded successfully: /assets/cards/king-of-pentacles.png for card King of Pentacles
+ Image loaded successfully: /assets/cards/lunar-phases.png for card Lunar Phases
+ Image loaded successfully: /assets/cards/solar-energies.png for card Solar Energies
+ Image loaded successfully: /assets/cards/natures-wisdom.png for card Nature's Wisdom
+ Image loaded successfully: /assets/cards/dream-exploration.png for card Dream Exploration
+ Image loaded successfully: /assets/cards/astral-travel.png for card Astral Travel
+ Image loaded successfully: /assets/cards/soul-contracts.png for card Soul Contracts
+ Image loaded successfully: /assets/cards/akashic-records.png for card Akashic Records
+ Image loaded successfully: /assets/cards/spirit-guides.png for card Spirit Guides
+ Image loaded successfully: /assets/cards/divine-feminine.png for card Divine Feminine
+ Image loaded successfully: /assets/cards/divine-masculine.png for card Divine Masculine
+ Image loaded successfully: /assets/cards/universal-love.png for card Universal Love
+ Image loaded successfully: /assets/cards/synchronicity.png for card Synchronicity
+ Image loaded successfully: /assets/cards/sacred-rituals.png for card Sacred Rituals
+ Image loaded successfully: /assets/cards/inner-alchemy.png for card Inner Alchemy
+ Image loaded successfully: /assets/cards/soulmates-twin-flames.png for card Soulmates and Twin Flames
+ Image loaded successfully: /assets/cards/ascended-masters.png for card Karmic Lessons
+ Image loaded successfully: /assets/cards/divine-timing.png for card Ascended Masters
+ Image loaded successfully: /assets/cards/inner-healing.png for card Sacred Symbols
+ Image loaded successfully: /assets/cards/ancestral-wisdom.png for card Divine Timing
+ Image loaded successfully: /assets/cards/soulful-expression.png for card Inner Healing
+ Image loaded successfully: /assets/cards/divine-protection.png for card Ancestral Wisdom
+ Image loaded successfully: /assets/cards/gratitude-abundance.png for card Soulful Expression
+ Image loaded successfully: /assets/cards/inner-child-healing.png for card Divine Protection
+ Image loaded successfully: /assets/cards/soulful-relationships.png for card Gratitude and Abundance
+ Image loaded successfully: /assets/cards/meditation-mindfulness.png for card Inner Child Healing
+ Image loaded successfully: /assets/cards/cosmic-balance.png for card Soulful Relationships
+ Image loaded successfully: /assets/cards/infinite-possibilities.png for card Meditation and Mindfulness
+ Image failed to load: /assets/cards/6.png for card The Lovers
+ Image failed to load: /assets/cards/5.png for card The Hierophant
+ Image failed to load: /assets/cards/7.png for card The Chariot
+ Image failed to load: /assets/cards/8.png for card Strength
+ Image failed to load: /assets/cards/9.png for card The Hermit
+ Image failed to load: /assets/cards/10.png for card Wheel of Fortune
+ Image failed to load: /assets/cards/11.png for card Justice
+ Image failed to load: /assets/cards/12.png for card The Hanged Man
+ Image failed to load: /assets/cards/13.png for card Death
+ Image failed to load: /assets/cards/14.png for card Temperance
+ Image failed to load: /assets/cards/15.png for card The Devil
+ Image failed to load: /assets/cards/16.png for card The Tower
+ Image failed to load: /assets/cards/17.png for card The Star
+ Image failed to load: /assets/cards/18.png for card The Moon
+ Image failed to load: /assets/cards/19.png for card The Sun
+ Image failed to load: /assets/cards/20.png for card Judgement
+ Image failed to load: /assets/cards/21.png for card The World
+ Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=1 for card The Emperor
+ Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=1 for card The High Priestess
+ Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=1 for card The Magician
+ Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=1 for card The Empress
+ Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=1 for card The Fool
+ Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=2 for card The Emperor
+course-lessons.ts:14391 CRITICAL: No lesson found for p5 in either Minor Arcana or Intuitive Reading
+course-lessons.ts:14549 Rebuilt Minor Arcana lessons: 57 total
+course-lessons.ts:14550 Sequence verification:
+course-lessons.ts:14552 1. minor-1 - Card: intro
+course-lessons.ts:14552 2. minor-wands-ace - Card: w1
+course-lessons.ts:14552 3. minor-wands-two - Card: w2
+course-lessons.ts:14552 4. minor-wands-three - Card: w3
+course-lessons.ts:14552 5. minor-wands-four - Card: w4
+course-lessons.ts:14552 6. minor-wands-five - Card: w5
+course-lessons.ts:14552 7. minor-wands-six - Card: w6
+course-lessons.ts:14552 8. minor-wands-seven - Card: w7
+course-lessons.ts:14552 9. minor-wands-eight - Card: w8
+course-lessons.ts:14552 10. minor-wands-nine - Card: w9
+course-lessons.ts:14552 11. minor-wands-ten - Card: w10
+course-lessons.ts:14552 12. minor-wands-page - Card: wp
+course-lessons.ts:14552 13. minor-wands-knight - Card: wn
+course-lessons.ts:14552 14. minor-wands-queen - Card: wq
+course-lessons.ts:14552 15. minor-wands-king - Card: wk
+course-lessons.ts:14552 16. minor-cups-ace - Card: c1
+course-lessons.ts:14552 17. minor-cups-two - Card: c2
+course-lessons.ts:14552 18. minor-cups-three - Card: c3
+course-lessons.ts:14552 19. minor-cups-four - Card: c4
+course-lessons.ts:14552 20. minor-cups-five - Card: c5
+course-lessons.ts:14552 21. minor-cups-six - Card: c6
+course-lessons.ts:14552 22. minor-cups-seven - Card: c7
+course-lessons.ts:14552 23. minor-cups-eight - Card: c8
+course-lessons.ts:14552 24. minor-cups-nine - Card: c9
+course-lessons.ts:14552 25. minor-cups-ten - Card: c10
+course-lessons.ts:14552 26. minor-cups-page - Card: cp
+course-lessons.ts:14552 27. minor-cups-knight - Card: cn
+course-lessons.ts:14552 28. minor-cups-queen - Card: cq
+course-lessons.ts:14552 29. minor-cups-king - Card: ck
+course-lessons.ts:14552 30. minor-pentacles-ace - Card: p1
+course-lessons.ts:14552 31. minor-pentacles-two - Card: p2
+course-lessons.ts:14552 32. minor-pentacles-three - Card: p3
+course-lessons.ts:14552 33. minor-pentacles-four - Card: p4
+course-lessons.ts:14552 34. minor-pentacles-five - Card: p5
+course-lessons.ts:14552 35. minor-pentacles-six - Card: p6
+course-lessons.ts:14552 36. minor-pentacles-seven - Card: p7
+course-lessons.ts:14552 37. minor-pentacles-eight - Card: p8
+course-lessons.ts:14552 38. minor-pentacles-nine - Card: p9
+course-lessons.ts:14552 39. minor-pentacles-ten - Card: p10
+course-lessons.ts:14552 40. minor-pentacles-page - Card: pp
+course-lessons.ts:14552 41. minor-pentacles-knight - Card: pn
+course-lessons.ts:14552 42. minor-pentacles-queen - Card: pq
+course-lessons.ts:14552 43. minor-pentacles-king - Card: pk
+course-lessons.ts:14552 44. minor-swords-ace - Card: s1
+course-lessons.ts:14552 45. minor-swords-two - Card: s2
+course-lessons.ts:14552 46. minor-swords-three - Card: s3
+course-lessons.ts:14552 47. minor-swords-four - Card: s4
+course-lessons.ts:14552 48. minor-swords-five - Card: s5
+course-lessons.ts:14552 49. minor-swords-six - Card: s6
+course-lessons.ts:14552 50. minor-swords-seven - Card: s7
+course-lessons.ts:14552 51. minor-swords-eight - Card: s8
+course-lessons.ts:14552 52. minor-swords-nine - Card: s9
+course-lessons.ts:14552 53. minor-swords-ten - Card: s10
+course-lessons.ts:14552 54. minor-swords-page - Card: sp
+course-lessons.ts:14552 55. minor-swords-knight - Card: sn
+course-lessons.ts:14552 56. minor-swords-queen - Card: sq
+course-lessons.ts:14552 57. minor-swords-king - Card: sk
+course-lessons.ts:14596 Updating existing lesson advanced-1 to advanced-11 for card 10
+course-lessons.ts:14596 Updating existing lesson advanced-2 to advanced-13 for card 12
+course-lessons.ts:14596 Updating existing lesson advanced-3 to advanced-14 for card 13
+course-lessons.ts:14596 Updating existing lesson advanced-4 to advanced-17 for card 16
+course-lessons.ts:14596 Updating existing lesson advanced-5 to advanced-18 for card 17
+course-lessons.ts:14690 Creating lesson advanced-6 for card 0 (The Fool)
+course-lessons.ts:14690 Creating lesson advanced-7 for card 1 (The Magician)
+course-lessons.ts:14690 Creating lesson advanced-8 for card 2 (The High Priestess)
+course-lessons.ts:14690 Creating lesson advanced-9 for card 3 (The Empress)
+course-lessons.ts:14690 Creating lesson advanced-10 for card 4 (The Emperor)
+course-lessons.ts:14690 Creating lesson advanced-11 for card 5 (The Hierophant)
+course-lessons.ts:14690 Creating lesson advanced-12 for card 6 (The Lovers)
+course-lessons.ts:14690 Creating lesson advanced-13 for card 7 (The Chariot)
+course-lessons.ts:14690 Creating lesson advanced-14 for card 8 (Strength)
+course-lessons.ts:14690 Creating lesson advanced-15 for card 9 (The Hermit)
+course-lessons.ts:14690 Creating lesson advanced-16 for card 11 (Justice)
+course-lessons.ts:14690 Creating lesson advanced-17 for card 14 (Temperance)
+course-lessons.ts:14690 Creating lesson advanced-18 for card 15 (The Devil)
+course-lessons.ts:14690 Creating lesson advanced-19 for card 18 (The Moon)
+course-lessons.ts:14690 Creating lesson advanced-20 for card 19 (The Sun)
+course-lessons.ts:14690 Creating lesson advanced-21 for card 20 (Judgement)
+course-lessons.ts:14690 Creating lesson advanced-22 for card 21 (The World)
+course-lessons.ts:14690 Creating lesson advanced-23 for card w1 (Ace of Wands)
+course-lessons.ts:14690 Creating lesson advanced-24 for card w2 (Two of Wands)
+course-lessons.ts:14690 Creating lesson advanced-25 for card w3 (Three of Wands)
+course-lessons.ts:14690 Creating lesson advanced-26 for card w4 (Four of Wands)
+course-lessons.ts:14690 Creating lesson advanced-27 for card w5 (Five of Wands)
+course-lessons.ts:14690 Creating lesson advanced-28 for card w6 (Six of Wands)
+course-lessons.ts:14690 Creating lesson advanced-29 for card w7 (Seven of Wands)
+course-lessons.ts:14690 Creating lesson advanced-30 for card w8 (Eight of Wands)
+course-lessons.ts:14690 Creating lesson advanced-31 for card w9 (Nine of Wands)
+course-lessons.ts:14690 Creating lesson advanced-32 for card w10 (Ten of Wands)
+course-lessons.ts:14690 Creating lesson advanced-33 for card wp (Page of Wands)
+course-lessons.ts:14690 Creating lesson advanced-34 for card wn (Knight of Wands)
+course-lessons.ts:14690 Creating lesson advanced-35 for card wq (Queen of Wands)
+course-lessons.ts:14690 Creating lesson advanced-36 for card wk (King of Wands)
+course-lessons.ts:14690 Creating lesson advanced-37 for card c1 (Ace of Cups)
+course-lessons.ts:14690 Creating lesson advanced-38 for card c2 (Two of Cups)
+course-lessons.ts:14690 Creating lesson advanced-39 for card c3 (Three of Cups)
+course-lessons.ts:14690 Creating lesson advanced-40 for card c4 (Four of Cups)
+course-lessons.ts:14690 Creating lesson advanced-41 for card c5 (Five of Cups)
+course-lessons.ts:14690 Creating lesson advanced-42 for card c6 (Six of Cups)
+course-lessons.ts:14690 Creating lesson advanced-43 for card c7 (Seven of Cups)
+course-lessons.ts:14690 Creating lesson advanced-44 for card c8 (Eight of Cups)
+course-lessons.ts:14690 Creating lesson advanced-45 for card c9 (Nine of Cups)
+course-lessons.ts:14690 Creating lesson advanced-46 for card c10 (Ten of Cups)
+course-lessons.ts:14690 Creating lesson advanced-47 for card cp (Page of Cups)
+course-lessons.ts:14690 Creating lesson advanced-48 for card cn (Knight of Cups)
+course-lessons.ts:14690 Creating lesson advanced-49 for card cq (Queen of Cups)
+course-lessons.ts:14690 Creating lesson advanced-50 for card ck (King of Cups)
+course-lessons.ts:14690 Creating lesson advanced-51 for card p1 (Ace of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-52 for card p2 (Two of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-53 for card p3 (Three of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-54 for card p4 (Four of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-55 for card p5 (Five of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-56 for card p6 (Six of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-57 for card p7 (Seven of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-58 for card p8 (Eight of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-59 for card p9 (Nine of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-60 for card p10 (Ten of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-61 for card pp (Page of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-62 for card pn (Knight of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-63 for card pq (Queen of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-64 for card pk (King of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-65 for card s1 (Ace of Swords)
+course-lessons.ts:14690 Creating lesson advanced-66 for card s2 (Two of Swords)
+course-lessons.ts:14690 Creating lesson advanced-67 for card s3 (Three of Swords)
+course-lessons.ts:14690 Creating lesson advanced-68 for card s4 (Four of Swords)
+course-lessons.ts:14690 Creating lesson advanced-69 for card s5 (Five of Swords)
+course-lessons.ts:14690 Creating lesson advanced-70 for card s6 (Six of Swords)
+course-lessons.ts:14690 Creating lesson advanced-71 for card s7 (Seven of Swords)
+course-lessons.ts:14690 Creating lesson advanced-72 for card s8 (Eight of Swords)
+course-lessons.ts:14690 Creating lesson advanced-73 for card s9 (Nine of Swords)
+course-lessons.ts:14690 Creating lesson advanced-74 for card s10 (Ten of Swords)
+course-lessons.ts:14690 Creating lesson advanced-75 for card sp (Page of Swords)
+course-lessons.ts:14690 Creating lesson advanced-76 for card sn (Knight of Swords)
+course-lessons.ts:14690 Creating lesson advanced-77 for card sq (Queen of Swords)
+course-lessons.ts:14690 Creating lesson advanced-78 for card sk (King of Swords)
+course-lessons.ts:14800 Creating major arcana lesson advanced-1 for card 0 (The Fool)
+course-lessons.ts:14800 Creating major arcana lesson advanced-2 for card 1 (The Magician)
+course-lessons.ts:14800 Creating major arcana lesson advanced-3 for card 2 (The High Priestess)
+course-lessons.ts:14800 Creating major arcana lesson advanced-4 for card 3 (The Empress)
+course-lessons.ts:14800 Creating major arcana lesson advanced-5 for card 4 (The Emperor)
+course-lessons.ts:14800 Creating major arcana lesson advanced-6 for card 5 (The Hierophant)
+course-lessons.ts:14800 Creating major arcana lesson advanced-7 for card 6 (The Lovers)
+course-lessons.ts:14800 Creating major arcana lesson advanced-8 for card 7 (The Chariot)
+course-lessons.ts:14800 Creating major arcana lesson advanced-9 for card 8 (Strength)
+course-lessons.ts:14800 Creating major arcana lesson advanced-10 for card 9 (The Hermit)
+course-lessons.ts:14800 Creating major arcana lesson advanced-12 for card 11 (Justice)
+course-lessons.ts:14800 Creating major arcana lesson advanced-15 for card 14 (Temperance)
+course-lessons.ts:14800 Creating major arcana lesson advanced-16 for card 15 (The Devil)
+course-lessons.ts:14800 Creating major arcana lesson advanced-19 for card 18 (The Moon)
+course-lessons.ts:14800 Creating major arcana lesson advanced-20 for card 19 (The Sun)
+course-lessons.ts:14800 Creating major arcana lesson advanced-21 for card 20 (Judgement)
+course-lessons.ts:14800 Creating major arcana lesson advanced-22 for card 21 (The World)
+course-lessons.ts:14914 Complete Advanced Symbolism course: 78 lessons
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:49 FixedBottomNav: User authenticated, showing nav bar
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: undefined
+library.tsx:74 Filtered cards: 0
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: 121
+library.tsx:74 Filtered cards: 121
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+card-image.tsx:254 Image failed to load: /assets/cards/5.png for card The Hierophant
+card-image.tsx:254 Image failed to load: /assets/cards/6.png for card The Lovers
+card-image.tsx:254 Image failed to load: /assets/cards/7.png for card The Chariot
+card-image.tsx:254 Image failed to load: /assets/cards/8.png for card Strength
+card-image.tsx:254 Image failed to load: /assets/cards/9.png for card The Hermit
+card-image.tsx:254 Image failed to load: /assets/cards/10.png for card Wheel of Fortune
+card-image.tsx:254 Image failed to load: /assets/cards/11.png for card Justice
+card-image.tsx:254 Image failed to load: /assets/cards/12.png for card The Hanged Man
+card-image.tsx:254 Image failed to load: /assets/cards/13.png for card Death
+card-image.tsx:254 Image failed to load: /assets/cards/14.png for card Temperance
+card-image.tsx:254 Image failed to load: /assets/cards/15.png for card The Devil
+card-image.tsx:254 Image failed to load: /assets/cards/16.png for card The Tower
+card-image.tsx:254 Image failed to load: /assets/cards/17.png for card The Star
+card-image.tsx:254 Image failed to load: /assets/cards/18.png for card The Moon
+card-image.tsx:254 Image failed to load: /assets/cards/19.png for card The Sun
+card-image.tsx:254 Image failed to load: /assets/cards/20.png for card Judgement
+card-image.tsx:254 Image failed to load: /assets/cards/21.png for card The World
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=0 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=0 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=0 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=0 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=0 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/ace-of-wands.png for card Ace of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/two-of-wands.png for card Two of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/three-of-wands.png for card Three of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/four-of-wands.png for card Four of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/five-of-wands.png for card Five of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/six-of-wands.png for card Six of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/seven-of-wands.png for card Seven of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/nine-of-wands.png for card Nine of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/ten-of-wands.png for card Ten of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/page-of-wands.png for card Page of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/knight-of-wands.png for card Knight of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/queen-of-wands.png for card Queen of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/king-of-wands.png for card King of Wands
+card-image.tsx:261 Image loaded successfully: /assets/cards/ace-of-cups.png for card Ace of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/two-of-cups.png for card Two of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/three-of-cups.png for card Three of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/four-of-cups.png for card Four of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/five-of-cups.png for card Five of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/six-of-cups.png for card Six of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/seven-of-cups.png for card Seven of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/eight-of-cups.png for card Eight of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/nine-of-cups.png for card Nine of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/ten-of-cups.png for card Ten of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/page-of-cups.png for card Page of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/knight-of-cups.png for card Knight of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/queen-of-cups.png for card Queen of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/king-of-cups.png for card King of Cups
+card-image.tsx:261 Image loaded successfully: /assets/cards/ace-of-swords.png for card Ace of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/two-of-swords.png for card Two of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/three-of-swords.png for card Three of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/four-of-swords.png for card Four of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/five-of-swords.png for card Five of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/six-of-swords.png for card Six of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/seven-of-swords.png for card Seven of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/eight-of-swords.png for card Eight of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/nine-of-swords.png for card Nine of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/ten-of-swords.png for card Ten of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/page-of-swords.png for card Page of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/knight-of-swords.png for card Knight of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/queen-of-swords.png for card Queen of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/king-of-swords.png for card King of Swords
+card-image.tsx:261 Image loaded successfully: /assets/cards/ace-of-pentacles.png for card Ace of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/two-of-pentacles.png for card Two of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/three-of-pentacles.png for card Three of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/four-of-pentacles.png for card Four of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/five-of-pentacles.png for card Five of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/six-of-pentacles.png for card Six of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/seven-of-pentacles.png for card Seven of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/eight-of-pentacles.png for card Eight of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/nine-of-pentacles.png for card Nine of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/ten-of-pentacles.png for card Ten of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/page-of-pentacles.png for card Page of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/knight-of-pentacles.png for card Knight of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/queen-of-pentacles.png for card Queen of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/king-of-pentacles.png for card King of Pentacles
+card-image.tsx:261 Image loaded successfully: /assets/cards/lunar-phases.png for card Lunar Phases
+card-image.tsx:261 Image loaded successfully: /assets/cards/solar-energies.png for card Solar Energies
+card-image.tsx:261 Image loaded successfully: /assets/cards/natures-wisdom.png for card Nature's Wisdom
+card-image.tsx:261 Image loaded successfully: /assets/cards/dream-exploration.png for card Dream Exploration
+card-image.tsx:261 Image loaded successfully: /assets/cards/astral-travel.png for card Astral Travel
+card-image.tsx:261 Image loaded successfully: /assets/cards/soul-contracts.png for card Soul Contracts
+card-image.tsx:261 Image loaded successfully: /assets/cards/akashic-records.png for card Akashic Records
+card-image.tsx:261 Image loaded successfully: /assets/cards/spirit-guides.png for card Spirit Guides
+card-image.tsx:261 Image loaded successfully: /assets/cards/divine-feminine.png for card Divine Feminine
+card-image.tsx:261 Image loaded successfully: /assets/cards/divine-masculine.png for card Divine Masculine
+card-image.tsx:261 Image loaded successfully: /assets/cards/universal-love.png for card Universal Love
+card-image.tsx:261 Image loaded successfully: /assets/cards/synchronicity.png for card Synchronicity
+card-image.tsx:261 Image loaded successfully: /assets/cards/sacred-rituals.png for card Sacred Rituals
+card-image.tsx:261 Image loaded successfully: /assets/cards/inner-alchemy.png for card Inner Alchemy
+card-image.tsx:261 Image loaded successfully: /assets/cards/soulmates-twin-flames.png for card Soulmates and Twin Flames
+card-image.tsx:261 Image loaded successfully: /assets/cards/ascended-masters.png for card Karmic Lessons
+card-image.tsx:261 Image loaded successfully: /assets/cards/divine-timing.png for card Ascended Masters
+card-image.tsx:261 Image loaded successfully: /assets/cards/inner-healing.png for card Sacred Symbols
+card-image.tsx:261 Image loaded successfully: /assets/cards/ancestral-wisdom.png for card Divine Timing
+card-image.tsx:261 Image loaded successfully: /assets/cards/soulful-expression.png for card Inner Healing
+card-image.tsx:261 Image loaded successfully: /assets/cards/divine-protection.png for card Ancestral Wisdom
+card-image.tsx:261 Image loaded successfully: /assets/cards/gratitude-abundance.png for card Soulful Expression
+card-image.tsx:261 Image loaded successfully: /assets/cards/inner-child-healing.png for card Divine Protection
+card-image.tsx:261 Image loaded successfully: /assets/cards/soulful-relationships.png for card Gratitude and Abundance
+card-image.tsx:261 Image loaded successfully: /assets/cards/meditation-mindfulness.png for card Inner Child Healing
+card-image.tsx:261 Image loaded successfully: /assets/cards/cosmic-balance.png for card Soulful Relationships
+card-image.tsx:261 Image loaded successfully: /assets/cards/infinite-possibilities.png for card Meditation and Mindfulness
+card-image.tsx:261 Image loaded successfully: /assets/cards/eight-of-wands.png for card Eight of Wands
+library:116 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=1 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=1 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=1 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=1 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=1 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=2 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=2 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=2 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=2 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=2 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=3 for card The Emperor
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=3 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=4 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=3 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=3 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=3 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=4 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=5 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=4 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=4 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=5 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=6 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=5 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=5 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=4 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=6 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=7 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=6 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=6 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=7 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=7 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=8 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=5 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=7 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=8 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=8 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=9 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=6 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=8 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=9 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=9 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=10 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=7 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=9 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=10 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=11 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=10 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=8 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=11 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=11 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=12 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=10 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=12 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=12 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=9 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=13 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=11 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=13 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=13 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=14 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=14 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=10 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=14 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=12 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=15 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=15 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=16 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=15 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=16 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=11 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=13 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=17 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=16 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=17 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=12 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=14 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=13 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=18 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=18 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=15 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=17 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=19 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=14 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=16 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=19 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=18 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=20 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=20 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=17 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=15 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=19 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=21 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=21 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=16 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=18 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=20 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=22 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=22 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=19 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=17 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=21 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=23 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=23 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=20 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=22 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=18 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=24 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=24 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=21 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=23 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=19 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=25 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=25 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=22 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=24 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=20 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=26 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=26 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=23 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=21 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=25 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=27 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=24 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=27 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=28 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=22 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=26 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=25 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=29 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=28 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=23 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=27 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=30 for card The High Priestess
+card-image.tsx:261 Image loaded successfully: /assets/cards/0.png?t=1716448020000&authentic=true&v=26 for card The Fool
+card-image.tsx:261 Image loaded successfully: /assets/cards/4.png?t=1716448020000&authentic=true&v=29 for card The Emperor
+card-image.tsx:261 Image loaded successfully: /assets/cards/1.png?t=1716448020000&authentic=true&v=24 for card The Magician
+card-image.tsx:261 Image loaded successfully: /assets/cards/3.png?t=1716448020000&authentic=true&v=28 for card The Empress
+card-image.tsx:261 Image loaded successfully: /assets/cards/2.png?t=1716448020000&authentic=true&v=31 for card The High Priestess
