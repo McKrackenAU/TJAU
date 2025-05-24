@@ -146,7 +146,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
       const freshPath = authenticCardPaths[card.id];
       if (freshPath) {
-        const cacheBustedPath = `${freshPath}?bust=${Date.now()}&fresh=true&v2=authentic`;
+        const cacheBustedPath = `${freshPath}?bust=${Date.now()}&fresh=true&v2=authentic&sw=bypass`;
         console.log(`✨ FRESH AUTHENTIC ARTWORK for ${card.name}: ${cacheBustedPath}`);
         return cacheBustedPath;
       }
