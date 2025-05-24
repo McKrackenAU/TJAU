@@ -4,12 +4,12 @@
  */
 
 export const authenticCardPaths: { [key: string]: string } = {
-  // Major Arcana - Authentic Artwork
-  "0": "/authentic-cards/major-arcana/00-fool.png",
-  "1": "/authentic-cards/major-arcana/01-magician.png", 
-  "2": "/authentic-cards/major-arcana/02-high-priestess.png",
-  "3": "/authentic-cards/major-arcana/03-empress.png",
-  "4": "/authentic-cards/major-arcana/04-emperor.png",
+  // Major Arcana - Authentic Artwork V2
+  "0": "/authentic-cards/major-arcana/authentic-fool-v2.png",
+  "1": "/authentic-cards/major-arcana/authentic-magician-v2.png", 
+  "2": "/authentic-cards/major-arcana/authentic-high-priestess-v2.png",
+  "3": "/authentic-cards/major-arcana/authentic-empress-v2.png",
+  "4": "/authentic-cards/major-arcana/authentic-emperor-v2.png",
   
   // Remaining Major Arcana (will be generated)
   "5": "/authentic-cards/major-arcana/05-hierophant.png",
