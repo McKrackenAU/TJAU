@@ -51,24 +51,8 @@ const CardDisplay = memo(function CardDisplay({
               WebkitBackfaceVisibility: "hidden",
             }}
           >
-            {/* If we have a manually uploaded image, use it */}
-            {card.imageUrl ? (
-              <div className="w-full h-full relative">
-                <img 
-                  src={card.imageUrl} 
-                  alt={card.name}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-0 left-0 right-0 p-2 bg-black/50">
-                  <h3 className="text-lg font-bold text-center text-white">
-                    {card.name}
-                  </h3>
-                </div>
-              </div>
-            ) : (
-              // Otherwise use the AI-generated image component
-              <CardImage card={card} isRevealed={isRevealed} />
-            )}
+            {/* Use unified CardImage component for all cards */}
+            <CardImage card={card} isRevealed={isRevealed} />
           </div>
 
           {/* Back of card */}

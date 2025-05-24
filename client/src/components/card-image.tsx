@@ -9,12 +9,12 @@ interface CardImageProps {
 
 // Master card image mappings - authentic artwork
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - Using new authentic filenames to bypass all caching
-  '0': '/assets/cards/authentic-fool.png',
-  '1': '/assets/cards/authentic-magician.png', 
-  '2': '/assets/cards/authentic-high-priestess.png',
-  '3': '/assets/cards/authentic-empress.png',
-  '4': '/assets/cards/authentic-emperor.png',
+  // Major Arcana - Using numbered filenames for authentic artwork
+  '0': '/assets/cards/0.png',
+  '1': '/assets/cards/1.png', 
+  '2': '/assets/cards/2.png',
+  '3': '/assets/cards/3.png',
+  '4': '/assets/cards/4.png',
   '5': '/assets/cards/5.png',
   '6': '/assets/cards/6.png',
   '7': '/assets/cards/7.png',
@@ -139,20 +139,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Get the static image path for this card
   const getImagePath = () => {
-    console.log(`🔍 CHECKING CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
+    console.log(`🔍 UNIFIED CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
-    // Force authentic numbered images for Major Arcana cards 0-4 with aggressive cache busting
-    if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      // Use current timestamp to force completely fresh load every time
-      const cacheBuster = Date.now();
-      const path = `/assets/cards/${card.id}.png?cb=${cacheBuster}&authentic=true&v=3`;
-      console.log(`🎯 AUTHENTIC PATH for ${card.name}: ${path}`);
-      return path;
-    }
-    
-    // For other cards, use the mapping
+    // Use the mapping for all cards - this ensures consistent rendering
     const path = cardImagePaths[card.id];
-    console.log(`📄 REGULAR PATH for ${card.name}: ${path}`);
+    console.log(`📄 UNIFIED PATH for ${card.name}: ${path}`);
     return path || null;
   };
 
