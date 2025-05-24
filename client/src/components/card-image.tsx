@@ -246,6 +246,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {imagePath ? (
         <>
           <img
+            key={card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id) ? `authentic-${card.id}-${imageKey}` : `card-${card.id}`}
             src={imagePath}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
@@ -259,6 +260,10 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
             onLoad={() => {
               console.log(`Image loaded successfully: ${imagePath} for card ${card.name}`);
               setImageError(false); // Clear any error state when image loads
+              // Force re-render for authentic cards to ensure they display
+              if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
+                setImageKey(prev => prev + 1);
+              }
             }}
           />
           <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
