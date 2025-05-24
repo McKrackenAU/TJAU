@@ -1,0 +1,407 @@
+
+course-lessons.ts:14914 Complete Advanced Symbolism course: 78 lessons
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:49 FixedBottomNav: User authenticated, showing nav bar
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Wands, ID: "w2", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Two of Wands: /assets/cards/two-of-wands.png
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+(index):116 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+TarotJourney:1 Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner.
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+fixed-bottom-nav.tsx:49 FixedBottomNav: User authenticated, showing nav bar
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: undefined
+library.tsx:74 Filtered cards: 0
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+admin.ts:14 Checking admin status: false
+library.tsx:73 Total cards: 121
+library.tsx:74 Filtered cards: 121
+card-image.tsx:142 🔍 UNIFIED CARD: The Fool, ID: "0", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Fool: /assets/cards/0.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Magician, ID: "1", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Magician: /assets/cards/1.png
+card-image.tsx:142 🔍 UNIFIED CARD: The High Priestess, ID: "2", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The High Priestess: /assets/cards/2.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Empress, ID: "3", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Empress: /assets/cards/3.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Emperor, ID: "4", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Emperor: /assets/cards/4.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Hierophant, ID: "5", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hierophant: /assets/cards/5.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Lovers, ID: "6", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Lovers: /assets/cards/6.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Chariot, ID: "7", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Chariot: /assets/cards/7.png
+card-image.tsx:142 🔍 UNIFIED CARD: Strength, ID: "8", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Strength: /assets/cards/8.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Hermit, ID: "9", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hermit: /assets/cards/9.png
+card-image.tsx:142 🔍 UNIFIED CARD: Wheel of Fortune, ID: "10", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Wheel of Fortune: /assets/cards/10.png
+card-image.tsx:142 🔍 UNIFIED CARD: Justice, ID: "11", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Justice: /assets/cards/11.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Hanged Man, ID: "12", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hanged Man: /assets/cards/12.png
+card-image.tsx:142 🔍 UNIFIED CARD: Death, ID: "13", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Death: /assets/cards/13.png
+card-image.tsx:142 🔍 UNIFIED CARD: Temperance, ID: "14", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Temperance: /assets/cards/14.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Devil, ID: "15", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Devil: /assets/cards/15.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Tower, ID: "16", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Tower: /assets/cards/16.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Star, ID: "17", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Star: /assets/cards/17.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Moon, ID: "18", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Moon: /assets/cards/18.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Sun, ID: "19", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Sun: /assets/cards/19.png
+card-image.tsx:142 🔍 UNIFIED CARD: Judgement, ID: "20", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Judgement: /assets/cards/20.png
+card-image.tsx:142 🔍 UNIFIED CARD: The World, ID: "21", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The World: /assets/cards/21.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ace of Wands, ID: "w1", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ace of Wands: /assets/cards/ace-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Wands, ID: "w2", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Two of Wands: /assets/cards/two-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Three of Wands, ID: "w3", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Three of Wands: /assets/cards/three-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Four of Wands, ID: "w4", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Four of Wands: /assets/cards/four-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Five of Wands, ID: "w5", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Five of Wands: /assets/cards/five-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Six of Wands, ID: "w6", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Six of Wands: /assets/cards/six-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Seven of Wands, ID: "w7", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Seven of Wands: /assets/cards/seven-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Eight of Wands, ID: "w8", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Eight of Wands: /assets/cards/eight-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Nine of Wands, ID: "w9", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Nine of Wands: /assets/cards/nine-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ten of Wands, ID: "w10", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ten of Wands: /assets/cards/ten-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Page of Wands, ID: "wp", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Page of Wands: /assets/cards/page-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Knight of Wands, ID: "wn", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Knight of Wands: /assets/cards/knight-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Queen of Wands, ID: "wq", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Queen of Wands: /assets/cards/queen-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: King of Wands, ID: "wk", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for King of Wands: /assets/cards/king-of-wands.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ace of Cups, ID: "c1", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ace of Cups: /assets/cards/ace-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Cups, ID: "c2", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Two of Cups: /assets/cards/two-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Three of Cups, ID: "c3", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Three of Cups: /assets/cards/three-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Four of Cups, ID: "c4", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Four of Cups: /assets/cards/four-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Five of Cups, ID: "c5", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Five of Cups: /assets/cards/five-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Six of Cups, ID: "c6", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Six of Cups: /assets/cards/six-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Seven of Cups, ID: "c7", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Seven of Cups: /assets/cards/seven-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Eight of Cups, ID: "c8", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Eight of Cups: /assets/cards/eight-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Nine of Cups, ID: "c9", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Nine of Cups: /assets/cards/nine-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ten of Cups, ID: "c10", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ten of Cups: /assets/cards/ten-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Page of Cups, ID: "cp", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Page of Cups: /assets/cards/page-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Knight of Cups, ID: "cn", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Knight of Cups: /assets/cards/knight-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Queen of Cups, ID: "cq", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Queen of Cups: /assets/cards/queen-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: King of Cups, ID: "ck", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for King of Cups: /assets/cards/king-of-cups.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ace of Swords, ID: "s1", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ace of Swords: /assets/cards/ace-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Swords, ID: "s2", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Two of Swords: /assets/cards/two-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Three of Swords, ID: "s3", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Three of Swords: /assets/cards/three-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Four of Swords, ID: "s4", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Four of Swords: /assets/cards/four-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Five of Swords, ID: "s5", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Five of Swords: /assets/cards/five-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Six of Swords, ID: "s6", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Six of Swords: /assets/cards/six-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Seven of Swords, ID: "s7", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Seven of Swords: /assets/cards/seven-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Eight of Swords, ID: "s8", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Eight of Swords: /assets/cards/eight-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Nine of Swords, ID: "s9", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Nine of Swords: /assets/cards/nine-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ten of Swords, ID: "s10", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ten of Swords: /assets/cards/ten-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Page of Swords, ID: "sp", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Page of Swords: /assets/cards/page-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Knight of Swords, ID: "sn", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Knight of Swords: /assets/cards/knight-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Queen of Swords, ID: "sq", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Queen of Swords: /assets/cards/queen-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: King of Swords, ID: "sk", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for King of Swords: /assets/cards/king-of-swords.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ace of Pentacles, ID: "p1", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ace of Pentacles: /assets/cards/ace-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Pentacles, ID: "p2", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Two of Pentacles: /assets/cards/two-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Three of Pentacles, ID: "p3", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Three of Pentacles: /assets/cards/three-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Four of Pentacles, ID: "p4", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Four of Pentacles: /assets/cards/four-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Five of Pentacles, ID: "p5", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Five of Pentacles: /assets/cards/five-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Six of Pentacles, ID: "p6", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Six of Pentacles: /assets/cards/six-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Seven of Pentacles, ID: "p7", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Seven of Pentacles: /assets/cards/seven-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Eight of Pentacles, ID: "p8", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Eight of Pentacles: /assets/cards/eight-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Nine of Pentacles, ID: "p9", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Nine of Pentacles: /assets/cards/nine-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ten of Pentacles, ID: "p10", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Ten of Pentacles: /assets/cards/ten-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Page of Pentacles, ID: "pp", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Page of Pentacles: /assets/cards/page-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Knight of Pentacles, ID: "pn", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Knight of Pentacles: /assets/cards/knight-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Queen of Pentacles, ID: "pq", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for Queen of Pentacles: /assets/cards/queen-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: King of Pentacles, ID: "pk", Arcana: "minor"
+card-image.tsx:146 📄 UNIFIED PATH for King of Pentacles: /assets/cards/king-of-pentacles.png
+card-image.tsx:142 🔍 UNIFIED CARD: Judgment, ID: "imported_261", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Judgment: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: The Element of Air, ID: "imported_319", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for The Element of Air: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: The Element of Earth, ID: "imported_320", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for The Element of Earth: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: The Element of Fire, ID: "imported_321", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for The Element of Fire: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: The Element of Water, ID: "imported_322", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for The Element of Water: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Guidance, ID: "imported_323", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Guidance: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Cosmic Connections, ID: "imported_324", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Cosmic Connections: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Spiritual Awakening, ID: "imported_325", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Spiritual Awakening: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Sacred Geometry, ID: "imported_326", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Sacred Geometry: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Elemental Allies, ID: "imported_327", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Elemental Allies: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Lunar Phases, ID: "imported_328", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Lunar Phases: /assets/cards/lunar-phases.png
+card-image.tsx:142 🔍 UNIFIED CARD: Solar Energies, ID: "imported_329", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Solar Energies: /assets/cards/solar-energies.png
+card-image.tsx:142 🔍 UNIFIED CARD: Chakra Activation, ID: "imported_330", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Chakra Activation: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Crystals and Gemstones, ID: "imported_331", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Crystals and Gemstones: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Nature's Wisdom, ID: "imported_332", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Nature's Wisdom: /assets/cards/natures-wisdom.png
+card-image.tsx:142 🔍 UNIFIED CARD: Dream Exploration, ID: "imported_333", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Dream Exploration: /assets/cards/dream-exploration.png
+card-image.tsx:142 🔍 UNIFIED CARD: Astral Travel, ID: "imported_334", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Astral Travel: /assets/cards/astral-travel.png
+card-image.tsx:142 🔍 UNIFIED CARD: Soul Contracts, ID: "imported_335", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Soul Contracts: /assets/cards/soul-contracts.png
+card-image.tsx:142 🔍 UNIFIED CARD: Akashic Records, ID: "imported_336", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Akashic Records: /assets/cards/akashic-records.png
+card-image.tsx:142 🔍 UNIFIED CARD: Spirit Guides, ID: "imported_337", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Spirit Guides: /assets/cards/spirit-guides.png
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Feminine, ID: "imported_338", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Feminine: /assets/cards/divine-feminine.png
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Masculine, ID: "imported_339", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Masculine: /assets/cards/divine-masculine.png
+card-image.tsx:142 🔍 UNIFIED CARD: Universal Love, ID: "imported_340", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Universal Love: /assets/cards/universal-love.png
+card-image.tsx:142 🔍 UNIFIED CARD: Synchronicity, ID: "imported_341", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Synchronicity: /assets/cards/synchronicity.png
+card-image.tsx:142 🔍 UNIFIED CARD: Sacred Rituals, ID: "imported_342", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Sacred Rituals: /assets/cards/sacred-rituals.png
+card-image.tsx:142 🔍 UNIFIED CARD: Inner Alchemy, ID: "imported_343", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Inner Alchemy: /assets/cards/inner-alchemy.png
+card-image.tsx:142 🔍 UNIFIED CARD: Soulmates and Twin Flames, ID: "imported_344", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Soulmates and Twin Flames: /assets/cards/soulmates-twin-flames.png
+card-image.tsx:142 🔍 UNIFIED CARD: Karmic Lessons, ID: "imported_345", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Karmic Lessons: /assets/cards/ascended-masters.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ascended Masters, ID: "imported_346", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Ascended Masters: /assets/cards/divine-timing.png
+card-image.tsx:142 🔍 UNIFIED CARD: Sacred Symbols, ID: "imported_347", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Sacred Symbols: /assets/cards/inner-healing.png
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Timing, ID: "imported_348", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Timing: /assets/cards/ancestral-wisdom.png
+card-image.tsx:142 🔍 UNIFIED CARD: Inner Healing, ID: "imported_349", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Inner Healing: /assets/cards/soulful-expression.png
+card-image.tsx:142 🔍 UNIFIED CARD: Ancestral Wisdom, ID: "imported_350", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Ancestral Wisdom: /assets/cards/divine-protection.png
+card-image.tsx:142 🔍 UNIFIED CARD: Soulful Expression, ID: "imported_351", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Soulful Expression: /assets/cards/gratitude-abundance.png
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Protection, ID: "imported_352", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Protection: /assets/cards/inner-child-healing.png
+card-image.tsx:142 🔍 UNIFIED CARD: Gratitude and Abundance, ID: "imported_353", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Gratitude and Abundance: /assets/cards/soulful-relationships.png
+card-image.tsx:142 🔍 UNIFIED CARD: Inner Child Healing, ID: "imported_354", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Inner Child Healing: /assets/cards/meditation-mindfulness.png
+card-image.tsx:142 🔍 UNIFIED CARD: Soulful Relationships, ID: "imported_355", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Soulful Relationships: /assets/cards/cosmic-balance.png
+card-image.tsx:142 🔍 UNIFIED CARD: Meditation and Mindfulness, ID: "imported_356", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Meditation and Mindfulness: /assets/cards/infinite-possibilities.png
+card-image.tsx:142 🔍 UNIFIED CARD: Energy Clearing, ID: "imported_357", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Energy Clearing: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Divine Purpose, ID: "imported_358", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Divine Purpose: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Cosmic Balance, ID: "imported_359", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Cosmic Balance: undefined
+card-image.tsx:142 🔍 UNIFIED CARD: Infinite Possibilities, ID: "imported_360", Arcana: "custom"
+card-image.tsx:146 📄 UNIFIED PATH for Infinite Possibilities: undefined
+bottom-nav.tsx:25 BottomNav: User status: true
+bottom-nav.tsx:26 BottomNav: Current location: /library
+card-image.tsx:251 Image failed to load: /assets/cards/5.png for card The Hierophant
+card-image.tsx:251 Image failed to load: /assets/cards/6.png for card The Lovers
+card-image.tsx:251 Image failed to load: /assets/cards/7.png for card The Chariot
+card-image.tsx:251 Image failed to load: /assets/cards/8.png for card Strength
+card-image.tsx:251 Image failed to load: /assets/cards/9.png for card The Hermit
+card-image.tsx:251 Image failed to load: /assets/cards/10.png for card Wheel of Fortune
+card-image.tsx:251 Image failed to load: /assets/cards/11.png for card Justice
+card-image.tsx:251 Image failed to load: /assets/cards/12.png for card The Hanged Man
+card-image.tsx:251 Image failed to load: /assets/cards/13.png for card Death
+card-image.tsx:251 Image failed to load: /assets/cards/14.png for card Temperance
+card-image.tsx:251 Image failed to load: /assets/cards/15.png for card The Devil
+card-image.tsx:251 Image failed to load: /assets/cards/16.png for card The Tower
+card-image.tsx:251 Image failed to load: /assets/cards/17.png for card The Star
+card-image.tsx:251 Image failed to load: /assets/cards/18.png for card The Moon
+card-image.tsx:251 Image failed to load: /assets/cards/19.png for card The Sun
+card-image.tsx:251 Image failed to load: /assets/cards/20.png for card Judgement
+card-image.tsx:251 Image failed to load: /assets/cards/21.png for card The World
+card-image.tsx:258 Image loaded successfully: /assets/cards/2.png for card The High Priestess
+card-image.tsx:258 Image loaded successfully: /assets/cards/0.png for card The Fool
+card-image.tsx:258 Image loaded successfully: /assets/cards/3.png for card The Empress
+card-image.tsx:258 Image loaded successfully: /assets/cards/4.png for card The Emperor
+card-image.tsx:258 Image loaded successfully: /assets/cards/1.png for card The Magician
+card-image.tsx:258 Image loaded successfully: /assets/cards/ace-of-wands.png for card Ace of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/two-of-wands.png for card Two of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/three-of-wands.png for card Three of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/four-of-wands.png for card Four of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/five-of-wands.png for card Five of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/six-of-wands.png for card Six of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/seven-of-wands.png for card Seven of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/nine-of-wands.png for card Nine of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/ten-of-wands.png for card Ten of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/page-of-wands.png for card Page of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/knight-of-wands.png for card Knight of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/queen-of-wands.png for card Queen of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/king-of-wands.png for card King of Wands
+card-image.tsx:258 Image loaded successfully: /assets/cards/three-of-cups.png for card Three of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/ace-of-cups.png for card Ace of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/two-of-cups.png for card Two of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/four-of-cups.png for card Four of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/five-of-cups.png for card Five of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/six-of-cups.png for card Six of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/seven-of-cups.png for card Seven of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/eight-of-cups.png for card Eight of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/nine-of-cups.png for card Nine of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/ten-of-cups.png for card Ten of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/page-of-cups.png for card Page of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/knight-of-cups.png for card Knight of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/queen-of-cups.png for card Queen of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/king-of-cups.png for card King of Cups
+card-image.tsx:258 Image loaded successfully: /assets/cards/ace-of-swords.png for card Ace of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/two-of-swords.png for card Two of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/three-of-swords.png for card Three of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/four-of-swords.png for card Four of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/five-of-swords.png for card Five of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/six-of-swords.png for card Six of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/seven-of-swords.png for card Seven of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/eight-of-swords.png for card Eight of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/nine-of-swords.png for card Nine of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/ten-of-swords.png for card Ten of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/page-of-swords.png for card Page of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/knight-of-swords.png for card Knight of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/queen-of-swords.png for card Queen of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/king-of-swords.png for card King of Swords
+card-image.tsx:258 Image loaded successfully: /assets/cards/ace-of-pentacles.png for card Ace of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/two-of-pentacles.png for card Two of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/three-of-pentacles.png for card Three of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/four-of-pentacles.png for card Four of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/five-of-pentacles.png for card Five of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/six-of-pentacles.png for card Six of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/seven-of-pentacles.png for card Seven of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/eight-of-pentacles.png for card Eight of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/nine-of-pentacles.png for card Nine of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/ten-of-pentacles.png for card Ten of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/page-of-pentacles.png for card Page of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/knight-of-pentacles.png for card Knight of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/queen-of-pentacles.png for card Queen of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/king-of-pentacles.png for card King of Pentacles
+card-image.tsx:258 Image loaded successfully: /assets/cards/lunar-phases.png for card Lunar Phases
+card-image.tsx:258 Image loaded successfully: /assets/cards/solar-energies.png for card Solar Energies
+card-image.tsx:258 Image loaded successfully: /assets/cards/natures-wisdom.png for card Nature's Wisdom
+card-image.tsx:258 Image loaded successfully: /assets/cards/dream-exploration.png for card Dream Exploration
+card-image.tsx:258 Image loaded successfully: /assets/cards/astral-travel.png for card Astral Travel
+card-image.tsx:258 Image loaded successfully: /assets/cards/soul-contracts.png for card Soul Contracts
+card-image.tsx:258 Image loaded successfully: /assets/cards/akashic-records.png for card Akashic Records
+card-image.tsx:258 Image loaded successfully: /assets/cards/spirit-guides.png for card Spirit Guides
+card-image.tsx:258 Image loaded successfully: /assets/cards/divine-feminine.png for card Divine Feminine
+card-image.tsx:258 Image loaded successfully: /assets/cards/divine-masculine.png for card Divine Masculine
+card-image.tsx:258 Image loaded successfully: /assets/cards/universal-love.png for card Universal Love
+card-image.tsx:258 Image loaded successfully: /assets/cards/synchronicity.png for card Synchronicity
+card-image.tsx:258 Image loaded successfully: /assets/cards/sacred-rituals.png for card Sacred Rituals
+card-image.tsx:258 Image loaded successfully: /assets/cards/inner-alchemy.png for card Inner Alchemy
+card-image.tsx:258 Image loaded successfully: /assets/cards/soulmates-twin-flames.png for card Soulmates and Twin Flames
+card-image.tsx:258 Image loaded successfully: /assets/cards/ascended-masters.png for card Karmic Lessons
+card-image.tsx:258 Image loaded successfully: /assets/cards/divine-timing.png for card Ascended Masters
+card-image.tsx:258 Image loaded successfully: /assets/cards/inner-healing.png for card Sacred Symbols
+card-image.tsx:258 Image loaded successfully: /assets/cards/ancestral-wisdom.png for card Divine Timing
+card-image.tsx:258 Image loaded successfully: /assets/cards/soulful-expression.png for card Inner Healing
+card-image.tsx:258 Image loaded successfully: /assets/cards/divine-protection.png for card Ancestral Wisdom
+card-image.tsx:258 Image loaded successfully: /assets/cards/gratitude-abundance.png for card Soulful Expression
+card-image.tsx:258 Image loaded successfully: /assets/cards/inner-child-healing.png for card Divine Protection
+card-image.tsx:258 Image loaded successfully: /assets/cards/soulful-relationships.png for card Gratitude and Abundance
+card-image.tsx:258 Image loaded successfully: /assets/cards/meditation-mindfulness.png for card Inner Child Healing
+card-image.tsx:258 Image loaded successfully: /assets/cards/cosmic-balance.png for card Soulful Relationships
+card-image.tsx:258 Image loaded successfully: /assets/cards/infinite-possibilities.png for card Meditation and Mindfulness
+card-image.tsx:258 Image loaded successfully: /assets/cards/eight-of-wands.png for card Eight of Wands
+card-image.tsx:142 🔍 UNIFIED CARD: The Hierophant, ID: "5", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hierophant: /assets/cards/5.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Lovers, ID: "6", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Lovers: /assets/cards/6.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Chariot, ID: "7", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Chariot: /assets/cards/7.png
+card-image.tsx:142 🔍 UNIFIED CARD: Strength, ID: "8", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Strength: /assets/cards/8.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Hermit, ID: "9", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hermit: /assets/cards/9.png
+card-image.tsx:142 🔍 UNIFIED CARD: Wheel of Fortune, ID: "10", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Wheel of Fortune: /assets/cards/10.png
+card-image.tsx:142 🔍 UNIFIED CARD: Justice, ID: "11", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Justice: /assets/cards/11.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Hanged Man, ID: "12", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Hanged Man: /assets/cards/12.png
+card-image.tsx:142 🔍 UNIFIED CARD: Death, ID: "13", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Death: /assets/cards/13.png
+card-image.tsx:142 🔍 UNIFIED CARD: Temperance, ID: "14", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Temperance: /assets/cards/14.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Devil, ID: "15", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Devil: /assets/cards/15.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Tower, ID: "16", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Tower: /assets/cards/16.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Star, ID: "17", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Star: /assets/cards/17.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Moon, ID: "18", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Moon: /assets/cards/18.png
+card-image.tsx:142 🔍 UNIFIED CARD: The Sun, ID: "19", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The Sun: /assets/cards/19.png
+card-image.tsx:142 🔍 UNIFIED CARD: Judgement, ID: "20", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for Judgement: /assets/cards/20.png
+card-image.tsx:142 🔍 UNIFIED CARD: The World, ID: "21", Arcana: "major"
+card-image.tsx:146 📄 UNIFIED PATH for The World: /assets/cards/21.png
