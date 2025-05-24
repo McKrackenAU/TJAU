@@ -1,0 +1,588 @@
+🔍 UNIFIED CARD: The Fool, ID: "0", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Fool: /assets/cards/0-new-1748061260.png
+ 🔍 UNIFIED CARD: The Magician, ID: "1", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Magician: /assets/cards/1-new-1748061261.png
+ 🔍 UNIFIED CARD: The High Priestess, ID: "2", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The High Priestess: /assets/cards/2-new-1748061261.png
+ 🔍 UNIFIED CARD: The Empress, ID: "3", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Empress: /assets/cards/3-new-1748061261.png
+ 🔍 UNIFIED CARD: The Emperor, ID: "4", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Emperor: /assets/cards/4-new-1748061261.png
+ 🔍 UNIFIED CARD: The Hierophant, ID: "5", Arcana: "major"
+ 📄 UNIFIED PATH for The Hierophant: /assets/cards/5.png
+ 🔍 UNIFIED CARD: The Lovers, ID: "6", Arcana: "major"
+ 📄 UNIFIED PATH for The Lovers: /assets/cards/6.png
+ 🔍 UNIFIED CARD: The Chariot, ID: "7", Arcana: "major"
+ 📄 UNIFIED PATH for The Chariot: /assets/cards/7.png
+ 🔍 UNIFIED CARD: Strength, ID: "8", Arcana: "major"
+ 📄 UNIFIED PATH for Strength: /assets/cards/8.png
+ 🔍 UNIFIED CARD: The Hermit, ID: "9", Arcana: "major"
+ 📄 UNIFIED PATH for The Hermit: /assets/cards/9.png
+ 🔍 UNIFIED CARD: Wheel of Fortune, ID: "10", Arcana: "major"
+ 📄 UNIFIED PATH for Wheel of Fortune: /assets/cards/10.png
+ 🔍 UNIFIED CARD: Justice, ID: "11", Arcana: "major"
+ 📄 UNIFIED PATH for Justice: /assets/cards/11.png
+ 🔍 UNIFIED CARD: The Hanged Man, ID: "12", Arcana: "major"
+ 📄 UNIFIED PATH for The Hanged Man: /assets/cards/12.png
+ 🔍 UNIFIED CARD: Death, ID: "13", Arcana: "major"
+ 📄 UNIFIED PATH for Death: /assets/cards/13.png
+ 🔍 UNIFIED CARD: Temperance, ID: "14", Arcana: "major"
+ 📄 UNIFIED PATH for Temperance: /assets/cards/14.png
+ 🔍 UNIFIED CARD: The Devil, ID: "15", Arcana: "major"
+ 📄 UNIFIED PATH for The Devil: /assets/cards/15.png
+ 🔍 UNIFIED CARD: The Tower, ID: "16", Arcana: "major"
+ 📄 UNIFIED PATH for The Tower: /assets/cards/16.png
+ 🔍 UNIFIED CARD: The Star, ID: "17", Arcana: "major"
+ 📄 UNIFIED PATH for The Star: /assets/cards/17.png
+ 🔍 UNIFIED CARD: The Moon, ID: "18", Arcana: "major"
+ 📄 UNIFIED PATH for The Moon: /assets/cards/18.png
+ 🔍 UNIFIED CARD: The Sun, ID: "19", Arcana: "major"
+ 📄 UNIFIED PATH for The Sun: /assets/cards/19.png
+ 🔍 UNIFIED CARD: Judgement, ID: "20", Arcana: "major"
+ 📄 UNIFIED PATH for Judgement: /assets/cards/20.png
+ 🔍 UNIFIED CARD: The World, ID: "21", Arcana: "major"
+ 📄 UNIFIED PATH for The World: /assets/cards/21.png
+ 🔍 UNIFIED CARD: Ace of Wands, ID: "w1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Wands: /assets/cards/ace-of-wands.png
+ 🔍 UNIFIED CARD: Two of Wands, ID: "w2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Wands: /assets/cards/two-of-wands.png
+ 🔍 UNIFIED CARD: Three of Wands, ID: "w3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Wands: /assets/cards/three-of-wands.png
+ 🔍 UNIFIED CARD: Four of Wands, ID: "w4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Wands: /assets/cards/four-of-wands.png
+ 🔍 UNIFIED CARD: Five of Wands, ID: "w5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Wands: /assets/cards/five-of-wands.png
+ 🔍 UNIFIED CARD: Six of Wands, ID: "w6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Wands: /assets/cards/six-of-wands.png
+ 🔍 UNIFIED CARD: Seven of Wands, ID: "w7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Wands: /assets/cards/seven-of-wands.png
+ 🔍 UNIFIED CARD: Eight of Wands, ID: "w8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Wands: /assets/cards/eight-of-wands.png
+ 🔍 UNIFIED CARD: Nine of Wands, ID: "w9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Wands: /assets/cards/nine-of-wands.png
+ 🔍 UNIFIED CARD: Ten of Wands, ID: "w10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Wands: /assets/cards/ten-of-wands.png
+ 🔍 UNIFIED CARD: Page of Wands, ID: "wp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Wands: /assets/cards/page-of-wands.png
+ 🔍 UNIFIED CARD: Knight of Wands, ID: "wn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Wands: /assets/cards/knight-of-wands.png
+ 🔍 UNIFIED CARD: Queen of Wands, ID: "wq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Wands: /assets/cards/queen-of-wands.png
+ 🔍 UNIFIED CARD: King of Wands, ID: "wk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Wands: /assets/cards/king-of-wands.png
+ 🔍 UNIFIED CARD: Ace of Cups, ID: "c1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Cups: /assets/cards/ace-of-cups.png
+ 🔍 UNIFIED CARD: Two of Cups, ID: "c2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Cups: /assets/cards/two-of-cups.png
+ 🔍 UNIFIED CARD: Three of Cups, ID: "c3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Cups: /assets/cards/three-of-cups.png
+ 🔍 UNIFIED CARD: Four of Cups, ID: "c4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Cups: /assets/cards/four-of-cups.png
+ 🔍 UNIFIED CARD: Five of Cups, ID: "c5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Cups: /assets/cards/five-of-cups.png
+ 🔍 UNIFIED CARD: Six of Cups, ID: "c6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Cups: /assets/cards/six-of-cups.png
+ 🔍 UNIFIED CARD: Seven of Cups, ID: "c7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Cups: /assets/cards/seven-of-cups.png
+ 🔍 UNIFIED CARD: Eight of Cups, ID: "c8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Cups: /assets/cards/eight-of-cups.png
+ 🔍 UNIFIED CARD: Nine of Cups, ID: "c9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Cups: /assets/cards/nine-of-cups.png
+ 🔍 UNIFIED CARD: Ten of Cups, ID: "c10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Cups: /assets/cards/ten-of-cups.png
+ 🔍 UNIFIED CARD: Page of Cups, ID: "cp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Cups: /assets/cards/page-of-cups.png
+ 🔍 UNIFIED CARD: Knight of Cups, ID: "cn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Cups: /assets/cards/knight-of-cups.png
+ 🔍 UNIFIED CARD: Queen of Cups, ID: "cq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Cups: /assets/cards/queen-of-cups.png
+ 🔍 UNIFIED CARD: King of Cups, ID: "ck", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Cups: /assets/cards/king-of-cups.png
+ 🔍 UNIFIED CARD: Ace of Swords, ID: "s1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Swords: /assets/cards/ace-of-swords.png
+ 🔍 UNIFIED CARD: Two of Swords, ID: "s2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Swords: /assets/cards/two-of-swords.png
+ 🔍 UNIFIED CARD: Three of Swords, ID: "s3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Swords: /assets/cards/three-of-swords.png
+ 🔍 UNIFIED CARD: Four of Swords, ID: "s4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Swords: /assets/cards/four-of-swords.png
+ 🔍 UNIFIED CARD: Five of Swords, ID: "s5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Swords: /assets/cards/five-of-swords.png
+ 🔍 UNIFIED CARD: Six of Swords, ID: "s6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Swords: /assets/cards/six-of-swords.png
+ 🔍 UNIFIED CARD: Seven of Swords, ID: "s7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Swords: /assets/cards/seven-of-swords.png
+ 🔍 UNIFIED CARD: Eight of Swords, ID: "s8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Swords: /assets/cards/eight-of-swords.png
+ 🔍 UNIFIED CARD: Nine of Swords, ID: "s9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Swords: /assets/cards/nine-of-swords.png
+ 🔍 UNIFIED CARD: Ten of Swords, ID: "s10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Swords: /assets/cards/ten-of-swords.png
+ 🔍 UNIFIED CARD: Page of Swords, ID: "sp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Swords: /assets/cards/page-of-swords.png
+ 🔍 UNIFIED CARD: Knight of Swords, ID: "sn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Swords: /assets/cards/knight-of-swords.png
+ 🔍 UNIFIED CARD: Queen of Swords, ID: "sq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Swords: /assets/cards/queen-of-swords.png
+ 🔍 UNIFIED CARD: King of Swords, ID: "sk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Swords: /assets/cards/king-of-swords.png
+ 🔍 UNIFIED CARD: Ace of Pentacles, ID: "p1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Pentacles: /assets/cards/ace-of-pentacles.png
+ 🔍 UNIFIED CARD: Two of Pentacles, ID: "p2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Pentacles: /assets/cards/two-of-pentacles.png
+ 🔍 UNIFIED CARD: Three of Pentacles, ID: "p3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Pentacles: /assets/cards/three-of-pentacles.png
+ 🔍 UNIFIED CARD: Four of Pentacles, ID: "p4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Pentacles: /assets/cards/four-of-pentacles.png
+ 🔍 UNIFIED CARD: Five of Pentacles, ID: "p5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Pentacles: /assets/cards/five-of-pentacles.png
+ 🔍 UNIFIED CARD: Six of Pentacles, ID: "p6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Pentacles: /assets/cards/six-of-pentacles.png
+ 🔍 UNIFIED CARD: Seven of Pentacles, ID: "p7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Pentacles: /assets/cards/seven-of-pentacles.png
+ 🔍 UNIFIED CARD: Eight of Pentacles, ID: "p8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Pentacles: /assets/cards/eight-of-pentacles.png
+ 🔍 UNIFIED CARD: Nine of Pentacles, ID: "p9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Pentacles: /assets/cards/nine-of-pentacles.png
+ 🔍 UNIFIED CARD: Ten of Pentacles, ID: "p10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Pentacles: /assets/cards/ten-of-pentacles.png
+ 🔍 UNIFIED CARD: Page of Pentacles, ID: "pp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Pentacles: /assets/cards/page-of-pentacles.png
+ 🔍 UNIFIED CARD: Knight of Pentacles, ID: "pn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Pentacles: /assets/cards/knight-of-pentacles.png
+ 🔍 UNIFIED CARD: Queen of Pentacles, ID: "pq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Pentacles: /assets/cards/queen-of-pentacles.png
+ 🔍 UNIFIED CARD: King of Pentacles, ID: "pk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Pentacles: /assets/cards/king-of-pentacles.png
+ 🔍 UNIFIED CARD: Judgment, ID: "imported_261", Arcana: "custom"
+ 📄 UNIFIED PATH for Judgment: null
+ 🔍 UNIFIED CARD: The Element of Air, ID: "imported_319", Arcana: "custom"
+ 📄 UNIFIED PATH for The Element of Air: null
+ 🔍 UNIFIED CARD: The Element of Earth, ID: "imported_320", Arcana: "custom"
+ 📄 UNIFIED PATH for The Element of Earth: null
+ 🔍 UNIFIED CARD: The Element of Fire, ID: "imported_321", Arcana: "custom"
+ 📄 UNIFIED PATH for The Element of Fire: null
+ 🔍 UNIFIED CARD: The Element of Water, ID: "imported_322", Arcana: "custom"
+ 📄 UNIFIED PATH for The Element of Water: null
+ 🔍 UNIFIED CARD: Divine Guidance, ID: "imported_323", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Guidance: null
+ 🔍 UNIFIED CARD: Cosmic Connections, ID: "imported_324", Arcana: "custom"
+ 📄 UNIFIED PATH for Cosmic Connections: null
+ 🔍 UNIFIED CARD: Spiritual Awakening, ID: "imported_325", Arcana: "custom"
+ 📄 UNIFIED PATH for Spiritual Awakening: null
+ 🔍 UNIFIED CARD: Sacred Geometry, ID: "imported_326", Arcana: "custom"
+ 📄 UNIFIED PATH for Sacred Geometry: null
+ 🔍 UNIFIED CARD: Elemental Allies, ID: "imported_327", Arcana: "custom"
+ 📄 UNIFIED PATH for Elemental Allies: null
+ 🔍 UNIFIED CARD: Lunar Phases, ID: "imported_328", Arcana: "custom"
+ 📄 UNIFIED PATH for Lunar Phases: /assets/cards/lunar-phases.png
+ 🔍 UNIFIED CARD: Solar Energies, ID: "imported_329", Arcana: "custom"
+ 📄 UNIFIED PATH for Solar Energies: /assets/cards/solar-energies.png
+ 🔍 UNIFIED CARD: Chakra Activation, ID: "imported_330", Arcana: "custom"
+ 📄 UNIFIED PATH for Chakra Activation: null
+ 🔍 UNIFIED CARD: Crystals and Gemstones, ID: "imported_331", Arcana: "custom"
+ 📄 UNIFIED PATH for Crystals and Gemstones: null
+ 🔍 UNIFIED CARD: Nature's Wisdom, ID: "imported_332", Arcana: "custom"
+ 📄 UNIFIED PATH for Nature's Wisdom: /assets/cards/natures-wisdom.png
+ 🔍 UNIFIED CARD: Dream Exploration, ID: "imported_333", Arcana: "custom"
+ 📄 UNIFIED PATH for Dream Exploration: /assets/cards/dream-exploration.png
+ 🔍 UNIFIED CARD: Astral Travel, ID: "imported_334", Arcana: "custom"
+ 📄 UNIFIED PATH for Astral Travel: /assets/cards/astral-travel.png
+ 🔍 UNIFIED CARD: Soul Contracts, ID: "imported_335", Arcana: "custom"
+ 📄 UNIFIED PATH for Soul Contracts: /assets/cards/soul-contracts.png
+ 🔍 UNIFIED CARD: Akashic Records, ID: "imported_336", Arcana: "custom"
+ 📄 UNIFIED PATH for Akashic Records: /assets/cards/akashic-records.png
+ 🔍 UNIFIED CARD: Spirit Guides, ID: "imported_337", Arcana: "custom"
+ 📄 UNIFIED PATH for Spirit Guides: /assets/cards/spirit-guides.png
+ 🔍 UNIFIED CARD: Divine Feminine, ID: "imported_338", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Feminine: /assets/cards/divine-feminine.png
+ 🔍 UNIFIED CARD: Divine Masculine, ID: "imported_339", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Masculine: /assets/cards/divine-masculine.png
+ 🔍 UNIFIED CARD: Universal Love, ID: "imported_340", Arcana: "custom"
+ 📄 UNIFIED PATH for Universal Love: /assets/cards/universal-love.png
+ 🔍 UNIFIED CARD: Synchronicity, ID: "imported_341", Arcana: "custom"
+ 📄 UNIFIED PATH for Synchronicity: /assets/cards/synchronicity.png
+ 🔍 UNIFIED CARD: Sacred Rituals, ID: "imported_342", Arcana: "custom"
+ 📄 UNIFIED PATH for Sacred Rituals: /assets/cards/sacred-rituals.png
+ 🔍 UNIFIED CARD: Inner Alchemy, ID: "imported_343", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Alchemy: /assets/cards/inner-alchemy.png
+ 🔍 UNIFIED CARD: Soulmates and Twin Flames, ID: "imported_344", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulmates and Twin Flames: /assets/cards/soulmates-twin-flames.png
+ 🔍 UNIFIED CARD: Karmic Lessons, ID: "imported_345", Arcana: "custom"
+ 📄 UNIFIED PATH for Karmic Lessons: /assets/cards/ascended-masters.png
+ 🔍 UNIFIED CARD: Ascended Masters, ID: "imported_346", Arcana: "custom"
+ 📄 UNIFIED PATH for Ascended Masters: /assets/cards/divine-timing.png
+ 🔍 UNIFIED CARD: Sacred Symbols, ID: "imported_347", Arcana: "custom"
+ 📄 UNIFIED PATH for Sacred Symbols: /assets/cards/inner-healing.png
+ 🔍 UNIFIED CARD: Divine Timing, ID: "imported_348", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Timing: /assets/cards/ancestral-wisdom.png
+ 🔍 UNIFIED CARD: Inner Healing, ID: "imported_349", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Healing: /assets/cards/soulful-expression.png
+ 🔍 UNIFIED CARD: Ancestral Wisdom, ID: "imported_350", Arcana: "custom"
+ 📄 UNIFIED PATH for Ancestral Wisdom: /assets/cards/divine-protection.png
+ 🔍 UNIFIED CARD: Soulful Expression, ID: "imported_351", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulful Expression: /assets/cards/gratitude-abundance.png
+ 🔍 UNIFIED CARD: Divine Protection, ID: "imported_352", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Protection: /assets/cards/inner-child-healing.png
+ 🔍 UNIFIED CARD: Gratitude and Abundance, ID: "imported_353", Arcana: "custom"
+ 📄 UNIFIED PATH for Gratitude and Abundance: /assets/cards/soulful-relationships.png
+ 🔍 UNIFIED CARD: Inner Child Healing, ID: "imported_354", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Child Healing: /assets/cards/meditation-mindfulness.png
+ 🔍 UNIFIED CARD: Soulful Relationships, ID: "imported_355", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulful Relationships: /assets/cards/cosmic-balance.png
+ 🔍 UNIFIED CARD: Meditation and Mindfulness, ID: "imported_356", Arcana: "custom"
+ 📄 UNIFIED PATH for Meditation and Mindfulness: /assets/cards/infinite-possibilities.png
+ 🔍 UNIFIED CARD: Energy Clearing, ID: "imported_357", Arcana: "custom"
+ 📄 UNIFIED PATH for Energy Clearing: null
+ 🔍 UNIFIED CARD: Divine Purpose, ID: "imported_358", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Purpose: null
+ 🔍 UNIFIED CARD: Cosmic Balance, ID: "imported_359", Arcana: "custom"
+ 📄 UNIFIED PATH for Cosmic Balance: null
+ 🔍 UNIFIED CARD: Infinite Possibilities, ID: "imported_360", Arcana: "custom"
+ 📄 UNIFIED PATH for Infinite Possibilities: null
+ 🔍 UNIFIED CARD: The Magician, ID: "1", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Magician: /assets/cards/1-new-1748061261.png
+ 🔍 UNIFIED CARD: The High Priestess, ID: "2", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The High Priestess: /assets/cards/2-new-1748061261.png
+ 🔍 UNIFIED CARD: The Empress, ID: "3", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Empress: /assets/cards/3-new-1748061261.png
+ 🔍 UNIFIED CARD: The Emperor, ID: "4", Arcana: "major"
+ 🎨 TIMESTAMPED AUTHENTIC ARTWORK for The Emperor: /assets/cards/4-new-1748061261.png
+ 🔍 UNIFIED CARD: Ace of Wands, ID: "w1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Wands: /assets/cards/ace-of-wands.png
+ 🔍 UNIFIED CARD: Two of Wands, ID: "w2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Wands: /assets/cards/two-of-wands.png
+ 🔍 UNIFIED CARD: Three of Wands, ID: "w3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Wands: /assets/cards/three-of-wands.png
+ 🔍 UNIFIED CARD: Four of Wands, ID: "w4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Wands: /assets/cards/four-of-wands.png
+ 🔍 UNIFIED CARD: Five of Wands, ID: "w5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Wands: /assets/cards/five-of-wands.png
+ 🔍 UNIFIED CARD: Six of Wands, ID: "w6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Wands: /assets/cards/six-of-wands.png
+ 🔍 UNIFIED CARD: Seven of Wands, ID: "w7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Wands: /assets/cards/seven-of-wands.png
+ 🔍 UNIFIED CARD: Eight of Wands, ID: "w8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Wands: /assets/cards/eight-of-wands.png
+ 🔍 UNIFIED CARD: Nine of Wands, ID: "w9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Wands: /assets/cards/nine-of-wands.png
+ 🔍 UNIFIED CARD: Ten of Wands, ID: "w10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Wands: /assets/cards/ten-of-wands.png
+ 🔍 UNIFIED CARD: Page of Wands, ID: "wp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Wands: /assets/cards/page-of-wands.png
+ 🔍 UNIFIED CARD: Knight of Wands, ID: "wn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Wands: /assets/cards/knight-of-wands.png
+ 🔍 UNIFIED CARD: Queen of Wands, ID: "wq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Wands: /assets/cards/queen-of-wands.png
+ 🔍 UNIFIED CARD: King of Wands, ID: "wk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Wands: /assets/cards/king-of-wands.png
+ 🔍 UNIFIED CARD: Ace of Cups, ID: "c1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Cups: /assets/cards/ace-of-cups.png
+ 🔍 UNIFIED CARD: Two of Cups, ID: "c2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Cups: /assets/cards/two-of-cups.png
+ 🔍 UNIFIED CARD: Three of Cups, ID: "c3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Cups: /assets/cards/three-of-cups.png
+ 🔍 UNIFIED CARD: Four of Cups, ID: "c4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Cups: /assets/cards/four-of-cups.png
+ 🔍 UNIFIED CARD: Five of Cups, ID: "c5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Cups: /assets/cards/five-of-cups.png
+ 🔍 UNIFIED CARD: Six of Cups, ID: "c6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Cups: /assets/cards/six-of-cups.png
+ 🔍 UNIFIED CARD: Seven of Cups, ID: "c7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Cups: /assets/cards/seven-of-cups.png
+ 🔍 UNIFIED CARD: Eight of Cups, ID: "c8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Cups: /assets/cards/eight-of-cups.png
+ 🔍 UNIFIED CARD: Nine of Cups, ID: "c9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Cups: /assets/cards/nine-of-cups.png
+ 🔍 UNIFIED CARD: Ten of Cups, ID: "c10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Cups: /assets/cards/ten-of-cups.png
+ 🔍 UNIFIED CARD: Page of Cups, ID: "cp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Cups: /assets/cards/page-of-cups.png
+ 🔍 UNIFIED CARD: Knight of Cups, ID: "cn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Cups: /assets/cards/knight-of-cups.png
+ 🔍 UNIFIED CARD: Queen of Cups, ID: "cq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Cups: /assets/cards/queen-of-cups.png
+ 🔍 UNIFIED CARD: King of Cups, ID: "ck", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Cups: /assets/cards/king-of-cups.png
+ 🔍 UNIFIED CARD: Ace of Swords, ID: "s1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Swords: /assets/cards/ace-of-swords.png
+ 🔍 UNIFIED CARD: Two of Swords, ID: "s2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Swords: /assets/cards/two-of-swords.png
+ 🔍 UNIFIED CARD: Three of Swords, ID: "s3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Swords: /assets/cards/three-of-swords.png
+ 🔍 UNIFIED CARD: Four of Swords, ID: "s4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Swords: /assets/cards/four-of-swords.png
+ 🔍 UNIFIED CARD: Five of Swords, ID: "s5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Swords: /assets/cards/five-of-swords.png
+ 🔍 UNIFIED CARD: Six of Swords, ID: "s6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Swords: /assets/cards/six-of-swords.png
+ 🔍 UNIFIED CARD: Seven of Swords, ID: "s7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Swords: /assets/cards/seven-of-swords.png
+ 🔍 UNIFIED CARD: Eight of Swords, ID: "s8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Swords: /assets/cards/eight-of-swords.png
+ 🔍 UNIFIED CARD: Nine of Swords, ID: "s9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Swords: /assets/cards/nine-of-swords.png
+ 🔍 UNIFIED CARD: Ten of Swords, ID: "s10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Swords: /assets/cards/ten-of-swords.png
+ 🔍 UNIFIED CARD: Page of Swords, ID: "sp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Swords: /assets/cards/page-of-swords.png
+ 🔍 UNIFIED CARD: Knight of Swords, ID: "sn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Swords: /assets/cards/knight-of-swords.png
+ 🔍 UNIFIED CARD: Queen of Swords, ID: "sq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Swords: /assets/cards/queen-of-swords.png
+ 🔍 UNIFIED CARD: King of Swords, ID: "sk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Swords: /assets/cards/king-of-swords.png
+ 🔍 UNIFIED CARD: Ace of Pentacles, ID: "p1", Arcana: "minor"
+ 📄 UNIFIED PATH for Ace of Pentacles: /assets/cards/ace-of-pentacles.png
+ 🔍 UNIFIED CARD: Two of Pentacles, ID: "p2", Arcana: "minor"
+ 📄 UNIFIED PATH for Two of Pentacles: /assets/cards/two-of-pentacles.png
+ 🔍 UNIFIED CARD: Three of Pentacles, ID: "p3", Arcana: "minor"
+ 📄 UNIFIED PATH for Three of Pentacles: /assets/cards/three-of-pentacles.png
+ 🔍 UNIFIED CARD: Four of Pentacles, ID: "p4", Arcana: "minor"
+ 📄 UNIFIED PATH for Four of Pentacles: /assets/cards/four-of-pentacles.png
+ 🔍 UNIFIED CARD: Five of Pentacles, ID: "p5", Arcana: "minor"
+ 📄 UNIFIED PATH for Five of Pentacles: /assets/cards/five-of-pentacles.png
+ 🔍 UNIFIED CARD: Six of Pentacles, ID: "p6", Arcana: "minor"
+ 📄 UNIFIED PATH for Six of Pentacles: /assets/cards/six-of-pentacles.png
+ 🔍 UNIFIED CARD: Seven of Pentacles, ID: "p7", Arcana: "minor"
+ 📄 UNIFIED PATH for Seven of Pentacles: /assets/cards/seven-of-pentacles.png
+ 🔍 UNIFIED CARD: Eight of Pentacles, ID: "p8", Arcana: "minor"
+ 📄 UNIFIED PATH for Eight of Pentacles: /assets/cards/eight-of-pentacles.png
+ 🔍 UNIFIED CARD: Nine of Pentacles, ID: "p9", Arcana: "minor"
+ 📄 UNIFIED PATH for Nine of Pentacles: /assets/cards/nine-of-pentacles.png
+ 🔍 UNIFIED CARD: Ten of Pentacles, ID: "p10", Arcana: "minor"
+ 📄 UNIFIED PATH for Ten of Pentacles: /assets/cards/ten-of-pentacles.png
+ 🔍 UNIFIED CARD: Page of Pentacles, ID: "pp", Arcana: "minor"
+ 📄 UNIFIED PATH for Page of Pentacles: /assets/cards/page-of-pentacles.png
+ 🔍 UNIFIED CARD: Knight of Pentacles, ID: "pn", Arcana: "minor"
+ 📄 UNIFIED PATH for Knight of Pentacles: /assets/cards/knight-of-pentacles.png
+ 🔍 UNIFIED CARD: Queen of Pentacles, ID: "pq", Arcana: "minor"
+ 📄 UNIFIED PATH for Queen of Pentacles: /assets/cards/queen-of-pentacles.png
+ 🔍 UNIFIED CARD: King of Pentacles, ID: "pk", Arcana: "minor"
+ 📄 UNIFIED PATH for King of Pentacles: /assets/cards/king-of-pentacles.png
+ 🔍 UNIFIED CARD: Lunar Phases, ID: "imported_328", Arcana: "custom"
+ 📄 UNIFIED PATH for Lunar Phases: /assets/cards/lunar-phases.png
+ 🔍 UNIFIED CARD: Solar Energies, ID: "imported_329", Arcana: "custom"
+ 📄 UNIFIED PATH for Solar Energies: /assets/cards/solar-energies.png
+ 🔍 UNIFIED CARD: Nature's Wisdom, ID: "imported_332", Arcana: "custom"
+ 📄 UNIFIED PATH for Nature's Wisdom: /assets/cards/natures-wisdom.png
+ 🔍 UNIFIED CARD: Dream Exploration, ID: "imported_333", Arcana: "custom"
+ 📄 UNIFIED PATH for Dream Exploration: /assets/cards/dream-exploration.png
+ 🔍 UNIFIED CARD: Astral Travel, ID: "imported_334", Arcana: "custom"
+ 📄 UNIFIED PATH for Astral Travel: /assets/cards/astral-travel.png
+ 🔍 UNIFIED CARD: Soul Contracts, ID: "imported_335", Arcana: "custom"
+ 📄 UNIFIED PATH for Soul Contracts: /assets/cards/soul-contracts.png
+ 🔍 UNIFIED CARD: Akashic Records, ID: "imported_336", Arcana: "custom"
+ 📄 UNIFIED PATH for Akashic Records: /assets/cards/akashic-records.png
+ 🔍 UNIFIED CARD: Spirit Guides, ID: "imported_337", Arcana: "custom"
+ 📄 UNIFIED PATH for Spirit Guides: /assets/cards/spirit-guides.png
+ 🔍 UNIFIED CARD: Divine Feminine, ID: "imported_338", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Feminine: /assets/cards/divine-feminine.png
+ 🔍 UNIFIED CARD: Divine Masculine, ID: "imported_339", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Masculine: /assets/cards/divine-masculine.png
+ 🔍 UNIFIED CARD: Universal Love, ID: "imported_340", Arcana: "custom"
+ 📄 UNIFIED PATH for Universal Love: /assets/cards/universal-love.png
+ 🔍 UNIFIED CARD: Synchronicity, ID: "imported_341", Arcana: "custom"
+ 📄 UNIFIED PATH for Synchronicity: /assets/cards/synchronicity.png
+ 🔍 UNIFIED CARD: Sacred Rituals, ID: "imported_342", Arcana: "custom"
+ 📄 UNIFIED PATH for Sacred Rituals: /assets/cards/sacred-rituals.png
+ 🔍 UNIFIED CARD: Inner Alchemy, ID: "imported_343", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Alchemy: /assets/cards/inner-alchemy.png
+ 🔍 UNIFIED CARD: Soulmates and Twin Flames, ID: "imported_344", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulmates and Twin Flames: /assets/cards/soulmates-twin-flames.png
+ 🔍 UNIFIED CARD: Karmic Lessons, ID: "imported_345", Arcana: "custom"
+ 📄 UNIFIED PATH for Karmic Lessons: /assets/cards/ascended-masters.png
+ 🔍 UNIFIED CARD: Ascended Masters, ID: "imported_346", Arcana: "custom"
+ 📄 UNIFIED PATH for Ascended Masters: /assets/cards/divine-timing.png
+ 🔍 UNIFIED CARD: Sacred Symbols, ID: "imported_347", Arcana: "custom"
+ 📄 UNIFIED PATH for Sacred Symbols: /assets/cards/inner-healing.png
+ 🔍 UNIFIED CARD: Divine Timing, ID: "imported_348", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Timing: /assets/cards/ancestral-wisdom.png
+ 🔍 UNIFIED CARD: Inner Healing, ID: "imported_349", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Healing: /assets/cards/soulful-expression.png
+ 🔍 UNIFIED CARD: Ancestral Wisdom, ID: "imported_350", Arcana: "custom"
+ 📄 UNIFIED PATH for Ancestral Wisdom: /assets/cards/divine-protection.png
+ 🔍 UNIFIED CARD: Soulful Expression, ID: "imported_351", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulful Expression: /assets/cards/gratitude-abundance.png
+ 🔍 UNIFIED CARD: Divine Protection, ID: "imported_352", Arcana: "custom"
+ 📄 UNIFIED PATH for Divine Protection: /assets/cards/inner-child-healing.png
+ 🔍 UNIFIED CARD: Gratitude and Abundance, ID: "imported_353", Arcana: "custom"
+ 📄 UNIFIED PATH for Gratitude and Abundance: /assets/cards/soulful-relationships.png
+ 🔍 UNIFIED CARD: Inner Child Healing, ID: "imported_354", Arcana: "custom"
+ 📄 UNIFIED PATH for Inner Child Healing: /assets/cards/meditation-mindfulness.png
+ 🔍 UNIFIED CARD: Soulful Relationships, ID: "imported_355", Arcana: "custom"
+ 📄 UNIFIED PATH for Soulful Relationships: /assets/cards/cosmic-balance.png
+ 🔍 UNIFIED CARD: Meditation and Mindfulness, ID: "imported_356", Arcana: "custom"
+ 📄 UNIFIED PATH for Meditation and Mindfulness: /assets/cards/infinite-possibilities.png
+ ✅ Image loaded successfully: /assets/cards/1-new-1748061261.png for card The Magician
+ ✅ Image loaded successfully: /assets/cards/2-new-1748061261.png for card The High Priestess
+ ✅ Image loaded successfully: /assets/cards/3-new-1748061261.png for card The Empress
+ ✅ Image loaded successfully: /assets/cards/4-new-1748061261.png for card The Emperor
+course-lessons.ts:14391 CRITICAL: No lesson found for p5 in either Minor Arcana or Intuitive Reading
+course-lessons.ts:14549 Rebuilt Minor Arcana lessons: 57 total
+course-lessons.ts:14550 Sequence verification:
+course-lessons.ts:14552 1. minor-1 - Card: intro
+course-lessons.ts:14552 2. minor-wands-ace - Card: w1
+course-lessons.ts:14552 3. minor-wands-two - Card: w2
+course-lessons.ts:14552 4. minor-wands-three - Card: w3
+course-lessons.ts:14552 5. minor-wands-four - Card: w4
+course-lessons.ts:14552 6. minor-wands-five - Card: w5
+course-lessons.ts:14552 7. minor-wands-six - Card: w6
+course-lessons.ts:14552 8. minor-wands-seven - Card: w7
+course-lessons.ts:14552 9. minor-wands-eight - Card: w8
+course-lessons.ts:14552 10. minor-wands-nine - Card: w9
+course-lessons.ts:14552 11. minor-wands-ten - Card: w10
+course-lessons.ts:14552 12. minor-wands-page - Card: wp
+course-lessons.ts:14552 13. minor-wands-knight - Card: wn
+course-lessons.ts:14552 14. minor-wands-queen - Card: wq
+course-lessons.ts:14552 15. minor-wands-king - Card: wk
+course-lessons.ts:14552 16. minor-cups-ace - Card: c1
+course-lessons.ts:14552 17. minor-cups-two - Card: c2
+course-lessons.ts:14552 18. minor-cups-three - Card: c3
+course-lessons.ts:14552 19. minor-cups-four - Card: c4
+course-lessons.ts:14552 20. minor-cups-five - Card: c5
+course-lessons.ts:14552 21. minor-cups-six - Card: c6
+course-lessons.ts:14552 22. minor-cups-seven - Card: c7
+course-lessons.ts:14552 23. minor-cups-eight - Card: c8
+course-lessons.ts:14552 24. minor-cups-nine - Card: c9
+course-lessons.ts:14552 25. minor-cups-ten - Card: c10
+course-lessons.ts:14552 26. minor-cups-page - Card: cp
+course-lessons.ts:14552 27. minor-cups-knight - Card: cn
+course-lessons.ts:14552 28. minor-cups-queen - Card: cq
+course-lessons.ts:14552 29. minor-cups-king - Card: ck
+course-lessons.ts:14552 30. minor-pentacles-ace - Card: p1
+course-lessons.ts:14552 31. minor-pentacles-two - Card: p2
+course-lessons.ts:14552 32. minor-pentacles-three - Card: p3
+course-lessons.ts:14552 33. minor-pentacles-four - Card: p4
+course-lessons.ts:14552 34. minor-pentacles-five - Card: p5
+course-lessons.ts:14552 35. minor-pentacles-six - Card: p6
+course-lessons.ts:14552 36. minor-pentacles-seven - Card: p7
+course-lessons.ts:14552 37. minor-pentacles-eight - Card: p8
+course-lessons.ts:14552 38. minor-pentacles-nine - Card: p9
+course-lessons.ts:14552 39. minor-pentacles-ten - Card: p10
+course-lessons.ts:14552 40. minor-pentacles-page - Card: pp
+course-lessons.ts:14552 41. minor-pentacles-knight - Card: pn
+course-lessons.ts:14552 42. minor-pentacles-queen - Card: pq
+course-lessons.ts:14552 43. minor-pentacles-king - Card: pk
+course-lessons.ts:14552 44. minor-swords-ace - Card: s1
+course-lessons.ts:14552 45. minor-swords-two - Card: s2
+course-lessons.ts:14552 46. minor-swords-three - Card: s3
+course-lessons.ts:14552 47. minor-swords-four - Card: s4
+course-lessons.ts:14552 48. minor-swords-five - Card: s5
+course-lessons.ts:14552 49. minor-swords-six - Card: s6
+course-lessons.ts:14552 50. minor-swords-seven - Card: s7
+course-lessons.ts:14552 51. minor-swords-eight - Card: s8
+course-lessons.ts:14552 52. minor-swords-nine - Card: s9
+course-lessons.ts:14552 53. minor-swords-ten - Card: s10
+course-lessons.ts:14552 54. minor-swords-page - Card: sp
+course-lessons.ts:14552 55. minor-swords-knight - Card: sn
+course-lessons.ts:14552 56. minor-swords-queen - Card: sq
+course-lessons.ts:14552 57. minor-swords-king - Card: sk
+course-lessons.ts:14596 Updating existing lesson advanced-1 to advanced-11 for card 10
+course-lessons.ts:14596 Updating existing lesson advanced-2 to advanced-13 for card 12
+course-lessons.ts:14596 Updating existing lesson advanced-3 to advanced-14 for card 13
+course-lessons.ts:14596 Updating existing lesson advanced-4 to advanced-17 for card 16
+course-lessons.ts:14596 Updating existing lesson advanced-5 to advanced-18 for card 17
+course-lessons.ts:14690 Creating lesson advanced-6 for card 0 (The Fool)
+course-lessons.ts:14690 Creating lesson advanced-7 for card 1 (The Magician)
+course-lessons.ts:14690 Creating lesson advanced-8 for card 2 (The High Priestess)
+course-lessons.ts:14690 Creating lesson advanced-9 for card 3 (The Empress)
+course-lessons.ts:14690 Creating lesson advanced-10 for card 4 (The Emperor)
+course-lessons.ts:14690 Creating lesson advanced-11 for card 5 (The Hierophant)
+course-lessons.ts:14690 Creating lesson advanced-12 for card 6 (The Lovers)
+course-lessons.ts:14690 Creating lesson advanced-13 for card 7 (The Chariot)
+course-lessons.ts:14690 Creating lesson advanced-14 for card 8 (Strength)
+course-lessons.ts:14690 Creating lesson advanced-15 for card 9 (The Hermit)
+course-lessons.ts:14690 Creating lesson advanced-16 for card 11 (Justice)
+course-lessons.ts:14690 Creating lesson advanced-17 for card 14 (Temperance)
+course-lessons.ts:14690 Creating lesson advanced-18 for card 15 (The Devil)
+course-lessons.ts:14690 Creating lesson advanced-19 for card 18 (The Moon)
+course-lessons.ts:14690 Creating lesson advanced-20 for card 19 (The Sun)
+course-lessons.ts:14690 Creating lesson advanced-21 for card 20 (Judgement)
+course-lessons.ts:14690 Creating lesson advanced-22 for card 21 (The World)
+course-lessons.ts:14690 Creating lesson advanced-23 for card w1 (Ace of Wands)
+course-lessons.ts:14690 Creating lesson advanced-24 for card w2 (Two of Wands)
+course-lessons.ts:14690 Creating lesson advanced-25 for card w3 (Three of Wands)
+course-lessons.ts:14690 Creating lesson advanced-26 for card w4 (Four of Wands)
+course-lessons.ts:14690 Creating lesson advanced-27 for card w5 (Five of Wands)
+course-lessons.ts:14690 Creating lesson advanced-28 for card w6 (Six of Wands)
+course-lessons.ts:14690 Creating lesson advanced-29 for card w7 (Seven of Wands)
+course-lessons.ts:14690 Creating lesson advanced-30 for card w8 (Eight of Wands)
+course-lessons.ts:14690 Creating lesson advanced-31 for card w9 (Nine of Wands)
+course-lessons.ts:14690 Creating lesson advanced-32 for card w10 (Ten of Wands)
+course-lessons.ts:14690 Creating lesson advanced-33 for card wp (Page of Wands)
+course-lessons.ts:14690 Creating lesson advanced-34 for card wn (Knight of Wands)
+course-lessons.ts:14690 Creating lesson advanced-35 for card wq (Queen of Wands)
+course-lessons.ts:14690 Creating lesson advanced-36 for card wk (King of Wands)
+course-lessons.ts:14690 Creating lesson advanced-37 for card c1 (Ace of Cups)
+course-lessons.ts:14690 Creating lesson advanced-38 for card c2 (Two of Cups)
+course-lessons.ts:14690 Creating lesson advanced-39 for card c3 (Three of Cups)
+course-lessons.ts:14690 Creating lesson advanced-40 for card c4 (Four of Cups)
+course-lessons.ts:14690 Creating lesson advanced-41 for card c5 (Five of Cups)
+course-lessons.ts:14690 Creating lesson advanced-42 for card c6 (Six of Cups)
+course-lessons.ts:14690 Creating lesson advanced-43 for card c7 (Seven of Cups)
+course-lessons.ts:14690 Creating lesson advanced-44 for card c8 (Eight of Cups)
+course-lessons.ts:14690 Creating lesson advanced-45 for card c9 (Nine of Cups)
+course-lessons.ts:14690 Creating lesson advanced-46 for card c10 (Ten of Cups)
+course-lessons.ts:14690 Creating lesson advanced-47 for card cp (Page of Cups)
+course-lessons.ts:14690 Creating lesson advanced-48 for card cn (Knight of Cups)
+course-lessons.ts:14690 Creating lesson advanced-49 for card cq (Queen of Cups)
+course-lessons.ts:14690 Creating lesson advanced-50 for card ck (King of Cups)
+course-lessons.ts:14690 Creating lesson advanced-51 for card p1 (Ace of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-52 for card p2 (Two of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-53 for card p3 (Three of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-54 for card p4 (Four of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-55 for card p5 (Five of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-56 for card p6 (Six of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-57 for card p7 (Seven of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-58 for card p8 (Eight of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-59 for card p9 (Nine of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-60 for card p10 (Ten of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-61 for card pp (Page of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-62 for card pn (Knight of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-63 for card pq (Queen of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-64 for card pk (King of Pentacles)
+course-lessons.ts:14690 Creating lesson advanced-65 for card s1 (Ace of Swords)
+course-lessons.ts:14690 Creating lesson advanced-66 for card s2 (Two of Swords)
+course-lessons.ts:14690 Creating lesson advanced-67 for card s3 (Three of Swords)
+course-lessons.ts:14690 Creating lesson advanced-68 for card s4 (Four of Swords)
+course-lessons.ts:14690 Creating lesson advanced-69 for card s5 (Five of Swords)
+course-lessons.ts:14690 Creating lesson advanced-70 for card s6 (Six of Swords)
+course-lessons.ts:14690 Creating lesson advanced-71 for card s7 (Seven of Swords)
+course-lessons.ts:14690 Creating lesson advanced-72 for card s8 (Eight of Swords)
+course-lessons.ts:14690 Creating lesson advanced-73 for card s9 (Nine of Swords)
+course-lessons.ts:14690 Creating lesson advanced-74 for card s10 (Ten of Swords)
+course-lessons.ts:14690 Creating lesson advanced-75 for card sp (Page of Swords)
+course-lessons.ts:14690 Creating lesson advanced-76 for card sn (Knight of Swords)
+course-lessons.ts:14690 Creating lesson advanced-77 for card sq (Queen of Swords)
+course-lessons.ts:14690 Creating lesson advanced-78 for card sk (King of Swords)
+course-lessons.ts:14800 Creating major arcana lesson advanced-1 for card 0 (The Fool)
+course-lessons.ts:14800 Creating major arcana lesson advanced-2 for card 1 (The Magician)
+course-lessons.ts:14800 Creating major arcana lesson advanced-3 for card 2 (The High Priestess)
+course-lessons.ts:14800 Creating major arcana lesson advanced-4 for card 3 (The Empress)
+course-lessons.ts:14800 Creating major arcana lesson advanced-5 for card 4 (The Emperor)
+course-lessons.ts:14800 Creating major arcana lesson advanced-6 for card 5 (The Hierophant)
+course-lessons.ts:14800 Creating major arcana lesson advanced-7 for card 6 (The Lovers)
+course-lessons.ts:14800 Creating major arcana lesson advanced-8 for card 7 (The Chariot)
+course-lessons.ts:14800 Creating major arcana lesson advanced-9 for card 8 (Strength)
+course-lessons.ts:14800 Creating major arcana lesson advanced-10 for card 9 (The Hermit)
+course-lessons.ts:14800 Creating major arcana lesson advanced-12 for card 11 (Justice)
+course-lessons.ts:14800 Creating major arcana lesson advanced-15 for card 14 (Temperance)
+course-lessons.ts:14800 Creating major arcana lesson advanced-16 for card 15 (The Devil)
+course-lessons.ts:14800 Creating major arcana lesson advanced-19 for card 18 (The Moon)
+course-lessons.ts:14800 Creating major arcana lesson advanced-20 for card 19 (The Sun)
+course-lessons.ts:14800 Creating major arcana lesson advanced-21 for card 20 (Judgement)
+course-lessons.ts:14800 Creating major arcana lesson advanced-22 for card 21 (The World)
+course-lessons.ts:14914 Complete Advanced Symbolism course: 78 lessons
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:45 FixedBottomNav: User not authenticated, not showing nav
+fixed-bottom-nav.tsx:49 FixedBottomNav: User authenticated, showing nav bar
+card-image.tsx:142 🔍 UNIFIED CARD: Two of Wands, ID: "w2", Arcana: "minor"
+card-image.tsx:159 📄 UNIFIED PATH for Two of Wands: /assets/cards/two-of-wands.png
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+(index):116 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error

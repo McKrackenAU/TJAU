@@ -148,12 +148,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
-    // Use timestamped files for Major Arcana cards 0-4 to force browser refresh
+    // Standard path with cache busting for all Major Arcana cards 0-4 (now authentic artwork)
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const timestamp = card.id === '0' ? '1748061260' : '1748061261';
-      const timestampedPath = `/assets/cards/${card.id}-new-${timestamp}.png`;
-      console.log(`🎨 TIMESTAMPED AUTHENTIC ARTWORK for ${card.name}: ${timestampedPath}`);
-      return timestampedPath;
+      const authenticPath = `${basePath}?v=${Date.now()}&authentic=true`;
+      console.log(`🎨 AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
+      return authenticPath;
     }
     
     console.log(`📄 UNIFIED PATH for ${card.name}: ${basePath}`);
