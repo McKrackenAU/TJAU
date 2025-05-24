@@ -4,12 +4,12 @@
  */
 
 export const authenticCardPaths: { [key: string]: string } = {
-  // Major Arcana - Authentic Artwork V2
-  "0": "/authentic-cards/major-arcana/authentic-fool-v2.png",
-  "1": "/authentic-cards/major-arcana/authentic-magician-v2.png", 
-  "2": "/authentic-cards/major-arcana/authentic-high-priestess-v2.png",
-  "3": "/authentic-cards/major-arcana/authentic-empress-v2.png",
-  "4": "/authentic-cards/major-arcana/authentic-emperor-v2.png",
+  // Major Arcana - Fresh 2025 Files (Never Cached)
+  "0": "/authentic-cards/major-arcana/fresh-fool-2025.png",
+  "1": "/authentic-cards/major-arcana/fresh-magician-2025.png", 
+  "2": "/authentic-cards/major-arcana/fresh-high-priestess-2025.png",
+  "3": "/authentic-cards/major-arcana/fresh-empress-2025.png",
+  "4": "/authentic-cards/major-arcana/fresh-emperor-2025.png",
   
   // Remaining Major Arcana (will be generated)
   "5": "/authentic-cards/major-arcana/05-hierophant.png",
