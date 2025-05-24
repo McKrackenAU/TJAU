@@ -142,9 +142,22 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     console.log(`🔍 UNIFIED CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
     // Use the mapping for all cards - this ensures consistent rendering
-    const path = cardImagePaths[card.id];
-    console.log(`📄 UNIFIED PATH for ${card.name}: ${path}`);
-    return path || null;
+    const basePath = cardImagePaths[card.id];
+    if (!basePath) {
+      console.log(`📄 UNIFIED PATH for ${card.name}: null`);
+      return null;
+    }
+    
+    // Add cache busting for Major Arcana cards 0-4 to force refresh
+    if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
+      const cacheBuster = `?v=${Date.now()}`;
+      const path = `${basePath}${cacheBuster}`;
+      console.log(`📄 CACHE-BUSTED PATH for ${card.name}: ${path}`);
+      return path;
+    }
+    
+    console.log(`📄 UNIFIED PATH for ${card.name}: ${basePath}`);
+    return basePath;
   };
 
   // Card background gradient
