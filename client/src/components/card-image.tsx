@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TarotCard } from "@shared/tarot-data";
+import { authenticCardPaths } from "@shared/authentic-card-paths";
 import { SparklesIcon } from "lucide-react";
 
 interface CardImageProps {
@@ -137,25 +138,27 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Get the static image path for this card - UPDATED 2025
+  // Get the fresh authentic image path - NEW SYSTEM 2025
   const getImagePath = () => {
-    console.log(`🔍 UNIFIED CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
+    console.log(`🌟 FRESH CARD SYSTEM: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
-    // Use the mapping for all cards - this ensures consistent rendering
+    // Use the new authentic card system for Major Arcana 0-4
+    if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
+      const freshPath = authenticCardPaths[card.id];
+      if (freshPath) {
+        console.log(`✨ FRESH AUTHENTIC ARTWORK for ${card.name}: ${freshPath}`);
+        return freshPath;
+      }
+    }
+    
+    // Fall back to old system for other cards temporarily
     const basePath = cardImagePaths[card.id];
     if (!basePath) {
-      console.log(`📄 UNIFIED PATH for ${card.name}: null`);
+      console.log(`📄 NO PATH for ${card.name}: null`);
       return null;
     }
     
-    // Standard path with cache busting for all Major Arcana cards 0-4 (now authentic artwork)
-    if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const authenticPath = `${basePath}?v=${Date.now()}&authentic=true`;
-      console.log(`🎨 AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
-      return authenticPath;
-    }
-    
-    console.log(`📄 UNIFIED PATH for ${card.name}: ${basePath}`);
+    console.log(`📄 STANDARD PATH for ${card.name}: ${basePath}`);
     return basePath;
   };
 
