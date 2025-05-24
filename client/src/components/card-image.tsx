@@ -251,18 +251,22 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
             className="w-full h-full object-cover rounded-xl"
             onError={(e) => {
               console.log(`Image failed to load: ${imagePath} for card ${card.name}`);
-              setImageError(true);
+              // Don't set error state for authentic Major Arcana cards (0-4) - keep trying to load
+              if (!(card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id))) {
+                setImageError(true);
+              }
             }}
             onLoad={() => {
               console.log(`Image loaded successfully: ${imagePath} for card ${card.name}`);
+              setImageError(false); // Clear any error state when image loads
             }}
           />
           <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
             {card.name}
           </div>
         </>
-      ) : (
-        // Symbolic representation for cards without images or on error
+      ) : imageError ? (
+        // Symbolic representation for cards without images or on error (but not for authentic Major Arcana 0-4)
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
           <div className="text-4xl mb-2 opacity-90">
             {getCardSymbol()}
@@ -273,6 +277,15 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           <div className="text-xs opacity-70 mt-1 capitalize">
             {card.arcana} {card.suit && `of ${card.suit}`}
           </div>
+        </div>
+      ) : (
+        // Loading state for authentic Major Arcana cards
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <div className="text-2xl mb-2 opacity-50">✨</div>
+          <div className="text-center text-sm font-medium px-2 leading-tight">
+            {card.name}
+          </div>
+          <div className="text-xs opacity-50 mt-1">Loading authentic artwork...</div>
         </div>
       )}
     </div>
