@@ -137,7 +137,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Get the static image path for this card
+  // Get the static image path for this card - UPDATED 2025
   const getImagePath = () => {
     console.log(`🔍 UNIFIED CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
