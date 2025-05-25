@@ -139,18 +139,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Direct path mapping to your authentic cards
   const getImagePath = () => {
-    // Use your authentic Major Arcana cards for 0-4
+    // Use fresh copies of your authentic cards (bypass cache)
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const directPaths: Record<string, string> = {
-        '0': '/authentic-cards/major-arcana/00-fool.png',
-        '1': '/authentic-cards/major-arcana/01-magician.png',
-        '2': '/authentic-cards/major-arcana/02-high-priestess.png',
-        '3': '/authentic-cards/major-arcana/03-empress.png',
-        '4': '/authentic-cards/major-arcana/04-emperor.png'
-      };
-      const path = directPaths[card.id];
-      console.log(`🎨 ${card.name}: ${path}`);
-      return `${path}?refresh=${Date.now()}`;
+      const freshPath = `/cards-fresh-2025/${card.id}.png`;
+      console.log(`🎨 FRESH ${card.name}: ${freshPath}`);
+      return `${freshPath}?v=${Date.now()}`;
     }
     
     // Fallback for other cards
