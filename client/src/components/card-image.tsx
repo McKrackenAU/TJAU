@@ -138,17 +138,15 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Get the authentic image path
+  // Get the authentic image path - FIXED SYSTEM
   const getImagePath = () => {
-    console.log(`🎨 AUTHENTIC CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
+    console.log(`🎨 CARD CHECK: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
-    // Use authentic cards for Major Arcana 0-4 from cardImagePaths (updated)
+    // PRIORITY: Use your existing authentic cards for Major Arcana 0-4
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const authenticPath = cardImagePaths[card.id];
-      if (authenticPath) {
-        console.log(`✨ AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
-        return `${authenticPath}?v=authentic&bust=${Date.now()}`;
-      }
+      const authenticPath = `/authentic-cards/major-arcana/0${card.id}-${card.name.toLowerCase().replace(/\s+/g, '-').replace('the-', '')}.png`;
+      console.log(`✨ USING AUTHENTIC CARD: ${authenticPath}`);
+      return `${authenticPath}?v=${Date.now()}`;
     }
     
     // Use authenticCardPaths for other cards
