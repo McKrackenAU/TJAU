@@ -147,7 +147,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       const authenticPath = cardImagePaths[card.id];
       if (authenticPath) {
         console.log(`✨ AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
-        return `${authenticPath}?v=authentic`;
+        return `${authenticPath}?v=authentic&bust=${Date.now()}`;
       }
     }
     
@@ -258,22 +258,22 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {imagePath ? (
         <>
           <img
-            key={`fresh-${card.id}-${Date.now()}-${Math.random()}`}
+            key={`authentic-${card.id}-${Date.now()}-${Math.random()}`}
             src={imagePath}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
             crossOrigin="anonymous"
             referrerPolicy="no-referrer"
+            onLoad={() => {
+              console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
+              setImageError(false);
+            }}
             onError={(e) => {
               console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name}`);
               // Don't set error state for authentic Major Arcana cards (0-4) - keep trying to load
               if (!(card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id))) {
                 setImageError(true);
               }
-            }}
-            onLoad={() => {
-              console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
-              setImageError(false); // Clear any error state when image loads
             }}
           />
           <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
