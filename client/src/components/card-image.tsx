@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { TarotCard } from "@shared/tarot-data";
-import { authenticCardPaths } from "@shared/authentic-card-paths";
 import { SparklesIcon } from "lucide-react";
 
 interface CardImageProps {
@@ -138,26 +137,45 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Get the authentic image path - FIXED SYSTEM
+  // Direct path mapping to your authentic cards
   const getImagePath = () => {
-    console.log(`🎨 CARD CHECK: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
-    
-    // PRIORITY: Use your existing authentic cards for Major Arcana 0-4
+    // Use your authentic Major Arcana cards for 0-4
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const authenticPath = `/authentic-cards/major-arcana/0${card.id}-${card.name.toLowerCase().replace(/\s+/g, '-').replace('the-', '')}.png`;
-      console.log(`✨ USING AUTHENTIC CARD: ${authenticPath}`);
-      return `${authenticPath}?v=${Date.now()}`;
+      const directPaths: Record<string, string> = {
+        '0': '/authentic-cards/major-arcana/00-fool.png',
+        '1': '/authentic-cards/major-arcana/01-magician.png',
+        '2': '/authentic-cards/major-arcana/02-high-priestess.png',
+        '3': '/authentic-cards/major-arcana/03-empress.png',
+        '4': '/authentic-cards/major-arcana/04-emperor.png'
+      };
+      const path = directPaths[card.id];
+      console.log(`🎨 ${card.name}: ${path}`);
+      return `${path}?refresh=${Date.now()}`;
     }
     
-    // Use authenticCardPaths for other cards
-    const basePath = authenticCardPaths[card.id];
-    if (!basePath) {
-      console.log(`📄 NO PATH for ${card.name}: null`);
-      return null;
-    }
+    // Fallback for other cards
+    const fallbackPaths: Record<string, string> = {
+      '5': '/assets/cards/5.png',
+      '6': '/assets/cards/6.png',
+      '7': '/assets/cards/7.png',
+      '8': '/assets/cards/8.png',
+      '9': '/assets/cards/9.png',
+      '10': '/assets/cards/10.png',
+      'w1': '/assets/cards/ace-of-wands.png',
+      'w2': '/assets/cards/two-of-wands.png',
+      'w3': '/assets/cards/three-of-wands.png',
+      'c1': '/assets/cards/ace-of-cups.png',
+      'c2': '/assets/cards/two-of-cups.png',
+      'c3': '/assets/cards/three-of-cups.png',
+      's1': '/assets/cards/ace-of-swords.png',
+      's2': '/assets/cards/two-of-swords.png',
+      's3': '/assets/cards/three-of-swords.png',
+      'p1': '/assets/cards/ace-of-pentacles.png',
+      'p2': '/assets/cards/two-of-pentacles.png',
+      'p3': '/assets/cards/three-of-pentacles.png'
+    };
     
-    console.log(`📄 STANDARD PATH for ${card.name}: ${basePath}`);
-    return basePath;
+    return fallbackPaths[card.id] || null;
   };
 
   // Card background gradient
