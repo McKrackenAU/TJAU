@@ -10,12 +10,12 @@ interface CardImageProps {
 
 // Master card image mappings - authentic artwork
 const cardImagePaths: Record<string, string> = {
-  // Major Arcana - Using numbered filenames for authentic artwork
-  '0': '/assets/cards/0.png',
-  '1': '/assets/cards/1.png', 
-  '2': '/assets/cards/2.png',
-  '3': '/assets/cards/3.png',
-  '4': '/assets/cards/4.png',
+  // Major Arcana - Using authentic cards from your collection
+  '0': '/authentic-cards/major-arcana/00-fool.png',
+  '1': '/authentic-cards/major-arcana/01-magician.png', 
+  '2': '/authentic-cards/major-arcana/02-high-priestess.png',
+  '3': '/authentic-cards/major-arcana/03-empress.png',
+  '4': '/authentic-cards/major-arcana/04-emperor.png',
   '5': '/assets/cards/5.png',
   '6': '/assets/cards/6.png',
   '7': '/assets/cards/7.png',
@@ -138,21 +138,20 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Get the fresh authentic image path - NEW SYSTEM 2025
+  // Get the authentic image path
   const getImagePath = () => {
-    console.log(`🌟 FRESH CARD SYSTEM: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
+    console.log(`🎨 AUTHENTIC CARD: ${card.name}, ID: "${card.id}", Arcana: "${card.arcana}"`);
     
-    // Use the new authentic card system for Major Arcana 0-4
+    // Use authentic cards for Major Arcana 0-4 from cardImagePaths (updated)
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const freshPath = authenticCardPaths[card.id];
-      if (freshPath) {
-        const cacheBustedPath = `${freshPath}?bust=${Date.now()}&fresh=true&v2=authentic&sw=bypass`;
-        console.log(`✨ FRESH AUTHENTIC ARTWORK for ${card.name}: ${cacheBustedPath}`);
-        return cacheBustedPath;
+      const authenticPath = cardImagePaths[card.id];
+      if (authenticPath) {
+        console.log(`✨ AUTHENTIC ARTWORK for ${card.name}: ${authenticPath}`);
+        return `${authenticPath}?v=authentic`;
       }
     }
     
-    // Fall back to old system for other cards temporarily
+    // Use authenticCardPaths for other cards
     const basePath = authenticCardPaths[card.id];
     if (!basePath) {
       console.log(`📄 NO PATH for ${card.name}: null`);
