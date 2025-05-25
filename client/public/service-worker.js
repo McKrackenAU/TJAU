@@ -1,6 +1,6 @@
 // Version number - increment this when making important changes
 // that should force all clients to update
-const VERSION = '5';
+const VERSION = '6';
 const CACHE_NAME = `tarot-journey-v${VERSION}`;
 const STATIC_CACHE_NAME = `tarot-journey-static-v${VERSION}`;
 
@@ -76,6 +76,12 @@ self.addEventListener('fetch', event => {
 
   // Skip API requests
   if (event.request.url.includes('/api/')) {
+    return;
+  }
+
+  // Skip fresh card images - always fetch from network
+  if (event.request.url.includes('/cards-fresh-2025/') || 
+      event.request.url.includes('/authentic-cards/')) {
     return;
   }
 
