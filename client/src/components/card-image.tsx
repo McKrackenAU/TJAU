@@ -139,10 +139,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Direct path mapping to your authentic cards
   const getImagePath = () => {
-    // Use fresh copies of your authentic cards (bypass cache)
+    // Use fresh 2025 cards (newly generated with correct imagery)
     if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const freshPath = `/cards-fresh-2025/${card.id}.png`;
-      console.log(`🎨 FRESH ${card.name}: ${freshPath}`);
+      const fresh2025Cards: Record<string, string> = {
+        '0': '/cards-fresh-2025/fool-2025.png',
+        '1': '/cards-fresh-2025/magician-2025.png',
+        '2': '/cards-fresh-2025/high-priestess-2025.png',
+        '3': '/cards-fresh-2025/empress-2025.png',
+        '4': '/cards-fresh-2025/emperor-2025.png'
+      };
+      const freshPath = fresh2025Cards[card.id];
+      console.log(`🎨 FRESH 2025 ${card.name}: ${freshPath}`);
       return `${freshPath}?v=${Date.now()}`;
     }
     
