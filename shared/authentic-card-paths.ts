@@ -4,12 +4,12 @@
  */
 
 export const authenticCardPaths: { [key: string]: string } = {
-  // Major Arcana - Fresh 2025 Files (Never Cached)
-  "0": "/authentic-cards/major-arcana/fresh-fool-2025.png",
-  "1": "/authentic-cards/major-arcana/fresh-magician-2025.png", 
-  "2": "/authentic-cards/major-arcana/fresh-high-priestess-2025.png",
-  "3": "/authentic-cards/major-arcana/fresh-empress-2025.png",
-  "4": "/authentic-cards/major-arcana/fresh-emperor-2025.png",
+  // Major Arcana - Using Existing Authentic Cards
+  "0": "/authentic-cards/major-arcana/00-fool.png",
+  "1": "/authentic-cards/major-arcana/01-magician.png", 
+  "2": "/authentic-cards/major-arcana/02-high-priestess.png",
+  "3": "/authentic-cards/major-arcana/03-empress.png",
+  "4": "/authentic-cards/major-arcana/04-emperor.png",
   
   // Remaining Major Arcana (will be generated)
   "5": "/authentic-cards/major-arcana/05-hierophant.png",
