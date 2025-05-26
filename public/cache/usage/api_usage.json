@@ -2308,5 +2308,45 @@
     "cardId": "imported_349",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-25T23:59:57.729Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "sq",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-26T00:03:45.510Z"
+  },
+  {
+    "endpoint": "/api/interpret-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "sq",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-05-26T00:03:47.196Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/symbolism",
+    "model": "gpt-4o",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.01,
+    "cardId": "3",
+    "cardName": "The Empress",
+    "timestamp": "2025-05-26T00:03:57.288Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/symbolism",
+    "model": "gpt-4o",
+    "operation": "chat.completion",
+    "status": "error",
+    "estimatedCost": 0,
+    "cardId": "3",
+    "cardName": "The Empress",
+    "timestamp": "2025-05-26T00:03:57.407Z"
   }
 ]
