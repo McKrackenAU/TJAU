@@ -24,7 +24,7 @@ async function generateFoolCard(): Promise<void> {
     
     ensureDirectory('public/authentic-cards/major-arcana');
     
-    const prompt = "An ethereal mystical figure stepping off a cliff with flowing luminous hair, angelic features, magical glow, knapsack, white rose, and small dog, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style, spiritual art";
+    const prompt = "An ultra-ethereal translucent mystical being stepping off a cliff with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, gossamer knapsack, glowing white rose, and small spirit dog, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent fabrics that merge with mist, tarot card style, spiritual art";
     
     const response = await fetch(
       "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
