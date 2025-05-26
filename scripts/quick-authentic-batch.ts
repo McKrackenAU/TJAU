@@ -70,27 +70,27 @@ async function generateAllCards() {
     {
       name: "The Fool",
       filename: "00-fool.png",
-      prompt: "An ethereal mystical figure stepping off a cliff with flowing luminous hair, angelic features, magical glow, knapsack, white rose, and small dog, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style, spiritual art"
+      prompt: "An ultra-ethereal translucent mystical being stepping off a cliff with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, gossamer knapsack, glowing white rose, and small spirit dog, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent fabrics that merge with mist, tarot card style, spiritual art"
     },
     {
       name: "The Magician",
       filename: "01-magician.png",
-      prompt: "An ethereal mystical figure with flowing luminous hair, angelic features, magical glow, pointing one hand up and one down, infinity symbol above head, altar with cup sword wand and pentacle, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing robes, tarot card style"
+      prompt: "An ultra-ethereal translucent mystical being with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, pointing one hand up and one down, infinity symbol above head, altar with cup sword wand and pentacle, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent robes that merge with mist, tarot card style"
     },
     {
       name: "The High Priestess",
       filename: "02-high-priestess.png",
-      prompt: "An ethereal mystical woman with flowing luminous hair, angelic features, magical glow, sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing robes, mystical temple background"
+      prompt: "An ultra-ethereal translucent mystical woman with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent robes that merge with mist, mystical temple background"
     },
     {
       name: "The Empress",
       filename: "03-empress.png",
-      prompt: "An ethereal mystical crowned woman with flowing luminous hair, angelic features, magical glow, Venus symbol, flowing gown, wheat field, flowing water, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, maternal goddess imagery, tarot card style"
+      prompt: "An ultra-ethereal translucent mystical crowned woman with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, Venus symbol, flowing gown, wheat field, flowing water, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent fabrics that merge with mist, maternal goddess imagery, tarot card style"
     },
     {
       name: "The Emperor",
       filename: "04-emperor.png",
-      prompt: "An ethereal mystical bearded ruler with flowing luminous hair, angelic features, magical glow, on stone throne with ram heads, armor, scepter, mountains in background, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style"
+      prompt: "An ultra-ethereal translucent mystical bearded ruler with cascading luminous hair like liquid starlight, celestial angelic features, soft magical aura, on stone throne with ram heads, armor, scepter, mountains in background, deep musky pink and purple gradients with iridescent shimmer, floating sparkles and divine light rays, dreamlike otherworldly essence, flowing translucent fabrics that merge with mist, tarot card style"
     },
     {
       name: "The Hierophant",
