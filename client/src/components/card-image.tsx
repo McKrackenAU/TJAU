@@ -236,7 +236,14 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'pk': '/assets/cards/king-of-pentacles.png'
     };
     
-    return allCardPaths[card.id] || null;
+    const imagePath = allCardPaths[card.id];
+    
+    // For missing cards (non-Major Arcana 0-4), return null so symbolic display is used
+    if (!imagePath || imagePath.includes('/assets/cards/')) {
+      return null;
+    }
+    
+    return imagePath;
   };
 
   // Card background gradient

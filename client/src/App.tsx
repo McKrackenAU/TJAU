@@ -50,7 +50,7 @@ function InitialAuthRedirect() {
   
   useEffect(() => {
     // Only redirect once on initial load
-    if (!isLoading && !user && !redirectedToAuth) {
+    if (!isLoading && !user && !redirectedToAuth && navigate) {
       setRedirectedToAuth(true);
       console.log("No user found, redirecting to auth page");
       navigate("/auth");
