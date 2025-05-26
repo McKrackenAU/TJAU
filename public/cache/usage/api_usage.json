@@ -2468,5 +2468,25 @@
     "cardId": "imported_354",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-05-26T08:01:20.027Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "2",
+    "cardName": "The High Priestess",
+    "timestamp": "2025-05-26T12:06:17.138Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "tts-1",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.015,
+    "cardId": "2",
+    "cardName": "The High Priestess",
+    "timestamp": "2025-05-26T12:06:21.537Z"
   }
 ]
