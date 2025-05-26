@@ -28,7 +28,7 @@ Include insights about:
 Keep the response concise but insightful, around 2-3 paragraphs.`;
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4o",
+    model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
@@ -121,16 +121,16 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     // Track API usage for meditation text generation
     apiUsageTracker.trackUsage({
       endpoint: '/api/cards/:id/meditation',
-      model: "gpt-4o",
+      model: "gpt-3.5-turbo",
       operation: 'chat.completion',
       status: 'success',
-      estimatedCost: API_COSTS["gpt-4o"]['chat.completion'],
+      estimatedCost: API_COSTS["gpt-3.5-turbo"]['chat.completion'],
       cardId: card.id,
       cardName: card.name
     });
     
     const scriptResponse = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
@@ -208,7 +208,7 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
       // Track the rate limit in our usage stats
       apiUsageTracker.trackUsage({
         endpoint: '/api/cards/:id/meditation',
-        model: "gpt-4o",
+        model: "gpt-3.5-turbo",
         operation: 'chat.completion',
         status: 'rate_limited',
         estimatedCost: 0,
@@ -219,7 +219,7 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
       // Track other errors
       apiUsageTracker.trackUsage({
         endpoint: '/api/cards/:id/meditation',
-        model: "gpt-4o",
+        model: "gpt-3.5-turbo",
         operation: 'error',
         status: 'error',
         estimatedCost: 0,
@@ -243,7 +243,7 @@ The affirmation should:
 Keep the tone uplifting and motivational.`;
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4o",
+    model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
@@ -287,7 +287,7 @@ Keep the response concise but insightful, focusing on the unique synergy between
 
     console.log("Sending prompt to OpenAI");
     const response = await openai.chat.completions.create({
-      model: "gpt-4o",
+      model: "gpt-3.5-turbo",
       messages: [
         {
           role: "system",
@@ -500,8 +500,8 @@ Include the following sections:
 
 Format the response with clear section headings and concise explanations. Keep the total length to around 400 words.`;
 
-    // Use gpt-4o if available, with fallback to gpt-4o
-    const model = "gpt-4o"; // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
+    // Use gpt-3.5-turbo if available, with fallback to gpt-3.5-turbo
+    const model = "gpt-3.5-turbo"; // the newest OpenAI model is "gpt-3.5-turbo" which was released May 13, 2024. do not change this unless explicitly requested by the user
     
     // Track API usage
     apiUsageTracker.trackUsage({
@@ -568,7 +568,7 @@ Format the response with clear section headings and concise explanations. Keep t
       // Track the rate limit in our usage stats
       apiUsageTracker.trackUsage({
         endpoint: '/api/cards/:id/symbolism',
-        model: "gpt-4o",
+        model: "gpt-3.5-turbo",
         operation: 'chat.completion',
         status: 'rate_limited',
         estimatedCost: 0, // No cost incurred for rate limited requests
@@ -579,7 +579,7 @@ Format the response with clear section headings and concise explanations. Keep t
       // Track other errors
       apiUsageTracker.trackUsage({
         endpoint: '/api/cards/:id/symbolism',
-        model: "gpt-4o",
+        model: "gpt-3.5-turbo",
         operation: 'chat.completion',
         status: 'error',
         estimatedCost: 0, // No cost for errors

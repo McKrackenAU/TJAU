@@ -137,28 +137,13 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
-  // Simplified card path mapping
+  // Complete card path mapping
   const getImagePath = () => {
-    // Try fresh 2025 cards first, then fall back to authentic cards
-    if (card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id)) {
-      const fresh2025Cards: Record<string, string> = {
-        '0': '/cards-fresh-2025/fool-2025.png',
-        '1': '/cards-fresh-2025/magician-2025.png',
-        '2': '/cards-fresh-2025/high-priestess-2025.png',
-        '3': '/cards-fresh-2025/empress-2025.png',
-        '4': '/cards-fresh-2025/emperor-2025.png'
-      };
-      
-      // Check if fresh card exists, otherwise use authentic backup
-      const freshPath = fresh2025Cards[card.id];
-      console.log(`🎨 Checking ${card.name}: ${freshPath}`);
-      return freshPath;
-    }
-    
-    // Fallback - use your existing authentic cards as backup
-    const fallbackPaths: Record<string, string> = {
+    // All card paths in one place
+    const allCardPaths: Record<string, string> = {
+      // Major Arcana - use your authentic cards
       '0': '/authentic-cards/major-arcana/00-fool.png',
-      '1': '/authentic-cards/major-arcana/01-magician.png', 
+      '1': '/authentic-cards/major-arcana/01-magician.png',
       '2': '/authentic-cards/major-arcana/02-high-priestess.png',
       '3': '/authentic-cards/major-arcana/03-empress.png',
       '4': '/authentic-cards/major-arcana/04-emperor.png',
@@ -168,6 +153,19 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       '8': '/assets/cards/8.png',
       '9': '/assets/cards/9.png',
       '10': '/assets/cards/10.png',
+      '11': '/assets/cards/11.png',
+      '12': '/assets/cards/12.png',
+      '13': '/assets/cards/13.png',
+      '14': '/assets/cards/14.png',
+      '15': '/assets/cards/15.png',
+      '16': '/assets/cards/16.png',
+      '17': '/assets/cards/17.png',
+      '18': '/assets/cards/18.png',
+      '19': '/assets/cards/19.png',
+      '20': '/assets/cards/20.png',
+      '21': '/assets/cards/21.png',
+      
+      // Minor Arcana - Wands
       'w1': '/assets/cards/ace-of-wands.png',
       'w2': '/assets/cards/two-of-wands.png',
       'w3': '/assets/cards/three-of-wands.png',
@@ -182,6 +180,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'wn': '/assets/cards/knight-of-wands.png',
       'wq': '/assets/cards/queen-of-wands.png',
       'wk': '/assets/cards/king-of-wands.png',
+      
+      // Minor Arcana - Cups
       'c1': '/assets/cards/ace-of-cups.png',
       'c2': '/assets/cards/two-of-cups.png',
       'c3': '/assets/cards/three-of-cups.png',
@@ -196,6 +196,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'cn': '/assets/cards/knight-of-cups.png',
       'cq': '/assets/cards/queen-of-cups.png',
       'ck': '/assets/cards/king-of-cups.png',
+      
+      // Minor Arcana - Swords
       's1': '/assets/cards/ace-of-swords.png',
       's2': '/assets/cards/two-of-swords.png',
       's3': '/assets/cards/three-of-swords.png',
@@ -210,6 +212,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'sn': '/assets/cards/knight-of-swords.png',
       'sq': '/assets/cards/queen-of-swords.png',
       'sk': '/assets/cards/king-of-swords.png',
+      
+      // Minor Arcana - Pentacles
       'p1': '/assets/cards/ace-of-pentacles.png',
       'p2': '/assets/cards/two-of-pentacles.png',
       'p3': '/assets/cards/three-of-pentacles.png',
@@ -226,7 +230,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'pk': '/assets/cards/king-of-pentacles.png'
     };
     
-    return fallbackPaths[card.id] || null;
+    return allCardPaths[card.id] || null;
   };
 
   // Card background gradient
