@@ -139,6 +139,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   // Complete card path mapping
   const getImagePath = () => {
+    // Ensure card and card.id exist
+    if (!card || !card.id) {
+      console.log('⚠️ Invalid card or missing ID');
+      return null;
+    }
+    
     // All card paths in one place
     const allCardPaths: Record<string, string> = {
       // Major Arcana - use your authentic cards
@@ -242,7 +248,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     }
     
     // Minor arcana suit colors
-    if (card.suit) {
+    if (card.suit && typeof card.suit === 'string') {
       switch (card.suit.toLowerCase()) {
         case "wands":
           return `${baseClasses} bg-gradient-to-br from-red-400 via-orange-500 to-yellow-600 border-orange-300/50`;
