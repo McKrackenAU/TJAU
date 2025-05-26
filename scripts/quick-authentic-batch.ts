@@ -70,112 +70,112 @@ async function generateAllCards() {
     {
       name: "The Fool",
       filename: "00-fool.png",
-      prompt: "A young person stepping off a cliff with a knapsack, white rose, and small dog, traditional tarot card style, mystical symbolism, detailed illustration, spiritual art"
+      prompt: "A young person stepping off a cliff with a knapsack, white rose, and small dog, mystical tarot card style, soft musky pink and purple color palette, ethereal atmosphere, dreamy mystical lighting, traditional symbolism, spiritual art"
     },
     {
       name: "The Magician",
       filename: "01-magician.png",
-      prompt: "A figure in robes with one hand pointing up and one down, infinity symbol above head, altar with cup sword wand and pentacle, traditional tarot symbolism"
+      prompt: "A figure in robes with one hand pointing up and one down, infinity symbol above head, altar with cup sword wand and pentacle, mystical tarot style, musky pink and purple tones, ethereal dreamy atmosphere, spiritual artwork"
     },
     {
       name: "The High Priestess",
       filename: "02-high-priestess.png",
-      prompt: "A woman in blue robes sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, mystical temple background"
+      prompt: "A woman in flowing robes sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, mystical temple background, soft musky pink and purple palette, ethereal mystical lighting"
     },
     {
       name: "The Empress",
       filename: "03-empress.png",
-      prompt: "A crowned woman in flowing gown with Venus symbol, pregnant figure, wheat field, flowing water, traditional maternal goddess imagery"
+      prompt: "A crowned woman in flowing gown with Venus symbol, pregnant figure, wheat field, flowing water, maternal goddess imagery, mystical tarot style, musky pink and purple color scheme, dreamy ethereal atmosphere"
     },
     {
       name: "The Emperor",
       filename: "04-emperor.png",
-      prompt: "A bearded ruler on stone throne with ram heads, armor, scepter, mountains in background, symbol of authority and stability"
+      prompt: "A bearded ruler on stone throne with ram heads, armor, scepter, mountains in background, authority and stability symbols, mystical tarot art, soft musky pink and purple tones, ethereal lighting"
     },
     {
       name: "The Hierophant",
       filename: "05-hierophant.png",
-      prompt: "A religious figure with triple crown, two keys, two kneeling disciples, pillars, traditional spiritual teacher imagery"
+      prompt: "A religious figure with triple crown, two keys, two kneeling disciples, pillars, spiritual teacher imagery, mystical tarot style, musky pink and purple palette, dreamy mystical atmosphere"
     },
     {
       name: "The Lovers",
       filename: "06-lovers.png",
-      prompt: "Adam and Eve under angel Raphael, tree of knowledge and tree of life, mountain, representing choice and union"
+      prompt: "Adam and Eve under angel Raphael, tree of knowledge and tree of life, mountain, choice and union symbolism, mystical tarot art, soft musky pink and purple colors, ethereal dreamy lighting"
     },
     {
       name: "The Chariot",
       filename: "07-chariot.png",
-      prompt: "A warrior in chariot pulled by two sphinxes, city in background, starry canopy, symbols of determination and willpower"
+      prompt: "A warrior in chariot pulled by two sphinxes, city in background, starry canopy, determination and willpower symbols, mystical tarot style, musky pink and purple tones, ethereal atmosphere"
     },
     {
       name: "Strength",
       filename: "08-strength.png",
-      prompt: "A woman gently closing a lion's mouth, infinity symbol above head, flowers, representing inner strength and courage"
+      prompt: "A woman gently closing a lion's mouth, infinity symbol above head, flowers, inner strength and courage symbolism, mystical tarot art, soft musky pink and purple palette, dreamy mystical lighting"
     },
     {
       name: "The Hermit",
       filename: "09-hermit.png",
-      prompt: "An old man with lantern and staff on mountain peak, six-pointed star in lantern, seeking inner wisdom and guidance"
+      prompt: "An old man with lantern and staff on mountain peak, six-pointed star in lantern, inner wisdom and guidance symbols, mystical tarot style, musky pink and purple colors, ethereal dreamy atmosphere"
     },
     {
       name: "Wheel of Fortune",
       filename: "10-wheel.png",
-      prompt: "A large wheel with TARO letters, sphinx on top, snake on left, angel figures, clouds, representing cycles and destiny"
+      prompt: "A large wheel with TARO letters, sphinx on top, snake on left, angel figures, clouds, cycles and destiny symbolism, mystical tarot art, soft musky pink and purple tones, ethereal lighting"
     },
     {
       name: "Justice",
       filename: "11-justice.png",
-      prompt: "A figure holding scales and sword, sitting between pillars, blindfolded or clear-eyed, representing balance and fairness"
+      prompt: "A figure holding scales and sword, sitting between pillars, balance and fairness symbols, mystical tarot style, musky pink and purple palette, dreamy mystical atmosphere"
     },
     {
       name: "The Hanged Man",
       filename: "12-hanged-man.png",
-      prompt: "A man hanging upside down from a T-shaped tree, serene expression, halo, representing sacrifice and new perspective"
+      prompt: "A man hanging upside down from a T-shaped tree, serene expression, halo, sacrifice and new perspective symbolism, mystical tarot art, soft musky pink and purple colors, ethereal dreamy lighting"
     },
     {
       name: "Death",
       filename: "13-death.png",
-      prompt: "A skeleton in black armor on white horse, flag with white rose, representing transformation and rebirth"
+      prompt: "A skeleton in black armor on white horse, flag with white rose, transformation and rebirth symbols, mystical tarot style, musky pink and purple tones, ethereal atmosphere"
     },
     {
       name: "Temperance",
       filename: "14-temperance.png",
-      prompt: "An angel pouring water between two cups, one foot on land one in water, representing balance and moderation"
+      prompt: "An angel pouring water between two cups, one foot on land one in water, balance and moderation symbolism, mystical tarot art, soft musky pink and purple palette, dreamy mystical lighting"
     },
     {
       name: "The Devil",
       filename: "15-devil.png",
-      prompt: "A horned figure with two chained humans below, inverted pentagram, representing temptation and bondage"
+      prompt: "A horned figure with two chained humans below, inverted pentagram, temptation and bondage symbols, mystical tarot style, musky pink and purple colors, ethereal dreamy atmosphere"
     },
     {
       name: "The Tower",
       filename: "16-tower.png",
-      prompt: "A tall tower struck by lightning, crown falling off, two figures falling, representing sudden change and revelation"
+      prompt: "A tall tower struck by lightning, crown falling off, two figures falling, sudden change and revelation symbolism, mystical tarot art, soft musky pink and purple tones, ethereal lighting"
     },
     {
       name: "The Star",
       filename: "17-star.png",
-      prompt: "A woman pouring water, seven small stars and one large star, representing hope and spiritual guidance"
+      prompt: "A woman pouring water, seven small stars and one large star, hope and spiritual guidance symbols, mystical tarot style, musky pink and purple palette, dreamy mystical atmosphere"
     },
     {
       name: "The Moon",
       filename: "18-moon.png",
-      prompt: "A moon face with two towers, dog and wolf howling, crayfish emerging from water, representing illusion and intuition"
+      prompt: "A moon face with two towers, dog and wolf howling, crayfish emerging from water, illusion and intuition symbolism, mystical tarot art, soft musky pink and purple colors, ethereal dreamy lighting"
     },
     {
       name: "The Sun",
       filename: "19-sun.png",
-      prompt: "A bright sun with face, child on white horse, sunflowers, representing joy and success"
+      prompt: "A bright sun with face, child on white horse, sunflowers, joy and success symbols, mystical tarot style, musky pink and purple tones, ethereal atmosphere"
     },
     {
       name: "Judgement",
       filename: "20-judgement.png",
-      prompt: "Angel Gabriel blowing trumpet, people rising from graves, representing rebirth and judgment"
+      prompt: "Angel Gabriel blowing trumpet, people rising from graves, rebirth and judgment symbolism, mystical tarot art, soft musky pink and purple palette, dreamy mystical lighting"
     },
     {
       name: "The World",
       filename: "21-world.png",
-      prompt: "A dancing figure in oval wreath, four corner symbols (angel, eagle, lion, bull), representing completion and fulfillment"
+      prompt: "A dancing figure in oval wreath, four corner symbols (angel, eagle, lion, bull), completion and fulfillment symbols, mystical tarot style, musky pink and purple colors, ethereal dreamy atmosphere"
     }
   ];
 
