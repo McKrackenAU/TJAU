@@ -246,13 +246,14 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       '4': '/authentic-cards/major-arcana/04-emperor-fresh.png'
     };
     
-    // Fallback to original authentic versions if fresh ones aren't ready yet
+    // Force cache refresh with timestamp for updated cards
+    const timestamp = Date.now();
     const fallbackPaths: Record<string, string> = {
-      '0': '/authentic-cards/major-arcana/00-fool.png',
-      '1': '/authentic-cards/major-arcana/01-magician.png',
-      '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
-      '3': '/authentic-cards/major-arcana/03-empress.png',
-      '4': '/authentic-cards/major-arcana/04-emperor.png'
+      '0': `/authentic-cards/major-arcana/00-fool.png?v=${timestamp}`,
+      '1': `/authentic-cards/major-arcana/01-magician.png?v=${timestamp}`,
+      '2': `/authentic-cards/major-arcana/02-high-priestess.png?v=${timestamp}`, 
+      '3': `/authentic-cards/major-arcana/03-empress.png?v=${timestamp}`,
+      '4': `/authentic-cards/major-arcana/04-emperor.png?v=${timestamp}`
     };
     
     // Use authentic cards for 0-4 (your existing working cards)
