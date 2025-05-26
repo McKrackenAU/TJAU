@@ -28,7 +28,7 @@ export function useAppVersion(): AppVersion {
   
   useEffect(() => {
     // Detect iOS
-    const iosDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    const iosDevice = navigator.userAgent ? /iPad|iPhone|iPod/.test(navigator.userAgent) : false;
     setIsIOS(iosDevice);
     
     // Check if app is installed as PWA
