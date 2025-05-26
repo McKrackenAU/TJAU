@@ -1,327 +1,378 @@
 import { useEffect, useRef, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Star, Sparkles, Award, Crown } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import type { LearningTrack, UserProgress } from "@shared/schema";
+import { Star, Sparkles, Crown, Trophy } from "lucide-react";
 
-interface ConstellationPoint {
+interface ConstellationStar {
   id: string;
   x: number;
   y: number;
-  completed: boolean;
-  name: string;
-  category: string;
+  size: number;
+  brightness: number;
+  color: string;
+  isCompleted: boolean;
+  trackName: string;
+  lessonName: string;
   connections: string[];
 }
 
-interface CelestialReward {
-  id: string;
-  name: string;
-  description: string;
-  icon: string;
-  unlocked: boolean;
-  requiredPattern: string[];
+interface ConstellationProps {
+  onStarClick?: (starId: string) => void;
 }
 
-interface LearningConstellationProps {
-  completedLessons: string[];
-  totalLessons: number;
-  trackName: string;
-}
-
-export function LearningConstellation({ 
-  completedLessons, 
-  totalLessons, 
-  trackName 
-}: LearningConstellationProps) {
+export function LearningConstellation({ onStarClick }: ConstellationProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [rewards, setRewards] = useState<CelestialReward[]>([]);
-  const [selectedStar, setSelectedStar] = useState<ConstellationPoint | null>(null);
-  
-  // Generate constellation points based on lessons
-  const generateConstellation = (): ConstellationPoint[] => {
-    if (!completedLessons || completedLessons.length === 0) {
-      return [];
-    }
-    
-    const points: ConstellationPoint[] = [];
-    const categories = {
-      'pendulum-1': { name: 'Introduction', color: '#9333ea', angle: 0 },
-      'pendulum-2': { name: 'Preparation', color: '#06b6d4', angle: Math.PI / 2 },
-      'pendulum-3': { name: 'Communication', color: '#10b981', angle: Math.PI },
-      'pendulum-4': { name: 'Advanced', color: '#f59e0b', angle: 3 * Math.PI / 2 }
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [stars, setStars] = useState<ConstellationStar[]>([]);
+  const [animationFrame, setAnimationFrame] = useState(0);
+  const [hoveredStar, setHoveredStar] = useState<string | null>(null);
+
+  const { data: tracks } = useQuery<LearningTrack[]>({
+    queryKey: ["/api/learning/tracks"],
+  });
+
+  const { data: progressData } = useQuery({
+    queryKey: ["/api/learning/progress/all"],
+    queryFn: async () => {
+      if (!tracks) return [];
+      const progressPromises = tracks.map(track =>
+        fetch(`/api/learning/progress/${track.id}`)
+          .then(res => res.json())
+          .catch(() => ({ completedLessons: [], currentLesson: 1, trackId: track.id }))
+      );
+      return Promise.all(progressPromises);
+    },
+    enabled: !!tracks,
+  });
+
+  // Generate constellation stars based on learning progress
+  useEffect(() => {
+    if (!tracks || !progressData || !containerRef.current) return;
+
+    const container = containerRef.current;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const newStars: ConstellationStar[] = [];
+
+    // Define constellation patterns for different tracks
+    const constellationPatterns = {
+      1: { // Beginner's Journey - The Great Bear (Big Dipper)
+        centerX: width * 0.3,
+        centerY: height * 0.4,
+        pattern: [
+          { x: 0, y: 0 }, { x: 40, y: -20 }, { x: 80, y: -30 },
+          { x: 120, y: -25 }, { x: 100, y: 20 }, { x: 60, y: 35 }, { x: 20, y: 30 }
+        ]
+      },
+      2: { // Minor Arcana - Orion's Belt
+        centerX: width * 0.7,
+        centerY: height * 0.3,
+        pattern: [
+          { x: -60, y: -40 }, { x: -20, y: -20 }, { x: 20, y: 0 },
+          { x: 60, y: 20 }, { x: -40, y: 40 }, { x: 0, y: 60 }, { x: 40, y: 80 }
+        ]
+      },
+      5: { // Pendulum Dowsing - Cassiopeia (W shape)
+        centerX: width * 0.5,
+        centerY: height * 0.2,
+        pattern: [
+          { x: -80, y: 20 }, { x: -40, y: -10 }, { x: 0, y: 0 },
+          { x: 40, y: -10 }, { x: 80, y: 20 }
+        ]
+      },
+      10: { // Intuitive Reading - Southern Cross
+        centerX: width * 0.2,
+        centerY: height * 0.7,
+        pattern: [
+          { x: 0, y: -30 }, { x: -25, y: 0 }, { x: 0, y: 0 },
+          { x: 25, y: 0 }, { x: 0, y: 30 }
+        ]
+      },
+      11: { // Advanced Symbolism - Corona Borealis (Crown)
+        centerX: width * 0.8,
+        centerY: height * 0.6,
+        pattern: [
+          { x: -60, y: 10 }, { x: -30, y: -20 }, { x: 0, y: -30 },
+          { x: 30, y: -20 }, { x: 60, y: 10 }
+        ]
+      }
     };
-    
-    Object.entries(categories).forEach(([categoryId, category], catIndex) => {
-      const categoryLessons = completedLessons.filter(id => id.startsWith(categoryId));
-      const lessonCount = categoryLessons.length || 1;
-      
-      categoryLessons.forEach((lessonId, index) => {
-        const radius = 80 + (catIndex * 40);
-        const angleOffset = (index / lessonCount) * (Math.PI / 2);
-        const angle = category.angle + angleOffset;
-        
-        points.push({
-          id: lessonId,
-          x: 200 + radius * Math.cos(angle),
-          y: 200 + radius * Math.sin(angle),
-          completed: true,
-          name: `Lesson ${index + 1}`,
-          category: category.name,
-          connections: index > 0 ? [categoryLessons[index - 1]] : []
+
+    tracks.forEach((track, trackIndex) => {
+      const progress = progressData.find(p => p.trackId === track.id) || { completedLessons: [], currentLesson: 1 };
+      const pattern = constellationPatterns[track.id as keyof typeof constellationPatterns] || {
+        centerX: width * (0.2 + trackIndex * 0.15),
+        centerY: height * (0.3 + (trackIndex % 2) * 0.4),
+        pattern: track.requiredCards.map((_, i) => ({ 
+          x: (i % 4) * 40 - 60, 
+          y: Math.floor(i / 4) * 40 - 40 
+        }))
+      };
+
+      track.requiredCards.forEach((cardId, lessonIndex) => {
+        const isCompleted = progress.completedLessons.includes(cardId);
+        const isCurrent = progress.currentLesson - 1 === lessonIndex;
+        const pos = pattern.pattern[lessonIndex] || { x: lessonIndex * 30, y: 0 };
+
+        // Star properties based on completion status
+        let size = isCompleted ? 8 : 4;
+        let brightness = isCompleted ? 1 : 0.3;
+        let color = isCompleted ? '#FFDF00' : '#87CEEB'; // Bright golden yellow for completed, sky blue for pending
+
+        if (isCurrent) {
+          size = 10;
+          brightness = 0.8;
+          color = '#FF6B6B'; // Coral for current lesson
+        }
+
+        // Beautiful golden yellow for all completed lessons
+        if (isCompleted) {
+          color = '#FFD700'; // Pure gold color for all completed achievements
+          brightness = 1.2; // Make completed stars extra bright
+        }
+
+        newStars.push({
+          id: `${track.id}-${lessonIndex}`,
+          x: pattern.centerX + pos.x,
+          y: pattern.centerY + pos.y,
+          size,
+          brightness,
+          color,
+          isCompleted,
+          trackName: track.name,
+          lessonName: `Lesson ${lessonIndex + 1}`,
+          connections: lessonIndex > 0 ? [`${track.id}-${lessonIndex - 1}`] : []
         });
       });
     });
-    
-    return points;
-  };
 
-  // Generate celestial rewards based on completion patterns
-  const generateRewards = (): CelestialReward[] => {
-    if (!completedLessons || !Array.isArray(completedLessons)) {
-      return [];
-    }
-    
-    const baseRewards: CelestialReward[] = [
-      {
-        id: 'first-steps',
-        name: 'Cosmic Initiate',
-        description: 'Complete your first pendulum lesson',
-        icon: '⭐',
-        unlocked: completedLessons.length >= 1,
-        requiredPattern: ['pendulum-1-1']
-      },
-      {
-        id: 'foundation-master',
-        name: 'Foundation Guardian',
-        description: 'Master the introduction module',
-        icon: '🌟',
-        unlocked: completedLessons.filter(id => id.startsWith('pendulum-1')).length >= 2,
-        requiredPattern: ['pendulum-1-1', 'pendulum-1-2']
-      },
-      {
-        id: 'preparation-sage',
-        name: 'Preparation Sage',
-        description: 'Complete the preparation module',
-        icon: '✨',
-        unlocked: completedLessons.filter(id => id.startsWith('pendulum-2')).length >= 2,
-        requiredPattern: ['pendulum-2-1', 'pendulum-2-2']
-      },
-      {
-        id: 'communication-oracle',
-        name: 'Communication Oracle',
-        description: 'Master pendulum communication',
-        icon: '🔮',
-        unlocked: completedLessons.filter(id => id.startsWith('pendulum-3')).length >= 2,
-        requiredPattern: ['pendulum-3-1', 'pendulum-3-2']
-      },
-      {
-        id: 'advanced-mystic',
-        name: 'Advanced Mystic',
-        description: 'Complete advanced techniques',
-        icon: '👑',
-        unlocked: completedLessons.filter(id => id.startsWith('pendulum-4')).length >= 2,
-        requiredPattern: ['pendulum-4-1', 'pendulum-4-2']
-      },
-      {
-        id: 'constellation-master',
-        name: 'Constellation Master',
-        description: 'Complete the entire pendulum course',
-        icon: '🌌',
-        unlocked: completedLessons.length >= 8,
-        requiredPattern: []
-      }
-    ];
-    
-    return baseRewards;
-  };
+    setStars(newStars);
+  }, [tracks, progressData]);
 
-  // Draw the constellation on canvas
-  const drawConstellation = () => {
+  // Animation loop for twinkling stars
+  useEffect(() => {
+    const animate = () => {
+      setAnimationFrame(prev => prev + 1);
+      requestAnimationFrame(animate);
+    };
+    const animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
+  // Canvas rendering
+  useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
-    
+    if (!canvas || stars.length === 0) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
     
-    // Clear canvas with deep space background
-    const gradient = ctx.createRadialGradient(200, 200, 0, 200, 200, 200);
-    gradient.addColorStop(0, '#1a1a2e');
-    gradient.addColorStop(0.5, '#16213e');
-    gradient.addColorStop(1, '#0f3460');
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
     
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, 400, 400);
-    
-    // Add twinkling stars background
-    for (let i = 0; i < 50; i++) {
-      const x = Math.random() * 400;
-      const y = Math.random() * 400;
-      const alpha = Math.random() * 0.8 + 0.2;
-      
-      ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-      ctx.beginPath();
-      ctx.arc(x, y, 1, 0, 2 * Math.PI);
-      ctx.fill();
-    }
-    
-    const points = generateConstellation();
-    
-    // Draw connections between completed lessons
-    ctx.strokeStyle = 'rgba(147, 51, 234, 0.6)';
-    ctx.lineWidth = 2;
-    
-    points.forEach(point => {
-      point.connections.forEach(connectionId => {
-        const connectedPoint = points.find(p => p.id === connectionId);
-        if (connectedPoint && connectedPoint.completed) {
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    // Draw constellation connections
+    stars.forEach(star => {
+      star.connections.forEach(connectionId => {
+        const connectedStar = stars.find(s => s.id === connectionId);
+        if (connectedStar && star.isCompleted && connectedStar.isCompleted) {
+          ctx.strokeStyle = `rgba(255, 215, 0, 0.4)`;
+          ctx.lineWidth = 2;
+          ctx.setLineDash([5, 5]);
           ctx.beginPath();
-          ctx.moveTo(point.x, point.y);
-          ctx.lineTo(connectedPoint.x, connectedPoint.y);
+          ctx.moveTo(star.x, star.y);
+          ctx.lineTo(connectedStar.x, connectedStar.y);
           ctx.stroke();
+          ctx.setLineDash([]);
         }
       });
     });
-    
-    // Draw constellation points (lessons)
-    points.forEach(point => {
-      const size = point.completed ? 8 : 4;
-      const color = point.completed ? '#fbbf24' : '#6b7280';
+
+    // Draw stars
+    stars.forEach(star => {
+      const twinkle = Math.sin(animationFrame * 0.02 + star.x * 0.01) * 0.2 + 0.8;
+      const alpha = star.brightness * twinkle;
       
-      // Glow effect for completed lessons
-      if (point.completed) {
-        const glowGradient = ctx.createRadialGradient(
-          point.x, point.y, 0,
-          point.x, point.y, size * 2
+      // Outer glow
+      if (star.isCompleted || hoveredStar === star.id) {
+        const gradient = ctx.createRadialGradient(
+          star.x, star.y, 0,
+          star.x, star.y, star.size * 3
         );
-        glowGradient.addColorStop(0, 'rgba(251, 191, 36, 0.8)');
-        glowGradient.addColorStop(1, 'rgba(251, 191, 36, 0)');
+        gradient.addColorStop(0, `${star.color}${Math.floor(alpha * 0.8 * 255).toString(16).padStart(2, '0')}`);
+        gradient.addColorStop(1, 'transparent');
         
-        ctx.fillStyle = glowGradient;
+        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(point.x, point.y, size * 2, 0, 2 * Math.PI);
+        ctx.arc(star.x, star.y, star.size * 3, 0, Math.PI * 2);
         ctx.fill();
       }
-      
+
       // Main star
-      ctx.fillStyle = color;
+      ctx.fillStyle = star.color;
+      ctx.globalAlpha = alpha;
       ctx.beginPath();
-      ctx.arc(point.x, point.y, size, 0, 2 * Math.PI);
-      ctx.fill();
       
-      // Inner sparkle
-      if (point.completed) {
-        ctx.fillStyle = '#ffffff';
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, size / 2, 0, 2 * Math.PI);
-        ctx.fill();
+      if (star.isCompleted) {
+        // Draw 5-pointed star for completed lessons
+        const spikes = 5;
+        const outerRadius = star.size;
+        const innerRadius = outerRadius * 0.5;
+        
+        ctx.moveTo(star.x, star.y - outerRadius);
+        for (let i = 0; i < spikes * 2; i++) {
+          const radius = i % 2 === 0 ? outerRadius : innerRadius;
+          const angle = (i * Math.PI) / spikes - Math.PI / 2;
+          ctx.lineTo(
+            star.x + Math.cos(angle) * radius,
+            star.y + Math.sin(angle) * radius
+          );
+        }
+        ctx.closePath();
+      } else {
+        // Draw circle for incomplete lessons
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
       }
+      
+      ctx.fill();
+      ctx.globalAlpha = 1;
     });
+  }, [stars, animationFrame, hoveredStar]);
+
+  // Handle mouse interactions
+  const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const hoveredStar = stars.find(star => {
+      const distance = Math.sqrt((x - star.x) ** 2 + (y - star.y) ** 2);
+      return distance <= star.size * 2;
+    });
+
+    setHoveredStar(hoveredStar?.id || null);
+    canvas.style.cursor = hoveredStar ? 'pointer' : 'default';
   };
 
-  useEffect(() => {
-    setRewards(generateRewards());
-    drawConstellation();
-  }, [completedLessons]);
+  const handleClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-  const progressPercentage = completedLessons && completedLessons.length ? (completedLessons.length / totalLessons) * 100 : 0;
-  const unlockedRewards = rewards.filter(r => r.unlocked);
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const clickedStar = stars.find(star => {
+      const distance = Math.sqrt((x - star.x) ** 2 + (y - star.y) ** 2);
+      return distance <= star.size * 2;
+    });
+
+    if (clickedStar && onStarClick) {
+      onStarClick(clickedStar.id);
+    }
+  };
+
+  const completedCount = stars.filter(star => star.isCompleted).length;
+  const totalCount = stars.length;
+  const completionPercentage = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
 
   return (
-    <div className="space-y-6">
-      <Card className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border-purple-500/30">
+    <TooltipProvider>
+      <Card className="bg-gradient-to-br from-indigo-950 via-purple-900 to-slate-900 border-purple-500/30">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Sparkles className="h-5 w-5 text-yellow-400" />
-            {trackName} Constellation
-          </CardTitle>
-          <div className="space-y-2">
-            <Progress value={progressPercentage} className="h-2" />
-            <p className="text-sm text-muted-foreground">
-              {completedLessons ? completedLessons.length : 0} of {totalLessons} stars illuminated
-            </p>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="flex justify-center">
-            <canvas
-              ref={canvasRef}
-              width={400}
-              height={400}
-              className="border border-purple-500/30 rounded-lg bg-gradient-to-br from-indigo-950 to-purple-950"
-              onClick={(e) => {
-                const rect = canvasRef.current?.getBoundingClientRect();
-                if (!rect) return;
-                
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                // Check if click is near any star
-                const points = generateConstellation();
-                const clickedPoint = points.find(point => {
-                  const distance = Math.sqrt((x - point.x) ** 2 + (y - point.y) ** 2);
-                  return distance < 15;
-                });
-                
-                setSelectedStar(clickedPoint || null);
-              }}
-            />
-          </div>
-          
-          {selectedStar && (
-            <div className="mt-4 p-3 bg-purple-900/30 rounded-lg border border-purple-500/30">
-              <h4 className="font-semibold text-yellow-400">{selectedStar.name}</h4>
-              <p className="text-sm text-muted-foreground">Category: {selectedStar.category}</p>
-              <Badge variant="secondary" className="mt-1">
-                {selectedStar.completed ? 'Completed' : 'Locked'}
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-white flex items-center gap-2">
+              <Sparkles className="h-5 w-5 text-yellow-400" />
+              Your Spiritual Constellation
+            </CardTitle>
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" className="bg-purple-600/20 text-purple-200">
+                <Star className="h-3 w-3 mr-1" />
+                {completedCount}/{totalCount} Stars
+              </Badge>
+              <Badge variant="outline" className="border-yellow-400 text-yellow-400">
+                {completionPercentage}% Complete
               </Badge>
             </div>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Celestial Rewards Section */}
-      <Card className="bg-gradient-to-br from-amber-900/20 to-orange-900/20 border-amber-500/30">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Crown className="h-5 w-5 text-amber-400" />
-            Celestial Rewards ({unlockedRewards.length}/{rewards.length})
-          </CardTitle>
+          </div>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {rewards.map(reward => (
-              <div
-                key={reward.id}
-                className={`p-3 rounded-lg border transition-all ${
-                  reward.unlocked
-                    ? 'bg-amber-900/30 border-amber-500/50 shadow-amber-500/20 shadow-lg'
-                    : 'bg-gray-800/30 border-gray-600/30 opacity-60'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <div className="text-2xl">{reward.icon}</div>
-                  <div>
-                    <h4 className={`font-semibold ${reward.unlocked ? 'text-amber-300' : 'text-gray-400'}`}>
-                      {reward.name}
-                    </h4>
-                    <p className="text-xs text-muted-foreground">
-                      {reward.description}
+          <div 
+            ref={containerRef}
+            className="relative w-full h-96 rounded-lg overflow-hidden"
+            style={{ 
+              background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 50%, #0f172a 100%)'
+            }}
+          >
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full"
+              onMouseMove={handleMouseMove}
+              onClick={handleClick}
+            />
+            
+            {hoveredStar && (
+              <Tooltip open={true}>
+                <TooltipTrigger asChild>
+                  <div className="absolute pointer-events-none" />
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-purple-900 border-purple-600">
+                  <div className="text-center">
+                    <p className="font-semibold text-white">
+                      {stars.find(s => s.id === hoveredStar)?.trackName}
                     </p>
-                    {reward.unlocked && (
-                      <Badge variant="secondary" className="mt-1 bg-amber-500/20 text-amber-300">
-                        <Award className="h-3 w-3 mr-1" />
-                        Unlocked
+                    <p className="text-purple-200">
+                      {stars.find(s => s.id === hoveredStar)?.lessonName}
+                    </p>
+                    {stars.find(s => s.id === hoveredStar)?.isCompleted && (
+                      <Badge className="bg-yellow-500 text-black mt-1">
+                        <Crown className="h-3 w-3 mr-1" />
+                        Completed
                       </Badge>
                     )}
                   </div>
-                </div>
+                </TooltipContent>
+              </Tooltip>
+            )}
+          </div>
+
+          <div className="mt-4 flex items-center justify-between text-sm text-purple-200">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
+                <span>Completed</span>
               </div>
-            ))}
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 bg-red-400 rounded-full"></div>
+                <span>Current</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <div className="w-3 h-3 bg-sky-400 rounded-full"></div>
+                <span>Upcoming</span>
+              </div>
+            </div>
+            <div className="text-yellow-400 font-medium">
+              {completionPercentage >= 100 && <Trophy className="h-4 w-4 inline mr-1" />}
+              Journey Progress: {completionPercentage}%
+            </div>
           </div>
         </CardContent>
       </Card>
-    </div>
+    </TooltipProvider>
   );
 }

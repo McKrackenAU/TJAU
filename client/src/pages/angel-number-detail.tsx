@@ -15,7 +15,7 @@ import type { AngelNumber } from "@shared/schema";
 
 export default function AngelNumberDetailPage() {
   const [match, params] = useRoute<{ number: string }>("/angel-numbers/:number");
-  const number = match && params ? params.number : "";
+  const number = match ? params.number : "";
 
   const { data: angelNumber, isLoading, error } = useQuery<AngelNumber>({
     queryKey: [`/api/angel-numbers/${number}`],

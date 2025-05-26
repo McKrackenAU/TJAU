@@ -11,7 +11,8 @@ import type { LearningTrack, UserProgress, QuizResult } from "@shared/schema";
 import { GraduationCap, Trophy, Book, Brain, ArrowRight, Sparkles } from "lucide-react";
 import { tarotCards } from "@shared/tarot-data";
 import { TrackCardLabel } from "@/components/track-card-label";
-
+import { LearningConstellation } from "@/components/learning-constellation";
+import { CelestialRewards } from "@/components/celestial-rewards";
 import { useEffect } from "react";
 
 export default function Learning() {
@@ -671,10 +672,21 @@ export default function Learning() {
             <Sparkles className="h-5 w-5 text-yellow-400" />
             <h2 className="text-xl font-semibold">Your Spiritual Journey Constellation</h2>
           </div>
-
+          <LearningConstellation onStarClick={handleStarClick} />
         </section>
 
-
+        {/* Celestial Rewards System */}
+        {tracks && (
+          <section>
+            <CelestialRewards 
+              userProgress={tracks.map(track => {
+                // Create a simple progress structure for each track
+                return { completedLessons: [], currentLesson: 1, trackId: track.id };
+              })}
+              tracks={tracks}
+            />
+          </section>
+        )}
         <section>
           <div className="flex items-center gap-2 mb-4">
             <Book className="h-5 w-5" />
