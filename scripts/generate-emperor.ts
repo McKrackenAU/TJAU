@@ -1,5 +1,5 @@
 /**
- * Generate The Hierophant Card - Ultra-Ethereal Style
+ * Generate The Emperor Card - Ultra-Ethereal Style
  */
 
 import fs from 'fs';
@@ -19,11 +19,11 @@ interface CardData {
   prompt: string;
 }
 
-const hierophantCard: CardData = {
-  id: "5",
-  name: "The Hierophant",
-  filename: "05-hierophant.png",
-  prompt: `The Hierophant tarot card in ultra-ethereal style. A wise spiritual figure with liquid starlight hair flowing like celestial wisdom, seated on an ornate throne between two pillars. He wears translucent papal robes in musky pink and purple that shimmer with divine knowledge. A triple crown adorns his head, and he holds sacred keys to heaven and earth. Two acolytes kneel before him seeking wisdom. Stained glass windows cast rainbow light behind him. Crossed keys at his feet symbolize spiritual and earthly knowledge. Dreamlike quality with soft, translucent textures and ethereal lighting. Colors: deep purples, musky pinks, golden sacred light, and celestial blues. Wise, traditional, and deeply spiritual atmosphere.`
+const emperorCard: CardData = {
+  id: "4",
+  name: "The Emperor",
+  filename: "04-emperor.png",
+  prompt: `The Emperor tarot card in ultra-ethereal style. A powerful masculine figure with liquid starlight hair flowing like cosmic energy, seated on a stone throne carved with ram heads. He wears translucent armor in musky pink and purple that shimmers with divine authority. An ornate crown adorns his head, and he holds a golden ankh scepter. His white beard flows like celestial mist, and his eyes glow with ancient wisdom. Red mountains rise behind him under a cosmic sky. Dreamlike quality with soft, translucent textures and ethereal lighting. Colors: deep purples, musky pinks, golden authority tones, and fiery reds. Commanding, structured, and powerfully paternal atmosphere.`
 };
 
 function ensureDirectoryExists(dir: string) {
@@ -32,21 +32,21 @@ function ensureDirectoryExists(dir: string) {
   }
 }
 
-async function generateHierophantCard(): Promise<boolean> {
+async function generateEmperorCard(): Promise<boolean> {
   try {
-    console.log(`🎨 Generating ${hierophantCard.name}...`);
+    console.log(`🎨 Generating ${emperorCard.name}...`);
     
     const outputDir = path.join(process.cwd(), 'public', 'authentic-cards', 'major-arcana');
     ensureDirectoryExists(outputDir);
     
-    const outputPath = path.join(outputDir, hierophantCard.filename);
+    const outputPath = path.join(outputDir, emperorCard.filename);
     
     if (fs.existsSync(outputPath)) {
-      console.log(`✅ ${hierophantCard.name} already exists, skipping...`);
+      console.log(`✅ ${emperorCard.name} already exists, skipping...`);
       return true;
     }
 
-    console.log(`📡 Calling Hugging Face API for ${hierophantCard.name}...`);
+    console.log(`📡 Calling Hugging Face API for ${emperorCard.name}...`);
     
     const response = await fetch(
       "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
@@ -57,7 +57,7 @@ async function generateHierophantCard(): Promise<boolean> {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          inputs: hierophantCard.prompt,
+          inputs: emperorCard.prompt,
           parameters: {
             negative_prompt: "low quality, blurry, distorted, ugly, deformed, text, watermark, signature, frame, border",
             num_inference_steps: 30,
@@ -71,39 +71,39 @@ async function generateHierophantCard(): Promise<boolean> {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`❌ API Error for ${hierophantCard.name}:`, response.status, errorText);
+      console.error(`❌ API Error for ${emperorCard.name}:`, response.status, errorText);
       return false;
     }
 
     const imageBuffer = await response.arrayBuffer();
     
     if (imageBuffer.byteLength === 0) {
-      console.error(`❌ Empty image buffer for ${hierophantCard.name}`);
+      console.error(`❌ Empty image buffer for ${emperorCard.name}`);
       return false;
     }
 
     fs.writeFileSync(outputPath, Buffer.from(imageBuffer));
     
-    console.log(`✨ Successfully generated ${hierophantCard.name}!`);
+    console.log(`✨ Successfully generated ${emperorCard.name}!`);
     console.log(`📁 Saved to: ${outputPath}`);
     
     return true;
     
   } catch (error) {
-    console.error(`❌ Error generating ${hierophantCard.name}:`, error);
+    console.error(`❌ Error generating ${emperorCard.name}:`, error);
     return false;
   }
 }
 
 async function main() {
-  console.log('🔑 Starting Hierophant card generation...');
+  console.log('👑 Starting Emperor card generation...');
   
-  const success = await generateHierophantCard();
+  const success = await generateEmperorCard();
   
   if (success) {
-    console.log('🎉 Hierophant card generation completed successfully!');
+    console.log('🎉 Emperor card generation completed successfully!');
   } else {
-    console.log('❌ Hierophant card generation failed');
+    console.log('❌ Emperor card generation failed');
     process.exit(1);
   }
 }
