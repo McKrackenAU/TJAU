@@ -111,11 +111,16 @@ export function TrackCardLabel({ trackId, cardId, index }: TrackCardLabelProps) 
   }
   
   // Fallback - format card ID as readable name when possible
-  if (cardId) {
+  if (cardId && typeof cardId === 'string') {
     // Try to format card ID as a readable name
-    return <>{cardId.split('-').map(word => 
-      word.charAt(0).toUpperCase() + word.slice(1)
-    ).join(' ')}</>;
+    try {
+      return <>{cardId.split('-').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+      ).join(' ')}</>;
+    } catch (error) {
+      console.warn('Error formatting card ID:', cardId, error);
+      return <>Card {index + 1}</>;
+    }
   }
   
   // Last resort fallback - card number
