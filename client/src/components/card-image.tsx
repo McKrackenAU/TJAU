@@ -236,9 +236,23 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'pk': '/assets/cards/king-of-pentacles.png'
     };
     
+    // Direct paths for your authentic Major Arcana cards 0-4
+    const directPaths = {
+      '0': '/authentic-cards/major-arcana/00-fool.png',
+      '1': '/authentic-cards/major-arcana/01-magician.png',
+      '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
+      '3': '/authentic-cards/major-arcana/03-empress.png',
+      '4': '/authentic-cards/major-arcana/04-emperor.png'
+    };
+    
+    // Use direct paths for cards 0-4, otherwise try allCardPaths
+    if (directPaths[card.id]) {
+      return directPaths[card.id];
+    }
+    
     const imagePath = allCardPaths[card.id];
     
-    // For missing cards (non-Major Arcana 0-4), return null so symbolic display is used
+    // For missing cards, return null so symbolic display is used
     if (!imagePath || imagePath.includes('/assets/cards/')) {
       return null;
     }

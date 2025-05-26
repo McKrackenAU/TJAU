@@ -16,8 +16,10 @@ const PRECACHE_ASSETS = [
   '/assets/index.css'
 ];
 
+// Temporarily disable service worker to fix runtime errors
 // Install event - precache assets for better performance
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
     Promise.all([
       // Cache HTML and navigation assets
