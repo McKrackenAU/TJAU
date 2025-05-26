@@ -24,7 +24,7 @@ async function generateFoolCard(): Promise<void> {
     
     ensureDirectory('public/authentic-cards/major-arcana');
     
-    const prompt = "A young person stepping off a cliff with a knapsack, white rose, and small dog, mystical tarot card style, soft musky pink and purple color palette, ethereal atmosphere, dreamy mystical lighting, traditional symbolism, spiritual art";
+    const prompt = "An ethereal mystical figure stepping off a cliff with flowing luminous hair, angelic features, magical glow, knapsack, white rose, and small dog, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style, spiritual art";
     
     const response = await fetch(
       "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",

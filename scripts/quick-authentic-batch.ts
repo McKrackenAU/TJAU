@@ -70,27 +70,27 @@ async function generateAllCards() {
     {
       name: "The Fool",
       filename: "00-fool.png",
-      prompt: "A young person stepping off a cliff with a knapsack, white rose, and small dog, mystical tarot card style, soft musky pink and purple color palette, ethereal atmosphere, dreamy mystical lighting, traditional symbolism, spiritual art"
+      prompt: "An ethereal mystical figure stepping off a cliff with flowing luminous hair, angelic features, magical glow, knapsack, white rose, and small dog, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style, spiritual art"
     },
     {
       name: "The Magician",
       filename: "01-magician.png",
-      prompt: "A figure in robes with one hand pointing up and one down, infinity symbol above head, altar with cup sword wand and pentacle, mystical tarot style, musky pink and purple tones, ethereal dreamy atmosphere, spiritual artwork"
+      prompt: "An ethereal mystical figure with flowing luminous hair, angelic features, magical glow, pointing one hand up and one down, infinity symbol above head, altar with cup sword wand and pentacle, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing robes, tarot card style"
     },
     {
       name: "The High Priestess",
       filename: "02-high-priestess.png",
-      prompt: "A woman in flowing robes sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, mystical temple background, soft musky pink and purple palette, ethereal mystical lighting"
+      prompt: "An ethereal mystical woman with flowing luminous hair, angelic features, magical glow, sitting between two pillars, crescent moon crown, pomegranates on veil, scroll of divine law, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing robes, mystical temple background"
     },
     {
       name: "The Empress",
       filename: "03-empress.png",
-      prompt: "A crowned woman in flowing gown with Venus symbol, pregnant figure, wheat field, flowing water, maternal goddess imagery, mystical tarot style, musky pink and purple color scheme, dreamy ethereal atmosphere"
+      prompt: "An ethereal mystical crowned woman with flowing luminous hair, angelic features, magical glow, Venus symbol, flowing gown, wheat field, flowing water, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, maternal goddess imagery, tarot card style"
     },
     {
       name: "The Emperor",
       filename: "04-emperor.png",
-      prompt: "A bearded ruler on stone throne with ram heads, armor, scepter, mountains in background, authority and stability symbols, mystical tarot art, soft musky pink and purple tones, ethereal lighting"
+      prompt: "An ethereal mystical bearded ruler with flowing luminous hair, angelic features, magical glow, on stone throne with ram heads, armor, scepter, mountains in background, soft musky pink and purple gradients, dreamy sparkles and light effects, enchanting otherworldly appearance, flowing fabrics, tarot card style"
     },
     {
       name: "The Hierophant",
