@@ -1,47 +1,62 @@
 /**
- * Test Single Card Generation - The Hierophant
+ * Test Single Card Generation - Verify API Connection
  */
 
-import OpenAI from "openai";
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
 
-// the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+const HUGGINGFACE_API_TOKEN = process.env.HUGGINGFACE_API_TOKEN;
 
-async function testCardGeneration() {
+async function testSingleCard() {
   try {
-    console.log("🎨 Testing image generation for The Hierophant...");
+    console.log('🧪 Testing Hugging Face API connection...');
     
-    const response = await openai.images.generate({
-      model: "dall-e-3",
-      prompt: "Beautiful traditional tarot card The Hierophant: religious figure in robes seated on throne, blessing pose, spiritual wisdom, sacred knowledge, traditional Rider-Waite style, vertical format",
-      n: 1,
-      size: "1024x1024",
-      quality: "standard", // Using standard quality for faster generation
-    });
+    const prompt = `The Magician tarot card, ultra-ethereal, translucent, dreamlike quality, cascading liquid starlight hair, celestial features, musky pink and purple color palette, figure with one hand pointing to heaven and one to earth, magical tools on altar, infinity symbol above head`;
+    
+    const response = await fetch(
+      "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+      {
+        headers: {
+          Authorization: `Bearer ${HUGGINGFACE_API_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          inputs: prompt,
+          parameters: {
+            width: 512,
+            height: 768,
+            guidance_scale: 7.5,
+            num_inference_steps: 50
+          }
+        }),
+      }
+    );
 
-    const imageUrl = response.data[0]?.url;
-    if (!imageUrl) {
-      throw new Error("No image URL in response");
+    console.log('📡 Response status:', response.status);
+    console.log('📡 Response headers:', Object.fromEntries(response.headers.entries()));
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ API Error:', errorText);
+      return false;
     }
 
-    console.log("✅ Image generated successfully! URL:", imageUrl.substring(0, 50) + "...");
+    const imageBlob = await response.blob();
+    const arrayBuffer = await imageBlob.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
 
-    // Download and save
-    const imageResponse = await fetch(imageUrl);
-    const buffer = Buffer.from(await imageResponse.arrayBuffer());
-    
-    const filepath = path.join("public", "assets", "cards", "5.png");
-    fs.writeFileSync(filepath, buffer);
-    
-    console.log("✅ The Hierophant saved as 5.png");
+    if (!fs.existsSync('public/authentic-cards/major-arcana')) {
+      fs.mkdirSync('public/authentic-cards/major-arcana', { recursive: true });
+    }
+
+    fs.writeFileSync('public/authentic-cards/major-arcana/01-magician.png', buffer);
+    console.log('✅ Test successful! Generated The Magician card');
     return true;
     
   } catch (error) {
-    console.error("❌ Error:", error);
+    console.error('❌ Test failed:', error);
     return false;
   }
 }
 
-testCardGeneration();
+testSingleCard();
