@@ -246,13 +246,30 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       '4': '/authentic-cards/major-arcana/04-emperor-fresh.png'
     };
     
-    // Use completely unique filenames that have never existed before
+    // Complete authentic tarot deck being generated with traditional filenames
     const fallbackPaths: Record<string, string> = {
-      '0': '/authentic-cards/major-arcana/fool-final-2025.png',
-      '1': '/authentic-cards/major-arcana/magician-final-2025.png',
-      '2': '/authentic-cards/major-arcana/high-priestess-final-2025.png', 
-      '3': '/authentic-cards/major-arcana/empress-final-2025.png',
-      '4': '/authentic-cards/major-arcana/emperor-final-2025.png'
+      '0': '/authentic-cards/major-arcana/00-fool.png',
+      '1': '/authentic-cards/major-arcana/01-magician.png',
+      '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
+      '3': '/authentic-cards/major-arcana/03-empress.png',
+      '4': '/authentic-cards/major-arcana/04-emperor.png',
+      '5': '/authentic-cards/major-arcana/05-hierophant.png',
+      '6': '/authentic-cards/major-arcana/06-lovers.png',
+      '7': '/authentic-cards/major-arcana/07-chariot.png',
+      '8': '/authentic-cards/major-arcana/08-strength.png',
+      '9': '/authentic-cards/major-arcana/09-hermit.png',
+      '10': '/authentic-cards/major-arcana/10-wheel.png',
+      '11': '/authentic-cards/major-arcana/11-justice.png',
+      '12': '/authentic-cards/major-arcana/12-hanged-man.png',
+      '13': '/authentic-cards/major-arcana/13-death.png',
+      '14': '/authentic-cards/major-arcana/14-temperance.png',
+      '15': '/authentic-cards/major-arcana/15-devil.png',
+      '16': '/authentic-cards/major-arcana/16-tower.png',
+      '17': '/authentic-cards/major-arcana/17-star.png',
+      '18': '/authentic-cards/major-arcana/18-moon.png',
+      '19': '/authentic-cards/major-arcana/19-sun.png',
+      '20': '/authentic-cards/major-arcana/20-judgement.png',
+      '21': '/authentic-cards/major-arcana/21-world.png'
     };
     
     // Use authentic cards for 0-4 (your existing working cards)
