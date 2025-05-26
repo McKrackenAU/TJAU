@@ -237,7 +237,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     };
     
     // Direct paths for your authentic Major Arcana cards 0-4
+    // Try fresh versions first, fallback to original authentic versions
     const directPaths: Record<string, string> = {
+      '0': '/authentic-cards/major-arcana/00-fool-fresh.png',
+      '1': '/authentic-cards/major-arcana/01-magician-fresh.png',
+      '2': '/authentic-cards/major-arcana/02-high-priestess-fresh.png', 
+      '3': '/authentic-cards/major-arcana/03-empress-fresh.png',
+      '4': '/authentic-cards/major-arcana/04-emperor-fresh.png'
+    };
+    
+    // Fallback to original authentic versions if fresh ones aren't ready yet
+    const fallbackPaths: Record<string, string> = {
       '0': '/authentic-cards/major-arcana/00-fool.png',
       '1': '/authentic-cards/major-arcana/01-magician.png',
       '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
@@ -245,9 +255,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       '4': '/authentic-cards/major-arcana/04-emperor.png'
     };
     
-    // Use direct paths for cards 0-4, otherwise try allCardPaths
-    if (directPaths[card.id]) {
-      return directPaths[card.id];
+    // Use authentic cards for 0-4 (your existing working cards)
+    if (fallbackPaths[card.id]) {
+      return fallbackPaths[card.id];
     }
     
     const imagePath = allCardPaths[card.id];
