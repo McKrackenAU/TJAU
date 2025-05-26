@@ -1,5 +1,6 @@
 /**
  * Generate Strength Card - Ultra-Ethereal Style
+ * Matching The Fool and The Magician aesthetic exactly
  */
 
 import fs from 'fs';
@@ -12,18 +13,11 @@ if (!HUGGINGFACE_API_TOKEN) {
   process.exit(1);
 }
 
-interface CardData {
-  id: string;
-  name: string;
-  filename: string;
-  prompt: string;
-}
-
-const strengthCard: CardData = {
-  id: "8",
+const strengthCard = {
+  id: "08",
   name: "Strength",
   filename: "08-strength.png",
-  prompt: `Strength tarot card in ultra-ethereal style. A gentle feminine figure with liquid starlight hair flowing like cosmic energy, calmly taming a celestial lion. She wears translucent robes in musky pink and purple that shimmer with inner strength. An infinity symbol glows above her head like a halo. Her hands gently touch the lion's mane as it submits to her peaceful power. Flowers bloom around them in an ethereal garden. The scene radiates calm confidence and spiritual mastery. Dreamlike quality with soft, translucent textures and ethereal lighting. Colors: deep purples, musky pinks, golden lion mane, and soft garden greens. Gentle, powerful, and spiritually centered atmosphere.`
+  prompt: `Strength tarot card, ultra-ethereal dreamy style with soft glowing translucent robes in musky purple and pink tones. A graceful woman with flowing starlight hair gently holds the jaws of a magnificent cosmic lion made of liquid light and starfire. She wears flowing ethereal robes that shimmer like aurora. Above her head floats an infinity symbol made of pure golden light. The lion's mane flows like cosmic wind, and its eyes sparkle with ancient wisdom. Mountains of crystal light glow in the background. The scene represents inner strength, courage, and gentle power. Background has soft purple and pink cosmic clouds with gentle divine light. Translucent flowing fabrics, dreamlike atmosphere, soft glowing lighting, mystical and ethereal. Same dreamy translucent style as The Fool card.`
 };
 
 function ensureDirectoryExists(dir: string) {
@@ -34,7 +28,7 @@ function ensureDirectoryExists(dir: string) {
 
 async function generateStrengthCard(): Promise<boolean> {
   try {
-    console.log(`🎨 Generating ${strengthCard.name}...`);
+    console.log(`🎨 Generating ${strengthCard.name} with ultra-ethereal style...`);
     
     const outputDir = path.join(process.cwd(), 'public', 'authentic-cards', 'major-arcana');
     ensureDirectoryExists(outputDir);
@@ -46,7 +40,7 @@ async function generateStrengthCard(): Promise<boolean> {
       return true;
     }
 
-    console.log(`📡 Calling Hugging Face API for ${strengthCard.name}...`);
+    console.log(`📡 Calling image generation service for ${strengthCard.name}...`);
     
     const response = await fetch(
       "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
@@ -59,9 +53,9 @@ async function generateStrengthCard(): Promise<boolean> {
         body: JSON.stringify({
           inputs: strengthCard.prompt,
           parameters: {
-            negative_prompt: "low quality, blurry, distorted, ugly, deformed, text, watermark, signature, frame, border",
-            num_inference_steps: 30,
-            guidance_scale: 7.5,
+            negative_prompt: "low quality, blurry, distorted, ugly, deformed, text, watermark, signature, frame, border, realistic, photographic",
+            num_inference_steps: 35,
+            guidance_scale: 8.0,
             width: 512,
             height: 768
           }
