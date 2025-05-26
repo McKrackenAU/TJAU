@@ -237,7 +237,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     };
     
     // Direct paths for your authentic Major Arcana cards 0-4
-    const directPaths = {
+    const directPaths: Record<string, string> = {
       '0': '/authentic-cards/major-arcana/00-fool.png',
       '1': '/authentic-cards/major-arcana/01-magician.png',
       '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
