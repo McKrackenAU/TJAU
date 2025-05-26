@@ -384,7 +384,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         <>
           <img
             key={`authentic-${card.id}-${Date.now()}-${Math.random()}`}
-            src={imagePath}
+            src={`${imagePath}?v=${Date.now()}`}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
             crossOrigin="anonymous"
