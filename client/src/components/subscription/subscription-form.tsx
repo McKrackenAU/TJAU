@@ -27,7 +27,9 @@ import { User } from "@shared/schema";
 
 // Make sure to call loadStripe outside of a component's render to avoid
 // recreating the Stripe object on every render
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+const stripePromise = import.meta.env.VITE_STRIPE_PUBLIC_KEY 
+  ? loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
+  : Promise.resolve(null);
 
 // User type is already imported at the top
 
