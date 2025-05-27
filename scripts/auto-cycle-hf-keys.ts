@@ -6,8 +6,9 @@
 import fs from "fs";
 import path from "path";
 
-// List of new HF key environment variable names (containing TWO or THREE)
+// List of new HF key environment variable names (including the latest one)
 const NEW_HF_KEYS = [
+  'API_TOKEN_HF',
   'HF_API_TOKEN_TWO',
   'HUGGINGFACE_API_TOKEN_THREE', 
   'HFACE_API_TOKEN_THREE'
