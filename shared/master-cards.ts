@@ -239,7 +239,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 1,
-    imagePath: '/assets/cards/ace-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
     meanings: {
       upright: ['Love', 'Compassion', 'Creativity'],
       reversed: ['Blocked emotions', 'Loss of love', 'Emptiness']
@@ -253,7 +253,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 2,
-    imagePath: '/assets/cards/two-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/two-of-cups.png',
     meanings: {
       upright: ['Unity', 'Partnership', 'Connection'],
       reversed: ['Self-love', 'Break-ups', 'Disharmony']
@@ -267,7 +267,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 3,
-    imagePath: '/assets/cards/three-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/three-of-cups.png',
     meanings: {
       upright: ['Celebration', 'Friendship', 'Creativity', 'Community'],
       reversed: ['Independence', 'Social disconnection']
@@ -281,7 +281,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 4,
-    imagePath: '/assets/cards/four-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/four-of-cups.png',
     meanings: {
       upright: ['Meditation', 'Contemplation', 'Apathy'],
       reversed: ['Retreat', 'Withdrawal', 'Checking in']
@@ -295,7 +295,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 5,
-    imagePath: '/assets/cards/five-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/five-of-cups.png',
     meanings: {
       upright: ['Regret', 'Failure', 'Disappointment', 'Pessimism'],
       reversed: ['Personal setbacks', 'Self-forgiveness', 'Moving on']
@@ -309,7 +309,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 6,
-    imagePath: '/assets/cards/six-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/six-of-cups.png',
     meanings: {
       upright: ['Revisiting the past', 'Childhood memories', 'Innocence'],
       reversed: ['Living in the past', 'Forgiveness', 'Lacking playfulness']
@@ -323,7 +323,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 7,
-    imagePath: '/assets/cards/seven-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/seven-of-cups.png',
     meanings: {
       upright: ['Opportunities', 'Choices', 'Wishful thinking', 'Illusion'],
       reversed: ['Alignment', 'Personal values', 'Overwhelmed by choices']
