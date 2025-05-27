@@ -56,5 +56,5 @@ async function createClearChaliceCard(name: string, filename: string): Promise<v
   }
 }
 
-// Create one at a time
-createClearChaliceCard('Page of Cups', 'page-of-cups.png');
+// Create King of Cups next
+createClearChaliceCard('King of Cups', 'king-of-cups.png');
