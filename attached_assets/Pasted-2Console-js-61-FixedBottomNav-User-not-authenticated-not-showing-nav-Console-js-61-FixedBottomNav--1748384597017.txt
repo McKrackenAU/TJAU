@@ -1,0 +1,141 @@
+2Console.js:61 FixedBottomNav: User not authenticated, not showing nav
+Console.js:61 FixedBottomNav: User authenticated, showing nav bar
+Console.js:61 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+Console.js:61 FixedBottomNav: User authenticated, showing nav bar
+Console.js:61 Checking admin status: false
+Console.js:61 Total cards: undefined
+Console.js:61 Filtered cards: 0
+Console.js:61 BottomNav: User status: true
+Console.js:61 BottomNav: Current location: /library
+Console.js:61 Checking admin status: false
+Console.js:61 Total cards: 121
+Console.js:61 Filtered cards: 121
+Console.js:61 BottomNav: User status: true
+Console.js:61 BottomNav: Current location: /library
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/00-fool.png for card The Fool
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/01-magician.png for card The Magician
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/02-high-priestess.png for card The High Priestess
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/03-empress.png for card The Empress
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/04-emperor.png for card The Emperor
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/06-lovers.png for card The Lovers
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/05-hierophant.png for card The Hierophant
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/07-chariot.png for card The Chariot
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/09-hermit.png for card The Hermit
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/08-strength.png for card Strength
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/10-wheel.png for card Wheel of Fortune
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/12-hanged-man.png for card The Hanged Man
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/11-justice.png for card Justice
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/13-death.png for card Death
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/14-temperance.png for card Temperance
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/15-devil.png for card The Devil
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/16-tower.png for card The Tower
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/17-star.png for card The Star
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/19-sun.png for card The Sun
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/20-judgement.png for card Judgement
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/18-moon.png for card The Moon
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/21-world.png for card The World
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/three-of-cups.png?v=1748384525908 for card Three of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/two-of-cups.png for card Two of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ten-of-cups.png for card Ten of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/page-of-cups.png for card Page of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/queen-of-cups.png for card Queen of Cups
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/king-of-cups.png for card King of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/knight-of-cups.png for card Knight of Cups
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ace-of-cups.png for card Ace of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/four-of-cups.png for card Four of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/five-of-cups.png for card Five of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/eight-of-cups.png?v=1748384525913 for card Eight of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/six-of-cups.png for card Six of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/nine-of-cups.png?v=1748384525914 for card Nine of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/seven-of-cups.png?v=1748384525913 for card Seven of Cups
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
+2
+                
+          
+          
+          
+         Chrome is moving towards a new experience that allows users to choose to browse without third-party cookies.Understand this warning
+stallwart.build.js:1 stallwart: failed ping 1
