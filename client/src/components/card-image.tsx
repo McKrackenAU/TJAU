@@ -187,9 +187,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'wq': '/assets/cards/queen-of-wands.png',
       'wk': '/assets/cards/king-of-wands.png',
       
-      // Minor Arcana - Cups
-      'c1': '/assets/cards/ace-of-cups.png',
-      'c2': '/assets/cards/two-of-cups.png',
+      // Minor Arcana - Cups (Updated with new authentic cards)
+      'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
+      'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
       'c3': '/assets/cards/three-of-cups.png',
       'c4': '/assets/cards/four-of-cups.png',
       'c5': '/assets/cards/five-of-cups.png',
@@ -198,10 +198,10 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'c8': '/assets/cards/eight-of-cups.png',
       'c9': '/assets/cards/nine-of-cups.png',
       'c10': '/assets/cards/ten-of-cups.png',
-      'cp': '/assets/cards/page-of-cups.png',
-      'cn': '/assets/cards/knight-of-cups.png',
-      'cq': '/assets/cards/queen-of-cups.png',
-      'ck': '/assets/cards/king-of-cups.png',
+      'cp': '/authentic-cards/minor-arcana/cups/page-of-cups.png',
+      'cn': '/authentic-cards/minor-arcana/cups/knight-of-cups.png',
+      'cq': '/authentic-cards/minor-arcana/cups/queen-of-cups.png',
+      'ck': '/authentic-cards/minor-arcana/cups/king-of-cups.png',
       
       // Minor Arcana - Swords
       's1': '/assets/cards/ace-of-swords.png',
