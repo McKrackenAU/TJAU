@@ -44,7 +44,7 @@ async function createSingleCupCard(name: string, filename: string, prompt: strin
   }
 }
 
-// Create Seven of Cups
-const sevenPrompt = "Ultra-photorealistic 3D Seven of Cups tarot card with breathtaking ethereal quality. Figure gazing at 7 floating chalices in clouds, each cup containing different mystical visions and symbols, exactly 7 ornate cups clearly visible. Ultra-realistic skin texture with dreamy pink ethereal glow. Translucent flowing robes in rich musky purple and pink aurora tones. Ultra-ethereal dreamlike whimsical quality. Completely original artistic interpretation. Photographic realism with magical pink purple atmosphere.";
+// Create Ten of Cups
+const tenPrompt = "Ultra-photorealistic 3D Ten of Cups tarot card with breathtaking ethereal quality. Happy family beneath rainbow arc of 10 golden chalices in sky, exactly 10 ornate cups clearly visible forming perfect rainbow. Ultra-realistic skin textures with joyful pink ethereal glow. Translucent flowing garments in rich musky purple and pink aurora tones. Ultra-ethereal dreamlike whimsical quality. Completely original artistic interpretation. Photographic realism with magical pink purple atmosphere.";
 
-createSingleCupCard('Seven of Cups', 'seven-of-cups.png', sevenPrompt);
+createSingleCupCard('Ten of Cups', 'ten-of-cups.png', tenPrompt);
