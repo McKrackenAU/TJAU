@@ -11,9 +11,9 @@ async function createClearChaliceCard(name: string, filename: string): Promise<v
   let prompt = "";
   
   if (name === "Page of Cups") {
-    prompt = "Young man in robes holding large golden chalice cup goblet in both hands in front of him, the chalice is huge and clearly visible, tarot card style, purple pink ethereal lighting";
+    prompt = "Young man in robes holding medium-sized golden chalice cup goblet in both hands at waist level, chalice is clearly visible but not covering face, showing full face and upper body, tarot card style, purple pink ethereal lighting";
   } else if (name === "Knight of Cups") {
-    prompt = "Knight on horse holding up large golden chalice cup goblet high above head, the chalice is huge and clearly visible, tarot card style, purple pink ethereal lighting";
+    prompt = "Knight on horse holding medium-sized golden chalice cup goblet tucked under one arm while riding, chalice is clearly visible at side, not above head, showing full knight figure, tarot card style, purple pink ethereal lighting";
   } else if (name === "Queen of Cups") {
     prompt = "Queen woman sitting holding large golden chalice cup goblet in her hands, the chalice is huge and clearly visible, tarot card style, purple pink ethereal lighting";
   } else if (name === "King of Cups") {
@@ -56,5 +56,5 @@ async function createClearChaliceCard(name: string, filename: string): Promise<v
   }
 }
 
-// Create King of Cups next
-createClearChaliceCard('King of Cups', 'king-of-cups.png');
+// Fix Knight of Cups with chalice under arm
+createClearChaliceCard('Knight of Cups', 'knight-of-cups.png');
