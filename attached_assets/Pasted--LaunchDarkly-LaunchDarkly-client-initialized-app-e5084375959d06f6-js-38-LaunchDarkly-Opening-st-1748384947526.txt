@@ -1,0 +1,726 @@
+[LaunchDarkly] LaunchDarkly client initialized
+_app-e5084375959d06f6.js:38 [LaunchDarkly] Opening stream connection to https://clientstream.launchdarkly.com/eval/62b35a865152ab14c5942820/eyJrZXkiOiIzODc0OTUyMyIsImtpbmQiOiJ1c2VyIiwiYW5vbnltb3VzIjpmYWxzZX0
+_app-e5084375959d06f6.js:38 [LaunchDarkly] Closing stream connection
+_app-e5084375959d06f6.js:38 [LaunchDarkly] Opening stream connection to https://clientstream.launchdarkly.com/eval/62b35a865152ab14c5942820/eyJrZXkiOiIzODc0OTUyMyIsImtpbmQiOiJ1c2VyIiwibmFtZSI6ImpvODMiLCJyb2xlcyI6WyJvbmJvYXJkaW5nX2V4cGVyaWVuY2VfbG93IiwiaW50ZW50X3BlcnNvbmFsIl0sImVtYWlsIjoiam9Aam12aXJ0dWFsYnVzaW5lc3NzZXJ2aWNlcy5jb20uYXUiLCJ0aW1lX2NyZWF0ZWQiOjE3MzYyMTMyMTE2NDcsIl9tZXRhIjp7InByaXZhdGVBdHRyaWJ1dGVzIjpbImVtYWlsIl19fQ
+utils.js:232 Uncaught TypeError: Cannot read properties of undefined (reading 'onChanged')
+    at utils.js:232:16Understand this error
+tabutils.js:2 Uncaught TypeError: Cannot read properties of undefined (reading 'onUpdated')
+    at tabutils.js:2:13Understand this error
+contextmenu.js:124 Uncaught TypeError: Cannot read properties of undefined (reading 'onClicked')
+    at contextmenu.js:124:21Understand this error
+download.js:9 Uncaught TypeError: Cannot read properties of undefined (reading 'onCreated')
+    at download.js:9:18Understand this error
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)Understand this error
+_app-e5084375959d06f6.js:38 [LaunchDarkly] Closing stream connection
+_app-e5084375959d06f6.js:38 [LaunchDarkly] Opening stream connection to https://clientstream.launchdarkly.com/eval/62b35a865152ab14c5942820/eyJrZXkiOiIzODc0OTUyMyIsImtpbmQiOiJ1c2VyIiwibmFtZSI6ImpvODMiLCJyb2xlcyI6WyJvbmJvYXJkaW5nX2V4cGVyaWVuY2VfbG93IiwiaW50ZW50X3BlcnNvbmFsIl0sImVtYWlsIjoiam9Aam12aXJ0dWFsYnVzaW5lc3NzZXJ2aWNlcy5jb20uYXUiLCJ0aW1lX2NyZWF0ZWQiOjE3MzYyMTMyMTE2NDcsIl9tZXRhIjp7InByaXZhdGVBdHRyaWJ1dGVzIjpbImVtYWlsIl19fQ
+5Error while parsing the 'sandbox' attribute: 'allow-downloads-without-user-activation' is an invalid sandbox flag.Understand this error
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'ambient-light-sensor'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'battery'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'execution-while-not-rendered'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'execution-while-out-of-viewport'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'layout-animations'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'legacy-image-formats'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'navigation-override'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'oversized-images'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'publickey-credentials'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'speaker-selection'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'unoptimized-images'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'unsized-media'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Unrecognized feature: 'pointer-lock'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Allow attribute will take precedence over 'allowfullscreen'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+framework-23f9ecd3485a245a.js:1 Allow attribute will take precedence over 'allowpaymentrequest'.
+_ @ framework-23f9ecd3485a245a.js:1Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'ambient-light-sensor'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'ambient-light-sensor'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'battery'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'battery'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'execution-while-not-rendered'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'execution-while-not-rendered'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'execution-while-out-of-viewport'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'execution-while-out-of-viewport'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'layout-animations'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'layout-animations'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'legacy-image-formats'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'legacy-image-formats'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'navigation-override'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'navigation-override'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'oversized-images'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'oversized-images'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'publickey-credentials'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'publickey-credentials'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'speaker-selection'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'speaker-selection'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'unoptimized-images'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'unoptimized-images'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'unsized-media'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Unrecognized feature: 'unsized-media'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Allow attribute will take precedence over 'allowfullscreen'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Allow attribute will take precedence over 'allowfullscreen'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Allow attribute will take precedence over 'allowpaymentrequest'.Understand this warning
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/workspace_iframe.html?initialPath=%2F&id=%3Ar8k%3A:32 Allow attribute will take precedence over 'allowpaymentrequest'.Understand this warning
+eruda.js:2 CRITICAL: No lesson found for p5 in either Minor Arcana or Intuitive Reading
+eruda.js:2 Rebuilt Minor Arcana lessons: 57 total
+eruda.js:2 Sequence verification:
+eruda.js:2 1. minor-1 - Card: intro
+eruda.js:2 2. minor-wands-ace - Card: w1
+eruda.js:2 3. minor-wands-two - Card: w2
+eruda.js:2 4. minor-wands-three - Card: w3
+eruda.js:2 5. minor-wands-four - Card: w4
+eruda.js:2 6. minor-wands-five - Card: w5
+eruda.js:2 7. minor-wands-six - Card: w6
+eruda.js:2 8. minor-wands-seven - Card: w7
+eruda.js:2 9. minor-wands-eight - Card: w8
+eruda.js:2 10. minor-wands-nine - Card: w9
+eruda.js:2 11. minor-wands-ten - Card: w10
+eruda.js:2 12. minor-wands-page - Card: wp
+eruda.js:2 13. minor-wands-knight - Card: wn
+eruda.js:2 14. minor-wands-queen - Card: wq
+eruda.js:2 15. minor-wands-king - Card: wk
+eruda.js:2 16. minor-cups-ace - Card: c1
+eruda.js:2 17. minor-cups-two - Card: c2
+eruda.js:2 18. minor-cups-three - Card: c3
+eruda.js:2 19. minor-cups-four - Card: c4
+eruda.js:2 20. minor-cups-five - Card: c5
+eruda.js:2 21. minor-cups-six - Card: c6
+eruda.js:2 22. minor-cups-seven - Card: c7
+eruda.js:2 23. minor-cups-eight - Card: c8
+eruda.js:2 24. minor-cups-nine - Card: c9
+eruda.js:2 25. minor-cups-ten - Card: c10
+eruda.js:2 26. minor-cups-page - Card: cp
+eruda.js:2 27. minor-cups-knight - Card: cn
+eruda.js:2 28. minor-cups-queen - Card: cq
+eruda.js:2 29. minor-cups-king - Card: ck
+eruda.js:2 30. minor-pentacles-ace - Card: p1
+eruda.js:2 31. minor-pentacles-two - Card: p2
+eruda.js:2 32. minor-pentacles-three - Card: p3
+eruda.js:2 33. minor-pentacles-four - Card: p4
+eruda.js:2 34. minor-pentacles-five - Card: p5
+eruda.js:2 35. minor-pentacles-six - Card: p6
+eruda.js:2 36. minor-pentacles-seven - Card: p7
+eruda.js:2 37. minor-pentacles-eight - Card: p8
+eruda.js:2 38. minor-pentacles-nine - Card: p9
+eruda.js:2 39. minor-pentacles-ten - Card: p10
+eruda.js:2 40. minor-pentacles-page - Card: pp
+eruda.js:2 41. minor-pentacles-knight - Card: pn
+eruda.js:2 42. minor-pentacles-queen - Card: pq
+eruda.js:2 43. minor-pentacles-king - Card: pk
+eruda.js:2 44. minor-swords-ace - Card: s1
+eruda.js:2 45. minor-swords-two - Card: s2
+eruda.js:2 46. minor-swords-three - Card: s3
+eruda.js:2 47. minor-swords-four - Card: s4
+eruda.js:2 48. minor-swords-five - Card: s5
+eruda.js:2 49. minor-swords-six - Card: s6
+eruda.js:2 50. minor-swords-seven - Card: s7
+eruda.js:2 51. minor-swords-eight - Card: s8
+eruda.js:2 52. minor-swords-nine - Card: s9
+eruda.js:2 53. minor-swords-ten - Card: s10
+eruda.js:2 54. minor-swords-page - Card: sp
+eruda.js:2 55. minor-swords-knight - Card: sn
+eruda.js:2 56. minor-swords-queen - Card: sq
+eruda.js:2 57. minor-swords-king - Card: sk
+eruda.js:2 Updating existing lesson advanced-1 to advanced-11 for card 10
+eruda.js:2 Updating existing lesson advanced-2 to advanced-13 for card 12
+eruda.js:2 Updating existing lesson advanced-3 to advanced-14 for card 13
+eruda.js:2 Updating existing lesson advanced-4 to advanced-17 for card 16
+eruda.js:2 Updating existing lesson advanced-5 to advanced-18 for card 17
+eruda.js:2 Creating lesson advanced-6 for card 0 (The Fool)
+eruda.js:2 Creating lesson advanced-7 for card 1 (The Magician)
+eruda.js:2 Creating lesson advanced-8 for card 2 (The High Priestess)
+eruda.js:2 Creating lesson advanced-9 for card 3 (The Empress)
+eruda.js:2 Creating lesson advanced-10 for card 4 (The Emperor)
+eruda.js:2 Creating lesson advanced-11 for card 5 (The Hierophant)
+eruda.js:2 Creating lesson advanced-12 for card 6 (The Lovers)
+eruda.js:2 Creating lesson advanced-13 for card 7 (The Chariot)
+eruda.js:2 Creating lesson advanced-14 for card 8 (Strength)
+eruda.js:2 Creating lesson advanced-15 for card 9 (The Hermit)
+eruda.js:2 Creating lesson advanced-16 for card 11 (Justice)
+eruda.js:2 Creating lesson advanced-17 for card 14 (Temperance)
+eruda.js:2 Creating lesson advanced-18 for card 15 (The Devil)
+eruda.js:2 Creating lesson advanced-19 for card 18 (The Moon)
+eruda.js:2 Creating lesson advanced-20 for card 19 (The Sun)
+eruda.js:2 Creating lesson advanced-21 for card 20 (Judgement)
+eruda.js:2 Creating lesson advanced-22 for card 21 (The World)
+eruda.js:2 Creating lesson advanced-23 for card w1 (Ace of Wands)
+eruda.js:2 Creating lesson advanced-24 for card w2 (Two of Wands)
+eruda.js:2 Creating lesson advanced-25 for card w3 (Three of Wands)
+eruda.js:2 Creating lesson advanced-26 for card w4 (Four of Wands)
+eruda.js:2 Creating lesson advanced-27 for card w5 (Five of Wands)
+eruda.js:2 Creating lesson advanced-28 for card w6 (Six of Wands)
+eruda.js:2 Creating lesson advanced-29 for card w7 (Seven of Wands)
+eruda.js:2 Creating lesson advanced-30 for card w8 (Eight of Wands)
+eruda.js:2 Creating lesson advanced-31 for card w9 (Nine of Wands)
+eruda.js:2 Creating lesson advanced-32 for card w10 (Ten of Wands)
+eruda.js:2 Creating lesson advanced-33 for card wp (Page of Wands)
+eruda.js:2 Creating lesson advanced-34 for card wn (Knight of Wands)
+eruda.js:2 Creating lesson advanced-35 for card wq (Queen of Wands)
+eruda.js:2 Creating lesson advanced-36 for card wk (King of Wands)
+eruda.js:2 Creating lesson advanced-37 for card c1 (Ace of Cups)
+eruda.js:2 Creating lesson advanced-38 for card c2 (Two of Cups)
+eruda.js:2 Creating lesson advanced-39 for card c3 (Three of Cups)
+eruda.js:2 Creating lesson advanced-40 for card c4 (Four of Cups)
+eruda.js:2 Creating lesson advanced-41 for card c5 (Five of Cups)
+eruda.js:2 Creating lesson advanced-42 for card c6 (Six of Cups)
+eruda.js:2 Creating lesson advanced-43 for card c7 (Seven of Cups)
+eruda.js:2 Creating lesson advanced-44 for card c8 (Eight of Cups)
+eruda.js:2 Creating lesson advanced-45 for card c9 (Nine of Cups)
+eruda.js:2 Creating lesson advanced-46 for card c10 (Ten of Cups)
+eruda.js:2 Creating lesson advanced-47 for card cp (Page of Cups)
+eruda.js:2 Creating lesson advanced-48 for card cn (Knight of Cups)
+eruda.js:2 Creating lesson advanced-49 for card cq (Queen of Cups)
+eruda.js:2 Creating lesson advanced-50 for card ck (King of Cups)
+eruda.js:2 Creating lesson advanced-51 for card p1 (Ace of Pentacles)
+eruda.js:2 Creating lesson advanced-52 for card p2 (Two of Pentacles)
+eruda.js:2 Creating lesson advanced-53 for card p3 (Three of Pentacles)
+eruda.js:2 Creating lesson advanced-54 for card p4 (Four of Pentacles)
+eruda.js:2 Creating lesson advanced-55 for card p5 (Five of Pentacles)
+eruda.js:2 Creating lesson advanced-56 for card p6 (Six of Pentacles)
+eruda.js:2 Creating lesson advanced-57 for card p7 (Seven of Pentacles)
+eruda.js:2 Creating lesson advanced-58 for card p8 (Eight of Pentacles)
+eruda.js:2 Creating lesson advanced-59 for card p9 (Nine of Pentacles)
+eruda.js:2 Creating lesson advanced-60 for card p10 (Ten of Pentacles)
+eruda.js:2 Creating lesson advanced-61 for card pp (Page of Pentacles)
+eruda.js:2 Creating lesson advanced-62 for card pn (Knight of Pentacles)
+eruda.js:2 Creating lesson advanced-63 for card pq (Queen of Pentacles)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-64 for card pk (King of Pentacles)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-65 for card s1 (Ace of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-66 for card s2 (Two of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-67 for card s3 (Three of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-68 for card s4 (Four of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-69 for card s5 (Five of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-70 for card s6 (Six of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-71 for card s7 (Seven of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-72 for card s8 (Eight of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-73 for card s9 (Nine of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-74 for card s10 (Ten of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-75 for card sp (Page of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-76 for card sn (Knight of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-77 for card sq (Queen of Swords)
+421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2 Creating lesson advanced-78 for card sk (King of Swords)
+eruda.js:2 Creating major arcana lesson advanced-1 for card 0 (The Fool)
+eruda.js:2 Creating major arcana lesson advanced-2 for card 1 (The Magician)
+eruda.js:2 Creating major arcana lesson advanced-3 for card 2 (The High Priestess)
+eruda.js:2 Creating major arcana lesson advanced-4 for card 3 (The Empress)
+eruda.js:2 Creating major arcana lesson advanced-5 for card 4 (The Emperor)
+eruda.js:2 Creating major arcana lesson advanced-6 for card 5 (The Hierophant)
+eruda.js:2 Creating major arcana lesson advanced-7 for card 6 (The Lovers)
+eruda.js:2 Creating major arcana lesson advanced-8 for card 7 (The Chariot)
+eruda.js:2 Creating major arcana lesson advanced-9 for card 8 (Strength)
+eruda.js:2 Creating major arcana lesson advanced-10 for card 9 (The Hermit)
+eruda.js:2 Creating major arcana lesson advanced-12 for card 11 (Justice)
+eruda.js:2 Creating major arcana lesson advanced-15 for card 14 (Temperance)
+eruda.js:2 Creating major arcana lesson advanced-16 for card 15 (The Devil)
+eruda.js:2 Creating major arcana lesson advanced-19 for card 18 (The Moon)
+eruda.js:2 Creating major arcana lesson advanced-20 for card 19 (The Sun)
+eruda.js:2 Creating major arcana lesson advanced-21 for card 20 (Judgement)
+eruda.js:2 Creating major arcana lesson advanced-22 for card 21 (The World)
+eruda.js:2 Complete Advanced Symbolism course: 78 lessons
+2eruda.js:2 FixedBottomNav: User not authenticated, not showing nav
+eruda.js:2 FixedBottomNav: User authenticated, showing nav bar
+eruda.js:2 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+eruda.js:2 FixedBottomNav: User authenticated, showing nav bar
+eruda.js:2 Checking admin status: false
+eruda.js:2 Total cards: undefined
+eruda.js:2 Filtered cards: 0
+eruda.js:2 BottomNav: User status: true
+eruda.js:2 BottomNav: Current location: /library
+eruda.js:2 Checking admin status: false
+eruda.js:2 Total cards: 121
+eruda.js:2 Filtered cards: 121
+eruda.js:2 BottomNav: User status: true
+eruda.js:2 BottomNav: Current location: /library
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/00-fool.png for card The Fool
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/01-magician.png for card The Magician
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/02-high-priestess.png for card The High Priestess
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/03-empress.png for card The Empress
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/04-emperor.png for card The Emperor
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/06-lovers.png for card The Lovers
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/05-hierophant.png for card The Hierophant
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/07-chariot.png for card The Chariot
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/09-hermit.png for card The Hermit
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/08-strength.png for card Strength
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/10-wheel.png for card Wheel of Fortune
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/12-hanged-man.png for card The Hanged Man
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/11-justice.png for card Justice
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/13-death.png for card Death
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/14-temperance.png for card Temperance
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/15-devil.png for card The Devil
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/16-tower.png for card The Tower
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/17-star.png for card The Star
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/19-sun.png for card The Sun
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/20-judgement.png for card Judgement
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/18-moon.png for card The Moon
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/21-world.png for card The World
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/three-of-cups.png?v=1748384525908 for card Three of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/two-of-cups.png for card Two of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ten-of-cups.png for card Ten of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/page-of-cups.png for card Page of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/queen-of-cups.png for card Queen of Cups
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/king-of-cups.png for card King of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/knight-of-cups.png for card Knight of Cups
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ace-of-cups.png for card Ace of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/four-of-cups.png for card Four of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/five-of-cups.png for card Five of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/eight-of-cups.png?v=1748384525913 for card Eight of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/six-of-cups.png for card Six of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/nine-of-cups.png?v=1748384525914 for card Nine of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/seven-of-cups.png?v=1748384525913 for card Seven of Cups
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
+2
+                
+          
+          
+          
+         Chrome is moving towards a new experience that allows users to choose to browse without third-party cookies.Understand this warning
+stallwart.build.js:1 stallwart: failed ping 1
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/00-fool.png for card The Fool
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/seven-of-cups.png?v=2024052722 for card Seven of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/01-magician.png for card The Magician
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/six-of-cups.png for card Six of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/07-chariot.png for card The Chariot
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/02-high-priestess.png for card The High Priestess
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/09-hermit.png for card The Hermit
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/08-strength.png for card Strength
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/04-emperor.png for card The Emperor
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/05-hierophant.png for card The Hierophant
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/03-empress.png for card The Empress
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/06-lovers.png for card The Lovers
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/10-wheel.png for card Wheel of Fortune
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/11-justice.png for card Justice
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/16-tower.png for card The Tower
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/12-hanged-man.png for card The Hanged Man
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/17-star.png for card The Star
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/19-sun.png for card The Sun
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/13-death.png for card Death
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/15-devil.png for card The Devil
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/14-temperance.png for card Temperance
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/20-judgement.png for card Judgement
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/21-world.png for card The World
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/major-arcana/18-moon.png for card The Moon
+TarotJourney:1 Unchecked runtime.lastError: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was receivedUnderstand this error
+4TarotJourney:1 Uncaught (in promise) Error: A listener indicated an asynchronous response by returning true, but the message channel closed before a response was receivedUnderstand this error
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ace-of-cups.png for card Ace of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/two-of-cups.png for card Two of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/three-of-cups.png?v=2024052722 for card Three of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/four-of-cups.png for card Four of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/eight-of-cups.png?v=2024052722 for card Eight of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/nine-of-cups.png?v=2024052722 for card Nine of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/five-of-cups.png for card Five of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/knight-of-cups.png for card Knight of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/queen-of-cups.png for card Queen of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/king-of-cups.png for card King of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/page-of-cups.png for card Page of Cups
+eruda.js:2 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ten-of-cups.png for card Ten of Cups
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+eruda.js:2 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+Fetch event handler is recognized as no-op. No-op fetch handler may bring overhead during navigation. Consider removing the handler if possible.Understand this warning
+Console.js:61 CRITICAL: No lesson found for p5 in either Minor Arcana or Intuitive Reading
+Console.js:61 Rebuilt Minor Arcana lessons: 57 total
+Console.js:61 Sequence verification:
+Console.js:61 1. minor-1 - Card: intro
+Console.js:61 2. minor-wands-ace - Card: w1
+Console.js:61 3. minor-wands-two - Card: w2
+Console.js:61 4. minor-wands-three - Card: w3
+Console.js:61 5. minor-wands-four - Card: w4
+Console.js:61 6. minor-wands-five - Card: w5
+Console.js:61 7. minor-wands-six - Card: w6
+Console.js:61 8. minor-wands-seven - Card: w7
+Console.js:61 9. minor-wands-eight - Card: w8
+Console.js:61 10. minor-wands-nine - Card: w9
+Console.js:61 11. minor-wands-ten - Card: w10
+Console.js:61 12. minor-wands-page - Card: wp
+Console.js:61 13. minor-wands-knight - Card: wn
+Console.js:61 14. minor-wands-queen - Card: wq
+Console.js:61 15. minor-wands-king - Card: wk
+Console.js:61 16. minor-cups-ace - Card: c1
+Console.js:61 17. minor-cups-two - Card: c2
+Console.js:61 18. minor-cups-three - Card: c3
+Console.js:61 19. minor-cups-four - Card: c4
+Console.js:61 20. minor-cups-five - Card: c5
+Console.js:61 21. minor-cups-six - Card: c6
+Console.js:61 22. minor-cups-seven - Card: c7
+Console.js:61 23. minor-cups-eight - Card: c8
+Console.js:61 24. minor-cups-nine - Card: c9
+Console.js:61 25. minor-cups-ten - Card: c10
+Console.js:61 26. minor-cups-page - Card: cp
+Console.js:61 27. minor-cups-knight - Card: cn
+Console.js:61 28. minor-cups-queen - Card: cq
+Console.js:61 29. minor-cups-king - Card: ck
+Console.js:61 30. minor-pentacles-ace - Card: p1
+Console.js:61 31. minor-pentacles-two - Card: p2
+Console.js:61 32. minor-pentacles-three - Card: p3
+Console.js:61 33. minor-pentacles-four - Card: p4
+Console.js:61 34. minor-pentacles-five - Card: p5
+Console.js:61 35. minor-pentacles-six - Card: p6
+Console.js:61 36. minor-pentacles-seven - Card: p7
+Console.js:61 37. minor-pentacles-eight - Card: p8
+Console.js:61 38. minor-pentacles-nine - Card: p9
+Console.js:61 39. minor-pentacles-ten - Card: p10
+Console.js:61 40. minor-pentacles-page - Card: pp
+Console.js:61 41. minor-pentacles-knight - Card: pn
+Console.js:61 42. minor-pentacles-queen - Card: pq
+Console.js:61 43. minor-pentacles-king - Card: pk
+Console.js:61 44. minor-swords-ace - Card: s1
+Console.js:61 45. minor-swords-two - Card: s2
+Console.js:61 46. minor-swords-three - Card: s3
+Console.js:61 47. minor-swords-four - Card: s4
+Console.js:61 48. minor-swords-five - Card: s5
+Console.js:61 49. minor-swords-six - Card: s6
+Console.js:61 50. minor-swords-seven - Card: s7
+Console.js:61 51. minor-swords-eight - Card: s8
+Console.js:61 52. minor-swords-nine - Card: s9
+Console.js:61 53. minor-swords-ten - Card: s10
+Console.js:61 54. minor-swords-page - Card: sp
+Console.js:61 55. minor-swords-knight - Card: sn
+Console.js:61 56. minor-swords-queen - Card: sq
+Console.js:61 57. minor-swords-king - Card: sk
+Console.js:61 Updating existing lesson advanced-1 to advanced-11 for card 10
+Console.js:61 Updating existing lesson advanced-2 to advanced-13 for card 12
+Console.js:61 Updating existing lesson advanced-3 to advanced-14 for card 13
+Console.js:61 Updating existing lesson advanced-4 to advanced-17 for card 16
+Console.js:61 Updating existing lesson advanced-5 to advanced-18 for card 17
+Console.js:61 Creating lesson advanced-6 for card 0 (The Fool)
+Console.js:61 Creating lesson advanced-7 for card 1 (The Magician)
+Console.js:61 Creating lesson advanced-8 for card 2 (The High Priestess)
+Console.js:61 Creating lesson advanced-9 for card 3 (The Empress)
+Console.js:61 Creating lesson advanced-10 for card 4 (The Emperor)
+Console.js:61 Creating lesson advanced-11 for card 5 (The Hierophant)
+Console.js:61 Creating lesson advanced-12 for card 6 (The Lovers)
+Console.js:61 Creating lesson advanced-13 for card 7 (The Chariot)
+Console.js:61 Creating lesson advanced-14 for card 8 (Strength)
+Console.js:61 Creating lesson advanced-15 for card 9 (The Hermit)
+Console.js:61 Creating lesson advanced-16 for card 11 (Justice)
+Console.js:61 Creating lesson advanced-17 for card 14 (Temperance)
+Console.js:61 Creating lesson advanced-18 for card 15 (The Devil)
+Console.js:61 Creating lesson advanced-19 for card 18 (The Moon)
+Console.js:61 Creating lesson advanced-20 for card 19 (The Sun)
+Console.js:61 Creating lesson advanced-21 for card 20 (Judgement)
+Console.js:61 Creating lesson advanced-22 for card 21 (The World)
+Console.js:61 Creating lesson advanced-23 for card w1 (Ace of Wands)
+Console.js:61 Creating lesson advanced-24 for card w2 (Two of Wands)
+Console.js:61 Creating lesson advanced-25 for card w3 (Three of Wands)
+Console.js:61 Creating lesson advanced-26 for card w4 (Four of Wands)
+Console.js:61 Creating lesson advanced-27 for card w5 (Five of Wands)
+Console.js:61 Creating lesson advanced-28 for card w6 (Six of Wands)
+Console.js:61 Creating lesson advanced-29 for card w7 (Seven of Wands)
+Console.js:61 Creating lesson advanced-30 for card w8 (Eight of Wands)
+Console.js:61 Creating lesson advanced-31 for card w9 (Nine of Wands)
+Console.js:61 Creating lesson advanced-32 for card w10 (Ten of Wands)
+Console.js:61 Creating lesson advanced-33 for card wp (Page of Wands)
+Console.js:61 Creating lesson advanced-34 for card wn (Knight of Wands)
+Console.js:61 Creating lesson advanced-35 for card wq (Queen of Wands)
+Console.js:61 Creating lesson advanced-36 for card wk (King of Wands)
+Console.js:61 Creating lesson advanced-37 for card c1 (Ace of Cups)
+Console.js:61 Creating lesson advanced-38 for card c2 (Two of Cups)
+Console.js:61 Creating lesson advanced-39 for card c3 (Three of Cups)
+Console.js:61 Creating lesson advanced-40 for card c4 (Four of Cups)
+Console.js:61 Creating lesson advanced-41 for card c5 (Five of Cups)
+Console.js:61 Creating lesson advanced-42 for card c6 (Six of Cups)
+Console.js:61 Creating lesson advanced-43 for card c7 (Seven of Cups)
+Console.js:61 Creating lesson advanced-44 for card c8 (Eight of Cups)
+Console.js:61 Creating lesson advanced-45 for card c9 (Nine of Cups)
+Console.js:61 Creating lesson advanced-46 for card c10 (Ten of Cups)
+Console.js:61 Creating lesson advanced-47 for card cp (Page of Cups)
+Console.js:61 Creating lesson advanced-48 for card cn (Knight of Cups)
+Console.js:61 Creating lesson advanced-49 for card cq (Queen of Cups)
+Console.js:61 Creating lesson advanced-50 for card ck (King of Cups)
+Console.js:61 Creating lesson advanced-51 for card p1 (Ace of Pentacles)
+Console.js:61 Creating lesson advanced-52 for card p2 (Two of Pentacles)
+Console.js:61 Creating lesson advanced-53 for card p3 (Three of Pentacles)
+Console.js:61 Creating lesson advanced-54 for card p4 (Four of Pentacles)
+Console.js:61 Creating lesson advanced-55 for card p5 (Five of Pentacles)
+Console.js:61 Creating lesson advanced-56 for card p6 (Six of Pentacles)
+Console.js:61 Creating lesson advanced-57 for card p7 (Seven of Pentacles)
+Console.js:61 Creating lesson advanced-58 for card p8 (Eight of Pentacles)
+Console.js:61 Creating lesson advanced-59 for card p9 (Nine of Pentacles)
+Console.js:61 Creating lesson advanced-60 for card p10 (Ten of Pentacles)
+Console.js:61 Creating lesson advanced-61 for card pp (Page of Pentacles)
+Console.js:61 Creating lesson advanced-62 for card pn (Knight of Pentacles)
+Console.js:61 Creating lesson advanced-63 for card pq (Queen of Pentacles)
+Console.js:61 Creating lesson advanced-64 for card pk (King of Pentacles)
+Console.js:61 Creating lesson advanced-65 for card s1 (Ace of Swords)
+Console.js:61 Creating lesson advanced-66 for card s2 (Two of Swords)
+Console.js:61 Creating lesson advanced-67 for card s3 (Three of Swords)
+Console.js:61 Creating lesson advanced-68 for card s4 (Four of Swords)
+Console.js:61 Creating lesson advanced-69 for card s5 (Five of Swords)
+Console.js:61 Creating lesson advanced-70 for card s6 (Six of Swords)
+Console.js:61 Creating lesson advanced-71 for card s7 (Seven of Swords)
+Console.js:61 Creating lesson advanced-72 for card s8 (Eight of Swords)
+Console.js:61 Creating lesson advanced-73 for card s9 (Nine of Swords)
+Console.js:61 Creating lesson advanced-74 for card s10 (Ten of Swords)
+Console.js:61 Creating lesson advanced-75 for card sp (Page of Swords)
+Console.js:61 Creating lesson advanced-76 for card sn (Knight of Swords)
+Console.js:61 Creating lesson advanced-77 for card sq (Queen of Swords)
+Console.js:61 Creating lesson advanced-78 for card sk (King of Swords)
+Console.js:61 Creating major arcana lesson advanced-1 for card 0 (The Fool)
+Console.js:61 Creating major arcana lesson advanced-2 for card 1 (The Magician)
+Console.js:61 Creating major arcana lesson advanced-3 for card 2 (The High Priestess)
+Console.js:61 Creating major arcana lesson advanced-4 for card 3 (The Empress)
+Console.js:61 Creating major arcana lesson advanced-5 for card 4 (The Emperor)
+Console.js:61 Creating major arcana lesson advanced-6 for card 5 (The Hierophant)
+Console.js:61 Creating major arcana lesson advanced-7 for card 6 (The Lovers)
+Console.js:61 Creating major arcana lesson advanced-8 for card 7 (The Chariot)
+Console.js:61 Creating major arcana lesson advanced-9 for card 8 (Strength)
+Console.js:61 Creating major arcana lesson advanced-10 for card 9 (The Hermit)
+Console.js:61 Creating major arcana lesson advanced-12 for card 11 (Justice)
+Console.js:61 Creating major arcana lesson advanced-15 for card 14 (Temperance)
+Console.js:61 Creating major arcana lesson advanced-16 for card 15 (The Devil)
+Console.js:61 Creating major arcana lesson advanced-19 for card 18 (The Moon)
+Console.js:61 Creating major arcana lesson advanced-20 for card 19 (The Sun)
+Console.js:61 Creating major arcana lesson advanced-21 for card 20 (Judgement)
+Console.js:61 Creating major arcana lesson advanced-22 for card 21 (The World)
+Console.js:61 Complete Advanced Symbolism course: 78 lessons
+Console.js:61 FixedBottomNav: User not authenticated, not showing nav
+Console.js:61 FixedBottomNav: User not authenticated, not showing nav
+Console.js:61 FixedBottomNav: User authenticated, showing nav bar
+Console.js:61 Checking admin status: false
+Console.js:61 Total cards: undefined
+Console.js:61 Filtered cards: 0
+Console.js:61 BottomNav: User status: true
+Console.js:61 BottomNav: Current location: /library
+web-client-content-script.js:2 Uncaught TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (web-client-content-script.js:2:324406)
+(anonymous) @ web-client-content-script.js:2Understand this error
+Console.js:61 Service Worker registered with scope: https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev/
+Console.js:61 Checking admin status: false
+Console.js:61 Total cards: 121
+Console.js:61 Filtered cards: 121
+Console.js:61 BottomNav: User status: true
+Console.js:61 BottomNav: Current location: /library
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/00-fool.png for card The Fool
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/01-magician.png for card The Magician
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/02-high-priestess.png for card The High Priestess
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/03-empress.png for card The Empress
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/04-emperor.png for card The Emperor
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/05-hierophant.png for card The Hierophant
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/06-lovers.png for card The Lovers
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/07-chariot.png for card The Chariot
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/08-strength.png for card Strength
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/10-wheel.png for card Wheel of Fortune
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/11-justice.png for card Justice
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/09-hermit.png for card The Hermit
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/12-hanged-man.png for card The Hanged Man
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/13-death.png for card Death
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/15-devil.png for card The Devil
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/16-tower.png for card The Tower
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/14-temperance.png for card Temperance
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/17-star.png for card The Star
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/18-moon.png for card The Moon
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/20-judgement.png for card Judgement
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/19-sun.png for card The Sun
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/major-arcana/21-world.png for card The World
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ace-of-cups.png for card Ace of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/two-of-cups.png for card Two of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/five-of-cups.png for card Five of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/three-of-cups.png?v=2024052722 for card Three of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/four-of-cups.png for card Four of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/six-of-cups.png for card Six of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/eight-of-cups.png?v=2024052722 for card Eight of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/seven-of-cups.png?v=2024052722 for card Seven of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/nine-of-cups.png?v=2024052722 for card Nine of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/ten-of-cups.png for card Ten of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/page-of-cups.png for card Page of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/knight-of-cups.png for card Knight of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/queen-of-cups.png for card Queen of Cups
+Console.js:61 ✅ Image loaded successfully: /authentic-cards/minor-arcana/cups/king-of-cups.png for card King of Cups
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ace-of-wands.png for card Ace of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/two-of-wands.png for card Two of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/three-of-wands.png for card Three of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/four-of-wands.png for card Four of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/five-of-wands.png for card Five of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/six-of-wands.png for card Six of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/seven-of-wands.png for card Seven of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/nine-of-wands.png for card Nine of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/eight-of-wands.png for card Eight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/ten-of-wands.png for card Ten of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/page-of-wands.png for card Page of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/knight-of-wands.png for card Knight of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/queen-of-wands.png for card Queen of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/wands/king-of-wands.png for card King of Wands
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ace-of-swords.png for card Ace of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/two-of-swords.png for card Two of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/three-of-swords.png for card Three of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/four-of-swords.png for card Four of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/five-of-swords.png for card Five of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/six-of-swords.png for card Six of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/seven-of-swords.png for card Seven of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/eight-of-swords.png for card Eight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/nine-of-swords.png for card Nine of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/ten-of-swords.png for card Ten of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/page-of-swords.png for card Page of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/knight-of-swords.png for card Knight of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/queen-of-swords.png for card Queen of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png for card Ace of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/swords/king-of-swords.png for card King of Swords
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/two-of-pentacles.png for card Two of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/three-of-pentacles.png for card Three of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/four-of-pentacles.png for card Four of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/five-of-pentacles.png for card Five of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/six-of-pentacles.png for card Six of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png for card Seven of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png for card Eight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png for card Nine of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png for card Ten of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/page-of-pentacles.png for card Page of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png for card Knight of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png for card Queen of Pentacles
+Console.js:61 🚨 Image failed to load: /authentic-cards/minor-arcana/pentacles/king-of-pentacles.png for card King of Pentacles
