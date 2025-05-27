@@ -171,6 +171,22 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       '20': '/authentic-cards/major-arcana/20-judgement.png',
       '21': '/authentic-cards/major-arcana/21-world.png',
       
+      // Minor Arcana - Cups (New authentic ethereal cards)
+      'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
+      'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
+      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png',
+      'c4': '/authentic-cards/minor-arcana/cups/four-of-cups.png',
+      'c5': '/authentic-cards/minor-arcana/cups/five-of-cups.png',
+      'c6': '/authentic-cards/minor-arcana/cups/six-of-cups.png',
+      'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups.png',
+      'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups.png',
+      'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups.png',
+      'c10': '/authentic-cards/minor-arcana/cups/ten-of-cups.png',
+      'cp': '/authentic-cards/minor-arcana/cups/page-of-cups.png',
+      'cn': '/authentic-cards/minor-arcana/cups/knight-of-cups.png',
+      'cq': '/authentic-cards/minor-arcana/cups/queen-of-cups.png',
+      'ck': '/authentic-cards/minor-arcana/cups/king-of-cups.png',
+      
       // Minor Arcana - Wands
       'w1': '/assets/cards/ace-of-wands.png',
       'w2': '/assets/cards/two-of-wands.png',
