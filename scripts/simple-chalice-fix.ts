@@ -11,7 +11,7 @@ async function createClearChaliceCard(name: string, filename: string): Promise<v
   let prompt = "";
   
   if (name === "Page of Cups") {
-    prompt = "Young man in robes holding medium-sized golden chalice cup goblet in both hands at waist level, chalice is clearly visible but not covering face, showing full face and upper body, tarot card style, purple pink ethereal lighting";
+    prompt = "Ultra-photorealistic 3D Page of Cups tarot card with breathtaking ethereal quality. Teenage male figure with flowing liquid starlight hair in shimmering purple and pink tones, holding ornate golden chalice at waist level with both hands. Ultra-realistic skin texture with youthful pink ethereal glow, perfectly natural masculine facial features. The chalice is clearly visible and prominent but proportional to his body. Translucent flowing robes in rich musky purple and pink aurora tones. Ultra-ethereal dreamlike whimsical quality. Completely original artistic interpretation. Photographic realism with magical pink purple atmosphere.";
   } else if (name === "Knight of Cups") {
     prompt = "Knight on horse holding medium-sized golden chalice cup goblet tucked under one arm while riding, chalice is clearly visible at side, not above head, showing full knight figure, tarot card style, purple pink ethereal lighting";
   } else if (name === "Queen of Cups") {
@@ -56,5 +56,5 @@ async function createClearChaliceCard(name: string, filename: string): Promise<v
   }
 }
 
-// Fix Knight of Cups with chalice under arm
-createClearChaliceCard('Knight of Cups', 'knight-of-cups.png');
+// Create 3D lifelike Page of Cups with teenage male
+createClearChaliceCard('Page of Cups', 'page-of-cups.png');
