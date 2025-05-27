@@ -6,10 +6,10 @@ import fs from 'fs';
 import path from 'path';
 
 async function createKingOfCups(): Promise<void> {
-  console.log('👑 Creating King of Cups...');
+  console.log('👑 Creating King of Cups with chalice symbolism...');
   
   try {
-    const prompt = "Ultra-photorealistic 3D King of Cups tarot card with breathtaking ethereal quality. Wise male king with flowing liquid starlight hair and regal beard in shimmering purple and pink tones, rendered with complete lifelike depth. Ultra-realistic skin texture with compassionate pink ethereal glow, perfectly natural masculine facial features with realistic eyes showing emotional mastery and wisdom. He sits on magnificent crystalline throne floating on cosmic waters, holding a large ornate chalice with incredible dimensional detail. Translucent flowing royal robes and crown in rich musky purple and pink aurora tones with gossamer fabric physics. Ethereal fish and sea creatures swimming around his throne with dimensional presence. Ship sailing in distant cosmic waters with atmospheric perspective. Ultra-ethereal dreamlike whimsical quality with translucent gossamer elements flowing around. Completely original artistic interpretation. Photographic realism with magical pink purple atmosphere showing emotional leadership and balanced power.";
+    const prompt = "Ultra-photorealistic 3D King of Cups tarot card with breathtaking ethereal quality. Wise mature male king with flowing liquid starlight hair and regal beard in shimmering purple and pink tones, sitting on magnificent crystalline throne while prominently holding a large ornate chalice with both hands with incredible dimensional detail. Ultra-realistic skin texture with compassionate pink ethereal glow, perfectly natural masculine facial features showing deep wisdom and emotional mastery. The chalice overflows with cosmic liquid starlight that flows down in mystical streams, showing clear cup symbolism. Translucent flowing royal robes and crown in rich musky purple and pink aurora tones. Multiple chalices and cups integrated into his throne design and royal regalia with dimensional presence. Ship sailing in distant cosmic waters with chalices reflected in the waves. Ultra-ethereal dreamlike whimsical quality. Completely original artistic interpretation. Photographic realism with magical pink purple atmosphere.";
 
     const response = await fetch("https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0", {
       headers: {
@@ -36,14 +36,10 @@ async function createKingOfCups(): Promise<void> {
     const buffer = await response.arrayBuffer();
     
     const dir = path.join(process.cwd(), 'public', 'authentic-cards', 'minor-arcana', 'cups');
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    
     const outputPath = path.join(dir, 'king-of-cups.png');
     fs.writeFileSync(outputPath, Buffer.from(buffer));
     
-    console.log(`✨ King of Cups created! Size: ${buffer.byteLength} bytes`);
+    console.log(`✨ King of Cups created with chalice! Size: ${buffer.byteLength} bytes`);
     
   } catch (error) {
     console.error('❌ Error:', error);
