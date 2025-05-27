@@ -286,6 +286,11 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
+    // Add cache busting for recently updated cups cards
+    if (card.id === 'c3' || card.id === 'c7' || card.id === 'c8' || card.id === 'c9') {
+      return `${imagePath}?v=${Date.now()}`;
+    }
+    
     return imagePath;
   };
 
