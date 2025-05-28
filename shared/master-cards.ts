@@ -351,7 +351,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 9,
-    imagePath: '/authentic-cards/minor-arcana/cups/nine-of-cups-fresh.png?v=2025',
+    imagePath: '/authentic-cards/minor-arcana/cups/nine-of-cups.png?v=2025',
     meanings: {
       upright: ['Contentment', 'Satisfaction', 'Gratitude'],
       reversed: ['Inner happiness', 'Materialism', 'Dissatisfaction']
