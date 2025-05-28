@@ -267,7 +267,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 3,
-    imagePath: '/authentic-cards/minor-arcana/cups/three-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/three-of-cups-fresh.png',
     meanings: {
       upright: ['Celebration', 'Friendship', 'Creativity', 'Community'],
       reversed: ['Independence', 'Social disconnection']
@@ -323,7 +323,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 7,
-    imagePath: '/authentic-cards/minor-arcana/cups/seven-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/seven-of-cups-fresh.png',
     meanings: {
       upright: ['Opportunities', 'Choices', 'Wishful thinking', 'Illusion'],
       reversed: ['Alignment', 'Personal values', 'Overwhelmed by choices']
@@ -337,7 +337,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 8,
-    imagePath: '/authentic-cards/minor-arcana/cups/eight-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/eight-of-cups-fresh.png',
     meanings: {
       upright: ['Disappointment', 'Abandonment', 'Withdrawal'],
       reversed: ['Trying one more time', 'Indecision', 'Reevaluating goals']
@@ -351,7 +351,7 @@ export const masterCards: MasterCard[] = [
     arcana: 'minor',
     suit: 'cups',
     number: 9,
-    imagePath: '/authentic-cards/minor-arcana/cups/nine-of-cups.png',
+    imagePath: '/authentic-cards/minor-arcana/cups/nine-of-cups-fresh.png',
     meanings: {
       upright: ['Contentment', 'Satisfaction', 'Gratitude'],
       reversed: ['Inner happiness', 'Materialism', 'Dissatisfaction']
