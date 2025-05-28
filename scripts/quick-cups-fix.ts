@@ -36,11 +36,20 @@ async function quickFixThreeOfCups(): Promise<void> {
 
     if (response.ok) {
       const buffer = await response.arrayBuffer();
-      const outputPath = path.join("public", "authentic-cards", "minor-arcana", "cups", "three-of-cups.png");
+      const outputDir = path.join("public", "authentic-cards", "minor-arcana", "cups");
+      
+      // Ensure directory exists
+      if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+      }
+      
+      const outputPath = path.join(outputDir, "three-of-cups.png");
       fs.writeFileSync(outputPath, new Uint8Array(buffer));
       console.log("✅ Three of Cups fixed!");
     } else {
       console.log(`❌ Error: ${response.status}`);
+      const errorText = await response.text();
+      console.log(`Details: ${errorText}`);
     }
   } catch (error) {
     console.log(`❌ Failed: ${error.message}`);
