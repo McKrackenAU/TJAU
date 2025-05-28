@@ -192,13 +192,13 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       // Minor Arcana - Cups (Complete ultra-ethereal authentic suit)
       'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
       'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
-      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png',
+      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups-fresh.png',
       'c4': '/authentic-cards/minor-arcana/cups/four-of-cups.png',
       'c5': '/authentic-cards/minor-arcana/cups/five-of-cups.png',
       'c6': '/authentic-cards/minor-arcana/cups/six-of-cups.png',
-      'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups.png',
-      'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups.png',
-      'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups.png',
+      'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups-fresh.png',
+      'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups-fresh.png',
+      'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups-fresh.png',
       'c10': '/authentic-cards/minor-arcana/cups/ten-of-cups.png',
       'cp': '/authentic-cards/minor-arcana/cups/page-of-cups.png',
       'cn': '/authentic-cards/minor-arcana/cups/knight-of-cups.png',
@@ -286,11 +286,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
-    // Force complete cache bypass for newly updated Cups cards
-    if (card.id === 'c3' || card.id === 'c7' || card.id === 'c8' || card.id === 'c9') {
-      // Use a specific timestamp to ensure all users get the same updated version
-      return `${imagePath}?updated=20250528050800&cache=false&reload=true`;
-    }
+    // Fresh filenames used for improved Cups cards - no cache busting needed
     
     return imagePath;
   };
