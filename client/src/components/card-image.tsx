@@ -286,9 +286,10 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
-    // Add cache busting for recently updated cups cards
+    // Force complete cache bypass for newly updated Cups cards
     if (card.id === 'c3' || card.id === 'c7' || card.id === 'c8' || card.id === 'c9') {
-      return `${imagePath}?v=${Date.now()}`;
+      const timestamp = new Date().getTime();
+      return `${imagePath}?nocache=${timestamp}&v=new&force=true`;
     }
     
     return imagePath;
