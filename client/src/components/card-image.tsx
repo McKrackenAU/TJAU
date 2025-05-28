@@ -288,8 +288,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     
     // Force complete cache bypass for newly updated Cups cards
     if (card.id === 'c3' || card.id === 'c7' || card.id === 'c8' || card.id === 'c9') {
-      const timestamp = new Date().getTime();
-      return `${imagePath}?nocache=${timestamp}&v=new&force=true`;
+      // Use a specific timestamp to ensure all users get the same updated version
+      return `${imagePath}?updated=20250528050800&cache=false&reload=true`;
     }
     
     return imagePath;
