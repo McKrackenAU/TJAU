@@ -45,7 +45,7 @@ export function registerRoutes(app: Express): Server {
   setupAuth(app);
 
   // Create OpenAI instance
-  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_TWO });
 
   // Serve the cache files
   const cacheDir = path.join(process.cwd(), '.cache');

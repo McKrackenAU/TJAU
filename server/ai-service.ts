@@ -5,12 +5,12 @@ import path from "path";
 import { CACHE_DIR } from "./utils/constants";
 import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error("OPENAI_API_KEY environment variable is required");
+if (!process.env.OPENAI_API_KEY_TWO) {
+  throw new Error("OPENAI_API_KEY_TWO environment variable is required");
 }
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: process.env.OPENAI_API_KEY_TWO
 });
 
 // CACHE_DIR is now imported at the top
