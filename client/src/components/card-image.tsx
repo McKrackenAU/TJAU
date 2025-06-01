@@ -115,7 +115,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     // All card paths in one place
     const allCardPaths: Record<string, string> = {
       // Major Arcana - use your authentic cards
-      '0': '/authentic-cards/major-arcana/00-fool.png',
+      '0': '/authentic-cards/major-arcana/00-fool.png?v=' + Date.now(),
       '1': '/authentic-cards/major-arcana/01-magician.png',
       '2': '/authentic-cards/major-arcana/02-high-priestess.png',
       '3': '/authentic-cards/major-arcana/03-empress.png',
