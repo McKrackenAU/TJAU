@@ -233,11 +233,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'imported_349': '/authentic-cards/oracle/soulful-expression.png',
       'imported_350': '/authentic-cards/oracle/divine-protection.png',
       'imported_351': '/authentic-cards/oracle/gratitude-abundance.png',
-      'imported_352': '/authentic-cards/oracle/inner-child-healing.png',
+      'imported_352': '/authentic-cards/oracle/divine-protection.png',
       'imported_353': '/authentic-cards/oracle/soulful-relationships.png',
-      'imported_354': '/authentic-cards/oracle/meditation-mindfulness.png',
+      'imported_354': '/authentic-cards/oracle/inner-child-healing.png',
       'imported_355': '/authentic-cards/oracle/cosmic-balance.png',
-      'imported_356': '/authentic-cards/oracle/infinite-possibilities.png'
+      'imported_356': '/authentic-cards/oracle/meditation-mindfulness.png',
+      'imported_360': '/authentic-cards/oracle/infinite-possibilities.png'
     };
     
     // Direct paths for your authentic Major Arcana cards 0-4
