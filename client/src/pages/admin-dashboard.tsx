@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from '@/hooks/use-auth';
-import { Redirect } from 'wouter';
-import { Loader2 } from 'lucide-react';
+import { Redirect, Link } from 'wouter';
+import { Loader2, Upload, Image, Settings } from 'lucide-react';
 import ApiUsageDashboard from '@/components/api-usage-dashboard';
 import { toast } from '@/hooks/use-toast';
 
@@ -42,6 +44,53 @@ export default function AdminDashboard() {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
       
+      {/* Quick Actions Section */}
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Upload className="h-5 w-5" />
+                Upload Card Images
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground mb-3">
+                Upload missing tarot card images to complete your deck
+              </p>
+              <Link href="/upload-cards">
+                <Button className="w-full">
+                  <Image className="h-4 w-4 mr-2" />
+                  Upload Cards
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader className="pb-3">
+              <CardTitle className="flex items-center gap-2 text-lg">
+                <Settings className="h-5 w-5" />
+                API Management
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground mb-3">
+                Monitor API usage and costs across all services
+              </p>
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => setTabValue('api-usage')}
+              >
+                View API Stats
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
       <Tabs value={tabValue} onValueChange={setTabValue}>
         <TabsList className="mb-6">
           <TabsTrigger value="api-usage">API Usage & Costs</TabsTrigger>
