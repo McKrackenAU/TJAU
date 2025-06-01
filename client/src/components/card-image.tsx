@@ -316,12 +316,15 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     
     const imagePath = allCardPaths[card.id];
     
+    // Return authentic card paths directly (minor arcana and oracle cards)
+    if (imagePath && imagePath.startsWith('/authentic-cards/')) {
+      return imagePath;
+    }
+    
     // For missing cards, return null so symbolic display is used
     if (!imagePath || imagePath.includes('/assets/cards/')) {
       return null;
     }
-    
-    // Fresh filenames used for improved Cups cards - no cache busting needed
     
     return imagePath;
   };
