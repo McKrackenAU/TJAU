@@ -97,40 +97,7 @@ const cardImagePaths: Record<string, string> = {
   'pq': '/authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png',
   'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
   
-  // Oracle Cards - Will be updated to authentic cards
-  'imported_300': '/authentic-cards/oracle/element-of-air.png',
-  'imported_301': '/authentic-cards/oracle/element-of-earth.png',
-  'imported_302': '/authentic-cards/oracle/element-of-water.png',
-  'imported_303': '/authentic-cards/oracle/divine-guidance.png',
-  'imported_304': '/authentic-cards/oracle/sacred-geometry.png',
-  'imported_305': '/authentic-cards/oracle/elemental-allies.png',
-  'imported_328': '/authentic-cards/oracle/lunar-phases.png',
-  'imported_329': '/authentic-cards/oracle/solar-energies.png',
-  'imported_332': '/authentic-cards/oracle/natures-wisdom.png',
-  'imported_333': '/authentic-cards/oracle/dream-exploration.png',
-  'imported_334': '/authentic-cards/oracle/astral-travel.png',
-  'imported_335': '/authentic-cards/oracle/soul-contracts.png',
-  'imported_336': '/authentic-cards/oracle/akashic-records.png',
-  'imported_337': '/authentic-cards/oracle/spirit-guides.png',
-  'imported_338': '/authentic-cards/oracle/divine-feminine.png',
-  'imported_339': '/authentic-cards/oracle/divine-masculine.png',
-  'imported_340': '/authentic-cards/oracle/universal-love.png',
-  'imported_341': '/authentic-cards/oracle/synchronicity.png',
-  'imported_342': '/authentic-cards/oracle/sacred-rituals.png',
-  'imported_343': '/authentic-cards/oracle/inner-alchemy.png',
-  'imported_344': '/authentic-cards/oracle/soulmates-twin-flames.png',
-  'imported_345': '/authentic-cards/oracle/ascended-masters.png',
-  'imported_346': '/authentic-cards/oracle/divine-timing.png',
-  'imported_347': '/authentic-cards/oracle/inner-healing.png',
-  'imported_348': '/authentic-cards/oracle/ancestral-wisdom.png',
-  'imported_349': '/authentic-cards/oracle/soulful-expression.png',
-  'imported_350': '/authentic-cards/oracle/divine-protection.png',
-  'imported_351': '/authentic-cards/oracle/gratitude-abundance.png',
-  'imported_352': '/authentic-cards/oracle/inner-child-healing.png',
-  'imported_353': '/authentic-cards/oracle/soulful-relationships.png',
-  'imported_354': '/authentic-cards/oracle/meditation-mindfulness.png',
-  'imported_355': '/authentic-cards/oracle/cosmic-balance.png',
-  'imported_356': '/authentic-cards/oracle/infinite-possibilities.png'
+
 };
 
 export default function CardImage({ card, isRevealed }: CardImageProps) {
