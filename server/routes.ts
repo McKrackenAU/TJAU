@@ -148,12 +148,16 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/interpret", async (req, res) => {
     try {
       const { cardId, context } = req.body;
-      console.log("Interpreting card:", cardId, "with context:", context);
+      console.log("AI Interpretation request - Card ID:", cardId, "Context:", context);
+      console.log("Request headers:", req.headers['user-agent']);
+      console.log("Authentication status:", req.isAuthenticated());
 
       if (!req.isAuthenticated()) {
+        console.log("Authentication failed for AI interpretation request");
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
+      console.log("Authenticated user ID:", userId);
 
       // Get all available cards including imported ones
       const allCards = await storage.getImportedCards(userId);
@@ -249,12 +253,16 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/interpret-spread", async (req, res) => {
     try {
       const { cardIds, spreadType, positions } = req.body;
-      console.log("Received request for spread interpretation:", { cardIds, spreadType, positions });
+      console.log("Spread interpretation request:", { cardIds, spreadType, positions });
+      console.log("Request headers:", req.headers['user-agent']);
+      console.log("Authentication status:", req.isAuthenticated());
 
       if (!req.isAuthenticated()) {
+        console.log("Authentication failed for spread interpretation request");
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
+      console.log("Authenticated user ID:", userId);
 
       if (!Array.isArray(cardIds) || cardIds.length < 2) {
         return res.status(400).json({

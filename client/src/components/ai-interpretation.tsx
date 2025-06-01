@@ -18,14 +18,31 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
     queryKey: [`/api/interpret/${card.id}`, context],
     queryFn: async () => {
       try {
+        console.log("Requesting AI interpretation for card:", card.id);
         const res = await apiRequest("POST", "/api/interpret", {
           cardId: card.id,
           context
         });
+        
+        if (!res.ok) {
+          const errorData = await res.text();
+          console.error("AI interpretation API error:", res.status, errorData);
+          
+          if (res.status === 401) {
+            throw new Error("Please log in to access AI interpretations");
+          } else if (res.status === 500) {
+            throw new Error("AI service temporarily unavailable. Please try again in a moment.");
+          } else {
+            throw new Error(`Server error: ${res.status}`);
+          }
+        }
+        
         const data = await res.json();
         if (!data.interpretation) {
-          throw new Error("No interpretation received");
+          throw new Error("No interpretation received from AI service");
         }
+        
+        console.log("AI interpretation received successfully");
         return data.interpretation;
       } catch (err) {
         console.error("Error fetching interpretation:", err);
