@@ -41,6 +41,24 @@ import { generateAndSendWeeklyNewsletter, checkAndSendWeeklyNewsletter } from '.
 import crypto from 'crypto';
 
 export function registerRoutes(app: Express): Server {
+  // Add CORS headers for custom domain support
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    console.log("Request from origin:", origin);
+    
+    // Allow requests from any origin for mobile apps
+    res.header('Access-Control-Allow-Origin', origin || '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(200);
+    }
+    
+    next();
+  });
+
   // Set up authentication routes and middleware
   setupAuth(app);
 
@@ -169,7 +187,11 @@ export function registerRoutes(app: Express): Server {
     try {
       const { cardId, context } = req.body;
       console.log("AI Interpretation request - Card ID:", cardId, "Context:", context);
-      console.log("Request headers:", req.headers['user-agent']);
+      console.log("Request origin:", req.headers.origin);
+      console.log("Request referer:", req.headers.referer);
+      console.log("Request user-agent:", req.headers['user-agent']);
+      console.log("Request cookies:", req.headers.cookie);
+      console.log("Session ID:", req.sessionID);
       console.log("Authentication status:", req.isAuthenticated());
 
       if (!req.isAuthenticated()) {
