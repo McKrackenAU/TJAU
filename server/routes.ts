@@ -1021,7 +1021,7 @@ export function registerRoutes(app: Express): Server {
       }
     }),
     limits: {
-      fileSize: 5 * 1024 * 1024 // 5MB limit
+      fileSize: 10 * 1024 * 1024 // 10MB limit for high quality images
     },
     fileFilter: (req, file, cb) => {
       if (file.fieldname === 'file') {
@@ -1098,8 +1098,9 @@ export function registerRoutes(app: Express): Server {
       const filename = cardName.toLowerCase().replace(/\s+/g, '-') + '.png';
       const finalPath = path.join(cardDir, filename);
 
-      // Move the uploaded file to the correct location
-      await fs.promises.copyFile(req.file.path, finalPath);
+      // Use direct buffer copy to preserve maximum quality
+      const fileBuffer = await fs.promises.readFile(req.file.path);
+      await fs.promises.writeFile(finalPath, fileBuffer);
       
       // Clean up the temporary file
       await fs.promises.unlink(req.file.path);
