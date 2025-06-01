@@ -1351,16 +1351,30 @@ export function registerRoutes(app: Express): Server {
       });
       console.log("Transformed imported cards:", transformedImportedCards);
 
-      // Get ALL Major Arcana from both sources and combine them
+      // Get imported Major Arcana cards first, then fill gaps with standard cards
+      const importedMajorArcana = transformedImportedCards.filter(card => card.arcana === "major");
+      const standardMajorArcana = tarotCards.filter(card => card.arcana === "major");
+      
+      // Create a map of imported major arcana by card name to avoid duplicates
+      const importedMajorNames = new Set(importedMajorArcana.map(card => card.name));
+      const filteredStandardMajor = standardMajorArcana.filter(card => !importedMajorNames.has(card.name));
+      
       const allMajorArcana = [
-        ...tarotCards.filter(card => card.arcana === "major"),
-        ...transformedImportedCards.filter(card => card.arcana === "major")
+        ...importedMajorArcana,
+        ...filteredStandardMajor
       ].sort((a, b) => (a.number || 0) - (b.number || 0));
       
-      // Get ALL Minor Arcana from both sources and organize by suit order
+      // Get imported Minor Arcana cards first, then fill gaps with standard cards
+      const importedMinorArcana = transformedImportedCards.filter(card => card.arcana === "minor");
+      const standardMinorArcana = tarotCards.filter(card => card.arcana === "minor");
+      
+      // Create a map of imported minor arcana by card name to avoid duplicates
+      const importedMinorNames = new Set(importedMinorArcana.map(card => card.name));
+      const filteredStandardMinor = standardMinorArcana.filter(card => !importedMinorNames.has(card.name));
+      
       const minorArcanaCards = [
-        ...tarotCards.filter(card => card.arcana === "minor"),
-        ...transformedImportedCards.filter(card => card.arcana === "minor")
+        ...importedMinorArcana,
+        ...filteredStandardMinor
       ];
       
       // Order suits: Wands, Cups, Swords, Pentacles
