@@ -1,13 +1,10 @@
 /**
  * Generate Missing Oracle Cards
- * Create ultra-ethereal 3D oracle cards matching High Priestess style
+ * Create ultra-ethereal 3D oracle cards matching High Priestess style using Stability AI
  */
 
-import OpenAI from "openai";
 import fs from "fs";
 import path from "path";
-
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // Ultra-ethereal style matching The High Priestess
 const ETHEREAL_STYLE = `ultra-ethereal translucent dreamlike quality, 3D lifelike character with liquid starlight hair flowing like cosmic rivers, celestial features with subtle luminescent skin, deep purples magentas rose pinks lavender color palette, mystical atmospheric lighting, floating ethereal particles, divine feminine energy, cosmic consciousness, transcendent spiritual aura, photorealistic 3D render`;
@@ -22,26 +19,39 @@ async function generateCardImage(cardData: { name: string, filename: string, pro
   try {
     console.log(`🎨 Generating ${cardData.name}...`);
     
-    const response = await openai.images.generate({
-      model: "dall-e-3",
-      prompt: cardData.prompt,
-      n: 1,
-      size: "1024x1024",
-      quality: "hd",
+    const response = await fetch('https://api.stability.ai/v1/generation/stable-diffusion-xl-1024-v1-0/text-to-image', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.STABILITY_API_KEY}`
+      },
+      body: JSON.stringify({
+        text_prompts: [{ text: `${cardData.prompt}, ${ETHEREAL_STYLE}` }],
+        cfg_scale: 7,
+        height: 1024,
+        width: 1024,
+        steps: 30,
+        samples: 1
+      })
     });
 
-    if (response.data[0]?.url) {
-      // Download and save the image
-      const imageResponse = await fetch(response.data[0].url);
-      const imageBuffer = await imageResponse.arrayBuffer();
+    if (!response.ok) {
+      throw new Error(`Stability API error: ${response.status} ${response.statusText}`);
+    }
+
+    const responseData = await response.json();
+    
+    if (responseData.artifacts && responseData.artifacts[0]?.base64) {
+      const base64Image = responseData.artifacts[0].base64;
+      const imageBuffer = Buffer.from(base64Image, 'base64');
       
       const filePath = path.join('public/authentic-cards/oracle', cardData.filename);
-      fs.writeFileSync(filePath, Buffer.from(imageBuffer));
+      fs.writeFileSync(filePath, imageBuffer);
       
       console.log(`✅ Generated: ${cardData.name} -> ${filePath}`);
       return true;
     } else {
-      console.error(`❌ Failed to generate ${cardData.name}: No image URL`);
+      console.error(`❌ Failed to generate ${cardData.name}: No image data`);
       return false;
     }
   } catch (error) {
