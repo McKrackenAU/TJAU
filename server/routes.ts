@@ -186,6 +186,7 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/interpret", async (req, res) => {
     try {
       const { cardId, context } = req.body;
+      console.log("=== AI INTERPRETATION REQUEST RECEIVED ===");
       console.log("AI Interpretation request - Card ID:", cardId, "Context:", context);
       console.log("Request origin:", req.headers.origin);
       console.log("Request referer:", req.headers.referer);
