@@ -27,9 +27,12 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
         if (!res.ok) {
           const errorData = await res.text();
           console.error("AI interpretation API error:", res.status, errorData);
+          console.error("Request URL was:", res.url);
           
           if (res.status === 401) {
             throw new Error("Please log in to access AI interpretations");
+          } else if (res.status === 404) {
+            throw new Error("AI service endpoint not found. Please refresh the page and try again.");
           } else if (res.status === 500) {
             throw new Error("AI service temporarily unavailable. Please try again in a moment.");
           } else {
