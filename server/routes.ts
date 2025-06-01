@@ -1081,24 +1081,8 @@ export function registerRoutes(app: Express): Server {
       const filename = cardName.toLowerCase().replace(/\s+/g, '-') + '.png';
       const finalPath = path.join(cardDir, filename);
 
-      // Process the image to match the ethereal quality of other cards
-      const sharp = require('sharp');
-      
-      const processedBuffer = await sharp(req.file.buffer)
-        .resize(1024, 1024, { 
-          fit: 'contain',
-          background: { r: 0, g: 0, b: 0, alpha: 0 }
-        })
-        .png({ 
-          quality: 90,
-          compressionLevel: 6,
-          adaptiveFiltering: true
-        })
-        .blur(0.3) // Very light blur for ethereal quality
-        .sharpen({ sigma: 0.5, flat: 1, jagged: 2 }) // Light sharpening for definition
-        .toBuffer();
-      
-      await fs.promises.writeFile(finalPath, processedBuffer);
+      // Write the file exactly as uploaded with zero processing
+      await fs.promises.writeFile(finalPath, req.file.buffer);
 
       console.log(`Card image uploaded: ${cardName} -> ${finalPath}`);
       
