@@ -192,7 +192,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       // Minor Arcana - Cups (Complete ultra-ethereal authentic suit)
       'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
       'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
-      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png?v=2025',
+      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png?v=2025-fresh',
       'c4': '/authentic-cards/minor-arcana/cups/four-of-cups.png',
       'c5': '/authentic-cards/minor-arcana/cups/five-of-cups.png',
       'c6': '/authentic-cards/minor-arcana/cups/six-of-cups.png',
