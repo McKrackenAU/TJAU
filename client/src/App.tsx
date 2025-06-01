@@ -28,6 +28,7 @@ import AccountPage from "@/pages/account";
 import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
+import UploadCards from "@/pages/upload-cards";
 // Importing only our new FixedBottomNav, disabling old nav components
 // import { BottomNav, SideNav } from "@/components/bottom-nav";
 // import { SimpleNav } from "@/components/simple-nav";
@@ -113,6 +114,7 @@ function AuthAwareComponents() {
           <ProtectedRoute path="/angel-numbers" component={AngelNumbersPage} />
           <ProtectedRoute path="/angel-numbers/:number" component={AngelNumberDetailPage} />
           <ProtectedRoute path="/admin/dashboard" component={AdminDashboard} />
+          <ProtectedRoute path="/upload-cards" component={UploadCards} />
           
           <Route component={NotFound} />
         </Switch>

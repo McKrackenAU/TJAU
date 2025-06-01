@@ -1076,6 +1076,49 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Card image upload endpoint
+  app.post("/api/upload-card-image", upload.single('image'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No image file uploaded" });
+      }
+
+      const { cardName, cardSuit } = req.body;
+      if (!cardName || !cardSuit) {
+        return res.status(400).json({ error: "Card name and suit are required" });
+      }
+
+      // Create the destination directory structure
+      const cardDir = path.join(process.cwd(), 'public', 'authentic-cards', 'minor-arcana', cardSuit);
+      await fs.promises.mkdir(cardDir, { recursive: true });
+
+      // Generate the final filename
+      const filename = cardName.toLowerCase().replace(/\s+/g, '-') + '.png';
+      const finalPath = path.join(cardDir, filename);
+
+      // Move the uploaded file to the correct location
+      await fs.promises.copyFile(req.file.path, finalPath);
+      
+      // Clean up the temporary file
+      await fs.promises.unlink(req.file.path);
+
+      console.log(`Card image uploaded: ${cardName} -> ${finalPath}`);
+      
+      res.json({
+        success: true,
+        message: `${cardName} image uploaded successfully`,
+        path: `/authentic-cards/minor-arcana/${cardSuit}/${filename}`
+      });
+
+    } catch (error) {
+      console.error("Card upload error:", error);
+      res.status(500).json({
+        error: "Failed to upload card image",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   // Update the /api/cards endpoint with better logging
   // Get card symbolism details
   app.get("/api/cards/:id/symbolism", async (req, res) => {
