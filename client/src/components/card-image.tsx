@@ -205,9 +205,10 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
       
       // Oracle Cards - Custom spiritual guidance cards
-      'imported_300': '/authentic-cards/oracle/element-of-air.png',
-      'imported_301': '/authentic-cards/oracle/element-of-earth.png',
-      'imported_302': '/authentic-cards/oracle/element-of-water.png',
+      'imported_319': '/authentic-cards/oracle/element-of-air.png',
+      'imported_320': '/authentic-cards/oracle/element-of-earth.png',
+      'imported_321': '/authentic-cards/oracle/element-of-fire.png',
+      'imported_322': '/authentic-cards/oracle/element-of-water.png',
       'imported_303': '/authentic-cards/oracle/divine-guidance.png',
       'imported_304': '/authentic-cards/oracle/sacred-geometry.png',
       'imported_305': '/authentic-cards/oracle/elemental-allies.png',
@@ -238,7 +239,18 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'imported_354': '/authentic-cards/oracle/meditation-mindfulness.png',
       'imported_355': '/authentic-cards/oracle/cosmic-balance.png',
       'imported_356': '/authentic-cards/oracle/inner-child-healing.png',
-      'imported_360': '/authentic-cards/oracle/infinite-possibilities.png'
+      'imported_360': '/authentic-cards/oracle/infinite-possibilities.png',
+      // Additional oracle cards
+      'imported_323': '/authentic-cards/oracle/divine-guidance.png',
+      'imported_324': '/authentic-cards/oracle/cosmic-connections.png',
+      'imported_325': '/authentic-cards/oracle/spiritual-awakening.png',
+      'imported_326': '/authentic-cards/oracle/sacred-geometry.png',
+      'imported_327': '/authentic-cards/oracle/elemental-allies.png',
+      'imported_330': '/authentic-cards/oracle/chakra-activation.png',
+      'imported_331': '/authentic-cards/oracle/crystals-gemstones.png',
+      'imported_357': '/authentic-cards/oracle/energy-clearing.png',
+      'imported_358': '/authentic-cards/oracle/divine-purpose.png',
+      'imported_359': '/authentic-cards/oracle/cosmic-balance.png'
     };
     
     // Direct paths for your authentic Major Arcana cards 0-4
