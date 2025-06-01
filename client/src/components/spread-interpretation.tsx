@@ -6,6 +6,7 @@ import { Loader2, RefreshCw } from "lucide-react";
 import type { TarotCard } from "@shared/tarot-data";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/hooks/use-auth";
 
 interface SpreadInterpretationProps {
   cards: TarotCard[];
@@ -16,32 +17,42 @@ interface SpreadInterpretationProps {
 export default function SpreadInterpretation({ cards, spreadType, positions }: SpreadInterpretationProps) {
   const [isRequested, setIsRequested] = useState(false);
   const { toast } = useToast();
+  const { user } = useAuth();
 
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: [`/api/interpret-spread`, cards.map(c => c.id), spreadType],
     queryFn: async () => {
       try {
-        console.log("Requesting spread interpretation for cards:", cards.map(c => c.id));
-        const res = await apiRequest("POST", "/api/interpret-spread", {
-          cardIds: cards.map(c => c.id),
-          spreadType,
-          positions
+        console.log("=== CLIENT: Starting spread interpretation request ===");
+        console.log("Cards:", cards.map(c => c.id));
+        console.log("Spread type:", spreadType);
+        console.log("User ID:", user?.id);
+        
+        // Direct fetch approach for better PWA compatibility
+        const response = await fetch("/api/interpret-spread", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // Important for session cookies
+          body: JSON.stringify({
+            cardIds: cards.map(c => c.id),
+            spreadType,
+            positions,
+            userId: user?.id
+          })
         });
         
-        if (!res.ok) {
-          const errorData = await res.text();
-          console.error("Spread interpretation API error:", res.status, errorData);
-          
-          if (res.status === 401) {
-            throw new Error("Please log in to access AI interpretations");
-          } else if (res.status === 500) {
-            throw new Error("AI service temporarily unavailable. Please try again in a moment.");
-          } else {
-            throw new Error(`Server error: ${res.status}`);
-          }
+        console.log("Spread response status:", response.status);
+        console.log("Spread response ok:", response.ok);
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Spread interpretation API error:", response.status, errorText);
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
         }
         
-        const data = await res.json();
+        const data = await response.json();
         
         if (data.error) {
           throw new Error(data.error);
