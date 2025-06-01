@@ -1305,18 +1305,50 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Transform imported cards to match tarot card format
-      const transformedImportedCards = importedCardsData.map(card => ({
-        id: `imported_${card.id}`,
-        name: card.name,
-        description: card.description,
-        meanings: {
-          upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
-            card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
-          reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
-            card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
-        },
-        arcana: "custom" as const,
-      }));
+      const transformedImportedCards = importedCardsData.map(card => {
+        // Determine arcana type based on card name
+        const majorArcanaNames = [
+          'The Fool', 'The Magician', 'The High Priestess', 'The Empress', 'The Emperor',
+          'The Hierophant', 'The Lovers', 'The Chariot', 'Strength', 'The Hermit',
+          'Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death', 'Temperance',
+          'The Devil', 'The Tower', 'The Star', 'The Moon', 'The Sun', 'Judgment', 'The World'
+        ];
+        
+        let arcana: "major" | "minor" | "custom" = "custom";
+        let number: number | undefined = undefined;
+        let suit: string | undefined = undefined;
+        
+        if (majorArcanaNames.includes(card.name)) {
+          arcana = "major";
+          number = majorArcanaNames.indexOf(card.name);
+        } else if (card.name.includes(' of ')) {
+          arcana = "minor";
+          const parts = card.name.split(' of ');
+          if (parts.length === 2) {
+            suit = parts[1].toLowerCase();
+            const cardValue = parts[0].toLowerCase();
+            if (cardValue === 'ace') number = 1;
+            else if (['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'].includes(cardValue)) {
+              number = ['two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'].indexOf(cardValue) + 2;
+            }
+          }
+        }
+        
+        return {
+          id: `imported_${card.id}`,
+          name: card.name,
+          description: card.description,
+          meanings: {
+            upright: Array.isArray(card.meanings?.upright) ? card.meanings.upright :
+              card.meanings?.upright?.split(',').map(m => m.trim()).filter(Boolean) || [],
+            reversed: Array.isArray(card.meanings?.reversed) ? card.meanings.reversed :
+              card.meanings?.reversed?.split(',').map(m => m.trim()).filter(Boolean) || []
+          },
+          arcana,
+          number,
+          suit
+        };
+      });
       console.log("Transformed imported cards:", transformedImportedCards);
 
       // Get ALL Major Arcana from both sources and combine them
