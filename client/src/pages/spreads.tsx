@@ -30,8 +30,16 @@ export default function Spreads() {
   // Generate spread cards only when spread changes or cards data updates
   useEffect(() => {
     const spread = spreads[selectedSpread];
-    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    
+    // Fisher-Yates shuffle for true randomness and no duplicates
+    const shuffledCards = [...cards];
+    for (let i = shuffledCards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+    }
+    
     const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
+    console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
     setSpreadCards(newSpreadCards);
     setIsRevealed(false);
     setNotes("");

@@ -183,6 +183,15 @@ export function registerRoutes(app: Express): Server {
     res.json(readings);
   });
 
+  // Test endpoint for debugging mobile connectivity
+  app.post("/api/test-connection", (req, res) => {
+    console.log("=== TEST CONNECTION REQUEST ===");
+    console.log("Request received successfully");
+    console.log("Headers:", req.headers);
+    console.log("Body:", req.body);
+    res.json({ status: "connected", timestamp: new Date().toISOString() });
+  });
+
   app.post("/api/interpret", async (req, res) => {
     try {
       const { cardId, context } = req.body;
