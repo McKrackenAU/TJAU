@@ -53,12 +53,17 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
         }
         
         const data = await response.json();
+        console.log("Raw response data:", data);
+        console.log("Data keys:", Object.keys(data));
+        console.log("Data interpretation exists:", !!data.interpretation);
         
         if (data.error) {
+          console.error("Server returned error:", data.error);
           throw new Error(data.error);
         }
         
         if (!data.interpretation) {
+          console.error("Missing interpretation in response. Full data:", JSON.stringify(data, null, 2));
           throw new Error("No interpretation received from AI service");
         }
         
