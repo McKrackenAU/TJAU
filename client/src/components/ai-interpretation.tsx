@@ -20,35 +20,41 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
     queryKey: [`/api/interpret/${card.id}`, context],
     queryFn: async () => {
       try {
-        console.log("Requesting AI interpretation for card:", card.id);
-        const res = await apiRequest("POST", "/api/interpret", {
-          cardId: card.id,
-          context,
-          userId: user?.id // Include user ID for mobile apps with custom domains
+        console.log("=== CLIENT: Starting AI interpretation request ===");
+        console.log("Card ID:", card.id);
+        console.log("User ID:", user?.id);
+        console.log("Context:", context);
+        
+        // Direct fetch approach for better PWA compatibility
+        const response = await fetch("/api/interpret", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include", // Important for session cookies
+          body: JSON.stringify({
+            cardId: card.id,
+            context,
+            userId: user?.id
+          })
         });
         
-        if (!res.ok) {
-          const errorData = await res.text();
-          console.error("AI interpretation API error:", res.status, errorData);
-          console.error("Request URL was:", res.url);
-          
-          if (res.status === 401) {
-            throw new Error("Please log in to access AI interpretations");
-          } else if (res.status === 404) {
-            throw new Error("AI service endpoint not found. Please refresh the page and try again.");
-          } else if (res.status === 500) {
-            throw new Error("AI service temporarily unavailable. Please try again in a moment.");
-          } else {
-            throw new Error(`Server error: ${res.status}`);
-          }
+        console.log("Response status:", response.status);
+        console.log("Response ok:", response.ok);
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("API error response:", errorText);
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
         }
         
-        const data = await res.json();
+        const data = await response.json();
+        console.log("AI interpretation received:", !!data.interpretation);
+        
         if (!data.interpretation) {
           throw new Error("No interpretation received from AI service");
         }
         
-        console.log("AI interpretation received successfully");
         return data.interpretation;
       } catch (err) {
         console.error("Error fetching interpretation:", err);
