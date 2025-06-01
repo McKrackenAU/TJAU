@@ -1356,8 +1356,13 @@ export function registerRoutes(app: Express): Server {
       const importedMajorArcana = transformedImportedCards.filter(card => card.arcana === "major");
       
       // Create a map of standard major arcana by card name to avoid duplicates
-      const standardMajorNames = new Set(standardMajorArcana.map(card => card.name));
-      const filteredImportedMajor = importedMajorArcana.filter(card => !standardMajorNames.has(card.name));
+      // Handle spelling variations (Judgment vs Judgement)
+      const normalizeCardName = (name: string) => {
+        return name.replace(/Judgement/i, 'Judgment');
+      };
+      
+      const standardMajorNames = new Set(standardMajorArcana.map(card => normalizeCardName(card.name)));
+      const filteredImportedMajor = importedMajorArcana.filter(card => !standardMajorNames.has(normalizeCardName(card.name)));
       
       const allMajorArcana = [
         ...standardMajorArcana,
