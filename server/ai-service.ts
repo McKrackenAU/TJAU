@@ -5,13 +5,20 @@ import path from "path";
 import { CACHE_DIR } from "./utils/constants";
 import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 
-if (!process.env.OPENAI_API_KEY_TWO) {
-  throw new Error("OPENAI_API_KEY_TWO environment variable is required");
-}
+// Try multiple API keys for redundancy
+const getOpenAIClient = () => {
+  const apiKey = process.env.OPENAI_API_KEY_TWO || process.env.OPENAI_API_KEY;
+  
+  if (!apiKey) {
+    throw new Error("No OpenAI API key found in environment variables");
+  }
+  
+  return new OpenAI({
+    apiKey: apiKey
+  });
+};
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY_TWO
-});
+const openai = getOpenAIClient();
 
 // CACHE_DIR is now imported at the top
 
@@ -19,7 +26,10 @@ export async function generateCardInterpretation(
   card: TarotCard,
   context?: string
 ): Promise<string> {
-  const prompt = `As an expert Tarot reader, provide a personalized interpretation for the ${card.name} card.
+  console.log(`Generating AI interpretation for card: ${card.name}`);
+  
+  try {
+    const prompt = `As an expert Tarot reader, provide a personalized interpretation for the ${card.name} card.
 ${context ? `Consider this context: ${context}` : ""}
 Include insights about:
 - The card's general meaning
@@ -27,23 +37,45 @@ Include insights about:
 - Advice or guidance based on this card
 Keep the response concise but insightful, around 2-3 paragraphs.`;
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
-    messages: [
-      {
-        role: "system",
-        content: "You are a wise and experienced Tarot reader who provides insightful, compassionate interpretations."
-      },
-      {
-        role: "user",
-        content: prompt
-      }
-    ],
-    temperature: 0.7,
-    max_tokens: 300
-  });
+    console.log("Making OpenAI API request...");
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a wise and experienced Tarot reader who provides insightful, compassionate interpretations."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      temperature: 0.7,
+      max_tokens: 300
+    });
 
-  return response.choices[0].message.content || "Unable to generate interpretation.";
+    const interpretation = response.choices[0].message.content || "Unable to generate interpretation.";
+    console.log(`AI interpretation generated successfully for ${card.name}`);
+    
+    return interpretation;
+  } catch (error) {
+    console.error("OpenAI API error details:", error);
+    
+    if (error instanceof Error) {
+      // Check for specific OpenAI errors
+      if (error.message.includes('401') || error.message.includes('authentication')) {
+        throw new Error("API authentication failed - invalid API key");
+      }
+      if (error.message.includes('429')) {
+        throw new Error("API rate limit exceeded - please try again later");
+      }
+      if (error.message.includes('insufficient_quota')) {
+        throw new Error("API quota exceeded - please check your account");
+      }
+    }
+    
+    throw new Error(`AI service error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  }
 }
 
 // Generate theta wave frequencies for meditation background

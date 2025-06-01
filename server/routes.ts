@@ -201,8 +201,24 @@ export function registerRoutes(app: Express): Server {
       }
 
       console.log("Found card:", card.name);
-      const interpretation = await generateCardInterpretation(card, context);
-      res.json({ interpretation });
+      
+      try {
+        const interpretation = await generateCardInterpretation(card, context);
+        console.log("AI interpretation generated successfully for card:", card.name);
+        res.json({ interpretation });
+      } catch (aiError) {
+        console.error("AI generation error:", aiError);
+        
+        // Check if it's an OpenAI API issue
+        if (aiError instanceof Error && aiError.message.includes('API')) {
+          return res.status(503).json({
+            error: "AI service temporarily unavailable",
+            details: "The AI interpretation service is experiencing issues. Please try again in a moment."
+          });
+        }
+        
+        throw aiError; // Re-throw for general error handling
+      }
     } catch (error) {
       console.error("AI interpretation error:", error);
       res.status(500).json({

@@ -30,10 +30,8 @@ export default function Spreads() {
   // Generate spread cards only when spread changes or cards data updates
   useEffect(() => {
     const spread = spreads[selectedSpread];
-    const newSpreadCards = Array.from(
-      { length: spread.positions.length },
-      () => cards[Math.floor(Math.random() * cards.length)]
-    );
+    const shuffledCards = [...cards].sort(() => Math.random() - 0.5);
+    const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
     setSpreadCards(newSpreadCards);
     setIsRevealed(false);
     setNotes("");
