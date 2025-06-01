@@ -9,6 +9,12 @@ import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 const getOpenAIClient = () => {
   const apiKey = process.env.OPENAI_API_KEY_TWO || process.env.OPENAI_API_KEY;
   
+  console.log("OpenAI API Key check:", {
+    hasKeyTwo: !!process.env.OPENAI_API_KEY_TWO,
+    hasKeyOne: !!process.env.OPENAI_API_KEY,
+    usingKey: apiKey ? `${apiKey.substring(0, 8)}...` : 'none'
+  });
+  
   if (!apiKey) {
     throw new Error("No OpenAI API key found in environment variables");
   }
@@ -38,6 +44,9 @@ Include insights about:
 Keep the response concise but insightful, around 2-3 paragraphs.`;
 
     console.log("Making OpenAI API request...");
+    console.log("Using API key:", process.env.OPENAI_API_KEY_TWO ? 'OPENAI_API_KEY_TWO' : 'OPENAI_API_KEY');
+    console.log("Request prompt:", prompt.substring(0, 100) + "...");
+    
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
