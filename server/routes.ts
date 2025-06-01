@@ -47,6 +47,26 @@ export function registerRoutes(app: Express): Server {
   // Create OpenAI instance
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_TWO });
 
+  // Test endpoint for debugging mobile issues
+  app.get("/api/test-auth", (req, res) => {
+    const userAgent = req.headers['user-agent'] || 'unknown';
+    const isAuth = req.isAuthenticated();
+    const sessionData = req.session;
+    
+    console.log("Auth test request from:", userAgent);
+    console.log("Is authenticated:", isAuth);
+    console.log("Session ID:", req.sessionID);
+    console.log("User:", req.user ? `${req.user.username} (ID: ${req.user.id})` : 'none');
+    
+    res.json({
+      authenticated: isAuth,
+      userAgent,
+      sessionId: req.sessionID,
+      user: req.user || null,
+      timestamp: new Date().toISOString()
+    });
+  });
+
   // Serve the cache files
   const cacheDir = path.join(process.cwd(), '.cache');
   if (fs.existsSync(cacheDir)) {
