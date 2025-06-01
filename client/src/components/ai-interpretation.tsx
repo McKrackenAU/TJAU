@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Loader2, RefreshCw } from "lucide-react";
 import type { TarotCard } from "@shared/tarot-data";
 import { apiRequest } from "@/lib/queryClient";
+import { useAuth } from "@/hooks/use-auth";
 
 interface AIInterpretationProps {
   card: TarotCard;
@@ -13,6 +14,7 @@ interface AIInterpretationProps {
 
 export default function AIInterpretation({ card, context }: AIInterpretationProps) {
   const [isRequested, setIsRequested] = useState(false);
+  const { user } = useAuth();
 
   const { data, isLoading, error, refetch } = useQuery({
     queryKey: [`/api/interpret/${card.id}`, context],
@@ -21,7 +23,8 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
         console.log("Requesting AI interpretation for card:", card.id);
         const res = await apiRequest("POST", "/api/interpret", {
           cardId: card.id,
-          context
+          context,
+          userId: user?.id // Include user ID for mobile apps with custom domains
         });
         
         if (!res.ok) {
