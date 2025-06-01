@@ -250,7 +250,30 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'imported_331': '/authentic-cards/oracle/crystals-gemstones.png',
       'imported_357': '/authentic-cards/oracle/energy-clearing.png',
       'imported_358': '/authentic-cards/oracle/divine-purpose.png',
-      'imported_359': '/authentic-cards/oracle/cosmic-balance.png'
+      'imported_359': '/authentic-cards/oracle/cosmic-balance.png',
+      // Major Arcana with database IDs
+      'imported_241': '/authentic-cards/major-arcana/0-fool.png',
+      'imported_242': '/authentic-cards/major-arcana/1-magician.png',
+      'imported_243': '/authentic-cards/major-arcana/2-high-priestess.png',
+      'imported_244': '/authentic-cards/major-arcana/3-empress.png',
+      'imported_245': '/authentic-cards/major-arcana/4-emperor.png',
+      'imported_246': '/authentic-cards/major-arcana/5-hierophant.png',
+      'imported_247': '/authentic-cards/major-arcana/6-lovers.png',
+      'imported_248': '/authentic-cards/major-arcana/7-chariot.png',
+      'imported_249': '/authentic-cards/major-arcana/8-strength.png',
+      'imported_250': '/authentic-cards/major-arcana/9-hermit.png',
+      'imported_251': '/authentic-cards/major-arcana/10-wheel-of-fortune.png',
+      'imported_252': '/authentic-cards/major-arcana/11-justice.png',
+      'imported_253': '/authentic-cards/major-arcana/12-hanged-man.png',
+      'imported_254': '/authentic-cards/major-arcana/13-death.png',
+      'imported_255': '/authentic-cards/major-arcana/14-temperance.png',
+      'imported_256': '/authentic-cards/major-arcana/15-devil.png',
+      'imported_257': '/authentic-cards/major-arcana/16-tower.png',
+      'imported_258': '/authentic-cards/major-arcana/17-star.png',
+      'imported_259': '/authentic-cards/major-arcana/18-moon.png',
+      'imported_260': '/authentic-cards/major-arcana/19-sun.png',
+      'imported_261': '/authentic-cards/major-arcana/20-judgement.png',
+      'imported_262': '/authentic-cards/major-arcana/21-world.png'
     };
     
     // Direct paths for your authentic Major Arcana cards 0-4
