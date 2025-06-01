@@ -1002,24 +1002,7 @@ export function registerRoutes(app: Express): Server {
 
   // Set up multer for both Excel and image uploads
   const upload = multer({
-    storage: multer.diskStorage({
-      destination: (req, file, cb) => {
-        const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        try {
-          if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-          }
-          cb(null, uploadDir);
-        } catch (error) {
-          cb(error as Error, uploadDir);
-        }
-      },
-      filename: (req, file, cb) => {
-        // Generate unique filename
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
-      }
-    }),
+    storage: multer.memoryStorage(), // Use memory storage to preserve quality
     limits: {
       fileSize: 10 * 1024 * 1024 // 10MB limit for high quality images
     },
@@ -1098,12 +1081,8 @@ export function registerRoutes(app: Express): Server {
       const filename = cardName.toLowerCase().replace(/\s+/g, '-') + '.png';
       const finalPath = path.join(cardDir, filename);
 
-      // Use direct buffer copy to preserve maximum quality
-      const fileBuffer = await fs.promises.readFile(req.file.path);
-      await fs.promises.writeFile(finalPath, fileBuffer);
-      
-      // Clean up the temporary file
-      await fs.promises.unlink(req.file.path);
+      // Write the original buffer directly to preserve maximum quality
+      await fs.promises.writeFile(finalPath, req.file.buffer);
 
       console.log(`Card image uploaded: ${cardName} -> ${finalPath}`);
       
