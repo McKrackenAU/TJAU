@@ -13,7 +13,13 @@ export async function apiRequest(
   data?: unknown | undefined,
   options?: RequestInit,
 ): Promise<Response> {
-  const res = await fetch(url, {
+  // Ensure we're using the correct base URL for mobile apps
+  const baseUrl = window.location.origin;
+  const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+  
+  console.log("Making API request to:", fullUrl);
+  
+  const res = await fetch(fullUrl, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -35,7 +41,14 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey[0] as string, {
+    // Ensure we're using the correct base URL for mobile apps
+    const baseUrl = window.location.origin;
+    const url = queryKey[0] as string;
+    const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
+    
+    console.log("Making query request to:", fullUrl);
+    
+    const res = await fetch(fullUrl, {
       credentials: "include",
     });
 
