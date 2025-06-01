@@ -1005,13 +1005,14 @@ export function registerRoutes(app: Express): Server {
     storage: multer.diskStorage({
       destination: (req, file, cb) => {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        fs.mkdir(uploadDir, { recursive: true }, (error) => {
-          if (error) {
-            cb(error, uploadDir);
-          } else {
-            cb(null, uploadDir);
+        try {
+          if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir, { recursive: true });
           }
-        });
+          cb(null, uploadDir);
+        } catch (error) {
+          cb(error as Error, uploadDir);
+        }
       },
       filename: (req, file, cb) => {
         // Generate unique filename
