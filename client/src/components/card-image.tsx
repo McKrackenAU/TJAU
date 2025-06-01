@@ -235,9 +235,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       'imported_351': '/authentic-cards/oracle/gratitude-abundance.png',
       'imported_352': '/authentic-cards/oracle/divine-protection.png',
       'imported_353': '/authentic-cards/oracle/soulful-relationships.png',
-      'imported_354': '/authentic-cards/oracle/inner-child-healing.png',
+      'imported_354': '/authentic-cards/oracle/meditation-mindfulness.png',
       'imported_355': '/authentic-cards/oracle/cosmic-balance.png',
-      'imported_356': '/authentic-cards/oracle/meditation-mindfulness.png',
+      'imported_356': '/authentic-cards/oracle/inner-child-healing.png',
       'imported_360': '/authentic-cards/oracle/infinite-possibilities.png'
     };
     
