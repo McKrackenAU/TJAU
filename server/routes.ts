@@ -1003,14 +1003,15 @@ export function registerRoutes(app: Express): Server {
   // Set up multer for both Excel and image uploads
   const upload = multer({
     storage: multer.diskStorage({
-      destination: async (req, file, cb) => {
+      destination: (req, file, cb) => {
         const uploadDir = path.join(process.cwd(), 'public', 'uploads');
-        try {
-          await fs.mkdir(uploadDir, { recursive: true });
-          cb(null, uploadDir);
-        } catch (error) {
-          cb(error as Error, uploadDir);
-        }
+        fs.mkdir(uploadDir, { recursive: true }, (error) => {
+          if (error) {
+            cb(error, uploadDir);
+          } else {
+            cb(null, uploadDir);
+          }
+        });
       },
       filename: (req, file, cb) => {
         // Generate unique filename
