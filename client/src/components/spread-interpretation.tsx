@@ -115,7 +115,8 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  if (error) {
+  if (error && !data) {
+    console.log("Showing error state:", error);
     return (
       <Card className="mt-4 border-destructive">
         <CardContent className="pt-6 text-destructive space-y-2">
