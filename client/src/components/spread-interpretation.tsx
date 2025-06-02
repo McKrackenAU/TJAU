@@ -32,22 +32,18 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       console.log("Window location:", window.location.href);
       console.log("Navigator userAgent:", navigator.userAgent);
       
+      // Use the same approach as individual card interpretations (known to work)
       const response = await fetch("/api/interpret-spread", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          "Pragma": "no-cache",
-          "Expires": "0"
         },
-        credentials: "include",
-        cache: "no-store",
+        credentials: "include", // Important for session cookies
         body: JSON.stringify({
           cardIds: cards.map(c => c.id),
           spreadType,
           positions,
-          userId: user?.id,
-          timestamp: Date.now() // Cache buster
+          userId: user?.id
         })
       });
       
