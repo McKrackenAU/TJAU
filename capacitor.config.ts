@@ -7,13 +7,11 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   // Server configuration
   server: {
-    // Production server settings
-    hostname: 'www.tarotjourney.au',
-    // Allow navigation to our domains
+    // Allow navigation to required domains
     allowNavigation: [
-      'www.tarotjourney.au',
-      'tarotjourney.au',
       'localhost',
+      '*.replit.dev',
+      '*.spock.replit.dev',
       '*.stripe.com',
       '*.apple.com' 
     ]
@@ -54,7 +52,7 @@ const config: CapacitorConfig = {
     scheme: 'tarotjourney',
     // iOS build configuration
     backgroundColor: '#6c43bc',
-    limitsNavigationsToAppBoundDomains: true
+    limitsNavigationsToAppBoundDomains: false
     // Version and build info should be added in Xcode
   },
   // Android specific configuration
