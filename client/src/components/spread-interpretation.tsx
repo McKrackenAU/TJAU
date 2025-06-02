@@ -37,12 +37,17 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  // Use the exact same AI interpretation component that works for individual cards
+  // Mobile-optimized spread analysis with shorter context
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const spreadContext = isMobile 
+    ? `${spreadType} spread: ${cards.map(c => c.name).join(', ')}`
+    : `${spreadType} spread with these cards: ${cards.map((card, i) => `${positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`;
+
   return (
     <div className="mt-6">
       <AIInterpretation 
         card={spreadCard} 
-        context={`${spreadType} spread with these cards: ${cards.map((card, i) => `${positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`}
+        context={spreadContext}
       />
     </div>
   );
