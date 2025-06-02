@@ -37,11 +37,8 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  // Mobile-optimized spread analysis with shorter context
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-  const spreadContext = isMobile 
-    ? `${spreadType} spread: ${cards.map(c => c.name).join(', ')}`
-    : `${spreadType} spread with these cards: ${cards.map((card, i) => `${positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`;
+  // Create a comprehensive context that works on all devices
+  const spreadContext = `${spreadType} spread with these cards: ${cards.map((card, i) => `${positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`;
 
   return (
     <div className="mt-6">
