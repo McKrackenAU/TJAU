@@ -35,19 +35,19 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       // First test a simple request to see if it reaches the server
       console.log("MOBILE: About to make fetch request...");
       
-      // Try using the working individual card endpoint but for multiple cards
+      // Use minimal payload to test if size is the issue
       const firstCard = cards[0];
-      const spreadContext = `This is a ${spreadType} spread with cards: ${cards.map((c, i) => `${c.name} (${positions[i]})`).join(', ')}. Please provide a complete interpretation of the entire spread.`;
+      const simpleContext = `${spreadType} spread analysis`;
       
       const response = await fetch("/api/interpret", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include", // Important for session cookies
+        credentials: "include",
         body: JSON.stringify({
           cardId: firstCard.id,
-          context: spreadContext,
+          context: simpleContext,
           userId: user?.id
         })
       });
@@ -83,6 +83,17 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       console.error("Error constructor:", err?.constructor?.name);
       console.error("Error message:", err instanceof Error ? err.message : String(err));
       console.error("Error stack:", err instanceof Error ? err.stack : "No stack trace");
+      
+      // Try to determine if this is a network issue
+      if (err instanceof TypeError) {
+        console.error("MOBILE: This appears to be a network/fetch error");
+      }
+      
+      // Log all error properties
+      if (err && typeof err === 'object') {
+        console.error("All error properties:", Object.getOwnPropertyNames(err));
+        console.error("Error toString:", err.toString());
+      }
       
       let errorMessage = "Failed to generate interpretation";
       
