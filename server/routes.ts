@@ -331,10 +331,14 @@ export function registerRoutes(app: Express): Server {
 
   // New endpoint for spread interpretation
   app.post("/api/interpret-spread", async (req, res) => {
+    console.log("=== SPREAD INTERPRETATION REQUEST RECEIVED ===");
+    console.log("Request body:", req.body);
+    console.log("User agent:", req.headers['user-agent']);
+    console.log("Content-Type:", req.headers['content-type']);
+    
     try {
       const { cardIds, spreadType, positions } = req.body;
-      console.log("Spread interpretation request:", { cardIds, spreadType, positions });
-      console.log("Request headers:", req.headers['user-agent']);
+      console.log("Parsed request data:", { cardIds, spreadType, positions });
       console.log("Authentication status:", req.isAuthenticated());
 
       if (!req.isAuthenticated()) {
