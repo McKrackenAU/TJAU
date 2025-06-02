@@ -24,6 +24,8 @@ export default function AIInterpretation({ card, context }: AIInterpretationProp
         console.log("Card ID:", card.id);
         console.log("User ID:", user?.id);
         console.log("Context:", context);
+        console.log("User agent:", navigator.userAgent);
+        console.log("Request URL:", window.location.origin + "/api/interpret");
         
         // Direct fetch approach for better PWA compatibility
         const response = await fetch("/api/interpret", {
