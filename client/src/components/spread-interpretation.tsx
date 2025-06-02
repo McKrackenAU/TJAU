@@ -39,13 +39,16 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
   }
 
   // Force individual card approach for all devices due to mobile reliability issues
-  console.log("Using individual card approach for all devices");
+  console.log("Using individual card approach for all devices - v2");
   
   return (
-    <div className="mt-6 space-y-4">
+    <div className="mt-6 space-y-4" key="individual-cards-v2">
       <h3 className="text-lg font-semibold mb-4">Complete Spread Analysis</h3>
+      <div className="text-sm text-gray-600 mb-4">
+        Analyzing each card individually for better compatibility
+      </div>
       {cards.map((card, index) => (
-        <div key={card.id} className="border rounded-lg p-4">
+        <div key={`${card.id}-${index}-v2`} className="border rounded-lg p-4">
           <h4 className="font-medium mb-2">{positions[index]}: {card.name}</h4>
           <AIInterpretation 
             card={card} 
