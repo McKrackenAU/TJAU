@@ -29,6 +29,8 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       console.log("Cards:", cards.map(c => c.id));
       console.log("Spread type:", spreadType);
       console.log("User ID:", user?.id);
+      console.log("Window location:", window.location.href);
+      console.log("Navigator userAgent:", navigator.userAgent);
       
       const response = await fetch("/api/interpret-spread", {
         method: "POST",
