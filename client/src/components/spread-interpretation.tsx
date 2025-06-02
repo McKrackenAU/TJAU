@@ -15,9 +15,26 @@ interface SpreadInterpretationProps {
 
 export default function SpreadInterpretation({ cards, spreadType, positions }: SpreadInterpretationProps) {
   const [showSpreadAnalysis, setShowSpreadAnalysis] = useState(false);
-  const [forceMobileMode, setForceMobileMode] = useState(false);
   const { toast } = useToast();
   const { user } = useAuth();
+  
+  // Force cache clear on mobile browsers
+  useState(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+    if ('caches' in window) {
+      caches.keys().then(names => {
+        names.forEach(name => {
+          caches.delete(name);
+        });
+      });
+    }
+  });
 
   // Use the first card's ID but with spread context
   const spreadCard = {
@@ -39,9 +56,10 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
   }
 
   // Force individual card approach for all devices due to mobile reliability issues
-  console.log("SPREAD COMPONENT: Using individual card approach for all devices - v3");
+  console.log("SPREAD COMPONENT: Using individual card approach for all devices - v4 CACHE CLEARED");
   console.log("SPREAD COMPONENT: User agent:", navigator.userAgent);
   console.log("SPREAD COMPONENT: Window width:", window.innerWidth);
+  console.log("SPREAD COMPONENT: Timestamp:", Date.now());
   
   return (
     <div className="mt-6 space-y-4" key="individual-cards-v3">
