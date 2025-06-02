@@ -49,6 +49,8 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       
       console.log("MOBILE response status:", response.status);
       console.log("MOBILE response ok:", response.ok);
+      console.log("MOBILE response headers:", response.headers);
+      console.log("MOBILE response url:", response.url);
       
       if (!response.ok) {
         const errorText = await response.text();
