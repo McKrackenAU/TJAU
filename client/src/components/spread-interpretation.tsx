@@ -18,56 +18,81 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
   const { toast } = useToast();
   const { user } = useAuth();
 
-  // Use the exact same pattern as individual card interpretations
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: [`/api/interpret/${cards[0]?.id}`, `${spreadType} spread analysis`],
-    queryFn: async () => {
-      try {
-        console.log("=== SPREAD: Using working React Query pattern ===");
-        console.log("First card:", cards[0]?.name);
-        console.log("User ID:", user?.id);
-        
-        const response = await fetch("/api/interpret", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            cardId: cards[0].id,
-            context: `${spreadType} spread analysis`,
-            userId: user?.id
-          })
-        });
-        
-        console.log("Response status:", response.status);
-        console.log("Response ok:", response.ok);
-        
-        if (!response.ok) {
-          const errorText = await response.text();
-          console.error("API error response:", errorText);
-          throw new Error(`HTTP ${response.status}: ${errorText}`);
-        }
-        
-        const data = await response.json();
-        console.log("AI interpretation received:", !!data.interpretation);
-        
-        if (!data.interpretation) {
-          throw new Error("No interpretation received from AI service");
-        }
-        
-        return data.interpretation;
-      } catch (err) {
-        console.error("Error fetching interpretation:", err);
-        throw new Error(err instanceof Error ? err.message : "Failed to generate interpretation");
+  // Mobile debugging version - direct state management
+  const [data, setData] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchInterpretation = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
+      
+      console.log("=== MOBILE SPREAD DEBUG ===");
+      console.log("Window location:", window.location.href);
+      console.log("User agent:", navigator.userAgent);
+      console.log("First card:", cards[0]?.name);
+      console.log("User ID:", user?.id);
+      console.log("Cards array:", cards.map(c => c.name));
+      
+      const requestBody = {
+        cardId: cards[0].id,
+        context: `${spreadType} spread analysis`,
+        userId: user?.id
+      };
+      
+      console.log("Request body:", JSON.stringify(requestBody));
+      
+      const response = await fetch("/api/interpret", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(requestBody)
+      });
+      
+      console.log("Response received - Status:", response.status);
+      console.log("Response headers:", Array.from(response.headers.entries()));
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Error response text:", errorText);
+        throw new Error(`HTTP ${response.status}: ${errorText}`);
       }
-    },
-    enabled: isRequested,
-    retry: 1
-  });
+      
+      const responseData = await response.json();
+      console.log("Response data keys:", Object.keys(responseData));
+      console.log("Has interpretation:", !!responseData.interpretation);
+      
+      if (!responseData.interpretation) {
+        throw new Error("No interpretation in response");
+      }
+      
+      setData(responseData.interpretation);
+      console.log("SUCCESS: Interpretation set");
+      
+    } catch (err) {
+      console.error("=== MOBILE ERROR DETAILS ===");
+      console.error("Error object:", err);
+      console.error("Error type:", typeof err);
+      console.error("Error constructor:", err?.constructor?.name);
+      console.error("Error message:", err instanceof Error ? err.message : String(err));
+      console.error("Error stack:", err instanceof Error ? err.stack : "No stack");
+      
+      if (err instanceof TypeError) {
+        console.error("This is a TypeError - likely network issue");
+        console.error("Caused by:", err.cause);
+      }
+      
+      setError(err instanceof Error ? err : new Error(String(err)));
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleRetry = () => {
-    refetch();
+    fetchInterpretation();
   };
 
   if (!isRequested) {
@@ -75,7 +100,10 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       <Button 
         variant="outline" 
         className="w-full mt-4"
-        onClick={() => setIsRequested(true)}
+        onClick={() => {
+          setIsRequested(true);
+          fetchInterpretation();
+        }}
       >
         Get Complete Analysis
       </Button>
