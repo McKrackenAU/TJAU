@@ -34,13 +34,18 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Cache-Control": "no-cache, no-store, must-revalidate",
+          "Pragma": "no-cache",
+          "Expires": "0"
         },
         credentials: "include",
+        cache: "no-store",
         body: JSON.stringify({
           cardIds: cards.map(c => c.id),
           spreadType,
           positions,
-          userId: user?.id
+          userId: user?.id,
+          timestamp: Date.now() // Cache buster
         })
       });
       
