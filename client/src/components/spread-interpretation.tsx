@@ -32,17 +32,22 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       console.log("Window location:", window.location.href);
       console.log("Navigator userAgent:", navigator.userAgent);
       
-      // Use the same approach as individual card interpretations (known to work)
-      const response = await fetch("/api/interpret-spread", {
+      // First test a simple request to see if it reaches the server
+      console.log("MOBILE: About to make fetch request...");
+      
+      // Try using the working individual card endpoint but for multiple cards
+      const firstCard = cards[0];
+      const spreadContext = `This is a ${spreadType} spread with cards: ${cards.map((c, i) => `${c.name} (${positions[i]})`).join(', ')}. Please provide a complete interpretation of the entire spread.`;
+      
+      const response = await fetch("/api/interpret", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         credentials: "include", // Important for session cookies
         body: JSON.stringify({
-          cardIds: cards.map(c => c.id),
-          spreadType,
-          positions,
+          cardId: firstCard.id,
+          context: spreadContext,
           userId: user?.id
         })
       });
