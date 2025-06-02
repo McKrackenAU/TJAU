@@ -31,16 +31,33 @@ export default function Spreads() {
   useEffect(() => {
     const spread = spreads[selectedSpread];
     
-    // Fisher-Yates shuffle for true randomness and no duplicates
+    // Mobile-compatible Fisher-Yates shuffle with temp variable
     const shuffledCards = [...cards];
     for (let i = shuffledCards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+      const temp = shuffledCards[i];
+      shuffledCards[i] = shuffledCards[j];
+      shuffledCards[j] = temp;
     }
     
+    // Extra validation: ensure no duplicates
     const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
-    console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
-    setSpreadCards(newSpreadCards);
+    const uniqueCards = newSpreadCards.filter((card, index, arr) => 
+      arr.findIndex(c => c.id === card.id) === index
+    );
+    
+    // If we somehow got duplicates, reshuffle
+    if (uniqueCards.length !== newSpreadCards.length) {
+      console.warn("Duplicate cards detected, reshuffling...");
+      const extraShuffle = [...cards].sort(() => Math.random() - 0.5);
+      const finalCards = extraShuffle.slice(0, spread.positions.length);
+      console.log("Generated spread cards:", finalCards.map(c => c.name));
+      setSpreadCards(finalCards);
+    } else {
+      console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
+      setSpreadCards(newSpreadCards);
+    }
+    
     setIsRevealed(false);
     setNotes("");
   }, [selectedSpread, cards]);
