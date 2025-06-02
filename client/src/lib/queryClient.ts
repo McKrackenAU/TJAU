@@ -13,23 +13,7 @@ export async function apiRequest(
   data?: unknown | undefined,
   options?: RequestInit,
 ): Promise<Response> {
-  // For mobile apps with custom domains, use the original Replit URL
-  let baseUrl = window.location.origin;
-  
-  // If we're on a custom domain, use the Replit backend URL
-  if (window.location.hostname !== 'localhost' && 
-      !window.location.hostname.includes('replit.dev') &&
-      !window.location.hostname.includes('spock.replit.dev')) {
-    // This is likely a custom domain, use the Replit backend
-    baseUrl = 'https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev';
-  }
-  
-  const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
-  
-  console.log("Making API request to:", fullUrl);
-  console.log("Current domain:", window.location.hostname);
-  
-  const res = await fetch(fullUrl, {
+  const res = await fetch(url, {
     method,
     headers: data ? { "Content-Type": "application/json" } : {},
     body: data ? JSON.stringify(data) : undefined,
@@ -51,24 +35,8 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    // For mobile apps with custom domains, use the original Replit URL
-    let baseUrl = window.location.origin;
-    
-    // If we're on a custom domain, use the Replit backend URL
-    if (window.location.hostname !== 'localhost' && 
-        !window.location.hostname.includes('replit.dev') &&
-        !window.location.hostname.includes('spock.replit.dev')) {
-      // This is likely a custom domain, use the Replit backend
-      baseUrl = 'https://421bbc5c-ec80-4610-9e7c-cb65af501ba1-00-3m8a2xelw67r8.spock.replit.dev';
-    }
-    
     const url = queryKey[0] as string;
-    const fullUrl = url.startsWith('http') ? url : `${baseUrl}${url}`;
-    
-    console.log("Making query request to:", fullUrl);
-    console.log("Current domain:", window.location.hostname);
-    
-    const res = await fetch(fullUrl, {
+    const res = await fetch(url, {
       credentials: "include",
     });
 
