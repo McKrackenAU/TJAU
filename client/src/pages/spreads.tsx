@@ -159,11 +159,19 @@ export default function Spreads() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <FreshSpreadAnalyzer 
-                      cards={spreadCards}
-                      spreadType={spreads[selectedSpread].name}
-                      positions={spreads[selectedSpread].positions}
-                    />
+                    <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                      <div className="text-sm text-blue-600 mb-4 font-medium">
+                        ✓ Direct implementation bypassing cache
+                      </div>
+                      <AIInterpretation 
+                        card={{
+                          ...spreadCards[0],
+                          name: `${spreads[selectedSpread].name} Spread Analysis`,
+                          description: `Complete interpretation of this ${spreads[selectedSpread].name} spread: ${spreadCards.map((card, i) => `${spreads[selectedSpread].positions[i]}: ${card.name}`).join(', ')}`
+                        }}
+                        context={`${spreads[selectedSpread].name} spread with these cards: ${spreadCards.map((card, i) => `${spreads[selectedSpread].positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`}
+                      />
+                    </div>
                     
                     <div className="mt-6">
                       <SpreadMeditationPlayer
