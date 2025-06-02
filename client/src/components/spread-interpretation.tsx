@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2, RefreshCw } from "lucide-react";
 import type { TarotCard } from "@shared/tarot-data";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/hooks/use-auth";
+import { useState } from "react";
 
 interface SpreadInterpretationProps {
   cards: TarotCard[];
@@ -14,119 +15,59 @@ interface SpreadInterpretationProps {
 
 export default function SpreadInterpretation({ cards, spreadType, positions }: SpreadInterpretationProps) {
   const [isRequested, setIsRequested] = useState(false);
-  const [interpretation, setInterpretation] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
   const { user } = useAuth();
 
-  const fetchInterpretation = async () => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      console.log("=== MOBILE: Starting spread interpretation request ===");
-      console.log("Cards:", cards.map(c => c.id));
-      console.log("Spread type:", spreadType);
-      console.log("User ID:", user?.id);
-      console.log("Window location:", window.location.href);
-      console.log("Navigator userAgent:", navigator.userAgent);
-      
-      // First test a simple request to see if it reaches the server
-      console.log("MOBILE: About to make fetch request...");
-      
-      // Use minimal payload to test if size is the issue
-      const firstCard = cards[0];
-      const simpleContext = `${spreadType} spread analysis`;
-      
-      const response = await fetch("/api/interpret", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          cardId: firstCard.id,
-          context: simpleContext,
-          userId: user?.id
-        })
-      });
-      
-      console.log("MOBILE response status:", response.status);
-      console.log("MOBILE response ok:", response.ok);
-      console.log("MOBILE response headers:", response.headers);
-      console.log("MOBILE response url:", response.url);
-      
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("MOBILE API error:", response.status, errorText);
-        throw new Error(`HTTP ${response.status}: ${errorText}`);
+  // Use the exact same pattern as individual card interpretations
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: [`/api/interpret/${cards[0]?.id}`, `${spreadType} spread analysis`],
+    queryFn: async () => {
+      try {
+        console.log("=== SPREAD: Using working React Query pattern ===");
+        console.log("First card:", cards[0]?.name);
+        console.log("User ID:", user?.id);
+        
+        const response = await fetch("/api/interpret", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            cardId: cards[0].id,
+            context: `${spreadType} spread analysis`,
+            userId: user?.id
+          })
+        });
+        
+        console.log("Response status:", response.status);
+        console.log("Response ok:", response.ok);
+        
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("API error response:", errorText);
+          throw new Error(`HTTP ${response.status}: ${errorText}`);
+        }
+        
+        const data = await response.json();
+        console.log("AI interpretation received:", !!data.interpretation);
+        
+        if (!data.interpretation) {
+          throw new Error("No interpretation received from AI service");
+        }
+        
+        return data.interpretation;
+      } catch (err) {
+        console.error("Error fetching interpretation:", err);
+        throw new Error(err instanceof Error ? err.message : "Failed to generate interpretation");
       }
-      
-      const data = await response.json();
-      console.log("MOBILE raw data:", data);
-      console.log("MOBILE interpretation exists:", !!data.interpretation);
-      
-      if (data.error) {
-        throw new Error(data.error);
-      }
-      
-      if (!data.interpretation) {
-        throw new Error("No interpretation received from AI service");
-      }
-      
-      setInterpretation(data.interpretation);
-      console.log("MOBILE interpretation set successfully");
-    } catch (err) {
-      console.error("MOBILE detailed error:", err);
-      console.error("Error type:", typeof err);
-      console.error("Error constructor:", err?.constructor?.name);
-      console.error("Error message:", err instanceof Error ? err.message : String(err));
-      console.error("Error stack:", err instanceof Error ? err.stack : "No stack trace");
-      
-      // Try to determine if this is a network issue
-      if (err instanceof TypeError) {
-        console.error("MOBILE: This appears to be a network/fetch error");
-      }
-      
-      // Log all error properties
-      if (err && typeof err === 'object') {
-        console.error("All error properties:", Object.getOwnPropertyNames(err));
-        console.error("Error toString:", err.toString());
-      }
-      
-      let errorMessage = "Failed to generate interpretation";
-      
-      if (err instanceof TypeError && err.message.includes("fetch")) {
-        errorMessage = "Network connection issue. Please check your internet connection and try again.";
-        console.error("MOBILE: Network/fetch error detected");
-      } else if (err instanceof Error) {
-        errorMessage = err.message;
-      }
-      
-      setError(errorMessage);
-      
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive"
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Effect to trigger fetch when requested
-  useEffect(() => {
-    if (isRequested && !interpretation) {
-      fetchInterpretation();
-    }
-  }, [isRequested]);
+    },
+    enabled: isRequested,
+    retry: 1
+  });
 
   const handleRetry = () => {
-    setError(null);
-    setInterpretation(null);
-    fetchInterpretation();
+    refetch();
   };
 
   if (!isRequested) {
@@ -151,8 +92,7 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  if (error && !interpretation) {
-    console.log("Showing error state:", error);
+  if (error) {
     return (
       <Card className="mt-4 border-destructive">
         <CardContent className="pt-6 text-destructive space-y-2">
@@ -171,12 +111,12 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  if (interpretation) {
+  if (data) {
     return (
       <Card className="mt-6">
         <CardContent className="pt-6 prose prose-primary dark:prose-invert">
           <h3 className="text-xl font-semibold mb-2 text-foreground">Spread Interpretation</h3>
-          <div className="text-sm whitespace-pre-line text-foreground">{interpretation}</div>
+          <div className="text-sm whitespace-pre-line text-foreground">{data}</div>
         </CardContent>
       </Card>
     );
