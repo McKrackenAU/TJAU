@@ -37,7 +37,28 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  // Create a comprehensive context that works on all devices
+  // Check if running on mobile device
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // Mobile: Show individual card interpretations for better reliability
+    return (
+      <div className="mt-6 space-y-4">
+        <h3 className="text-lg font-semibold mb-4">Complete Spread Analysis</h3>
+        {cards.map((card, index) => (
+          <div key={card.id} className="border rounded-lg p-4">
+            <h4 className="font-medium mb-2">{positions[index]}: {card.name}</h4>
+            <AIInterpretation 
+              card={card} 
+              context={`This card represents ${positions[index]} in a ${spreadType} spread.`}
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop: Use combined spread analysis
   const spreadContext = `${spreadType} spread with these cards: ${cards.map((card, i) => `${positions[i]} - ${card.name}`).join(', ')}. Please provide a comprehensive interpretation of how these cards work together in this spread.`;
 
   return (
