@@ -18,10 +18,9 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
   const { toast } = useToast();
   const { user } = useAuth();
 
-  // Use the working individual card system but with spread context
+  // Use the first card's ID but with spread context
   const spreadCard = {
     ...cards[0],
-    id: `spread-${cards.map(c => c.id).join('-')}`,
     name: `${spreadType} Spread Analysis`,
     description: `Complete interpretation of this ${spreadType} spread: ${cards.map((card, i) => `${positions[i]}: ${card.name}`).join(', ')}`
   };
