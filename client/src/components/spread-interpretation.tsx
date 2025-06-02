@@ -15,6 +15,7 @@ interface SpreadInterpretationProps {
 
 export default function SpreadInterpretation({ cards, spreadType, positions }: SpreadInterpretationProps) {
   const [showSpreadAnalysis, setShowSpreadAnalysis] = useState(false);
+  const [forceMobileMode, setForceMobileMode] = useState(false);
   const { toast } = useToast();
   const { user } = useAuth();
 
@@ -37,10 +38,10 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
     );
   }
 
-  // Check if running on mobile device
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  // Temporarily force individual card approach for all devices to test reliability
+  console.log("Using individual card approach for all devices (temporary fix)");
   
-  if (isMobile) {
+  if (true) {
     // Mobile: Show individual card interpretations for better reliability
     return (
       <div className="mt-6 space-y-4">
