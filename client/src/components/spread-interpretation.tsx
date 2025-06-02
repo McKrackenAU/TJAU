@@ -73,17 +73,28 @@ export default function SpreadInterpretation({ cards, spreadType, positions }: S
       setInterpretation(data.interpretation);
       console.log("MOBILE interpretation set successfully");
     } catch (err) {
-      console.error("MOBILE error:", err);
-      const errorMessage = err instanceof Error ? err.message : "Failed to generate interpretation";
+      console.error("MOBILE detailed error:", err);
+      console.error("Error type:", typeof err);
+      console.error("Error constructor:", err?.constructor?.name);
+      console.error("Error message:", err instanceof Error ? err.message : String(err));
+      console.error("Error stack:", err instanceof Error ? err.stack : "No stack trace");
+      
+      let errorMessage = "Failed to generate interpretation";
+      
+      if (err instanceof TypeError && err.message.includes("fetch")) {
+        errorMessage = "Network connection issue. Please check your internet connection and try again.";
+        console.error("MOBILE: Network/fetch error detected");
+      } else if (err instanceof Error) {
+        errorMessage = err.message;
+      }
+      
       setError(errorMessage);
       
-      if (errorMessage.includes("OpenAI API") || errorMessage.includes("rate limit")) {
-        toast({
-          title: "AI Service Temporarily Unavailable",
-          description: "The AI interpretation service is experiencing high demand. Please try again in a few moments.",
-          variant: "destructive"
-        });
-      }
+      toast({
+        title: "Error",
+        description: errorMessage,
+        variant: "destructive"
+      });
     } finally {
       setIsLoading(false);
     }
