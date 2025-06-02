@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import MeditationPlayer from "@/components/meditation-player";
-import SpreadInterpretation from "@/components/spread-interpretation";
+import MobileSpreadAnalysis from "@/components/mobile-spread-analysis";
 import SpreadMeditationPlayer from "@/components/spread-meditation-player";
 import { Loader2, Sparkles } from "lucide-react";
 
@@ -159,7 +159,7 @@ export default function Spreads() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <SpreadInterpretation 
+                    <MobileSpreadAnalysis 
                       cards={spreadCards}
                       spreadType={spreads[selectedSpread].name}
                       positions={spreads[selectedSpread].positions}
