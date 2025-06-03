@@ -2558,6 +2558,65 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Coupon validation endpoint
+  app.post('/api/validate-coupon', async (req, res) => {
+    try {
+      const { couponCode } = req.body;
+
+      if (!couponCode || typeof couponCode !== 'string') {
+        return res.status(400).json({ 
+          valid: false, 
+          message: "Please provide a valid coupon code" 
+        });
+      }
+
+      console.log("Validating coupon code:", couponCode);
+
+      // Try to retrieve the coupon from Stripe
+      try {
+        const coupon = await stripe.coupons.retrieve(couponCode);
+        
+        if (!coupon.valid) {
+          return res.json({ 
+            valid: false, 
+            message: "This coupon is no longer valid or has expired" 
+          });
+        }
+
+        // Return coupon details
+        return res.json({
+          valid: true,
+          couponId: coupon.id,
+          discountType: coupon.percent_off ? 'percent' : 'fixed',
+          value: coupon.percent_off || coupon.amount_off,
+          message: "Coupon is valid and can be applied"
+        });
+
+      } catch (stripeError: any) {
+        console.log("Stripe coupon validation error:", stripeError.message);
+        
+        if (stripeError.code === 'resource_missing') {
+          return res.json({ 
+            valid: false, 
+            message: "Invalid coupon code" 
+          });
+        }
+        
+        return res.json({ 
+          valid: false, 
+          message: "Unable to validate coupon at this time" 
+        });
+      }
+
+    } catch (error) {
+      console.error("Coupon validation error:", error);
+      return res.status(500).json({ 
+        valid: false, 
+        message: "Server error while validating coupon" 
+      });
+    }
+  });
+
   // App Store purchase verification endpoint
   app.post('/api/verify-app-store-purchase', async (req, res) => {
     if (!req.isAuthenticated()) {

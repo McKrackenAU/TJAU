@@ -1,0 +1,145 @@
+Implementing Subscription Payments with Coupon Support and Transparent Terms for Tarot Journey
+Architectural Overview and Implementation Strategy
+Core Payment Flow Design
+For Tarot Journey's Replit-based architecture, we recommend implementing Stripe Elements with custom authentication flows to collect payment details during registration. This approach balances conversion optimization with legal compliance requirements4618. The payment flow should:
+1.	Embed Stripe Elements directly in registration forms using React components
+2.	Collect email + password alongside card details in unified UI
+3.	Validate coupon codes in real-time via Stripe API before submission
+4.	Create Customer and Subscription objects simultaneously upon validation1016
+javascript
+// Sample React registration component with Stripe Elements
+import {Elements, CardElement, useStripe} from '@stripe/react-stripe-js';
+
+const RegistrationForm = () => {
+  const stripe = useStripe();
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const {error, paymentMethod} = await stripe.createPaymentMethod({
+      type: 'card',
+      card: elements.getElement(CardElement),
+    });
+    
+    // Validate coupon code against Stripe API
+    const promoValidation = await fetch('/validate-promo', {
+      method: 'POST',
+      body: JSON.stringify({promoCode: enteredCode}),
+    });
+    
+    if (promoValidation.valid) {
+      // Create customer with payment method and coupon
+      const customer = await stripe.createCustomer({
+        email: formData.email,
+        payment_method: paymentMethod.id,
+        coupon: promoValidation.couponId,
+      });
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <CardElement />
+      <input type="text" name="promoCode" placeholder="COUPON CODE" />
+    </form>
+  );
+};
+Coupon Code Implementation
+Configure Stripe coupons with promotion codes to support both percentage-based and fixed-amount discounts916:
+1.	Create base coupons in Stripe Dashboard
+2.	Generate unique promotion codes for marketing campaigns
+3.	Implement client-side validation with Stripe.js
+4.	Apply discounts to subscription creation API calls
+python
+# Replit backend route for coupon validation
+@app.route('/validate-promo', methods=['POST'])
+def validate_promo():
+    promo_code = request.json.get('promoCode')
+    try:
+        promo = stripe.PromotionCode.retrieve(promo_code)
+        return jsonify({
+            'valid': promo.active,
+            'couponId': promo.coupon.id,
+            'discountType': promo.coupon.percent_off and 'percent' or 'fixed',
+            'value': promo.coupon.percent_off or promo.coupon.amount_off
+        })
+    except stripe.error.InvalidRequestError:
+        return jsonify({'valid': False}), 400
+Legal Compliance Implementation
+Incorporate ACCC requirements through dynamic terms rendering and clickwrap agreements78:
+1.	Store terms content in Replit DB with version control
+2.	Implement acceptance tracking in user profiles
+3.	Automate policy updates through webhook-triggered emails
+javascript
+// Terms acceptance flow
+const TermsModal = ({ onAccept }) => {
+  const [content, setContent] = useState('');
+  
+  useEffect(() => {
+    fetch('/api/terms/latest')
+      .then(res => res.text())
+      .then(setContent);
+  }, []);
+
+  return (
+    <div className="terms-modal">
+      <div dangerouslySetInnerHTML={{__html: content}} />
+      <button onClick={onAccept}>I Accept</button>
+    </div>
+  );
+};
+Subscription Management System
+Trial Period Configuration
+Implement flexible trial periods with Stripe's subscription API while maintaining ACCC compliance1017:
+text
+# stripe-config.yaml
+subscriptions:
+  default_trial: 7 days
+  grace_period: 3 days
+  dunning_emails:
+    - trial_ending_24h
+    - payment_failed
+    - subscription_cancelled
+Price Transparency Implementation
+Display real-time pricing calculations with coupon effects:
+javascript
+function updatePriceDisplay() {
+  const basePrice = 19.99;
+  const discount = appliedCoupon 
+    ? (appliedCoupon.type === 'percent' 
+      ? basePrice * (appliedCoupon.value / 100)
+      : appliedCoupon.value)
+    : 0;
+  
+  document.getElementById('final-price').textContent = 
+    `$${(basePrice - discount).toFixed(2)}/month`;
+}
+Security and Compliance Measures
+PCI-DSS Compliance
+1.	Utilize Stripe Elements for secure card capture4
+2.	Store only Stripe customer IDs in Replit DB
+3.	Implement annual PCI SAQ A-EP self-assessment
+Data Protection
+1.	Encrypt sensitive metadata at rest
+2.	Implement IP whitelisting for Stripe webhooks
+3.	Regular security audits using Stripe Radar
+Testing and Validation Plan
+Coupon Test Matrix
+Test Case	Expected Result
+Valid code	Applies discount
+Expired code	Shows error
+Invalid code	Shows error
+Multiple codes	Rejects second
+Payment Flow Validation
+1.	Test successful trial start without immediate charge
+2.	Verify webhook handling for trial end events
+3.	Validate proration calculations during upgrades
+4.	Test failed payment recovery flows
+Monitoring and Analytics
+Implement Datadog integration for real-time monitoring:
+python
+# metrics.py
+from datadog import initialize, statsd
+
+initialize()
+statsd.increment('subscription.created', tags=['plan:premium'])
+statsd.gauge('active.trials', current_trial_count)
