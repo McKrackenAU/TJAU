@@ -1746,17 +1746,22 @@ export function registerRoutes(app: Express): Server {
         
         console.log("Mapped coupon code:", couponCode, "to Stripe promo code:", stripePromoCode);
 
-        // Verify the coupon exists and is valid
+        // Verify the promotion code exists and is valid
         try {
-          const coupon = await stripe.coupons.retrieve(stripePromoCode);
+          const promotionCode = await stripe.promotionCodes.retrieve(stripePromoCode);
 
+          if (!promotionCode.active) {
+            return res.status(400).json({ error: "This promotion code is no longer active" });
+          }
+
+          const coupon = promotionCode.coupon;
           if (!coupon.valid) {
             return res.status(400).json({ error: "This coupon is no longer valid" });
           }
 
-          console.log("Valid coupon found:", coupon.id);
+          console.log("Valid promotion code found:", promotionCode.id);
         } catch (error) {
-          console.error("Failed to retrieve coupon:", error);
+          console.error("Failed to retrieve promotion code:", error);
           return res.status(400).json({ error: "Invalid coupon code" });
         }
 
