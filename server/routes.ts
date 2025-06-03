@@ -2613,7 +2613,8 @@ export function registerRoutes(app: Express): Server {
 
       // Map friendly coupon codes to actual Stripe promotion codes
       const couponMapping: Record<string, string> = {
-        "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS"
+        "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS",
+        "TJ1111": "promo_1RF3eES01xyGs9JlIDgtd1W0"
         // Add more mappings here as needed
       };
 
