@@ -2611,9 +2611,20 @@ export function registerRoutes(app: Express): Server {
 
       console.log("Validating coupon code:", couponCode);
 
+      // Map friendly coupon codes to actual Stripe promotion codes
+      const couponMapping: Record<string, string> = {
+        "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS"
+        // Add more mappings here as needed
+      };
+
+      // Get the actual Stripe promotion code (use mapping if exists, otherwise use the input)
+      const stripePromoCode = couponMapping[couponCode] || couponCode;
+      
+      console.log("Mapped to Stripe promo code:", stripePromoCode);
+
       // Try to retrieve the promotion code from Stripe first
       try {
-        const promotionCode = await stripe.promotionCodes.retrieve(couponCode);
+        const promotionCode = await stripe.promotionCodes.retrieve(stripePromoCode);
         
         if (!promotionCode.active) {
           return res.json({ 
@@ -2644,7 +2655,7 @@ export function registerRoutes(app: Express): Server {
       } catch (promotionError: any) {
         // If promotion code doesn't exist, try as a direct coupon ID
         try {
-          const coupon = await stripe.coupons.retrieve(couponCode);
+          const coupon = await stripe.coupons.retrieve(stripePromoCode);
           
           if (!coupon.valid) {
             return res.json({ 
