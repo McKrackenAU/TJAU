@@ -1735,9 +1735,20 @@ export function registerRoutes(app: Express): Server {
           return res.status(400).json({ error: "Valid coupon code is required" });
         }
 
+        // Map friendly coupon codes to actual Stripe promotion codes
+        const couponMapping: Record<string, string> = {
+          "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS",
+          "TJ1111": "promo_1RF3eES01xyGs9JlIDgtd1W0"
+        };
+
+        // Get the actual Stripe promotion code (use mapping if exists, otherwise use the input)
+        const stripePromoCode = couponMapping[couponCode] || couponCode;
+        
+        console.log("Mapped coupon code:", couponCode, "to Stripe promo code:", stripePromoCode);
+
         // Verify the coupon exists and is valid
         try {
-          const coupon = await stripe.coupons.retrieve(couponCode);
+          const coupon = await stripe.coupons.retrieve(stripePromoCode);
 
           if (!coupon.valid) {
             return res.status(400).json({ error: "This coupon is no longer valid" });
@@ -1759,7 +1770,7 @@ export function registerRoutes(app: Express): Server {
 
         // Apply the coupon by updating the subscription
         const updatedSubscription = await stripe.subscriptions.update(subscriptionId, {
-          coupon: couponCode,
+          coupon: stripePromoCode,
         });
 
         console.log("Applied coupon to subscription:", updatedSubscription.id);
