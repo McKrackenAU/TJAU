@@ -1735,33 +1735,28 @@ export function registerRoutes(app: Express): Server {
           return res.status(400).json({ error: "Valid coupon code is required" });
         }
 
-        // Map friendly coupon codes to actual Stripe promotion codes
+        // Map friendly coupon codes to actual Stripe coupon IDs
         const couponMapping: Record<string, string> = {
-          "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS",
-          "TJ1111": "promo_1RF3eES01xyGs9JlIDgtd1W0"
+          "TJ1111FF": "RMr9tEGb",
+          "TJ1111": "hCcwd0En"
         };
 
-        // Get the actual Stripe promotion code (use mapping if exists, otherwise use the input)
-        const stripePromoCode = couponMapping[couponCode] || couponCode;
+        // Get the actual Stripe coupon ID (use mapping if exists, otherwise use the input)
+        const stripeCouponId = couponMapping[couponCode] || couponCode;
         
-        console.log("Mapped coupon code:", couponCode, "to Stripe promo code:", stripePromoCode);
+        console.log("Mapped coupon code:", couponCode, "to Stripe coupon ID:", stripeCouponId);
 
-        // Verify the promotion code exists and is valid
+        // Verify the coupon exists and is valid
         try {
-          const promotionCode = await stripe.promotionCodes.retrieve(stripePromoCode);
+          const coupon = await stripe.coupons.retrieve(stripeCouponId);
 
-          if (!promotionCode.active) {
-            return res.status(400).json({ error: "This promotion code is no longer active" });
-          }
-
-          const coupon = promotionCode.coupon;
           if (!coupon.valid) {
             return res.status(400).json({ error: "This coupon is no longer valid" });
           }
 
-          console.log("Valid promotion code found:", promotionCode.id);
+          console.log("Valid coupon found:", coupon.id);
         } catch (error) {
-          console.error("Failed to retrieve promotion code:", error);
+          console.error("Failed to retrieve coupon:", error);
           return res.status(400).json({ error: "Invalid coupon code" });
         }
 
@@ -1775,7 +1770,7 @@ export function registerRoutes(app: Express): Server {
 
         // Apply the coupon by updating the subscription
         const updatedSubscription = await stripe.subscriptions.update(subscriptionId, {
-          coupon: stripePromoCode,
+          coupon: stripeCouponId,
         });
 
         console.log("Applied coupon to subscription:", updatedSubscription.id);
@@ -2627,31 +2622,22 @@ export function registerRoutes(app: Express): Server {
 
       console.log("Validating coupon code:", couponCode);
 
-      // Map friendly coupon codes to actual Stripe promotion codes
+      // Map friendly coupon codes to actual Stripe coupon IDs
       const couponMapping: Record<string, string> = {
-        "TJ1111FF": "promo_1RF5LNS01xyGs9JlLwwU3EyS",
-        "TJ1111": "promo_1RF3eES01xyGs9JlIDgtd1W0"
+        "TJ1111FF": "RMr9tEGb",
+        "TJ1111": "hCcwd0En"
         // Add more mappings here as needed
       };
 
-      // Get the actual Stripe promotion code (use mapping if exists, otherwise use the input)
-      const stripePromoCode = couponMapping[couponCode] || couponCode;
+      // Get the actual Stripe coupon ID (use mapping if exists, otherwise use the input)
+      const stripeCouponId = couponMapping[couponCode] || couponCode;
       
-      console.log("Mapped to Stripe promo code:", stripePromoCode);
+      console.log("Mapped to Stripe coupon ID:", stripeCouponId);
 
-      // Try to retrieve the promotion code from Stripe first
+      // Try to retrieve the coupon directly
       try {
-        const promotionCode = await stripe.promotionCodes.retrieve(stripePromoCode);
-        
-        if (!promotionCode.active) {
-          return res.json({ 
-            valid: false, 
-            message: "This promotion code is no longer active" 
-          });
-        }
-
-        const coupon = promotionCode.coupon;
-        
+        const coupon = await stripe.coupons.retrieve(stripeCouponId);
+          
         if (!coupon.valid) {
           return res.json({ 
             valid: false, 
@@ -2663,48 +2649,25 @@ export function registerRoutes(app: Express): Server {
         return res.json({
           valid: true,
           couponId: coupon.id,
-          promotionCodeId: promotionCode.id,
           discountType: coupon.percent_off ? 'percent' : 'fixed',
           value: coupon.percent_off || coupon.amount_off,
-          message: "Promotion code is valid and can be applied"
+          message: "Coupon is valid and can be applied"
         });
 
-      } catch (promotionError: any) {
-        // If promotion code doesn't exist, try as a direct coupon ID
-        try {
-          const coupon = await stripe.coupons.retrieve(stripePromoCode);
-          
-          if (!coupon.valid) {
-            return res.json({ 
-              valid: false, 
-              message: "This coupon is no longer valid or has expired" 
-            });
-          }
-
-          // Return coupon details
-          return res.json({
-            valid: true,
-            couponId: coupon.id,
-            discountType: coupon.percent_off ? 'percent' : 'fixed',
-            value: coupon.percent_off || coupon.amount_off,
-            message: "Coupon is valid and can be applied"
-          });
-
-        } catch (stripeError: any) {
-          console.log("Stripe coupon validation error:", stripeError.message);
-          
-          if (stripeError.code === 'resource_missing') {
-            return res.json({ 
-              valid: false, 
-              message: "Invalid coupon code" 
-            });
-          }
-          
+      } catch (stripeError: any) {
+        console.log("Stripe coupon validation error:", stripeError.message);
+        
+        if (stripeError.code === 'resource_missing') {
           return res.json({ 
             valid: false, 
-            message: "Unable to validate coupon at this time" 
+            message: "Invalid coupon code" 
           });
         }
+        
+        return res.json({ 
+          valid: false, 
+          message: "Unable to validate coupon at this time" 
+        });
       }
 
     } catch (error) {
