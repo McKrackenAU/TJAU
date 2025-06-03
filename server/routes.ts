@@ -2558,6 +2558,45 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Emergency password reset endpoint (temporary)
+  app.post('/api/emergency-password-reset', async (req, res) => {
+    try {
+      const { email, newPassword, adminToken } = req.body;
+
+      // Verify admin token for security
+      const expectedToken = "g6vDAE^YiQT8Uoi!c@XmvoYdhsqGn*xw";
+      if (adminToken !== expectedToken) {
+        return res.status(403).json({ error: "Invalid admin token" });
+      }
+
+      if (!email || !newPassword) {
+        return res.status(400).json({ error: "Email and new password required" });
+      }
+
+      // Find user by email
+      const user = await storage.getUserByEmail(email);
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
+
+      // Hash the new password
+      const scryptAsync = promisify(scrypt);
+      const salt = randomBytes(16).toString("hex");
+      const buf = (await scryptAsync(newPassword, salt, 64)) as Buffer;
+      const hashedPassword = `${buf.toString("hex")}.${salt}`;
+
+      // Update user password in database
+      await storage.updateUserPassword(user.id, hashedPassword);
+
+      console.log(`Password reset successful for user: ${email}`);
+      res.json({ success: true, message: "Password reset successfully" });
+
+    } catch (error) {
+      console.error("Password reset error:", error);
+      res.status(500).json({ error: "Failed to reset password" });
+    }
+  });
+
   // Coupon validation endpoint
   app.post('/api/validate-coupon', async (req, res) => {
     try {
