@@ -198,7 +198,7 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     let audioBuffer: Buffer;
     
     // Check if custom voice is configured
-    const customVoiceId = process.env.CUSTOM_MEDITATION_VOICE_ID;
+    const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
     
     console.log("Voice configuration check:");
     console.log("- Custom Voice ID:", customVoiceId);
