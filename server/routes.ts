@@ -63,7 +63,7 @@ export function registerRoutes(app: Express): Server {
   setupAuth(app);
 
   // Set the custom Josie voice ID for meditations
-  process.env.CUSTOM_MEDITATION_VOICE_ID = "pNInz6obpgDQGcFmaJgB"; // Josie voice ID
+  process.env.CUSTOM_MEDITATION_VOICE_ID = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
 
   // Create OpenAI instance
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_TWO });

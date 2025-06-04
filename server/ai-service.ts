@@ -203,7 +203,7 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
       try {
         console.log("Using custom voice for meditation");
-        const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+        const { voiceCloningService } = await import('./services/voice-cloning-service');
         audioBuffer = await voiceCloningService.generateSpeech(
           meditationText, 
           customVoiceId,
