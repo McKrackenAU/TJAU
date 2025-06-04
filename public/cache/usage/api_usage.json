@@ -2708,5 +2708,65 @@
     "cardId": "s8",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-04T07:59:52.989Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "8",
+    "cardName": "Strength",
+    "timestamp": "2025-06-04T08:26:11.985Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "8",
+    "cardName": "Strength",
+    "timestamp": "2025-06-04T08:26:50.820Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "s6",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T08:30:26.445Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "s6",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T08:31:09.294Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "c4",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T08:31:48.654Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "c4",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T08:32:30.329Z"
   }
 ]
