@@ -1239,6 +1239,28 @@ export function registerRoutes(app: Express): Server {
         description: description?.trim() || ''
       });
 
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      
+      // First check if a voice with this name already exists
+      try {
+        const existingVoices = await voiceCloningService.getAvailableVoices();
+        const existingVoice = existingVoices.find(voice => 
+          voice.name.toLowerCase() === voiceName.trim().toLowerCase()
+        );
+        
+        if (existingVoice) {
+          console.log(`Voice "${voiceName}" already exists with ID: ${existingVoice.voice_id}`);
+          return res.json({
+            success: true,
+            message: `Voice "${voiceName}" already exists and is ready to use`,
+            voiceId: existingVoice.voice_id,
+            existing: true
+          });
+        }
+      } catch (voiceCheckError) {
+        console.warn("Could not check existing voices:", voiceCheckError);
+      }
+
       // Save the audio file temporarily
       const tempDir = path.join(process.cwd(), '.temp');
       await fs.promises.mkdir(tempDir, { recursive: true });
@@ -1249,8 +1271,7 @@ export function registerRoutes(app: Express): Server {
       await fs.promises.writeFile(tempFilePath, req.file.buffer);
       console.log(`Temporary voice file saved: ${tempFilePath}`);
 
-      // Use the voice cloning service to create the voice
-      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      // Create the voice clone
       const voiceId = await voiceCloningService.createVoiceClone(
         tempFilePath,
         voiceName.trim(),

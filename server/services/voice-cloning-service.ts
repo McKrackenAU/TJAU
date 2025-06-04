@@ -36,6 +36,9 @@ class VoiceCloningService {
       console.log('Description:', description);
       console.log('Audio file path:', audioFilePath);
 
+      // Read the file as buffer for ElevenLabs API
+      const audioBuffer = fs.readFileSync(audioFilePath);
+      
       // Use form-data package for Node.js multipart/form-data
       const formData = new FormData();
       
@@ -47,21 +50,11 @@ class VoiceCloningService {
         formData.append('description', description.trim());
       }
       
-      // ElevenLabs expects "files" field with proper file stream
-      const fileStream = fs.createReadStream(audioFilePath);
-      formData.append('files', fileStream, {
+      // Add the audio file as buffer
+      formData.append('files', audioBuffer, {
         filename: path.basename(audioFilePath),
-        contentType: 'audio/mpeg',
-        knownLength: fs.statSync(audioFilePath).size
+        contentType: 'audio/mpeg'
       });
-      
-      // Add labels field (required by ElevenLabs)
-      formData.append('labels', JSON.stringify({
-        "accent": "american",
-        "age": "middle_aged", 
-        "gender": "female",
-        "descriptive": "clear"
-      }));
 
       console.log('Sending request to ElevenLabs voice creation endpoint...');
       
