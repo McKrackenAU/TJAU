@@ -1355,7 +1355,8 @@ export function registerRoutes(app: Express): Server {
     try {
       const { text, speed = 1.0 } = req.body;
       
-      if (!text) {
+      if (!text || typeof text !== 'string' || text.trim().length === 0) {
+        console.log("Invalid text received:", { text, type: typeof text });
         return res.status(400).json({ error: "Text is required" });
       }
       

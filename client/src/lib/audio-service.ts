@@ -4,6 +4,7 @@ export class AudioService {
   private backgroundMusic: HTMLAudioElement | null = null;
   private speechSynthesis: SpeechSynthesis | null = null;
   private utterance: SpeechSynthesisUtterance | null = null;
+  private currentSpeechAudio: HTMLAudioElement | null = null;
   private isPlaying: boolean = false;
   private volume: number = 0.5;
   private rate: number = 0.9; // Slightly slower than normal for meditation
@@ -168,15 +169,20 @@ export class AudioService {
       const audio = new Audio(audioUrl);
       audio.volume = this.volume;
       
+      // Store reference to current speech audio for pause/resume control
+      this.currentSpeechAudio = audio;
+      
       audio.onended = () => {
         URL.revokeObjectURL(audioUrl);
         this.isPlaying = false;
+        this.currentSpeechAudio = null;
         if (onEnd) onEnd();
       };
       
       audio.onerror = () => {
         console.error("Audio playback failed, falling back to browser synthesis");
         URL.revokeObjectURL(audioUrl);
+        this.currentSpeechAudio = null;
         this.fallbackToSpeechSynthesis(text, onEnd);
       };
       
@@ -226,24 +232,53 @@ export class AudioService {
   }
 
   public pauseSpeech(): void {
+    console.log("Pausing speech");
+    
+    // Handle server-generated audio
+    if (this.currentSpeechAudio && this.isPlaying) {
+      this.currentSpeechAudio.pause();
+      this.isPlaying = false;
+      return;
+    }
+    
+    // Fallback to speech synthesis
     if (this.speechSynthesis && this.isPlaying) {
-      console.log("Pausing speech");
       this.speechSynthesis.pause();
       this.isPlaying = false;
     }
   }
 
   public resumeSpeech(): void {
+    console.log("Resuming speech");
+    
+    // Handle server-generated audio
+    if (this.currentSpeechAudio && !this.isPlaying) {
+      this.currentSpeechAudio.play();
+      this.isPlaying = true;
+      return;
+    }
+    
+    // Fallback to speech synthesis
     if (this.speechSynthesis && !this.isPlaying) {
-      console.log("Resuming speech");
       this.speechSynthesis.resume();
       this.isPlaying = true;
     }
   }
 
   public stopSpeech(): void {
+    console.log("Stopping speech");
+    
+    // Handle server-generated audio
+    if (this.currentSpeechAudio) {
+      this.currentSpeechAudio.pause();
+      this.currentSpeechAudio.currentTime = 0;
+      this.currentSpeechAudio = null;
+      this.isPlaying = false;
+      return;
+    }
+    
+    // Fallback to speech synthesis
     if (this.speechSynthesis) {
-      console.log("Stopping speech");
       this.speechSynthesis.cancel();
       this.isPlaying = false;
     }
