@@ -2808,6 +2808,122 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // System Status endpoints (Admin only)
+  app.get("/api/admin/system-status", requireAdmin, async (req, res) => {
+    try {
+      const startTime = Date.now();
+      
+      // Database health check
+      let dbHealth = { status: 'down', responseTime: 0, error: null };
+      try {
+        const dbStart = Date.now();
+        await db.select().from(users).limit(1);
+        dbHealth = {
+          status: 'up',
+          responseTime: Date.now() - dbStart,
+          error: null
+        };
+      } catch (error) {
+        dbHealth = {
+          status: 'down',
+          responseTime: Date.now() - startTime,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        };
+      }
+
+      // Memory usage
+      const memUsage = process.memoryUsage();
+      const totalMemory = memUsage.heapTotal + memUsage.external;
+      const usedMemory = memUsage.heapUsed;
+      
+      // System uptime
+      const uptime = process.uptime();
+      
+      // Environment info
+      const environment = {
+        nodeVersion: process.version,
+        platform: process.platform,
+        arch: process.arch,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+      };
+
+      // API service health checks
+      const services = {
+        openai: process.env.OPENAI_API_KEY ? 'configured' : 'not_configured',
+        stripe: process.env.STRIPE_SECRET_KEY ? 'configured' : 'not_configured',
+        elevenlabs: process.env.ELEVENLABS_API_KEY ? 'configured' : 'not_configured',
+        database: process.env.DATABASE_URL ? 'configured' : 'not_configured'
+      };
+
+      res.json({
+        timestamp: new Date().toISOString(),
+        status: 'healthy',
+        uptime: Math.floor(uptime),
+        database: dbHealth,
+        memory: {
+          used: usedMemory,
+          total: totalMemory,
+          usagePercent: Math.round((usedMemory / totalMemory) * 100),
+          rss: memUsage.rss,
+          external: memUsage.external
+        },
+        environment,
+        services,
+        responseTime: Date.now() - startTime
+      });
+    } catch (error) {
+      console.error('System status error:', error);
+      res.status(500).json({
+        status: 'error',
+        error: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+
+  app.get("/api/admin/system-metrics", requireAdmin, async (req, res) => {
+    try {
+      // Get user statistics
+      const totalUsers = await storage.getUserCount();
+      const activeUsers = await storage.getActiveUserCount();
+      
+      // Get reading statistics
+      const totalReadings = await storage.getTotalReadingsCount();
+      const todayReadings = await storage.getTodayReadingsCount();
+      
+      // Get journal statistics
+      const totalJournalEntries = await storage.getTotalJournalEntriesCount();
+      
+      // Get subscription statistics
+      const subscriptionStats = await storage.getSubscriptionStats();
+      
+      res.json({
+        users: {
+          total: totalUsers,
+          active: activeUsers,
+          growth: Math.round(((activeUsers / Math.max(totalUsers, 1)) * 100))
+        },
+        readings: {
+          total: totalReadings,
+          today: todayReadings,
+          avgPerUser: Math.round(totalReadings / Math.max(totalUsers, 1))
+        },
+        journal: {
+          totalEntries: totalJournalEntries,
+          avgPerUser: Math.round(totalJournalEntries / Math.max(totalUsers, 1))
+        },
+        subscriptions: subscriptionStats,
+        timestamp: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error('System metrics error:', error);
+      res.status(500).json({
+        error: error instanceof Error ? error.message : 'Unknown error',
+        timestamp: new Date().toISOString()
+      });
+    }
+  });
+
   const adminAuth = requireAdmin;
 
   const httpServer = createServer(app);

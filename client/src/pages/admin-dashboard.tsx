@@ -9,6 +9,7 @@ import ApiUsageDashboard from '@/components/api-usage-dashboard';
 import { toast } from '@/hooks/use-toast';
 import VoiceManagement from "@/components/voice-management";
 import UserManagement from "@/components/user-management";
+import SystemStatusDashboard from "@/components/system-status-dashboard";
 import { Mail, Users, Calendar, BarChart, Mic } from "lucide-react";
 
 export default function AdminDashboard() {

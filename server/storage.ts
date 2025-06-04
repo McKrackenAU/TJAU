@@ -66,6 +66,13 @@ export interface IStorage {
   createVoice(voice: { voiceId: string; name: string; description: string; category: string }): Promise<void>
   getVoices(): Promise<Array<{ voiceId: string; name: string; description: string; category: string }>>
   deleteVoice(voiceId: string): Promise<void>
+  // System metrics methods
+  getUserCount(): Promise<number>
+  getActiveUserCount(): Promise<number>
+  getTotalReadingsCount(): Promise<number>
+  getTodayReadingsCount(): Promise<number>
+  getTotalJournalEntriesCount(): Promise<number>
+  getSubscriptionStats(): Promise<{ active: number; trial: number; canceled: number; total: number }>
   // Session store
   sessionStore: session.Store;
 }
@@ -579,6 +586,79 @@ export class DatabaseStorage implements IStorage {
 
   async deleteVoice(voiceId: string): Promise<void> {
     await db.delete(voices).where(eq(voices.voiceId, voiceId));
+  }
+
+  // System metrics methods
+  async getUserCount(): Promise<number> {
+    const result = await db.select({ count: sql`count(*)` }).from(users);
+    return Number(result[0].count);
+  }
+
+  async getActiveUserCount(): Promise<number> {
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+    
+    const result = await db
+      .select({ count: sql`count(distinct ${users.id})` })
+      .from(users)
+      .leftJoin(readings, eq(users.id, readings.userId))
+      .where(sql`${readings.date} >= ${thirtyDaysAgo}`);
+    
+    return Number(result[0].count) || 0;
+  }
+
+  async getTotalReadingsCount(): Promise<number> {
+    const result = await db.select({ count: sql`count(*)` }).from(readings);
+    return Number(result[0].count);
+  }
+
+  async getTodayReadingsCount(): Promise<number> {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    const result = await db
+      .select({ count: sql`count(*)` })
+      .from(readings)
+      .where(sql`${readings.date} >= ${today}`);
+    
+    return Number(result[0].count);
+  }
+
+  async getTotalJournalEntriesCount(): Promise<number> {
+    const result = await db.select({ count: sql`count(*)` }).from(journalEntries);
+    return Number(result[0].count);
+  }
+
+  async getSubscriptionStats(): Promise<{ active: number; trial: number; canceled: number; total: number }> {
+    const activeUsers = await db
+      .select({ count: sql`count(*)` })
+      .from(users)
+      .where(eq(users.isSubscribed, true));
+
+    const trialUsers = await db
+      .select({ count: sql`count(*)` })
+      .from(users)
+      .where(and(
+        eq(users.hasUsedFreeTrial, true),
+        eq(users.isSubscribed, false)
+      ));
+
+    const totalUsersWithSubscription = await db
+      .select({ count: sql`count(*)` })
+      .from(users)
+      .where(sql`${users.stripeSubscriptionId} IS NOT NULL AND ${users.stripeSubscriptionId} != ''`);
+
+    const active = Number(activeUsers[0].count);
+    const trial = Number(trialUsers[0].count);
+    const total = Number(totalUsersWithSubscription[0].count);
+    const canceled = total - active - trial;
+
+    return {
+      active,
+      trial,
+      canceled: Math.max(0, canceled),
+      total
+    };
   }
 
   // Session store setup
