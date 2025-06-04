@@ -999,87 +999,71 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', requireAdmin, (req, res, next) => {
-  console.log('Voice upload route hit');
-  console.log('Content-Type:', req.headers['content-type']);
+app.post('/api/admin/upload-voice', upload.single('voiceFile'), requireAdmin, async (req, res) => {
+  try {
+    console.log('Voice upload route hit');
+    console.log('Content-Type:', req.headers['content-type']);
+    console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
+    console.log('Request body:', req.body);
 
-  // Apply multer middleware first
-  upload.single('voiceFile')(req, res, async (err) => {
-    console.log('Processing voice upload - Headers:', req.headers);
-    console.log('Processing voice upload - Body keys:', Object.keys(req.body || {}));
+    if (!req.file) {
+      return res.status(400).json({ error: 'No audio file uploaded' });
+    }
+
+    const { voiceName, description } = req.body;
+    if (!voiceName) {
+      return res.status(400).json({ error: 'Voice name is required' });
+    }
+
+    // Get file extension
+    const fileExtension = req.file.originalname.split('.').pop() || 'mp3';
+
+    // Write the buffer to a temporary file since ElevenLabs expects a file path
+    const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${fileExtension}`);
+
+    // Ensure cache directory exists
+    const cacheDir = path.join(process.cwd(), '.cache');
+    if (!fs.existsSync(cacheDir)) {
+      fs.mkdirSync(cacheDir, { recursive: true });
+    }
+
+    // Write buffer to temporary file
+    fs.writeFileSync(tempFilePath, req.file.buffer);
+    console.log('Temporary file written:', tempFilePath);
+
+    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+    const voiceId = await voiceCloningService.createVoiceClone(
+      tempFilePath,
+      voiceName,
+      description || 'Custom meditation voice'
+    );
+
+    // Clean up temporary file
+    if (fs.existsSync(tempFilePath)) {
+      fs.unlinkSync(tempFilePath);
+      console.log('Temporary file cleaned up');
+    }
+
+    console.log('Voice clone created successfully:', voiceId);
     
-    if (err) {
-      console.error('Multer error:', err);
-      if (err.code === 'LIMIT_FILE_SIZE') {
-        return res.status(400).json({ error: 'File too large. Maximum size is 50MB.' });
-      }
-      return res.status(400).json({ error: 'File upload error', details: err.message });
-    }
-
-    try {
-      console.log('Voice upload request processed by multer');
-      console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
-      console.log('Request body:', req.body);
-
-      if (!req.file) {
-        return res.status(400).json({ error: 'No audio file uploaded' });
-      }
-
-      const { voiceName, description } = req.body;
-      if (!voiceName) {
-        return res.status(400).json({ error: 'Voice name is required' });
-      }
-
-      // Get file extension
-      const fileExtension = req.file.originalname.split('.').pop() || 'mp3';
-
-      // Write the buffer to a temporary file since ElevenLabs expects a file path
-      const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${fileExtension}`);
-
-      // Ensure cache directory exists
-      const cacheDir = path.join(process.cwd(), '.cache');
-      if (!fs.existsSync(cacheDir)) {
-        fs.mkdirSync(cacheDir, { recursive: true });
-      }
-
-      // Write buffer to temporary file
-      fs.writeFileSync(tempFilePath, req.file.buffer);
-      console.log('Temporary file written:', tempFilePath);
-
-      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-      const voiceId = await voiceCloningService.createVoiceClone(
-        tempFilePath,
-        voiceName,
-        description || 'Custom meditation voice'
-      );
-
-      // Clean up temporary file
-      if (fs.existsSync(tempFilePath)) {
-        fs.unlinkSync(tempFilePath);
-        console.log('Temporary file cleaned up');
-      }
-
-      console.log('Voice clone created successfully:', voiceId);
-      
-      // Ensure JSON response
-      res.setHeader('Content-Type', 'application/json');
-      return res.json({ 
-        success: true,
-        voiceId, 
-        name: voiceName 
-      });
-    } catch (error) {
-      console.error('Error uploading voice:', error);
-      
-      // Ensure JSON response for errors too
-      res.setHeader('Content-Type', 'application/json');
-      return res.status(500).json({ 
-        success: false,
-        error: 'Failed to create voice clone', 
-        details: error instanceof Error ? error.message : 'Unknown error' 
-      });
-    }
-  });
+    // Ensure JSON response
+    res.setHeader('Content-Type', 'application/json');
+    return res.json({ 
+      success: true,
+      voiceId, 
+      name: voiceName 
+    });
+  } catch (error) {
+    console.error('Error uploading voice:', error);
+    
+    // Ensure JSON response for errors too
+    res.setHeader('Content-Type', 'application/json');
+    return res.status(500).json({ 
+      success: false,
+      error: 'Failed to create voice clone', 
+      details: error instanceof Error ? error.message : 'Unknown error' 
+    });
+  }
 });
 
 app.get('/api/admin/voices', requireAdmin, async (req, res) => {
