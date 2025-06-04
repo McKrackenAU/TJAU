@@ -1,6 +1,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import FormData from 'form-data';
 
 interface VoiceCloneResponse {
   voice_id: string;
@@ -36,7 +37,6 @@ class VoiceCloningService {
       console.log('Audio file path:', audioFilePath);
 
       // Use form-data package for Node.js multipart/form-data
-      const FormData = require('form-data');
       const formData = new FormData();
       
       // Add the required fields
@@ -61,7 +61,7 @@ class VoiceCloningService {
           'xi-api-key': this.apiKey,
           ...formData.getHeaders()
         },
-        body: formData,
+        body: formData as any,
       });
 
       console.log('ElevenLabs response status:', response.status);
@@ -143,6 +143,11 @@ class VoiceCloningService {
       console.error('Error fetching voices:', error);
       throw error;
     }
+  }
+
+  // Alias for getVoices to match the expected method name
+  async getAvailableVoices(): Promise<any[]> {
+    return this.getVoices();
   }
 
   // Delete a voice
