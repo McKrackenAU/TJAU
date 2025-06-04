@@ -112,12 +112,7 @@ export default function AdminDashboard() {
         </TabsContent>
 
         <TabsContent value="system">
-          <div className="p-12 text-center">
-            <h2 className="text-xl font-semibold">System Status Coming Soon</h2>
-            <p className="text-muted-foreground mt-2">
-              This section will display system health metrics, database status, and cache information.
-            </p>
-          </div>
+          <SystemStatusDashboard />
         </TabsContent>
 
         <TabsContent value="voices">
