@@ -35,12 +35,9 @@ class VoiceCloningService {
       console.log('Description:', description);
       console.log('Audio file path:', audioFilePath);
 
-      // Use browser-compatible FormData instead of form-data package
+      // Use form-data package for Node.js multipart/form-data
+      const FormData = require('form-data');
       const formData = new FormData();
-      
-      // Read the file and create a Blob
-      const fileBuffer = fs.readFileSync(audioFilePath);
-      const fileBlob = new Blob([fileBuffer], { type: 'audio/mpeg' });
       
       // Add the required fields
       formData.append('name', voiceName);
@@ -50,8 +47,11 @@ class VoiceCloningService {
         formData.append('description', description.trim());
       }
       
-      // Add the audio file as a Blob
-      formData.append('files', fileBlob, path.basename(audioFilePath));
+      // Add the audio file directly from file system
+      formData.append('files', fs.createReadStream(audioFilePath), {
+        filename: path.basename(audioFilePath),
+        contentType: 'audio/mpeg'
+      });
 
       console.log('Sending request to ElevenLabs voice creation endpoint...');
       
@@ -59,7 +59,7 @@ class VoiceCloningService {
         method: 'POST',
         headers: {
           'xi-api-key': this.apiKey,
-          // Don't set Content-Type header - let FormData set it with boundary
+          ...formData.getHeaders()
         },
         body: formData,
       });
