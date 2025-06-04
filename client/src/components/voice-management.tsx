@@ -25,11 +25,13 @@ export default function VoiceManagement() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const { data: voicesData, isLoading } = useQuery({
+  const { data: voicesData, isLoading, refetch } = useQuery({
     queryKey: ['/api/admin/voices'],
     queryFn: async () => {
       const res = await apiRequest("GET", "/api/admin/voices");
-      return res.json();
+      const data = await res.json();
+      console.log('Voices data received:', data);
+      return data;
     }
   });
 
@@ -63,7 +65,7 @@ export default function VoiceManagement() {
         throw new Error(`Server returned invalid JSON: ${responseText.substring(0, 200)}...`);
       }
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       toast({
         title: "Success",
         description: "Voice uploaded and cloned successfully!"
@@ -72,7 +74,12 @@ export default function VoiceManagement() {
       setVoiceName("");
       setDescription("");
       setIsUploading(false);
-      queryClient.invalidateQueries({ queryKey: ['/api/admin/voices'] });
+      
+      // Force a complete refresh of the voices list
+      await queryClient.invalidateQueries({ queryKey: ['/api/admin/voices'] });
+      await refetch();
+      
+      console.log('Voice upload successful, voices list refreshed');
     },
     onError: (error: Error) => {
       toast({
@@ -248,7 +255,11 @@ export default function VoiceManagement() {
             </div>
           ) : (
             <div className="space-y-3">
-              {voicesData?.voices?.map((voice: Voice) => (
+              {console.log('Rendering voices:', voicesData?.voices?.length || 0, 'voices')}
+              {voicesData?.voices?.length === 0 ? (
+                <p className="text-sm text-muted-foreground">No voices available. Upload a voice to get started.</p>
+              ) : (
+                voicesData?.voices?.map((voice: Voice) => (
                 <div key={voice.voice_id} className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
                     <h4 className="font-medium">{voice.name}</h4>
@@ -275,7 +286,9 @@ export default function VoiceManagement() {
                     )}
                   </div>
                 </div>
-              ))}
+              ))) || (
+                <p className="text-sm text-muted-foreground">No voices available. Upload a voice to get started.</p>
+              )}
             </div>
           )}
         </CardContent>

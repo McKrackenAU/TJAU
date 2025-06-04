@@ -2526,6 +2526,7 @@ export function registerRoutes(app: Express): Server {
       const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
 
       if (subscription.status === 'canceled') {
+        ```text
         // Update user record
         await storage.updateUserSubscription(user.id, {
           isSubscribed: false,
@@ -2569,6 +2570,116 @@ export function registerRoutes(app: Express): Server {
       res.status(500).json({ 
         error: "Error canceling subscription", 
         message: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
+  const adminAuth = requireAdmin;
+
+  // Voice upload endpoint
+  app.post('/api/admin/upload-voice', adminAuth, upload.single('voiceFile'), async (req, res) => {
+    try {
+      console.log('Voice upload request received');
+      console.log('File:', req.file ? `${req.file.originalname} (${req.file.size} bytes)` : 'No file');
+      console.log('Body:', req.body);
+
+      if (!req.file) {
+        return res.status(400).json({ error: 'No voice file uploaded' });
+      }
+
+      const { voiceName, description } = req.body;
+      if (!voiceName || !voiceName.trim()) {
+        return res.status(400).json({ error: 'Voice name is required' });
+      }
+
+      // Check if ElevenLabs API key is configured
+      if (!process.env.ELEVENLABS_API_KEY) {
+        return res.status(500).json({ error: 'ElevenLabs API key not configured' });
+      }
+
+      // Save the uploaded file temporarily
+      const fs = await import('fs');
+      const path = await import('path');
+
+      const tempDir = path.join(process.cwd(), '.cache', 'temp');
+      await fs.promises.mkdir(tempDir, { recursive: true });
+
+      const tempFilePath = path.join(tempDir, `voice_${Date.now()}_${req.file.originalname}`);
+      await fs.promises.writeFile(tempFilePath, req.file.buffer);
+
+      console.log(`Temporary file saved: ${tempFilePath}`);
+
+      try {
+        // Import and use the voice cloning service
+        const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+        const voiceId = await voiceCloningService.createVoiceClone(
+          tempFilePath,
+          voiceName.trim(),
+          description?.trim() || ''
+        );
+
+        // Clean up temporary file
+        await fs.promises.unlink(tempFilePath);
+
+        if (voiceId) {
+          console.log(`Voice cloned successfully with ID: ${voiceId}`);
+          res.json({ 
+            success: true, 
+            voiceId,
+            message: 'Voice uploaded and cloned successfully!' 
+          });
+        } else {
+          throw new Error('Voice cloning failed - no voice ID returned');
+        }
+      } catch (voiceError) {
+        // Clean up temporary file on error
+        try {
+          await fs.promises.unlink(tempFilePath);
+        } catch (cleanupError) {
+          console.error('Error cleaning up temp file:', cleanupError);
+        }
+        throw voiceError;
+      }
+    } catch (error) {
+      console.error('Voice upload error:', error);
+      res.status(500).json({
+        error: 'Failed to upload and clone voice',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Get all voices for admin panel
+  app.get('/api/admin/voices', adminAuth, async (req, res) => {
+    try {
+      console.log('Fetching voices from ElevenLabs...');
+
+      if (!process.env.ELEVENLABS_API_KEY) {
+        console.error('ElevenLabs API key not configured');
+        return res.status(500).json({ 
+          error: 'ElevenLabs API key not configured',
+          voices: []
+        });
+      }
+
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      const voices = await voiceCloningService.getVoices();
+
+      console.log(`Retrieved ${voices.length} voices from ElevenLabs`);
+      console.log('Voice details:', voices.map(v => ({ 
+        id: v.voice_id, 
+        name: v.name, 
+        category: v.category || 'unknown',
+        preview_url: v.preview_url || null
+      })));
+
+      res.json({ voices });
+    } catch (error) {
+      console.error('Error fetching voices:', error);
+      res.status(500).json({ 
+        error: 'Failed to fetch voices',
+        details: error instanceof Error ? error.message : 'Unknown error',
+        voices: []
       });
     }
   });
