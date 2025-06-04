@@ -999,8 +999,12 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', upload.single('voiceFile'), async (req, res) => {
+app.post('/api/admin/upload-voice', requireAdmin, upload.single('voiceFile'), async (req, res) => {
   try {
+    console.log('Voice upload request received');
+    console.log('Request file:', req.file ? 'File present' : 'No file');
+    console.log('Request body:', req.body);
+
     if (!req.file) {
       return res.status(400).json({ error: 'No audio file uploaded' });
     }
@@ -1010,20 +1014,35 @@ app.post('/api/admin/upload-voice', upload.single('voiceFile'), async (req, res)
       return res.status(400).json({ error: 'Voice name is required' });
     }
 
+    // Write the buffer to a temporary file since ElevenLabs expects a file path
+    const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${req.file.originalname.split('.').pop()}`);
+    
+    // Ensure cache directory exists
+    const cacheDir = path.join(process.cwd(), '.cache');
+    if (!fs.existsSync(cacheDir)) {
+      fs.mkdirSync(cacheDir, { recursive: true });
+    }
+
+    // Write buffer to temporary file
+    fs.writeFileSync(tempFilePath, req.file.buffer);
+
     const { voiceCloningService } = await import('./services/voice-cloning-service.js');
     const voiceId = await voiceCloningService.createVoiceClone(
-      req.file.path,
+      tempFilePath,
       voiceName,
       description || 'Custom meditation voice'
     );
 
-    // Clean up uploaded file
-    fs.unlinkSync(req.file.path);
+    // Clean up temporary file
+    if (fs.existsSync(tempFilePath)) {
+      fs.unlinkSync(tempFilePath);
+    }
 
+    console.log('Voice clone created successfully:', voiceId);
     res.json({ voiceId, name: voiceName });
   } catch (error) {
     console.error('Error uploading voice:', error);
-    res.status(500).json({ error: 'Failed to create voice clone' });
+    res.status(500).json({ error: 'Failed to create voice clone', details: error.message });
   }
 });
 
@@ -1229,11 +1248,11 @@ app.post('/api/admin/set-meditation-voice', async (req, res) => {
     }
   });
 
-  // Set up multer for both Excel and image uploads
+  // Set up multer for Excel, image, and voice uploads
   const upload = multer({
     storage: multer.memoryStorage(), // Use memory storage to preserve quality
     limits: {
-      fileSize: 10 * 1024 * 1024 // 10MB limit for high quality images
+      fileSize: 10 * 1024 * 1024 // 10MB limit for high quality files
     },
     fileFilter: (req, file, cb) => {
       if (file.fieldname === 'file') {
@@ -1247,6 +1266,10 @@ app.post('/api/admin/set-meditation-voice', async (req, res) => {
         // Image files
         const validImageTypes = ['image/jpeg', 'image/png', 'image/webp'];
         cb(null, validImageTypes.includes(file.mimetype));
+      } else if (file.fieldname === 'voiceFile') {
+        // Audio files for voice cloning
+        const validAudioTypes = ['audio/wav', 'audio/mp3', 'audio/mpeg', 'audio/m4a', 'audio/mp4'];
+        cb(null, validAudioTypes.includes(file.mimetype));
       } else {
         cb(null, false);
       }
