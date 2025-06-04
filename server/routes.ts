@@ -1005,6 +1005,9 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
 
   // Apply multer middleware first
   upload.single('voiceFile')(req, res, async (err) => {
+    console.log('Processing voice upload - Headers:', req.headers);
+    console.log('Processing voice upload - Body keys:', Object.keys(req.body || {}));
+    
     if (err) {
       console.error('Multer error:', err);
       if (err.code === 'LIMIT_FILE_SIZE') {
@@ -1062,9 +1065,11 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
       }
 
       console.log('Voice clone created successfully:', voiceId);
+      res.setHeader('Content-Type', 'application/json');
       res.json({ voiceId, name: voiceName });
     } catch (error) {
       console.error('Error uploading voice:', error);
+      res.setHeader('Content-Type', 'application/json');
       res.status(500).json({ error: 'Failed to create voice clone', details: error.message });
     }
   });

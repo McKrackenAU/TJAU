@@ -41,9 +41,23 @@ export default function VoiceManagement() {
         credentials: 'include'
       });
       
+      // Check if response is actually JSON
+      const contentType = res.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await res.text();
+        console.error('Non-JSON response:', text);
+        throw new Error('Server returned non-JSON response');
+      }
+      
       if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.error || 'Upload failed');
+        let errorMessage = 'Upload failed';
+        try {
+          const error = await res.json();
+          errorMessage = error.error || errorMessage;
+        } catch (parseError) {
+          console.error('Failed to parse error response:', parseError);
+        }
+        throw new Error(errorMessage);
       }
       
       return res.json();
