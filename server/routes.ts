@@ -1350,6 +1350,67 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Generate speech with Josie voice for all voice features
+  app.post("/api/generate-speech", async (req, res) => {
+    try {
+      const { text, speed = 1.0 } = req.body;
+      
+      if (!text) {
+        return res.status(400).json({ error: "Text is required" });
+      }
+      
+      console.log("=== GENERATING SPEECH WITH JOSIE VOICE ===");
+      console.log("Text length:", text.length);
+      console.log("Speed:", speed);
+      
+      const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
+      
+      if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
+        try {
+          const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+          
+          // Adjust stability and similarity based on speed
+          const stability = speed > 1.0 ? 0.7 : 0.8;
+          const similarity = 0.9;
+          
+          const audioBuffer = await voiceCloningService.generateSpeech(
+            text, 
+            customVoiceId,
+            stability,
+            similarity
+          );
+          
+          console.log("=== SPEECH GENERATION SUCCESSFUL ===");
+          console.log("Audio buffer size:", audioBuffer.length);
+          
+          res.set({
+            'Content-Type': 'audio/mpeg',
+            'Content-Length': audioBuffer.length.toString(),
+            'Cache-Control': 'no-cache'
+          });
+          
+          res.send(audioBuffer);
+          return;
+          
+        } catch (error) {
+          console.error("=== CUSTOM VOICE GENERATION FAILED ===");
+          console.error("Error details:", error);
+          return res.status(500).json({ error: "Speech generation failed" });
+        }
+      } else {
+        console.error("ElevenLabs API key or voice ID not configured");
+        return res.status(500).json({ error: "Voice service not configured" });
+      }
+      
+    } catch (error) {
+      console.error("Error generating speech:", error);
+      res.status(500).json({
+        error: "Failed to generate speech",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   // Set meditation voice
   app.post("/api/admin/set-meditation-voice", requireAdmin, async (req, res) => {
     try {

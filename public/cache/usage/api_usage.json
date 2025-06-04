@@ -2888,5 +2888,45 @@
     "cardId": "p7",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-04T10:32:33.357Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "pn",
+    "cardName": "Knight of Pentacles",
+    "timestamp": "2025-06-04T10:36:55.858Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "pn",
+    "cardName": "Knight of Pentacles",
+    "timestamp": "2025-06-04T10:37:31.338Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_358",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T10:38:34.309Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "imported_358",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T10:39:19.367Z"
   }
 ]

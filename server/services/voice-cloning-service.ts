@@ -100,7 +100,7 @@ class VoiceCloningService {
         },
         body: JSON.stringify({
           text: text,
-          model_id: 'eleven_multilingual_v2',
+          model_id: 'eleven_turbo_v2', // Faster model for better performance
           voice_settings: {
             stability: stability,
             similarity_boost: similarity,

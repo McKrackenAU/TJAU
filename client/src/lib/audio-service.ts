@@ -135,8 +135,64 @@ export class AudioService {
     }
   }
 
-  public speak(text: string, onEnd?: () => void): void {
+  public async speak(text: string, onEnd?: () => void): Promise<void> {
+    try {
+      // Stop any ongoing speech
+      this.stopSpeech();
+      
+      console.log("Generating speech with Josie voice via server");
+      
+      // Generate speech using server endpoint with Josie voice
+      const response = await fetch('/api/generate-speech', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          text: text,
+          speed: this.rate
+        })
+      });
+      
+      if (!response.ok) {
+        console.error("Server speech generation failed, falling back to browser synthesis");
+        this.fallbackToSpeechSynthesis(text, onEnd);
+        return;
+      }
+      
+      const audioBuffer = await response.arrayBuffer();
+      const audioUrl = URL.createObjectURL(new Blob([audioBuffer], { type: 'audio/mpeg' }));
+      
+      // Create audio element and play
+      const audio = new Audio(audioUrl);
+      audio.volume = this.volume;
+      
+      audio.onended = () => {
+        URL.revokeObjectURL(audioUrl);
+        this.isPlaying = false;
+        if (onEnd) onEnd();
+      };
+      
+      audio.onerror = () => {
+        console.error("Audio playback failed, falling back to browser synthesis");
+        URL.revokeObjectURL(audioUrl);
+        this.fallbackToSpeechSynthesis(text, onEnd);
+      };
+      
+      await audio.play();
+      this.isPlaying = true;
+      
+    } catch (error) {
+      console.error("Error with server speech generation:", error);
+      this.fallbackToSpeechSynthesis(text, onEnd);
+    }
+  }
+  
+  private fallbackToSpeechSynthesis(text: string, onEnd?: () => void): void {
     if (!this.speechSynthesis) return;
+    
+    console.log("Using fallback browser speech synthesis");
     
     // Clear any ongoing speech
     this.speechSynthesis.cancel();
