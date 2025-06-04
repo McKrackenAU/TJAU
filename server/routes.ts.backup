@@ -2526,6 +2526,7 @@ export function registerRoutes(app: Express): Server {
       const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
 
       if (subscription.status === 'canceled') {
+        ```text
         // Update user record
         await storage.updateUserSubscription(user.id, {
           isSubscribed: false,
