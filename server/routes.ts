@@ -997,120 +997,6 @@ export function registerRoutes(app: Express): Server {
       const userId = req.user!.id;
       const entries = await storage.getJournalEntriesByCard(userId, req.params.cardId);
       res.json(entries);
-
-// Voice management endpoints
-app.post('/api/admin/upload-voice', upload.single('voiceFile'), requireAdmin, async (req, res) => {
-  try {
-    console.log('Voice upload route hit');
-    console.log('Content-Type:', req.headers['content-type']);
-    console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
-    console.log('Request body:', req.body);
-
-    if (!req.file) {
-      return res.status(400).json({ error: 'No audio file uploaded' });
-    }
-
-    const { voiceName, description } = req.body;
-    if (!voiceName) {
-      return res.status(400).json({ error: 'Voice name is required' });
-    }
-
-    // Get file extension
-    const fileExtension = req.file.originalname.split('.').pop() || 'mp3';
-
-    // Write the buffer to a temporary file since ElevenLabs expects a file path
-    const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${fileExtension}`);
-
-    // Ensure cache directory exists
-    const cacheDir = path.join(process.cwd(), '.cache');
-    if (!fs.existsSync(cacheDir)) {
-      fs.mkdirSync(cacheDir, { recursive: true });
-    }
-
-    // Write buffer to temporary file
-    fs.writeFileSync(tempFilePath, req.file.buffer);
-    console.log('Temporary file written:', tempFilePath);
-
-    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-    const voiceId = await voiceCloningService.createVoiceClone(
-      tempFilePath,
-      voiceName,
-      description || 'Custom meditation voice'
-    );
-
-    // Clean up temporary file
-    if (fs.existsSync(tempFilePath)) {
-      fs.unlinkSync(tempFilePath);
-      console.log('Temporary file cleaned up');
-    }
-
-    console.log('Voice clone created successfully:', voiceId);
-    
-    // Ensure JSON response
-    res.setHeader('Content-Type', 'application/json');
-    return res.json({ 
-      success: true,
-      voiceId, 
-      name: voiceName 
-    });
-  } catch (error) {
-    console.error('Error uploading voice:', error);
-    
-    // Ensure JSON response for errors too
-    res.setHeader('Content-Type', 'application/json');
-    return res.status(500).json({ 
-      success: false,
-      error: 'Failed to create voice clone', 
-      details: error instanceof Error ? error.message : 'Unknown error' 
-    });
-  }
-});
-
-app.get('/api/admin/voices', requireAdmin, async (req, res) => {
-  try {
-    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-    const voices = await voiceCloningService.getVoices();
-    res.json({ voices });
-  } catch (error) {
-    console.error('Error fetching voices:', error);
-    res.status(500).json({ error: 'Failed to fetch voices' });
-  }
-});
-
-app.delete('/api/admin/voices/:voiceId', requireAdmin, async (req, res) => {
-  try {
-    const { voiceId } = req.params;
-    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-    const success = await voiceCloningService.deleteVoice(voiceId);
-
-    if (success) {
-      res.json({ message: 'Voice deleted successfully' });
-    } else {
-      res.status(500).json({ error: 'Failed to delete voice' });
-    }
-  } catch (error) {
-    console.error('Error deleting voice:', error);
-    res.status(500).json({ error: 'Failed to delete voice' });
-  }
-});
-
-app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
-  try {
-    const { voiceId } = req.body;
-    if (!voiceId) {
-      return res.status(400).json({ error: 'Voice ID is required' });
-    }
-
-    // Store the voice ID in environment or database
-    // For now, we'll just return success - you can store this in your database
-    res.json({ message: 'Meditation voice updated successfully', voiceId });
-  } catch (error) {
-    console.error('Error setting meditation voice:', error);
-    res.status(500).json({ error: 'Failed to set meditation voice' });
-  }
-});
-
-
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
     }
@@ -1729,7 +1615,7 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
             practicalGuidance: angelNumber.practicalGuidance
           });
         }
-        console.log(`Seeded ${angelNumbersData.length} angel numbers to database`);
+        console.log(`Seeded ${angelNumbersData.length} angel numbers todatabase`);
       }
 
       // Get the angel numbers from the database
