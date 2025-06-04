@@ -39,7 +39,7 @@ class VoiceCloningService {
       // Use form-data package for Node.js multipart/form-data
       const formData = new FormData();
       
-      // Add the required fields
+      // Add the required fields according to ElevenLabs API
       formData.append('name', voiceName);
       
       // Add description if provided
@@ -47,11 +47,21 @@ class VoiceCloningService {
         formData.append('description', description.trim());
       }
       
-      // Add the audio file directly from file system
-      formData.append('files', fs.createReadStream(audioFilePath), {
+      // ElevenLabs expects "files" field with proper file stream
+      const fileStream = fs.createReadStream(audioFilePath);
+      formData.append('files', fileStream, {
         filename: path.basename(audioFilePath),
-        contentType: 'audio/mpeg'
+        contentType: 'audio/mpeg',
+        knownLength: fs.statSync(audioFilePath).size
       });
+      
+      // Add labels field (required by ElevenLabs)
+      formData.append('labels', JSON.stringify({
+        "accent": "american",
+        "age": "middle_aged", 
+        "gender": "female",
+        "descriptive": "clear"
+      }));
 
       console.log('Sending request to ElevenLabs voice creation endpoint...');
       
