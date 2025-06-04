@@ -2743,6 +2743,99 @@ export function registerRoutes(app: Express): Server {
     return handleAppStorePurchaseVerification(req, res);
   });
 
+  // Voice management endpoints
+app.post('/api/admin/upload-voice', upload.single('voiceFile'), requireAdmin, async (req, res) => {
+  console.log('=== VOICE UPLOAD ROUTE START ===');
+  console.log('Request URL:', req.url);
+  console.log('Request method:', req.method);
+  console.log('Content-Type:', req.headers['content-type']);
+  console.log('User authenticated:', req.isAuthenticated());
+  console.log('User admin status:', req.user?.isAdmin);
+  console.log('Request file:', req.file ? `File present: ${req.file.originalname}, size: ${req.file.size}` : 'No file');
+  console.log('Request body keys:', Object.keys(req.body || {}));
+  console.log('Request body:', req.body);
+
+  // Set JSON response headers immediately
+  res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-cache');
+
+  try {
+    if (!req.file) {
+      console.log('ERROR: No file uploaded');
+      return res.status(400).json({ 
+        success: false,
+        error: 'No audio file uploaded' 
+      });
+    }
+
+    const { voiceName, description } = req.body;
+    if (!voiceName) {
+      console.log('ERROR: No voice name provided');
+      return res.status(400).json({ 
+        success: false,
+        error: 'Voice name is required' 
+      });
+    }
+
+    console.log('Processing voice upload for:', voiceName);
+
+    // Get file extension
+    const fileExtension = req.file.originalname.split('.').pop() || 'mp3';
+
+    // Write the buffer to a temporary file since ElevenLabs expects a file path
+    const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${fileExtension}`);
+
+    // Ensure cache directory exists
+    const cacheDir = path.join(process.cwd(), '.cache');
+    if (!fs.existsSync(cacheDir)) {
+      fs.mkdirSync(cacheDir, { recursive: true });
+    }
+
+    // Write buffer to temporary file
+    fs.writeFileSync(tempFilePath, req.file.buffer);
+    console.log('Temporary file written:', tempFilePath);
+
+    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+    const voiceId = await voiceCloningService.createVoiceClone(
+      tempFilePath,
+      voiceName,
+      description || 'Custom meditation voice'
+    );
+
+    // Clean up temporary file
+    if (fs.existsSync(tempFilePath)) {
+      fs.unlinkSync(tempFilePath);
+      console.log('Temporary file cleaned up');
+    }
+
+    console.log('Voice clone created successfully:', voiceId);
+
+    const response = { 
+      success: true,
+      voiceId, 
+      name: voiceName 
+    };
+
+    console.log('Sending successful response:', response);
+    console.log('=== VOICE UPLOAD ROUTE END (SUCCESS) ===');
+
+    return res.json(response);
+  } catch (error) {
+    console.error('Error uploading voice:', error);
+
+    const errorResponse = { 
+      success: false,
+      error: 'Failed to create voice clone', 
+      details: error instanceof Error ? error.message : 'Unknown error' 
+    };
+
+    console.log('Sending error response:', errorResponse);
+    console.log('=== VOICE UPLOAD ROUTE END (ERROR) ===');
+
+    return res.status(500).json(errorResponse);
+  }
+});
+
   const httpServer = createServer(app);
   return httpServer;
 }

@@ -1,4 +1,7 @@
+` tags.
 
+```python
+<replit_final_file>
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -40,18 +43,18 @@ export default function VoiceManagement() {
         body: formData,
         credentials: 'include'
       });
-      
+
       console.log('Response status:', res.status);
       console.log('Response headers:', Object.fromEntries(res.headers.entries()));
-      
+
       // Get the response text first
       const responseText = await res.text();
       console.log('Raw response:', responseText);
-      
+
       if (!res.ok) {
         throw new Error(`Upload failed with status ${res.status}: ${responseText}`);
       }
-      
+
       // Try to parse as JSON
       try {
         const jsonData = JSON.parse(responseText);
