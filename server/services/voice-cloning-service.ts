@@ -31,26 +31,46 @@ class VoiceCloningService {
     }
 
     try {
-      const formData = new FormData();
-      formData.append('name', voiceName);
-      formData.append('description', description);
-      formData.append('files', fs.createReadStream(audioFilePath));
+      console.log('Creating voice clone with ElevenLabs API...');
+      console.log('Voice name:', voiceName);
+      console.log('Description:', description);
+      console.log('Audio file path:', audioFilePath);
 
+      const formData = new FormData();
+      
+      // Add the required name field
+      formData.append('name', voiceName);
+      
+      // Add description if provided
+      if (description && description.trim()) {
+        formData.append('description', description.trim());
+      }
+      
+      // Add the audio file
+      const fileStream = fs.createReadStream(audioFilePath);
+      formData.append('files', fileStream);
+
+      console.log('Sending request to ElevenLabs voice creation endpoint...');
+      
       const response = await fetch(`${this.baseUrl}/voices/add`, {
         method: 'POST',
         headers: {
           'xi-api-key': this.apiKey,
+          // Don't set Content-Type header - let FormData set it with boundary
         },
         body: formData,
       });
 
+      console.log('ElevenLabs response status:', response.status);
+      
       if (!response.ok) {
         const errorData = await response.text();
+        console.error('ElevenLabs API error response:', errorData);
         throw new Error(`ElevenLabs API error: ${response.status} - ${errorData}`);
       }
 
       const data: VoiceCloneResponse = await response.json();
-      console.log(`Voice clone created successfully: ${data.voice_id}`);
+      console.log(`Voice clone created successfully:`, data);
       return data.voice_id;
     } catch (error) {
       console.error('Error creating voice clone:', error);
