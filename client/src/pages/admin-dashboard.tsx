@@ -7,6 +7,8 @@ import { Redirect, Link } from 'wouter';
 import { Loader2, Upload, Image, Settings } from 'lucide-react';
 import ApiUsageDashboard from '@/components/api-usage-dashboard';
 import { toast } from '@/hooks/use-toast';
+import VoiceManagement from "@/components/voice-management";
+import { Mail, Users, Calendar, BarChart, Mic } from "lucide-react";
 
 export default function AdminDashboard() {
   const { user, isLoading } = useAuth();
@@ -43,7 +45,7 @@ export default function AdminDashboard() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
-      
+
       {/* Quick Actions Section */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Quick Actions</h2>
@@ -67,7 +69,7 @@ export default function AdminDashboard() {
               </Link>
             </CardContent>
           </Card>
-          
+
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -96,12 +98,13 @@ export default function AdminDashboard() {
           <TabsTrigger value="api-usage">API Usage & Costs</TabsTrigger>
           <TabsTrigger value="users">User Management</TabsTrigger>
           <TabsTrigger value="system">System Status</TabsTrigger>
+          <TabsTrigger value="voices">Voices</TabsTrigger>
         </TabsList>
-        
+
         <TabsContent value="api-usage">
           <ApiUsageDashboard />
         </TabsContent>
-        
+
         <TabsContent value="users">
           <div className="p-12 text-center">
             <h2 className="text-xl font-semibold">User Management Coming Soon</h2>
@@ -110,7 +113,7 @@ export default function AdminDashboard() {
             </p>
           </div>
         </TabsContent>
-        
+
         <TabsContent value="system">
           <div className="p-12 text-center">
             <h2 className="text-xl font-semibold">System Status Coming Soon</h2>
@@ -118,6 +121,10 @@ export default function AdminDashboard() {
               This section will display system health metrics, database status, and cache information.
             </p>
           </div>
+        </TabsContent>
+
+        <TabsContent value="voices">
+          <VoiceManagement />
         </TabsContent>
       </Tabs>
     </div>

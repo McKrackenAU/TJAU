@@ -189,30 +189,80 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     console.log("Meditation script generated successfully");
     const meditationText = scriptResponse.choices[0].message.content || "";
 
-    // Generate voice audio with much slower settings for a deeply meditative pacing
+    // Generate voice audio with custom voice or fallback to OpenAI
     console.log("Generating audio from meditation script");
     
-    // Track API usage for TTS
-    apiUsageTracker.trackUsage({
-      endpoint: '/api/cards/:id/meditation',
-      model: "tts-1",
-      operation: 'audio.speech',
-      status: 'success',
-      estimatedCost: API_COSTS["tts-1"]['audio.speech'],
-      cardId: card.id,
-      cardName: card.name
-    });
+    let audioBuffer: Buffer;
     
-    const audioResponse = await openai.audio.speech.create({
-      model: "tts-1",
-      voice: "nova", // Using a calming voice
-      input: meditationText,
-      response_format: "mp3",
-      speed: 0.75, // Further slowed down for deeper meditative pacing
-    });
+    // Check if custom voice is configured
+    const customVoiceId = process.env.CUSTOM_MEDITATION_VOICE_ID;
+    
+    if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
+      try {
+        console.log("Using custom voice for meditation");
+        const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+        audioBuffer = await voiceCloningService.generateSpeech(
+          meditationText, 
+          customVoiceId,
+          0.8, // Higher stability for meditation
+          0.9  // Higher similarity for authenticity
+        );
+        
+        // Track API usage for ElevenLabs
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/cards/:id/meditation',
+          model: "elevenlabs-custom",
+          operation: 'audio.speech',
+          status: 'success',
+          estimatedCost: 0.18, // ElevenLabs pricing per 1000 characters
+          cardId: card.id,
+          cardName: card.name
+        });
+      } catch (error) {
+        console.error("Custom voice generation failed, falling back to OpenAI:", error);
+        // Fallback to OpenAI
+        const audioResponse = await openai.audio.speech.create({
+          model: "tts-1",
+          voice: "nova",
+          input: meditationText,
+          response_format: "mp3",
+          speed: 0.75,
+        });
+        audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+        
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/cards/:id/meditation',
+          model: "tts-1",
+          operation: 'audio.speech',
+          status: 'success',
+          estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+          cardId: card.id,
+          cardName: card.name
+        });
+      }
+    } else {
+      console.log("Using OpenAI TTS for meditation");
+      const audioResponse = await openai.audio.speech.create({
+        model: "tts-1",
+        voice: "nova",
+        input: meditationText,
+        response_format: "mp3",
+        speed: 0.75,
+      });
+      audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+      
+      apiUsageTracker.trackUsage({
+        endpoint: '/api/cards/:id/meditation',
+        model: "tts-1",
+        operation: 'audio.speech',
+        status: 'success',
+        estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+        cardId: card.id,
+        cardName: card.name
+      });
+    }
 
     console.log("Voice audio generated successfully");
-    const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
     
     // Save the audio file to cache
     const audioFileName = `${cacheKey}.mp3`;

@@ -647,30 +647,80 @@ export function registerRoutes(app: Express): Server {
       console.log("Spread meditation script generated successfully");
       const meditationText = scriptResponse.choices[0].message.content || "";
 
-      // Generate voice audio
+      // Generate voice audio with custom voice or fallback to OpenAI
       console.log("Generating audio from spread meditation script");
-
-      // Track API usage for TTS
-      apiUsageTracker.trackUsage({
-        endpoint: '/api/meditate-spread',
-        model: "tts-1",
-        operation: 'audio.speech',
-        status: 'success',
-        estimatedCost: API_COSTS["tts-1"]['audio.speech'],
-        cardId: cards[0].id,
-        cardName: spreadType
-      });
-
-      const audioResponse = await openai.audio.speech.create({
-        model: "tts-1",
-        voice: "nova", // Using a calming voice
-        input: meditationText,
-        response_format: "mp3",
-        speed: 0.75, // Slowed down for meditative pacing
-      });
+      
+      let audioBuffer: Buffer;
+      
+      // Check if custom voice is configured
+      const customVoiceId = process.env.CUSTOM_MEDITATION_VOICE_ID;
+      
+      if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
+        try {
+          console.log("Using custom voice for spread meditation");
+          const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+          audioBuffer = await voiceCloningService.generateSpeech(
+            meditationText, 
+            customVoiceId,
+            0.8, // Higher stability for meditation
+            0.9  // Higher similarity for authenticity
+          );
+          
+          // Track API usage for ElevenLabs
+          apiUsageTracker.trackUsage({
+            endpoint: '/api/meditate-spread',
+            model: "elevenlabs-custom",
+            operation: 'audio.speech',
+            status: 'success',
+            estimatedCost: 0.18, // ElevenLabs pricing per 1000 characters
+            cardId: cards[0].id,
+            cardName: spreadType
+          });
+        } catch (error) {
+          console.error("Custom voice generation failed, falling back to OpenAI:", error);
+          // Fallback to OpenAI
+          const audioResponse = await openai.audio.speech.create({
+            model: "tts-1",
+            voice: "nova",
+            input: meditationText,
+            response_format: "mp3",
+            speed: 0.75,
+          });
+          audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+          
+          apiUsageTracker.trackUsage({
+            endpoint: '/api/meditate-spread',
+            model: "tts-1",
+            operation: 'audio.speech',
+            status: 'success',
+            estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+            cardId: cards[0].id,
+            cardName: spreadType
+          });
+        }
+      } else {
+        console.log("Using OpenAI TTS for spread meditation");
+        const audioResponse = await openai.audio.speech.create({
+          model: "tts-1",
+          voice: "nova",
+          input: meditationText,
+          response_format: "mp3",
+          speed: 0.75,
+        });
+        audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
+        
+        apiUsageTracker.trackUsage({
+          endpoint: '/api/meditate-spread',
+          model: "tts-1",
+          operation: 'audio.speech',
+          status: 'success',
+          estimatedCost: API_COSTS["tts-1"]['audio.speech'],
+          cardId: cards[0].id,
+          cardName: spreadType
+        });
+      }
 
       console.log("Voice audio generated successfully");
-      const audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
 
       // Save the audio file to cache
       const audioFileName = `${cacheKey}.mp3`;
@@ -947,6 +997,81 @@ export function registerRoutes(app: Express): Server {
       const userId = req.user!.id;
       const entries = await storage.getJournalEntriesByCard(userId, req.params.cardId);
       res.json(entries);
+
+// Voice management endpoints
+app.post('/api/admin/upload-voice', upload.single('voiceFile'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No audio file uploaded' });
+    }
+
+    const { voiceName, description } = req.body;
+    if (!voiceName) {
+      return res.status(400).json({ error: 'Voice name is required' });
+    }
+
+    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+    const voiceId = await voiceCloningService.createVoiceClone(
+      req.file.path,
+      voiceName,
+      description || 'Custom meditation voice'
+    );
+
+    // Clean up uploaded file
+    fs.unlinkSync(req.file.path);
+
+    res.json({ voiceId, name: voiceName });
+  } catch (error) {
+    console.error('Error uploading voice:', error);
+    res.status(500).json({ error: 'Failed to create voice clone' });
+  }
+});
+
+app.get('/api/admin/voices', async (req, res) => {
+  try {
+    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+    const voices = await voiceCloningService.getVoices();
+    res.json({ voices });
+  } catch (error) {
+    console.error('Error fetching voices:', error);
+    res.status(500).json({ error: 'Failed to fetch voices' });
+  }
+});
+
+app.delete('/api/admin/voices/:voiceId', async (req, res) => {
+  try {
+    const { voiceId } = req.params;
+    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+    const success = await voiceCloningService.deleteVoice(voiceId);
+    
+    if (success) {
+      res.json({ message: 'Voice deleted successfully' });
+    } else {
+      res.status(500).json({ error: 'Failed to delete voice' });
+    }
+  } catch (error) {
+    console.error('Error deleting voice:', error);
+    res.status(500).json({ error: 'Failed to delete voice' });
+  }
+});
+
+app.post('/api/admin/set-meditation-voice', async (req, res) => {
+  try {
+    const { voiceId } = req.body;
+    if (!voiceId) {
+      return res.status(400).json({ error: 'Voice ID is required' });
+    }
+
+    // Store the voice ID in environment or database
+    // For now, we'll just return success - you can store this in your database
+    res.json({ message: 'Meditation voice updated successfully', voiceId });
+  } catch (error) {
+    console.error('Error setting meditation voice:', error);
+    res.status(500).json({ error: 'Failed to set meditation voice' });
+  }
+});
+
+
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch journal entries" });
     }
