@@ -1615,8 +1615,7 @@ export function registerRoutes(app: Express): Server {
             practicalGuidance: angelNumber.practicalGuidance
           });
         }
-        ```text
-      console.log(`Seeded ${angelNumbersData.length} angel numbers todatabase`);
+        console.log(`Seeded ${angelNumbersData.length} angel numbers to database`);
       }
 
       // Get the angel numbers from the database
