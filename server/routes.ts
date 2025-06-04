@@ -1219,6 +1219,136 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Voice upload and cloning endpoint
+  app.post("/api/admin/upload-voice", requireAdmin, upload.single('voiceFile'), async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ error: "No voice file uploaded" });
+      }
+
+      const { voiceName, description } = req.body;
+      if (!voiceName || !voiceName.trim()) {
+        return res.status(400).json({ error: "Voice name is required" });
+      }
+
+      console.log("Processing voice upload:", {
+        originalName: req.file.originalname,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+        voiceName: voiceName.trim(),
+        description: description?.trim() || ''
+      });
+
+      // Save the audio file temporarily
+      const tempDir = path.join(process.cwd(), '.temp');
+      await fs.promises.mkdir(tempDir, { recursive: true });
+      
+      const tempFilename = `voice_${Date.now()}_${req.file.originalname}`;
+      const tempFilePath = path.join(tempDir, tempFilename);
+      
+      await fs.promises.writeFile(tempFilePath, req.file.buffer);
+      console.log(`Temporary voice file saved: ${tempFilePath}`);
+
+      // Use the voice cloning service to create the voice
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      const voiceId = await voiceCloningService.createVoiceClone(
+        tempFilePath,
+        voiceName.trim(),
+        description?.trim() || ''
+      );
+
+      // Clean up temporary file
+      try {
+        await fs.promises.unlink(tempFilePath);
+        console.log(`Cleaned up temporary file: ${tempFilePath}`);
+      } catch (cleanupError) {
+        console.warn(`Failed to cleanup temporary file: ${cleanupError}`);
+      }
+
+      if (!voiceId) {
+        return res.status(500).json({ error: "Failed to create voice clone" });
+      }
+
+      console.log(`Voice clone created successfully: ${voiceId}`);
+
+      res.json({
+        success: true,
+        message: `Voice "${voiceName}" uploaded and cloned successfully`,
+        voiceId: voiceId
+      });
+
+    } catch (error) {
+      console.error("Voice upload error:", error);
+      res.status(500).json({
+        error: "Failed to upload and clone voice",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Get available voices
+  app.get("/api/admin/voices", requireAdmin, async (req, res) => {
+    try {
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      const voices = await voiceCloningService.getAvailableVoices();
+      res.json(voices);
+    } catch (error) {
+      console.error("Error fetching voices:", error);
+      res.status(500).json({
+        error: "Failed to fetch voices",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Delete a voice
+  app.delete("/api/admin/voices/:voiceId", requireAdmin, async (req, res) => {
+    try {
+      const { voiceId } = req.params;
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      const success = await voiceCloningService.deleteVoice(voiceId);
+      
+      if (success) {
+        res.json({ success: true, message: "Voice deleted successfully" });
+      } else {
+        res.status(500).json({ error: "Failed to delete voice" });
+      }
+    } catch (error) {
+      console.error("Error deleting voice:", error);
+      res.status(500).json({
+        error: "Failed to delete voice",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
+  // Set meditation voice
+  app.post("/api/admin/set-meditation-voice", requireAdmin, async (req, res) => {
+    try {
+      const { voiceId } = req.body;
+      if (!voiceId) {
+        return res.status(400).json({ error: "Voice ID is required" });
+      }
+
+      // Store the voice ID in environment variable (this would typically be saved to a config file or database)
+      process.env.CUSTOM_MEDITATION_VOICE_ID = voiceId;
+      
+      console.log(`Set meditation voice to: ${voiceId}`);
+      
+      res.json({
+        success: true,
+        message: "Meditation voice updated successfully",
+        voiceId: voiceId
+      });
+    } catch (error) {
+      console.error("Error setting meditation voice:", error);
+      res.status(500).json({
+        error: "Failed to set meditation voice",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   // Card image upload endpoint
   app.post("/api/upload-card-image", upload.single('image'), async (req, res) => {
     try {
