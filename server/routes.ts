@@ -60,19 +60,7 @@ export function registerRoutes(app: Express): Server {
     next();
   });
 
-  // Add broad middleware to catch all requests to identify routing issues
-  app.use((req, res, next) => {
-    if (req.path.includes('login')) {
-      console.log('=== ANY LOGIN-RELATED REQUEST ===');
-      console.log('Method:', req.method);
-      console.log('Path:', req.path);
-      console.log('URL:', req.url);
-      console.log('Headers:', JSON.stringify(req.headers, null, 2));
-      console.log('Body:', JSON.stringify(req.body, null, 2));
-      console.log('================================');
-    }
-    next();
-  });
+
 
   // Set up authentication routes and middleware
   setupAuth(app);
