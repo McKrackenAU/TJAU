@@ -999,7 +999,7 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', (req, res, next) => {
+app.post('/api/admin/upload-voice', requireAdmin, (req, res, next) => {
   console.log('Voice upload route hit');
   console.log('Content-Type:', req.headers['content-type']);
 
@@ -1017,11 +1017,6 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
     }
 
     try {
-      // Check admin authentication after multer processing
-      if (!req.isAuthenticated() || !req.user?.isAdmin) {
-        return res.status(403).json({ error: 'Admin access required' });
-      }
-
       console.log('Voice upload request processed by multer');
       console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
       console.log('Request body:', req.body);
@@ -1066,13 +1061,9 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
 
       console.log('Voice clone created successfully:', voiceId);
       
-      // Clear any existing headers and set clean JSON response
-      res.clearCookie();
-      res.removeHeader('Transfer-Encoding');
-      res.setHeader('Content-Type', 'application/json; charset=utf-8');
-      res.setHeader('Cache-Control', 'no-cache');
-      
-      return res.status(200).json({ 
+      // Ensure JSON response
+      res.setHeader('Content-Type', 'application/json');
+      return res.json({ 
         success: true,
         voiceId, 
         name: voiceName 
@@ -1080,12 +1071,8 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
     } catch (error) {
       console.error('Error uploading voice:', error);
       
-      // Clear any existing headers and set clean JSON response
-      res.clearCookie();
-      res.removeHeader('Transfer-Encoding');
-      res.setHeader('Content-Type', 'application/json; charset=utf-8');
-      res.setHeader('Cache-Control', 'no-cache');
-      
+      // Ensure JSON response for errors too
+      res.setHeader('Content-Type', 'application/json');
       return res.status(500).json({ 
         success: false,
         error: 'Failed to create voice clone', 
