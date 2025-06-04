@@ -2517,3 +2517,62 @@ export function registerRoutes(app: Express): Server {
 
     try {
       const { cancelAtEnd = true } = req.body;
+
+      if (!user.stripeSubscriptionId) {
+        return res.status(400).json({ error: "No active subscription found" });
+      }
+
+      // Retrieve the subscription to check its status
+      const subscription = await stripe.subscriptions.retrieve(user.stripeSubscriptionId);
+
+      if (subscription.status === 'canceled') {
+        // Update user record
+        await storage.updateUserSubscription(user.id, {
+          isSubscribed: false,
+          stripeSubscriptionId: ''
+        });
+
+        return res.json({ 
+          success: true, 
+          message: "Subscription was already canceled" 
+        });
+      }
+
+      if (cancelAtEnd) {
+        // Cancel at end of billing period (recommended)
+        const updatedSubscription = await stripe.subscriptions.update(user.stripeSubscriptionId, {
+          cancel_at_period_end: true
+        });
+
+        res.json({ 
+          success: true, 
+          message: "Subscription will be canceled at the end of the current billing period",
+          currentPeriodEnd: new Date(updatedSubscription.current_period_end * 1000).toISOString()
+        });
+      } else {
+        // Cancel immediately
+        const canceledSubscription = await stripe.subscriptions.cancel(user.stripeSubscriptionId);
+
+        // Update user record
+        await storage.updateUserSubscription(user.id, {
+          isSubscribed: false,
+          stripeSubscriptionId: ''
+        });
+
+        res.json({ 
+          success: true, 
+          message: "Subscription has been canceled immediately" 
+        });
+      }
+    } catch (error) {
+      console.error("Subscription cancellation error:", error);
+      res.status(500).json({ 
+        error: "Error canceling subscription", 
+        message: error instanceof Error ? error.message : "Unknown error" 
+      });
+    }
+  });
+
+  const httpServer = createServer(app);
+  return httpServer;
+}
