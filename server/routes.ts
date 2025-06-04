@@ -2580,7 +2580,7 @@ export function registerRoutes(app: Express): Server {
   app.post('/api/admin/upload-voice', adminAuth, upload.single('voiceFile'), async (req, res) => {
     try {
       console.log('Voice upload request received');
-      console.log('File:', req.file ? `${req.file.originalname} (${req.file.size} bytes)` : 'No file');
+      console.log('File:', req.file ? req.file.originalname + ' (' + req.file.size + ' bytes)' : 'No file');
       console.log('Body:', req.body);
 
       if (!req.file) {
@@ -2604,10 +2604,10 @@ export function registerRoutes(app: Express): Server {
       const tempDir = path.join(process.cwd(), '.cache', 'temp');
       await fs.promises.mkdir(tempDir, { recursive: true });
 
-      const tempFilePath = path.join(tempDir, `voice_${Date.now()}_${req.file.originalname}`);
+      const tempFilePath = path.join(tempDir, 'voice_' + Date.now() + '_' + req.file.originalname);
       await fs.promises.writeFile(tempFilePath, req.file.buffer);
 
-      console.log(`Temporary file saved: ${tempFilePath}`);
+      console.log('Temporary file saved: ' + tempFilePath);
 
       try {
         // Import and use the voice cloning service
