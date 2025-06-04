@@ -206,12 +206,15 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     
     if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
       try {
-        console.log("=== ATTEMPTING CUSTOM VOICE GENERATION ===");
+        console.log("=== ATTEMPTING CUSTOM VOICE GENERATION FOR SINGLE CARD ===");
         console.log("Using custom voice for meditation with voice ID:", customVoiceId);
         console.log("Text length:", meditationText.length);
+        console.log("ElevenLabs API Key exists:", !!process.env.ELEVENLABS_API_KEY);
+        console.log("Card name:", card.name);
+        console.log("Card ID:", card.id);
         
         const { voiceCloningService } = await import('./services/voice-cloning-service');
-        console.log("Voice service imported successfully");
+        console.log("Voice service imported successfully for single card meditation");
         
         audioBuffer = await voiceCloningService.generateSpeech(
           meditationText, 
