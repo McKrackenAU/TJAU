@@ -999,11 +999,11 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', requireAdmin, (req, res, next) => {
+app.post('/api/admin/upload-voice', (req, res, next) => {
   console.log('Voice upload route hit');
   console.log('Content-Type:', req.headers['content-type']);
 
-  // Apply multer middleware
+  // Apply multer middleware first
   upload.single('voiceFile')(req, res, async (err) => {
     if (err) {
       console.error('Multer error:', err);
@@ -1014,6 +1014,11 @@ app.post('/api/admin/upload-voice', requireAdmin, (req, res, next) => {
     }
 
     try {
+      // Check admin authentication after multer processing
+      if (!req.isAuthenticated() || !req.user?.isAdmin) {
+        return res.status(403).json({ error: 'Admin access required' });
+      }
+
       console.log('Voice upload request processed by multer');
       console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
       console.log('Request body:', req.body);
