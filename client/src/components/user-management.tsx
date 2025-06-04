@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Button } from "@/components/ui/button";
@@ -36,11 +36,9 @@ import {
   Search, 
   UserCheck, 
   UserX, 
-  Crown, 
-  CrownIcon,
+  Crown,
   Trash2,
   Shield,
-  ShieldCheck,
   CheckCircle,
   XCircle,
   Filter,
@@ -51,7 +49,6 @@ import {
   Loader2
 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
-import { format } from 'date-fns';
 
 interface User {
   id: number;
@@ -417,7 +414,11 @@ export default function UserManagement() {
                       <TableCell>
                         <div className="flex items-center gap-2">
                           <Calendar className="h-4 w-4 text-muted-foreground" />
-                          {format(new Date(user.createdAt), 'MMM dd, yyyy')}
+                          {new Date(user.createdAt).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
                         </div>
                       </TableCell>
                       <TableCell>
