@@ -159,6 +159,8 @@ export const users = pgTable("users", {
   newsletterSubscribed: boolean("newsletter_subscribed").default(true).notNull(),
   unsubscribeToken: text("unsubscribe_token"),
   hasUsedFreeTrial: boolean("has_used_free_trial").default(false).notNull(),
+  passwordResetToken: text("password_reset_token"),
+  passwordResetExpires: timestamp("password_reset_expires"),
 });
 
 export const insertUserSchema = createInsertSchema(users).omit({
