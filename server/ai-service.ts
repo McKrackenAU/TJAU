@@ -126,8 +126,9 @@ export async function generateMeditation(card: TarotCard): Promise<{
   thetaFrequency: number;
 }> {
   try {
-    // Create a cache key using the card ID
-    const cacheKey = `meditation_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}`;
+    // Create a cache key using the card ID with timestamp to force fresh generation
+    const timestamp = new Date().toISOString().split('T')[0]; // Use date to cache per day
+    const cacheKey = `meditation_${card.id.replace(/[^a-zA-Z0-9]/g, '_')}_${timestamp}`;
     const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
     
     console.log(`Checking cache for card ${card.id} with cache key: ${cacheKey}`);

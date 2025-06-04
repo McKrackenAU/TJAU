@@ -291,7 +291,11 @@ export default function MeditationPlayer({ card }: MeditationPlayerProps) {
       
       if (!audio && data?.audioUrl) {
         console.log("Creating new audio instance");
-        const newAudio = new Audio(data.audioUrl);
+        console.log("Audio URL:", data.audioUrl);
+        // Add cache busting to ensure fresh audio
+        const cacheBustedUrl = `${data.audioUrl}?t=${Date.now()}`;
+        console.log("Cache-busted URL:", cacheBustedUrl);
+        const newAudio = new Audio(cacheBustedUrl);
         newAudio.volume = voiceVolume; 
 
         newAudio.addEventListener('ended', () => {

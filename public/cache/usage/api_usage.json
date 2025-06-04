@@ -2848,5 +2848,45 @@
     "cardId": "imported_324",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-04T10:19:50.023Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-06-04T10:26:20.337Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "s7",
+    "cardName": "Seven of Swords",
+    "timestamp": "2025-06-04T10:26:54.436Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "p7",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T10:31:56.027Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "p7",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T10:32:33.357Z"
   }
 ]
