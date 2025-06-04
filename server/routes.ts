@@ -3006,7 +3006,7 @@ export function registerRoutes(app: Express): Server {
       }
 
       // Generate reset token
-      const resetToken = crypto.randomBytes(32).toString('hex');
+      const resetToken = randomBytes(32).toString('hex');
       const resetExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
 
       await storage.setPasswordResetToken(email, resetToken, resetExpires);

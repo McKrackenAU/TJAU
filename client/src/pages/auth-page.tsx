@@ -35,10 +35,30 @@ const registerSchema = z.object({
   path: ["confirmPassword"],
 });
 
+// Forgot password form schema
+const forgotPasswordSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+});
+
+// Reset password form schema
+const resetPasswordSchema = z.object({
+  token: z.string().min(1, "Reset token is required"),
+  password: z.string()
+    .min(8, "Password must be at least 8 characters")
+    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+    .regex(/[0-9]/, "Password must contain at least one number"),
+  confirmPassword: z.string().min(1, "Please confirm your password"),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
+});
+
 export default function AuthPage() {
   const [activeTab, setActiveTab] = useState<string>("login");
   const [, navigate] = useLocation();
   const { user, loginMutation, registerMutation, isLoading } = useAuth();
+  const [forgotPasswordSent, setForgotPasswordSent] = useState(false);
 
   // Setup login form
   const loginForm = useForm<z.infer<typeof loginSchema>>({
@@ -60,6 +80,14 @@ export default function AuthPage() {
     },
   });
 
+  // Setup forgot password form
+  const forgotPasswordForm = useForm<z.infer<typeof forgotPasswordSchema>>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
+
   // Handle login form submission
   const onLoginSubmit = (data: LoginData) => {
     loginMutation.mutate(data);
@@ -68,6 +96,26 @@ export default function AuthPage() {
   // Handle registration form submission
   const onRegisterSubmit = (data: RegisterData) => {
     registerMutation.mutate(data);
+  };
+
+  // Handle forgot password form submission
+  const onForgotPasswordSubmit = async (data: z.infer<typeof forgotPasswordSchema>) => {
+    try {
+      const response = await fetch('/api/forgot-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      
+      if (response.ok) {
+        setForgotPasswordSent(true);
+      } else {
+        const error = await response.json();
+        console.error('Forgot password error:', error);
+      }
+    } catch (error) {
+      console.error('Forgot password request failed:', error);
+    }
   };
   
   // Use useEffect for redirection when user is logged in
@@ -94,9 +142,10 @@ export default function AuthPage() {
           <h2 className="text-3xl font-bold text-primary mb-2">Tarot Journey</h2>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
               <TabsTrigger value="login">Login</TabsTrigger>
               <TabsTrigger value="register">Register</TabsTrigger>
+              <TabsTrigger value="forgot-password">Reset</TabsTrigger>
             </TabsList>
 
             {/* Login Form */}
@@ -147,6 +196,17 @@ export default function AuthPage() {
                           </>
                         ) : "Sign In"}
                       </Button>
+                      
+                      <div className="text-center mt-4">
+                        <Button 
+                          variant="link" 
+                          className="text-sm text-muted-foreground hover:text-primary"
+                          type="button"
+                          onClick={() => setActiveTab("forgot-password")}
+                        >
+                          Forgot your password?
+                        </Button>
+                      </div>
                     </form>
                   </Form>
                 </CardContent>
@@ -241,6 +301,74 @@ export default function AuthPage() {
                 <div className="flex justify-center p-4 border-t">
                   <TermsDialog />
                 </div>
+              </Card>
+            </TabsContent>
+
+            {/* Forgot Password Form */}
+            <TabsContent value="forgot-password">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Reset Password</CardTitle>
+                  <CardDescription>
+                    Enter your email address and we'll send you a reset link
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  {forgotPasswordSent ? (
+                    <div className="text-center space-y-4">
+                      <div className="h-16 w-16 mx-auto bg-green-100 rounded-full flex items-center justify-center">
+                        <span className="text-2xl text-green-600">✓</span>
+                      </div>
+                      <h3 className="text-lg font-semibold">Check your email</h3>
+                      <p className="text-muted-foreground">
+                        If an account with that email exists, we've sent you a password reset link.
+                      </p>
+                      <Button 
+                        variant="outline" 
+                        onClick={() => {
+                          setActiveTab("login");
+                          setForgotPasswordSent(false);
+                          forgotPasswordForm.reset();
+                        }}
+                      >
+                        Back to Login
+                      </Button>
+                    </div>
+                  ) : (
+                    <Form {...forgotPasswordForm}>
+                      <form onSubmit={forgotPasswordForm.handleSubmit(onForgotPasswordSubmit)} className="space-y-6">
+                        <FormField
+                          control={forgotPasswordForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email Address</FormLabel>
+                              <FormControl>
+                                <Input type="email" placeholder="Enter your email" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+
+                        <Button type="submit" className="w-full">
+                          Send Reset Link
+                        </Button>
+                        
+                        <div className="text-center">
+                          <Button 
+                            variant="link" 
+                            className="text-sm text-muted-foreground hover:text-primary"
+                            type="button"
+                            onClick={() => setActiveTab("login")}
+                          >
+                            Back to Login
+                          </Button>
+                        </div>
+                      </form>
+                    </Form>
+                  )}
+                </CardContent>
               </Card>
             </TabsContent>
           </Tabs>
