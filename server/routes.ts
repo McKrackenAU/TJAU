@@ -808,7 +808,7 @@ export function registerRoutes(app: Express): Server {
       console.error("Affirmation generation error:", error);
       res.status(500).json({
         error: "Failed to generate affirmation",
-        details: error instanceofError ? error.message : "Unknown error occurred"
+        details: error instanceof Error ? error.message : "Unknown error occurred"
       });
     }
   });
