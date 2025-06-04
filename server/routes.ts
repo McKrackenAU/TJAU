@@ -60,6 +60,16 @@ export function registerRoutes(app: Express): Server {
     next();
   });
 
+  // Add specific middleware to debug login requests
+  app.use('/api/login', (req, res, next) => {
+    console.log('=== LOGIN REQUEST INTERCEPTED ===');
+    console.log('Method:', req.method);
+    console.log('Headers:', req.headers);
+    console.log('Body:', req.body);
+    console.log('===================================');
+    next();
+  });
+
   // Set up authentication routes and middleware
   setupAuth(app);
 
