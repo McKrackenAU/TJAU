@@ -1065,12 +1065,32 @@ app.post('/api/admin/upload-voice', (req, res, next) => {
       }
 
       console.log('Voice clone created successfully:', voiceId);
-      res.setHeader('Content-Type', 'application/json');
-      res.json({ voiceId, name: voiceName });
+      
+      // Clear any existing headers and set clean JSON response
+      res.clearCookie();
+      res.removeHeader('Transfer-Encoding');
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-cache');
+      
+      return res.status(200).json({ 
+        success: true,
+        voiceId, 
+        name: voiceName 
+      });
     } catch (error) {
       console.error('Error uploading voice:', error);
-      res.setHeader('Content-Type', 'application/json');
-      res.status(500).json({ error: 'Failed to create voice clone', details: error.message });
+      
+      // Clear any existing headers and set clean JSON response
+      res.clearCookie();
+      res.removeHeader('Transfer-Encoding');
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      res.setHeader('Cache-Control', 'no-cache');
+      
+      return res.status(500).json({ 
+        success: false,
+        error: 'Failed to create voice clone', 
+        details: error instanceof Error ? error.message : 'Unknown error' 
+      });
     }
   });
 });

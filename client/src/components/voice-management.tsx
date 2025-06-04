@@ -41,26 +41,27 @@ export default function VoiceManagement() {
         credentials: 'include'
       });
       
-      // Check if response is actually JSON
-      const contentType = res.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await res.text();
-        console.error('Non-JSON response:', text);
-        throw new Error('Server returned non-JSON response');
-      }
+      console.log('Response status:', res.status);
+      console.log('Response headers:', Object.fromEntries(res.headers.entries()));
+      
+      // Get the response text first
+      const responseText = await res.text();
+      console.log('Raw response:', responseText);
       
       if (!res.ok) {
-        let errorMessage = 'Upload failed';
-        try {
-          const error = await res.json();
-          errorMessage = error.error || errorMessage;
-        } catch (parseError) {
-          console.error('Failed to parse error response:', parseError);
-        }
-        throw new Error(errorMessage);
+        throw new Error(`Upload failed with status ${res.status}: ${responseText}`);
       }
       
-      return res.json();
+      // Try to parse as JSON
+      try {
+        const jsonData = JSON.parse(responseText);
+        console.log('Parsed JSON:', jsonData);
+        return jsonData;
+      } catch (parseError) {
+        console.error('Failed to parse JSON response:', parseError);
+        console.error('Response text:', responseText);
+        throw new Error(`Server returned invalid JSON: ${responseText.substring(0, 200)}...`);
+      }
     },
     onSuccess: () => {
       toast({
