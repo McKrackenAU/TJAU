@@ -1,7 +1,6 @@
 
 import fs from 'fs';
 import path from 'path';
-import FormData from 'form-data';
 
 interface VoiceCloneResponse {
   voice_id: string;
@@ -36,9 +35,14 @@ class VoiceCloningService {
       console.log('Description:', description);
       console.log('Audio file path:', audioFilePath);
 
+      // Use browser-compatible FormData instead of form-data package
       const formData = new FormData();
       
-      // Add the required name field
+      // Read the file and create a Blob
+      const fileBuffer = fs.readFileSync(audioFilePath);
+      const fileBlob = new Blob([fileBuffer], { type: 'audio/mpeg' });
+      
+      // Add the required fields
       formData.append('name', voiceName);
       
       // Add description if provided
@@ -46,9 +50,8 @@ class VoiceCloningService {
         formData.append('description', description.trim());
       }
       
-      // Add the audio file
-      const fileStream = fs.createReadStream(audioFilePath);
-      formData.append('files', fileStream);
+      // Add the audio file as a Blob
+      formData.append('files', fileBlob, path.basename(audioFilePath));
 
       console.log('Sending request to ElevenLabs voice creation endpoint...');
       
