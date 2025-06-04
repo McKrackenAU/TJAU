@@ -147,9 +147,13 @@ export function registerRoutes(app: Express): Server {
   });
 
   app.post("/api/readings", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+    
     try {
       const reading = insertReadingSchema.parse(req.body);
-      const result = await storage.createReading(reading);
+      const result = await storage.createReading(req.user!.id, reading);
       res.json(result);
     } catch (error) {
       res.status(400).json({ error: "Invalid reading data" });
