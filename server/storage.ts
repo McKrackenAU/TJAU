@@ -37,6 +37,9 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   getUserByEmail(email: string): Promise<User | undefined>;
   updateUserPassword(userId: number, hashedPassword: string): Promise<User>;
+  setPasswordResetToken(email: string, token: string, expires: Date): Promise<void>;
+  getUserByResetToken(token: string): Promise<User | undefined>;
+  updatePassword(userId: number, hashedPassword: string): Promise<void>;
   // Stripe integration
   updateStripeCustomerId(userId: number, customerId: string): Promise<User>;
   updateUserStripeInfo(userId: number, stripeInfo: { customerId: string, subscriptionId: string }): Promise<User>;
@@ -494,6 +497,31 @@ export class DatabaseStorage implements IStorage {
       .where(eq(users.id, userId))
       .returning();
     return updated;
+  }
+
+  async setPasswordResetToken(email: string, token: string, expires: Date): Promise<void> {
+    await db.update(users)
+      .set({ 
+        passwordResetToken: token, 
+        passwordResetExpires: expires 
+      })
+      .where(eq(users.email, email));
+  }
+
+  async getUserByResetToken(token: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users)
+      .where(eq(users.passwordResetToken, token));
+    return user;
+  }
+
+  async updatePassword(userId: number, hashedPassword: string): Promise<void> {
+    await db.update(users)
+      .set({ 
+        password: hashedPassword,
+        passwordResetToken: null,
+        passwordResetExpires: null 
+      })
+      .where(eq(users.id, userId));
   }
 
   // Newsletter functionality

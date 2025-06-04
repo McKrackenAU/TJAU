@@ -18,6 +18,7 @@ import OpenAI from "openai";
 import { setupAuth } from "./auth";
 import Stripe from 'stripe';
 import { scrypt, randomBytes } from "crypto";
+import bcrypt from "bcrypt";
 import { handleAppStorePurchaseVerification } from "./app-store-verification";
 
 // Initialize Stripe with API key
@@ -2986,6 +2987,101 @@ export function registerRoutes(app: Express): Server {
         error: error instanceof Error ? error.message : 'Unknown error',
         timestamp: new Date().toISOString()
       });
+    }
+  });
+
+  // Password reset endpoints
+  app.post('/api/forgot-password', async (req, res) => {
+    try {
+      const { email } = req.body;
+      
+      if (!email) {
+        return res.status(400).json({ message: 'Email is required' });
+      }
+
+      const user = await storage.getUserByEmail(email);
+      if (!user) {
+        // Return success even if user doesn't exist for security
+        return res.json({ message: 'If an account with that email exists, a reset link has been sent.' });
+      }
+
+      // Generate reset token
+      const resetToken = crypto.randomBytes(32).toString('hex');
+      const resetExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
+
+      await storage.setPasswordResetToken(email, resetToken, resetExpires);
+
+      // TODO: Send email with reset link
+      // For now, log the reset token (in production, send via email)
+      console.log(`Password reset token for ${email}: ${resetToken}`);
+
+      res.json({ message: 'If an account with that email exists, a reset link has been sent.' });
+    } catch (error) {
+      console.error('Forgot password error:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
+  app.post('/api/reset-password', async (req, res) => {
+    try {
+      const { token, password } = req.body;
+
+      if (!token || !password) {
+        return res.status(400).json({ message: 'Token and password are required' });
+      }
+
+      if (password.length < 6) {
+        return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+      }
+
+      const user = await storage.getUserByResetToken(token);
+      if (!user || !user.passwordResetExpires || user.passwordResetExpires < new Date()) {
+        return res.status(400).json({ message: 'Invalid or expired reset token' });
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+      await storage.updatePassword(user.id, hashedPassword);
+
+      res.json({ message: 'Password has been reset successfully' });
+    } catch (error) {
+      console.error('Reset password error:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
+  // Simple auth middleware
+  const requireAuth = (req: any, res: any, next: any) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ message: "Authentication required" });
+    }
+    next();
+  };
+
+  // Admin password reset endpoint
+  app.post('/api/admin/reset-user-password', requireAuth, requireAdmin, async (req, res) => {
+    try {
+      const { userId, newPassword } = req.body;
+
+      if (!userId || !newPassword) {
+        return res.status(400).json({ message: 'User ID and new password are required' });
+      }
+
+      if (newPassword.length < 6) {
+        return res.status(400).json({ message: 'Password must be at least 6 characters long' });
+      }
+
+      const user = await storage.getUser(userId);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      await storage.updatePassword(userId, hashedPassword);
+
+      res.json({ message: `Password reset successfully for user ${user.username}` });
+    } catch (error) {
+      console.error('Admin password reset error:', error);
+      res.status(500).json({ message: 'Internal server error' });
     }
   });
 
