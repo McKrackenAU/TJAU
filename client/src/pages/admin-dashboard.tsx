@@ -8,6 +8,7 @@ import { Loader2, Upload, Image, Settings } from 'lucide-react';
 import ApiUsageDashboard from '@/components/api-usage-dashboard';
 import { toast } from '@/hooks/use-toast';
 import VoiceManagement from "@/components/voice-management";
+import UserManagement from "@/components/user-management";
 import { Mail, Users, Calendar, BarChart, Mic } from "lucide-react";
 
 export default function AdminDashboard() {
@@ -106,12 +107,7 @@ export default function AdminDashboard() {
         </TabsContent>
 
         <TabsContent value="users">
-          <div className="p-12 text-center">
-            <h2 className="text-xl font-semibold">User Management Coming Soon</h2>
-            <p className="text-muted-foreground mt-2">
-              This section will allow you to manage user accounts, subscriptions, and permissions.
-            </p>
-          </div>
+          <UserManagement />
         </TabsContent>
 
         <TabsContent value="system">

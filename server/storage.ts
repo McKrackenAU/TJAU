@@ -45,6 +45,11 @@ export interface IStorage {
   updateUserTrialStatus(userId: number, hasUsedTrial: boolean): Promise<User>;
   // Admin functionality
   setUserAsAdmin(userId: number): Promise<User>;
+  getAllUsers(): Promise<User[]>;
+  updateUser(userId: number, updates: Partial<Omit<User, 'id' | 'createdAt'>>): Promise<User>;
+  deleteUser(userId: number): Promise<void>;
+  toggleUserAdmin(userId: number): Promise<User>;
+  toggleUserSubscription(userId: number): Promise<User>;
   // Newsletter functionality
   createNewsletter(newsletter: InsertNewsletter): Promise<Newsletter>;
   getNewsletters(): Promise<Newsletter[]>;
@@ -429,6 +434,56 @@ export class DatabaseStorage implements IStorage {
         isAdmin: true,
         isSubscribed: true // Admin users are automatically subscribed
       })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return db
+      .select()
+      .from(users)
+      .orderBy(desc(users.createdAt));
+  }
+
+  async updateUser(userId: number, updates: Partial<Omit<User, 'id' | 'createdAt'>>): Promise<User> {
+    const [updated] = await db
+      .update(users)
+      .set(updates)
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async deleteUser(userId: number): Promise<void> {
+    await db
+      .delete(users)
+      .where(eq(users.id, userId));
+  }
+
+  async toggleUserAdmin(userId: number): Promise<User> {
+    const user = await this.getUser(userId);
+    if (!user) throw new Error('User not found');
+    
+    const [updated] = await db
+      .update(users)
+      .set({ 
+        isAdmin: !user.isAdmin,
+        // If making admin, also give subscription
+        ...((!user.isAdmin) && { isSubscribed: true })
+      })
+      .where(eq(users.id, userId))
+      .returning();
+    return updated;
+  }
+
+  async toggleUserSubscription(userId: number): Promise<User> {
+    const user = await this.getUser(userId);
+    if (!user) throw new Error('User not found');
+    
+    const [updated] = await db
+      .update(users)
+      .set({ isSubscribed: !user.isSubscribed })
       .where(eq(users.id, userId))
       .returning();
     return updated;

@@ -2149,6 +2149,86 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // User Management API endpoints - admin only
+  app.get("/api/admin/users", requireAdmin, async (req, res) => {
+    try {
+      const users = await storage.getAllUsers();
+      // Remove password field for security
+      const safeUsers = users.map(user => {
+        const { password, ...safeUser } = user;
+        return safeUser;
+      });
+      res.json(safeUsers);
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      res.status(500).json({ error: "Failed to fetch users" });
+    }
+  });
+
+  app.patch("/api/admin/users/:id", requireAdmin, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      const updates = req.body;
+      
+      // Remove sensitive fields that shouldn't be updated directly
+      const { password, id, createdAt, ...safeUpdates } = updates;
+      
+      const updatedUser = await storage.updateUser(userId, safeUpdates);
+      const { password: _, ...safeUser } = updatedUser;
+      res.json(safeUser);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      res.status(500).json({ error: "Failed to update user" });
+    }
+  });
+
+  app.delete("/api/admin/users/:id", requireAdmin, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      
+      // Prevent admin from deleting themselves
+      if (req.user && req.user.id === userId) {
+        return res.status(400).json({ error: "Cannot delete your own account" });
+      }
+      
+      await storage.deleteUser(userId);
+      res.json({ success: true, message: "User deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting user:", error);
+      res.status(500).json({ error: "Failed to delete user" });
+    }
+  });
+
+  app.patch("/api/admin/users/:id/toggle-admin", requireAdmin, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      
+      // Prevent admin from removing their own admin status
+      if (req.user && req.user.id === userId) {
+        return res.status(400).json({ error: "Cannot modify your own admin status" });
+      }
+      
+      const updatedUser = await storage.toggleUserAdmin(userId);
+      const { password: _, ...safeUser } = updatedUser;
+      res.json(safeUser);
+    } catch (error) {
+      console.error("Error toggling admin status:", error);
+      res.status(500).json({ error: "Failed to toggle admin status" });
+    }
+  });
+
+  app.patch("/api/admin/users/:id/toggle-subscription", requireAdmin, async (req, res) => {
+    try {
+      const userId = parseInt(req.params.id);
+      const updatedUser = await storage.toggleUserSubscription(userId);
+      const { password: _, ...safeUser } = updatedUser;
+      res.json(safeUser);
+    } catch (error) {
+      console.error("Error toggling subscription:", error);
+      res.status(500).json({ error: "Failed to toggle subscription" });
+    }
+  });
+
   // Learning tracks API endpoints
   app.get("/api/learning/tracks", async (req, res) => {
     if (!req.isAuthenticated()) {
