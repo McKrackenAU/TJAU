@@ -660,12 +660,12 @@ export function registerRoutes(app: Express): Server {
       let audioBuffer: Buffer;
 
       // Check if custom voice is configured
-      const customVoiceId = process.env.CUSTOM_MEDITATION_VOICE_ID;
+      const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
 
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {
           console.log("Using custom voice for spread meditation");
-          const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+          const { voiceCloningService } = await import('./services/voice-cloning-service');
           audioBuffer = await voiceCloningService.generateSpeech(
             meditationText, 
             customVoiceId,
