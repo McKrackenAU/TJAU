@@ -206,14 +206,22 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     
     if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
       try {
+        console.log("=== ATTEMPTING CUSTOM VOICE GENERATION ===");
         console.log("Using custom voice for meditation with voice ID:", customVoiceId);
+        console.log("Text length:", meditationText.length);
+        
         const { voiceCloningService } = await import('./services/voice-cloning-service');
+        console.log("Voice service imported successfully");
+        
         audioBuffer = await voiceCloningService.generateSpeech(
           meditationText, 
           customVoiceId,
           0.8, // Higher stability for meditation
           0.9  // Higher similarity for authenticity
         );
+        
+        console.log("=== CUSTOM VOICE GENERATION SUCCESSFUL ===");
+        console.log("Audio buffer size:", audioBuffer.length);
         
         // Track API usage for ElevenLabs
         apiUsageTracker.trackUsage({
@@ -226,7 +234,9 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
           cardName: card.name
         });
       } catch (error) {
-        console.error("Custom voice generation failed, falling back to OpenAI:", error);
+        console.error("=== CUSTOM VOICE GENERATION FAILED ===");
+        console.error("Error details:", error);
+        console.error("Falling back to OpenAI");
         // Fallback to OpenAI
         const audioResponse = await openai.audio.speech.create({
           model: "tts-1",
