@@ -2968,5 +2968,45 @@
     "cardId": "1",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-04T10:53:35.563Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "wk",
+    "cardName": "King of Wands",
+    "timestamp": "2025-06-04T11:20:47.555Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "wk",
+    "cardName": "King of Wands",
+    "timestamp": "2025-06-04T11:20:58.650Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_330",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T11:21:25.459Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "imported_330",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-04T11:21:35.217Z"
   }
 ]
