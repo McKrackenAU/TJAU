@@ -65,18 +65,34 @@ export function setupAuth(app: Express) {
   passport.use(
     new LocalStrategy(async (username, password, done) => {
       try {
+        console.log('Login attempt for username:', username);
         const user = await storage.getUserByUsername(username);
-        if (!user || !(await comparePasswords(password, user.password))) {
+        console.log('User found:', user ? 'Yes' : 'No');
+        
+        if (!user) {
+          console.log('User not found');
           return done(null, false);
-        } else {
-          // Cast to Express.User type with required string fields
-          return done(null, {
-            ...user,
-            stripeCustomerId: user.stripeCustomerId || '',
-            stripeSubscriptionId: user.stripeSubscriptionId || ''
-          });
         }
+        
+        console.log('Comparing password for user:', user.username);
+        const passwordMatch = await comparePasswords(password, user.password);
+        console.log('Password match:', passwordMatch);
+        
+        if (!passwordMatch) {
+          console.log('Password mismatch');
+          return done(null, false);
+        }
+        
+        // Cast to Express.User type with required string fields
+        const authUser = {
+          ...user,
+          stripeCustomerId: user.stripeCustomerId || '',
+          stripeSubscriptionId: user.stripeSubscriptionId || ''
+        };
+        console.log('Login successful for user:', user.username);
+        return done(null, authUser);
       } catch (error) {
+        console.error('Login error:', error);
         return done(error);
       }
     }),
