@@ -45,17 +45,17 @@ export function registerRoutes(app: Express): Server {
   app.use((req, res, next) => {
     const origin = req.headers.origin;
     console.log("Request from origin:", origin);
-    
+
     // Allow requests from any origin for mobile apps
     res.header('Access-Control-Allow-Origin', origin || '*');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    
+
     if (req.method === 'OPTIONS') {
       return res.sendStatus(200);
     }
-    
+
     next();
   });
 
@@ -70,12 +70,12 @@ export function registerRoutes(app: Express): Server {
     const userAgent = req.headers['user-agent'] || 'unknown';
     const isAuth = req.isAuthenticated();
     const sessionData = req.session;
-    
+
     console.log("Auth test request from:", userAgent);
     console.log("Is authenticated:", isAuth);
     console.log("Session ID:", req.sessionID);
     console.log("User:", req.user ? `${req.user.username} (ID: ${req.user.id})` : 'none');
-    
+
     res.json({
       authenticated: isAuth,
       userAgent,
@@ -209,7 +209,7 @@ export function registerRoutes(app: Express): Server {
         console.log("Session cookies:", req.headers.cookie);
         console.log("Session data:", req.session);
         console.log("User in session:", req.user);
-        
+
         // For mobile apps with custom domains, allow requests with user ID as backup
         const { userId } = req.body;
         if (userId && typeof userId === 'number') {
@@ -245,14 +245,14 @@ export function registerRoutes(app: Express): Server {
       }
 
       console.log("Found card:", card.name);
-      
+
       try {
         const interpretation = await generateCardInterpretation(card, context);
         console.log("AI interpretation generated successfully for card:", card.name);
         res.json({ interpretation });
       } catch (aiError) {
         console.error("AI generation error:", aiError);
-        
+
         // Check if it's an OpenAI API issue
         if (aiError instanceof Error && aiError.message.includes('API')) {
           return res.status(503).json({
@@ -260,7 +260,7 @@ export function registerRoutes(app: Express): Server {
             details: "The AI interpretation service is experiencing issues. Please try again in a moment."
           });
         }
-        
+
         throw aiError; // Re-throw for general error handling
       }
     } catch (error) {
@@ -335,7 +335,7 @@ export function registerRoutes(app: Express): Server {
     console.log("Request body:", req.body);
     console.log("User agent:", req.headers['user-agent']);
     console.log("Content-Type:", req.headers['content-type']);
-    
+
     try {
       const { cardIds, spreadType, positions } = req.body;
       console.log("Parsed request data:", { cardIds, spreadType, positions });
@@ -346,7 +346,7 @@ export function registerRoutes(app: Express): Server {
         console.log("Session cookies:", req.headers.cookie);
         console.log("Session data:", req.session);
         console.log("User in session:", req.user);
-        
+
         // For mobile apps with custom domains, allow requests with user ID as backup
         const { userId } = req.body;
         if (userId && typeof userId === 'number') {
@@ -649,12 +649,12 @@ export function registerRoutes(app: Express): Server {
 
       // Generate voice audio with custom voice or fallback to OpenAI
       console.log("Generating audio from spread meditation script");
-      
+
       let audioBuffer: Buffer;
-      
+
       // Check if custom voice is configured
       const customVoiceId = process.env.CUSTOM_MEDITATION_VOICE_ID;
-      
+
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {
           console.log("Using custom voice for spread meditation");
@@ -665,7 +665,7 @@ export function registerRoutes(app: Express): Server {
             0.8, // Higher stability for meditation
             0.9  // Higher similarity for authenticity
           );
-          
+
           // Track API usage for ElevenLabs
           apiUsageTracker.trackUsage({
             endpoint: '/api/meditate-spread',
@@ -687,7 +687,7 @@ export function registerRoutes(app: Express): Server {
             speed: 0.75,
           });
           audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-          
+
           apiUsageTracker.trackUsage({
             endpoint: '/api/meditate-spread',
             model: "tts-1",
@@ -708,7 +708,7 @@ export function registerRoutes(app: Express): Server {
           speed: 0.75,
         });
         audioBuffer = Buffer.from(await audioResponse.arrayBuffer());
-        
+
         apiUsageTracker.trackUsage({
           endpoint: '/api/meditate-spread',
           model: "tts-1",
@@ -999,56 +999,70 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', upload.single('voiceFile'), async (req, res) => {
-  try {
-    // Check admin authentication manually
-    if (!req.isAuthenticated() || !req.user?.isAdmin) {
-      return res.status(403).json({ error: 'Admin access required' });
+app.post('/api/admin/upload-voice', requireAdmin, (req, res, next) => {
+  console.log('Voice upload route hit');
+  console.log('Content-Type:', req.headers['content-type']);
+
+  // Apply multer middleware
+  upload.single('voiceFile')(req, res, async (err) => {
+    if (err) {
+      console.error('Multer error:', err);
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        return res.status(400).json({ error: 'File too large. Maximum size is 50MB.' });
+      }
+      return res.status(400).json({ error: 'File upload error', details: err.message });
     }
 
-    console.log('Voice upload request received');
-    console.log('Request file:', req.file ? 'File present' : 'No file');
-    console.log('Request body:', req.body);
+    try {
+      console.log('Voice upload request processed by multer');
+      console.log('Request file:', req.file ? `File present: ${req.file.originalname}` : 'No file');
+      console.log('Request body:', req.body);
 
-    if (!req.file) {
-      return res.status(400).json({ error: 'No audio file uploaded' });
+      if (!req.file) {
+        return res.status(400).json({ error: 'No audio file uploaded' });
+      }
+
+      const { voiceName, description } = req.body;
+      if (!voiceName) {
+        return res.status(400).json({ error: 'Voice name is required' });
+      }
+
+      // Get file extension
+      const fileExtension = req.file.originalname.split('.').pop() || 'mp3';
+
+      // Write the buffer to a temporary file since ElevenLabs expects a file path
+      const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${fileExtension}`);
+
+      // Ensure cache directory exists
+      const cacheDir = path.join(process.cwd(), '.cache');
+      if (!fs.existsSync(cacheDir)) {
+        fs.mkdirSync(cacheDir, { recursive: true });
+      }
+
+      // Write buffer to temporary file
+      fs.writeFileSync(tempFilePath, req.file.buffer);
+      console.log('Temporary file written:', tempFilePath);
+
+      const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+      const voiceId = await voiceCloningService.createVoiceClone(
+        tempFilePath,
+        voiceName,
+        description || 'Custom meditation voice'
+      );
+
+      // Clean up temporary file
+      if (fs.existsSync(tempFilePath)) {
+        fs.unlinkSync(tempFilePath);
+        console.log('Temporary file cleaned up');
+      }
+
+      console.log('Voice clone created successfully:', voiceId);
+      res.json({ voiceId, name: voiceName });
+    } catch (error) {
+      console.error('Error uploading voice:', error);
+      res.status(500).json({ error: 'Failed to create voice clone', details: error.message });
     }
-
-    const { voiceName, description } = req.body;
-    if (!voiceName) {
-      return res.status(400).json({ error: 'Voice name is required' });
-    }
-
-    // Write the buffer to a temporary file since ElevenLabs expects a file path
-    const tempFilePath = path.join(process.cwd(), '.cache', `temp_voice_${Date.now()}.${req.file.originalname.split('.').pop()}`);
-    
-    // Ensure cache directory exists
-    const cacheDir = path.join(process.cwd(), '.cache');
-    if (!fs.existsSync(cacheDir)) {
-      fs.mkdirSync(cacheDir, { recursive: true });
-    }
-
-    // Write buffer to temporary file
-    fs.writeFileSync(tempFilePath, req.file.buffer);
-
-    const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-    const voiceId = await voiceCloningService.createVoiceClone(
-      tempFilePath,
-      voiceName,
-      description || 'Custom meditation voice'
-    );
-
-    // Clean up temporary file
-    if (fs.existsSync(tempFilePath)) {
-      fs.unlinkSync(tempFilePath);
-    }
-
-    console.log('Voice clone created successfully:', voiceId);
-    res.json({ voiceId, name: voiceName });
-  } catch (error) {
-    console.error('Error uploading voice:', error);
-    res.status(500).json({ error: 'Failed to create voice clone', details: error.message });
-  }
+  });
 });
 
 app.get('/api/admin/voices', requireAdmin, async (req, res) => {
@@ -1067,7 +1081,7 @@ app.delete('/api/admin/voices/:voiceId', requireAdmin, async (req, res) => {
     const { voiceId } = req.params;
     const { voiceCloningService } = await import('./services/voice-cloning-service.js');
     const success = await voiceCloningService.deleteVoice(voiceId);
-    
+
     if (success) {
       res.json({ message: 'Voice deleted successfully' });
     } else {
@@ -1342,7 +1356,7 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
       await fs.promises.writeFile(finalPath, req.file.buffer);
 
       console.log(`Card image uploaded: ${cardName} -> ${finalPath}`);
-      
+
       res.json({
         success: true,
         message: `${cardName} image uploaded successfully`,
@@ -1410,7 +1424,7 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
   app.get("/cache/images/:filename", (req, res) => {
     const filename = req.params.filename;
     const imagePath = path.join(process.cwd(), 'public', 'cache', 'images', filename);
-    
+
     if (fs.existsSync(imagePath)) {
       res.sendFile(imagePath);
     } else {
@@ -1430,11 +1444,11 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
       res.setHeader('Cache-Control', 'public, max-age=604800');
 
       const { id } = req.params;
-      
+
       // First check if the image already exists in cache
       const imageCachePath = path.join(process.cwd(), 'public', 'cache', 'images', `image_${id}.png`);
       const jsonMetadataPath = path.join(process.cwd(), 'public', 'cache', 'images', `image_${id}.json`);
-      
+
       if (fs.existsSync(imageCachePath) && fs.existsSync(jsonMetadataPath)) {
         // Image exists, return the cached info
         try {
@@ -1570,11 +1584,11 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
           'Wheel of Fortune', 'Justice', 'The Hanged Man', 'Death', 'Temperance',
           'The Devil', 'The Tower', 'The Star', 'The Moon', 'The Sun', 'Judgment', 'The World'
         ];
-        
+
         let arcana: "major" | "minor" | "custom" = "custom";
         let number: number | undefined = undefined;
         let suit: string | undefined = undefined;
-        
+
         if (majorArcanaNames.includes(card.name)) {
           arcana = "major";
           number = majorArcanaNames.indexOf(card.name);
@@ -1590,7 +1604,7 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
             }
           }
         }
-        
+
         return {
           id: `imported_${card.id}`,
           name: card.name,
@@ -1611,78 +1625,78 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
       // Get standard cards first (they have working images), then fill gaps with imported cards
       const standardMajorArcana = tarotCards.filter(card => card.arcana === "major");
       const importedMajorArcana = transformedImportedCards.filter(card => card.arcana === "major");
-      
+
       // Create a map of standard major arcana by card name to avoid duplicates
       // Handle spelling variations (Judgment vs Judgement)
       const normalizeCardName = (name: string) => {
         return name.replace(/Judgement/i, 'Judgment');
       };
-      
+
       const standardMajorNames = new Set(standardMajorArcana.map(card => normalizeCardName(card.name)));
       const filteredImportedMajor = importedMajorArcana.filter(card => !standardMajorNames.has(normalizeCardName(card.name)));
-      
+
       const allMajorArcana = [
         ...standardMajorArcana,
         ...filteredImportedMajor
       ].sort((a, b) => (a.number || 0) - (b.number || 0));
-      
+
       // Get standard cards first (they have working images), then fill gaps with imported cards
       const standardMinorArcana = tarotCards.filter(card => card.arcana === "minor");
       const importedMinorArcana = transformedImportedCards.filter(card => card.arcana === "minor");
-      
+
       // Create a map of standard minor arcana by card name to avoid duplicates
       const standardMinorNames = new Set(standardMinorArcana.map(card => card.name));
       const filteredImportedMinor = importedMinorArcana.filter(card => !standardMinorNames.has(card.name));
-      
+
       const minorArcanaCards = [
         ...standardMinorArcana,
         ...filteredImportedMinor
       ];
-      
+
       // Order suits: Wands, Cups, Swords, Pentacles
       const suitOrder = ['wands', 'cups', 'swords', 'pentacles'];
-      
+
       // Group Minor Arcana cards by suit in the correct order
       const allMinorArcana = [];
-      
+
       // Process each suit in traditional order: Wands, Cups, Swords, Pentacles
       for (const targetSuit of suitOrder) {
         // Get all cards for this specific suit
         const suitCards = minorArcanaCards.filter(card => card.suit === targetSuit);
 
-        
+
         // Sort cards within this suit: Ace (1) through 10, then Page, Knight, Queen, King
         const sortedSuitCards = suitCards.sort((a, b) => {
           const courtOrder = { 'page': 11, 'knight': 12, 'queen': 13, 'king': 14 };
-          
+
           // Get the first word of the card name for court card detection
           const aFirstWord = a.name?.toLowerCase().split(' ')[0] || '';
           const bFirstWord = b.name?.toLowerCase().split(' ')[0] || '';
-          
+
           const aValue = courtOrder[aFirstWord] || a.number || 0;
           const bValue = courtOrder[bFirstWord] || b.number || 0;
-          
+
           return aValue - bValue;
         });
-        
+
         // Add all cards from this complete suit to our result
         allMinorArcana.push(...sortedSuitCards);
       }
-      
+
       // Get only custom cards that don't duplicate standard tarot
       const customCards = transformedImportedCards.filter(card => 
         card.arcana === "custom" && !tarotCards.some(standardCard => 
           standardCard.name.toLowerCase() === card.name.toLowerCase()
         )
       );
-      
+
       // Combine: ALL Major Arcana first, then ALL Minor Arcana, then Custom Cards
       const allCards = [
         ...allMajorArcana,
         ...allMinorArcana,
         ...customCards
       ];
-      
+
       console.log(`Returning organized cards: ${allMajorArcana.length} major, ${allMinorArcana.length} minor, ${customCards.length} custom`);
       console.log(`Total unique cards: ${allCards.length}`);
 
@@ -1896,7 +1910,7 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
 
         // Get the actual Stripe coupon ID (use mapping if exists, otherwise use the input)
         const stripeCouponId = couponMapping[couponCode] || couponCode;
-        
+
         console.log("Mapped coupon code:", couponCode, "to Stripe coupon ID:", stripeCouponId);
 
         // Verify the coupon exists and is valid
@@ -2784,13 +2798,13 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
 
       // Get the actual Stripe coupon ID (use mapping if exists, otherwise use the input)
       const stripeCouponId = couponMapping[couponCode] || couponCode;
-      
+
       console.log("Mapped to Stripe coupon ID:", stripeCouponId);
 
       // Try to retrieve the coupon directly
       try {
         const coupon = await stripe.coupons.retrieve(stripeCouponId);
-          
+
         if (!coupon.valid) {
           return res.json({ 
             valid: false, 
@@ -2809,14 +2823,14 @@ app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
 
       } catch (stripeError: any) {
         console.log("Stripe coupon validation error:", stripeError.message);
-        
+
         if (stripeError.code === 'resource_missing') {
           return res.json({ 
             valid: false, 
             message: "Invalid coupon code" 
           });
         }
-        
+
         return res.json({ 
           valid: false, 
           message: "Unable to validate coupon at this time" 
