@@ -4,6 +4,7 @@ import { Express } from "express";
 import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
+import bcrypt from "bcrypt";
 import { storage } from "./storage";
 import { User } from "@shared/schema";
 
@@ -27,7 +28,16 @@ async function hashPassword(password: string) {
 }
 
 async function comparePasswords(supplied: string, stored: string) {
+  // Check if it's a bcrypt hash (starts with $2b$)
+  if (stored.startsWith('$2b$')) {
+    return await bcrypt.compare(supplied, stored);
+  }
+  
+  // Handle legacy scrypt format
   const [hashed, salt] = stored.split(".");
+  if (!hashed || !salt) {
+    return false;
+  }
   const hashedBuf = Buffer.from(hashed, "hex");
   const suppliedBuf = (await scryptAsync(supplied, salt, 64)) as Buffer;
   return timingSafeEqual(hashedBuf, suppliedBuf);
@@ -117,7 +127,8 @@ export function setupAuth(app: Express) {
         email: String(email),
         password: await hashPassword(password),
         isAdmin: false,
-        isSubscribed: false
+        isSubscribed: false,
+        hasUsedFreeTrial: false
       });
 
       // Log the user in automatically
