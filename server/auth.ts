@@ -75,8 +75,17 @@ export function setupAuth(app: Express) {
         }
         
         console.log('Comparing password for user:', user.username);
-        const passwordMatch = await comparePasswords(password, user.password);
-        console.log('Password match:', passwordMatch);
+        console.log('Stored password hash:', user.password);
+        console.log('Supplied password:', password);
+        
+        let passwordMatch = false;
+        try {
+          passwordMatch = await comparePasswords(password, user.password);
+          console.log('Password match:', passwordMatch);
+        } catch (error) {
+          console.error('Password comparison error:', error);
+          return done(error);
+        }
         
         if (!passwordMatch) {
           console.log('Password mismatch');
