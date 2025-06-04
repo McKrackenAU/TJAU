@@ -999,8 +999,13 @@ export function registerRoutes(app: Express): Server {
       res.json(entries);
 
 // Voice management endpoints
-app.post('/api/admin/upload-voice', requireAdmin, upload.single('voiceFile'), async (req, res) => {
+app.post('/api/admin/upload-voice', upload.single('voiceFile'), async (req, res) => {
   try {
+    // Check admin authentication manually
+    if (!req.isAuthenticated() || !req.user?.isAdmin) {
+      return res.status(403).json({ error: 'Admin access required' });
+    }
+
     console.log('Voice upload request received');
     console.log('Request file:', req.file ? 'File present' : 'No file');
     console.log('Request body:', req.body);
@@ -1046,7 +1051,7 @@ app.post('/api/admin/upload-voice', requireAdmin, upload.single('voiceFile'), as
   }
 });
 
-app.get('/api/admin/voices', async (req, res) => {
+app.get('/api/admin/voices', requireAdmin, async (req, res) => {
   try {
     const { voiceCloningService } = await import('./services/voice-cloning-service.js');
     const voices = await voiceCloningService.getVoices();
@@ -1057,7 +1062,7 @@ app.get('/api/admin/voices', async (req, res) => {
   }
 });
 
-app.delete('/api/admin/voices/:voiceId', async (req, res) => {
+app.delete('/api/admin/voices/:voiceId', requireAdmin, async (req, res) => {
   try {
     const { voiceId } = req.params;
     const { voiceCloningService } = await import('./services/voice-cloning-service.js');
@@ -1074,7 +1079,7 @@ app.delete('/api/admin/voices/:voiceId', async (req, res) => {
   }
 });
 
-app.post('/api/admin/set-meditation-voice', async (req, res) => {
+app.post('/api/admin/set-meditation-voice', requireAdmin, async (req, res) => {
   try {
     const { voiceId } = req.body;
     if (!voiceId) {
