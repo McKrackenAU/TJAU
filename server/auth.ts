@@ -75,8 +75,6 @@ export function setupAuth(app: Express) {
         }
         
         console.log('Comparing password for user:', user.username);
-        console.log('Stored password hash:', user.password);
-        console.log('Supplied password:', password);
         
         let passwordMatch = false;
         try {
