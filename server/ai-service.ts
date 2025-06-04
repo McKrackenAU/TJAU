@@ -5,6 +5,9 @@ import path from "path";
 import { CACHE_DIR } from "./utils/constants";
 import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 
+// Set the custom meditation voice (Josie)
+process.env.CUSTOM_MEDITATION_VOICE_ID = "LSufHJs05fSH7jJqUHhF";
+
 // Try multiple API keys for redundancy
 const getOpenAIClient = () => {
   const apiKey = process.env.OPENAI_API_KEY_TWO || process.env.OPENAI_API_KEY;
