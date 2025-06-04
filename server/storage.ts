@@ -1,4 +1,4 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, angelNumbers, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, type AngelNumber, type InsertAngelNumber, importedCards } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, angelNumbers, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, type AngelNumber, type InsertAngelNumber, importedCards, voices } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
@@ -57,6 +57,10 @@ export interface IStorage {
   getAngelNumbers(): Promise<AngelNumber[]>;
   getAngelNumberByNumber(number: string): Promise<AngelNumber | undefined>;
   getAngelNumberById(id: number): Promise<AngelNumber | undefined>;
+    // Voice management methods
+  createVoice(voice: { voiceId: string; name: string; description: string; category: string }): Promise<void>
+  getVoices(): Promise<Array<{ voiceId: string; name: string; description: string; category: string }>>
+  deleteVoice(voiceId: string): Promise<void>
   // Session store
   sessionStore: session.Store;
 }
@@ -221,7 +225,7 @@ export class DatabaseStorage implements IStorage {
       ));
     return card;
   }
-  
+
   async updateCardImage(userId: number, cardId: number, imageUrl: string): Promise<ImportedCard> {
     const [updated] = await db
       .update(importedCards)
@@ -323,7 +327,7 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(quizResults.date))
       .limit(limit);
   }
-  
+
   // User authentication methods
   async createUser(user: InsertUser): Promise<User> {
     const [created] = await db
@@ -408,7 +412,7 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return updated;
   }
-  
+
   async updateUserTrialStatus(userId: number, hasUsedTrial: boolean): Promise<User> {
     const [updated] = await db
       .update(users)
@@ -417,7 +421,7 @@ export class DatabaseStorage implements IStorage {
       .returning();
     return updated;
   }
-  
+
   async setUserAsAdmin(userId: number): Promise<User> {
     const [updated] = await db
       .update(users)
@@ -508,6 +512,18 @@ export class DatabaseStorage implements IStorage {
       .from(angelNumbers)
       .where(eq(angelNumbers.id, id));
     return angelNumber;
+  }
+  
+  async createVoice(voice: { voiceId: string; name: string; description: string; category: string }): Promise<void> {
+    await db.insert(voices).values(voice);
+  }
+
+  async getVoices(): Promise<Array<{ voiceId: string; name: string; description: string; category: string }>> {
+    return await db.select().from(voices);
+  }
+
+  async deleteVoice(voiceId: string): Promise<void> {
+    await db.delete(voices).where(eq(voices.voiceId, voiceId));
   }
 
   // Session store setup

@@ -125,6 +125,15 @@ export const angelNumbers = pgTable("angel_numbers", {
   dateAdded: timestamp("date_added").defaultNow().notNull(),
 });
 
+export const voices = pgTable("voices", {
+  id: serial("id").primaryKey(),
+  voiceId: text("voice_id").notNull().unique(),
+  name: text("name").notNull(),
+  description: text("description").notNull(),
+  category: text("category").notNull().default("cloned"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
