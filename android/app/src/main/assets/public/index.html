@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style data-vite-theme="" data-inject-first="">:root {
+      --background: 256 100% 1%;
+--foreground: 256 100% 97%;
+--muted: 264 51% 36%;
+--muted-foreground: 256 100% 97%;
+--popover: 265 70% 12%;
+--popover-foreground: 256 100% 97%;
+--card: 265 70% 12%;
+--card-foreground: 256 100% 97%;
+--border: 264 51% 36%;
+--input: 264 51% 36%;
+--primary: 263 73% 63%;
+--primary-foreground: 255 90% 99%;
+--secondary: 264 51% 36%;
+--secondary-foreground: 256 100% 97%;
+--accent: 264 51% 36%;
+--accent-foreground: 256 100% 97%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--ring: 263 73% 63%;
+--radius: 0.75rem;
+  }
+  .light {
+      --background: 258 80% 83%;
+--foreground: 270 100% 12%;
+--muted: 260 76% 74%;
+--muted-foreground: 270 100% 12%;
+--popover: 255 100% 99%;
+--popover-foreground: 270 100% 12%;
+--card: 255 100% 99%;
+--card-foreground: 270 100% 12%;
+--border: 260 76% 74%;
+--input: 260 76% 74%;
+--primary: 261 100% 76%;
+--primary-foreground: 255 100% 99%;
+--secondary: 257 100% 89%;
+--secondary-foreground: 270 100% 12%;
+--accent: 257 100% 89%;
+--accent-foreground: 270 100% 12%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 60 9.1% 97.8%;
+--ring: 261 100% 76%;
+--radius: 0.75rem;
+  }</style>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Tarot Journey</title>
+    <meta name="description" content="Tarot Journey: An immersive, technology-enhanced spiritual exploration experience for tarot enthusiasts" />
+    <meta name="theme-color" content="#6d28d9" />
+    
+    <!-- PWA specific tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" sizes="196x196" href="/icons/favicon-196.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
+    
+    <!-- iOS specific tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Tarot Journey" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <link rel="apple-touch-startup-image" href="/icons/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" />
+    <script type="module" crossorigin src="/assets/index-kyapnCtE.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CKjbpA8W.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // More advanced service worker registration with update handling
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+              
+              // Check if there's already a waiting service worker
+              if (registration.waiting) {
+                console.log('Service Worker update available');
+              }
+              
+              // Check for updates when the page loads
+              try {
+                registration.update();
+              } catch (error) {
+                console.error('Service Worker update check failed:', error);
+              }
+            })
+            .catch(error => {
+              console.error('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
