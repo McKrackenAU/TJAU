@@ -4,11 +4,10 @@ const config: CapacitorConfig = {
   appId: 'au.tarotjourney.app',
   appName: 'Tarot Journey',
   webDir: 'dist/public',
-  bundledWebRuntime: false,
-  // Production server configuration - THIS IS THE KEY FIX
+  // Mobile app configuration - bundle assets locally for proper updates
   server: {
-    url: 'https://www.tarotjourney.au',
-    cleartext: false,
+    androidScheme: 'https',
+    iosScheme: 'https',
     allowNavigation: [
       'www.tarotjourney.au',
       'tarotjourney.au',
