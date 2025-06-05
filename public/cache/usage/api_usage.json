@@ -3088,5 +3088,45 @@
     "cardId": "sn",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-05T00:41:02.186Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "w8",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-06-05T01:56:13.594Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "w8",
+    "cardName": "Eight of Wands",
+    "timestamp": "2025-06-05T01:56:22.071Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_329",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-05T01:57:30.971Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "imported_329",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-05T01:57:42.657Z"
   }
 ]
