@@ -10,6 +10,7 @@ export const readings = pgTable("readings", {
   notes: text("notes").notNull().default(''),
   date: timestamp("date").defaultNow().notNull(),
   spreadType: text("spread_type"), // null for daily draws
+  mood: text("mood"), // Optional mood tracking
 });
 
 export const studyProgress = pgTable("study_progress", {

@@ -18,6 +18,7 @@ export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
   const [isRevealed, setIsRevealed] = useState(false);
   const [notes, setNotes] = useState("");
+  const [mood, setMood] = useState<string>("");
   const [spreadCards, setSpreadCards] = useState<typeof tarotCards>([]);
   const { toast } = useToast();
 
@@ -60,10 +61,11 @@ export default function Spreads() {
     
     setIsRevealed(false);
     setNotes("");
+    setMood("");
   }, [selectedSpread, cards]);
 
   const mutation = useMutation({
-    mutationFn: async (reading: { cards: string[], notes: string, spreadType: string }) => {
+    mutationFn: async (reading: { cards: string[], notes: string, spreadType: string, mood?: string }) => {
       return apiRequest("POST", "/api/readings", {
         ...reading,
         type: "spread"
@@ -75,6 +77,7 @@ export default function Spreads() {
         description: "Your spread reading has been saved successfully."
       });
       setNotes("");
+      setMood("");
     }
   });
 
@@ -82,7 +85,8 @@ export default function Spreads() {
     mutation.mutate({
       cards: spreadCards.map(card => card.id),
       notes,
-      spreadType: spreads[selectedSpread].name
+      spreadType: spreads[selectedSpread].name,
+      mood: mood || undefined
     });
   };
 
@@ -197,19 +201,50 @@ export default function Spreads() {
                   </CardContent>
                 </Card>
                 
-                <Textarea
-                  placeholder="Add your reflections on this spread..."
-                  value={notes}
-                  onChange={(e) => setNotes(e.target.value)}
-                  className="mb-4"
-                />
-                <Button 
-                  onClick={handleSave}
-                  disabled={mutation.isPending}
-                  className="w-full"
-                >
-                  Save Reading
-                </Button>
+                <div className="space-y-4">
+                  <div>
+                    <label className="text-sm font-medium mb-2 block">Select Mood (optional)</label>
+                    <Select
+                      value={mood}
+                      onValueChange={setMood}
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select mood (optional)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="peaceful">Peaceful</SelectItem>
+                        <SelectItem value="inspired">Inspired</SelectItem>
+                        <SelectItem value="confused">Confused</SelectItem>
+                        <SelectItem value="anxious">Anxious</SelectItem>
+                        <SelectItem value="grateful">Grateful</SelectItem>
+                        <SelectItem value="joyful">Joyful</SelectItem>
+                        <SelectItem value="melancholic">Melancholic</SelectItem>
+                        <SelectItem value="energetic">Energetic</SelectItem>
+                        <SelectItem value="contemplative">Contemplative</SelectItem>
+                        <SelectItem value="hopeful">Hopeful</SelectItem>
+                        <SelectItem value="frustrated">Frustrated</SelectItem>
+                        <SelectItem value="balanced">Balanced</SelectItem>
+                        <SelectItem value="creative">Creative</SelectItem>
+                        <SelectItem value="determined">Determined</SelectItem>
+                        <SelectItem value="reflective">Reflective</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <Textarea
+                    placeholder="Add your reflections on this spread..."
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                  />
+                  
+                  <Button 
+                    onClick={handleSave}
+                    disabled={mutation.isPending}
+                    className="w-full"
+                  >
+                    Save Reading
+                  </Button>
+                </div>
               </div>
             )}
           </CardContent>
