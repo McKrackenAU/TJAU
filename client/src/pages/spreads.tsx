@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { spreads, tarotCards } from "@shared/tarot-data";
 import CardDisplay from "@/components/card-display";
 import AIInterpretation from "@/components/ai-interpretation";
@@ -7,12 +7,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
 import MeditationPlayer from "@/components/meditation-player";
 import FreshSpreadAnalyzer from "@/components/fresh-spread-analyzer";
 import SpreadMeditationPlayer from "@/components/spread-meditation-player";
 import { Loader2, Sparkles } from "lucide-react";
+import { format } from "date-fns";
+import type { Reading } from "@shared/schema";
 
 export default function Spreads() {
   const [selectedSpread, setSelectedSpread] = useState<keyof typeof spreads>("threeCard");
@@ -21,6 +24,7 @@ export default function Spreads() {
   const [mood, setMood] = useState<string>("");
   const [spreadCards, setSpreadCards] = useState<typeof tarotCards>([]);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
   const { data: cards = tarotCards } = useQuery({
     queryKey: ["/api/cards"],
@@ -76,6 +80,7 @@ export default function Spreads() {
       });
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/readings/spreads"] });
       toast({
         title: "Reading saved",
         description: "Your spread reading has been saved successfully."
@@ -116,7 +121,7 @@ export default function Spreads() {
         </Select>
       </div>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto space-y-8">
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-xl text-foreground font-bold">
@@ -251,6 +256,72 @@ export default function Spreads() {
                 </div>
               </div>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Previous Spreads Section */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Previous Spreads</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ScrollArea className="h-[500px] pr-4">
+              <div className="space-y-4">
+                {previousReadings?.map((reading: Reading) => (
+                  <Card key={reading.id} className="border-muted">
+                    <CardHeader>
+                      <CardTitle className="text-lg flex items-center justify-between">
+                        <span>{reading.spreadType || 'Tarot Spread'}</span>
+                        <span className="text-sm text-muted-foreground">
+                          {format(new Date(reading.date), 'PPP')}
+                        </span>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      {reading.cards && reading.cards.length > 0 && (
+                        <div className="mb-4">
+                          <p className="text-sm font-medium mb-2">Cards:</p>
+                          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                            {reading.cards.map((cardId, index) => {
+                              const card = [...tarotCards, ...cards.filter(c => c.id.startsWith('imported_'))].find(c => c.id === cardId);
+                              return card ? (
+                                <div key={`${cardId}-${index}`} className="text-xs p-2 bg-muted rounded">
+                                  {card.name}
+                                </div>
+                              ) : (
+                                <div key={`${cardId}-${index}`} className="text-xs p-2 bg-muted rounded text-muted-foreground">
+                                  Unknown Card
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {reading.notes && reading.notes.trim() && (
+                        <div className="mb-4">
+                          <p className="text-sm font-medium mb-2">Notes:</p>
+                          <p className="text-sm text-muted-foreground whitespace-pre-line">{reading.notes}</p>
+                        </div>
+                      )}
+                      
+                      {reading.mood && (
+                        <p className="text-sm text-muted-foreground">
+                          Mood: <span className="capitalize">{reading.mood}</span>
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+                
+                {(!previousReadings || previousReadings.length === 0) && (
+                  <div className="text-center py-8 text-muted-foreground">
+                    <p>No saved spreads yet.</p>
+                    <p className="text-sm mt-2">Your spread readings will appear here after you save them.</p>
+                  </div>
+                )}
+              </div>
+            </ScrollArea>
           </CardContent>
         </Card>
       </div>
