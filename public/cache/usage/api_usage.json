@@ -3008,5 +3008,45 @@
     "cardId": "imported_330",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-04T11:21:35.217Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "wp",
+    "cardName": "Page of Wands",
+    "timestamp": "2025-06-05T00:23:00.386Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "wp",
+    "cardName": "Page of Wands",
+    "timestamp": "2025-06-05T00:23:09.569Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "c5",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-05T00:24:21.742Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "c5",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-05T00:24:33.693Z"
   }
 ]
