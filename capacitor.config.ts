@@ -3,76 +3,62 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'au.tarotjourney.app',
   appName: 'Tarot Journey',
-  webDir: 'public',
+  webDir: 'dist/public',
   bundledWebRuntime: false,
-  // Server configuration
+  // Production server configuration - THIS IS THE KEY FIX
   server: {
-    // Allow navigation to required domains
+    url: 'https://www.tarotjourney.au',
+    cleartext: false,
     allowNavigation: [
-      'localhost',
-      '*.replit.dev',
-      '*.spock.replit.dev',
+      'www.tarotjourney.au',
+      'tarotjourney.au',
       '*.stripe.com',
-      '*.apple.com' 
+      '*.apple.com',
+      'api.elevenlabs.io',
+      'openai.com'
     ]
   },
-  // Splash screen configuration
   plugins: {
     SplashScreen: {
       launchShowDuration: 2000,
       launchAutoHide: true,
-      backgroundColor: "#6c43bc", // Primary brand color
+      backgroundColor: "#6c43bc",
       androidSplashResourceName: "splash",
       splashFullScreen: true,
       splashImmersive: true
     },
-    // Status bar configuration
     StatusBar: {
       style: 'DARK',
-      backgroundColor: '#6c43bc' // Primary brand color
+      backgroundColor: '#6c43bc'
     },
-    // Local notifications for reminders
     LocalNotifications: {
       smallIcon: 'ic_stat_icon_config_sample',
-      iconColor: '#6c43bc' // Primary brand color
+      iconColor: '#6c43bc'
     },
-    // Purchase plugin configuration
     PurchasePlugin: {
-      // Default product ID for subscription
       defaultProductIdentifier: 'au.tarotjourney.subscription.monthly',
-      // Enable receipt validation
       validateReceipts: true
     }
   },
-  // iOS specific configuration
   ios: {
     contentInset: 'automatic',
     preferredContentMode: 'mobile',
-    // Scheme for deep linking
     scheme: 'tarotjourney',
-    // iOS build configuration
     backgroundColor: '#6c43bc',
     limitsNavigationsToAppBoundDomains: false
-    // Version and build info should be added in Xcode
   },
-  // Android specific configuration
   android: {
-    // Set to false for production builds
     allowMixedContent: false,
-    // Backup rules - tells Android what to backup
-    // This is important for preserving user data
     captureInput: true,
     backgroundColor: '#6c43bc',
     overrideUserAgent: 'Tarot Journey App',
-    // Play Store deployment settings
     buildOptions: {
-      keystorePath: '',  // Path to your keystore file (fill when deploying)
-      keystorePassword: '',  // Fill this when deploying
-      keystoreAlias: '',  // Fill this when deploying
-      keystoreAliasPassword: '',  // Fill this when deploying
+      keystorePath: '',
+      keystorePassword: '',
+      keystoreAlias: '',
+      keystoreAliasPassword: '',
       signingType: 'apksigner'
     }
-    // Version info should be set in build.gradle
   }
 };
 
