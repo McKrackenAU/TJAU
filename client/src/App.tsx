@@ -29,6 +29,7 @@ import UnsubscribePage from "@/pages/unsubscribe";
 import AngelNumbersPage from "@/pages/angel-numbers";
 import AngelNumberDetailPage from "@/pages/angel-number-detail";
 import UploadCards from "@/pages/upload-cards";
+import ResetPasswordPage from "@/pages/reset-password";
 // Importing only our new FixedBottomNav, disabling old nav components
 // import { BottomNav, SideNav } from "@/components/bottom-nav";
 // import { SimpleNav } from "@/components/simple-nav";
@@ -87,6 +88,7 @@ function AuthAwareComponents() {
           <Route path="/auth" component={AuthPage} />
           
           {/* Public routes */}
+          <Route path="/reset-password" component={() => <ResetPasswordPage />} />
           <Route path="/unsubscribe" component={UnsubscribePage} />
           <Route path="/admin/create" component={CreateAdminPage} />
           

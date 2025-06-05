@@ -2992,8 +2992,16 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Password reset endpoints
+  // Password reset endpoints - supports both endpoint names for compatibility
   app.post('/api/forgot-password', async (req, res) => {
+    await handlePasswordResetRequest(req, res);
+  });
+
+  app.post('/api/request-password-reset', async (req, res) => {
+    await handlePasswordResetRequest(req, res);
+  });
+
+  async function handlePasswordResetRequest(req: any, res: any) {
     try {
       const { email } = req.body;
       
@@ -3013,16 +3021,40 @@ export function registerRoutes(app: Express): Server {
 
       await storage.setPasswordResetToken(email, resetToken, resetExpires);
 
-      // TODO: Send email with reset link
-      // For now, log the reset token (in production, send via email)
-      console.log(`Password reset token for ${email}: ${resetToken}`);
+      // Try to send email with reset link
+      try {
+        const { sendEmail } = await import('./services/email-service');
+        const resetUrl = `${req.protocol}://${req.get('host')}/reset-password?token=${resetToken}`;
+        
+        const emailHtml = `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2>Password Reset Request</h2>
+            <p>You have requested to reset your password for your Tarot Journey account.</p>
+            <p>Click the link below to reset your password:</p>
+            <a href="${resetUrl}" style="background-color: #4F46E5; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; display: inline-block;">Reset Password</a>
+            <p>This link will expire in 24 hours.</p>
+            <p>If you didn't request this reset, please ignore this email.</p>
+          </div>
+        `;
+        
+        const emailSent = await sendEmail(email, 'Password Reset - Tarot Journey', emailHtml);
+        
+        if (emailSent) {
+          console.log(`Password reset email sent to ${email}`);
+        } else {
+          console.log(`Failed to send password reset email to ${email}, token: ${resetToken}`);
+        }
+      } catch (emailError) {
+        console.error('Email service error:', emailError);
+        console.log(`Password reset token for ${email}: ${resetToken}`);
+      }
 
       res.json({ message: 'If an account with that email exists, a reset link has been sent.' });
     } catch (error) {
       console.error('Forgot password error:', error);
       res.status(500).json({ message: 'Internal server error' });
     }
-  });
+  }
 
   app.post('/api/reset-password', async (req, res) => {
     try {
