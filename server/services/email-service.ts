@@ -8,7 +8,7 @@ function initializeTransporter() {
 
   // Check for production email credentials
   if (process.env.EMAIL_HOST && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-    transporter = nodemailer.createTransporter({
+    transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: parseInt(process.env.EMAIL_PORT || '587'),
       secure: process.env.EMAIL_SECURE === 'true',
@@ -20,7 +20,7 @@ function initializeTransporter() {
     console.log('Email service initialized with production credentials');
   } else {
     // Use test account for development
-    transporter = nodemailer.createTransporter({
+    transporter = nodemailer.createTransport({
       host: 'smtp.ethereal.email',
       port: 587,
       secure: false,
@@ -38,6 +38,10 @@ function initializeTransporter() {
 export async function sendEmail(to: string, subject: string, html: string): Promise<boolean> {
   try {
     const emailTransporter = initializeTransporter();
+    if (!emailTransporter) {
+      console.error('Email transporter not initialized');
+      return false;
+    }
     
     const mailOptions = {
       from: process.env.EMAIL_FROM || 'noreply@tarotjourney.com',
@@ -46,7 +50,7 @@ export async function sendEmail(to: string, subject: string, html: string): Prom
       html,
     };
 
-    const info = await emailTransporter.sendMessage(mailOptions);
+    const info = await emailTransporter.sendMail(mailOptions);
     
     // In development, log the preview URL
     if (!process.env.EMAIL_HOST) {
@@ -66,6 +70,10 @@ export async function sendEmail(to: string, subject: string, html: string): Prom
 export async function testEmailConnection(): Promise<boolean> {
   try {
     const emailTransporter = initializeTransporter();
+    if (!emailTransporter) {
+      console.error('Email transporter not initialized');
+      return false;
+    }
     await emailTransporter.verify();
     console.log('Email service connection verified');
     return true;
@@ -95,4 +103,17 @@ export async function sendNewsletterToSubscribers(subscribers: Array<{email: str
   }
   
   return { sent, failed };
+}
+
+// Unsubscribe function
+export async function unsubscribeUserByToken(token: string): Promise<boolean> {
+  try {
+    // This function would typically update the user's newsletter subscription status
+    // For now, we'll just return true as a placeholder
+    console.log(`Unsubscribe request for token: ${token}`);
+    return true;
+  } catch (error) {
+    console.error('Unsubscribe failed:', error);
+    return false;
+  }
 }
