@@ -2,10 +2,9 @@
 	"appId": "au.tarotjourney.app",
 	"appName": "Tarot Journey",
 	"webDir": "dist/public",
-	"bundledWebRuntime": false,
 	"server": {
-		"url": "https://www.tarotjourney.au",
-		"cleartext": false,
+		"androidScheme": "https",
+		"iosScheme": "https",
 		"allowNavigation": [
 			"www.tarotjourney.au",
 			"tarotjourney.au",
