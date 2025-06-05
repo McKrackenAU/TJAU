@@ -28,6 +28,10 @@ export default function Spreads() {
     staleTime: 0,
   });
 
+  const { data: previousReadings = [] } = useQuery({
+    queryKey: ["/api/readings/spreads"],
+  });
+
   // Generate spread cards only when spread changes or cards data updates
   useEffect(() => {
     const spread = spreads[selectedSpread];
