@@ -588,10 +588,19 @@ export function registerRoutes(app: Express): Server {
         }
       }));
 
-      // Cache key based on cards and spread type
+      // Cache key based on cards and spread type with mobile optimization
+      const userAgent = req.headers['user-agent'] || '';
+      const isMobileApp = userAgent.includes('Tarot Journey App') || 
+                         req.headers.origin?.includes('capacitor') ||
+                         req.headers.origin === undefined;
+      
       const cacheIdString = cards.map(c => c.id).join('-');
-      const cacheKey = `spread_meditation_${spreadType}_${cacheIdString}`;
+      const cacheKey = `spread_meditation_${spreadType}_${cacheIdString}${isMobileApp ? '_mobile' : ''}`;
       const cacheFilePath = path.join(CACHE_DIR, `${cacheKey}.json`);
+      
+      if (isMobileApp) {
+        console.log("Mobile app detected - using optimized meditation generation");
+      }
 
       // Try to get from cache first
       if (fs.existsSync(cacheFilePath)) {
@@ -651,7 +660,7 @@ export function registerRoutes(app: Express): Server {
           }
         ],
         temperature: 0.7,
-        max_tokens: 700
+        max_tokens: isMobileApp ? 500 : 700 // Shorter for mobile to reduce latency
       });
 
       console.log("Spread meditation script generated successfully");
