@@ -40,38 +40,54 @@ export default function Spreads() {
 
   // Generate spread cards only when spread changes or cards data updates
   useEffect(() => {
-    const spread = spreads[selectedSpread];
-    
-    // Mobile-compatible Fisher-Yates shuffle with temp variable
-    const shuffledCards = [...cards];
-    for (let i = shuffledCards.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = shuffledCards[i];
-      shuffledCards[i] = shuffledCards[j];
-      shuffledCards[j] = temp;
+    try {
+      setIsLoading(true);
+      setError(null);
+      
+      const spread = spreads[selectedSpread];
+      
+      if (!spread || !Array.isArray(cards) || cards.length === 0) {
+        setError("Unable to load spread data. Please refresh the page.");
+        setIsLoading(false);
+        return;
+      }
+      
+      // Mobile-compatible Fisher-Yates shuffle with temp variable
+      const shuffledCards = [...cards];
+      for (let i = shuffledCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = shuffledCards[i];
+        shuffledCards[i] = shuffledCards[j];
+        shuffledCards[j] = temp;
+      }
+      
+      // Extra validation: ensure no duplicates
+      const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
+      const uniqueCards = newSpreadCards.filter((card, index, arr) => 
+        arr.findIndex(c => c.id === card.id) === index
+      );
+      
+      // If we somehow got duplicates, reshuffle
+      if (uniqueCards.length !== newSpreadCards.length) {
+        console.warn("Duplicate cards detected, reshuffling...");
+        const extraShuffle = [...cards].sort(() => Math.random() - 0.5);
+        const finalCards = extraShuffle.slice(0, spread.positions.length);
+        console.log("Generated spread cards:", finalCards.map(c => c.name));
+        setSpreadCards(finalCards);
+      } else {
+        console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
+        setSpreadCards(newSpreadCards);
+      }
+      
+      setIsRevealed(false);
+      setNotes("");
+      setMood("");
+      setIsLoading(false);
+    } catch (err) {
+      console.error("Error generating spread cards:", err);
+      setError("Failed to generate spread cards. Please try again.");
+      setIsLoading(false);
     }
-    
-    // Extra validation: ensure no duplicates
-    const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
-    const uniqueCards = newSpreadCards.filter((card, index, arr) => 
-      arr.findIndex(c => c.id === card.id) === index
-    );
-    
-    // If we somehow got duplicates, reshuffle
-    if (uniqueCards.length !== newSpreadCards.length) {
-      console.warn("Duplicate cards detected, reshuffling...");
-      const extraShuffle = [...cards].sort(() => Math.random() - 0.5);
-      const finalCards = extraShuffle.slice(0, spread.positions.length);
-      console.log("Generated spread cards:", finalCards.map(c => c.name));
-      setSpreadCards(finalCards);
-    } else {
-      console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
-      setSpreadCards(newSpreadCards);
-    }
-    
-    setIsRevealed(false);
-    setNotes("");
-    setMood("");
   }, [selectedSpread, cards]);
 
   const mutation = useMutation({
@@ -100,6 +116,41 @@ export default function Spreads() {
       mood: mood || undefined
     });
   };
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="container px-4 py-8 pb-20">
+          <div className="max-w-md mx-auto text-center space-y-4">
+            <h1 className="text-2xl font-bold text-foreground">Tarot Spreads</h1>
+            <div className="p-6 bg-destructive/10 border border-destructive/20 rounded-lg">
+              <p className="text-destructive font-medium">{error}</p>
+              <button 
+                onClick={() => window.location.reload()}
+                className="mt-4 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90"
+              >
+                Refresh Page
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background">
+        <div className="container px-4 py-8 pb-20">
+          <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">Tarot Spreads</h1>
+          <div className="flex items-center justify-center py-12">
+            <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            <span className="ml-2 text-muted-foreground">Loading spread...</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">
