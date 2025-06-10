@@ -3128,5 +3128,25 @@
     "cardId": "imported_329",
     "cardName": "Past-Present-Future",
     "timestamp": "2025-06-05T01:57:42.657Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "imported_325",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-10T10:25:45.262Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "imported_325",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-06-10T10:25:58.740Z"
   }
 ]
