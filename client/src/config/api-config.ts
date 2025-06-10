@@ -9,7 +9,7 @@ const isMobile = window.location.protocol === 'capacitor:' ||
                  (window as any).Capacitor;
 
 // Production API base URL
-const PRODUCTION_API_BASE = 'https://tarotjourney.au';
+const PRODUCTION_API_BASE = 'https://www.tarotjourney.au';
 
 // Development API base URL (for when testing locally)
 const DEVELOPMENT_API_BASE = import.meta.env.DEV ? 

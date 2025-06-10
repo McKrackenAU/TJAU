@@ -143,9 +143,15 @@ export class AudioService {
       
       console.log("Generating speech with Josie voice via server");
       
-      // Get the correct base URL for deployed environments
-      const baseUrl = window.location.origin;
+      // Mobile app specific routing - use production server for API calls
+      const isMobileApp = window.location.protocol === 'capacitor:' || 
+                         window.location.hostname === 'localhost' ||
+                         navigator.userAgent.includes('Tarot Journey App');
+      
+      const baseUrl = isMobileApp ? 'https://www.tarotjourney.au' : window.location.origin;
       const apiUrl = `${baseUrl}/api/generate-speech`;
+      
+      console.log(`Mobile app detected: ${isMobileApp}, using base URL: ${baseUrl}`);
       
       // Generate speech using server endpoint with Josie voice
       const response = await fetch(apiUrl, {
@@ -167,6 +173,14 @@ export class AudioService {
       }
       
       const audioBuffer = await response.arrayBuffer();
+      console.log(`Josie voice audio received, size: ${audioBuffer.byteLength} bytes`);
+      
+      if (audioBuffer.byteLength === 0) {
+        console.error("Received empty audio buffer, falling back to browser synthesis");
+        this.fallbackToSpeechSynthesis(text, onEnd);
+        return;
+      }
+      
       const audioUrl = URL.createObjectURL(new Blob([audioBuffer], { type: 'audio/mpeg' }));
       
       // Create audio element and play
