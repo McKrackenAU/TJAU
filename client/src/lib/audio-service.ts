@@ -143,8 +143,12 @@ export class AudioService {
       
       console.log("Generating speech with Josie voice via server");
       
+      // Get the correct base URL for deployed environments
+      const baseUrl = window.location.origin;
+      const apiUrl = `${baseUrl}/api/generate-speech`;
+      
       // Generate speech using server endpoint with Josie voice
-      const response = await fetch('/api/generate-speech', {
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

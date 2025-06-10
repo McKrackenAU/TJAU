@@ -100,28 +100,30 @@ export default function Spreads() {
   };
 
   return (
-    <div className="container px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Tarot Spreads</h1>
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 py-8 pb-20">
+        <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">Tarot Spreads</h1>
 
-      <div className="max-w-md mx-auto mb-8">
-        <Select
-          value={selectedSpread}
-          onValueChange={(value: keyof typeof spreads) => {
-            setSelectedSpread(value);
-          }}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select a spread" />
-          </SelectTrigger>
-          <SelectContent>
-            {Object.entries(spreads).map(([id, s]) => (
-              <SelectItem key={id} value={id}>{s.name}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
+        <div className="max-w-md mx-auto mb-6 md:mb-8">
+          <Select
+            value={selectedSpread}
+            onValueChange={(value: keyof typeof spreads) => {
+              setSelectedSpread(value);
+            }}
+          >
+            <SelectTrigger className="bg-card text-foreground">
+              <SelectValue placeholder="Select a spread" />
+            </SelectTrigger>
+            <SelectContent className="bg-card border-border">
+              {Object.entries(spreads).map(([id, s]) => (
+                <SelectItem key={id} value={id} className="text-foreground hover:bg-muted">{s.name}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
 
-      <div className="max-w-7xl mx-auto space-y-8">
+        <div className="max-w-7xl mx-auto space-y-6 md:space-y-8">
+          {/* Main spread content */}
         <Card className="bg-card">
           <CardHeader>
             <CardTitle className="text-xl text-foreground font-bold">
@@ -324,6 +326,7 @@ export default function Spreads() {
             </ScrollArea>
           </CardContent>
         </Card>
+        </div>
       </div>
     </div>
   );
