@@ -23,6 +23,8 @@ export default function Spreads() {
   const [notes, setNotes] = useState("");
   const [mood, setMood] = useState<string>("");
   const [spreadCards, setSpreadCards] = useState<typeof tarotCards>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -32,7 +34,7 @@ export default function Spreads() {
     staleTime: 0,
   });
 
-  const { data: previousReadings = [] } = useQuery({
+  const { data: previousReadings = [] } = useQuery<Reading[]>({
     queryKey: ["/api/readings/spreads"],
   });
 
@@ -269,7 +271,7 @@ export default function Spreads() {
           <CardContent>
             <ScrollArea className="h-[500px] pr-4">
               <div className="space-y-4">
-                {previousReadings?.map((reading: Reading) => (
+                {Array.isArray(previousReadings) && previousReadings.map((reading: Reading) => (
                   <Card key={reading.id} className="border-muted">
                     <CardHeader>
                       <CardTitle className="text-lg flex items-center justify-between">
@@ -316,7 +318,7 @@ export default function Spreads() {
                   </Card>
                 ))}
                 
-                {(!previousReadings || previousReadings.length === 0) && (
+                {(!Array.isArray(previousReadings) || previousReadings.length === 0) && (
                   <div className="text-center py-8 text-muted-foreground">
                     <p>No saved spreads yet.</p>
                     <p className="text-sm mt-2">Your spread readings will appear here after you save them.</p>

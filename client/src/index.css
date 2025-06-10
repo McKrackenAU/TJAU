@@ -85,6 +85,25 @@
     main, .container, .main-content, [role="main"] {
       padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0.5rem)) !important;
     }
+    
+    /* Mobile layout fixes to prevent black screen */
+    .min-h-screen {
+      min-height: 100dvh !important; /* Dynamic viewport height for mobile */
+      min-height: 100vh !important; /* Fallback for older browsers */
+    }
+    
+    /* Ensure content doesn't get cut off on mobile */
+    .container {
+      max-width: 100% !important;
+      overflow-x: hidden !important;
+    }
+    
+    /* Fix mobile scrolling issues */
+    body {
+      position: relative !important;
+      overflow-x: hidden !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
   }
 }
 

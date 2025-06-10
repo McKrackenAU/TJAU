@@ -161,7 +161,7 @@ export class AudioService {
       });
       
       if (!response.ok) {
-        console.error("Server speech generation failed, falling back to browser synthesis");
+        console.error(`Server speech generation failed with status ${response.status}, falling back to browser synthesis`);
         this.fallbackToSpeechSynthesis(text, onEnd);
         return;
       }
