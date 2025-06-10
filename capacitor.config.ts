@@ -4,7 +4,7 @@ const config: CapacitorConfig = {
   appId: 'au.tarotjourney.app',
   appName: 'Tarot Journey',
   webDir: 'dist/public',
-  // Mobile app configuration - connect to production server for API calls
+  // Production server configuration for mobile apps
   server: {
     url: 'https://www.tarotjourney.au',
     cleartext: false,
