@@ -1,46 +1,252 @@
 import { useQuery } from "@tanstack/react-query";
+import { useRef, useEffect, useState } from "react";
 import type { LearningTrack } from "@shared/schema";
+
+interface ConstellationStar {
+  id: string;
+  x: number;
+  y: number;
+  size: number;
+  brightness: number;
+  color: string;
+  isCompleted: boolean;
+  trackName: string;
+  lessonName: string;
+  connections: string[];
+}
 
 interface ConstellationProps {
   onStarClick?: (starId: string) => void;
 }
 
 export function LearningConstellation({ onStarClick }: ConstellationProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [stars, setStars] = useState<ConstellationStar[]>([]);
+  const [animationFrame, setAnimationFrame] = useState(0);
+  const [hoveredStar, setHoveredStar] = useState<string | null>(null);
+
   const { data: tracks = [] } = useQuery<LearningTrack[]>({
     queryKey: ["/api/learning/tracks"],
     staleTime: 10 * 60 * 1000,
   });
 
-  if (!tracks || tracks.length === 0) {
-    return (
-      <div className="relative w-full h-96 bg-gradient-to-b from-indigo-900 via-purple-900 to-black rounded-lg flex items-center justify-center">
-        <p className="text-white text-lg">Loading learning paths...</p>
-      </div>
-    );
-  }
+  // Generate constellation stars based on learning tracks
+  useEffect(() => {
+    if (!tracks || tracks.length === 0 || !containerRef.current) return;
+
+    const container = containerRef.current;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    const newStars: ConstellationStar[] = [];
+
+    // Define constellation patterns for different tracks
+    const constellationPatterns = {
+      1: { // Beginner's Journey - The Great Bear (Big Dipper)
+        centerX: width * 0.3,
+        centerY: height * 0.4,
+        pattern: [
+          { x: 0, y: 0 }, { x: 40, y: -20 }, { x: 80, y: -30 },
+          { x: 120, y: -25 }, { x: 100, y: 20 }, { x: 60, y: 35 }, { x: 20, y: 30 }
+        ]
+      },
+      2: { // Minor Arcana - Orion's Belt
+        centerX: width * 0.7,
+        centerY: height * 0.3,
+        pattern: [
+          { x: -60, y: -40 }, { x: -20, y: -20 }, { x: 20, y: 0 },
+          { x: 60, y: 20 }, { x: -40, y: 40 }, { x: 0, y: 60 }, { x: 40, y: 80 }
+        ]
+      },
+      5: { // Pendulum Dowsing - Cassiopeia (W shape)
+        centerX: width * 0.5,
+        centerY: height * 0.6,
+        pattern: [
+          { x: -60, y: 10 }, { x: -30, y: -20 }, { x: 0, y: -30 },
+          { x: 30, y: -20 }, { x: 60, y: 10 }
+        ]
+      }
+    };
+
+    tracks.forEach((track, trackIndex) => {
+      if (!track || !track.id || !track.requiredCards) return;
+
+      const pattern = constellationPatterns[track.id as keyof typeof constellationPatterns] || {
+        centerX: width * (0.2 + trackIndex * 0.15),
+        centerY: height * (0.3 + (trackIndex % 2) * 0.4),
+        pattern: track.requiredCards.map((_, i) => ({ 
+          x: (i % 4) * 40 - 60, 
+          y: Math.floor(i / 4) * 40 - 40 
+        }))
+      };
+      
+      track.requiredCards.forEach((cardId, lessonIndex) => {
+        const pos = pattern.pattern[lessonIndex] || { x: lessonIndex * 30, y: 0 };
+
+        newStars.push({
+          id: `${track.id}-${lessonIndex}`,
+          x: pattern.centerX + pos.x,
+          y: pattern.centerY + pos.y,
+          size: 6,
+          brightness: 0.8,
+          color: '#87CEEB',
+          isCompleted: false,
+          trackName: track.name,
+          lessonName: `Lesson ${lessonIndex + 1}`,
+          connections: []
+        });
+      });
+    });
+
+    setStars(newStars);
+  }, [tracks]);
+
+  // Animation loop for twinkling stars
+  useEffect(() => {
+    const animate = () => {
+      setAnimationFrame(prev => prev + 1);
+    };
+    const animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
+  }, []);
+
+  // Canvas rendering
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || stars.length === 0) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const rect = canvas.getBoundingClientRect();
+    
+    canvas.width = rect.width * dpr;
+    canvas.height = rect.height * dpr;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, rect.width, rect.height);
+
+    // Draw stars
+    stars.forEach(star => {
+      const twinkle = Math.sin(animationFrame * 0.05 + star.x * 0.01) * 0.3 + 0.7;
+      const currentBrightness = star.brightness * twinkle;
+      
+      ctx.save();
+      ctx.globalAlpha = currentBrightness;
+      ctx.fillStyle = star.color;
+      
+      // Draw star shape
+      const radius = star.size;
+      ctx.beginPath();
+      for (let i = 0; i < 5; i++) {
+        const angle = (i * Math.PI * 2) / 5 - Math.PI / 2;
+        const x = star.x + Math.cos(angle) * radius;
+        const y = star.y + Math.sin(angle) * radius;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+        
+        const innerAngle = ((i + 0.5) * Math.PI * 2) / 5 - Math.PI / 2;
+        const innerX = star.x + Math.cos(innerAngle) * (radius * 0.4);
+        const innerY = star.y + Math.sin(innerAngle) * (radius * 0.4);
+        ctx.lineTo(innerX, innerY);
+      }
+      ctx.closePath();
+      ctx.fill();
+      
+      // Add glow effect
+      ctx.shadowColor = star.color;
+      ctx.shadowBlur = 10;
+      ctx.fill();
+      
+      ctx.restore();
+    });
+
+    // Draw connections between stars in the same track
+    ctx.strokeStyle = 'rgba(135, 206, 235, 0.3)';
+    ctx.lineWidth = 1;
+    
+    const trackGroups = stars.reduce((groups, star) => {
+      const trackId = star.id.split('-')[0];
+      if (!groups[trackId]) groups[trackId] = [];
+      groups[trackId].push(star);
+      return groups;
+    }, {} as Record<string, ConstellationStar[]>);
+
+    Object.values(trackGroups).forEach(trackStars => {
+      for (let i = 0; i < trackStars.length - 1; i++) {
+        const star1 = trackStars[i];
+        const star2 = trackStars[i + 1];
+        
+        ctx.beginPath();
+        ctx.moveTo(star1.x, star1.y);
+        ctx.lineTo(star2.x, star2.y);
+        ctx.stroke();
+      }
+    });
+
+  }, [stars, animationFrame]);
+
+  const handleCanvasClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const clickedStar = stars.find(star => {
+      const distance = Math.sqrt((x - star.x) ** 2 + (y - star.y) ** 2);
+      return distance <= star.size + 5;
+    });
+
+    if (clickedStar && onStarClick) {
+      onStarClick(clickedStar.id);
+    }
+  };
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    const hoveredStar = stars.find(star => {
+      const distance = Math.sqrt((x - star.x) ** 2 + (y - star.y) ** 2);
+      return distance <= star.size + 5;
+    });
+
+    setHoveredStar(hoveredStar?.id || null);
+  };
 
   return (
-    <div className="relative w-full h-96 bg-gradient-to-b from-indigo-900 via-purple-900 to-black rounded-lg overflow-hidden p-8">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 h-full">
-        {tracks.map((track, index) => (
-          <div key={track.id} className="text-center text-white">
-            <h3 className="text-sm font-bold mb-4 truncate">{track.name}</h3>
-            <div className="grid grid-cols-2 gap-2">
-              {track.requiredCards?.slice(0, 8).map((cardId, lessonIndex) => (
-                <div
-                  key={`${track.id}-${lessonIndex}`}
-                  className="w-6 h-6 bg-blue-300 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-200 transition-colors text-xs"
-                  onClick={() => onStarClick?.(`${track.id}-${lessonIndex}`)}
-                  title={`Lesson ${lessonIndex + 1}`}
-                >
-                  {lessonIndex + 1}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+    <div ref={containerRef} className="relative w-full h-96 bg-gradient-to-b from-indigo-900 via-purple-900 to-black rounded-lg overflow-hidden">
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full cursor-pointer"
+        onClick={handleCanvasClick}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={() => setHoveredStar(null)}
+      />
       
+      {/* Constellation Info Tooltip */}
+      {hoveredStar && (
+        <div className="absolute top-4 left-4 bg-black bg-opacity-80 text-white p-3 rounded-lg pointer-events-none">
+          <div className="text-sm font-medium">
+            {stars.find(s => s.id === hoveredStar)?.trackName}
+          </div>
+          <div className="text-xs opacity-80">
+            {stars.find(s => s.id === hoveredStar)?.lessonName}
+          </div>
+        </div>
+      )}
+      
+      {/* Legend */}
       <div className="absolute bottom-4 right-4 bg-black bg-opacity-60 text-white p-3 rounded-lg text-xs">
         <div className="flex items-center mb-1">
           <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
