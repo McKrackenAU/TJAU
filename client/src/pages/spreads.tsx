@@ -120,7 +120,7 @@ export default function Spreads() {
   if (error) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="container px-4 py-8 pb-20">
+        <div className="w-full max-w-4xl mx-auto px-4 py-8 pb-20">
           <div className="max-w-md mx-auto text-center space-y-4">
             <h1 className="text-2xl font-bold text-foreground">Tarot Spreads</h1>
             <div className="p-6 bg-destructive/10 border border-destructive/20 rounded-lg">
@@ -141,7 +141,7 @@ export default function Spreads() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background">
-        <div className="container px-4 py-8 pb-20">
+        <div className="w-full max-w-4xl mx-auto px-4 py-8 pb-20">
           <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">Tarot Spreads</h1>
           <div className="flex items-center justify-center py-12">
             <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -154,7 +154,7 @@ export default function Spreads() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container px-4 py-8 pb-20">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 pb-20">
         <h1 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8 text-foreground">Tarot Spreads</h1>
 
         <div className="max-w-md mx-auto mb-6 md:mb-8">

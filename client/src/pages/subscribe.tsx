@@ -263,7 +263,7 @@ export default function SubscribePage() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="container mx-auto py-12 flex justify-center">
+      <div className="w-full max-w-4xl mx-auto py-12 flex justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -282,7 +282,7 @@ export default function SubscribePage() {
   // Error creating subscription session
   if (error) {
     return (
-      <div className="container mx-auto py-8 px-4">
+      <div className="w-full max-w-4xl mx-auto py-8 px-4">
         <Card className="max-w-md mx-auto">
           <CardHeader>
             <CardTitle>Subscription Error</CardTitle>
@@ -310,7 +310,7 @@ export default function SubscribePage() {
   
   // Show subscription form when we have the client secret
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="w-full max-w-4xl mx-auto py-8 px-4">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-3xl font-bold text-center mb-2">Subscribe to Tarot Journey</h1>
         <p className="text-muted-foreground text-center mb-8">

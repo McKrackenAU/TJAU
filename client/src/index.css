@@ -31,6 +31,11 @@
     min-height: calc(100vh - 3.5rem);
     /* Add padding for the top notch/camera on iOS devices */
     padding-top: env(safe-area-inset-top, 0.5rem);
+    /* Ensure proper centering */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
   }
   
   /* Add viewport height adjustment for mobile browsers */
@@ -96,6 +101,9 @@
     .container {
       max-width: 100% !important;
       overflow-x: hidden !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
     }
     
     /* Fix mobile scrolling issues */

@@ -39,7 +39,7 @@ export default function AngelNumbersPage() {
 
   if (isLoading) {
     return (
-      <div className="container px-4 py-8 text-center">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         <h1 className="text-3xl font-bold mb-8">Angel Numbers Library</h1>
         <p>Loading angel numbers...</p>
       </div>
@@ -48,7 +48,7 @@ export default function AngelNumbersPage() {
 
   if (error) {
     return (
-      <div className="container px-4 py-8 text-center">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         <h1 className="text-3xl font-bold mb-8">Angel Numbers Library</h1>
         <p className="text-red-500">Error loading angel numbers. Please try again later.</p>
       </div>
@@ -56,7 +56,7 @@ export default function AngelNumbersPage() {
   }
 
   return (
-    <div className="container px-4 py-8">
+    <div className="w-full max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-2">Angel Numbers Library</h1>
       <p className="text-center text-muted-foreground mb-8">
         Discover the spiritual meanings behind angel numbers and their divine guidance

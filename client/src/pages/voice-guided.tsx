@@ -64,7 +64,7 @@ export default function VoiceGuidedPage() {
   };
 
   return (
-    <div className="container max-w-4xl py-8">
+    <div className="w-full max-w-4xl mx-auto py-8">
       <h1 className="text-3xl font-bold mb-2">Voice-Guided Tarot Reading</h1>
       <p className="text-muted-foreground mb-6">
         Experience an immersive tarot reading with voice narration and meditation music.

@@ -247,7 +247,7 @@ export default function Library() {
 
   return (
     <AppLayout header={<span className="text-xl font-bold">Card Library</span>}>
-      <div className="container px-4 py-4">
+      <div className="w-full max-w-6xl mx-auto px-4 py-4">
         <Tabs defaultValue="browse" className="max-w-4xl mx-auto">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="browse">Browse Cards</TabsTrigger>

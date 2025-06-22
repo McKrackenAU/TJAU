@@ -1,6 +1,6 @@
 export default function TestImages() {
   return (
-    <div className="container mx-auto p-8">
+    <div className="w-full max-w-4xl mx-auto p-8">
       <h1 className="text-3xl font-bold mb-8">Image Path Test</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

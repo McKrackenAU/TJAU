@@ -82,7 +82,7 @@ function AuthAwareComponents() {
     <>
       <InitialAuthRedirect />
       <FixedBottomNav />
-      <main className="pb-16">
+      <main className="pb-16 w-full mx-auto">
         <Switch>
           {/* Authentication route */}
           <Route path="/auth" component={AuthPage} />
@@ -129,7 +129,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <div className="min-h-screen bg-background">
+        <div className="min-h-screen bg-background w-full mx-auto">
           <AuthAwareComponents />
           <SafeComponent component={() => <InstallBanner />} />
           <SafeComponent component={() => <ServiceWorkerUpdate />} />

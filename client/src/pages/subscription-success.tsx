@@ -23,14 +23,14 @@ export default function SubscriptionSuccessPage() {
   // Loading state while checking if user is authenticated
   if (isLoading) {
     return (
-      <div className="container mx-auto py-12 flex justify-center">
+      <div className="w-full max-w-4xl mx-auto py-12 flex justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="w-full max-w-4xl mx-auto py-12 px-4">
       <Card className="max-w-md mx-auto">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
