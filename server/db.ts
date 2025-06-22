@@ -27,11 +27,18 @@ pool.on('error', (err) => {
   console.error('Unexpected error on idle client', err);
 });
 
-// Graceful shutdown
-process.on('SIGINT', () => {
-  pool.end();
-});
+// Graceful shutdown with proper cleanup
+let isShuttingDown = false;
 
-process.on('SIGTERM', () => {
-  pool.end();
-});
+const gracefulShutdown = () => {
+  if (isShuttingDown) return;
+  isShuttingDown = true;
+  
+  console.log('Gracefully shutting down database pool...');
+  pool.end().catch(err => {
+    console.error('Error during pool shutdown:', err);
+  });
+};
+
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);
