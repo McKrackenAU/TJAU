@@ -202,24 +202,20 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Celtic Cross - clean vertical list layout  
-                <div className="space-y-3 w-full max-w-lg mx-auto">
+                // Celtic Cross - 2 rows of 5 columns layout
+                <div className="grid grid-cols-5 gap-4 w-full max-w-4xl mx-auto">
                   {spreadCards.map((card, i) => (
-                    <div key={`${card.id}-${i}`} className="flex items-center space-x-3 p-3 bg-card/30 rounded-lg border border-white/10">
-                      <div className="w-20 h-30 flex-shrink-0">
-                        <CardDisplay
-                          card={card}
-                          isRevealed={isRevealed}
-                          isReversed={Math.random() < 0.3}
-                        />
+                    <div key={`${card.id}-${i}`} className="flex flex-col items-center space-y-2">
+                      <CardDisplay
+                        card={card}
+                        isRevealed={isRevealed}
+                        isReversed={Math.random() < 0.3}
+                      />
+                      <div className="text-xs text-center text-foreground font-medium px-1">
+                        {spreads[selectedSpread].positions[i]}
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-sm font-semibold text-foreground mb-1">
-                          {spreads[selectedSpread].positions[i]}
-                        </div>
-                        <div className="text-xs text-muted-foreground truncate">
-                          {card.name}
-                        </div>
+                      <div className="text-xs text-center text-muted-foreground">
+                        {card.name}
                       </div>
                     </div>
                   ))}
