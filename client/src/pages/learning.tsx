@@ -47,6 +47,9 @@ export default function Learning() {
   const startTrackMutation = useMutation({
     mutationFn: async (trackId: number) => {
       console.log("Starting track:", trackId);
+      if (!trackId || isNaN(trackId)) {
+        throw new Error("Invalid track ID");
+      }
       try {
         // For pendulum course, add specific handling (track ID 5)
         if (trackId === 5) {

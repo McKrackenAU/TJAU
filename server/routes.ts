@@ -1093,7 +1093,8 @@ export function registerRoutes(app: Express): Server {
         console.log(`Track ${trackId} found:`, track.name);
       }
 
-      const progress = insertUserProgressSchema.parse(req.body);
+      const progressData = { ...req.body, userId };
+      const progress = insertUserProgressSchema.parse(progressData);
       const result = await storage.createUserProgress(userId, progress);
       res.json(result);
     } catch (error) {
@@ -1122,7 +1123,13 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
-      const progress = await storage.getUserProgress(userId, Number(req.params.trackId));
+      const trackId = parseInt(req.params.trackId, 10);
+      
+      if (isNaN(trackId)) {
+        return res.status(400).json({ error: "Invalid track ID" });
+      }
+      
+      const progress = await storage.getUserProgress(userId, trackId);
       res.json(progress || null);
     } catch (error) {
       console.error("Error fetching user progress:", error);
@@ -1152,7 +1159,13 @@ export function registerRoutes(app: Express): Server {
         return res.status(401).json({ error: "Authentication required" });
       }
       const userId = req.user!.id;
-      const results = await storage.getQuizResults(userId, Number(req.params.trackId));
+      const trackId = parseInt(req.params.trackId, 10);
+      
+      if (isNaN(trackId)) {
+        return res.status(400).json({ error: "Invalid track ID" });
+      }
+      
+      const results = await storage.getQuizResults(userId, trackId);
       res.json(results);
     } catch (error) {
       res.status(500).json({ error: "Failed to fetch quiz results" });
