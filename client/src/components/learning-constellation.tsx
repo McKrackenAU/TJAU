@@ -31,9 +31,28 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     staleTime: 10 * 60 * 1000,
   });
 
-  // Generate constellation stars based on learning tracks
+  // Query for progress data to show completed lessons
+  const { data: progressData = [] } = useQuery({
+    queryKey: ["/api/learning/progress/all", tracks?.length],
+    queryFn: async () => {
+      if (!tracks || !Array.isArray(tracks) || tracks.length === 0) return [];
+      const progressPromises = tracks.map(track => {
+        if (!track || !track.id || isNaN(track.id)) {
+          return Promise.resolve({ completedLessons: [], currentLesson: 1, trackId: null });
+        }
+        return fetch(`/api/learning/progress/${track.id}`)
+          .then(res => res.ok ? res.json() : { completedLessons: [], currentLesson: 1, trackId: track.id })
+          .catch(() => ({ completedLessons: [], currentLesson: 1, trackId: track.id }));
+      });
+      return Promise.all(progressPromises);
+    },
+    enabled: !!tracks && Array.isArray(tracks) && tracks.length > 0,
+    staleTime: 5 * 60 * 1000,
+  });
+
+  // Generate constellation stars based on learning tracks and progress
   useEffect(() => {
-    if (!tracks || tracks.length === 0 || !containerRef.current) return;
+    if (!tracks || tracks.length === 0 || !progressData || !containerRef.current) return;
 
     const container = containerRef.current;
     const width = container.clientWidth;
@@ -72,6 +91,7 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     tracks.forEach((track, trackIndex) => {
       if (!track || !track.id || !track.requiredCards) return;
 
+      const progress = progressData.find(p => p && p.trackId === track.id) || { completedLessons: [], currentLesson: 1 };
       const pattern = constellationPatterns[track.id as keyof typeof constellationPatterns] || {
         centerX: width * (0.2 + trackIndex * 0.15),
         centerY: height * (0.3 + (trackIndex % 2) * 0.4),
@@ -82,16 +102,29 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       };
       
       track.requiredCards.forEach((cardId, lessonIndex) => {
+        const isCompleted = progress.completedLessons.includes(cardId);
+        const isCurrent = progress.currentLesson - 1 === lessonIndex;
         const pos = pattern.pattern[lessonIndex] || { x: lessonIndex * 30, y: 0 };
+
+        // Star properties based on completion status
+        let size = isCompleted ? 8 : 4;
+        let brightness = isCompleted ? 1 : 0.3;
+        let color = isCompleted ? '#FFD700' : '#87CEEB'; // Gold for completed, blue for available
+
+        if (isCurrent) {
+          size = 10;
+          brightness = 0.8;
+          color = '#FF6B6B'; // Red for current lesson
+        }
 
         newStars.push({
           id: `${track.id}-${lessonIndex}`,
           x: pattern.centerX + pos.x,
           y: pattern.centerY + pos.y,
-          size: 6,
-          brightness: 0.8,
-          color: '#87CEEB',
-          isCompleted: false,
+          size,
+          brightness,
+          color,
+          isCompleted,
           trackName: track.name,
           lessonName: `Lesson ${lessonIndex + 1}`,
           connections: []
@@ -100,7 +133,7 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     });
 
     setStars(newStars);
-  }, [tracks]);
+  }, [tracks, progressData]);
 
   // Animation loop for twinkling stars
   useEffect(() => {

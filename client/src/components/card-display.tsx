@@ -29,7 +29,7 @@ const CardDisplay = memo(function CardDisplay({
   return (
     <>
       <div 
-        className="w-48 h-72 relative cursor-pointer group"
+        className="w-24 h-36 relative cursor-pointer group"
         style={{ perspective: "1000px" }}
         onClick={onClick}
       >
@@ -38,7 +38,7 @@ const CardDisplay = memo(function CardDisplay({
           initial={false}
           animate={{ 
             rotateY: isRevealed ? 0 : 180,
-            rotateZ: 0 // Remove automatic card reversal to prevent upside-down display
+            rotateZ: isReversed ? 180 : 0 // Properly handle card reversal
           }}
           transition={{ duration: 0.6 }}
           style={{ transformStyle: "preserve-3d" }}
