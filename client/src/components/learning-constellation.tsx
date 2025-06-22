@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import type { LearningTrack } from "@shared/schema";
 
 interface ConstellationStar {
@@ -31,9 +31,9 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     staleTime: 10 * 60 * 1000,
   });
 
-  // Query for progress data to show completed lessons
+  // Stable progress data query - prevent infinite re-renders
   const { data: progressData = [] } = useQuery({
-    queryKey: ["/api/learning/progress/all", tracks?.length],
+    queryKey: ["/api/learning/progress/all"],
     queryFn: async () => {
       if (!tracks || !Array.isArray(tracks) || tracks.length === 0) return [];
       const progressPromises = tracks.map(track => {
@@ -47,16 +47,16 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       return Promise.all(progressPromises);
     },
     enabled: !!tracks && Array.isArray(tracks) && tracks.length > 0,
-    staleTime: 5 * 60 * 1000,
+    staleTime: 10 * 60 * 1000,
   });
 
-  // Generate constellation stars based on learning tracks and progress
-  useEffect(() => {
-    if (!tracks || tracks.length === 0 || !progressData || !containerRef.current) return;
+  // Generate constellation stars - use useMemo to prevent infinite re-renders
+  const generatedStars = useMemo(() => {
+    if (!tracks || tracks.length === 0 || !progressData || !containerRef.current) return [];
 
     const container = containerRef.current;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    const width = container.clientWidth || 800;
+    const height = container.clientHeight || 400;
 
     const newStars: ConstellationStar[] = [];
 
@@ -132,8 +132,15 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       });
     });
 
-    setStars(newStars);
+    return newStars;
   }, [tracks, progressData]);
+
+  // Update stars when generated stars change
+  useEffect(() => {
+    if (generatedStars.length > 0) {
+      setStars(generatedStars);
+    }
+  }, [generatedStars]);
 
   // Animation loop for twinkling stars
   useEffect(() => {

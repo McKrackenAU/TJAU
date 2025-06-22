@@ -29,7 +29,7 @@ const CardDisplay = memo(function CardDisplay({
   return (
     <>
       <div 
-        className="w-24 h-36 relative cursor-pointer group"
+        className="w-40 h-60 relative cursor-pointer group"
         style={{ perspective: "1000px" }}
         onClick={onClick}
       >

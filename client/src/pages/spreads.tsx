@@ -203,10 +203,10 @@ export default function Spreads() {
             }`}>
               {selectedSpread === "celticCross" ? (
                 // Special Celtic Cross layout
-                <div className="grid grid-cols-5 grid-rows-4 gap-3 h-[700px] w-full max-w-6xl mx-auto">
+                <div className="grid grid-cols-5 grid-rows-4 gap-4 h-[800px] w-full max-w-7xl mx-auto">
                   {/* Position 1 - Present Situation */}
                   <div className="col-start-2 row-start-2 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[0]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[0]}</div>
@@ -214,7 +214,7 @@ export default function Spreads() {
 
                   {/* Position 2 - Challenge/Cross */}
                   <div className="col-start-2 row-start-2 flex flex-col items-center transform rotate-90">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[1]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center transform -rotate-90">{spreads[selectedSpread].positions[1]}</div>
@@ -222,7 +222,7 @@ export default function Spreads() {
 
                   {/* Position 3 - Distant Past/Foundation */}
                   <div className="col-start-2 row-start-3 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[2]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[2]}</div>
@@ -230,7 +230,7 @@ export default function Spreads() {
 
                   {/* Position 4 - Recent Past */}
                   <div className="col-start-1 row-start-2 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[3]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[3]}</div>
@@ -238,7 +238,7 @@ export default function Spreads() {
 
                   {/* Position 5 - Possible Outcome */}
                   <div className="col-start-2 row-start-1 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[4]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[4]}</div>
@@ -246,7 +246,7 @@ export default function Spreads() {
 
                   {/* Position 6 - Near Future */}
                   <div className="col-start-3 row-start-2 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[5]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[5]}</div>
@@ -254,7 +254,7 @@ export default function Spreads() {
 
                   {/* Position 7 - Your Approach */}
                   <div className="col-start-5 row-start-4 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[6]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[6]}</div>
@@ -262,7 +262,7 @@ export default function Spreads() {
 
                   {/* Position 8 - External Influences */}
                   <div className="col-start-5 row-start-3 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[7]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[7]}</div>
@@ -270,7 +270,7 @@ export default function Spreads() {
 
                   {/* Position 9 - Hopes and Fears */}
                   <div className="col-start-5 row-start-2 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[8]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[8]}</div>
@@ -278,7 +278,7 @@ export default function Spreads() {
 
                   {/* Position 10 - Final Outcome */}
                   <div className="col-start-5 row-start-1 flex flex-col items-center">
-                    <div className="w-24 h-36 flex items-center justify-center mb-2">
+                    <div className="w-32 h-48 flex items-center justify-center mb-2">
                       <CardDisplay card={spreadCards[9]} isRevealed={isRevealed} />
                     </div>
                     <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[9]}</div>

@@ -104,6 +104,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   const [imageKey, setImageKey] = useState(0); // Force re-render key
   
+  // Early validation to prevent errors
+  if (!card || !card.arcana || !card.id) {
+    console.warn("⚠️ Invalid card data:", card);
+    return <div className="w-full h-full bg-card-muted rounded-xl flex items-center justify-center text-muted-foreground">Invalid Card</div>;
+  }
+  
   // Complete card path mapping
   const getImagePath = () => {
     // Ensure card and card.id exist
