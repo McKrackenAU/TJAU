@@ -202,33 +202,42 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Celtic Cross - proper CSS Grid
-                <div className="w-full max-w-6xl mx-auto">
-                  <div 
-                    className="grid gap-6"
-                    style={{
-                      gridTemplateColumns: 'repeat(5, 1fr)',
-                      gridTemplateRows: 'repeat(2, auto)'
-                    }}
-                  >
-                    {spreadCards.map((card, i) => (
-                      <div 
-                        key={`card-${i}`} 
-                        className="flex flex-col items-center text-center"
-                        style={{
-                          gridColumn: (i % 5) + 1,
-                          gridRow: Math.floor(i / 5) + 1
-                        }}
-                      >
-                        <div className="w-20 h-28 mb-3">
+                // Celtic Cross - Fixed 2x5 Layout
+                <div className="w-full max-w-5xl mx-auto space-y-8">
+                  {/* First Row */}
+                  <div className="flex justify-center gap-4">
+                    {spreadCards.slice(0, 5).map((card, i) => (
+                      <div key={`row1-${i}`} className="flex flex-col items-center text-center w-24">
+                        <div className="w-20 h-28 mb-2">
                           <CardDisplay
                             card={card}
                             isRevealed={isRevealed}
-                            isReversed={Math.random() < 0.3}
+                            isReversed={cardReversals[i] || false}
                           />
                         </div>
                         <div className="text-xs font-medium mb-1 leading-tight">
                           {spreads[selectedSpread].positions[i]}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {card.name}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  {/* Second Row */}
+                  <div className="flex justify-center gap-4">
+                    {spreadCards.slice(5, 10).map((card, i) => (
+                      <div key={`row2-${i}`} className="flex flex-col items-center text-center w-24">
+                        <div className="w-20 h-28 mb-2">
+                          <CardDisplay
+                            card={card}
+                            isRevealed={isRevealed}
+                            isReversed={cardReversals[i + 5] || false}
+                          />
+                        </div>
+                        <div className="text-xs font-medium mb-1 leading-tight">
+                          {spreads[selectedSpread].positions[i + 5]}
                         </div>
                         <div className="text-xs text-muted-foreground">
                           {card.name}

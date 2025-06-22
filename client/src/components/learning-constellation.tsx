@@ -135,50 +135,183 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     return newStars;
   }, [tracks, progressData]);
 
-  // Replace entire constellation with clean progress bars
-  return (
-    <div className="bg-slate-900 rounded-lg p-6">
-      <div className="flex items-center gap-2 mb-6">
-        <span className="text-xl">⭐</span>
-        <h3 className="text-lg font-semibold text-white">Your Learning Progress</h3>
-      </div>
+  // Interactive Zodiac Constellation
+  const [selectedTrack, setSelectedTrack] = useState<number | null>(null);
+  const [zoomLevel, setZoomLevel] = useState(1);
+
+  const zodiacConstellations = {
+    1: { // Beginner's Journey - split between Taurus (first 11) and Leo (last 11)
+      constellations: [
+        { name: 'Taurus', range: [0, 10], color: '#8B5CF6' },
+        { name: 'Leo', range: [11, 21], color: '#F59E0B' }
+      ]
+    },
+    2: { // Minor Arcana Journey 
+      constellations: [
+        { name: 'Gemini', range: [0, 13], color: '#10B981' },
+        { name: 'Cancer', range: [14, 27], color: '#3B82F6' },
+        { name: 'Virgo', range: [28, 41], color: '#8B5CF6' },
+        { name: 'Libra', range: [42, 55], color: '#F59E0B' }
+      ]
+    }
+  };
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || stars.length === 0) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight;
+
+    // Deep space background
+    const gradient = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, Math.max(width, height)/2);
+    gradient.addColorStop(0, '#0f0f23');
+    gradient.addColorStop(0.5, '#1a1a2e');
+    gradient.addColorStop(1, '#16213e');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // Apply zoom
+    ctx.save();
+    ctx.scale(zoomLevel, zoomLevel);
+    ctx.translate((width * (1 - zoomLevel)) / (2 * zoomLevel), (height * (1 - zoomLevel)) / (2 * zoomLevel));
+
+    // Group stars by track and draw constellations
+    const trackGroups = stars.reduce((groups, star) => {
+      const trackId = parseInt(star.id.split('-')[0]);
+      if (!groups[trackId]) groups[trackId] = [];
+      groups[trackId].push(star);
+      return groups;
+    }, {} as Record<number, ConstellationStar[]>);
+
+    Object.entries(trackGroups).forEach(([trackIdStr, trackStars]) => {
+      const trackId = parseInt(trackIdStr);
+      const constellationData = zodiacConstellations[trackId];
       
-      <div className="space-y-6">
-        {tracks.filter(track => track && track.id).map((track) => {
-          const progress = progressData.find(p => p && p.trackId === track.id);
-          const completed = progress?.completedLessons?.length || 0;
-          const total = track.requiredCards?.length || 22;
-          const percentage = (completed / total) * 100;
+      if (constellationData) {
+        constellationData.constellations.forEach(constellation => {
+          const constellationStars = trackStars.slice(constellation.range[0], constellation.range[1] + 1);
           
-          return (
-            <div key={track.id} className="space-y-2">
-              <div className="flex justify-between items-center">
-                <h4 className="text-white font-medium">{track.name}</h4>
-                <span className="text-sm text-slate-300">{completed}/{total}</span>
-              </div>
-              <div className="w-full bg-slate-700 rounded-full h-3">
-                <div 
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300"
-                  style={{ width: `${Math.min(percentage, 100)}%` }}
-                />
-              </div>
-              <div className="text-xs text-slate-400">
-                {percentage.toFixed(0)}% Complete
-              </div>
-            </div>
-          );
-        })}
-      </div>
+          // Draw constellation connections
+          for (let i = 0; i < constellationStars.length - 1; i++) {
+            const star1 = constellationStars[i];
+            const star2 = constellationStars[i + 1];
+            
+            ctx.strokeStyle = star1.isCompleted && star2.isCompleted ? constellation.color : 'rgba(100, 116, 139, 0.3)';
+            ctx.lineWidth = star1.isCompleted && star2.isCompleted ? 2 : 1;
+            ctx.beginPath();
+            ctx.moveTo(star1.x, star1.y);
+            ctx.lineTo(star2.x, star2.y);
+            ctx.stroke();
+          }
+          
+          // Draw constellation name
+          if (constellationStars.length > 0) {
+            const centerX = constellationStars.reduce((sum, s) => sum + s.x, 0) / constellationStars.length;
+            const centerY = constellationStars.reduce((sum, s) => sum + s.y, 0) / constellationStars.length;
+            
+            ctx.fillStyle = constellation.color;
+            ctx.font = '12px Inter, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText(constellation.name, centerX, centerY - 30);
+          }
+        });
+      }
+    });
+
+    // Draw interactive stars
+    stars.forEach(star => {
+      const isClickable = star.canAccess;
       
-      <div className="mt-6 p-4 bg-slate-800 rounded-lg">
-        <div className="flex items-center gap-3 text-sm">
+      // Star glow effect
+      if (star.isCompleted || isClickable) {
+        const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 2);
+        gradient.addColorStop(0, star.color + '80');
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(star.x - star.size * 2, star.y - star.size * 2, star.size * 4, star.size * 4);
+      }
+      
+      // Main star
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+      ctx.fillStyle = star.isCompleted ? '#fbbf24' : isClickable ? star.color : '#475569';
+      ctx.fill();
+      
+      // Star center highlight
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size * 0.4, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.fill();
+      
+      // Clickable indicator
+      if (isClickable && !star.isCompleted) {
+        ctx.strokeStyle = '#60a5fa';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([3, 3]);
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size + 3, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    });
+
+    ctx.restore();
+  }, [stars, zoomLevel]);
+
+  return (
+    <div className="bg-slate-900 rounded-lg overflow-hidden">
+      <div className="p-4 border-b border-slate-700">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-            <span className="text-slate-300">Progress</span>
+            <span className="text-xl">✨</span>
+            <h3 className="text-lg font-semibold text-white">Your Spiritual Journey Constellation</h3>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
-            <span className="text-slate-300">Remaining</span>
+            <button 
+              onClick={() => setZoomLevel(Math.max(0.5, zoomLevel - 0.2))}
+              className="px-3 py-1 bg-slate-700 text-white rounded text-sm hover:bg-slate-600"
+            >
+              Zoom Out
+            </button>
+            <button 
+              onClick={() => setZoomLevel(Math.min(2, zoomLevel + 0.2))}
+              className="px-3 py-1 bg-slate-700 text-white rounded text-sm hover:bg-slate-600"
+            >
+              Zoom In
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div className="relative">
+        <canvas
+          ref={canvasRef}
+          className="w-full h-96 cursor-pointer"
+          onClick={handleCanvasClick}
+        />
+        
+        <div className="absolute bottom-4 right-4 bg-slate-800 rounded-lg p-3">
+          <div className="flex items-center gap-4 text-xs">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
+              <span className="text-slate-300">Mastered</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-blue-400 rounded-full border-2 border-blue-400 border-dashed"></div>
+              <span className="text-slate-300">Available</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
+              <span className="text-slate-300">Locked</span>
+            </div>
           </div>
         </div>
       </div>
