@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { TarotCard } from '@shared/tarot-data';
 import { audioService } from '@/lib/audio-service';
+import { voiceTestService } from '@/lib/voice-test';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
@@ -110,6 +111,7 @@ export default function VoiceGuidedReading({
     }
     
     audioService.speak(currentText, () => {
+      console.log(`=== VOICE GUIDED READING: Completed card ${activeCardIndex + 1} ===`);
       // Restore music volume when speech ends
       if (isMusicEnabled && musicType !== 'none') {
         audioService.setMusicVolume(currentMusicVolume);
@@ -120,6 +122,7 @@ export default function VoiceGuidedReading({
         setActiveCardIndex(prevIndex => prevIndex + 1);
       } else {
         // Finished the reading
+        console.log("=== VOICE GUIDED READING: Reading complete ===");
         setIsPlaying(false);
         isCompletedRef.current = true;
         // Pause the background music when the reading is complete
@@ -196,6 +199,11 @@ export default function VoiceGuidedReading({
   }, [musicType]);
 
   const startReading = () => {
+    // Run voice accuracy test in development
+    if (import.meta.env.DEV) {
+      voiceTestService.testVoiceAccuracy().catch(console.error);
+    }
+    
     setHasStarted(true);
     setActiveCardIndex(0);
     setIsPlaying(true);

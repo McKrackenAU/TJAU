@@ -141,17 +141,19 @@ export class AudioService {
       // Stop any ongoing speech
       this.stopSpeech();
       
-      console.log("Generating speech with Josie voice via server");
+      console.log("=== VOICE SERVICE: Generating speech with Josie voice ===");
+      console.log("Text preview:", text.substring(0, 100) + "...");
       
       // Mobile app specific routing - use production server for API calls
       const isMobileApp = window.location.protocol === 'capacitor:' || 
                          window.location.hostname === 'localhost' ||
-                         navigator.userAgent.includes('Tarot Journey App');
+                         navigator.userAgent.includes('Tarot Journey App') ||
+                         window.location.origin.includes('capacitor');
       
       const baseUrl = isMobileApp ? 'https://www.tarotjourney.au' : window.location.origin;
       const apiUrl = `${baseUrl}/api/generate-speech`;
       
-      console.log(`Mobile app detected: ${isMobileApp}, using base URL: ${baseUrl}`);
+      console.log(`Mobile app: ${isMobileApp} | API URL: ${apiUrl}`);
       
       // Generate speech using server endpoint with Josie voice
       const response = await fetch(apiUrl, {
@@ -173,10 +175,11 @@ export class AudioService {
       }
       
       const audioBuffer = await response.arrayBuffer();
-      console.log(`Josie voice audio received, size: ${audioBuffer.byteLength} bytes`);
+      console.log(`=== VOICE SERVICE: Josie voice audio received ===`);
+      console.log(`Audio buffer size: ${audioBuffer.byteLength} bytes`);
       
       if (audioBuffer.byteLength === 0) {
-        console.error("Received empty audio buffer, falling back to browser synthesis");
+        console.error("=== VOICE SERVICE ERROR: Empty audio buffer ===");
         this.fallbackToSpeechSynthesis(text, onEnd);
         return;
       }
@@ -191,14 +194,15 @@ export class AudioService {
       this.currentSpeechAudio = audio;
       
       audio.onended = () => {
+        console.log("=== VOICE SERVICE: Josie voice playback completed ===");
         URL.revokeObjectURL(audioUrl);
         this.isPlaying = false;
         this.currentSpeechAudio = null;
         if (onEnd) onEnd();
       };
       
-      audio.onerror = () => {
-        console.error("Audio playback failed, falling back to browser synthesis");
+      audio.onerror = (error) => {
+        console.error("=== VOICE SERVICE ERROR: Audio playback failed ===", error);
         URL.revokeObjectURL(audioUrl);
         this.currentSpeechAudio = null;
         this.fallbackToSpeechSynthesis(text, onEnd);
@@ -206,47 +210,99 @@ export class AudioService {
       
       await audio.play();
       this.isPlaying = true;
+      console.log("=== VOICE SERVICE: Josie voice playback started successfully ===");
       
     } catch (error) {
-      console.error("Error with server speech generation:", error);
+      console.error("=== VOICE SERVICE ERROR: Server speech generation failed ===", error);
       this.fallbackToSpeechSynthesis(text, onEnd);
     }
   }
   
   private fallbackToSpeechSynthesis(text: string, onEnd?: () => void): void {
-    if (!this.speechSynthesis) return;
+    if (!this.speechSynthesis) {
+      console.warn("=== VOICE SERVICE: Speech synthesis not available ===");
+      if (onEnd) onEnd();
+      return;
+    }
     
-    console.log("Using fallback browser speech synthesis");
+    console.log("=== VOICE SERVICE: Using fallback browser speech synthesis ===");
     
     // Clear any ongoing speech
     this.speechSynthesis.cancel();
     
-    // Create a new utterance
-    this.utterance = new SpeechSynthesisUtterance(text);
-    this.utterance.volume = this.volume;
-    this.utterance.rate = this.rate;
-    this.utterance.pitch = this.pitch;
+    // Wait for voices to load if they haven't already
+    const setupSpeech = () => {
+      // Create a new utterance
+      this.utterance = new SpeechSynthesisUtterance(text);
+      this.utterance.volume = this.volume;
+      this.utterance.rate = this.rate;
+      this.utterance.pitch = this.pitch;
+      
+      // Select a voice (preferably a calm, soothing female voice that sounds like Josie)
+      const voices = this.speechSynthesis!.getVoices();
+      console.log(`Available voices: ${voices.length}`);
+      
+      // Priority order for voice selection to maintain consistency
+      const preferredVoiceNames = [
+        'Samantha', // macOS
+        'Google UK English Female', // Chrome
+        'Microsoft Zira - English (United States)', // Windows
+        'Karen', // macOS alternative
+        'Fiona', // macOS alternative
+        'Female', // Generic fallback
+      ];
+      
+      let selectedVoice = null;
+      for (const voiceName of preferredVoiceNames) {
+        selectedVoice = voices.find(voice => voice.name.includes(voiceName));
+        if (selectedVoice) break;
+      }
+      
+      // If no preferred voice found, try to find any female voice
+      if (!selectedVoice) {
+        selectedVoice = voices.find(voice => 
+          voice.name.toLowerCase().includes('female') ||
+          voice.name.toLowerCase().includes('woman')
+        );
+      }
+      
+      if (selectedVoice) {
+        this.utterance.voice = selectedVoice;
+        console.log(`=== VOICE SERVICE: Selected fallback voice: ${selectedVoice.name} ===`);
+      } else {
+        console.log("=== VOICE SERVICE: Using default system voice ===");
+      }
+      
+      // Set the end callback
+      if (onEnd) {
+        this.utterance.onend = () => {
+          console.log("=== VOICE SERVICE: Fallback speech completed ===");
+          this.isPlaying = false;
+          onEnd();
+        };
+      }
+      
+      this.utterance.onerror = (event) => {
+        console.error("=== VOICE SERVICE ERROR: Speech synthesis failed ===", event);
+        this.isPlaying = false;
+        if (onEnd) onEnd();
+      };
+      
+      // Start speaking
+      this.speechSynthesis!.speak(this.utterance);
+      this.isPlaying = true;
+    };
     
-    // Select a voice if available (preferably a calm, soothing female voice)
+    // Handle browsers that load voices asynchronously
     const voices = this.speechSynthesis.getVoices();
-    const preferredVoices = voices.filter(voice => 
-      voice.name.includes('Female') || 
-      voice.name.includes('Samantha') || 
-      voice.name.includes('Google UK English Female')
-    );
-    
-    if (preferredVoices.length > 0) {
-      this.utterance.voice = preferredVoices[0];
+    if (voices.length === 0) {
+      console.log("=== VOICE SERVICE: Waiting for voices to load ===");
+      this.speechSynthesis.addEventListener('voiceschanged', setupSpeech, { once: true });
+      // Fallback timeout in case voiceschanged never fires
+      setTimeout(setupSpeech, 1000);
+    } else {
+      setupSpeech();
     }
-    
-    // Set the end callback
-    if (onEnd) {
-      this.utterance.onend = onEnd;
-    }
-    
-    // Start speaking
-    this.speechSynthesis.speak(this.utterance);
-    this.isPlaying = true;
   }
 
   public pauseSpeech(): void {

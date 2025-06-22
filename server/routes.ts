@@ -1375,6 +1375,8 @@ export function registerRoutes(app: Express): Server {
       console.log("=== GENERATING SPEECH WITH JOSIE VOICE ===");
       console.log("Text length:", text.length);
       console.log("Speed:", speed);
+      console.log("User agent:", req.headers['user-agent'] || 'unknown');
+      console.log("Origin:", req.headers.origin || 'unknown');
       
       const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
       
@@ -1395,6 +1397,8 @@ export function registerRoutes(app: Express): Server {
           
           console.log("=== SPEECH GENERATION SUCCESSFUL ===");
           console.log("Audio buffer size:", audioBuffer.length);
+          console.log("Voice ID used:", customVoiceId);
+          console.log("Stability:", stability, "Similarity:", similarity);
           
           res.set({
             'Content-Type': 'audio/mpeg',
