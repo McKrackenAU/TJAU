@@ -202,51 +202,50 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Celtic Cross - properly spaced 2x5 grid
-                <div className="w-full max-w-7xl mx-auto px-4">
-                  <div className="space-y-8">
-                    {/* First row - cards 0-4 */}
-                    <div className="flex justify-center items-start gap-8">
-                      {spreadCards.slice(0, 5).map((card, i) => (
-                        <div key={`row1-${card.id}-${i}`} className="flex flex-col items-center space-y-2 min-w-0">
-                          <div className="w-20 h-32 flex-shrink-0">
-                            <CardDisplay
-                              card={card}
-                              isRevealed={isRevealed}
-                              isReversed={Math.random() < 0.3}
-                            />
-                          </div>
-                          <div className="text-xs text-center text-foreground font-medium px-1 leading-tight max-w-20">
-                            {spreads[selectedSpread].positions[i]}
-                          </div>
-                          <div className="text-xs text-center text-muted-foreground max-w-20">
-                            {card.name}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    {/* Second row - cards 5-9 */}
-                    <div className="flex justify-center items-start gap-8">
-                      {spreadCards.slice(5, 10).map((card, i) => (
-                        <div key={`row2-${card.id}-${i + 5}`} className="flex flex-col items-center space-y-2 min-w-0">
-                          <div className="w-20 h-32 flex-shrink-0">
-                            <CardDisplay
-                              card={card}
-                              isRevealed={isRevealed}
-                              isReversed={Math.random() < 0.3}
-                            />
-                          </div>
-                          <div className="text-xs text-center text-foreground font-medium px-1 leading-tight max-w-20">
-                            {spreads[selectedSpread].positions[i + 5]}
-                          </div>
-                          <div className="text-xs text-center text-muted-foreground max-w-20">
-                            {card.name}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                // Celtic Cross - simple table layout
+                <div className="overflow-x-auto">
+                  <table className="mx-auto">
+                    <tbody>
+                      <tr>
+                        {spreadCards.slice(0, 5).map((card, i) => (
+                          <td key={`top-${i}`} className="p-4 text-center align-top">
+                            <div className="w-16 h-24 mx-auto mb-2">
+                              <CardDisplay
+                                card={card}
+                                isRevealed={isRevealed}
+                                isReversed={Math.random() < 0.3}
+                              />
+                            </div>
+                            <div className="text-xs font-medium mb-1 w-16 mx-auto">
+                              {spreads[selectedSpread].positions[i]}
+                            </div>
+                            <div className="text-xs text-muted-foreground w-16 mx-auto">
+                              {card.name}
+                            </div>
+                          </td>
+                        ))}
+                      </tr>
+                      <tr>
+                        {spreadCards.slice(5, 10).map((card, i) => (
+                          <td key={`bottom-${i}`} className="p-4 text-center align-top">
+                            <div className="w-16 h-24 mx-auto mb-2">
+                              <CardDisplay
+                                card={card}
+                                isRevealed={isRevealed}
+                                isReversed={Math.random() < 0.3}
+                              />
+                            </div>
+                            <div className="text-xs font-medium mb-1 w-16 mx-auto">
+                              {spreads[selectedSpread].positions[i + 5]}
+                            </div>
+                            <div className="text-xs text-muted-foreground w-16 mx-auto">
+                              {card.name}
+                            </div>
+                          </td>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               ) : (
                 // Standard layout for other spreads

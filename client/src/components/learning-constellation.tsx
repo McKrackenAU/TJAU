@@ -135,92 +135,55 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     return newStars;
   }, [tracks, progressData]);
 
-  // Update stars with stable reference
-  useEffect(() => {
-    if (generatedStars.length > 0) {
-      setStars(generatedStars);
-    }
-  }, [generatedStars]);
-
-  // Remove animation to prevent infinite renders
-
-  // Simple modern constellation rendering
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || stars.length === 0) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Set canvas size properly
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
-
-    // Elegant gradient background
-    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
-    gradient.addColorStop(0, '#0f172a');
-    gradient.addColorStop(0.5, '#1e293b');
-    gradient.addColorStop(1, '#334155');
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Group stars by track for connections
-    const trackGroups = stars.reduce((groups, star) => {
-      const trackId = star.id.split('-')[0];
-      if (!groups[trackId]) groups[trackId] = [];
-      groups[trackId].push(star);
-      return groups;
-    }, {} as Record<string, ConstellationStar[]>);
-
-    // Draw simple connection lines
-    Object.values(trackGroups).forEach(trackStars => {
-      for (let i = 0; i < trackStars.length - 1; i++) {
-        const star1 = trackStars[i];
-        const star2 = trackStars[i + 1];
-        
-        // Simple line styling based on completion
-        if (star1.isCompleted && star2.isCompleted) {
-          ctx.strokeStyle = '#fbbf24'; // amber-400
-          ctx.lineWidth = 2;
-        } else if (star1.isCompleted || star2.isCompleted) {
-          ctx.strokeStyle = '#60a5fa'; // blue-400
-          ctx.lineWidth = 1.5;
-        } else {
-          ctx.strokeStyle = '#475569'; // slate-600
-          ctx.lineWidth = 1;
-        }
-        
-        ctx.beginPath();
-        ctx.moveTo(star1.x, star1.y);
-        ctx.lineTo(star2.x, star2.y);
-        ctx.stroke();
-      }
-    });
-
-    // Draw simple stars
-    stars.forEach(star => {
-      // Simple circle stars
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+  // Replace entire constellation with clean progress bars
+  return (
+    <div className="bg-slate-900 rounded-lg p-6">
+      <div className="flex items-center gap-2 mb-6">
+        <span className="text-xl">⭐</span>
+        <h3 className="text-lg font-semibold text-white">Your Learning Progress</h3>
+      </div>
       
-      if (star.isCompleted) {
-        ctx.fillStyle = '#fbbf24'; // amber-400
-      } else if (star.color === '#FF6B6B') {
-        ctx.fillStyle = '#f87171'; // red-400
-      } else {
-        ctx.fillStyle = '#60a5fa'; // blue-400
-      }
+      <div className="space-y-6">
+        {tracks.map((track) => {
+          const progress = progressData.find(p => p.trackId === track.id);
+          const completed = progress?.completedLessons?.length || 0;
+          const total = track.requiredCards?.length || 22;
+          const percentage = (completed / total) * 100;
+          
+          return (
+            <div key={track.id} className="space-y-2">
+              <div className="flex justify-between items-center">
+                <h4 className="text-white font-medium">{track.name}</h4>
+                <span className="text-sm text-slate-300">{completed}/{total}</span>
+              </div>
+              <div className="w-full bg-slate-700 rounded-full h-3">
+                <div 
+                  className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full transition-all duration-300"
+                  style={{ width: `${Math.min(percentage, 100)}%` }}
+                />
+              </div>
+              <div className="text-xs text-slate-400">
+                {percentage.toFixed(0)}% Complete
+              </div>
+            </div>
+          );
+        })}
+      </div>
       
-      ctx.fill();
-      
-      // Add simple white center
-      ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size * 0.4, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.fill();
-    });
-
-  }, [stars]);
+      <div className="mt-6 p-4 bg-slate-800 rounded-lg">
+        <div className="flex items-center gap-3 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+            <span className="text-slate-300">Progress</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
+            <span className="text-slate-300">Remaining</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   const handleCanvasClick = (event: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
