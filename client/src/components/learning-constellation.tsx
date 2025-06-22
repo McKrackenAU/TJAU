@@ -144,11 +144,10 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
 
   // Animation loop for twinkling stars
   useEffect(() => {
-    const animate = () => {
+    const interval = setInterval(() => {
       setAnimationFrame(prev => prev + 1);
-    };
-    const animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
+    }, 100);
+    return () => clearInterval(interval);
   }, []);
 
   // Professional constellation rendering
