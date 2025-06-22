@@ -135,11 +135,9 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     return newStars;
   }, [tracks, progressData]);
 
-  // Update stars when generated stars change
+  // Update stars only when they actually change
   useEffect(() => {
-    if (generatedStars.length > 0) {
-      setStars(generatedStars);
-    }
+    setStars(generatedStars);
   }, [generatedStars]);
 
   // Animation loop for twinkling stars

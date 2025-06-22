@@ -202,87 +202,27 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Special Celtic Cross layout
-                <div className="grid grid-cols-5 grid-rows-4 gap-4 h-[800px] w-full max-w-7xl mx-auto">
-                  {/* Position 1 - Present Situation */}
-                  <div className="col-start-2 row-start-2 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[0]} isRevealed={isRevealed} />
+                // Celtic Cross - vertical stack layout to prevent overlap
+                <div className="flex flex-col space-y-4 w-full max-w-2xl mx-auto">
+                  {spreadCards.map((card, i) => (
+                    <div key={`${card.id}-${i}`} className="flex items-center space-x-4 p-4 bg-card/50 rounded-lg">
+                      <div className="w-24 h-36 flex-shrink-0">
+                        <CardDisplay
+                          card={card}
+                          isRevealed={isRevealed}
+                          isReversed={Math.random() < 0.3}
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="text-sm font-bold text-foreground mb-2">
+                          Position {i + 1}: {spreads[selectedSpread].positions[i]}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {card.name}
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[0]}</div>
-                  </div>
-
-                  {/* Position 2 - Challenge/Cross */}
-                  <div className="col-start-2 row-start-2 flex flex-col items-center transform rotate-90">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[1]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center transform -rotate-90">{spreads[selectedSpread].positions[1]}</div>
-                  </div>
-
-                  {/* Position 3 - Distant Past/Foundation */}
-                  <div className="col-start-2 row-start-3 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[2]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[2]}</div>
-                  </div>
-
-                  {/* Position 4 - Recent Past */}
-                  <div className="col-start-1 row-start-2 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[3]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[3]}</div>
-                  </div>
-
-                  {/* Position 5 - Possible Outcome */}
-                  <div className="col-start-2 row-start-1 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[4]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[4]}</div>
-                  </div>
-
-                  {/* Position 6 - Near Future */}
-                  <div className="col-start-3 row-start-2 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[5]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[5]}</div>
-                  </div>
-
-                  {/* Position 7 - Your Approach */}
-                  <div className="col-start-5 row-start-4 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[6]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[6]}</div>
-                  </div>
-
-                  {/* Position 8 - External Influences */}
-                  <div className="col-start-5 row-start-3 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[7]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[7]}</div>
-                  </div>
-
-                  {/* Position 9 - Hopes and Fears */}
-                  <div className="col-start-5 row-start-2 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[8]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[8]}</div>
-                  </div>
-
-                  {/* Position 10 - Final Outcome */}
-                  <div className="col-start-5 row-start-1 flex flex-col items-center">
-                    <div className="w-32 h-48 flex items-center justify-center mb-2">
-                      <CardDisplay card={spreadCards[9]} isRevealed={isRevealed} />
-                    </div>
-                    <div className="text-xs font-medium text-center">{spreads[selectedSpread].positions[9]}</div>
-                  </div>
+                  ))}
                 </div>
               ) : (
                 // Standard layout for other spreads
