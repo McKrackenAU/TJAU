@@ -31,27 +31,30 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
   const [animationFrame, setAnimationFrame] = useState(0);
   const [hoveredStar, setHoveredStar] = useState<string | null>(null);
 
-  const { data: tracks } = useQuery<LearningTrack[]>({
+  const { data: tracks = [] } = useQuery<LearningTrack[]>({
     queryKey: ["/api/learning/tracks"],
   });
 
-  const { data: progressData } = useQuery({
+  const { data: progressData = [] } = useQuery({
     queryKey: ["/api/learning/progress/all"],
     queryFn: async () => {
-      if (!tracks) return [];
-      const progressPromises = tracks.map(track =>
-        fetch(`/api/learning/progress/${track.id}`)
+      if (!tracks || !Array.isArray(tracks) || tracks.length === 0) return [];
+      const progressPromises = tracks.map(track => {
+        if (!track || !track.id) return Promise.resolve({ completedLessons: [], currentLesson: 1, trackId: null });
+        return fetch(`/api/learning/progress/${track.id}`)
           .then(res => res.json())
-          .catch(() => ({ completedLessons: [], currentLesson: 1, trackId: track.id }))
-      );
+          .catch(() => ({ completedLessons: [], currentLesson: 1, trackId: track.id }));
+      });
       return Promise.all(progressPromises);
     },
-    enabled: !!tracks,
+    enabled: !!tracks && Array.isArray(tracks) && tracks.length > 0,
   });
 
   // Generate constellation stars based on learning progress
   useEffect(() => {
-    if (!tracks || !progressData || !containerRef.current) return;
+    if (!tracks || !Array.isArray(tracks) || tracks.length === 0 || 
+        !progressData || !Array.isArray(progressData) || 
+        !containerRef.current) return;
 
     const container = containerRef.current;
     const width = container.clientWidth;
@@ -104,7 +107,12 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     };
 
     tracks.forEach((track, trackIndex) => {
-      const progress = progressData.find(p => p.trackId === track.id) || { completedLessons: [], currentLesson: 1 };
+      // Safety check to prevent null reference errors
+      if (!track || !track.id || !track.requiredCards) {
+        console.warn('Invalid track found:', track);
+        return;
+      }
+      const progress = progressData.find(p => p && p.trackId === track.id) || { completedLessons: [], currentLesson: 1 };
       const pattern = constellationPatterns[track.id as keyof typeof constellationPatterns] || {
         centerX: width * (0.2 + trackIndex * 0.15),
         centerY: height * (0.3 + (trackIndex % 2) * 0.4),
@@ -114,6 +122,11 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
         }))
       };
 
+      if (!track.requiredCards || !Array.isArray(track.requiredCards)) {
+        console.warn('Track has invalid requiredCards:', track);
+        return;
+      }
+      
       track.requiredCards.forEach((cardId, lessonIndex) => {
         const isCompleted = progress.completedLessons.includes(cardId);
         const isCurrent = progress.currentLesson - 1 === lessonIndex;
