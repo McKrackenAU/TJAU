@@ -156,8 +156,12 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    // Simple dark background
-    ctx.fillStyle = '#0f172a';
+    // Elegant gradient background
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+    gradient.addColorStop(0, '#0f172a');
+    gradient.addColorStop(0.5, '#1e293b');
+    gradient.addColorStop(1, '#334155');
+    ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Group stars by track for connections
