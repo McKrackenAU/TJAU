@@ -12,12 +12,13 @@ if (!process.env.DATABASE_URL) {
   );
 }
 
-// Create pool with proper configuration
+// Create pool with enhanced configuration for stability
 export const pool = new Pool({ 
   connectionString: process.env.DATABASE_URL,
-  max: 10,
-  idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 2000,
+  max: 5,
+  idleTimeoutMillis: 60000,
+  connectionTimeoutMillis: 5000,
+  allowExitOnIdle: true,
 });
 
 export const db = drizzle({ client: pool, schema });

@@ -47,10 +47,10 @@ export default function VoiceGuidedPage() {
       numberOfCards = 10;
     }
 
-    // Draw the cards and randomly determine if they are reversed
+    // Draw the cards (remove random reversal to fix upside-down issue)
     const drawnCards = deck.slice(0, numberOfCards).map(card => ({
       ...card,
-      isReversed: Math.random() > 0.7, // 30% chance of being reversed
+      isReversed: false, // Always upright for consistent display
     }));
 
     setCards(drawnCards);

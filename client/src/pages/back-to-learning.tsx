@@ -8,7 +8,7 @@ export default function BackToLearningPage() {
   return (
     <>
       <meta httpEquiv="refresh" content="0;url=/learning" />
-      <div className="container py-8">
+      <div className="w-full max-w-4xl mx-auto py-8">
         <h1 className="text-xl font-bold">Redirecting...</h1>
         <p className="text-sm text-muted-foreground mb-8">Returning to Learning Home</p>
         <div className="space-y-2">

@@ -42,7 +42,7 @@ export default function AccountPage() {
   // Show loading state
   if (isLoading) {
     return (
-      <div className="container mx-auto py-10 flex justify-center">
+      <div className="w-full max-w-2xl mx-auto py-10 flex justify-center">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     );
@@ -54,7 +54,7 @@ export default function AccountPage() {
   }
   
   return (
-    <div className="container mx-auto py-6 px-4 md:px-6">
+    <div className="w-full max-w-4xl mx-auto py-6 px-4 md:px-6">
       <PageHeader
         heading="Account Settings"
         text="Manage your account and subscription"

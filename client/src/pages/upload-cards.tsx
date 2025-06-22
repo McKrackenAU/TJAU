@@ -125,7 +125,7 @@ export default function UploadCards() {
   };
 
   return (
-    <div className="container mx-auto p-6 max-w-2xl">
+    <div className="w-full max-w-2xl mx-auto p-6">
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">

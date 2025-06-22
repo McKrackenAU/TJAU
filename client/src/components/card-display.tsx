@@ -38,7 +38,7 @@ const CardDisplay = memo(function CardDisplay({
           initial={false}
           animate={{ 
             rotateY: isRevealed ? 0 : 180,
-            rotateZ: isReversed ? 180 : 0
+            rotateZ: 0 // Remove automatic card reversal to prevent upside-down display
           }}
           transition={{ duration: 0.6 }}
           style={{ transformStyle: "preserve-3d" }}

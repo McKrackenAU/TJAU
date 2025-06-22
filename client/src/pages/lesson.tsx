@@ -359,7 +359,7 @@ export default function LessonPage() {
   
   if (trackLoading || progressLoading || !lesson) {
     return (
-      <div className="container py-8">
+      <div className="w-full max-w-4xl mx-auto py-8">
         <div className="flex items-center mb-8">
           <Button variant="ghost" size="sm" onClick={() => navigate("/learning")}>
             <ChevronLeft className="h-4 w-4 mr-2" />
@@ -388,7 +388,7 @@ export default function LessonPage() {
   const totalLessons = typedTrackLessonMap[trackIdStr].length;
   
   return (
-    <div className="container py-8">
+    <div className="w-full max-w-4xl mx-auto py-8">
       <div className="flex items-center mb-8">
         {/* Add query parameter for Pendulum course to prevent navigation issues */}
         <a href={trackIdStr === "5" ? "/learning?from-pendulum=true" : "/learning"} className="no-underline">

@@ -24,7 +24,7 @@ export default function AngelNumberDetailPage() {
 
   if (isLoading) {
     return (
-      <div className="container px-4 py-8 text-center">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8 text-center">
         <h1 className="text-3xl font-bold mb-8">Angel Number {number}</h1>
         <p>Loading angel number details...</p>
       </div>
@@ -33,7 +33,7 @@ export default function AngelNumberDetailPage() {
 
   if (error || !angelNumber) {
     return (
-      <div className="container px-4 py-8">
+      <div className="w-full max-w-4xl mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           <Link to="/angel-numbers">
             <Button variant="ghost" size="sm" className="mb-4">
@@ -63,7 +63,7 @@ export default function AngelNumberDetailPage() {
   }
 
   return (
-    <div className="container px-4 py-8">
+    <div className="w-full max-w-4xl mx-auto px-4 py-8">
       <div className="max-w-3xl mx-auto">
         <Link to="/angel-numbers">
           <Button variant="ghost" size="sm" className="mb-4">

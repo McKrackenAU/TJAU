@@ -638,7 +638,7 @@ export default function Learning() {
 
   if (tracksLoading) {
     return (
-      <div className="container px-4 py-8">
+      <div className="w-full max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-center mb-8">Learning Paths</h1>
         <div className="grid gap-8">
           {[1, 2, 3].map(i => (
@@ -662,7 +662,7 @@ export default function Learning() {
   };
 
   return (
-    <div className="container px-4 py-8">
+    <div className="w-full max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Learning Paths</h1>
 
       <div className="grid gap-8">

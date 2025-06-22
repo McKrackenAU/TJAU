@@ -41,7 +41,7 @@ export default function PendulumPage() {
   
   if (trackLoading || progressLoading) {
     return (
-      <div className="container py-8">
+      <div className="w-full max-w-4xl mx-auto py-8">
         <h1 className="text-3xl font-bold mb-6">Pendulum Dowsing</h1>
         <div className="grid grid-cols-1 gap-6 animate-pulse">
           <Card>
@@ -65,7 +65,7 @@ export default function PendulumPage() {
     : null;
   
   return (
-    <div className="container py-8">
+    <div className="w-full max-w-4xl mx-auto py-8">
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center">
           <Button 

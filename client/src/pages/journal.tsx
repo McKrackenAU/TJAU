@@ -91,7 +91,7 @@ export default function Journal() {
   };
 
   return (
-    <div className="container px-4 py-8">
+    <div className="w-full max-w-4xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-center mb-8">Tarot Journal</h1>
 
       <div className="grid gap-8 max-w-2xl mx-auto">

@@ -57,7 +57,7 @@ function LandingPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="container px-4 py-16 md:py-24 lg:py-32 mx-auto text-center">
+      <section className="w-full max-w-6xl px-4 py-16 md:py-24 lg:py-32 mx-auto text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
           Begin Your Tarot Journey
         </h1>
@@ -85,7 +85,7 @@ function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="container px-4 py-16 mx-auto">
+      <section className="w-full max-w-6xl px-4 py-16 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">Discover the Power of Tarot</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <Card>
@@ -164,7 +164,7 @@ function LandingPage() {
 
       {/* CTA Section */}
       <section className="bg-muted py-16">
-        <div className="container px-4 mx-auto text-center">
+        <div className="w-full max-w-6xl px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Start Your 7-Day Free Trial</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Unlock all features with our premium subscription, including unlimited readings, advanced learning tracks, and AI interpretations.
