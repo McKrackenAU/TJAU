@@ -144,8 +144,8 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       </div>
       
       <div className="space-y-6">
-        {tracks.map((track) => {
-          const progress = progressData.find(p => p.trackId === track.id);
+        {tracks.filter(track => track && track.id).map((track) => {
+          const progress = progressData.find(p => p && p.trackId === track.id);
           const completed = progress?.completedLessons?.length || 0;
           const total = track.requiredCards?.length || 22;
           const percentage = (completed / total) * 100;

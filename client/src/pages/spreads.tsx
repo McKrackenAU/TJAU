@@ -202,50 +202,40 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Celtic Cross - simple table layout
-                <div className="overflow-x-auto">
-                  <table className="mx-auto">
-                    <tbody>
-                      <tr>
-                        {spreadCards.slice(0, 5).map((card, i) => (
-                          <td key={`top-${i}`} className="p-4 text-center align-top">
-                            <div className="w-16 h-24 mx-auto mb-2">
-                              <CardDisplay
-                                card={card}
-                                isRevealed={isRevealed}
-                                isReversed={Math.random() < 0.3}
-                              />
-                            </div>
-                            <div className="text-xs font-medium mb-1 w-16 mx-auto">
-                              {spreads[selectedSpread].positions[i]}
-                            </div>
-                            <div className="text-xs text-muted-foreground w-16 mx-auto">
-                              {card.name}
-                            </div>
-                          </td>
-                        ))}
-                      </tr>
-                      <tr>
-                        {spreadCards.slice(5, 10).map((card, i) => (
-                          <td key={`bottom-${i}`} className="p-4 text-center align-top">
-                            <div className="w-16 h-24 mx-auto mb-2">
-                              <CardDisplay
-                                card={card}
-                                isRevealed={isRevealed}
-                                isReversed={Math.random() < 0.3}
-                              />
-                            </div>
-                            <div className="text-xs font-medium mb-1 w-16 mx-auto">
-                              {spreads[selectedSpread].positions[i + 5]}
-                            </div>
-                            <div className="text-xs text-muted-foreground w-16 mx-auto">
-                              {card.name}
-                            </div>
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
+                // Celtic Cross - proper CSS Grid
+                <div className="w-full max-w-6xl mx-auto">
+                  <div 
+                    className="grid gap-6"
+                    style={{
+                      gridTemplateColumns: 'repeat(5, 1fr)',
+                      gridTemplateRows: 'repeat(2, auto)'
+                    }}
+                  >
+                    {spreadCards.map((card, i) => (
+                      <div 
+                        key={`card-${i}`} 
+                        className="flex flex-col items-center text-center"
+                        style={{
+                          gridColumn: (i % 5) + 1,
+                          gridRow: Math.floor(i / 5) + 1
+                        }}
+                      >
+                        <div className="w-20 h-28 mb-3">
+                          <CardDisplay
+                            card={card}
+                            isRevealed={isRevealed}
+                            isReversed={Math.random() < 0.3}
+                          />
+                        </div>
+                        <div className="text-xs font-medium mb-1 leading-tight">
+                          {spreads[selectedSpread].positions[i]}
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {card.name}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 // Standard layout for other spreads
