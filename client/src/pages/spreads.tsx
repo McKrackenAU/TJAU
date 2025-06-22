@@ -202,27 +202,66 @@ export default function Spreads() {
                 : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
             }`}>
               {selectedSpread === "celticCross" ? (
-                // Celtic Cross - vertical stack layout to prevent overlap
-                <div className="flex flex-col space-y-4 w-full max-w-2xl mx-auto">
-                  {spreadCards.map((card, i) => (
-                    <div key={`${card.id}-${i}`} className="flex items-center space-x-4 p-4 bg-card/50 rounded-lg">
-                      <div className="w-24 h-36 flex-shrink-0">
-                        <CardDisplay
-                          card={card}
-                          isRevealed={isRevealed}
-                          isReversed={Math.random() < 0.3}
-                        />
-                      </div>
-                      <div className="flex-1">
-                        <div className="text-sm font-bold text-foreground mb-2">
-                          Position {i + 1}: {spreads[selectedSpread].positions[i]}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {card.name}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                // Celtic Cross - traditional cross layout
+                <div className="relative w-full max-w-4xl mx-auto h-[600px] overflow-visible">
+                  {/* Position 1 - Present Situation (Center) */}
+                  <div className="absolute" style={{ left: '40%', top: '40%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[0]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[0]}</div>
+                  </div>
+
+                  {/* Position 2 - Challenge/Cross (Horizontal over center) */}
+                  <div className="absolute" style={{ left: '40%', top: '40%', transform: 'translate(-50%, -50%) rotate(90deg)' }}>
+                    <CardDisplay card={spreadCards[1]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                  </div>
+
+                  {/* Position 3 - Distant Past/Foundation (Bottom) */}
+                  <div className="absolute" style={{ left: '40%', top: '70%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[2]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[2]}</div>
+                  </div>
+
+                  {/* Position 4 - Recent Past (Left) */}
+                  <div className="absolute" style={{ left: '15%', top: '40%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[3]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[3]}</div>
+                  </div>
+
+                  {/* Position 5 - Possible Outcome (Top) */}
+                  <div className="absolute" style={{ left: '40%', top: '10%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[4]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[4]}</div>
+                  </div>
+
+                  {/* Position 6 - Near Future (Right) */}
+                  <div className="absolute" style={{ left: '65%', top: '40%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[5]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[5]}</div>
+                  </div>
+
+                  {/* Position 7 - Your Approach (Far Right Bottom) */}
+                  <div className="absolute" style={{ left: '85%', top: '80%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[6]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[6]}</div>
+                  </div>
+
+                  {/* Position 8 - External Influences (Far Right Middle-Bottom) */}
+                  <div className="absolute" style={{ left: '85%', top: '60%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[7]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[7]}</div>
+                  </div>
+
+                  {/* Position 9 - Hopes and Fears (Far Right Middle) */}
+                  <div className="absolute" style={{ left: '85%', top: '40%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[8]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[8]}</div>
+                  </div>
+
+                  {/* Position 10 - Final Outcome (Far Right Top) */}
+                  <div className="absolute" style={{ left: '85%', top: '20%', transform: 'translate(-50%, -50%)' }}>
+                    <CardDisplay card={spreadCards[9]} isRevealed={isRevealed} isReversed={Math.random() < 0.3} />
+                    <div className="text-xs text-center mt-1 font-medium">{spreads[selectedSpread].positions[9]}</div>
+                  </div>
                 </div>
               ) : (
                 // Standard layout for other spreads

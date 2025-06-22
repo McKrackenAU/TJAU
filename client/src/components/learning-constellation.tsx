@@ -135,9 +135,11 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     return newStars;
   }, [tracks, progressData]);
 
-  // Update stars only when they actually change
+  // Update stars with stable reference
   useEffect(() => {
-    setStars(generatedStars);
+    if (generatedStars.length > 0) {
+      setStars(generatedStars);
+    }
   }, [generatedStars]);
 
   // Animation loop for twinkling stars
@@ -149,7 +151,7 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     return () => cancelAnimationFrame(animationId);
   }, []);
 
-  // Canvas rendering
+  // Professional constellation rendering
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || stars.length === 0) return;
@@ -157,56 +159,36 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
-    
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
-    
-    ctx.scale(dpr, dpr);
-    ctx.clearRect(0, 0, rect.width, rect.height);
+    // Set canvas size properly
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
 
-    // Draw stars
-    stars.forEach(star => {
-      const twinkle = Math.sin(animationFrame * 0.05 + star.x * 0.01) * 0.3 + 0.7;
-      const currentBrightness = star.brightness * twinkle;
+    // Clear canvas with deep space background
+    const gradient = ctx.createRadialGradient(
+      canvas.width / 2, canvas.height / 2, 0,
+      canvas.width / 2, canvas.height / 2, Math.max(canvas.width, canvas.height) / 2
+    );
+    gradient.addColorStop(0, '#1a1a2e');
+    gradient.addColorStop(0.4, '#16213e');
+    gradient.addColorStop(0.8, '#0f3460');
+    gradient.addColorStop(1, '#0a1929');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Add subtle background stars
+    for (let i = 0; i < 80; i++) {
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const size = Math.random() * 1.2;
+      const opacity = Math.random() * 0.4 + 0.1;
       
-      ctx.save();
-      ctx.globalAlpha = currentBrightness;
-      ctx.fillStyle = star.color;
-      
-      // Draw star shape
-      const radius = star.size;
       ctx.beginPath();
-      for (let i = 0; i < 5; i++) {
-        const angle = (i * Math.PI * 2) / 5 - Math.PI / 2;
-        const x = star.x + Math.cos(angle) * radius;
-        const y = star.y + Math.sin(angle) * radius;
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-        
-        const innerAngle = ((i + 0.5) * Math.PI * 2) / 5 - Math.PI / 2;
-        const innerX = star.x + Math.cos(innerAngle) * (radius * 0.4);
-        const innerY = star.y + Math.sin(innerAngle) * (radius * 0.4);
-        ctx.lineTo(innerX, innerY);
-      }
-      ctx.closePath();
+      ctx.arc(x, y, size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
       ctx.fill();
-      
-      // Add glow effect
-      ctx.shadowColor = star.color;
-      ctx.shadowBlur = 10;
-      ctx.fill();
-      
-      ctx.restore();
-    });
+    }
 
-    // Draw connections between stars in the same track
-    ctx.strokeStyle = 'rgba(135, 206, 235, 0.3)';
-    ctx.lineWidth = 1;
-    
+    // Group stars by track for constellation connections
     const trackGroups = stars.reduce((groups, star) => {
       const trackId = star.id.split('-')[0];
       if (!groups[trackId]) groups[trackId] = [];
@@ -214,16 +196,100 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       return groups;
     }, {} as Record<string, ConstellationStar[]>);
 
-    Object.values(trackGroups).forEach(trackStars => {
+    // Draw constellation lines with beautiful effects
+    Object.entries(trackGroups).forEach(([trackId, trackStars]) => {
+      // Create constellation pattern connections
       for (let i = 0; i < trackStars.length - 1; i++) {
         const star1 = trackStars[i];
         const star2 = trackStars[i + 1];
+        
+        // Determine line appearance based on completion
+        if (star1.isCompleted && star2.isCompleted) {
+          // Completed connection - brilliant golden line
+          const lineGradient = ctx.createLinearGradient(star1.x, star1.y, star2.x, star2.y);
+          lineGradient.addColorStop(0, 'rgba(255, 215, 0, 0.9)');
+          lineGradient.addColorStop(0.5, 'rgba(255, 230, 100, 1)');
+          lineGradient.addColorStop(1, 'rgba(255, 215, 0, 0.9)');
+          
+          ctx.strokeStyle = lineGradient;
+          ctx.lineWidth = 3;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = 'rgba(255, 215, 0, 0.8)';
+        } else if (star1.isCompleted || star2.isCompleted) {
+          // Partially completed - transitional
+          const lineGradient = ctx.createLinearGradient(star1.x, star1.y, star2.x, star2.y);
+          lineGradient.addColorStop(0, star1.isCompleted ? 'rgba(255, 215, 0, 0.7)' : 'rgba(135, 206, 235, 0.5)');
+          lineGradient.addColorStop(1, star2.isCompleted ? 'rgba(255, 215, 0, 0.7)' : 'rgba(135, 206, 235, 0.5)');
+          
+          ctx.strokeStyle = lineGradient;
+          ctx.lineWidth = 2;
+          ctx.shadowBlur = 5;
+          ctx.shadowColor = 'rgba(135, 206, 235, 0.4)';
+        } else {
+          // Future connection - ethereal blue
+          ctx.strokeStyle = 'rgba(135, 206, 235, 0.3)';
+          ctx.lineWidth = 1;
+          ctx.shadowBlur = 0;
+        }
         
         ctx.beginPath();
         ctx.moveTo(star1.x, star1.y);
         ctx.lineTo(star2.x, star2.y);
         ctx.stroke();
+        ctx.shadowBlur = 0;
       }
+    });
+
+    // Draw stars with premium visual effects
+    stars.forEach(star => {
+      const twinkle = Math.sin(animationFrame * 0.05 + star.x * 0.01) * 0.3 + 0.8;
+      const pulse = Math.sin(animationFrame * 0.08 + star.y * 0.01) * 0.15 + 1;
+      
+      // Outer glow for completed stars
+      if (star.isCompleted) {
+        const glowGradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 4);
+        glowGradient.addColorStop(0, 'rgba(255, 215, 0, 0.8)');
+        glowGradient.addColorStop(0.3, 'rgba(255, 223, 77, 0.4)');
+        glowGradient.addColorStop(1, 'rgba(255, 215, 0, 0)');
+        
+        ctx.fillStyle = glowGradient;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size * 4 * pulse, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      
+      // Main star with gradient
+      const starGradient = ctx.createRadialGradient(
+        star.x - star.size * 0.3, star.y - star.size * 0.3, 0,
+        star.x, star.y, star.size
+      );
+      
+      if (star.isCompleted) {
+        starGradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+        starGradient.addColorStop(0.3, 'rgba(255, 215, 0, 1)');
+        starGradient.addColorStop(1, 'rgba(255, 140, 0, 0.9)');
+      } else if (star.color === '#FF6B6B') {
+        starGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+        starGradient.addColorStop(0.4, 'rgba(255, 107, 107, 1)');
+        starGradient.addColorStop(1, 'rgba(220, 38, 38, 0.8)');
+      } else {
+        starGradient.addColorStop(0, 'rgba(255, 255, 255, 0.6)');
+        starGradient.addColorStop(0.4, 'rgba(135, 206, 235, 0.9)');
+        starGradient.addColorStop(1, 'rgba(59, 130, 246, 0.7)');
+      }
+      
+      ctx.fillStyle = starGradient;
+      ctx.globalAlpha = star.brightness * twinkle;
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.size * pulse, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      
+      // Add subtle star highlight
+      ctx.beginPath();
+      ctx.arc(star.x - star.size * 0.2, star.y - star.size * 0.2, star.size * 0.2, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+      ctx.fill();
     });
 
   }, [stars, animationFrame]);
@@ -263,7 +329,9 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-96 bg-gradient-to-b from-indigo-900 via-purple-900 to-black rounded-lg overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-96 rounded-lg overflow-hidden" style={{
+      background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #0a1929 100%)'
+    }}>
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full cursor-pointer"
@@ -274,30 +342,47 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
       
       {/* Constellation Info Tooltip */}
       {hoveredStar && (
-        <div className="absolute top-4 left-4 bg-black bg-opacity-80 text-white p-3 rounded-lg pointer-events-none">
-          <div className="text-sm font-medium">
+        <div className="absolute top-4 left-4 bg-black/90 backdrop-blur-sm text-white p-3 rounded-lg pointer-events-none border border-white/20">
+          <div className="text-sm font-medium text-yellow-300">
             {stars.find(s => s.id === hoveredStar)?.trackName}
           </div>
-          <div className="text-xs opacity-80">
+          <div className="text-xs text-blue-200">
             {stars.find(s => s.id === hoveredStar)?.lessonName}
           </div>
         </div>
       )}
       
-      {/* Legend */}
-      <div className="absolute bottom-4 right-4 bg-black bg-opacity-60 text-white p-3 rounded-lg text-xs">
-        <div className="flex items-center mb-1">
-          <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
-          <span>Completed</span>
+      {/* Enhanced Legend */}
+      <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-sm text-white p-4 rounded-lg text-xs border border-white/20">
+        <div className="text-sm font-medium mb-2 text-center text-yellow-300">Learning Progress</div>
+        <div className="flex items-center mb-2">
+          <div className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full mr-3 shadow-lg shadow-yellow-400/50"></div>
+          <span>Mastered</span>
         </div>
-        <div className="flex items-center mb-1">
-          <div className="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
-          <span>Current</span>
+        <div className="flex items-center mb-2">
+          <div className="w-3 h-3 bg-gradient-to-r from-red-400 to-red-600 rounded-full mr-3 shadow-lg shadow-red-400/50"></div>
+          <span>Current Focus</span>
         </div>
         <div className="flex items-center">
-          <div className="w-2 h-2 bg-blue-300 rounded-full mr-2"></div>
-          <span>Available</span>
+          <div className="w-3 h-3 bg-gradient-to-r from-blue-300 to-blue-500 rounded-full mr-3 shadow-lg shadow-blue-400/30"></div>
+          <span>Awaiting</span>
         </div>
+      </div>
+      
+      {/* Floating particles for ambiance */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white/30 rounded-full animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+              animationDuration: `${2 + Math.random() * 2}s`
+            }}
+          />
+        ))}
       </div>
     </div>
   );
