@@ -158,113 +158,101 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas || stars.length === 0) return;
+    if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = canvas.offsetWidth * window.devicePixelRatio;
-    canvas.height = canvas.offsetHeight * window.devicePixelRatio;
-    ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    // Set canvas size
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
 
-    const width = canvas.offsetWidth;
-    const height = canvas.offsetHeight;
-
-    // Deep space background
-    const gradient = ctx.createRadialGradient(width/2, height/2, 0, width/2, height/2, Math.max(width, height)/2);
+    // Draw background
+    const gradient = ctx.createRadialGradient(canvas.width/2, canvas.height/2, 0, canvas.width/2, canvas.height/2, Math.max(canvas.width, canvas.height)/2);
     gradient.addColorStop(0, '#0f0f23');
     gradient.addColorStop(0.5, '#1a1a2e');
     gradient.addColorStop(1, '#16213e');
     ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Apply zoom
-    ctx.save();
-    ctx.scale(zoomLevel, zoomLevel);
-    ctx.translate((width * (1 - zoomLevel)) / (2 * zoomLevel), (height * (1 - zoomLevel)) / (2 * zoomLevel));
+    // Draw sample constellation for Beginner's Journey
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    const radius = Math.min(canvas.width, canvas.height) * 0.3;
 
-    // Group stars by track and draw constellations
-    const trackGroups = stars.reduce((groups, star) => {
-      const trackId = parseInt(star.id.split('-')[0]);
-      if (!groups[trackId]) groups[trackId] = [];
-      groups[trackId].push(star);
-      return groups;
-    }, {} as Record<number, ConstellationStar[]>);
+    // Create Taurus constellation (first 11 cards)
+    const taurusStars = [];
+    for (let i = 0; i < 11; i++) {
+      const angle = (i / 11) * Math.PI; // Half circle
+      const x = centerX - radius + (i / 10) * (radius * 2);
+      const y = centerY - 100 + Math.sin(angle) * 50;
+      taurusStars.push({ x, y, completed: i < 2 }); // First 2 completed
+    }
 
-    Object.entries(trackGroups).forEach(([trackIdStr, trackStars]) => {
-      const trackId = parseInt(trackIdStr);
-      const constellationData = zodiacConstellations[trackId];
-      
-      if (constellationData) {
-        constellationData.constellations.forEach(constellation => {
-          const constellationStars = trackStars.slice(constellation.range[0], constellation.range[1] + 1);
-          
-          // Draw constellation connections
-          for (let i = 0; i < constellationStars.length - 1; i++) {
-            const star1 = constellationStars[i];
-            const star2 = constellationStars[i + 1];
-            
-            ctx.strokeStyle = star1.isCompleted && star2.isCompleted ? constellation.color : 'rgba(100, 116, 139, 0.3)';
-            ctx.lineWidth = star1.isCompleted && star2.isCompleted ? 2 : 1;
-            ctx.beginPath();
-            ctx.moveTo(star1.x, star1.y);
-            ctx.lineTo(star2.x, star2.y);
-            ctx.stroke();
-          }
-          
-          // Draw constellation name
-          if (constellationStars.length > 0) {
-            const centerX = constellationStars.reduce((sum, s) => sum + s.x, 0) / constellationStars.length;
-            const centerY = constellationStars.reduce((sum, s) => sum + s.y, 0) / constellationStars.length;
-            
-            ctx.fillStyle = constellation.color;
-            ctx.font = '12px Inter, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText(constellation.name, centerX, centerY - 30);
-          }
-        });
-      }
-    });
+    // Create Leo constellation (last 11 cards)
+    const leoStars = [];
+    for (let i = 0; i < 11; i++) {
+      const angle = (i / 11) * Math.PI; // Half circle
+      const x = centerX - radius + (i / 10) * (radius * 2);
+      const y = centerY + 100 + Math.sin(angle) * 50;
+      leoStars.push({ x, y, completed: false }); // None completed yet
+    }
 
-    // Draw interactive stars
-    stars.forEach(star => {
-      const isClickable = star.canAccess;
-      
-      // Star glow effect
-      if (star.isCompleted || isClickable) {
-        const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.size * 2);
-        gradient.addColorStop(0, star.color + '80');
+    // Draw constellation connections
+    ctx.strokeStyle = 'rgba(139, 92, 246, 0.5)';
+    ctx.lineWidth = 1;
+    
+    // Taurus connections
+    for (let i = 0; i < taurusStars.length - 1; i++) {
+      ctx.beginPath();
+      ctx.moveTo(taurusStars[i].x, taurusStars[i].y);
+      ctx.lineTo(taurusStars[i + 1].x, taurusStars[i + 1].y);
+      ctx.stroke();
+    }
+    
+    // Leo connections
+    for (let i = 0; i < leoStars.length - 1; i++) {
+      ctx.beginPath();
+      ctx.moveTo(leoStars[i].x, leoStars[i].y);
+      ctx.lineTo(leoStars[i + 1].x, leoStars[i + 1].y);
+      ctx.stroke();
+    }
+
+    // Draw constellation names
+    ctx.fillStyle = '#8B5CF6';
+    ctx.font = '16px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Taurus', centerX, centerY - 150);
+    
+    ctx.fillStyle = '#F59E0B';
+    ctx.fillText('Leo', centerX, centerY + 200);
+
+    // Draw stars
+    [...taurusStars, ...leoStars].forEach(star => {
+      // Star glow
+      if (star.completed) {
+        const gradient = ctx.createRadialGradient(star.x, star.y, 0, star.x, star.y, 15);
+        gradient.addColorStop(0, 'rgba(251, 191, 36, 0.8)');
         gradient.addColorStop(1, 'transparent');
         ctx.fillStyle = gradient;
-        ctx.fillRect(star.x - star.size * 2, star.y - star.size * 2, star.size * 4, star.size * 4);
+        ctx.fillRect(star.x - 15, star.y - 15, 30, 30);
       }
       
       // Main star
       ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-      ctx.fillStyle = star.isCompleted ? '#fbbf24' : isClickable ? star.color : '#475569';
+      ctx.arc(star.x, star.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = star.completed ? '#fbbf24' : '#60a5fa';
       ctx.fill();
       
-      // Star center highlight
+      // Star center
       ctx.beginPath();
-      ctx.arc(star.x, star.y, star.size * 0.4, 0, Math.PI * 2);
+      ctx.arc(star.x, star.y, 2, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
       ctx.fill();
-      
-      // Clickable indicator
-      if (isClickable && !star.isCompleted) {
-        ctx.strokeStyle = '#60a5fa';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([3, 3]);
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size + 3, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      }
     });
 
-    ctx.restore();
-  }, [stars, zoomLevel]);
+  }, [zoomLevel]);
 
   return (
     <div className="bg-slate-900 rounded-lg overflow-hidden">
