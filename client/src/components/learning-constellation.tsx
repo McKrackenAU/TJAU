@@ -295,7 +295,6 @@ export function LearningConstellation({ onStarClick }: ConstellationProps) {
         <canvas
           ref={canvasRef}
           className="w-full h-96 cursor-pointer"
-          onClick={handleCanvasClick}
         />
         
         <div className="absolute bottom-4 right-4 bg-slate-800 rounded-lg p-3">

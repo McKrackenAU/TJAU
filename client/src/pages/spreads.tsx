@@ -53,38 +53,32 @@ export default function Spreads() {
         return;
       }
       
-      // Mobile-compatible Fisher-Yates shuffle with temp variable
-      const shuffledCards = [...cards];
-      for (let i = shuffledCards.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        const temp = shuffledCards[i];
-        shuffledCards[i] = shuffledCards[j];
-        shuffledCards[j] = temp;
+      // Ensure we have enough unique cards for the spread
+      if (cards.length < spread.positions.length) {
+        setError(`Not enough cards available. Need ${spread.positions.length}, have ${cards.length}.`);
+        setIsLoading(false);
+        return;
+      }
+
+      // Simple random selection ensuring no duplicates
+      const selectedCards: typeof cards = [];
+      const availableCards = [...cards];
+      
+      for (let i = 0; i < spread.positions.length; i++) {
+        if (availableCards.length === 0) break;
+        
+        const randomIndex = Math.floor(Math.random() * availableCards.length);
+        const selectedCard = availableCards[randomIndex];
+        selectedCards.push(selectedCard);
+        availableCards.splice(randomIndex, 1); // Remove to prevent duplicates
       }
       
-      // Extra validation: ensure no duplicates
-      const newSpreadCards = shuffledCards.slice(0, spread.positions.length);
-      const uniqueCards = newSpreadCards.filter((card, index, arr) => 
-        arr.findIndex(c => c.id === card.id) === index
-      );
+      // Generate reversals AFTER cards are drawn (30% chance each)
+      const reversals = selectedCards.map(() => Math.random() < 0.3);
       
-      // If we somehow got duplicates, reshuffle
-      if (uniqueCards.length !== newSpreadCards.length) {
-        console.warn("Duplicate cards detected, reshuffling...");
-        const extraShuffle = [...cards].sort(() => Math.random() - 0.5);
-        const finalCards = extraShuffle.slice(0, spread.positions.length);
-        // Generate reversals AFTER cards are drawn (30% chance each)
-        const reversals = finalCards.map(() => Math.random() < 0.3);
-        console.log("Generated spread cards:", finalCards.map(c => c.name));
-        setSpreadCards(finalCards);
-        setCardReversals(reversals);
-      } else {
-        // Generate reversals AFTER cards are drawn (30% chance each)
-        const reversals = newSpreadCards.map(() => Math.random() < 0.3);
-        console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
-        setSpreadCards(newSpreadCards);
-        setCardReversals(reversals);
-      }
+      console.log("Generated spread cards:", selectedCards.map(c => c.name));
+      setSpreadCards(selectedCards);
+      setCardReversals(reversals);
       
       setIsRevealed(false);
       setNotes("");
