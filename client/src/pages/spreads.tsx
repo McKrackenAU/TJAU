@@ -23,6 +23,7 @@ export default function Spreads() {
   const [notes, setNotes] = useState("");
   const [mood, setMood] = useState<string>("");
   const [spreadCards, setSpreadCards] = useState<typeof tarotCards>([]);
+  const [cardReversals, setCardReversals] = useState<boolean[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const { toast } = useToast();
@@ -72,11 +73,17 @@ export default function Spreads() {
         console.warn("Duplicate cards detected, reshuffling...");
         const extraShuffle = [...cards].sort(() => Math.random() - 0.5);
         const finalCards = extraShuffle.slice(0, spread.positions.length);
+        // Generate reversals AFTER cards are drawn (30% chance each)
+        const reversals = finalCards.map(() => Math.random() < 0.3);
         console.log("Generated spread cards:", finalCards.map(c => c.name));
         setSpreadCards(finalCards);
+        setCardReversals(reversals);
       } else {
+        // Generate reversals AFTER cards are drawn (30% chance each)
+        const reversals = newSpreadCards.map(() => Math.random() < 0.3);
         console.log("Generated spread cards:", newSpreadCards.map(c => c.name));
         setSpreadCards(newSpreadCards);
+        setCardReversals(reversals);
       }
       
       setIsRevealed(false);
@@ -254,7 +261,7 @@ export default function Spreads() {
                       <CardDisplay
                         card={card}
                         isRevealed={isRevealed}
-                        isReversed={Math.random() < 0.3} // 30% chance for reversal
+                        isReversed={cardReversals[i] || false}
                       />
                     </div>
                     <span className="text-sm font-bold bg-foreground/10 text-foreground px-4 py-1.5 rounded-full mb-4">
