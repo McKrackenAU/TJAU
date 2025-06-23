@@ -208,119 +208,34 @@ export default function Spreads() {
                 // Celtic Cross - Clean Traditional Formation
                 <div className="flex flex-col space-y-8 max-w-6xl mx-auto">
                   
-                  {/* Main Cross Section */}
+                  {/* Celtic Cross - 2 Rows x 5 Columns */}
                   <div className="flex flex-col items-center space-y-6">
                     <h3 className="text-sm font-semibold text-muted-foreground">Celtic Cross Formation</h3>
                     
-                    {/* Cross Layout */}
-                    <div className="grid grid-cols-5 gap-4 place-items-center">
-                      {/* Row 1: Above card */}
-                      <div className="col-start-3 flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[4]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[4] || false}
-                          />
+                    {/* 2x5 Grid Layout */}
+                    <div className="grid grid-cols-5 grid-rows-2 gap-6 place-items-center w-full max-w-4xl">
+                      {/* Row 1: Cards 0-4 */}
+                      {[0, 1, 2, 3, 4].map((cardIndex) => (
+                        <div key={`row1-${cardIndex}`} className="flex flex-col items-center">
+                          <div className="w-20 h-28 mb-2">
+                            <CardDisplay
+                              card={spreadCards[cardIndex]}
+                              isRevealed={isRevealed}
+                              isReversed={cardReversals[cardIndex] || false}
+                            />
+                          </div>
+                          <div className="text-xs font-medium mb-1 text-center max-w-20">
+                            {spreads[selectedSpread].positions[cardIndex]}
+                          </div>
+                          <div className="text-xs text-muted-foreground text-center break-words max-w-20">
+                            {spreadCards[cardIndex]?.name}
+                          </div>
                         </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[4]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[4]?.name}
-                        </div>
-                      </div>
-
-                      {/* Row 2: Past - Present - Challenge - Future */}
-                      <div className="flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[2]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[2] || false}
-                          />
-                        </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[2]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[2]?.name}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[0]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[0] || false}
-                          />
-                        </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[0]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[0]?.name}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[1]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[1] || false}
-                          />
-                        </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[1]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[1]?.name}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[3]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[3] || false}
-                          />
-                        </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[3]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[3]?.name}
-                        </div>
-                      </div>
-
-                      {/* Row 3: Below card */}
-                      <div className="col-start-3 flex flex-col items-center">
-                        <div className="w-20 h-28 mb-2">
-                          <CardDisplay
-                            card={spreadCards[5]}
-                            isRevealed={isRevealed}
-                            isReversed={cardReversals[5] || false}
-                          />
-                        </div>
-                        <div className="text-xs font-medium mb-1 text-center">
-                          {spreads[selectedSpread].positions[5]}
-                        </div>
-                        <div className="text-xs text-muted-foreground text-center break-words max-w-20">
-                          {spreadCards[5]?.name}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Staff Cards Section */}
-                  <div className="flex flex-col items-center space-y-4">
-                    <h3 className="text-sm font-semibold text-muted-foreground">Staff Cards</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                      {[6, 7, 8, 9].map((cardIndex) => (
-                        <div key={cardIndex} className="flex flex-col items-center">
+                      ))}
+                      
+                      {/* Row 2: Cards 5-9 */}
+                      {[5, 6, 7, 8, 9].map((cardIndex) => (
+                        <div key={`row2-${cardIndex}`} className="flex flex-col items-center">
                           <div className="w-20 h-28 mb-2">
                             <CardDisplay
                               card={spreadCards[cardIndex]}
