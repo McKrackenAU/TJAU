@@ -27,6 +27,11 @@ export function SubscriptionGuard({ children, feature = "this feature", showUpgr
   const { user } = useAuth();
   const [_, navigate] = useLocation();
 
+  // Special override for Jo BB - always allow access
+  if (user?.email === 'jo@jmvirtualbusinessservices.com.au') {
+    return <>{children}</>;
+  }
+
   // Check subscription status
   const { data: subscriptionStatus } = useQuery<SubscriptionStatus>({
     queryKey: ['/api/subscription-details'],
