@@ -112,10 +112,25 @@ Tarot Journey is a comprehensive tarot reading and learning platform that combin
 ## Changelog
 ```
 Changelog:
-- June 23, 2025. Initial setup
+- June 23, 2025: Initial setup
+- June 23, 2025: Fixed Jo BB admin account login and implemented permanent subscription override
+  - Updated password to "jobbadmin2025" 
+  - Added special subscription override for jo@jmvirtualbusinessservices.com.au
+  - Subscription never expires and always shows as active
+  - Updated subscription guard to bypass restrictions for Jo BB
 ```
 
 ## User Preferences
 ```
 Preferred communication style: Simple, everyday language.
+```
+
+## Admin Access
+```
+Jo BB Admin Account:
+- Username: "Jo BB"
+- Email: jo@jmvirtualbusinessservices.com.au  
+- Password: jobbadmin2025
+- Special privileges: Permanent subscription access, never expires
+- Implementation: Email-based overrides in subscription endpoints and guards
 ```
