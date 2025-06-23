@@ -206,9 +206,9 @@ export default function Spreads() {
             }`}>
               {selectedSpread === "celticCross" ? (
                 // Celtic Cross - Traditional Formation
-                <div className="flex flex-col lg:flex-row gap-8 items-center justify-center max-w-6xl mx-auto">
+                <div className="flex flex-col lg:flex-row gap-12 items-center justify-center max-w-7xl mx-auto px-4">
                   {/* Main Cross Formation */}
-                  <div className="relative grid grid-cols-3 gap-2 w-fit">
+                  <div className="relative grid grid-cols-3 gap-6 w-fit">
                     {/* Top row - Above */}
                     <div className="col-start-2 flex flex-col items-center">
                       <div className="w-20 h-28 mb-2">
@@ -247,15 +247,15 @@ export default function Spreads() {
                     <div className="flex flex-col items-center relative">
                       <div className="relative w-20 h-28 mb-2">
                         {/* Present card (base) */}
-                        <div className="absolute inset-0">
+                        <div className="absolute inset-0 z-10">
                           <CardDisplay
                             card={spreadCards[0]}
                             isRevealed={isRevealed}
                             isReversed={cardReversals[0] || false}
                           />
                         </div>
-                        {/* Challenge card (overlapping horizontally) */}
-                        <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-90 w-20 h-28 opacity-90">
+                        {/* Challenge card (crossing horizontally) */}
+                        <div className="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 rotate-90 w-20 h-28 z-20 scale-90 drop-shadow-md">
                           <CardDisplay
                             card={spreadCards[1]}
                             isRevealed={isRevealed}
@@ -264,10 +264,10 @@ export default function Spreads() {
                         </div>
                       </div>
                       <div className="text-xs font-medium mb-1 text-center">
-                        {spreads[selectedSpread].positions[0]} / {spreads[selectedSpread].positions[1]}
+                        Center Cross
                       </div>
                       <div className="text-xs text-muted-foreground text-center break-words max-w-24">
-                        {spreadCards[0]?.name} / {spreadCards[1]?.name}
+                        {spreadCards[0]?.name} & {spreadCards[1]?.name}
                       </div>
                     </div>
 
@@ -306,7 +306,10 @@ export default function Spreads() {
                   </div>
 
                   {/* Staff Column (right side) */}
-                  <div className="flex flex-row lg:flex-col gap-4 lg:gap-6">
+                  <div className="flex flex-row lg:flex-col gap-6 lg:gap-6 justify-center lg:justify-center">
+                    <div className="hidden lg:block text-xs font-semibold text-muted-foreground mb-2 text-center">
+                      Staff Cards
+                    </div>
                     {[6, 7, 8, 9].map((cardIndex) => (
                       <div key={cardIndex} className="flex flex-col items-center">
                         <div className="w-20 h-28 mb-2">
