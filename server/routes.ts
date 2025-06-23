@@ -2783,6 +2783,20 @@ export function registerRoutes(app: Express): Server {
 
     const user = req.user;
 
+    // Special override for Jo BB - ensure subscription never expires
+    if (user.email === 'jo@jmvirtualbusinessservices.com.au') {
+      console.log("Special subscription details override for Jo BB - subscription always active");
+      return res.json({
+        active: true,
+        status: 'active',
+        trialStatus: null,
+        renewalDate: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString(), // 1 year from now
+        canceledAt: null,
+        cancelAtPeriodEnd: false,
+        hasPaymentMethod: true,
+      });
+    }
+
     if (!user.stripeSubscriptionId) {
       return res.status(404).json({ message: "No subscription found" });
     }
