@@ -1,0 +1,121 @@
+# Tarot Journey - System Architecture Overview
+
+## Overview
+
+Tarot Journey is a comprehensive tarot reading and learning platform that combines traditional tarot wisdom with modern technology. The application is built as a full-stack web application with native mobile app capabilities, offering users daily readings, spread meditations, learning tracks, and personalized tarot guidance powered by AI.
+
+## System Architecture
+
+### Frontend Architecture
+- **Framework**: React with TypeScript
+- **Styling**: Tailwind CSS with custom theme system
+- **UI Components**: Radix UI component library for consistent design
+- **Build Tool**: Vite for fast development and optimized builds
+- **Mobile Apps**: Capacitor for native iOS and Android applications
+
+### Backend Architecture
+- **Runtime**: Node.js with Express server
+- **Language**: TypeScript for type safety
+- **Authentication**: Passport.js with local strategy and session management
+- **Database ORM**: Drizzle ORM for type-safe database operations
+- **Session Storage**: PostgreSQL-backed session store
+
+### Data Storage Solutions
+- **Primary Database**: PostgreSQL (Neon serverless)
+- **Schema Management**: Drizzle Kit for migrations
+- **File Storage**: Static files served from public directory
+- **Caching**: File system cache for AI-generated content and audio
+
+## Key Components
+
+### Authentication and Authorization
+- Session-based authentication with Passport.js
+- Role-based access control (admin functionality)
+- Password hashing with bcrypt
+- Password reset functionality with time-limited tokens
+
+### AI Integration
+- **OpenAI GPT-4**: Card interpretations, meditations, and affirmations
+- **DALL-E 3**: Dynamic card image generation
+- **ElevenLabs**: Voice synthesis for guided meditations
+- **Usage Tracking**: API cost monitoring and rate limiting
+
+### Payment Processing
+- **Stripe Integration**: Subscription management with 7-day free trial
+- **Mobile IAP**: iOS App Store and Google Play Store integration
+- **Webhook Handling**: Real-time subscription status updates
+
+### Content Management
+- **Card Database**: Comprehensive tarot card data with meanings
+- **Learning Tracks**: Structured educational content
+- **User Progress**: Spaced repetition system for learning
+- **Journal System**: Personal reflection and note-taking
+
+## Data Flow
+
+### User Journey
+1. **Registration/Login**: User creates account or authenticates
+2. **Daily Practice**: Receives daily card and AI-generated interpretation
+3. **Learning**: Progresses through structured tarot courses
+4. **Readings**: Performs spread readings with AI guidance
+5. **Journaling**: Records insights and personal reflections
+
+### AI Content Generation
+1. **Request**: User triggers content generation (reading, meditation, etc.)
+2. **API Call**: Server makes request to appropriate AI service
+3. **Processing**: AI generates personalized content based on context
+4. **Caching**: Content cached to filesystem for performance
+5. **Delivery**: Content served to user with audio/visual elements
+
+### Mobile App Synchronization
+1. **Build**: Web app compiled for mobile platforms
+2. **Bundle**: Assets bundled locally with Capacitor
+3. **API Integration**: Mobile apps connect to production API endpoints
+4. **Offline Support**: Core functionality available without internet
+
+## External Dependencies
+
+### AI Services
+- **OpenAI**: GPT-4 for text generation, DALL-E 3 for images
+- **ElevenLabs**: Voice cloning and text-to-speech synthesis
+- **Hugging Face**: Alternative image generation capabilities
+
+### Infrastructure
+- **Neon**: Serverless PostgreSQL database hosting
+- **Stripe**: Payment processing and subscription management
+- **Replit**: Development environment and deployment platform
+
+### Mobile Platform Services
+- **Apple App Store**: iOS app distribution and in-app purchases
+- **Google Play Store**: Android app distribution and billing
+- **Capacitor**: Cross-platform native app framework
+
+## Deployment Strategy
+
+### Development Environment
+- **Platform**: Replit with Node.js runtime
+- **Database**: Neon PostgreSQL with connection pooling
+- **File Serving**: Express static middleware for assets
+- **Hot Reload**: Vite development server with HMR
+
+### Production Deployment
+- **Build Process**: Vite production build with asset optimization
+- **Mobile Apps**: Capacitor sync and platform-specific compilation
+- **Database**: Automated migrations with Drizzle Kit
+- **Environment**: Production configuration with secure API keys
+
+### Mobile App Distribution
+- **iOS**: Xcode project compilation and App Store submission
+- **Android**: Gradle build system and Play Store deployment
+- **Updates**: Over-the-air updates for web content, native updates for functionality
+
+## Changelog
+```
+Changelog:
+- June 23, 2025. Initial setup
+```
+
+## User Preferences
+```
+Preferred communication style: Simple, everyday language.
+```
