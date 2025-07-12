@@ -77,6 +77,8 @@ export default function Spreads() {
       const reversals = selectedCards.map(() => Math.random() < 0.3);
       
       console.log("Generated spread cards:", selectedCards.map(c => c.name));
+      console.log("Generated spread card IDs:", selectedCards.map(c => c.id));
+      console.log("Generated spread card data:", selectedCards.map(c => ({ name: c.name, id: c.id, arcana: c.arcana })));
       setSpreadCards(selectedCards);
       setCardReversals(reversals);
       

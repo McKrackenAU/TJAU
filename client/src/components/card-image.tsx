@@ -122,11 +122,12 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     const imagePath = cardImagePaths[card.id];
     
     if (imagePath) {
-      console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
+      console.log(`✅ Image path found: ${imagePath} for card ${card.name} (ID: ${card.id})`);
       return imagePath;
     }
     
     console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
+    console.log("Available card image paths:", Object.keys(cardImagePaths).slice(0, 10));
     return null;
   };
   
@@ -448,22 +449,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {imagePath ? (
         <>
           <img
-            key={`authentic-${card.id}-${Date.now()}-${Math.random()}`}
-            src={`${imagePath}?refresh=${Math.random()}&t=${Date.now()}`}
+            key={`card-${card.id}-${card.name.replace(/\s+/g, '-')}`}
+            src={imagePath}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
-            crossOrigin="anonymous"
-            referrerPolicy="no-referrer"
             onLoad={() => {
               console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
               setImageError(false);
             }}
             onError={(e) => {
               console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name}`);
-              // Don't set error state for authentic Major Arcana cards (0-4) - keep trying to load
-              if (!(card.arcana === 'major' && ['0', '1', '2', '3', '4'].includes(card.id))) {
-                setImageError(true);
-              }
+              setImageError(true);
             }}
           />
           <div className="absolute bottom-2 left-2 right-2 bg-black/50 text-white text-xs p-1 rounded backdrop-blur-sm">
