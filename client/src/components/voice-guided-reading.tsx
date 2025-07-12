@@ -89,7 +89,11 @@ export default function VoiceGuidedReading({
       
       const conclusion = `Take a moment to reflect on these cards and their message for you. When you're ready, we'll conclude this reading.`;
       
-      return [intro, ...cardReadings, conclusion];
+      const fullScript = [intro, ...cardReadings, conclusion];
+      console.log(`Voice guided reading script generated: ${fullScript.length} parts for ${cards.length} cards`);
+      console.log('Script parts:', fullScript.map((part, i) => `${i}: ${part.substring(0, 50)}...`));
+      
+      return fullScript;
     };
     
     scriptRef.current = generateScript();
