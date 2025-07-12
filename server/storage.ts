@@ -692,7 +692,8 @@ export class DatabaseStorage implements IStorage {
   // Session store setup
   sessionStore = new (connectPg(session))({
     conString: process.env.DATABASE_URL,
-    createTableIfMissing: true
+    createTableIfMissing: true,
+    tableName: 'sessions'
   });
 }
 

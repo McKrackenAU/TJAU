@@ -48,15 +48,15 @@ export function setupAuth(app: Express) {
   const isProduction = process.env.NODE_ENV === 'production' || process.env.REPLIT_DEPLOYMENT === 'true';
   
   const sessionSettings: session.SessionOptions = {
-    secret: process.env.SESSION_SECRET || "tarot-journey-secret-key",
+    secret: process.env.SESSION_SECRET || "tarot-journey-secret-key-2025",
     resave: false,
     saveUninitialized: false,
     store: storage.sessionStore,
     cookie: {
-      secure: isProduction, // Use secure cookies in production (HTTPS)
+      secure: false, // Temporarily disable secure for testing
       httpOnly: true, // Prevent client-side access for security
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-      sameSite: isProduction ? 'lax' : 'lax' // Allow cross-site requests
+      sameSite: 'lax' // Allow cross-site requests
     }
   };
 
