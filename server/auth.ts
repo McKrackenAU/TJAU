@@ -62,6 +62,7 @@ export function setupAuth(app: Express) {
 
   console.log('Auth setup - Production mode:', isProduction);
   console.log('Cookie settings:', sessionSettings.cookie);
+  console.log('Session store configured:', !!sessionSettings.store);
 
   app.set("trust proxy", 1);
   app.use(session(sessionSettings));
@@ -176,7 +177,10 @@ export function setupAuth(app: Express) {
   });
 
   app.post("/api/login", (req, res, next) => {
-    console.log('Login route hit with body:', req.body);
+    console.log('=== LOGIN ATTEMPT ===');
+    console.log('Request body:', req.body);
+    console.log('Session ID:', req.sessionID);
+    console.log('Session data before auth:', req.session);
     
     passport.authenticate("local", (err: any, user: Express.User | false, info: any) => {
       console.log('Passport authenticate callback - err:', err, 'user:', user ? 'found' : 'not found', 'info:', info);
@@ -197,7 +201,8 @@ export function setupAuth(app: Express) {
           console.error('req.login error:', err);
           return next(err);
         }
-        console.log('Login successful, sending response');
+        console.log('Login successful, session after login:', req.session);
+        console.log('User authenticated:', req.isAuthenticated());
         res.status(200).json(user);
       });
     })(req, res, next);
@@ -211,7 +216,16 @@ export function setupAuth(app: Express) {
   });
 
   app.get("/api/user", (req, res) => {
-    if (!req.isAuthenticated()) return res.sendStatus(401);
+    console.log('=== USER ENDPOINT ===');
+    console.log('Session ID:', req.sessionID);
+    console.log('Session data:', req.session);
+    console.log('User authenticated:', req.isAuthenticated());
+    console.log('User in session:', req.user);
+    
+    if (!req.isAuthenticated()) {
+      console.log('User not authenticated, returning 401');
+      return res.sendStatus(401);
+    }
     res.json(req.user);
   });
 }
