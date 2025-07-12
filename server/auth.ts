@@ -44,18 +44,24 @@ async function comparePasswords(supplied: string, stored: string) {
 }
 
 export function setupAuth(app: Express) {
+  // Detect if running in production (deployed) environment
+  const isProduction = process.env.NODE_ENV === 'production' || process.env.REPLIT_DEPLOYMENT === 'true';
+  
   const sessionSettings: session.SessionOptions = {
     secret: process.env.SESSION_SECRET || "tarot-journey-secret-key",
     resave: false,
     saveUninitialized: false,
     store: storage.sessionStore,
     cookie: {
-      secure: false, // Allow cookies over HTTP for mobile compatibility
+      secure: isProduction, // Use secure cookies in production (HTTPS)
       httpOnly: true, // Prevent client-side access for security
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-      sameSite: 'lax' // Allow cross-site requests for mobile browsers
+      sameSite: isProduction ? 'lax' : 'lax' // Allow cross-site requests
     }
   };
+
+  console.log('Auth setup - Production mode:', isProduction);
+  console.log('Cookie settings:', sessionSettings.cookie);
 
   app.set("trust proxy", 1);
   app.use(session(sessionSettings));
