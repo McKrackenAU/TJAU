@@ -102,15 +102,15 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
   
   // Early validation to prevent errors
-  if (!card || !card.arcana || !card.id) {
+  if (!card || !card.arcana || !card.id || !card.name) {
     console.warn("⚠️ Invalid card data:", card);
-    return <div className="w-full h-full bg-card-muted rounded-xl flex items-center justify-center text-muted-foreground">Invalid Card</div>;
+    return <div className="w-full h-full bg-red-500/20 rounded-xl flex items-center justify-center text-red-400 text-xs">Invalid Card Data</div>;
   }
   
   // Get the actual image path for this specific card
   const imagePath = cardImagePaths[card.id];
   
-  console.log(`🔍 Loading card: ${card.name} (ID: ${card.id}) -> ${imagePath || 'NO PATH'}`);
+  console.log(`🔍 CARD IMAGE: ${card.name} (ID: ${card.id}) -> ${imagePath || 'NO PATH'}`);
   
   if (!imagePath) {
     console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
@@ -209,16 +209,17 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       {imagePath ? (
         <>
           <img
-            key={`card-${card.id}-${card.name.replace(/\s+/g, '-')}`}
-            src={imagePath}
+            key={`card-${card.id}-${card.name.replace(/\s+/g, '-')}-${Date.now()}`}
+            src={`${imagePath}?v=${card.id}&t=${Date.now()}`}
             alt={card.name}
             className="w-full h-full object-cover rounded-xl"
             onLoad={() => {
-              console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
+              console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name} (ID: ${card.id})`);
               setImageError(false);
             }}
             onError={(e) => {
-              console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name}`);
+              console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name} (ID: ${card.id})`);
+              console.log(`🚨 Error details:`, e);
               setImageError(true);
             }}
           />

@@ -219,11 +219,15 @@ export default function Spreads() {
                       {/* Row 1: Cards 0-4 */}
                       {[0, 1, 2, 3, 4].map((cardIndex) => {
                         const card = spreadCards[cardIndex];
+                        if (!card) {
+                          console.warn(`⚠️ Missing card at index ${cardIndex}`);
+                          return null;
+                        }
                         return (
-                          <div key={`row1-${cardIndex}-${card?.id}-${card?.name}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row1-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
                             <div className="w-20 h-28 mb-3 flex-shrink-0">
                               <CardDisplay
-                                key={`card-display-${card?.id}-${card?.name}`}
+                                key={`card-display-${cardIndex}-${card.id}-${card.name}`}
                                 card={card}
                                 isRevealed={isRevealed}
                                 isReversed={cardReversals[cardIndex] || false}
@@ -233,7 +237,7 @@ export default function Spreads() {
                               {spreads[selectedSpread].positions[cardIndex]}
                             </div>
                             <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
-                              {card?.name}
+                              {card.name}
                             </div>
                           </div>
                         );
@@ -242,11 +246,15 @@ export default function Spreads() {
                       {/* Row 2: Cards 5-9 */}
                       {[5, 6, 7, 8, 9].map((cardIndex) => {
                         const card = spreadCards[cardIndex];
+                        if (!card) {
+                          console.warn(`⚠️ Missing card at index ${cardIndex}`);
+                          return null;
+                        }
                         return (
-                          <div key={`row2-${cardIndex}-${card?.id}-${card?.name}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row2-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
                             <div className="w-20 h-28 mb-3 flex-shrink-0">
                               <CardDisplay
-                                key={`card-display-${card?.id}-${card?.name}`}
+                                key={`card-display-${cardIndex}-${card.id}-${card.name}`}
                                 card={card}
                                 isRevealed={isRevealed}
                                 isReversed={cardReversals[cardIndex] || false}
@@ -256,7 +264,7 @@ export default function Spreads() {
                               {spreads[selectedSpread].positions[cardIndex]}
                             </div>
                             <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
-                              {card?.name}
+                              {card.name}
                             </div>
                           </div>
                         );
