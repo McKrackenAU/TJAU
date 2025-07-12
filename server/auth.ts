@@ -60,7 +60,8 @@ export function setupAuth(app: Express) {
       sameSite: 'lax', // Allow cross-site requests
       domain: isCustomDomain ? '.tarotjourney.au' : undefined // Set domain for custom deployment
     },
-    name: 'connect.sid' // Ensure consistent session name
+    name: 'connect.sid', // Ensure consistent session name
+    proxy: true // Trust the proxy for cookie handling
   };
 
   console.log('Auth setup - Production mode:', isProduction);
