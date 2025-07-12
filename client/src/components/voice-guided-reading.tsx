@@ -131,8 +131,8 @@ export default function VoiceGuidedReading({
           console.log("=== VOICE GUIDED READING: Reading complete ===");
           setIsPlaying(false);
           isCompletedRef.current = true;
-          // Pause the background music when the reading is complete
-          audioService.pauseBackgroundMusic();
+          // Keep the background music playing after reading is complete
+          // Music will stop only when user leaves the component
           if (onComplete) onComplete();
         }
       });
@@ -403,7 +403,7 @@ export default function VoiceGuidedReading({
         <>
           {/* Active Card Display */}
           <div className="flex justify-center mb-6">
-            {activeCardIndex >= 0 && activeCardIndex < cards.length ? (
+            {activeCardIndex >= 0 && activeCardIndex < cards.length && cards[activeCardIndex] ? (
               <div className="text-center">
                 <CardDisplay 
                   card={cards[activeCardIndex]} 
@@ -416,11 +416,11 @@ export default function VoiceGuidedReading({
                 </p>
               </div>
             ) : (
-              <div className="h-64 w-48 flex items-center justify-center bg-muted rounded-md border border-border">
+              <div className="h-64 w-48 flex items-center justify-center bg-primary/20 rounded-md border border-primary/30">
                 {activeCardIndex === scriptRef.current.length - 1 ? (
-                  <p className="text-center text-muted-foreground px-4">Reflection</p>
+                  <p className="text-center text-primary font-medium px-4">Meditation Complete</p>
                 ) : (
-                  <p className="text-center text-muted-foreground px-4">Ready to begin</p>
+                  <p className="text-center text-primary font-medium px-4">Ready to begin</p>
                 )}
               </div>
             )}
