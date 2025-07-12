@@ -42,6 +42,27 @@
   html, body {
     height: 100%;
     overflow-x: hidden;
+    /* Prevent zoom on iOS safari */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Better mobile touch experience */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Prevent mobile bounce scrolling */
+  body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  #root {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   
   /* Apply padding to header elements to avoid camera notch */

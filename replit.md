@@ -153,6 +153,13 @@ Changelog:
   - Verified session cookie handling and persistence across requests
   - Fixed CORS configuration for proper cookie handling
   - Authentication system fully functional for tarotjourney.au deployment
+- July 12, 2025: Fixed critical API configuration and mobile responsiveness issues
+  - Resolved API base URL mismatch: changed from https://www.tarotjourney.au to https://tarotjourney.au
+  - Updated WillMc password to bcrypt format with new password "password123"
+  - Enhanced mobile viewport configuration and CSS for better mobile experience
+  - Added improved error handling for network connectivity issues
+  - Fixed mobile responsive design with proper touch handling and scrolling
+  - Confirmed both WillMc and Jo BB login credentials working on deployed version
 ```
 
 ## User Preferences
