@@ -223,11 +223,11 @@ export default function Spreads() {
                 <div className="flex flex-col space-y-8 max-w-6xl mx-auto">
                   
                   {/* Celtic Cross - 2 Rows x 5 Columns */}
-                  <div className="flex flex-col items-center space-y-8">
+                  <div className="flex flex-col items-center space-y-12 py-8">
                     <h3 className="text-sm font-semibold text-muted-foreground">Celtic Cross Formation</h3>
                     
                     {/* 2x5 Grid Layout with Fixed Alignment */}
-                    <div key={`celtic-cross-${spreadCards.map(c => c?.id).join('-')}`} className="grid grid-cols-5 gap-8 place-items-center w-full max-w-6xl mx-auto px-4">
+                    <div key={`celtic-cross-${spreadCards.map(c => c?.id).join('-')}`} className="grid grid-cols-5 gap-8 place-items-center w-full max-w-6xl mx-auto px-4 grid-rows-2 gap-y-16">
                       {/* Row 1: Cards 0-4 */}
                       {[0, 1, 2, 3, 4].map((cardIndex) => {
                         const card = spreadCards[cardIndex];
@@ -236,7 +236,7 @@ export default function Spreads() {
                           return null;
                         }
                         return (
-                          <div key={`row1-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row1-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[160px] mb-8">
                             <div className="w-17 h-24 mb-3 flex-shrink-0">
                               <CardDisplay
                                 key={`card-display-${cardIndex}-${card.id}-${card.name}`}
@@ -263,7 +263,7 @@ export default function Spreads() {
                           return null;
                         }
                         return (
-                          <div key={`row2-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row2-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[160px] mt-8">
                             <div className="w-17 h-24 mb-3 flex-shrink-0">
                               <CardDisplay
                                 key={`card-display-${cardIndex}-${card.id}-${card.name}`}
