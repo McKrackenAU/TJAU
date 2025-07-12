@@ -237,7 +237,7 @@ export default function Spreads() {
                         }
                         return (
                           <div key={`row1-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
-                            <div className="w-20 h-28 mb-3 flex-shrink-0">
+                            <div className="w-17 h-24 mb-3 flex-shrink-0">
                               <CardDisplay
                                 key={`card-display-${cardIndex}-${card.id}-${card.name}`}
                                 card={card}
@@ -245,10 +245,10 @@ export default function Spreads() {
                                 isReversed={cardReversals[cardIndex] || false}
                               />
                             </div>
-                            <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
+                            <div className="text-xs font-medium mb-1 text-center max-w-17 leading-tight">
                               {spreads[selectedSpread].positions[cardIndex]}
                             </div>
-                            <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
+                            <div className="text-xs text-muted-foreground text-center break-words max-w-17 leading-tight">
                               {card.name}
                             </div>
                           </div>
@@ -264,7 +264,7 @@ export default function Spreads() {
                         }
                         return (
                           <div key={`row2-${cardIndex}-${card.id}-${Date.now()}`} className="flex flex-col items-center justify-start min-h-[140px]">
-                            <div className="w-20 h-28 mb-3 flex-shrink-0">
+                            <div className="w-17 h-24 mb-3 flex-shrink-0">
                               <CardDisplay
                                 key={`card-display-${cardIndex}-${card.id}-${card.name}`}
                                 card={card}
@@ -272,10 +272,10 @@ export default function Spreads() {
                                 isReversed={cardReversals[cardIndex] || false}
                               />
                             </div>
-                            <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
+                            <div className="text-xs font-medium mb-1 text-center max-w-17 leading-tight">
                               {spreads[selectedSpread].positions[cardIndex]}
                             </div>
-                            <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
+                            <div className="text-xs text-muted-foreground text-center break-words max-w-17 leading-tight">
                               {card.name}
                             </div>
                           </div>
