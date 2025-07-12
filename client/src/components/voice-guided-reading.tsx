@@ -100,42 +100,53 @@ export default function VoiceGuidedReading({
     if (!isPlaying || activeCardIndex < 0 || !isVoiceEnabled) return;
     
     const currentText = scriptRef.current[activeCardIndex];
+    let isCancelled = false;
     
-    audioService.setSpeechVolume(voiceVolume / 100);
-    audioService.setSpeechRate(voiceRate);
-    
-    // Temporarily lower music volume while speaking
-    const currentMusicVolume = audioService.getMusicVolume();
-    if (isMusicEnabled && musicType !== 'none') {
-      audioService.setMusicVolume(Math.max(0.05, currentMusicVolume * 0.3)); // Reduce to 30% but never below 0.05
-    }
-    
-    audioService.speak(currentText, () => {
-      console.log(`=== VOICE GUIDED READING: Completed card ${activeCardIndex + 1} ===`);
-      // Restore music volume when speech ends
+    const speakCurrentCard = async () => {
+      if (isCancelled) return;
+      
+      audioService.setSpeechVolume(voiceVolume / 100);
+      audioService.setSpeechRate(voiceRate);
+      
+      // Temporarily lower music volume while speaking
+      const currentMusicVolume = audioService.getMusicVolume();
       if (isMusicEnabled && musicType !== 'none') {
-        audioService.setMusicVolume(currentMusicVolume);
+        audioService.setMusicVolume(Math.max(0.05, currentMusicVolume * 0.3)); // Reduce to 30% but never below 0.05
       }
       
-      // Move to the next card after speech is complete
-      if (activeCardIndex < scriptRef.current.length - 1) {
-        setActiveCardIndex(prevIndex => prevIndex + 1);
-      } else {
-        // Finished the reading
-        console.log("=== VOICE GUIDED READING: Reading complete ===");
-        setIsPlaying(false);
-        isCompletedRef.current = true;
-        // Pause the background music when the reading is complete
-        audioService.pauseBackgroundMusic();
-        if (onComplete) onComplete();
-      }
-    });
+      await audioService.speak(currentText, () => {
+        if (isCancelled) return; // Don't proceed if the component was unmounted
+        
+        console.log(`=== VOICE GUIDED READING: Completed card ${activeCardIndex + 1} ===`);
+        // Restore music volume when speech ends
+        if (isMusicEnabled && musicType !== 'none') {
+          audioService.setMusicVolume(currentMusicVolume);
+        }
+        
+        // Move to the next card after speech is complete
+        if (activeCardIndex < scriptRef.current.length - 1) {
+          setActiveCardIndex(prevIndex => prevIndex + 1);
+        } else {
+          // Finished the reading
+          console.log("=== VOICE GUIDED READING: Reading complete ===");
+          setIsPlaying(false);
+          isCompletedRef.current = true;
+          // Pause the background music when the reading is complete
+          audioService.pauseBackgroundMusic();
+          if (onComplete) onComplete();
+        }
+      });
+    };
+    
+    speakCurrentCard();
     
     return () => {
       // Clean up on unmount or when dependency changes
+      isCancelled = true;
       audioService.stopSpeech();
       // Restore music volume on cleanup
       if (isMusicEnabled && musicType !== 'none') {
+        const currentMusicVolume = audioService.getMusicVolume();
         audioService.setMusicVolume(currentMusicVolume);
       }
     };

@@ -138,8 +138,9 @@ export class AudioService {
 
   public async speak(text: string, onEnd?: () => void): Promise<void> {
     try {
-      // Stop any ongoing speech
+      // Stop any ongoing speech and wait a moment for cleanup
       this.stopSpeech();
+      await new Promise(resolve => setTimeout(resolve, 100));
       
       console.log("=== VOICE SERVICE: Generating speech with Josie voice ===");
       console.log("Text preview:", text.substring(0, 100) + "...");
@@ -346,6 +347,7 @@ export class AudioService {
     if (this.currentSpeechAudio) {
       this.currentSpeechAudio.pause();
       this.currentSpeechAudio.currentTime = 0;
+      this.currentSpeechAudio.onended = null; // Clear event listener to prevent callback
       this.currentSpeechAudio = null;
       this.isPlaying = false;
       return;
