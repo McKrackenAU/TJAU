@@ -215,14 +215,15 @@ export default function Spreads() {
                     <h3 className="text-sm font-semibold text-muted-foreground">Celtic Cross Formation</h3>
                     
                     {/* 2x5 Grid Layout with Fixed Alignment */}
-                    <div className="grid grid-cols-5 gap-8 place-items-center w-full max-w-6xl mx-auto px-4">
+                    <div key={`celtic-cross-${spreadCards.map(c => c?.id).join('-')}`} className="grid grid-cols-5 gap-8 place-items-center w-full max-w-6xl mx-auto px-4">
                       {/* Row 1: Cards 0-4 */}
                       {[0, 1, 2, 3, 4].map((cardIndex) => {
                         const card = spreadCards[cardIndex];
                         return (
-                          <div key={`row1-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row1-${cardIndex}-${card?.id}-${card?.name}`} className="flex flex-col items-center justify-start min-h-[140px]">
                             <div className="w-20 h-28 mb-3 flex-shrink-0">
                               <CardDisplay
+                                key={`card-display-${card?.id}-${card?.name}`}
                                 card={card}
                                 isRevealed={isRevealed}
                                 isReversed={cardReversals[cardIndex] || false}
@@ -242,9 +243,10 @@ export default function Spreads() {
                       {[5, 6, 7, 8, 9].map((cardIndex) => {
                         const card = spreadCards[cardIndex];
                         return (
-                          <div key={`row2-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                          <div key={`row2-${cardIndex}-${card?.id}-${card?.name}`} className="flex flex-col items-center justify-start min-h-[140px]">
                             <div className="w-20 h-28 mb-3 flex-shrink-0">
                               <CardDisplay
+                                key={`card-display-${card?.id}-${card?.name}`}
                                 card={card}
                                 isRevealed={isRevealed}
                                 isReversed={cardReversals[cardIndex] || false}

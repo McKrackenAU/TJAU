@@ -131,7 +131,9 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     return null;
   };
   
-  // Legacy path mapping for complex logic (kept for reference)
+  const imagePath = getImagePath();
+  
+  // Legacy path mapping for complex logic (kept for reference but not used)
   const getLegacyImagePath = () => {
     // All card paths in one place
     const allCardPaths: Record<string, string> = {
@@ -426,7 +428,6 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     return "✧"; // Default fallback
   };
 
-  const imagePath = getImagePath();
   const hasStaticImage = imagePath !== null;
 
   if (!isRevealed) {
