@@ -403,27 +403,47 @@ export default function VoiceGuidedReading({
         <>
           {/* Active Card Display */}
           <div className="flex justify-center mb-6">
-            {activeCardIndex >= 0 && activeCardIndex < cards.length && cards[activeCardIndex] ? (
-              <div className="text-center">
-                <CardDisplay 
-                  card={cards[activeCardIndex]} 
-                  isRevealed={true}
-                  isReversed={cards[activeCardIndex].isReversed}
-                />
-                <h3 className="mt-3 text-lg font-medium">{cards[activeCardIndex].name}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {cards[activeCardIndex].isReversed ? 'Reversed' : 'Upright'}
-                </p>
-              </div>
-            ) : (
-              <div className="h-64 w-48 flex items-center justify-center bg-primary/20 rounded-md border border-primary/30">
-                {activeCardIndex === scriptRef.current.length - 1 ? (
-                  <p className="text-center text-primary font-medium px-4">Meditation Complete</p>
-                ) : (
-                  <p className="text-center text-primary font-medium px-4">Ready to begin</p>
-                )}
-              </div>
-            )}
+            {(() => {
+              // Script structure: [intro, card1, card2, ..., cardN, conclusion]
+              // activeCardIndex 0 = intro, 1 = card1, 2 = card2, etc.
+              const cardIndex = activeCardIndex - 1; // Adjust for intro
+              const isIntro = activeCardIndex === 0;
+              const isConclusion = activeCardIndex === scriptRef.current.length - 1;
+              
+              if (isIntro) {
+                return (
+                  <div className="h-64 w-48 flex items-center justify-center bg-primary/20 rounded-md border border-primary/30">
+                    <p className="text-center text-primary font-medium px-4">Welcome to your reading</p>
+                  </div>
+                );
+              } else if (isConclusion) {
+                return (
+                  <div className="h-64 w-48 flex items-center justify-center bg-primary/20 rounded-md border border-primary/30">
+                    <p className="text-center text-primary font-medium px-4">Meditation Complete</p>
+                  </div>
+                );
+              } else if (cardIndex >= 0 && cardIndex < cards.length && cards[cardIndex]) {
+                return (
+                  <div className="text-center">
+                    <CardDisplay 
+                      card={cards[cardIndex]} 
+                      isRevealed={true}
+                      isReversed={cards[cardIndex].isReversed}
+                    />
+                    <h3 className="mt-3 text-lg font-medium">{cards[cardIndex].name}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {cards[cardIndex].isReversed ? 'Reversed' : 'Upright'}
+                    </p>
+                  </div>
+                );
+              } else {
+                return (
+                  <div className="h-64 w-48 flex items-center justify-center bg-primary/20 rounded-md border border-primary/30">
+                    <p className="text-center text-primary font-medium px-4">Ready to begin</p>
+                  </div>
+                );
+              }
+            })()}
           </div>
 
           {/* Playback Controls */}
