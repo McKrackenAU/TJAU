@@ -123,6 +123,9 @@ Changelog:
   - Fixed Josie voice ID from LSufHJs05fSH7jJqUHhF to YIWKjkOTvYsv48VTI6gT
   - Verified ElevenLabs integration working with proper voice generation
   - Confirmed deployment configuration ready for production updates
+  - Fixed Celtic Cross card generation to properly create all 10 unique cards
+  - Enhanced CardImage component validation and error handling
+  - Improved React keys and cache-busting to prevent duplicate image display
 ```
 
 ## User Preferences

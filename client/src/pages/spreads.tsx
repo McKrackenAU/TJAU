@@ -64,13 +64,25 @@ export default function Spreads() {
       const selectedCards: typeof cards = [];
       const availableCards = [...cards];
       
+      console.log(`🎯 Generating ${spread.positions.length} cards for ${spread.name}`);
+      console.log(`📚 Available cards: ${availableCards.length}`);
+      
       for (let i = 0; i < spread.positions.length; i++) {
-        if (availableCards.length === 0) break;
+        if (availableCards.length === 0) {
+          console.warn(`⚠️ Ran out of cards at position ${i}/${spread.positions.length}`);
+          break;
+        }
         
         const randomIndex = Math.floor(Math.random() * availableCards.length);
         const selectedCard = availableCards[randomIndex];
-        selectedCards.push(selectedCard);
-        availableCards.splice(randomIndex, 1); // Remove to prevent duplicates
+        
+        if (selectedCard && selectedCard.id && selectedCard.name) {
+          selectedCards.push(selectedCard);
+          availableCards.splice(randomIndex, 1); // Remove to prevent duplicates
+          console.log(`✅ Added card ${i + 1}/${spread.positions.length}: ${selectedCard.name} (${selectedCard.id})`);
+        } else {
+          console.error(`❌ Invalid card at position ${i}:`, selectedCard);
+        }
       }
       
       // Generate reversals AFTER cards are drawn (30% chance each)
