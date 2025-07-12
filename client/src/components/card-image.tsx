@@ -52,13 +52,13 @@ const cardImagePaths: Record<string, string> = {
   // Cups - New authentic ethereal cards with 3D quality
   'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
   'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
-  'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png?v=2025',
+  'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png',
   'c4': '/authentic-cards/minor-arcana/cups/four-of-cups.png',
   'c5': '/authentic-cards/minor-arcana/cups/five-of-cups.png',
   'c6': '/authentic-cards/minor-arcana/cups/six-of-cups.png',
-  'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups.png?v=2025',
-  'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups.png?v=2025',
-  'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups.png?v=2025',
+  'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups.png',
+  'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups.png',
+  'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups.png',
   'c10': '/authentic-cards/minor-arcana/cups/ten-of-cups.png',
   'cp': '/authentic-cards/minor-arcana/cups/page-of-cups.png',
   'cn': '/authentic-cards/minor-arcana/cups/knight-of-cups.png',
@@ -96,13 +96,10 @@ const cardImagePaths: Record<string, string> = {
   'pn': '/authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png',
   'pq': '/authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png',
   'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
-  
-
 };
 
 export default function CardImage({ card, isRevealed }: CardImageProps) {
   const [imageError, setImageError] = useState(false);
-  const [imageKey, setImageKey] = useState(0); // Force re-render key
   
   // Early validation to prevent errors
   if (!card || !card.arcana || !card.id) {
@@ -110,250 +107,14 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     return <div className="w-full h-full bg-card-muted rounded-xl flex items-center justify-center text-muted-foreground">Invalid Card</div>;
   }
   
-  // Complete card path mapping
-  const getImagePath = () => {
-    // Ensure card and card.id exist
-    if (!card || !card.id) {
-      console.log('⚠️ Invalid card or missing ID');
-      return null;
-    }
-    
-    // Simplified card paths - use the primary cardImagePaths mapping
-    const imagePath = cardImagePaths[card.id];
-    
-    if (imagePath) {
-      console.log(`✅ Image path found: ${imagePath} for card ${card.name} (ID: ${card.id})`);
-      return imagePath;
-    }
-    
+  // Get the actual image path for this specific card
+  const imagePath = cardImagePaths[card.id];
+  
+  console.log(`🔍 Loading card: ${card.name} (ID: ${card.id}) -> ${imagePath || 'NO PATH'}`);
+  
+  if (!imagePath) {
     console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
-    console.log("Available card image paths:", Object.keys(cardImagePaths).slice(0, 10));
-    return null;
-  };
-  
-  const imagePath = getImagePath();
-  
-  // Legacy path mapping for complex logic (kept for reference but not used)
-  const getLegacyImagePath = () => {
-    // All card paths in one place
-    const allCardPaths: Record<string, string> = {
-      // Major Arcana - use your authentic cards
-      '0': '/authentic-cards/major-arcana/00-fool.png',
-      '1': '/authentic-cards/major-arcana/01-magician.png',
-      '2': '/authentic-cards/major-arcana/02-high-priestess.png',
-      '3': '/authentic-cards/major-arcana/03-empress.png',
-      '4': '/authentic-cards/major-arcana/04-emperor.png',
-      '5': '/authentic-cards/major-arcana/05-hierophant.png',
-      '6': '/authentic-cards/major-arcana/06-lovers.png',
-      '7': '/authentic-cards/major-arcana/07-chariot.png',
-      '8': '/authentic-cards/major-arcana/08-strength.png',
-      '9': '/authentic-cards/major-arcana/09-hermit.png',
-      '10': '/authentic-cards/major-arcana/10-wheel.png',
-      '11': '/authentic-cards/major-arcana/11-justice.png',
-      '12': '/authentic-cards/major-arcana/12-hanged-man.png',
-      '13': '/authentic-cards/major-arcana/13-death.png',
-      '14': '/authentic-cards/major-arcana/14-temperance.png',
-      '15': '/authentic-cards/major-arcana/15-devil.png',
-      '16': '/authentic-cards/major-arcana/16-tower.png',
-      '17': '/authentic-cards/major-arcana/17-star.png',
-      '18': '/authentic-cards/major-arcana/18-moon.png',
-      '19': '/authentic-cards/major-arcana/19-sun.png',
-      '20': '/authentic-cards/major-arcana/20-judgement.png',
-      '21': '/authentic-cards/major-arcana/21-world.png',
-      
-
-      
-      // Minor Arcana - Wands (Ready for ultra-ethereal generation)
-      'w1': '/authentic-cards/minor-arcana/wands/ace-of-wands.png',
-      'w2': '/authentic-cards/minor-arcana/wands/two-of-wands.png',
-      'w3': '/authentic-cards/minor-arcana/wands/three-of-wands.png',
-      'w4': '/authentic-cards/minor-arcana/wands/four-of-wands.png',
-      'w5': '/authentic-cards/minor-arcana/wands/five-of-wands.png',
-      'w6': '/authentic-cards/minor-arcana/wands/six-of-wands.png',
-      'w7': '/authentic-cards/minor-arcana/wands/seven-of-wands.png',
-      'w8': '/authentic-cards/minor-arcana/wands/eight-of-wands.png',
-      'w9': '/authentic-cards/minor-arcana/wands/nine-of-wands.png',
-      'w10': '/authentic-cards/minor-arcana/wands/ten-of-wands.png',
-      'wp': '/authentic-cards/minor-arcana/wands/page-of-wands.png',
-      'wn': '/authentic-cards/minor-arcana/wands/knight-of-wands.png',
-      'wq': '/authentic-cards/minor-arcana/wands/queen-of-wands.png',
-      'wk': '/authentic-cards/minor-arcana/wands/king-of-wands.png',
-      
-      // Minor Arcana - Cups (Complete ultra-ethereal authentic suit)
-      'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
-      'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
-      'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png?v=2025-fresh',
-      'c4': '/authentic-cards/minor-arcana/cups/four-of-cups.png',
-      'c5': '/authentic-cards/minor-arcana/cups/five-of-cups.png',
-      'c6': '/authentic-cards/minor-arcana/cups/six-of-cups.png',
-      'c7': '/authentic-cards/minor-arcana/cups/seven-of-cups.png?v=2025',
-      'c8': '/authentic-cards/minor-arcana/cups/eight-of-cups.png?v=2025',
-      'c9': '/authentic-cards/minor-arcana/cups/nine-of-cups.png?v=2025',
-      'c10': '/authentic-cards/minor-arcana/cups/ten-of-cups.png',
-      'cp': '/authentic-cards/minor-arcana/cups/page-of-cups.png',
-      'cn': '/authentic-cards/minor-arcana/cups/knight-of-cups.png',
-      'cq': '/authentic-cards/minor-arcana/cups/queen-of-cups.png',
-      'ck': '/authentic-cards/minor-arcana/cups/king-of-cups.png',
-      
-      // Minor Arcana - Swords (Ready for ultra-ethereal generation)
-      's1': '/authentic-cards/minor-arcana/swords/ace-of-swords.png',
-      's2': '/authentic-cards/minor-arcana/swords/two-of-swords.png',
-      's3': '/authentic-cards/minor-arcana/swords/three-of-swords.png',
-      's4': '/authentic-cards/minor-arcana/swords/four-of-swords.png',
-      's5': '/authentic-cards/minor-arcana/swords/five-of-swords.png',
-      's6': '/authentic-cards/minor-arcana/swords/six-of-swords.png',
-      's7': '/authentic-cards/minor-arcana/swords/seven-of-swords.png',
-      's8': '/authentic-cards/minor-arcana/swords/eight-of-swords.png',
-      's9': '/authentic-cards/minor-arcana/swords/nine-of-swords.png',
-      's10': '/authentic-cards/minor-arcana/swords/ten-of-swords.png',
-      'sp': '/authentic-cards/minor-arcana/swords/page-of-swords.png',
-      'sn': '/authentic-cards/minor-arcana/swords/knight-of-swords.png',
-      'sq': '/authentic-cards/minor-arcana/swords/queen-of-swords.png',
-      'sk': '/authentic-cards/minor-arcana/swords/king-of-swords.png',
-      
-      // Minor Arcana - Pentacles (Ready for ultra-ethereal generation)
-      'p1': '/authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png',
-      'p2': '/authentic-cards/minor-arcana/pentacles/two-of-pentacles.png',
-      'p3': '/authentic-cards/minor-arcana/pentacles/three-of-pentacles.png',
-      'p4': '/authentic-cards/minor-arcana/pentacles/four-of-pentacles.png',
-      'p5': '/authentic-cards/minor-arcana/pentacles/five-of-pentacles.png',
-      'p6': '/authentic-cards/minor-arcana/pentacles/six-of-pentacles.png',
-      'p7': '/authentic-cards/minor-arcana/pentacles/seven-of-pentacles.png',
-      'p8': '/authentic-cards/minor-arcana/pentacles/eight-of-pentacles.png',
-      'p9': '/authentic-cards/minor-arcana/pentacles/nine-of-pentacles.png',
-      'p10': '/authentic-cards/minor-arcana/pentacles/ten-of-pentacles.png',
-      'pp': '/authentic-cards/minor-arcana/pentacles/page-of-pentacles.png',
-      'pn': '/authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png',
-      'pq': '/authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png',
-      'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
-      
-      // Oracle Cards - Custom spiritual guidance cards
-      'imported_319': '/authentic-cards/oracle/element-of-air.png',
-      'imported_320': '/authentic-cards/oracle/element-of-earth.png',
-      'imported_321': '/authentic-cards/oracle/element-of-fire.png',
-      'imported_322': '/authentic-cards/oracle/element-of-water.png',
-      'imported_303': '/authentic-cards/oracle/divine-guidance.png',
-      'imported_304': '/authentic-cards/oracle/sacred-geometry.png',
-      'imported_305': '/authentic-cards/oracle/elemental-allies.png',
-      'imported_328': '/authentic-cards/oracle/lunar-phases.png',
-      'imported_329': '/authentic-cards/oracle/solar-energies.png',
-      'imported_332': '/authentic-cards/oracle/natures-wisdom.png',
-      'imported_333': '/authentic-cards/oracle/dream-exploration.png',
-      'imported_334': '/authentic-cards/oracle/astral-travel.png',
-      'imported_335': '/authentic-cards/oracle/soul-contracts.png',
-      'imported_336': '/authentic-cards/oracle/akashic-records.png',
-      'imported_337': '/authentic-cards/oracle/spirit-guides.png',
-      'imported_338': '/authentic-cards/oracle/divine-feminine.png',
-      'imported_339': '/authentic-cards/oracle/divine-masculine.png',
-      'imported_340': '/authentic-cards/oracle/universal-love.png',
-      'imported_341': '/authentic-cards/oracle/synchronicity.png',
-      'imported_342': '/authentic-cards/oracle/sacred-rituals.png',
-      'imported_343': '/authentic-cards/oracle/inner-alchemy.png',
-      'imported_344': '/authentic-cards/oracle/soulmates-twin-flames.png',
-      'imported_345': '/authentic-cards/oracle/ascended-masters.png',
-      'imported_346': '/authentic-cards/oracle/divine-timing.png',
-      'imported_347': '/authentic-cards/oracle/inner-healing.png',
-      'imported_348': '/authentic-cards/oracle/ancestral-wisdom.png',
-      'imported_349': '/authentic-cards/oracle/soulful-expression.png',
-      'imported_350': '/authentic-cards/oracle/divine-protection.png',
-      'imported_351': '/authentic-cards/oracle/gratitude-abundance.png',
-      'imported_352': '/authentic-cards/oracle/divine-protection.png',
-      'imported_353': '/authentic-cards/oracle/soulful-relationships.png',
-      'imported_354': '/authentic-cards/oracle/meditation-mindfulness.png',
-      'imported_355': '/authentic-cards/oracle/cosmic-balance.png',
-      'imported_356': '/authentic-cards/oracle/inner-child-healing.png',
-      'imported_360': '/authentic-cards/oracle/infinite-possibilities.png',
-      // Additional oracle cards
-      'imported_323': '/authentic-cards/oracle/divine-guidance.png',
-      'imported_324': '/authentic-cards/oracle/cosmic-connections.png',
-      'imported_325': '/authentic-cards/oracle/spiritual-awakening.png',
-      'imported_326': '/authentic-cards/oracle/sacred-geometry.png',
-      'imported_327': '/authentic-cards/oracle/elemental-allies.png',
-      'imported_330': '/authentic-cards/oracle/chakra-activation.png',
-      'imported_331': '/authentic-cards/oracle/crystals-gemstones.png',
-      'imported_357': '/authentic-cards/oracle/energy-clearing.png',
-      'imported_358': '/authentic-cards/oracle/divine-purpose.png',
-      'imported_359': '/authentic-cards/oracle/cosmic-balance.png',
-      // Major Arcana with database IDs
-      'imported_241': '/authentic-cards/major-arcana/0-fool.png',
-      'imported_242': '/authentic-cards/major-arcana/1-magician.png',
-      'imported_243': '/authentic-cards/major-arcana/2-high-priestess.png',
-      'imported_244': '/authentic-cards/major-arcana/3-empress.png',
-      'imported_245': '/authentic-cards/major-arcana/4-emperor.png',
-      'imported_246': '/authentic-cards/major-arcana/5-hierophant.png',
-      'imported_247': '/authentic-cards/major-arcana/6-lovers.png',
-      'imported_248': '/authentic-cards/major-arcana/7-chariot.png',
-      'imported_249': '/authentic-cards/major-arcana/8-strength.png',
-      'imported_250': '/authentic-cards/major-arcana/9-hermit.png',
-      'imported_251': '/authentic-cards/major-arcana/10-wheel-of-fortune.png',
-      'imported_252': '/authentic-cards/major-arcana/11-justice.png',
-      'imported_253': '/authentic-cards/major-arcana/12-hanged-man.png',
-      'imported_254': '/authentic-cards/major-arcana/13-death.png',
-      'imported_255': '/authentic-cards/major-arcana/14-temperance.png',
-      'imported_256': '/authentic-cards/major-arcana/15-devil.png',
-      'imported_257': '/authentic-cards/major-arcana/16-tower.png',
-      'imported_258': '/authentic-cards/major-arcana/17-star.png',
-      'imported_259': '/authentic-cards/major-arcana/18-moon.png',
-      'imported_260': '/authentic-cards/major-arcana/19-sun.png',
-      'imported_261': '/authentic-cards/major-arcana/20-judgement.png',
-      'imported_262': '/authentic-cards/major-arcana/21-world.png'
-    };
-    
-    // Direct paths for your authentic Major Arcana cards 0-4
-    // Try fresh versions first, fallback to original authentic versions
-    const directPaths: Record<string, string> = {
-      '0': '/authentic-cards/major-arcana/00-fool-fresh.png',
-      '1': '/authentic-cards/major-arcana/01-magician-fresh.png',
-      '2': '/authentic-cards/major-arcana/02-high-priestess-fresh.png', 
-      '3': '/authentic-cards/major-arcana/03-empress-fresh.png',
-      '4': '/authentic-cards/major-arcana/04-emperor-fresh.png'
-    };
-    
-    // Complete authentic tarot deck being generated with traditional filenames
-    const fallbackPaths: Record<string, string> = {
-      '0': '/authentic-cards/major-arcana/00-fool.png',
-      '1': '/authentic-cards/major-arcana/01-magician.png',
-      '2': '/authentic-cards/major-arcana/02-high-priestess.png', 
-      '3': '/authentic-cards/major-arcana/03-empress.png',
-      '4': '/authentic-cards/major-arcana/04-emperor.png',
-      '5': '/authentic-cards/major-arcana/05-hierophant.png',
-      '6': '/authentic-cards/major-arcana/06-lovers.png',
-      '7': '/authentic-cards/major-arcana/07-chariot.png',
-      '8': '/authentic-cards/major-arcana/08-strength.png',
-      '9': '/authentic-cards/major-arcana/09-hermit.png',
-      '10': '/authentic-cards/major-arcana/10-wheel.png',
-      '11': '/authentic-cards/major-arcana/11-justice.png',
-      '12': '/authentic-cards/major-arcana/12-hanged-man.png',
-      '13': '/authentic-cards/major-arcana/13-death.png',
-      '14': '/authentic-cards/major-arcana/14-temperance.png',
-      '15': '/authentic-cards/major-arcana/15-devil.png',
-      '16': '/authentic-cards/major-arcana/16-tower.png',
-      '17': '/authentic-cards/major-arcana/17-star.png',
-      '18': '/authentic-cards/major-arcana/18-moon.png',
-      '19': '/authentic-cards/major-arcana/19-sun.png',
-      '20': '/authentic-cards/major-arcana/20-judgement.png',
-      '21': '/authentic-cards/major-arcana/21-world.png'
-    };
-    
-    // Use authentic cards for 0-4 (your existing working cards)
-    if (fallbackPaths[card.id]) {
-      return fallbackPaths[card.id];
-    }
-    
-    const imagePath = allCardPaths[card.id];
-    
-    // Return authentic card paths directly (minor arcana and oracle cards)
-    if (imagePath && imagePath.startsWith('/authentic-cards/')) {
-      return imagePath;
-    }
-    
-    // For missing cards, return null so symbolic display is used
-    if (!imagePath || imagePath.includes('/assets/cards/')) {
-      return null;
-    }
-    
-    return imagePath;
-  };
+  }
 
   // Card background gradient
   const getCardBackground = () => {
@@ -373,7 +134,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
         case "swords":
           return `${baseClasses} bg-gradient-to-br from-gray-400 via-slate-500 to-zinc-600 border-gray-300/50`;
         case "pentacles":
-          return `${baseClasses} bg-gradient-to-br from-green-400 via-emerald-500 to-forest-600 border-green-300/50`;
+          return `${baseClasses} bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 border-green-300/50`;
         default:
           return `${baseClasses} bg-gradient-to-br from-purple-400 via-violet-500 to-indigo-600 border-purple-300/50`;
       }
@@ -428,8 +189,6 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
     return "✧"; // Default fallback
   };
 
-  const hasStaticImage = imagePath !== null;
-
   if (!isRevealed) {
     // Card back
     return (
@@ -467,8 +226,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
             {card.name}
           </div>
         </>
-      ) : imageError ? (
-        // Symbolic representation for cards without images or on error (but not for authentic Major Arcana 0-4)
+      ) : (
+        // Symbolic representation for cards without images
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
           <div className="text-4xl mb-2 opacity-90">
             {getCardSymbol()}
@@ -479,15 +238,6 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
           <div className="text-xs opacity-70 mt-1 capitalize">
             {card.arcana} {card.suit && `of ${card.suit}`}
           </div>
-        </div>
-      ) : (
-        // Loading state for authentic Major Arcana cards
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-          <div className="text-2xl mb-2 opacity-50">✨</div>
-          <div className="text-center text-sm font-medium px-2 leading-tight">
-            {card.name}
-          </div>
-          <div className="text-xs opacity-50 mt-1">Loading authentic artwork...</div>
         </div>
       )}
     </div>
