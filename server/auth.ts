@@ -59,7 +59,8 @@ export function setupAuth(app: Express) {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
       sameSite: 'lax', // Allow cross-site requests
       domain: isCustomDomain ? '.tarotjourney.au' : undefined // Set domain for custom deployment
-    }
+    },
+    name: 'connect.sid' // Ensure consistent session name
   };
 
   console.log('Auth setup - Production mode:', isProduction);
@@ -224,6 +225,7 @@ export function setupAuth(app: Express) {
     console.log('Session data:', req.session);
     console.log('User authenticated:', req.isAuthenticated());
     console.log('User in session:', req.user);
+    console.log('Request headers:', req.headers.cookie);
     
     if (!req.isAuthenticated()) {
       console.log('User not authenticated, returning 401');
