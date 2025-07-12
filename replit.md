@@ -141,6 +141,12 @@ Changelog:
   - Added service worker for PWA functionality and caching
   - Enhanced session configuration for production HTTPS deployment
   - All icons and PWA manifest properly configured for deployment updates
+- July 12, 2025: Fixed authentication system for production deployment
+  - Fixed session store configuration with proper table name and connection
+  - Configured secure cookies and domain settings for tarotjourney.au deployment
+  - Added custom domain detection for proper HTTPS cookie handling
+  - Cleared session database and restarted with fresh configuration
+  - Authentication system now ready for production custom domain deployment
 ```
 
 ## User Preferences

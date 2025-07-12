@@ -46,6 +46,7 @@ async function comparePasswords(supplied: string, stored: string) {
 export function setupAuth(app: Express) {
   // Detect if running in production (deployed) environment
   const isProduction = process.env.NODE_ENV === 'production' || process.env.REPLIT_DEPLOYMENT === 'true';
+  const isCustomDomain = process.env.REPLIT_DEPLOYMENT === 'true';
   
   const sessionSettings: session.SessionOptions = {
     secret: process.env.SESSION_SECRET || "tarot-journey-secret-key-2025",
@@ -53,14 +54,16 @@ export function setupAuth(app: Express) {
     saveUninitialized: false,
     store: storage.sessionStore,
     cookie: {
-      secure: false, // Temporarily disable secure for testing
+      secure: isCustomDomain, // Use secure cookies for custom domain (HTTPS)
       httpOnly: true, // Prevent client-side access for security
       maxAge: 7 * 24 * 60 * 60 * 1000, // 1 week
-      sameSite: 'lax' // Allow cross-site requests
+      sameSite: 'lax', // Allow cross-site requests
+      domain: isCustomDomain ? '.tarotjourney.au' : undefined // Set domain for custom deployment
     }
   };
 
   console.log('Auth setup - Production mode:', isProduction);
+  console.log('Custom domain deployment:', isCustomDomain);
   console.log('Cookie settings:', sessionSettings.cookie);
   console.log('Session store configured:', !!sessionSettings.store);
 
