@@ -3198,5 +3198,25 @@
     "cardId": "1",
     "cardName": "The Magician",
     "timestamp": "2025-06-23T07:17:35.800Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "p9",
+    "cardName": "Celtic Cross",
+    "timestamp": "2025-07-12T04:24:52.204Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "p9",
+    "cardName": "Celtic Cross",
+    "timestamp": "2025-07-12T04:25:08.272Z"
   }
 ]
