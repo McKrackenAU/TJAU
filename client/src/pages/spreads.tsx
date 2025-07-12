@@ -220,10 +220,10 @@ export default function Spreads() {
             }`}>
               {selectedSpread === "celticCross" ? (
                 // Celtic Cross - Clean Traditional Formation
-                <div className="flex flex-col space-y-8 max-w-6xl mx-auto">
+                <div className="flex flex-col space-y-8 max-w-6xl mx-auto min-h-[800px]">
                   
                   {/* Celtic Cross - 2 Rows x 5 Columns */}
-                  <div className="flex flex-col items-center space-y-12 py-8">
+                  <div className="flex flex-col items-center space-y-12 py-12">
                     <h3 className="text-sm font-semibold text-muted-foreground">Celtic Cross Formation</h3>
                     
                     {/* 2x5 Grid Layout with Fixed Alignment */}
