@@ -672,7 +672,7 @@ export function registerRoutes(app: Express): Server {
       let audioBuffer: Buffer;
 
       // Check if custom voice is configured
-      const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
+      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
 
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {
@@ -1391,7 +1391,7 @@ export function registerRoutes(app: Express): Server {
       console.log("User agent:", req.headers['user-agent'] || 'unknown');
       console.log("Origin:", req.headers.origin || 'unknown');
       
-      const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
+      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
       
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {

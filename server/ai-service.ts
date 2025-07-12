@@ -6,7 +6,7 @@ import { CACHE_DIR } from "./utils/constants";
 import { apiUsageTracker, API_COSTS } from "./utils/api-usage-tracker";
 
 // Set the custom meditation voice (Josie)
-process.env.CUSTOM_MEDITATION_VOICE_ID = "LSufHJs05fSH7jJqUHhF";
+process.env.CUSTOM_MEDITATION_VOICE_ID = "YIWKjkOTvYsv48VTI6gT";
 
 // Try multiple API keys for redundancy
 const getOpenAIClient = () => {
@@ -198,7 +198,7 @@ Keep the tone deeply calming and peaceful. Add extensive pause markers (......) 
     let audioBuffer: Buffer;
     
     // Check if custom voice is configured
-    const customVoiceId = "LSufHJs05fSH7jJqUHhF"; // Josie voice ID
+    const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
     
     console.log("Voice configuration check:");
     console.log("- Custom Voice ID:", customVoiceId);

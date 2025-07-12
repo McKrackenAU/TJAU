@@ -118,6 +118,11 @@ Changelog:
   - Added special subscription override for jo@jmvirtualbusinessservices.com.au
   - Subscription never expires and always shows as active
   - Updated subscription guard to bypass restrictions for Jo BB
+- July 12, 2025: Fixed Celtic Cross layout and Josie voice system
+  - Redesigned Celtic Cross spread from overlapping to clean 2x5 grid layout
+  - Fixed Josie voice ID from LSufHJs05fSH7jJqUHhF to YIWKjkOTvYsv48VTI6gT
+  - Verified ElevenLabs integration working with proper voice generation
+  - Confirmed deployment configuration ready for production updates
 ```
 
 ## User Preferences
