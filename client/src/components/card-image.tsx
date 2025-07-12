@@ -118,10 +118,24 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return null;
     }
     
+    // Simplified card paths - use the primary cardImagePaths mapping
+    const imagePath = cardImagePaths[card.id];
+    
+    if (imagePath) {
+      console.log(`✅ Image loaded successfully: ${imagePath} for card ${card.name}`);
+      return imagePath;
+    }
+    
+    console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
+    return null;
+  };
+  
+  // Legacy path mapping for complex logic (kept for reference)
+  const getLegacyImagePath = () => {
     // All card paths in one place
     const allCardPaths: Record<string, string> = {
       // Major Arcana - use your authentic cards
-      '0': '/authentic-cards/major-arcana/00-fool.png?v=' + Date.now(),
+      '0': '/authentic-cards/major-arcana/00-fool.png',
       '1': '/authentic-cards/major-arcana/01-magician.png',
       '2': '/authentic-cards/major-arcana/02-high-priestess.png',
       '3': '/authentic-cards/major-arcana/03-empress.png',

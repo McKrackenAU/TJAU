@@ -215,42 +215,48 @@ export default function Spreads() {
                     {/* 2x5 Grid Layout with Fixed Alignment */}
                     <div className="grid grid-cols-5 gap-8 place-items-center w-full max-w-6xl mx-auto px-4">
                       {/* Row 1: Cards 0-4 */}
-                      {[0, 1, 2, 3, 4].map((cardIndex) => (
-                        <div key={`row1-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
-                          <div className="w-20 h-28 mb-3 flex-shrink-0">
-                            <CardDisplay
-                              card={spreadCards[cardIndex]}
-                              isRevealed={isRevealed}
-                              isReversed={cardReversals[cardIndex] || false}
-                            />
+                      {[0, 1, 2, 3, 4].map((cardIndex) => {
+                        const card = spreadCards[cardIndex];
+                        return (
+                          <div key={`row1-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                            <div className="w-20 h-28 mb-3 flex-shrink-0">
+                              <CardDisplay
+                                card={card}
+                                isRevealed={isRevealed}
+                                isReversed={cardReversals[cardIndex] || false}
+                              />
+                            </div>
+                            <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
+                              {spreads[selectedSpread].positions[cardIndex]}
+                            </div>
+                            <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
+                              {card?.name}
+                            </div>
                           </div>
-                          <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
-                            {spreads[selectedSpread].positions[cardIndex]}
-                          </div>
-                          <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
-                            {spreadCards[cardIndex]?.name}
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                       
                       {/* Row 2: Cards 5-9 */}
-                      {[5, 6, 7, 8, 9].map((cardIndex) => (
-                        <div key={`row2-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
-                          <div className="w-20 h-28 mb-3 flex-shrink-0">
-                            <CardDisplay
-                              card={spreadCards[cardIndex]}
-                              isRevealed={isRevealed}
-                              isReversed={cardReversals[cardIndex] || false}
-                            />
+                      {[5, 6, 7, 8, 9].map((cardIndex) => {
+                        const card = spreadCards[cardIndex];
+                        return (
+                          <div key={`row2-${cardIndex}`} className="flex flex-col items-center justify-start min-h-[140px]">
+                            <div className="w-20 h-28 mb-3 flex-shrink-0">
+                              <CardDisplay
+                                card={card}
+                                isRevealed={isRevealed}
+                                isReversed={cardReversals[cardIndex] || false}
+                              />
+                            </div>
+                            <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
+                              {spreads[selectedSpread].positions[cardIndex]}
+                            </div>
+                            <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
+                              {card?.name}
+                            </div>
                           </div>
-                          <div className="text-xs font-medium mb-1 text-center max-w-20 leading-tight">
-                            {spreads[selectedSpread].positions[cardIndex]}
-                          </div>
-                          <div className="text-xs text-muted-foreground text-center break-words max-w-20 leading-tight">
-                            {spreadCards[cardIndex]?.name}
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
