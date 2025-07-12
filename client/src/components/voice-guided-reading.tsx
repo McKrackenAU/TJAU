@@ -210,10 +210,7 @@ export default function VoiceGuidedReading({
   }, [musicType]);
 
   const startReading = () => {
-    // Run voice accuracy test in development
-    if (import.meta.env.DEV) {
-      voiceTestService.testVoiceAccuracy().catch(console.error);
-    }
+    // Voice accuracy test removed - no longer needed in voice guided reading
     
     setHasStarted(true);
     setActiveCardIndex(0);
