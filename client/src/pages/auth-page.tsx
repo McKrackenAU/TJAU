@@ -138,7 +138,7 @@ export default function AuthPage() {
     <div className="flex min-h-screen bg-background">
       {/* Form Section */}
       <div className="flex flex-col justify-center w-full lg:w-1/2 px-4 sm:px-6 py-8 sm:py-12">
-        <div className="mx-auto w-full max-w-sm sm:max-w-md">
+        <div className="mx-auto w-full max-w-sm sm:max-w-md auth-form">
           <h2 className="text-3xl font-bold text-primary mb-2">Tarot Journey</h2>
 
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

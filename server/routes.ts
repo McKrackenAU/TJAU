@@ -69,6 +69,15 @@ export function registerRoutes(app: Express): Server {
   // Set up authentication routes and middleware
   setupAuth(app);
 
+  // Health check endpoint for mobile testing
+  app.get('/api/health', (req, res) => {
+    res.json({ 
+      status: 'ok', 
+      timestamp: new Date().toISOString(),
+      environment: process.env.NODE_ENV || 'development'
+    });
+  });
+
   // Set the correct Josie voice ID for meditations
   process.env.CUSTOM_MEDITATION_VOICE_ID = "YIWKjkOTvYsv48VTI6gT"; // Correct Josie voice ID
 
