@@ -132,6 +132,15 @@ Changelog:
   - Enhanced audio management with proper music continuation and cleanup
   - Confirmed all core features working: authentication, voice synthesis, card displays, Celtic Cross spreads
   - Application fully ready for production deployment with all major bugs resolved
+- July 12, 2025: Fixed app icons and PWA deployment issues
+  - Created custom Tarot-themed app icon with mystical design (tarot card with eye and moon)
+  - Generated multiple icon sizes (16x16, 32x32, 180x180, 192x192, 196x196, 512x512)
+  - Added proper PWA manifest.json with complete app metadata
+  - Fixed favicon and Apple touch icon references with cache-busting parameters
+  - Corrected Josie voice ID from LSufHJs05fSH7jJqUHhF to YIWKjkOTvYsv48VTI6gT
+  - Added service worker for PWA functionality and caching
+  - Enhanced session configuration for production HTTPS deployment
+  - All icons and PWA manifest properly configured for deployment updates
 ```
 
 ## User Preferences
