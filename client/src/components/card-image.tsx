@@ -114,6 +114,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   
   if (!imagePath) {
     console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
+    console.log('Available card IDs:', Object.keys(cardImagePaths).slice(0, 10));
   }
 
   // Card background gradient

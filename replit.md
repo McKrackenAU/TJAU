@@ -160,6 +160,14 @@ Changelog:
   - Added improved error handling for network connectivity issues
   - Fixed mobile responsive design with proper touch handling and scrolling
   - Confirmed both WillMc and Jo BB login credentials working on deployed version
+- July 15, 2025: Fixed deployment issues with card display, voice system, and mobile loading
+  - Fixed Josie voice ID configuration (YIWKjkOTvYsv48VTI6gT) for all voice features
+  - Added /api/speak endpoint for legacy compatibility with correct Josie voice
+  - Fixed card image display issues with cache-busting and improved error handling
+  - Removed all remaining www.tarotjourney.au references (replaced with tarotjourney.au)
+  - Added mobile diagnostics page at /mobile-test for troubleshooting
+  - Enhanced voice service with proper fallback and error handling
+  - Fixed API configuration across all client components for mobile compatibility
 ```
 
 ## User Preferences

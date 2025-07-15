@@ -66,7 +66,7 @@ export class VoiceTestService {
                        navigator.userAgent.includes('Tarot Journey App') ||
                        window.location.origin.includes('capacitor');
     
-    const baseUrl = isMobileApp ? 'https://www.tarotjourney.au' : window.location.origin;
+    const baseUrl = isMobileApp ? 'https://tarotjourney.au' : window.location.origin;
     
     console.log(`Mobile app detected: ${isMobileApp}`);
     console.log(`API base URL: ${baseUrl}`);

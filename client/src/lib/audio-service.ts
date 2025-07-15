@@ -151,7 +151,7 @@ export class AudioService {
                          navigator.userAgent.includes('Tarot Journey App') ||
                          window.location.origin.includes('capacitor');
       
-      const baseUrl = isMobileApp ? 'https://www.tarotjourney.au' : window.location.origin;
+      const baseUrl = isMobileApp ? 'https://tarotjourney.au' : window.location.origin;
       const apiUrl = `${baseUrl}/api/generate-speech`;
       
       console.log(`Mobile app: ${isMobileApp} | API URL: ${apiUrl}`);

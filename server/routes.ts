@@ -81,6 +81,66 @@ export function registerRoutes(app: Express): Server {
   // Set the correct Josie voice ID for meditations
   process.env.CUSTOM_MEDITATION_VOICE_ID = "YIWKjkOTvYsv48VTI6gT"; // Correct Josie voice ID
 
+  // Generate speech using correct Josie voice (legacy endpoint for compatibility)
+  app.post("/api/speak", async (req, res) => {
+    try {
+      const { text, speed = 1.0 } = req.body;
+      
+      if (!text || typeof text !== 'string' || text.trim().length === 0) {
+        return res.status(400).json({ error: "Text is required" });
+      }
+      
+      console.log("=== LEGACY VOICE SYNTHESIS REQUEST ===");
+      console.log("Text length:", text.length);
+      console.log("Speed:", speed);
+      
+      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Correct Josie voice ID
+      
+      if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
+        try {
+          const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+          
+          const stability = speed > 1.0 ? 0.7 : 0.8;
+          const similarity = 0.9;
+          
+          const audioBuffer = await voiceCloningService.generateSpeech(
+            text, 
+            customVoiceId,
+            stability,
+            similarity
+          );
+          
+          console.log("=== LEGACY SPEECH GENERATION SUCCESSFUL ===");
+          console.log("Audio buffer size:", audioBuffer.length);
+          
+          res.set({
+            'Content-Type': 'audio/mpeg',
+            'Content-Length': audioBuffer.length.toString(),
+            'Cache-Control': 'no-cache'
+          });
+          
+          res.send(audioBuffer);
+          return;
+          
+        } catch (error) {
+          console.error("=== LEGACY VOICE GENERATION FAILED ===");
+          console.error("Error details:", error);
+          return res.status(500).json({ error: "Speech generation failed" });
+        }
+      } else {
+        console.error("ElevenLabs API key or voice ID not configured");
+        return res.status(500).json({ error: "Voice service not configured" });
+      }
+      
+    } catch (error) {
+      console.error("Error in legacy speak endpoint:", error);
+      res.status(500).json({
+        error: "Failed to generate speech",
+        details: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   // Create OpenAI instance
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY_TWO });
 
