@@ -168,6 +168,13 @@ Changelog:
   - Added mobile diagnostics page at /mobile-test for troubleshooting
   - Enhanced voice service with proper fallback and error handling
   - Fixed API configuration across all client components for mobile compatibility
+- July 15, 2025: Fixed critical loading issues causing black/white screens and update loops
+  - Added loading screen to prevent black/white screen flash during app initialization
+  - Disabled problematic service worker and update notification components causing infinite loops
+  - Enhanced service worker to skip caching API calls preventing stale authentication data
+  - Fixed mobile app update notification that was causing reload loops
+  - Added proper loading states with LoadingFallback component in React app
+  - Updated cache names to force cache refresh and prevent stale content issues
 ```
 
 ## User Preferences

@@ -45,44 +45,29 @@ import { SafeComponent } from "@/components/safe-component";
 import { AuthProvider, useAuth } from "@/hooks/use-auth";
 import { ProtectedRoute } from "@/lib/protected-route";
 
-// Initial redirect to ensure user starts at auth page if not authenticated
-function InitialAuthRedirect() {
-  const { user, isLoading } = useAuth();
-  const [, navigate] = useLocation();
-  const [redirectedToAuth, setRedirectedToAuth] = useState(false);
-  
-  useEffect(() => {
-    // Only redirect once on initial load
-    if (!isLoading && !user && !redirectedToAuth && navigate) {
-      setRedirectedToAuth(true);
-      console.log("No user found, redirecting to auth page");
-      navigate("/auth");
-    }
-  }, [user, isLoading, navigate, redirectedToAuth]);
-
-  // Don't render anything, just handle redirection
-  return null;
+// Loading fallback to prevent black screens
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-12 h-12 border-4 border-purple-300 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-white text-lg">Loading Tarot Journey...</p>
+      </div>
+    </div>
+  );
 }
 
 // AuthAwareComponents renders components that depend on auth state
 function AuthAwareComponents() {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   
-  // Force a single consistent navigation instance
-  useEffect(() => {
-    // Remove any existing bottom nav from other components
-    document.querySelectorAll('.bottom-nav, .bottom-navigation, .nav-bottom')
-      .forEach(el => {
-        if (el.id !== 'bottom-nav') {
-          el.remove();
-        }
-      });
-  }, []);
+  // Show loading fallback while auth is loading
+  if (isLoading) {
+    return <LoadingFallback />;
+  }
 
   return (
     <>
-      <InitialAuthRedirect />
-      <FixedBottomNav />
       <main className="pb-16 w-full mx-auto">
         <Switch>
           {/* Authentication route */}
@@ -123,6 +108,9 @@ function AuthAwareComponents() {
           <Route component={NotFound} />
         </Switch>
       </main>
+      
+      {/* Only show navigation when user is authenticated */}
+      {user && <FixedBottomNav />}
     </>
   );
 }
@@ -134,8 +122,10 @@ function App() {
         <div className="min-h-screen bg-background w-full mx-auto">
           <AuthAwareComponents />
           <SafeComponent component={() => <InstallBanner />} />
-          <SafeComponent component={() => <ServiceWorkerUpdate />} />
-          <SafeComponent component={() => <UpdateNotification />} />
+          {/* Disabled service worker updates to prevent loops */}
+          {/* <SafeComponent component={() => <ServiceWorkerUpdate />} /> */}
+          {/* Disabled update notifications to prevent loops */}
+          {/* <SafeComponent component={() => <UpdateNotification />} /> */}
           <SafeComponent component={() => <IosReinstallPrompt />} />
           <SafeComponent component={() => <IosTestControls />} />
         </div>
