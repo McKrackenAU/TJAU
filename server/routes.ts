@@ -1505,7 +1505,11 @@ export function registerRoutes(app: Express): Server {
           return res.status(500).json({ error: "Speech generation failed" });
         }
       } else {
-        console.error("ElevenLabs API key not configured for legacy speak");
+        console.error("=== LEGACY SPEAK API KEY DEBUG ===");
+        console.error("Custom Voice ID:", customVoiceId);
+        console.error("ElevenLabs API Key exists:", !!process.env.ELEVENLABS_API_KEY);
+        console.error("ElevenLabs API Key length:", process.env.ELEVENLABS_API_KEY ? process.env.ELEVENLABS_API_KEY.length : 0);
+        console.error("Environment:", process.env.NODE_ENV);
         return res.status(500).json({ error: "Voice service not configured" });
       }
       
@@ -1568,7 +1572,11 @@ export function registerRoutes(app: Express): Server {
           return res.status(500).json({ error: "Speech generation failed" });
         }
       } else {
-        console.error("ElevenLabs API key or voice ID not configured");
+        console.error("=== GENERATE-SPEECH API KEY DEBUG ===");
+        console.error("Custom Voice ID:", customVoiceId);
+        console.error("ElevenLabs API Key exists:", !!process.env.ELEVENLABS_API_KEY);
+        console.error("ElevenLabs API Key length:", process.env.ELEVENLABS_API_KEY ? process.env.ELEVENLABS_API_KEY.length : 0);
+        console.error("Environment:", process.env.NODE_ENV);
         return res.status(500).json({ error: "Voice service not configured" });
       }
       
