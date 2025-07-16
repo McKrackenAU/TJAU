@@ -4,6 +4,7 @@ import { setupVite, serveStatic, log } from "./vite";
 import path from "path";
 
 const app = express();
+// Force rebuild marker: 20250716-031242-v2
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

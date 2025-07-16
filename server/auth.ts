@@ -63,6 +63,8 @@ export function setupAuth(app: Express) {
     name: 'connect.sid', // Ensure consistent session name
     proxy: true // Trust the proxy for cookie handling
   };
+  
+  console.log("BUILD VERSION: 20250716-031400-VOICE-FIX-FORCE");
 
   console.log('Auth setup - Production mode:', isProduction);
   console.log('Custom domain deployment:', isCustomDomain);
