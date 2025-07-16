@@ -33,7 +33,7 @@ const cardImagePaths: Record<string, string> = {
   '20': '/authentic-cards/major-arcana/20-judgement.png',
   '21': '/authentic-cards/major-arcana/21-world.png',
   
-  // Wands - Will be updated to authentic cards
+  // Wands - Using authentic cards from existing collection
   'w1': '/authentic-cards/minor-arcana/wands/ace-of-wands.png',
   'w2': '/authentic-cards/minor-arcana/wands/two-of-wands.png',
   'w3': '/authentic-cards/minor-arcana/wands/three-of-wands.png',
@@ -49,7 +49,7 @@ const cardImagePaths: Record<string, string> = {
   'wq': '/authentic-cards/minor-arcana/wands/queen-of-wands.png',
   'wk': '/authentic-cards/minor-arcana/wands/king-of-wands.png',
   
-  // Cups - New authentic ethereal cards with 3D quality
+  // Cups - Authentic ethereal cards from collection
   'c1': '/authentic-cards/minor-arcana/cups/ace-of-cups.png',
   'c2': '/authentic-cards/minor-arcana/cups/two-of-cups.png',
   'c3': '/authentic-cards/minor-arcana/cups/three-of-cups.png',
@@ -65,7 +65,7 @@ const cardImagePaths: Record<string, string> = {
   'cq': '/authentic-cards/minor-arcana/cups/queen-of-cups.png',
   'ck': '/authentic-cards/minor-arcana/cups/king-of-cups.png',
   
-  // Swords - Will be updated to authentic cards
+  // Swords - Using authentic cards from collection
   's1': '/authentic-cards/minor-arcana/swords/ace-of-swords.png',
   's2': '/authentic-cards/minor-arcana/swords/two-of-swords.png',
   's3': '/authentic-cards/minor-arcana/swords/three-of-swords.png',
@@ -81,7 +81,7 @@ const cardImagePaths: Record<string, string> = {
   'sq': '/authentic-cards/minor-arcana/swords/queen-of-swords.png',
   'sk': '/authentic-cards/minor-arcana/swords/king-of-swords.png',
   
-  // Pentacles - Will be updated to authentic cards
+  // Pentacles - Using authentic cards from collection
   'p1': '/authentic-cards/minor-arcana/pentacles/ace-of-pentacles.png',
   'p2': '/authentic-cards/minor-arcana/pentacles/two-of-pentacles.png',
   'p3': '/authentic-cards/minor-arcana/pentacles/three-of-pentacles.png',

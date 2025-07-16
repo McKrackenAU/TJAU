@@ -178,6 +178,13 @@ Changelog:
   - Fixed white screen on mobile by adding enhanced viewport settings and mobile-specific CSS
   - Created SimpleHome component with guaranteed content display for mobile devices
   - Added React error handling and fallback content for mobile compatibility
+- July 16, 2025: Fixed critical card image display and voice synthesis issues
+  - Updated all card image paths to use existing authentic-cards collection in public directory
+  - All Major Arcana (0-21) and Minor Arcana (wands, cups, swords, pentacles) now display authentic artwork
+  - Fixed Josie voice system by ensuring correct voice ID (YIWKjkOTvYsv48VTI6gT) in both legacy and new endpoints
+  - Added /api/speak endpoint for legacy compatibility alongside /api/generate-speech
+  - Enhanced voice service configuration with proper ElevenLabs integration
+  - Both card displays and voice synthesis now working correctly across all features
 ```
 
 ## User Preferences

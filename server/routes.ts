@@ -1448,6 +1448,57 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
+  // Legacy endpoint for compatibility - redirect to generate-speech
+  app.post("/api/speak", async (req, res) => {
+    try {
+      const { text, speed = 1.0 } = req.body;
+      
+      if (!text || typeof text !== 'string' || text.trim().length === 0) {
+        return res.status(400).json({ error: "Text is required" });
+      }
+      
+      console.log("=== LEGACY SPEAK ENDPOINT - USING JOSIE VOICE ===");
+      console.log("Text length:", text.length);
+      
+      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
+      
+      if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
+        try {
+          const { voiceCloningService } = await import('./services/voice-cloning-service.js');
+          const audioBuffer = await voiceCloningService.generateSpeech(
+            text, 
+            customVoiceId,
+            0.8, // Stability
+            0.9  // Similarity
+          );
+          
+          console.log("=== LEGACY SPEAK GENERATION SUCCESSFUL ===");
+          console.log("Audio buffer size:", audioBuffer.length);
+          
+          res.set({
+            'Content-Type': 'audio/mpeg',
+            'Content-Length': audioBuffer.length.toString(),
+            'Cache-Control': 'no-cache'
+          });
+          
+          res.send(audioBuffer);
+          return;
+          
+        } catch (error) {
+          console.error("=== LEGACY SPEAK GENERATION FAILED ===", error);
+          return res.status(500).json({ error: "Speech generation failed" });
+        }
+      } else {
+        console.error("ElevenLabs API key not configured for legacy speak");
+        return res.status(500).json({ error: "Voice service not configured" });
+      }
+      
+    } catch (error) {
+      console.error("Legacy speak error:", error);
+      res.status(500).json({ error: "Failed to generate speech" });
+    }
+  });
+
   // Generate speech with Josie voice for all voice features
   app.post("/api/generate-speech", async (req, res) => {
     try {
