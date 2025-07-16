@@ -42,12 +42,12 @@
     </div>
     <div id="root">
       <!-- Fallback content if React fails to load - ALWAYS VISIBLE ON MOBILE -->
-      <div id="fallback-content" style="display: block; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1;">
-        <div style="min-height: 100vh; width: 100vw; background: linear-gradient(135deg, #1e1b4b, #581c87, #be185d); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px; position: fixed; top: 0; left: 0;">
+      <div id="fallback-content" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10000; background: linear-gradient(135deg, #1e1b4b, #581c87, #be185d);">
+        <div style="min-height: 100vh; width: 100vw; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
           <h1 style="font-size: 2rem; margin-bottom: 1rem; font-family: sans-serif;">Tarot Journey</h1>
           <p style="margin-bottom: 2rem; font-family: sans-serif;">Welcome to your spiritual journey</p>
-          <a href="/auth" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); font-family: sans-serif;">Sign In</a>
-          <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7; font-family: sans-serif;">Mobile Version - If this persists, refresh the page</p>
+          <a href="/auth" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); font-family: sans-serif; font-size: 16px;">Sign In</a>
+          <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.7; font-family: sans-serif;">If you're already logged in, try refreshing the page</p>
         </div>
       </div>
     </div>
@@ -157,19 +157,32 @@
       }
     </style>
     <script>
-      // Timeout to prevent infinite loading and show fallback
-      setTimeout(() => {
+      // Immediate fallback system - show fallback content right away
+      document.addEventListener('DOMContentLoaded', function() {
         const loadingScreen = document.getElementById('loading-screen');
         const fallbackContent = document.getElementById('fallback-content');
         
-        // If React hasn't loaded after 3 seconds, show fallback
-        if (loadingScreen && fallbackContent) {
-          loadingScreen.style.display = 'none';
+        // Show fallback immediately, hide after React loads
+        if (fallbackContent) {
           fallbackContent.style.display = 'block';
+          fallbackContent.style.position = 'fixed';
+          fallbackContent.style.top = '0';
+          fallbackContent.style.left = '0';
+          fallbackContent.style.width = '100vw';
+          fallbackContent.style.height = '100vh';
           fallbackContent.style.zIndex = '10000';
-          console.log('React failed to load, showing fallback');
+          fallbackContent.style.background = 'linear-gradient(135deg, #1e1b4b, #581c87, #be185d)';
         }
-      }, 3000);
+        
+        // Hide loading screen after 1 second
+        setTimeout(() => {
+          if (loadingScreen) {
+            loadingScreen.style.display = 'none';
+          }
+        }, 1000);
+        
+        console.log('Fallback content activated');
+      });
       
       // More advanced service worker registration with update handling
       if ('serviceWorker' in navigator) {
