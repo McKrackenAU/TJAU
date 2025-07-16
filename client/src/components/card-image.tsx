@@ -96,6 +96,10 @@ const cardImagePaths: Record<string, string> = {
   'pn': '/authentic-cards/minor-arcana/pentacles/knight-of-pentacles.png',
   'pq': '/authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png',
   'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
+  
+  // Custom/Oracle Cards
+  'oracle-illusion': '/oracle-of-illusion.png',
+  'oracle_illusion': '/oracle-of-illusion.png',
 };
 
 export default function CardImage({ card, isRevealed }: CardImageProps) {
@@ -144,8 +148,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       }
     }
     
-    // Custom/Oracle cards
-    return `${baseClasses} bg-gradient-to-br from-amber-400 via-yellow-500 to-orange-600 border-amber-300/50`;
+    // Custom/Oracle cards - mystical purple theme  
+    return `${baseClasses} bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-700 border-violet-300/50`;
   };
 
   // Get symbolic representation based on card type
