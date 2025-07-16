@@ -37,8 +37,7 @@ const CardDisplay = memo(function CardDisplay({
           className="w-full h-full absolute"
           initial={false}
           animate={{ 
-            rotateY: isRevealed ? 0 : 180,
-            rotateZ: isReversed ? 180 : 0 // Properly handle card reversal
+            rotateY: isRevealed ? 0 : 180
           }}
           transition={{ duration: 0.6 }}
           style={{ transformStyle: "preserve-3d" }}
@@ -49,6 +48,7 @@ const CardDisplay = memo(function CardDisplay({
             style={{
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
+              transform: isReversed ? "rotate(180deg)" : "rotate(0deg)"
             }}
           >
             {/* Use unified CardImage component for all cards - always show front when on the front face */}
