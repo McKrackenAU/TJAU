@@ -1480,6 +1480,26 @@ export function registerRoutes(app: Express): Server {
       
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {
+          // Try emergency fallback first for production
+          if (process.env.NODE_ENV === 'production' || process.env.REPLIT_DEPLOYMENT === 'true') {
+            console.log("Using emergency voice service for production");
+            const { emergencyVoiceService } = await import('./voice-fallback.js');
+            const audioBuffer = await emergencyVoiceService(text);
+            
+            console.log("=== LEGACY SPEAK GENERATION SUCCESSFUL ===");
+            console.log("Audio buffer size:", audioBuffer.length);
+            
+            res.set({
+              'Content-Type': 'audio/mpeg',
+              'Content-Length': audioBuffer.length.toString(),
+              'Cache-Control': 'no-cache'
+            });
+            
+            res.send(audioBuffer);
+            return;
+          }
+          
+          // Development fallback
           const { voiceCloningService } = await import('./services/voice-cloning-service.js');
           const audioBuffer = await voiceCloningService.generateSpeech(
             text, 
