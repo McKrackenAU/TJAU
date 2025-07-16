@@ -100,6 +100,9 @@ const cardImagePaths: Record<string, string> = {
   // Custom/Oracle Cards
   'oracle-illusion': '/oracle-of-illusion.png',
   'oracle_illusion': '/oracle-of-illusion.png',
+  'oracle_001': '/assets/cards/element-of-air.png',
+  'oracle_002': '/assets/cards/element-of-earth.png',
+  'oracle_003': '/assets/cards/element-of-water.png',
 };
 
 export default function CardImage({ card, isRevealed }: CardImageProps) {
@@ -115,6 +118,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const imagePath = cardImagePaths[card.id];
   
   console.log(`🔍 CARD IMAGE: ${card.name} (ID: ${card.id}) -> ${imagePath || 'NO PATH'}`);
+  console.log(`🔍 Card revealed status: ${isRevealed} | Arcana: ${card.arcana}`);
   console.log(`🔍 Available paths for debugging:`, Object.keys(cardImagePaths).slice(0, 15));
   
   if (!imagePath) {
@@ -192,6 +196,8 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       return majorSymbols[card.name];
     } else if (card.suit && card.suit.toLowerCase() in suitSymbols) {
       return suitSymbols[card.suit.toLowerCase()];
+    } else if (card.arcana === "custom") {
+      return "🔮"; // Crystal ball for oracle cards
     }
     
     return "✧"; // Default fallback

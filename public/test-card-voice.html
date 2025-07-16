@@ -63,6 +63,14 @@
                  onerror="updateStatus('card-oracle', 'error', 'Custom card failed to load')">
             <div id="card-oracle" class="status loading">Loading...</div>
         </div>
+        
+        <div class="card-test">
+            <div>Test React CardImage Component</div>
+            <div id="react-card-test" style="width: 100px; height: 150px; border: 1px solid #ddd; border-radius: 8px;">
+                <p style="font-size: 10px; text-align: center; margin-top: 60px;">React Component Test</p>
+            </div>
+            <div id="react-status" class="status loading">Test React component...</div>
+        </div>
     </div>
     
     <div class="test-section">
@@ -133,6 +141,26 @@
             })
             .catch(error => {
                 console.error('Error accessing Fool card:', error);
+            });
+            
+        // Test Oracle card access
+        fetch('/oracle-of-illusion.png')
+            .then(response => {
+                console.log('Oracle card response:', response.status, response.statusText);
+                const reactStatus = document.getElementById('react-status');
+                if (response.ok) {
+                    reactStatus.className = 'status success';
+                    reactStatus.textContent = 'Oracle image accessible via direct fetch';
+                } else {
+                    reactStatus.className = 'status error';
+                    reactStatus.textContent = `Oracle fetch failed: ${response.status}`;
+                }
+            })
+            .catch(error => {
+                console.error('Error accessing Oracle card:', error);
+                const reactStatus = document.getElementById('react-status');
+                reactStatus.className = 'status error';
+                reactStatus.textContent = `Oracle fetch error: ${error.message}`;
             });
     </script>
 </body>
