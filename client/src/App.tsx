@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import SimpleHome from "@/pages/simple-home";
 import DailyDraw from "@/pages/daily-draw";
 import Spreads from "@/pages/spreads";
 import Library from "@/pages/library";
@@ -79,8 +80,8 @@ function AuthAwareComponents() {
           <Route path="/unsubscribe" component={UnsubscribePage} />
           <Route path="/admin/create" component={CreateAdminPage} />
           
-          {/* Home route - protected but conditionally shows landing page if not logged in */}
-          <Route path="/" component={Home} />
+          {/* Home route - use simple home for now */}
+          <Route path="/" component={SimpleHome} />
           
           {/* Protected routes that require authentication */}
           <ProtectedRoute path="/daily" component={DailyDraw} />
@@ -116,6 +117,14 @@ function AuthAwareComponents() {
 }
 
 function App() {
+  // Hide fallback content once React is working
+  useEffect(() => {
+    const fallback = document.getElementById('fallback-content');
+    if (fallback) {
+      fallback.style.display = 'none';
+    }
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

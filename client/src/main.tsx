@@ -4,6 +4,12 @@ import "./index.css";
 
 // Hide loading screen and show app
 function hideLoadingScreen() {
+  // Show fallback content immediately if React fails
+  const fallback = document.getElementById('fallback-content');
+  if (fallback) {
+    fallback.style.display = 'block';
+  }
+  
   setTimeout(() => {
     document.body.classList.add('app-loaded');
     // Remove loading screen after transition
@@ -11,6 +17,10 @@ function hideLoadingScreen() {
       const loadingScreen = document.getElementById('loading-screen');
       if (loadingScreen) {
         loadingScreen.remove();
+      }
+      // Hide fallback once React is working
+      if (fallback) {
+        fallback.style.display = 'none';
       }
     }, 500);
   }, 100); // Small delay to ensure app is ready

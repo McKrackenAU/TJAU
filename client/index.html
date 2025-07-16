@@ -40,7 +40,16 @@
       <div class="loading-text">Loading Tarot Journey...</div>
       <div class="loading-subtext">Please wait while we prepare your spiritual journey</div>
     </div>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Fallback content if React fails to load -->
+      <div id="fallback-content" style="display: none;">
+        <div style="min-height: 100vh; background: linear-gradient(135deg, #1e1b4b, #581c87, #be185d); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; padding: 20px;">
+          <h1 style="font-size: 2rem; margin-bottom: 1rem;">Tarot Journey</h1>
+          <p style="margin-bottom: 2rem;">Welcome to your spiritual journey</p>
+          <a href="/auth" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; border: 1px solid rgba(255,255,255,0.3);">Sign In</a>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
     
     <style>
