@@ -3218,5 +3218,45 @@
     "cardId": "p9",
     "cardName": "Celtic Cross",
     "timestamp": "2025-07-12T04:25:08.272Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "cn",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-07-16T01:12:08.745Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "cn",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-07-16T01:12:23.544Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "p10",
+    "cardName": "Ten of Pentacles",
+    "timestamp": "2025-07-16T01:13:36.009Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "p10",
+    "cardName": "Ten of Pentacles",
+    "timestamp": "2025-07-16T01:13:48.062Z"
   }
 ]
