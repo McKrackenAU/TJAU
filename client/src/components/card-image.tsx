@@ -111,10 +111,13 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
   const imagePath = cardImagePaths[card.id];
   
   console.log(`🔍 CARD IMAGE: ${card.name} (ID: ${card.id}) -> ${imagePath || 'NO PATH'}`);
+  console.log(`🔍 Available paths for debugging:`, Object.keys(cardImagePaths).slice(0, 15));
   
   if (!imagePath) {
     console.log(`⚠️ No image path found for card ${card.name} (ID: ${card.id})`);
-    console.log('Available card IDs:', Object.keys(cardImagePaths).slice(0, 10));
+    console.log('All available card IDs:', Object.keys(cardImagePaths));
+  } else {
+    console.log(`✅ Found image path for card ${card.name}: ${imagePath}`);
   }
 
   // Card background gradient
@@ -224,6 +227,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
             onError={(e) => {
               console.log(`🚨 Image failed to load: ${imagePath} for card ${card.name} (ID: ${card.id})`);
               console.log(`🚨 Error details:`, e);
+              console.log(`🚨 Testing direct access to: http://localhost:5000${imagePath}`);
               setImageError(true);
             }}
           />
