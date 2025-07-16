@@ -175,6 +175,9 @@ Changelog:
   - Fixed mobile app update notification that was causing reload loops
   - Added proper loading states with LoadingFallback component in React app
   - Updated cache names to force cache refresh and prevent stale content issues
+  - Fixed white screen on mobile by adding enhanced viewport settings and mobile-specific CSS
+  - Created SimpleHome component with guaranteed content display for mobile devices
+  - Added React error handling and fallback content for mobile compatibility
 ```
 
 ## User Preferences

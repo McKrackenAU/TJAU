@@ -5,10 +5,11 @@ export default function SimpleHome() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center">
-        <div className="text-center text-white">
+      <div className="min-h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center" style={{minHeight: '100vh', width: '100vw'}}>
+        <div className="text-center text-white p-4">
           <div className="w-12 h-12 border-4 border-purple-300 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-lg">Loading...</p>
+          <p className="text-lg">Loading Tarot Journey...</p>
+          <p className="text-sm opacity-75 mt-2">Please wait while we prepare your experience</p>
         </div>
       </div>
     );

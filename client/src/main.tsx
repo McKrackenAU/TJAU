@@ -10,6 +10,10 @@ function hideLoadingScreen() {
     fallback.style.display = 'block';
   }
   
+  // For mobile, increase the delay to ensure everything loads
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const delay = isMobile ? 500 : 100;
+  
   setTimeout(() => {
     document.body.classList.add('app-loaded');
     // Remove loading screen after transition
@@ -23,7 +27,7 @@ function hideLoadingScreen() {
         fallback.style.display = 'none';
       }
     }, 500);
-  }, 100); // Small delay to ensure app is ready
+  }, delay);
 }
 
 // Add global error handlers to prevent runtime errors
@@ -39,8 +43,31 @@ window.addEventListener('error', (event) => {
 
 const root = createRoot(document.getElementById("root")!);
 
-// Render app and hide loading screen
-root.render(<App />);
-
-// Hide loading screen after initial render
-hideLoadingScreen();
+// Enhanced error handling for mobile
+try {
+  // Render app and hide loading screen
+  root.render(<App />);
+  
+  // Hide loading screen after initial render
+  hideLoadingScreen();
+} catch (error) {
+  console.error('React render failed:', error);
+  
+  // Force show fallback content if React fails
+  const fallback = document.getElementById('fallback-content');
+  if (fallback) {
+    fallback.style.display = 'block';
+    fallback.style.position = 'fixed';
+    fallback.style.top = '0';
+    fallback.style.left = '0';
+    fallback.style.width = '100vw';
+    fallback.style.height = '100vh';
+    fallback.style.zIndex = '10000';
+  }
+  
+  // Hide loading screen
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    loadingScreen.remove();
+  }
+}
