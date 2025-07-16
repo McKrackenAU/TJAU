@@ -4,29 +4,32 @@ import "./index.css";
 
 // Hide loading screen and show app
 function hideLoadingScreen() {
-  // Show fallback content immediately if React fails
-  const fallback = document.getElementById('fallback-content');
-  if (fallback) {
-    fallback.style.display = 'block';
-  }
-  
-  // For mobile, increase the delay to ensure everything loads
+  // For mobile, keep fallback visible until React fully loads
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  const delay = isMobile ? 500 : 100;
+  const delay = isMobile ? 1000 : 100; // Longer delay for mobile
   
   setTimeout(() => {
     document.body.classList.add('app-loaded');
+    
     // Remove loading screen after transition
     setTimeout(() => {
       const loadingScreen = document.getElementById('loading-screen');
       if (loadingScreen) {
         loadingScreen.remove();
       }
-      // Hide fallback once React is working
-      if (fallback) {
+      
+      // Only hide fallback if React is actually working
+      const rootContent = document.querySelector('#root > div');
+      const fallback = document.getElementById('fallback-content');
+      
+      if (rootContent && fallback) {
+        // React content exists, hide fallback
         fallback.style.display = 'none';
+      } else if (fallback) {
+        // No React content, keep fallback visible
+        console.log('React failed to load, keeping fallback visible');
       }
-    }, 500);
+    }, 800); // Longer transition for mobile
   }, delay);
 }
 
