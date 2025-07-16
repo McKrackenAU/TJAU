@@ -157,6 +157,20 @@
       }
     </style>
     <script>
+      // Timeout to prevent infinite loading and show fallback
+      setTimeout(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        const fallbackContent = document.getElementById('fallback-content');
+        
+        // If React hasn't loaded after 3 seconds, show fallback
+        if (loadingScreen && fallbackContent) {
+          loadingScreen.style.display = 'none';
+          fallbackContent.style.display = 'block';
+          fallbackContent.style.zIndex = '10000';
+          console.log('React failed to load, showing fallback');
+        }
+      }, 3000);
+      
       // More advanced service worker registration with update handling
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
