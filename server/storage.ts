@@ -1,4 +1,4 @@
-import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, angelNumbers, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, type AngelNumber, type InsertAngelNumber, importedCards, voices } from "@shared/schema";
+import { readings, studyProgress, journalEntries, learningTracks, userProgress, quizResults, users, newsletters, angelNumbers, dailyCards, type Reading, type InsertReading, type StudyProgress, type InsertStudyProgress, type JournalEntry, type InsertJournalEntry, type LearningTrack, type InsertLearningTrack, type UserProgress, type InsertUserProgress, type QuizResult, type InsertQuizResult, type ImportedCard, type InsertImportedCard, type User, type InsertUser, type Newsletter, type InsertNewsletter, type AngelNumber, type InsertAngelNumber, type DailyCard, type InsertDailyCard, importedCards, voices } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, lte, sql } from "drizzle-orm";
 
@@ -76,6 +76,9 @@ export interface IStorage {
   getTodayReadingsCount(): Promise<number>
   getTotalJournalEntriesCount(): Promise<number>
   getSubscriptionStats(): Promise<{ active: number; trial: number; canceled: number; total: number }>
+  // Daily card functionality
+  getDailyCard(userId: number, date: string): Promise<DailyCard | undefined>;
+  createDailyCard(userId: number, card: InsertDailyCard): Promise<DailyCard>;
   // Session store
   sessionStore: session.Store;
 }
@@ -687,6 +690,29 @@ export class DatabaseStorage implements IStorage {
       canceled: Math.max(0, canceled),
       total
     };
+  }
+
+  // Daily card methods
+  async getDailyCard(userId: number, date: string): Promise<DailyCard | undefined> {
+    const [dailyCard] = await db
+      .select()
+      .from(dailyCards)
+      .where(and(
+        eq(dailyCards.userId, userId),
+        eq(dailyCards.date, date)
+      ));
+    return dailyCard;
+  }
+
+  async createDailyCard(userId: number, card: InsertDailyCard): Promise<DailyCard> {
+    const [created] = await db
+      .insert(dailyCards)
+      .values({
+        ...card,
+        userId
+      })
+      .returning();
+    return created;
   }
 
   // Session store setup

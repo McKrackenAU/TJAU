@@ -81,63 +81,79 @@ export function registerRoutes(app: Express): Server {
   // Set the correct Josie voice ID for meditations
   process.env.CUSTOM_MEDITATION_VOICE_ID = "YIWKjkOTvYsv48VTI6gT"; // Correct Josie voice ID
 
-  // Generate speech using correct Josie voice (legacy endpoint for compatibility)
-  app.post("/api/speak", async (req, res) => {
+  // Daily card with voice reading endpoint
+  app.get("/api/daily", async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).json({ error: "Authentication required" });
+    }
+
     try {
-      const { text, speed = 1.0 } = req.body;
+      const userId = req.user!.id;
       
-      if (!text || typeof text !== 'string' || text.trim().length === 0) {
-        return res.status(400).json({ error: "Text is required" });
+      // Get or create today's daily card for the user
+      const today = new Date().toISOString().split('T')[0];
+      
+      // Check if user already has a daily card for today
+      let dailyCard = await storage.getDailyCard(userId, today);
+      
+      if (!dailyCard) {
+        // Select a random card for today
+        const randomIndex = Math.floor(Math.random() * tarotCards.length);
+        const selectedCard = tarotCards[randomIndex];
+        const isReversed = Math.random() < 0.3; // 30% chance of reversal
+        
+        // Generate interpretation using AI
+        const interpretation = await generateCardInterpretation(selectedCard, 'daily', isReversed);
+        
+        // Create daily card record
+        dailyCard = await storage.createDailyCard(userId, {
+          cardId: selectedCard.id,
+          date: today,
+          interpretation: interpretation,
+          isReversed: isReversed
+        });
       }
       
-      console.log("=== LEGACY VOICE SYNTHESIS REQUEST ===");
-      console.log("Text length:", text.length);
-      console.log("Speed:", speed);
+      // Find the card data
+      const card = tarotCards.find(c => c.id === dailyCard.cardId);
+      if (!card) {
+        return res.status(404).json({ error: "Card not found" });
+      }
       
-      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Correct Josie voice ID
+      // Generate voice audio for the interpretation using Josie voice
+      const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
+      let audioBuffer: Buffer | null = null;
       
       if (customVoiceId && process.env.ELEVENLABS_API_KEY) {
         try {
           const { voiceCloningService } = await import('./services/voice-cloning-service.js');
-          
-          const stability = speed > 1.0 ? 0.7 : 0.8;
-          const similarity = 0.9;
-          
-          const audioBuffer = await voiceCloningService.generateSpeech(
-            text, 
+          audioBuffer = await voiceCloningService.generateSpeech(
+            dailyCard.interpretation,
             customVoiceId,
-            stability,
-            similarity
+            0.8, // Stability
+            0.9  // Similarity
           );
-          
-          console.log("=== LEGACY SPEECH GENERATION SUCCESSFUL ===");
-          console.log("Audio buffer size:", audioBuffer.length);
-          
-          res.set({
-            'Content-Type': 'audio/mpeg',
-            'Content-Length': audioBuffer.length.toString(),
-            'Cache-Control': 'no-cache'
-          });
-          
-          res.send(audioBuffer);
-          return;
-          
+          console.log("Daily card voice generated with Josie voice");
         } catch (error) {
-          console.error("=== LEGACY VOICE GENERATION FAILED ===");
-          console.error("Error details:", error);
-          return res.status(500).json({ error: "Speech generation failed" });
+          console.error("Daily card voice generation failed:", error);
+          // Continue without voice - the client can handle this gracefully
         }
-      } else {
-        console.error("ElevenLabs API key or voice ID not configured");
-        return res.status(500).json({ error: "Voice service not configured" });
       }
       
-    } catch (error) {
-      console.error("Error in legacy speak endpoint:", error);
-      res.status(500).json({
-        error: "Failed to generate speech",
-        details: error instanceof Error ? error.message : 'Unknown error'
+      res.json({
+        card: {
+          ...card,
+          isReversed: dailyCard.isReversed
+        },
+        interpretation: dailyCard.interpretation,
+        date: dailyCard.date,
+        hasAudio: !!audioBuffer,
+        audioUrl: audioBuffer ? `/api/daily/audio/${userId}/${today}` : null
       });
+      
+    } catch (error) {
+      console.error("Daily card error:", error);
+      res.status(500).json({ error: "Failed to get daily card" });
     }
   });
 
@@ -1448,7 +1464,7 @@ export function registerRoutes(app: Express): Server {
     }
   });
 
-  // Legacy endpoint for compatibility - redirect to generate-speech
+  // Legacy endpoint for compatibility - using Josie voice
   app.post("/api/speak", async (req, res) => {
     try {
       const { text, speed = 1.0 } = req.body;

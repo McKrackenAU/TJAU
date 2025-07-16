@@ -135,6 +135,16 @@ export const voices = pgTable("voices", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
+export const dailyCards = pgTable("daily_cards", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(),
+  cardId: text("card_id").notNull(),
+  date: date("date").notNull(),
+  interpretation: text("interpretation").notNull(),
+  isReversed: boolean("is_reversed").default(false).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
 export type InsertReading = z.infer<typeof insertReadingSchema>;
 export type Reading = typeof readings.$inferSelect;
 export type StudyProgress = typeof studyProgress.$inferSelect;
@@ -186,6 +196,11 @@ export const insertAngelNumberSchema = createInsertSchema(angelNumbers).omit({
   dateAdded: true,
 });
 
+export const insertDailyCardSchema = createInsertSchema(dailyCards).omit({
+  id: true,
+  createdAt: true,
+});
+
 export type ImportedCard = typeof importedCards.$inferSelect;
 export type InsertImportedCard = typeof importedCards.$inferInsert;
 export type User = typeof users.$inferSelect;
@@ -194,3 +209,5 @@ export type Newsletter = typeof newsletters.$inferSelect;
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
 export type AngelNumber = typeof angelNumbers.$inferSelect;
 export type InsertAngelNumber = z.infer<typeof insertAngelNumberSchema>;
+export type DailyCard = typeof dailyCards.$inferSelect;
+export type InsertDailyCard = z.infer<typeof insertDailyCardSchema>;

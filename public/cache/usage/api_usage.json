@@ -3258,5 +3258,45 @@
     "cardId": "p10",
     "cardName": "Ten of Pentacles",
     "timestamp": "2025-07-16T01:13:48.062Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "10",
+    "cardName": "Wheel of Fortune",
+    "timestamp": "2025-07-16T02:37:36.786Z"
+  },
+  {
+    "endpoint": "/api/cards/:id/meditation",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "10",
+    "cardName": "Wheel of Fortune",
+    "timestamp": "2025-07-16T02:37:45.268Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "gpt-3.5-turbo",
+    "operation": "chat.completion",
+    "status": "success",
+    "estimatedCost": 0.002,
+    "cardId": "13",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-07-16T02:38:07.395Z"
+  },
+  {
+    "endpoint": "/api/meditate-spread",
+    "model": "elevenlabs-custom",
+    "operation": "audio.speech",
+    "status": "success",
+    "estimatedCost": 0.18,
+    "cardId": "13",
+    "cardName": "Past-Present-Future",
+    "timestamp": "2025-07-16T02:38:18.478Z"
   }
 ]
