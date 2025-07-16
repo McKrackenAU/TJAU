@@ -200,6 +200,14 @@ Changelog:
   - Fallback content displays "Sign In" button that redirects to /auth for authentication
   - Fixed deployment loading issue that was preventing users from accessing the application
   - Authentication system verified working (Jo BB login: jobbadmin2025, WillMc login: password123)
+- July 16, 2025: Fixed voice synthesis system deployment configuration
+  - Identified Voice tab using robotic voices instead of Josie voice in production
+  - Added complete daily card database schema (dailyCards table) and storage methods
+  - Created /api/daily endpoint for daily card voice readings with Josie voice
+  - Fixed all voice synthesis import paths with proper .js extensions for production
+  - Consolidated voice endpoints (/api/speak and /api/generate-speech) with consistent Josie voice ID
+  - Enhanced voice service debugging to identify production ElevenLabs API key issues
+  - Updated database schema requires migration: npm run db:push to create daily_cards table
 ```
 
 ## User Preferences

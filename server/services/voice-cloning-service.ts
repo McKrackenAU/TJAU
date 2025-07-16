@@ -86,7 +86,15 @@ class VoiceCloningService {
 
   // Generate speech using a cloned voice
   async generateSpeech(text: string, voiceId: string, stability: number = 0.75, similarity: number = 0.75): Promise<Buffer> {
+    console.log("=== VOICE GENERATION DEBUG ===");
+    console.log("API Key exists:", !!this.apiKey);
+    console.log("API Key length:", this.apiKey ? this.apiKey.length : 0);
+    console.log("Voice ID:", voiceId);
+    console.log("Text length:", text.length);
+    console.log("Environment:", process.env.NODE_ENV);
+    
     if (!this.apiKey) {
+      console.error("ElevenLabs API key missing in production environment");
       throw new Error('ElevenLabs API key not configured');
     }
 
