@@ -1007,18 +1007,7 @@ export const tarotCards: TarotCard[] = [
     description: "The Knight of Pentacles represents reliability, methodical progress, and determined persistence. He embodies patient dedication to practical goals and thorough attention to detail.",
     element: "Earth"
   },
-  // Custom Oracle Cards
-  {
-    id: "oracle-illusion",
-    name: "Oracle of Illusion",
-    arcana: "custom",
-    meanings: {
-      upright: ["Hidden truths", "Breaking through illusions", "Spiritual insight", "Awakening"],
-      reversed: ["Self-deception", "Refusing to see truth", "Spiritual blindness"]
-    },
-    description: "The Oracle of Illusion represents the ability to see through facades and illusions to perceive deeper truths. This card encourages you to trust your intuition and look beyond surface appearances.",
-    element: "Spirit"
-  }
+  // Note: Oracle of Illusion is the deck name and card back design, not a specific card
 ];
 
 export const spreads = {

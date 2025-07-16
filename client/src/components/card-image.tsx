@@ -97,9 +97,7 @@ const cardImagePaths: Record<string, string> = {
   'pq': '/authentic-cards/minor-arcana/pentacles/queen-of-pentacles.png',
   'pk': '/authentic-cards/minor-arcana/pentacles/king-of-pentacles.png',
   
-  // Custom/Oracle Cards
-  'oracle-illusion': '/oracle-of-illusion.png',
-  'oracle_illusion': '/oracle-of-illusion.png',
+  // Custom/Oracle Cards (Oracle of Illusion is the deck name/card back, not a front card)
   'oracle_001': '/assets/cards/element-of-air.png',
   'oracle_002': '/assets/cards/element-of-earth.png',
   'oracle_003': '/assets/cards/element-of-water.png',
@@ -209,7 +207,7 @@ export default function CardImage({ card, isRevealed }: CardImageProps) {
       <div className="w-full h-full rounded-xl bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 border-2 border-purple-300/30 relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center" 
-          style={{ backgroundImage: 'url(/card-back.png)' }}
+          style={{ backgroundImage: 'url(/oracle-of-illusion.png)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-indigo-900/20" />
         <div className="absolute inset-0 flex items-center justify-center">
