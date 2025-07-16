@@ -61,10 +61,45 @@ function LoadingFallback() {
 // AuthAwareComponents renders components that depend on auth state
 function AuthAwareComponents() {
   const { user, isLoading } = useAuth();
+  const [showTimeout, setShowTimeout] = useState(false);
   
-  // Show loading fallback while auth is loading
-  if (isLoading) {
+  // Add a timeout to prevent infinite loading on deployment
+  useEffect(() => {
+    if (isLoading) {
+      const timer = setTimeout(() => {
+        setShowTimeout(true);
+      }, 5000); // 5 second timeout
+      
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
+  
+  // Show loading fallback while auth is loading, but timeout after 5 seconds
+  if (isLoading && !showTimeout) {
     return <LoadingFallback />;
+  }
+  
+  // If loading timed out or user is not authenticated, show auth routes
+  if (!user || showTimeout) {
+    return (
+      <>
+        <main className="pb-16 w-full mx-auto">
+          <Switch>
+            <Route path="/auth" component={AuthPage} />
+            <Route path="/mobile-test" component={MobileTest} />
+            <Route path="/reset-password" component={ResetPasswordPage} />
+            <Route path="/unsubscribe" component={UnsubscribePage} />
+            <Route path="/subscribe" component={Subscribe} />
+            <Route path="/subscribe-native" component={SubscribeNative} />
+            <Route path="/subscription-success" component={SubscriptionSuccess} />
+            <Route path="/test-oracle-reveal" component={TestImages} />
+            <Route path="/create-admin" component={CreateAdminPage} />
+            <Route path="/" component={AuthPage} />
+            <Route component={NotFound} />
+          </Switch>
+        </main>
+      </>
+    );
   }
 
   return (
