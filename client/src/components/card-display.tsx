@@ -15,7 +15,7 @@ interface CardDisplayProps {
 
 const CardDisplay = memo(function CardDisplay({ 
   card, 
-  isRevealed = true, 
+  isRevealed = false, 
   isReversed = false,
   onClick 
 }: CardDisplayProps) {
@@ -51,8 +51,8 @@ const CardDisplay = memo(function CardDisplay({
               WebkitBackfaceVisibility: "hidden",
             }}
           >
-            {/* Use unified CardImage component for all cards */}
-            <CardImage card={card} isRevealed={isRevealed} />
+            {/* Use unified CardImage component for all cards - always show front when on the front face */}
+            <CardImage card={card} isRevealed={true} />
           </div>
 
           {/* Back of card */}
