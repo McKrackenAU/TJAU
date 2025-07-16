@@ -1473,7 +1473,7 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ error: "Text is required" });
       }
       
-      console.log("=== LEGACY SPEAK ENDPOINT - USING JOSIE VOICE ===");
+      console.log("=== LEGACY SPEAK ENDPOINT - USING JOSIE VOICE (v20250716-030000) ===");
       console.log("Text length:", text.length);
       
       const customVoiceId = "YIWKjkOTvYsv48VTI6gT"; // Josie voice ID
@@ -1525,7 +1525,7 @@ export function registerRoutes(app: Express): Server {
         return res.status(400).json({ error: "Text is required" });
       }
       
-      console.log("=== GENERATING SPEECH WITH JOSIE VOICE ===");
+      console.log("=== GENERATING SPEECH WITH JOSIE VOICE (v20250716-030000) ===");
       console.log("Text length:", text.length);
       console.log("Speed:", speed);
       console.log("User agent:", req.headers['user-agent'] || 'unknown');
