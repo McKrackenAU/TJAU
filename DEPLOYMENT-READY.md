@@ -1,80 +1,69 @@
-# Deployment Status Report - Tarot Journey
+# Tarot Journey - Production Deployment Guide
 
-## ✅ DEPLOYMENT READY
+## Current Status
+✅ Development environment fully functional with all features working:
+- Authentication system (Jo BB: jobbadmin2025, WillMc: password123)
+- Voice synthesis with Josie voice (YIWKjkOTvYsv48VTI6gT)
+- Celtic Cross spreads and card displays
+- Oracle of Illusion deck with authentic artwork
+- PWA functionality and mobile optimization
 
-All changes have been tested and verified. The application is ready for production deployment.
+## Deployment Instructions for Fresh Environment
 
-## 🎯 Key Fixes Implemented
+### 1. Create New Replit
+- Fork/duplicate this working development environment
+- Or create new Replit and copy all files
 
-### 1. Celtic Cross Layout Fixed
-- **Before**: Overlapping cards in confusing formation
-- **After**: Clean 2x5 grid layout with even spacing
-- **Status**: ✅ Working perfectly
+### 2. Required Environment Variables
+```
+DATABASE_URL=<your_neon_database_url>
+ELEVENLABS_API_KEY=<your_elevenlabs_key>
+OPENAI_API_KEY=<your_openai_key>
+OPENAI_API_KEY_TWO=<backup_openai_key>
+SESSION_SECRET=<secure_random_string>
+STRIPE_SECRET_KEY=<your_stripe_key>
+STRIPE_WEBHOOK_SECRET=<your_webhook_secret>
+```
 
-### 2. Josie Voice System Fixed
-- **Before**: Voice ID `LSufHJs05fSH7jJqUHhF` not found (404 error)
-- **After**: Correct voice ID `YIWKjkOTvYsv48VTI6gT` working
-- **Status**: ✅ Generating 57KB+ audio files successfully
+### 3. Database Setup
+```bash
+npm run db:push
+```
 
-### 3. Deployment Configuration Verified
-- **Build Process**: ✅ Vite frontend + esbuild backend
-- **Production Start**: ✅ NODE_ENV=production with npm run start
-- **Cloud Run**: ✅ Configured with proper build/run commands
-- **Port Mapping**: ✅ 5000 → 80 external port
+### 4. Domain Configuration
+- Update custom domain to point to new deployment
+- Ensure HTTPS is enabled
+- Configure proper CORS settings
 
-## 📋 Deployment Checklist
+### 5. Verification Steps
+1. Test authentication with Jo BB account
+2. Test voice synthesis on Voice tab
+3. Test Celtic Cross spread generation
+4. Test card image displays
+5. Test mobile PWA functionality
 
-### Build System
-- [x] Frontend builds with Vite
-- [x] Backend compiles with esbuild
-- [x] All dependencies installed
-- [x] Production scripts configured
+## Key Files for Production
+- `server/routes.ts` - Main API endpoints with voice emergency fallback
+- `server/voice-fallback.ts` - Emergency voice service for production
+- `shared/schema.ts` - Database schema
+- `client/src/` - React frontend with PWA
+- `public/authentic-cards/` - Complete card image collection
 
-### Services
-- [x] ElevenLabs API key configured
-- [x] Josie voice working (YIWKjkOTvYsv48VTI6gT)
-- [x] OpenAI API keys active
-- [x] Database connection verified
+## Known Working Configuration
+- Node.js with Express server
+- PostgreSQL database (Neon)
+- ElevenLabs voice synthesis
+- Stripe payments
+- PWA with service worker
 
-### UI/UX
-- [x] Celtic Cross layout fixed (2x5 grid)
-- [x] Angel numbers database expanded (1000+ entries)
-- [x] Mobile responsive design
-- [x] Admin access working
+## Post-Deployment
+1. Test all voice features immediately
+2. Verify card images display correctly
+3. Confirm authentication flow
+4. Test subscription system
+5. Update DNS to point to new deployment
 
-## 🚀 What Happens When You Deploy
-
-1. **Build Process**: Frontend and backend will compile
-2. **Environment**: Production environment variables loaded
-3. **Services**: All API integrations will be active
-4. **Features**: All recent changes will be live
-
-## 💡 Changes That Will Be Deployed
-
-- Fixed Celtic Cross spread layout (clean 2x5 grid)
-- Corrected Josie voice ID for proper audio generation
-- Expanded angel numbers database (1000-9999 coverage)
-- All existing features and improvements
-
-## 🔧 Technical Details
-
-### Voice Service
-- **Provider**: ElevenLabs
-- **Voice**: Josie (YIWKjkOTvYsv48VTI6gT)
-- **Fallback**: OpenAI TTS (nova voice)
-- **Endpoint**: `/api/generate-speech`
-
-### Database
-- **Platform**: Neon PostgreSQL
-- **Connection**: Serverless with pooling
-- **Migrations**: Drizzle ORM managed
-
-### Frontend
-- **Framework**: React + TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **Components**: Radix UI
-
-## ✅ READY TO DEPLOY
-
-Click the Deploy button - all changes are properly configured and will be included in the deployment.
+---
+Generated: July 16, 2025
+Development Environment: ✅ Fully Functional
+Ready for Production Deployment: ✅ Yes
